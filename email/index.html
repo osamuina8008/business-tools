@@ -8,455 +8,449 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
     body { font-family: 'Noto Sans JP', sans-serif; }
-    .fade-in { animation: fadeIn 0.3s ease-in; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-    .copy-toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 50; }
     textarea { resize: vertical; }
-    .spinner { animation: spin 1s linear infinite; }
-    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .fade-in { animation: fadeIn 0.3s ease-in; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    #output-text { white-space: pre-wrap; }
   </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
 
   <!-- Header -->
   <header class="bg-white border-b border-gray-200 sticky top-0 z-10">
-    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <a href="../index.html" class="text-gray-400 hover:text-gray-600 text-sm">← ツール一覧</a>
-        <span class="text-gray-300">|</span>
-        <h1 class="text-lg font-bold text-gray-800">ビジネスメール作成</h1>
-      </div>
-      <button onclick="openSettings()" class="flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-700 border border-gray-200 rounded-lg px-3 py-1.5 hover:bg-gray-50 transition">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
-        設定
-      </button>
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center gap-3">
+      <a href="../index.html" class="text-gray-400 hover:text-gray-600 text-sm">← ツール一覧</a>
+      <span class="text-gray-300">|</span>
+      <h1 class="text-lg font-bold text-gray-800">ビジネスメール作成</h1>
+      <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">無料</span>
     </div>
   </header>
 
-  <!-- Settings Modal -->
-  <div id="settingsModal" class="fixed inset-0 bg-black bg-opacity-40 z-40 hidden flex items-center justify-center">
-    <div class="bg-white rounded-2xl shadow-xl p-6 w-full max-w-md mx-4">
-      <div class="flex items-center justify-between mb-5">
-        <h2 class="text-lg font-bold text-gray-800">設定</h2>
-        <button onclick="closeSettings()" class="text-gray-400 hover:text-gray-600">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-        </button>
+  <main class="max-w-5xl mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+    <!-- INPUT -->
+    <div class="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
+      <div class="flex items-center gap-2 mb-4">
+        <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">INPUT</span>
+        <span class="text-sm font-semibold text-gray-700">メール情報を入力</span>
       </div>
-      <div class="space-y-4">
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">Claude API キー <span class="text-red-500">*</span></label>
-          <input id="s_apiKey" type="password" placeholder="sk-ant-..." class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
-          <p class="text-xs text-gray-400 mt-1">ブラウザのみに保存されます（サーバー送信なし）</p>
+
+      <!-- 自分の情報 -->
+      <div class="mb-4 p-3 bg-gray-50 rounded-xl border border-gray-100">
+        <p class="text-xs font-semibold text-gray-500 mb-2">差出人（自分）</p>
+        <div class="grid grid-cols-2 gap-2">
+          <input id="my-name" type="text" placeholder="氏名（例: 稲垣 理）"
+            class="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 bg-white"
+            oninput="saveSettings()" />
+          <input id="my-company" type="text" placeholder="会社名（例: ワンエクス）"
+            class="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 bg-white"
+            oninput="saveSettings()" />
+          <input id="my-dept" type="text" placeholder="部署（省略可）"
+            class="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 bg-white col-span-2"
+            oninput="saveSettings()" />
         </div>
-        <hr class="border-gray-100" />
-        <p class="text-xs font-semibold text-gray-500 uppercase tracking-wide">差出人情報（省略可）</p>
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label class="block text-xs text-gray-600 mb-1">氏名</label>
-            <input id="s_myName" type="text" placeholder="山田 太郎" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
-          </div>
-          <div>
-            <label class="block text-xs text-gray-600 mb-1">会社名</label>
-            <input id="s_myCompany" type="text" placeholder="〇〇株式会社" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
-          </div>
-          <div>
-            <label class="block text-xs text-gray-600 mb-1">部署名</label>
-            <input id="s_myDept" type="text" placeholder="営業部" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
-          </div>
-          <div>
-            <label class="block text-xs text-gray-600 mb-1">電話番号</label>
-            <input id="s_myPhone" type="text" placeholder="03-xxxx-xxxx" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
-          </div>
-        </div>
+        <p class="text-xs text-gray-400 mt-1.5">※入力内容は自動保存されます</p>
       </div>
-      <button onclick="saveSettings()" class="mt-5 w-full bg-blue-600 text-white rounded-lg py-2.5 text-sm font-medium hover:bg-blue-700 transition">保存する</button>
-    </div>
-  </div>
 
-  <!-- Main Content -->
-  <main class="max-w-5xl mx-auto px-4 py-6">
-
-    <!-- API Key Warning -->
-    <div id="apiKeyWarning" class="hidden mb-4 bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start gap-3">
-      <svg class="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-      <div>
-        <p class="text-sm font-medium text-amber-800">APIキーが設定されていません</p>
-        <p class="text-xs text-amber-600 mt-0.5">右上の「設定」からClaude APIキーを入力してください。</p>
-      </div>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
-      <!-- Left: Input -->
-      <div class="space-y-4">
-        <div class="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
-          <h2 class="text-sm font-bold text-gray-700 mb-4 flex items-center gap-2">
-            <span class="bg-blue-100 text-blue-700 rounded-lg px-2 py-0.5 text-xs font-bold">INPUT</span>
-            メール情報を入力
-          </h2>
-
-          <!-- Email Type -->
-          <div class="mb-4">
-            <label class="block text-xs font-medium text-gray-600 mb-2">メール種別</label>
-            <div class="grid grid-cols-3 gap-1.5">
-              <button onclick="setType(this,'アポイント依頼')" class="type-btn active text-xs py-2 px-1 rounded-lg border-2 border-blue-500 bg-blue-50 text-blue-700 font-medium transition">アポ依頼</button>
-              <button onclick="setType(this,'返信')" class="type-btn text-xs py-2 px-1 rounded-lg border-2 border-gray-200 text-gray-600 hover:border-gray-300 transition">返信</button>
-              <button onclick="setType(this,'お礼')" class="type-btn text-xs py-2 px-1 rounded-lg border-2 border-gray-200 text-gray-600 hover:border-gray-300 transition">お礼</button>
-              <button onclick="setType(this,'問い合わせ')" class="type-btn text-xs py-2 px-1 rounded-lg border-2 border-gray-200 text-gray-600 hover:border-gray-300 transition">問い合わせ</button>
-              <button onclick="setType(this,'フォローアップ')" class="type-btn text-xs py-2 px-1 rounded-lg border-2 border-gray-200 text-gray-600 hover:border-gray-300 transition">フォロー</button>
-              <button onclick="setType(this,'お断り')" class="type-btn text-xs py-2 px-1 rounded-lg border-2 border-gray-200 text-gray-600 hover:border-gray-300 transition">お断り</button>
-            </div>
-          </div>
-
-          <!-- Recipient Info -->
-          <div class="mb-4">
-            <label class="block text-xs font-medium text-gray-600 mb-2">相手の情報（省略可）</label>
-            <div class="grid grid-cols-2 gap-2">
-              <input id="toCompany" type="text" placeholder="相手の会社名" class="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
-              <input id="toName" type="text" placeholder="氏名（例: 田中様）" class="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
-            </div>
-          </div>
-
-          <!-- Bullet Points -->
-          <div class="mb-4">
-            <label class="block text-xs font-medium text-gray-600 mb-2">
-              伝えたいポイント <span class="text-red-500">*</span>
-              <span class="text-gray-400 font-normal ml-1">（箇条書きでOK）</span>
-            </label>
-            <textarea id="bulletPoints" rows="6" placeholder="例：
-・先日の展示会でお会いした
-・新製品について詳しく説明したい
-・来週〜再来週で30分ほど時間がほしい
-・オンラインでも対面でも可" class="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-          </div>
-
-          <!-- Subject Hint -->
-          <div class="mb-4">
-            <label class="block text-xs font-medium text-gray-600 mb-2">件名のヒント（省略可）</label>
-            <input id="subjectHint" type="text" placeholder="例: 新製品のご案内" class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
-          </div>
-
-          <!-- Tone -->
-          <div class="mb-5">
-            <label class="block text-xs font-medium text-gray-600 mb-2">文体</label>
-            <div class="flex gap-2">
-              <label class="flex items-center gap-1.5 cursor-pointer">
-                <input type="radio" name="tone" value="フォーマル" class="accent-blue-600" />
-                <span class="text-sm text-gray-700">フォーマル</span>
-              </label>
-              <label class="flex items-center gap-1.5 cursor-pointer">
-                <input type="radio" name="tone" value="ビジネス標準" checked class="accent-blue-600" />
-                <span class="text-sm text-gray-700">標準</span>
-              </label>
-              <label class="flex items-center gap-1.5 cursor-pointer">
-                <input type="radio" name="tone" value="柔らかめ" class="accent-blue-600" />
-                <span class="text-sm text-gray-700">柔らかめ</span>
-              </label>
-            </div>
-          </div>
-
-          <!-- Generate Button -->
-          <button id="generateBtn" onclick="generateEmail()" class="w-full bg-blue-600 text-white rounded-xl py-3 font-bold text-sm hover:bg-blue-700 active:scale-98 transition flex items-center justify-center gap-2">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-            メールを生成する
+      <!-- メール種別 -->
+      <div class="mb-4">
+        <label class="text-sm font-semibold text-gray-700 block mb-2">メール種別</label>
+        <div class="grid grid-cols-3 gap-2">
+          <button onclick="selectType(this,'アポ依頼')" data-type="アポ依頼"
+            class="type-btn border-2 border-blue-500 bg-blue-50 text-blue-700 text-sm font-semibold rounded-xl py-2 transition hover:bg-blue-100">
+            アポ依頼
+          </button>
+          <button onclick="selectType(this,'返信')" data-type="返信"
+            class="type-btn border-2 border-gray-200 bg-white text-gray-600 text-sm font-semibold rounded-xl py-2 transition hover:bg-gray-50">
+            返信
+          </button>
+          <button onclick="selectType(this,'お礼')" data-type="お礼"
+            class="type-btn border-2 border-gray-200 bg-white text-gray-600 text-sm font-semibold rounded-xl py-2 transition hover:bg-gray-50">
+            お礼
+          </button>
+          <button onclick="selectType(this,'問い合わせ')" data-type="問い合わせ"
+            class="type-btn border-2 border-gray-200 bg-white text-gray-600 text-sm font-semibold rounded-xl py-2 transition hover:bg-gray-50">
+            問い合わせ
+          </button>
+          <button onclick="selectType(this,'フォロー')" data-type="フォロー"
+            class="type-btn border-2 border-gray-200 bg-white text-gray-600 text-sm font-semibold rounded-xl py-2 transition hover:bg-gray-50">
+            フォロー
+          </button>
+          <button onclick="selectType(this,'お断り')" data-type="お断り"
+            class="type-btn border-2 border-gray-200 bg-white text-gray-600 text-sm font-semibold rounded-xl py-2 transition hover:bg-gray-50">
+            お断り
           </button>
         </div>
       </div>
 
-      <!-- Right: Output -->
-      <div class="space-y-4">
-        <div class="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm min-h-64">
-          <div class="flex items-center justify-between mb-4">
-            <h2 class="text-sm font-bold text-gray-700 flex items-center gap-2">
-              <span class="bg-green-100 text-green-700 rounded-lg px-2 py-0.5 text-xs font-bold">OUTPUT</span>
-              生成されたメール
-            </h2>
-            <div id="outputActions" class="hidden flex items-center gap-2">
-              <button onclick="copyAll()" class="text-xs text-gray-500 hover:text-gray-700 border border-gray-200 rounded-lg px-2.5 py-1.5 hover:bg-gray-50 transition flex items-center gap-1">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
-                全コピー
+      <!-- 相手の情報 -->
+      <div class="mb-4">
+        <label class="text-sm font-semibold text-gray-700 block mb-2">相手の情報（省略可）</label>
+        <div class="grid grid-cols-2 gap-2">
+          <input id="to-company" type="text" placeholder="相手の会社名"
+            class="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300" />
+          <input id="to-name" type="text" placeholder="氏名（例: 田中様）"
+            class="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300" />
+        </div>
+      </div>
+
+      <!-- 伝えたいポイント -->
+      <div class="mb-4">
+        <label class="text-sm font-semibold text-gray-700 block mb-1">
+          伝えたいポイント <span class="text-red-400">*</span>
+          <span class="text-gray-400 font-normal text-xs ml-1">（箇条書きでOK）</span>
+        </label>
+        <textarea id="points" rows="6" placeholder="例：
+・先日の展示会でお会いした
+・新製品の加工精度について詳しく説明したい
+・来週〜再来週で30分ほど時間がほしい
+・オンラインでも対面でも可"
+          class="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"></textarea>
+      </div>
+
+      <!-- 件名ヒント -->
+      <div class="mb-4">
+        <label class="text-sm font-semibold text-gray-700 block mb-1">件名のヒント（省略可）</label>
+        <input id="subject-hint" type="text" placeholder="例: 新製品のご案内"
+          class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300" />
+      </div>
+
+      <!-- 文体 -->
+      <div class="mb-5">
+        <label class="text-sm font-semibold text-gray-700 block mb-2">文体</label>
+        <div class="flex gap-4 text-sm">
+          <label class="flex items-center gap-1.5 cursor-pointer">
+            <input type="radio" name="tone" value="formal" class="accent-blue-500" /> フォーマル
+          </label>
+          <label class="flex items-center gap-1.5 cursor-pointer">
+            <input type="radio" name="tone" value="standard" checked class="accent-blue-500" /> 標準
+          </label>
+          <label class="flex items-center gap-1.5 cursor-pointer">
+            <input type="radio" name="tone" value="casual" class="accent-blue-500" /> 柔らかめ
+          </label>
+        </div>
+      </div>
+
+      <button onclick="generateEmail()"
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+        </svg>
+        メールを生成する
+      </button>
+    </div>
+
+    <!-- OUTPUT -->
+    <div class="flex flex-col gap-4">
+      <div id="output-area" class="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm min-h-[400px] flex flex-col">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded">OUTPUT</span>
+          <span class="text-sm font-semibold text-gray-700">生成されたメール</span>
+        </div>
+
+        <!-- Placeholder -->
+        <div id="placeholder" class="flex-1 flex flex-col items-center justify-center text-gray-300">
+          <svg class="w-16 h-16 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          <p class="text-sm">ポイントを入力して生成ボタンを押してください</p>
+        </div>
+
+        <!-- Result -->
+        <div id="result" class="hidden fade-in flex-1 flex flex-col">
+          <!-- Subject -->
+          <div class="mb-3">
+            <p class="text-xs font-semibold text-gray-500 mb-1">件名</p>
+            <div class="flex items-center gap-2">
+              <p id="subject-output" class="flex-1 text-sm font-semibold text-gray-800 bg-gray-50 rounded-lg px-3 py-2 border border-gray-100"></p>
+              <button onclick="copySubject()" class="text-xs text-gray-500 hover:text-blue-600 border border-gray-200 rounded-lg px-2 py-1.5 hover:bg-blue-50 transition whitespace-nowrap">
+                コピー
               </button>
-              <button onclick="openGmail()" class="text-xs text-white bg-red-500 hover:bg-red-600 rounded-lg px-2.5 py-1.5 transition flex items-center gap-1">
-                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
-                Gmailで開く
-              </button>
             </div>
           </div>
-
-          <!-- Empty State -->
-          <div id="emptyState" class="flex flex-col items-center justify-center py-16 text-gray-300">
-            <svg class="w-16 h-16 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            <p class="text-sm">ポイントを入力して生成ボタンを押してください</p>
+          <!-- Body -->
+          <div class="flex-1 flex flex-col">
+            <p class="text-xs font-semibold text-gray-500 mb-1">本文</p>
+            <div id="output-text" class="flex-1 text-sm text-gray-800 bg-gray-50 rounded-xl px-4 py-3 border border-gray-100 leading-7 min-h-[200px]"></div>
           </div>
-
-          <!-- Loading State -->
-          <div id="loadingState" class="hidden flex flex-col items-center justify-center py-16">
-            <svg class="spinner w-10 h-10 text-blue-500 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" fill="currentColor" opacity="0.3"/><path fill="currentColor" d="M12 4a8 8 0 018 8h4c0-6.627-5.373-12-12-12v4z"/></svg>
-            <p class="text-sm text-gray-500">AIがメールを作成中...</p>
-          </div>
-
-          <!-- Result -->
-          <div id="resultArea" class="hidden fade-in space-y-3">
-            <!-- Subject -->
-            <div class="bg-gray-50 rounded-xl p-3">
-              <div class="flex items-center justify-between mb-1">
-                <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">件名</span>
-                <button onclick="copySubject()" class="text-xs text-gray-400 hover:text-gray-600">コピー</button>
-              </div>
-              <p id="outputSubject" class="text-sm font-medium text-gray-800"></p>
-            </div>
-            <!-- Body -->
-            <div class="bg-gray-50 rounded-xl p-3">
-              <div class="flex items-center justify-between mb-1">
-                <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">本文</span>
-                <button onclick="copyBody()" class="text-xs text-gray-400 hover:text-gray-600">コピー</button>
-              </div>
-              <pre id="outputBody" class="text-sm text-gray-800 whitespace-pre-wrap font-sans leading-relaxed"></pre>
-            </div>
-            <!-- Regenerate -->
-            <button onclick="generateEmail()" class="w-full text-sm text-blue-600 hover:text-blue-700 border border-blue-200 hover:border-blue-300 rounded-xl py-2.5 transition hover:bg-blue-50">
-              再生成する
+          <!-- Actions -->
+          <div class="flex gap-2 mt-3">
+            <button onclick="copyAll()" class="flex-1 border border-gray-200 hover:bg-gray-50 text-gray-700 text-sm font-medium py-2.5 rounded-xl transition flex items-center justify-center gap-1.5">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+              全文コピー
+            </button>
+            <button onclick="openGmail()" class="flex-1 bg-red-50 hover:bg-red-100 text-red-600 text-sm font-medium py-2.5 rounded-xl transition flex items-center justify-center gap-1.5 border border-red-100">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              Gmailで開く
             </button>
           </div>
         </div>
+      </div>
 
-        <!-- Tips -->
-        <div class="bg-blue-50 rounded-2xl border border-blue-100 p-4">
-          <p class="text-xs font-bold text-blue-700 mb-2">ポイント入力のコツ</p>
-          <ul class="text-xs text-blue-600 space-y-1">
-            <li>・「・」や「-」で箇条書きにすると精度UP</li>
-            <li>・日時や場所など具体的な情報を入れると◎</li>
-            <li>・相手との関係性（初対面/既知）も書くと自然な文章に</li>
-            <li>・長さは3〜7項目が最適</li>
-          </ul>
-        </div>
+      <!-- Tips -->
+      <div class="bg-blue-50 rounded-2xl border border-blue-100 p-4">
+        <p class="text-xs font-semibold text-blue-700 mb-2">ポイント入力のコツ</p>
+        <ul class="text-xs text-blue-600 space-y-1">
+          <li>・「・」や「-」で箇条書きにすると精度UP</li>
+          <li>・日時や場所など具体的な情報を入れると◎</li>
+          <li>・相手との関係性（初面/既知）も書くと自然な文章に</li>
+          <li>・長さは3〜7項目が最適</li>
+        </ul>
       </div>
     </div>
   </main>
 
-  <!-- Copy Toast -->
-  <div id="copyToast" class="copy-toast hidden">
-    <div class="bg-gray-800 text-white text-sm px-4 py-2.5 rounded-full shadow-lg">
-      コピーしました
-    </div>
+  <!-- Toast -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-sm px-4 py-2.5 rounded-xl opacity-0 transition-opacity pointer-events-none z-50 flex items-center gap-2">
+    <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+    <span id="toast-msg">コピーしました</span>
   </div>
 
-  <script>
-    // State
-    let currentEmailType = 'アポイント依頼';
-    let generatedSubject = '';
-    let generatedBody = '';
+<script>
+let currentType = 'アポ依頼';
+let generatedSubject = '';
+let generatedBody = '';
 
-    // Init
-    window.addEventListener('DOMContentLoaded', () => {
-      loadSettings();
-      checkApiKey();
-    });
+// ---- Settings ----
+function saveSettings() {
+  localStorage.setItem('bt_myname', document.getElementById('my-name').value);
+  localStorage.setItem('bt_mycompany', document.getElementById('my-company').value);
+  localStorage.setItem('bt_mydept', document.getElementById('my-dept').value);
+}
+function loadSettings() {
+  document.getElementById('my-name').value = localStorage.getItem('bt_myname') || '稲垣 理';
+  document.getElementById('my-company').value = localStorage.getItem('bt_mycompany') || 'ワンエクス';
+  document.getElementById('my-dept').value = localStorage.getItem('bt_mydept') || '';
+}
+window.addEventListener('load', loadSettings);
 
-    // Settings
-    function openSettings() {
-      document.getElementById('settingsModal').classList.remove('hidden');
-      document.getElementById('settingsModal').classList.add('flex');
-    }
-    function closeSettings() {
-      document.getElementById('settingsModal').classList.add('hidden');
-      document.getElementById('settingsModal').classList.remove('flex');
-    }
-    function loadSettings() {
-      const fields = ['s_apiKey','s_myName','s_myCompany','s_myDept','s_myPhone'];
-      fields.forEach(id => {
-        const val = localStorage.getItem(id);
-        if (val) document.getElementById(id).value = val;
-      });
-    }
-    function saveSettings() {
-      const fields = ['s_apiKey','s_myName','s_myCompany','s_myDept','s_myPhone'];
-      fields.forEach(id => {
-        localStorage.setItem(id, document.getElementById(id).value);
-      });
-      closeSettings();
-      checkApiKey();
-      showToast('設定を保存しました');
-    }
-    function checkApiKey() {
-      const key = localStorage.getItem('s_apiKey');
-      const warning = document.getElementById('apiKeyWarning');
-      if (!key || key.trim() === '') {
-        warning.classList.remove('hidden');
-      } else {
-        warning.classList.add('hidden');
-      }
-    }
-
-    // Email Type
-    function setType(btn, type) {
-      document.querySelectorAll('.type-btn').forEach(b => {
-        b.classList.remove('active','border-blue-500','bg-blue-50','text-blue-700');
-        b.classList.add('border-gray-200','text-gray-600');
-      });
-      btn.classList.add('active','border-blue-500','bg-blue-50','text-blue-700');
-      btn.classList.remove('border-gray-200','text-gray-600');
-      currentEmailType = type;
-    }
-
-    // Generate
-    async function generateEmail() {
-      const apiKey = localStorage.getItem('s_apiKey');
-      if (!apiKey || apiKey.trim() === '') {
-        openSettings();
-        return;
-      }
-
-      const bullets = document.getElementById('bulletPoints').value.trim();
-      if (!bullets) {
-        document.getElementById('bulletPoints').focus();
-        return;
-      }
-
-      const toCompany = document.getElementById('toCompany').value.trim();
-      const toName = document.getElementById('toName').value.trim();
-      const subjectHint = document.getElementById('subjectHint').value.trim();
-      const tone = document.querySelector('input[name="tone"]:checked').value;
-      const myName = localStorage.getItem('s_myName') || '';
-      const myCompany = localStorage.getItem('s_myCompany') || '';
-      const myDept = localStorage.getItem('s_myDept') || '';
-      const myPhone = localStorage.getItem('s_myPhone') || '';
-
-      // UI: loading
-      document.getElementById('emptyState').classList.add('hidden');
-      document.getElementById('resultArea').classList.add('hidden');
-      document.getElementById('loadingState').classList.remove('hidden');
-      document.getElementById('loadingState').classList.add('flex');
-      document.getElementById('outputActions').classList.add('hidden');
-      document.getElementById('generateBtn').disabled = true;
-
-      const prompt = `あなたは日本語のビジネスメール作成の専門家です。
-以下の情報をもとに、プロフェッショナルな${currentEmailType}メールを作成してください。
-
-【メール種別】${currentEmailType}
-【文体】${tone}
-${toCompany ? `【相手の会社名】${toCompany}` : ''}
-${toName ? `【相手の氏名】${toName}` : ''}
-${myName ? `【差出人氏名】${myName}` : ''}
-${myCompany ? `【差出人会社名】${myCompany}` : ''}
-${myDept ? `【差出人部署】${myDept}` : ''}
-${myPhone ? `【差出人電話番号】${myPhone}` : ''}
-${subjectHint ? `【件名のヒント】${subjectHint}` : ''}
-
-【伝えたいポイント】
-${bullets}
-
-【出力形式】必ず以下のJSON形式で返してください（他のテキストは不要）:
-{
-  "subject": "件名テキスト",
-  "body": "本文テキスト（改行は\\nで表現）"
+// ---- Type select ----
+function selectType(btn, type) {
+  currentType = type;
+  document.querySelectorAll('.type-btn').forEach(b => {
+    b.classList.remove('border-blue-500','bg-blue-50','text-blue-700');
+    b.classList.add('border-gray-200','bg-white','text-gray-600');
+  });
+  btn.classList.add('border-blue-500','bg-blue-50','text-blue-700');
+  btn.classList.remove('border-gray-200','bg-white','text-gray-600');
 }
 
-注意:
-- 件名は「Re:」「Fw:」などは除いた件名のみ
-- 本文は冒頭の宛名から署名まで完全な形で
-- 署名は差出人情報が入力されている場合のみ含める
-- 自然で読みやすい日本語ビジネスメールにしてください`;
+// ---- Parse bullet points ----
+function parseBullets(text) {
+  return text.split('\n')
+    .map(l => l.replace(/^[\s・\-\*•]+/, '').trim())
+    .filter(l => l.length > 0);
+}
 
-      try {
-        const response = await fetch('https://api.anthropic.com/v1/messages', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'x-api-key': apiKey,
-            'anthropic-version': '2023-06-01',
-            'anthropic-dangerous-direct-browser-access': 'true'
-          },
-          body: JSON.stringify({
-            model: 'claude-sonnet-4-6',
-            max_tokens: 1500,
-            messages: [{ role: 'user', content: prompt }]
-          })
-        });
+// ---- Signature ----
+function buildSignature() {
+  const name = document.getElementById('my-name').value.trim() || '稲垣 理';
+  const company = document.getElementById('my-company').value.trim() || '';
+  const dept = document.getElementById('my-dept').value.trim() || '';
+  let sig = '──────────────────\n';
+  sig += name + '\n';
+  if (dept) sig += dept + '\n';
+  if (company) sig += company + '\n';
+  return sig;
+}
 
-        if (!response.ok) {
-          const err = await response.json();
-          throw new Error(err.error?.message || `API Error: ${response.status}`);
-        }
+// ---- Greeting based on tone ----
+function getGreeting(tone) {
+  if (tone === 'formal') return 'いつも大変お世話になっております。';
+  if (tone === 'casual') return 'いつもお世話になっております。';
+  return 'お世話になっております。';
+}
 
-        const data = await response.json();
-        const content = data.content[0].text.trim();
+function getOpening(tone, myName, myCompany) {
+  const company = myCompany ? myCompany + 'の' : '';
+  return `${company}${myName}でございます。`;
+}
 
-        // Parse JSON
-        let parsed;
-        try {
-          const jsonMatch = content.match(/\{[\s\S]*\}/);
-          parsed = JSON.parse(jsonMatch ? jsonMatch[0] : content);
-        } catch {
-          throw new Error('レスポンスの解析に失敗しました。再度お試しください。');
-        }
+// ---- Template generator ----
+function buildEmail(type, bullets, tone, toName, toCompany, subjectHint) {
+  const myName = document.getElementById('my-name').value.trim() || '稲垣 理';
+  const myCompany = document.getElementById('my-company').value.trim() || '';
+  const greeting = getGreeting(tone);
+  const opening = getOpening(tone, myName, myCompany);
 
-        generatedSubject = parsed.subject || '';
-        generatedBody = (parsed.body || '').replace(/\\n/g, '\n');
+  // Recipient line
+  let recipient = '';
+  if (toCompany && toName) recipient = `${toCompany}\n${toName}様`;
+  else if (toName) recipient = `${toName}様`;
+  else if (toCompany) recipient = `${toCompany}\nご担当者様`;
+  else recipient = 'ご担当者様';
 
-        document.getElementById('outputSubject').textContent = generatedSubject;
-        document.getElementById('outputBody').textContent = generatedBody;
+  // Build bullet block
+  const bulletBlock = bullets.map(b => `・${b}`).join('\n');
 
-        // Show result
-        document.getElementById('loadingState').classList.add('hidden');
-        document.getElementById('loadingState').classList.remove('flex');
-        document.getElementById('resultArea').classList.remove('hidden');
-        document.getElementById('outputActions').classList.remove('hidden');
+  let subject = '';
+  let body = '';
 
-      } catch (error) {
-        document.getElementById('loadingState').classList.add('hidden');
-        document.getElementById('loadingState').classList.remove('flex');
-        document.getElementById('emptyState').classList.remove('hidden');
+  if (type === 'アポ依頼') {
+    subject = subjectHint || 'お打ち合わせのお願い';
+    body = `${recipient}
 
-        // Show error
-        const errDiv = document.createElement('div');
-        errDiv.className = 'bg-red-50 border border-red-200 rounded-xl p-4 mb-4';
-        errDiv.innerHTML = `<p class="text-sm text-red-700 font-medium">エラーが発生しました</p><p class="text-xs text-red-500 mt-1">${error.message}</p>`;
-        document.getElementById('resultArea').parentNode.insertBefore(errDiv, document.getElementById('resultArea'));
-        setTimeout(() => errDiv.remove(), 5000);
-      } finally {
-        document.getElementById('generateBtn').disabled = false;
-      }
-    }
+${greeting}
+${opening}
 
-    // Copy functions
-    function copySubject() {
-      navigator.clipboard.writeText(generatedSubject).then(() => showToast('件名をコピーしました'));
-    }
-    function copyBody() {
-      navigator.clipboard.writeText(generatedBody).then(() => showToast('本文をコピーしました'));
-    }
-    function copyAll() {
-      const text = `件名: ${generatedSubject}\n\n${generatedBody}`;
-      navigator.clipboard.writeText(text).then(() => showToast('全文をコピーしました'));
-    }
+突然のご連絡、失礼いたします。
 
-    // Gmail
-    function openGmail() {
-      const to = document.getElementById('toName').value || '';
-      const subject = encodeURIComponent(generatedSubject);
-      const body = encodeURIComponent(generatedBody);
-      const url = `https://mail.google.com/mail/?view=cm&fs=1&to=&su=${subject}&body=${body}`;
-      window.open(url, '_blank');
-    }
+この度は、以下の件についてご相談させていただきたく、ご連絡申し上げました。
 
-    // Toast
-    function showToast(msg) {
-      const toast = document.getElementById('copyToast');
-      toast.querySelector('div').textContent = msg;
-      toast.classList.remove('hidden');
-      setTimeout(() => toast.classList.add('hidden'), 2000);
-    }
+${bulletBlock}
 
-    // Close modal on backdrop click
-    document.getElementById('settingsModal').addEventListener('click', function(e) {
-      if (e.target === this) closeSettings();
-    });
+ご多忙の折、誠に恐縮ではございますが、ぜひ一度お時間をいただけますでしょうか。
 
-    // Keyboard shortcut: Ctrl+Enter or Cmd+Enter to generate
-    document.getElementById('bulletPoints').addEventListener('keydown', function(e) {
-      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') generateEmail();
-    });
-  </script>
+ご都合の良い日時をいくつかご提示いただけますと幸いです。
+
+どうぞよろしくお願い申し上げます。
+
+${buildSignature()}`;
+  }
+
+  else if (type === '返信') {
+    subject = subjectHint ? `Re: ${subjectHint}` : 'Re: ご連絡の件';
+    body = `${recipient}
+
+${greeting}
+${opening}
+
+ご連絡いただきありがとうございます。
+
+以下の通りご回答申し上げます。
+
+${bulletBlock}
+
+ご不明な点がございましたら、お気軽にお問い合わせください。
+
+引き続きどうぞよろしくお願い申し上げます。
+
+${buildSignature()}`;
+  }
+
+  else if (type === 'お礼') {
+    subject = subjectHint || '先日はありがとうございました';
+    body = `${recipient}
+
+${greeting}
+${opening}
+
+先日はお時間をいただき、誠にありがとうございました。
+
+${bulletBlock}
+
+今後ともどうぞよろしくお願い申し上げます。
+
+${buildSignature()}`;
+  }
+
+  else if (type === '問い合わせ') {
+    subject = subjectHint || 'お問い合わせの件';
+    body = `${recipient}
+
+${greeting}
+${opening}
+
+突然のご連絡、失礼いたします。
+
+以下の点についてお伺いしたく、ご連絡申し上げました。
+
+${bulletBlock}
+
+ご確認の上、ご回答いただけますと幸いです。
+
+お手数をおかけしますが、どうぞよろしくお願い申し上げます。
+
+${buildSignature()}`;
+  }
+
+  else if (type === 'フォロー') {
+    subject = subjectHint ? `フォロー: ${subjectHint}` : '先日のご提案について';
+    body = `${recipient}
+
+${greeting}
+${opening}
+
+先日はお時間をいただきありがとうございました。
+
+その後のご状況はいかがでしょうか。
+
+${bulletBlock}
+
+引き続きご検討いただけますと幸いです。
+ご不明な点がございましたら、お気軽にご連絡ください。
+
+どうぞよろしくお願い申し上げます。
+
+${buildSignature()}`;
+  }
+
+  else if (type === 'お断り') {
+    subject = subjectHint ? `Re: ${subjectHint}` : 'ご提案の件について';
+    body = `${recipient}
+
+${greeting}
+${opening}
+
+この度はご提案いただき、誠にありがとうございました。
+
+社内で慎重に検討いたしましたが、以下の理由により、今回はご辞退させていただくこととなりました。
+
+${bulletBlock}
+
+せっかくのご提案にお応えできず、大変申し訳ございません。
+またの機会にご縁がございましたら、何卒よろしくお願い申し上げます。
+
+${buildSignature()}`;
+  }
+
+  return { subject, body: body.trim() };
+}
+
+// ---- Generate ----
+function generateEmail() {
+  const pointsText = document.getElementById('points').value.trim();
+  if (!pointsText) {
+    alert('伝えたいポイントを入力してください。');
+    return;
+  }
+
+  const bullets = parseBullets(pointsText);
+  const tone = document.querySelector('input[name="tone"]:checked').value;
+  const toName = document.getElementById('to-name').value.trim();
+  const toCompany = document.getElementById('to-company').value.trim();
+  const subjectHint = document.getElementById('subject-hint').value.trim();
+
+  const { subject, body } = buildEmail(currentType, bullets, tone, toName, toCompany, subjectHint);
+
+  generatedSubject = subject;
+  generatedBody = body;
+
+  document.getElementById('subject-output').textContent = subject;
+  document.getElementById('output-text').textContent = body;
+  document.getElementById('placeholder').classList.add('hidden');
+  document.getElementById('result').classList.remove('hidden');
+}
+
+// ---- Copy ----
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  document.getElementById('toast-msg').textContent = msg;
+  toast.style.opacity = '1';
+  setTimeout(() => { toast.style.opacity = '0'; }, 2000);
+}
+function copySubject() {
+  navigator.clipboard.writeText(generatedSubject).then(() => showToast('件名をコピーしました'));
+}
+function copyAll() {
+  const all = `件名: ${generatedSubject}\n\n${generatedBody}`;
+  navigator.clipboard.writeText(all).then(() => showToast('全文コピーしました'));
+}
+function openGmail() {
+  const subject = encodeURIComponent(generatedSubject);
+  const body = encodeURIComponent(generatedBody);
+  window.open(`https://mail.google.com/mail/?view=cm&fs=1&su=${subject}&body=${body}`, '_blank');
+}
+</script>
 </body>
 </html>

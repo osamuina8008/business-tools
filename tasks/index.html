@@ -76,7 +76,7 @@
     <div id="cal-section" class="hidden mb-4">
       <div class="flex items-center gap-2 mb-2">
         <svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-        <span class="text-xs font-bold text-blue-600">Googleカレンダー（終日イベント）</span>
+        <span class="text-xs font-bold text-blue-600">Googleカレンダー（予定）</span>
       </div>
       <div id="cal-tasks" class="space-y-1.5"></div>
     </div>
@@ -190,9 +190,10 @@ const PRI = {
 };
 const CAT = { sales:'営業', quote:'見積・受注', visit:'訪問準備', admin:'事務処理', other:'その他' };
 
-let filterStatus = 'active';
-let filterPri    = 'all';
-let calItems     = [];
+let filterStatus  = 'active';
+let filterPri     = 'all';
+let calItems      = [];
+let calDismissed  = new Set(JSON.parse(localStorage.getItem('bt_cal_dismissed') || '[]'));
 
 // ---- Storage ----
 function load()  { return JSON.parse(localStorage.getItem('bt_tasks2') || '[]'); }
@@ -259,11 +260,18 @@ async function syncCalendar() {
   icon.classList.remove('spinner');
 }
 
+function dismissCalItem(id) {
+  calDismissed.add(id);
+  localStorage.setItem('bt_cal_dismissed', JSON.stringify([...calDismissed]));
+  renderCalTasks();
+  showToast('完了しました');
+}
+
 function renderCalTasks() {
   const el  = document.getElementById('cal-tasks');
   const sec = document.getElementById('cal-section');
   const today = new Date().toISOString().slice(0,10);
-  const items = calItems.filter(i => i.date >= today);
+  const items = calItems.filter(i => i.date >= today && !calDismissed.has(i.id));
 
   if (!items.length) { sec.classList.add('hidden'); return; }
   sec.classList.remove('hidden');
@@ -271,12 +279,18 @@ function renderCalTasks() {
   el.innerHTML = items.map(item => {
     const diff = Math.round((new Date(item.date) - new Date(today)) / 86400000);
     const dueLbl = diff === 0 ? '今日' : diff === 1 ? '明日' : `${item.date.slice(5).replace('-','/')}`;
+    const timeStr = item.time ? `<span class="text-xs text-blue-500 font-semibold">${escHtml(item.time)}</span>` : '';
     return `
     <div class="flex items-center gap-3 bg-blue-50 border border-blue-100 rounded-2xl px-4 py-3">
-      <svg class="w-4 h-4 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+      <button onclick="dismissCalItem(${JSON.stringify(item.id)})"
+        class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-blue-300 hover:border-blue-500 hover:bg-blue-200 flex items-center justify-center transition">
+      </button>
       <div class="flex-1 min-w-0">
         <p class="text-sm font-semibold text-gray-800 truncate">${escHtml(item.title)}</p>
-        ${item.description ? `<p class="text-xs text-gray-500 truncate">${escHtml(item.description)}</p>` : ''}
+        <div class="flex items-center gap-1.5 mt-0.5">
+          ${timeStr}
+          ${item.description ? `<p class="text-xs text-gray-500 truncate">${escHtml(item.description)}</p>` : ''}
+        </div>
       </div>
       <span class="text-xs font-bold text-blue-600 flex-shrink-0">${dueLbl}</span>
     </div>`;

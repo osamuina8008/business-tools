@@ -199,24 +199,56 @@ let currentSource = 'all';
 
 // ===== RSS取得 =====
 async function fetchRSS(source) {
-  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(source.rss)}&count=15`;
+  // allorigins.win でCORS回避してXMLを直接パース
   try {
-    const res = await fetch(apiUrl);
+    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(source.rss)}&t=${Date.now()}`;
+    const res = await fetch(proxyUrl, { signal: AbortSignal.timeout(10000) });
     if (!res.ok) throw new Error('fetch failed');
     const data = await res.json();
-    if (data.status !== 'ok') throw new Error('rss error');
-    return data.items.map(item => ({
-      sourceId: source.id,
-      sourceName: source.name,
-      sourceColor: source.color,
-      title: item.title || '',
-      link: item.link || '',
-      pubDate: item.pubDate ? new Date(item.pubDate) : new Date(),
-      description: (item.description || '').replace(/<[^>]*>/g, '').substring(0, 120),
-    }));
-  } catch (e) {
-    console.warn(`Failed: ${source.name}`, e);
-    return [];
+    if (!data.contents) throw new Error('no contents');
+
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(data.contents, 'text/xml');
+    const items = Array.from(doc.querySelectorAll('item'));
+    if (!items.length) throw new Error('no items');
+
+    return items.slice(0, 15).map(item => {
+      const linkEl = item.querySelector('link');
+      const link = linkEl?.textContent?.trim() ||
+                   linkEl?.getAttribute('href') ||
+                   item.querySelector('guid')?.textContent?.trim() || '#';
+      const desc = item.querySelector('description')?.textContent || '';
+      return {
+        sourceId: source.id,
+        sourceName: source.name,
+        sourceColor: source.color,
+        title: item.querySelector('title')?.textContent?.trim() || '',
+        link,
+        pubDate: new Date(item.querySelector('pubDate')?.textContent || ''),
+        description: desc.replace(/<[^>]*>/g, '').substring(0, 120),
+      };
+    });
+  } catch (e1) {
+    // フォールバック: rss2json.com
+    try {
+      const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(source.rss)}&count=15`;
+      const res = await fetch(apiUrl, { signal: AbortSignal.timeout(8000) });
+      if (!res.ok) throw new Error('fetch failed');
+      const data = await res.json();
+      if (data.status !== 'ok') throw new Error('rss error');
+      return data.items.map(item => ({
+        sourceId: source.id,
+        sourceName: source.name,
+        sourceColor: source.color,
+        title: item.title || '',
+        link: item.link || '',
+        pubDate: item.pubDate ? new Date(item.pubDate) : new Date(),
+        description: (item.description || '').replace(/<[^>]*>/g, '').substring(0, 120),
+      }));
+    } catch (e2) {
+      console.warn(`Failed: ${source.name}`, e1, e2);
+      return [];
+    }
   }
 }
 

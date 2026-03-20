@@ -218,8 +218,8 @@ function saveSettings() {
   localStorage.setItem('bt_mydept', document.getElementById('my-dept').value);
 }
 function loadSettings() {
-  document.getElementById('my-name').value = localStorage.getItem('bt_myname') || '稲垣 理';
-  document.getElementById('my-company').value = localStorage.getItem('bt_mycompany') || 'ワンエクス';
+  document.getElementById('my-name').value = localStorage.getItem('bt_myname') || '稲垣 督';
+  document.getElementById('my-company').value = localStorage.getItem('bt_mycompany') || '株式会社オーネックステックセンター';
   document.getElementById('my-dept').value = localStorage.getItem('bt_mydept') || '';
 }
 window.addEventListener('load', loadSettings);

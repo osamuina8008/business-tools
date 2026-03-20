@@ -90,14 +90,32 @@
 
     </section>
 
-    <!-- ===== スケジュールセクション（今後追加予定）===== -->
-    <section id="schedule-section" class="mt-4">
-      <div class="bg-white rounded-2xl border border-dashed border-gray-200 p-6 text-center text-gray-400">
-        <svg class="w-10 h-10 mx-auto mb-2 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-        </svg>
-        <p class="text-sm font-semibold">スケジュール（準備中）</p>
-        <p class="text-xs mt-1">Google Calendarと連携予定</p>
+    <!-- ===== 展示会スケジュール ===== -->
+    <section id="schedule-section" class="mt-6">
+      <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
+
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            <h2 class="font-bold text-gray-800">展示会・業界イベントスケジュール</h2>
+          </div>
+          <!-- 会場フィルター -->
+          <div class="flex gap-2">
+            <button onclick="filterVenue('all')" data-venue="all"
+              class="venue-btn active text-xs font-semibold px-3 py-1 rounded-lg bg-gray-800 text-white transition">すべて</button>
+            <button onclick="filterVenue('osaka')" data-venue="osaka"
+              class="venue-btn text-xs font-semibold px-3 py-1 rounded-lg bg-gray-100 text-gray-600 hover:bg-indigo-100 hover:text-indigo-700 transition">大阪</button>
+            <button onclick="filterVenue('nagoya')" data-venue="nagoya"
+              class="venue-btn text-xs font-semibold px-3 py-1 rounded-lg bg-gray-100 text-gray-600 hover:bg-indigo-100 hover:text-indigo-700 transition">名古屋</button>
+            <button onclick="filterVenue('tokyo')" data-venue="tokyo"
+              class="venue-btn text-xs font-semibold px-3 py-1 rounded-lg bg-gray-100 text-gray-600 hover:bg-indigo-100 hover:text-indigo-700 transition">東京</button>
+          </div>
+        </div>
+
+        <div id="expo-list" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
+        <p class="text-xs text-gray-400 mt-3">※日程は変更になる場合があります。詳細は各公式サイトでご確認ください。</p>
       </div>
     </section>
 
@@ -265,8 +283,142 @@ async function refreshAll() {
   icon.classList.remove('spinner');
 }
 
+// ===== 展示会データ =====
+const EXPOS = [
+  {
+    name: 'ものづくりワールド名古屋 2026',
+    sub: '機械要素技術展・設計製造ソリューション展 他',
+    date: '2026年4月8日(水)〜10日(金)',
+    venue: 'ポートメッセなごや',
+    venueId: 'nagoya',
+    tags: ['金属加工','工作機械','設計'],
+    color: 'border-blue-400',
+    tagColor: 'bg-blue-100 text-blue-700',
+    url: 'https://www.manufacturing-world.jp/nagoya/',
+  },
+  {
+    name: 'INTERMOLD 2026 / 金型展',
+    sub: '金型・成形加工の専門展示会',
+    date: '2026年4月15日(水)〜18日(土)',
+    venue: 'インテックス大阪',
+    venueId: 'osaka',
+    tags: ['金型','精密加工','成形'],
+    color: 'border-orange-400',
+    tagColor: 'bg-orange-100 text-orange-700',
+    url: 'https://www.intermold.jp/',
+  },
+  {
+    name: 'ものづくりワールド東京 2026',
+    sub: '機械要素技術展・設計製造ソリューション展 他',
+    date: '2026年6月24日(水)〜26日(金)',
+    venue: '東京ビッグサイト',
+    venueId: 'tokyo',
+    tags: ['金属加工','工作機械','IoT'],
+    color: 'border-red-400',
+    tagColor: 'bg-red-100 text-red-700',
+    url: 'https://www.manufacturing-world.jp/tokyo/',
+  },
+  {
+    name: 'ものづくりワールド大阪 2026',
+    sub: '機械要素技術展・設計製造ソリューション展 他',
+    date: '2026年9月頃（予定）',
+    venue: 'インテックス大阪',
+    venueId: 'osaka',
+    tags: ['金属加工','切削','溶接'],
+    color: 'border-orange-400',
+    tagColor: 'bg-orange-100 text-orange-700',
+    url: 'https://www.manufacturing-world.jp/osaka/',
+  },
+  {
+    name: 'JIMTOF 2026（日本国際工作機械見本市）',
+    sub: '世界最大級の工作機械展（2年に1回）',
+    date: '2026年10〜11月（予定）',
+    venue: '東京ビッグサイト',
+    venueId: 'tokyo',
+    tags: ['工作機械','CNC','精密加工'],
+    color: 'border-red-400',
+    tagColor: 'bg-red-100 text-red-700',
+    url: 'https://www.jimtof.org/',
+  },
+  {
+    name: '中部溶接展 2026',
+    sub: '溶接・接合技術の専門展示会',
+    date: '2026年秋頃（予定）',
+    venue: 'ポートメッセなごや',
+    venueId: 'nagoya',
+    tags: ['溶接','接合','金属'],
+    color: 'border-blue-400',
+    tagColor: 'bg-blue-100 text-blue-700',
+    url: 'https://www.jwa.or.jp/',
+  },
+  {
+    name: 'スマート工場EXPO 大阪 2026',
+    sub: 'FA・自動化・DX関連展',
+    date: '2026年秋頃（予定）',
+    venue: 'インテックス大阪',
+    venueId: 'osaka',
+    tags: ['DX','FA','自動化'],
+    color: 'border-orange-400',
+    tagColor: 'bg-orange-100 text-orange-700',
+    url: 'https://www.smartfactory-expo.jp/',
+  },
+  {
+    name: 'MECT 2027（メカトロテックJAPAN）',
+    sub: '工作機械・精密加工の専門展（2年に1回）',
+    date: '2027年10月（予定）',
+    venue: 'ポートメッセなごや',
+    venueId: 'nagoya',
+    tags: ['工作機械','CNC','切削'],
+    color: 'border-blue-400',
+    tagColor: 'bg-blue-100 text-blue-700',
+    url: 'https://www.mect-japan.com/',
+  },
+];
+
+let currentVenue = 'all';
+
+function filterVenue(v) {
+  currentVenue = v;
+  document.querySelectorAll('.venue-btn').forEach(b => {
+    const active = b.dataset.venue === v;
+    b.className = active
+      ? 'venue-btn active text-xs font-semibold px-3 py-1 rounded-lg bg-gray-800 text-white transition'
+      : 'venue-btn text-xs font-semibold px-3 py-1 rounded-lg bg-gray-100 text-gray-600 hover:bg-indigo-100 hover:text-indigo-700 transition';
+  });
+  renderExpos();
+}
+
+function renderExpos() {
+  const list = document.getElementById('expo-list');
+  const items = currentVenue === 'all' ? EXPOS : EXPOS.filter(e => e.venueId === currentVenue);
+  list.innerHTML = items.map(e => `
+    <a href="${e.url}" target="_blank" rel="noopener noreferrer"
+      class="border-l-4 ${e.color} bg-gray-50 hover:bg-indigo-50 rounded-r-xl p-4 transition block">
+      <div class="flex items-start justify-between gap-2">
+        <div class="flex-1">
+          <p class="text-sm font-bold text-gray-800">${e.name}</p>
+          <p class="text-xs text-gray-500 mt-0.5">${e.sub}</p>
+          <div class="flex items-center gap-2 mt-2">
+            <svg class="w-3.5 h-3.5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <span class="text-xs font-semibold text-gray-700">${e.date}</span>
+          </div>
+          <div class="flex items-center gap-2 mt-1">
+            <svg class="w-3.5 h-3.5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span class="text-xs text-gray-500">${e.venue}</span>
+          </div>
+        </div>
+        <svg class="w-4 h-4 text-gray-300 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+      </div>
+      <div class="flex gap-1 mt-2 flex-wrap">
+        ${e.tags.map(t => `<span class="text-xs px-2 py-0.5 rounded-full ${e.tagColor} font-medium">${t}</span>`).join('')}
+      </div>
+    </a>
+  `).join('');
+}
+
 // 初回ロード
 refreshAll();
+renderExpos();
 </script>
 </body>
 </html>

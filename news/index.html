@@ -56,6 +56,10 @@
           class="src-btn px-4 py-2 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-orange-400 hover:text-orange-600 transition">
           📰 日刊工業新聞
         </button>
+        <button onclick="filterSource('nikkei')" data-src="nikkei"
+          class="src-btn px-4 py-2 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-red-400 hover:text-red-600 transition">
+          📊 日経新聞
+        </button>
         <button onclick="filterSource('monoist')" data-src="monoist"
           class="src-btn px-4 py-2 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-blue-400 hover:text-blue-600 transition">
           🔧 MONOist
@@ -164,30 +168,37 @@
 
 <script>
 // ===== RSS ソース定義 =====
+// Google News RSS検索経由（rss2json.comで安定動作確認済み）
 const SOURCES = [
   {
     id: 'nikkan',
     name: '日刊工業新聞',
     color: 'bg-orange-100 text-orange-700',
-    rss: 'https://www.nikkan.co.jp/rss/news.rss',
+    rss: 'https://news.google.com/rss/search?q=site:nikkan.co.jp&hl=ja&gl=JP&ceid=JP:ja',
+  },
+  {
+    id: 'nikkei',
+    name: '日経新聞',
+    color: 'bg-red-100 text-red-700',
+    rss: 'https://news.google.com/rss/search?q=site:nikkei.com+製造+加工&hl=ja&gl=JP&ceid=JP:ja',
   },
   {
     id: 'monoist',
     name: 'MONOist',
     color: 'bg-blue-100 text-blue-700',
-    rss: 'https://monoist.itmedia.co.jp/mn/rss/',
+    rss: 'https://news.google.com/rss/search?q=site:monoist.itmedia.co.jp&hl=ja&gl=JP&ceid=JP:ja',
   },
   {
     id: 'meti',
     name: '経産省',
     color: 'bg-green-100 text-green-700',
-    rss: 'https://www.meti.go.jp/feed/press.rss',
+    rss: 'https://news.google.com/rss/search?q=site:meti.go.jp&hl=ja&gl=JP&ceid=JP:ja',
   },
   {
     id: 'fabcross',
     name: 'fabcross',
     color: 'bg-purple-100 text-purple-700',
-    rss: 'https://fabcross.jp/rss.xml',
+    rss: 'https://news.google.com/rss/search?q=site:fabcross.jp&hl=ja&gl=JP&ceid=JP:ja',
   },
 ];
 
@@ -199,56 +210,24 @@ let currentSource = 'all';
 
 // ===== RSS取得 =====
 async function fetchRSS(source) {
-  // allorigins.win でCORS回避してXMLを直接パース
+  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(source.rss)}&count=15`;
   try {
-    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(source.rss)}&t=${Date.now()}`;
-    const res = await fetch(proxyUrl, { signal: AbortSignal.timeout(10000) });
+    const res = await fetch(apiUrl, { signal: AbortSignal.timeout(12000) });
     if (!res.ok) throw new Error('fetch failed');
     const data = await res.json();
-    if (!data.contents) throw new Error('no contents');
-
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(data.contents, 'text/xml');
-    const items = Array.from(doc.querySelectorAll('item'));
-    if (!items.length) throw new Error('no items');
-
-    return items.slice(0, 15).map(item => {
-      const linkEl = item.querySelector('link');
-      const link = linkEl?.textContent?.trim() ||
-                   linkEl?.getAttribute('href') ||
-                   item.querySelector('guid')?.textContent?.trim() || '#';
-      const desc = item.querySelector('description')?.textContent || '';
-      return {
-        sourceId: source.id,
-        sourceName: source.name,
-        sourceColor: source.color,
-        title: item.querySelector('title')?.textContent?.trim() || '',
-        link,
-        pubDate: new Date(item.querySelector('pubDate')?.textContent || ''),
-        description: desc.replace(/<[^>]*>/g, '').substring(0, 120),
-      };
-    });
-  } catch (e1) {
-    // フォールバック: rss2json.com
-    try {
-      const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(source.rss)}&count=15`;
-      const res = await fetch(apiUrl, { signal: AbortSignal.timeout(8000) });
-      if (!res.ok) throw new Error('fetch failed');
-      const data = await res.json();
-      if (data.status !== 'ok') throw new Error('rss error');
-      return data.items.map(item => ({
-        sourceId: source.id,
-        sourceName: source.name,
-        sourceColor: source.color,
-        title: item.title || '',
-        link: item.link || '',
-        pubDate: item.pubDate ? new Date(item.pubDate) : new Date(),
-        description: (item.description || '').replace(/<[^>]*>/g, '').substring(0, 120),
-      }));
-    } catch (e2) {
-      console.warn(`Failed: ${source.name}`, e1, e2);
-      return [];
-    }
+    if (data.status !== 'ok') throw new Error('rss error');
+    return data.items.map(item => ({
+      sourceId: source.id,
+      sourceName: source.name,
+      sourceColor: source.color,
+      title: item.title || '',
+      link: item.link || '',
+      pubDate: item.pubDate ? new Date(item.pubDate) : new Date(),
+      description: (item.description || '').replace(/<[^>]*>/g, '').substring(0, 120),
+    }));
+  } catch (e) {
+    console.warn(`Failed: ${source.name}`, e);
+    return [];
   }
 }
 

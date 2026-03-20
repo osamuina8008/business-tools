@@ -93,41 +93,38 @@
     <!-- ===== 地域情報セクション ===== -->
     <section id="regional-section" class="mt-6">
       <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
-        <div class="flex items-center gap-2 mb-4">
-          <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-          </svg>
-          <h2 class="font-bold text-gray-800">地域別 製造業ニュース</h2>
-          <span class="text-xs text-gray-400">（都道府県を選択）</span>
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <h2 class="font-bold text-gray-800">地域別 製造業ニュース</h2>
+          </div>
+          <span id="region-label" class="text-xs text-emerald-600 font-semibold bg-emerald-50 px-2 py-0.5 rounded-full"></span>
         </div>
 
-        <!-- 都道府県ボタン -->
-        <div class="flex flex-wrap gap-2 mb-4">
-          <button onclick="loadRegion('大阪府')" data-pref="大阪府"
-            class="pref-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-orange-50 border border-orange-200 text-orange-700 hover:bg-orange-100 transition">大阪府</button>
-          <button onclick="loadRegion('兵庫県')" data-pref="兵庫県"
-            class="pref-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-orange-50 border border-orange-200 text-orange-700 hover:bg-orange-100 transition">兵庫県</button>
-          <button onclick="loadRegion('京都府')" data-pref="京都府"
-            class="pref-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-orange-50 border border-orange-200 text-orange-700 hover:bg-orange-100 transition">京都府</button>
-          <button onclick="loadRegion('奈良県')" data-pref="奈良県"
-            class="pref-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-orange-50 border border-orange-200 text-orange-700 hover:bg-orange-100 transition">奈良県</button>
-          <button onclick="loadRegion('和歌山県')" data-pref="和歌山県"
-            class="pref-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-orange-50 border border-orange-200 text-orange-700 hover:bg-orange-100 transition">和歌山県</button>
-          <button onclick="loadRegion('愛知県')" data-pref="愛知県"
-            class="pref-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 hover:bg-blue-100 transition">愛知県</button>
-          <button onclick="loadRegion('三重県')" data-pref="三重県"
-            class="pref-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 hover:bg-blue-100 transition">三重県</button>
-          <button onclick="loadRegion('岐阜県')" data-pref="岐阜県"
-            class="pref-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 hover:bg-blue-100 transition">岐阜県</button>
-          <button onclick="loadRegion('石川県')" data-pref="石川県"
-            class="pref-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-teal-50 border border-teal-200 text-teal-700 hover:bg-teal-100 transition">石川県</button>
-          <button onclick="loadRegion('福井県')" data-pref="福井県"
-            class="pref-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-teal-50 border border-teal-200 text-teal-700 hover:bg-teal-100 transition">福井県</button>
+        <!-- 地方ボタン（大分類）-->
+        <div class="flex gap-2 mb-3">
+          <button onclick="loadRegion('kinki')" data-region="kinki"
+            class="region-btn active text-sm font-bold px-4 py-2 rounded-xl bg-orange-500 text-white transition">近畿地方</button>
+          <button onclick="loadRegion('tokai')" data-region="tokai"
+            class="region-btn text-sm font-bold px-4 py-2 rounded-xl bg-white border-2 border-gray-200 text-gray-600 hover:border-blue-400 hover:text-blue-600 transition">東海地方</button>
+          <button onclick="loadRegion('hokuriku')" data-region="hokuriku"
+            class="region-btn text-sm font-bold px-4 py-2 rounded-xl bg-white border-2 border-gray-200 text-gray-600 hover:border-teal-400 hover:text-teal-600 transition">北陸地方</button>
         </div>
+
+        <!-- 都道府県サブボタン（小分類）-->
+        <div id="pref-sub-btns" class="flex flex-wrap gap-1.5 mb-4"></div>
 
         <!-- 地域ニュース結果 -->
         <div id="regional-result">
-          <p class="text-sm text-gray-400 text-center py-6">都道府県を選択するとニュースが表示されます</p>
+          <div class="flex items-center gap-2 py-6 justify-center text-gray-400">
+            <svg class="spinner w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
+            </svg>
+            <span class="text-sm">取得中...</span>
+          </div>
         </div>
       </div>
     </section>
@@ -144,15 +141,15 @@
             <h2 class="font-bold text-gray-800">展示会・業界イベントスケジュール</h2>
           </div>
           <!-- 会場フィルター -->
-          <div class="flex gap-2">
+          <div class="flex gap-1.5 flex-wrap">
             <button onclick="filterVenue('all')" data-venue="all"
               class="venue-btn active text-xs font-semibold px-3 py-1 rounded-lg bg-gray-800 text-white transition">すべて</button>
-            <button onclick="filterVenue('osaka')" data-venue="osaka"
-              class="venue-btn text-xs font-semibold px-3 py-1 rounded-lg bg-gray-100 text-gray-600 hover:bg-indigo-100 hover:text-indigo-700 transition">大阪</button>
-            <button onclick="filterVenue('nagoya')" data-venue="nagoya"
-              class="venue-btn text-xs font-semibold px-3 py-1 rounded-lg bg-gray-100 text-gray-600 hover:bg-indigo-100 hover:text-indigo-700 transition">名古屋</button>
+            <button onclick="filterVenue('kinki')" data-venue="kinki"
+              class="venue-btn text-xs font-semibold px-3 py-1 rounded-lg bg-gray-100 text-gray-600 hover:bg-orange-100 hover:text-orange-700 transition">近畿</button>
+            <button onclick="filterVenue('tokai')" data-venue="tokai"
+              class="venue-btn text-xs font-semibold px-3 py-1 rounded-lg bg-gray-100 text-gray-600 hover:bg-blue-100 hover:text-blue-700 transition">東海</button>
             <button onclick="filterVenue('tokyo')" data-venue="tokyo"
-              class="venue-btn text-xs font-semibold px-3 py-1 rounded-lg bg-gray-100 text-gray-600 hover:bg-indigo-100 hover:text-indigo-700 transition">東京</button>
+              class="venue-btn text-xs font-semibold px-3 py-1 rounded-lg bg-gray-100 text-gray-600 hover:bg-red-100 hover:text-red-700 transition">東京</button>
           </div>
         </div>
 
@@ -325,6 +322,122 @@ async function refreshAll() {
   icon.classList.remove('spinner');
 }
 
+// ===== 地域定義 =====
+const REGIONS = {
+  kinki: {
+    label: '近畿地方',
+    prefs: ['大阪府','兵庫県','京都府','奈良県','和歌山県','滋賀県'],
+    query: '大阪府 OR 兵庫県 OR 京都府 OR 奈良県 OR 和歌山県 OR 滋賀県',
+    color: { btn: 'bg-orange-500 text-white', sub: 'bg-orange-50 border border-orange-200 text-orange-700' },
+  },
+  tokai: {
+    label: '東海地方',
+    prefs: ['愛知県','三重県','岐阜県','静岡県'],
+    query: '愛知県 OR 三重県 OR 岐阜県 OR 静岡県',
+    color: { btn: 'bg-blue-500 text-white', sub: 'bg-blue-50 border border-blue-200 text-blue-700' },
+  },
+  hokuriku: {
+    label: '北陸地方',
+    prefs: ['石川県','福井県','富山県'],
+    query: '石川県 OR 福井県 OR 富山県',
+    color: { btn: 'bg-teal-500 text-white', sub: 'bg-teal-50 border border-teal-200 text-teal-700' },
+  },
+};
+
+let currentRegionId = 'kinki';
+let currentPrefFilter = null; // null = 地方全体
+
+async function loadRegion(regionId, prefFilter) {
+  currentRegionId = regionId;
+  currentPrefFilter = prefFilter || null;
+  const r = REGIONS[regionId];
+
+  // ボタンアクティブ切替
+  document.querySelectorAll('.region-btn').forEach(b => {
+    const active = b.dataset.region === regionId;
+    b.className = `region-btn text-sm font-bold px-4 py-2 rounded-xl transition ${
+      active ? r.color.btn : 'bg-white border-2 border-gray-200 text-gray-600'}`;
+  });
+
+  // サブ都道府県ボタン描画
+  const subEl = document.getElementById('pref-sub-btns');
+  subEl.innerHTML = `
+    <button onclick="loadRegion('${regionId}')" data-pref="all"
+      class="pref-sub-btn text-xs font-bold px-3 py-1 rounded-full ${!prefFilter ? r.color.btn : 'bg-gray-100 text-gray-600'} transition">
+      全域
+    </button>
+    ${r.prefs.map(p => `
+      <button onclick="loadRegion('${regionId}','${p}')" data-pref="${p}"
+        class="pref-sub-btn text-xs font-semibold px-3 py-1 rounded-full ${prefFilter===p ? r.color.btn : r.color.sub} transition">
+        ${p}
+      </button>`).join('')}`;
+
+  // ラベル更新
+  document.getElementById('region-label').textContent = prefFilter || r.label;
+
+  // ニュース取得
+  const el = document.getElementById('regional-result');
+  el.innerHTML = `<div class="flex items-center gap-2 py-6 justify-center text-gray-400">
+    <svg class="spinner w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24">
+      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
+    </svg>
+    <span class="text-sm">${prefFilter || r.label} のニュースを取得中...</span>
+  </div>`;
+
+  const searchQuery = prefFilter
+    ? `製造業 OR 金属加工 OR 工場 OR 部品 ${prefFilter}`
+    : `製造業 OR 金属加工 OR 工場 (${r.query})`;
+
+  const rssUrl = `https://news.google.com/rss/search?q=${encodeURIComponent(searchQuery)}&hl=ja&gl=JP&ceid=JP:ja`;
+  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=10`;
+
+  try {
+    const res  = await fetch(apiUrl);
+    const data = await res.json();
+    if (data.status !== 'ok' || !data.items.length) throw new Error('no items');
+
+    // ===== 重複除去 =====
+    // Googleニュースは同じ記事が複数媒体で配信される
+    // タイトルから「 - 媒体名」を除いた本体部分で重複チェック
+    const seen = new Set();
+    const unique = data.items.filter(item => {
+      const base = (item.title || '').replace(/\s*[-–—]\s*[^-–—]+$/, '').trim().toLowerCase();
+      if (seen.has(base)) return false;
+      seen.add(base);
+      return true;
+    });
+
+    el.innerHTML = `
+      <p class="text-xs font-semibold text-gray-500 mb-3">${prefFilter || r.label} — 製造業・金属加工関連（${unique.length}件・重複除去済）</p>
+      <div class="space-y-2">
+        ${unique.map(item => {
+          const d = item.pubDate ? new Date(item.pubDate) : null;
+          const date = d ? `${d.getMonth()+1}/${d.getDate()}` : '';
+          // 媒体名を抽出（タイトル末尾の「 - 媒体名」部分）
+          const sourceMatch = (item.title||'').match(/[-–—]\s*([^-–—]+)$/);
+          const sourceName = sourceMatch ? sourceMatch[1].trim() : (item.author || '');
+          // 表示タイトルは媒体名を除いた部分
+          const displayTitle = (item.title||'').replace(/\s*[-–—]\s*[^-–—]+$/, '').trim();
+          return `
+            <a href="${escapeHtml(item.link||'#')}" target="_blank" rel="noopener noreferrer"
+              class="flex items-start gap-3 p-3 rounded-xl bg-gray-50 hover:bg-emerald-50 transition border-l-4 border-emerald-400 block fade-in">
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-semibold text-gray-800 leading-snug line-clamp-2">${highlightKeywords(escapeHtml(displayTitle))}</p>
+                <div class="flex items-center gap-2 mt-1">
+                  ${sourceName ? `<span class="text-xs text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded">${escapeHtml(sourceName)}</span>` : ''}
+                  <span class="text-xs text-gray-400">${date}</span>
+                </div>
+              </div>
+              <svg class="w-4 h-4 text-gray-300 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>`;
+        }).join('')}
+      </div>`;
+  } catch {
+    el.innerHTML = `<p class="text-sm text-gray-400 text-center py-6">ニュースを取得できませんでした。しばらくして再度お試しください。</p>`;
+  }
+}
+
 // ===== 展示会データ =====
 const EXPOS = [
   {
@@ -332,7 +445,7 @@ const EXPOS = [
     sub: '機械要素技術展・設計製造ソリューション展 他',
     date: '2026年4月8日(水)〜10日(金)',
     venue: 'ポートメッセなごや',
-    venueId: 'nagoya',
+    venueId: 'tokai',
     tags: ['金属加工','工作機械','設計'],
     color: 'border-blue-400',
     tagColor: 'bg-blue-100 text-blue-700',
@@ -343,7 +456,7 @@ const EXPOS = [
     sub: '金型・成形加工の専門展示会',
     date: '2026年4月15日(水)〜18日(土)',
     venue: 'インテックス大阪',
-    venueId: 'osaka',
+    venueId: 'kinki',
     tags: ['金型','精密加工','成形'],
     color: 'border-orange-400',
     tagColor: 'bg-orange-100 text-orange-700',
@@ -387,7 +500,7 @@ const EXPOS = [
     sub: '溶接・接合技術の専門展示会',
     date: '2026年秋頃（予定）',
     venue: 'ポートメッセなごや',
-    venueId: 'nagoya',
+    venueId: 'tokai',
     tags: ['溶接','接合','金属'],
     color: 'border-blue-400',
     tagColor: 'bg-blue-100 text-blue-700',
@@ -409,7 +522,7 @@ const EXPOS = [
     sub: '工作機械・精密加工の専門展（2年に1回）',
     date: '2027年10月（予定）',
     venue: 'ポートメッセなごや',
-    venueId: 'nagoya',
+    venueId: 'tokai',
     tags: ['工作機械','CNC','切削'],
     color: 'border-blue-400',
     tagColor: 'bg-blue-100 text-blue-700',
@@ -458,71 +571,10 @@ function renderExpos() {
   `).join('');
 }
 
-// ===== 地域ニュース =====
-let currentPref = '';
-
-async function loadRegion(pref) {
-  currentPref = pref;
-
-  // ボタンのアクティブ切替
-  document.querySelectorAll('.pref-btn').forEach(b => {
-    const active = b.dataset.pref === pref;
-    if (active) {
-      b.classList.add('ring-2', 'ring-offset-1', 'ring-emerald-400');
-    } else {
-      b.classList.remove('ring-2', 'ring-offset-1', 'ring-emerald-400');
-    }
-  });
-
-  const el = document.getElementById('regional-result');
-  el.innerHTML = `
-    <div class="flex items-center gap-2 py-6 justify-center text-gray-400">
-      <svg class="spinner w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24">
-        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
-        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
-      </svg>
-      <span class="text-sm">${pref} のニュースを取得中...</span>
-    </div>`;
-
-  const q = encodeURIComponent(`製造業 OR 金属加工 OR 工場 OR 部品加工 ${pref}`);
-  const rssUrl = `https://news.google.com/rss/search?q=${q}&hl=ja&gl=JP&ceid=JP:ja`;
-  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=10`;
-
-  try {
-    const res = await fetch(apiUrl);
-    const data = await res.json();
-    if (data.status !== 'ok' || !data.items.length) throw new Error('no items');
-
-    el.innerHTML = `
-      <p class="text-xs font-semibold text-gray-500 mb-3">${pref} — 製造業・金属加工関連ニュース（最新${data.items.length}件）</p>
-      <div class="space-y-2">
-        ${data.items.map(item => {
-          const d = item.pubDate ? new Date(item.pubDate) : null;
-          const date = d ? `${d.getMonth()+1}/${d.getDate()}` : '';
-          const title = escapeHtml(item.title || '');
-          const source = escapeHtml(item.author || item.source || '');
-          return `
-            <a href="${escapeHtml(item.link || '#')}" target="_blank" rel="noopener noreferrer"
-              class="flex items-start gap-3 p-3 rounded-xl bg-gray-50 hover:bg-emerald-50 transition border-l-4 border-emerald-400 block fade-in">
-              <div class="flex-1 min-w-0">
-                <p class="text-sm font-semibold text-gray-800 leading-snug line-clamp-2">${highlightKeywords(title)}</p>
-                <div class="flex items-center gap-2 mt-1">
-                  ${source ? `<span class="text-xs text-gray-500">${source}</span>` : ''}
-                  <span class="text-xs text-gray-400">${date}</span>
-                </div>
-              </div>
-              <svg class="w-4 h-4 text-gray-300 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </a>`;
-        }).join('')}
-      </div>`;
-  } catch {
-    el.innerHTML = `<p class="text-sm text-gray-400 text-center py-6">${pref} のニュースを取得できませんでした。しばらくして再度お試しください。</p>`;
-  }
-}
-
-// 初回ロード
+// 初回ロード（近畿地方をデフォルト表示）
 refreshAll();
 renderExpos();
+loadRegion('kinki');
 </script>
 </body>
 </html>

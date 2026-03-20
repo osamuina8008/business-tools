@@ -5,78 +5,102 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>製造ガントチャート</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- SheetJS: Excelファイル読み込み用 -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
     body { font-family: 'Noto Sans JP', sans-serif; }
 
-    /* ガントチャート テーブル */
     .gantt-wrap { overflow-x: auto; }
     .gantt-table { border-collapse: collapse; min-width: 100%; }
-    .gantt-table th, .gantt-table td {
-      border: 1px solid #e5e7eb;
-      font-size: 11px;
-      white-space: nowrap;
-    }
+    .gantt-table th, .gantt-table td { border: 1px solid #e5e7eb; font-size: 11px; white-space: nowrap; }
     .gantt-table th { background: #f9fafb; padding: 4px 6px; text-align: center; }
     .gantt-table td { padding: 2px 4px; }
-    .gantt-label { min-width: 140px; max-width: 180px; position: sticky; left: 0; background: #fff; z-index: 1; }
-    .gantt-label-header { min-width: 140px; position: sticky; left: 0; background: #f9fafb; z-index: 2; }
+    .gantt-label { min-width: 160px; max-width: 200px; position: sticky; left: 0; background: #fff; z-index: 1; }
+    .gantt-label-header { min-width: 160px; position: sticky; left: 0; background: #f9fafb; z-index: 2; }
     .day-col { width: 28px; min-width: 28px; text-align: center; }
     .today-col { background: #fef9c3 !important; }
+    .group-row td { background: #f8fafc; font-weight: bold; font-size: 11px; color: #475569; }
 
-    /* ガントバー */
     .bar { height: 18px; border-radius: 3px; opacity: 0.85; }
-    .bar-done        { background: #6b7280; }
-    .bar-in_progress { background: #3b82f6; }
-    .bar-pending     { background: #d1d5db; border: 1px dashed #9ca3af; }
+    .bar-done        { background: #6b7280 !important; }
+    .bar-in_progress { }
+    .bar-pending     { background: #d1d5db !important; border: 1px dashed #9ca3af; }
 
-    /* フェード */
     .fade-in { animation: fadeIn 0.25s ease; }
     @keyframes fadeIn { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
+    .modal-bg { background: rgba(0,0,0,0.45); }
 
-    /* モーダル背景 */
-    .modal-bg { background: rgba(0,0,0,0.4); }
+    .tab-active   { background:#1e293b; color:#fff; }
+    .tab-inactive { background:#f1f5f9; color:#64748b; }
+    .tab-inactive:hover { background:#e2e8f0; }
+
+    .import-drop { border: 2px dashed #cbd5e1; }
+    .import-drop.drag-over { border-color: #6366f1; background: #eef2ff; }
+
+    /* スクロールバー細め */
+    ::-webkit-scrollbar { height: 6px; width: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
   </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
 
+<!-- ========== ヘッダー ========== -->
 <header class="bg-white border-b border-gray-200 sticky top-0 z-20">
   <div class="max-w-full px-4 py-3 flex items-center gap-3 flex-wrap">
     <a href="../index.html" class="text-gray-400 hover:text-gray-600 text-sm">← ツール一覧</a>
     <span class="text-gray-300">|</span>
     <h1 class="text-lg font-bold text-gray-800">製造ガントチャート</h1>
-    <div class="ml-auto flex items-center gap-2">
+    <div class="ml-auto flex items-center gap-2 flex-wrap">
+      <button onclick="openImport()"
+        class="text-xs bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 rounded-lg px-3 py-1.5 font-bold flex items-center gap-1">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+        Excelから取り込み
+      </button>
       <button onclick="openSettings()"
-        class="text-xs text-gray-500 hover:text-gray-700 border border-gray-200 rounded-lg px-2 py-1">
+        class="text-xs text-gray-500 hover:text-gray-700 border border-gray-200 rounded-lg px-2 py-1.5">
         ⚙ GAS設定
       </button>
       <button onclick="loadFromGAS()"
-        class="text-xs bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 rounded-lg px-3 py-1 font-bold">
+        class="text-xs bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 rounded-lg px-3 py-1.5 font-bold">
         ↻ 同期
       </button>
     </div>
   </div>
 </header>
 
-<!-- 顧客タブバー -->
+<!-- ========== 顧客タブ ========== -->
 <div class="bg-white border-b border-gray-200 px-4 py-2 flex items-center gap-2 overflow-x-auto">
   <span class="text-xs text-gray-500 font-semibold shrink-0">顧客:</span>
-  <div id="customer-tabs" class="flex gap-2 flex-wrap"></div>
+  <div id="customer-tabs" class="flex gap-2"></div>
   <button onclick="openAddCustomer()"
     class="shrink-0 text-xs border border-dashed border-gray-300 hover:border-blue-400 text-gray-400 hover:text-blue-600 rounded-lg px-3 py-1.5 transition">
     ＋ 顧客追加
   </button>
 </div>
 
-<!-- メインコンテンツ -->
+<!-- ========== 種類・品種フィルター ========== -->
+<div id="filter-bar" class="bg-gray-50 border-b border-gray-100 px-4 py-2 space-y-1.5">
+  <div class="flex items-center gap-2 overflow-x-auto">
+    <span class="text-xs text-gray-500 font-semibold shrink-0 w-10">種類:</span>
+    <div id="type-buttons" class="flex gap-1.5 flex-wrap"></div>
+  </div>
+  <div id="variety-row" class="flex items-center gap-2 overflow-x-auto">
+    <span class="text-xs text-gray-500 font-semibold shrink-0 w-10">品種:</span>
+    <div id="variety-buttons" class="flex gap-1.5 flex-wrap"></div>
+  </div>
+</div>
+
+<!-- ========== メイン ========== -->
 <main class="px-4 py-4 max-w-full">
 
-  <!-- 凡例 + 表示期間 -->
   <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
     <div class="flex items-center gap-3 text-xs text-gray-500">
       <span class="flex items-center gap-1"><span class="w-4 h-3 rounded bg-gray-400 inline-block"></span>完了</span>
       <span class="flex items-center gap-1"><span class="w-4 h-3 rounded bg-blue-500 inline-block"></span>進行中</span>
       <span class="flex items-center gap-1"><span class="w-4 h-3 rounded bg-gray-200 border border-dashed border-gray-400 inline-block"></span>予定</span>
+      <span id="gantt-count" class="text-gray-400"></span>
     </div>
     <div class="flex items-center gap-2">
       <button onclick="shiftWeeks(-2)" class="text-xs border border-gray-200 rounded px-2 py-1 hover:bg-gray-100">◀ 2週前</button>
@@ -85,14 +109,12 @@
     </div>
   </div>
 
-  <!-- ガントチャートエリア -->
   <div id="gantt-area" class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-    <div class="text-sm text-gray-400 text-center py-12" id="gantt-placeholder">
-      右上の「GAS設定」でスプレッドシートのURLを設定してください
+    <div class="text-sm text-gray-400 text-center py-12">
+      右上の「GAS設定」でスプレッドシートのURLを設定するか、「Excelから取り込み」でデータを読み込んでください
     </div>
   </div>
 
-  <!-- タスク追加ボタン -->
   <div class="mt-3 flex justify-end">
     <button onclick="openAddTask()"
       class="bg-purple-600 hover:bg-purple-700 text-white font-bold text-sm px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 shadow">
@@ -100,7 +122,6 @@
       工程追加
     </button>
   </div>
-
 </main>
 
 <!-- Toast -->
@@ -108,34 +129,33 @@
   <span id="toast-msg"></span>
 </div>
 
-<!-- ===== GAS設定モーダル ===== -->
+<!-- ===========================
+     GAS設定モーダル
+     =========================== -->
 <div id="modal-settings" class="fixed inset-0 z-50 hidden flex items-center justify-center modal-bg p-4">
   <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-6 fade-in">
     <h2 class="text-base font-bold text-gray-800 mb-4">⚙ GAS設定</h2>
     <p class="text-xs text-gray-500 mb-3">
-      Google スプレッドシートに紐づくApps ScriptのデプロイURLを入力してください。<br>
-      <code class="bg-gray-100 px-1 rounded">gas/gantt-sync.gs</code> を使ってください。
+      Google スプレッドシートに紐づくApps ScriptのデプロイURLを貼り付けてください。<br>
+      <code class="bg-gray-100 px-1 rounded">gas/gantt-sync.gs</code> を使ってデプロイしてください。
     </p>
-    <div class="space-y-3">
-      <div>
-        <label class="text-xs font-semibold text-gray-600 block mb-1">GAS Web App URL</label>
-        <input id="gas-url-input" type="url" placeholder="https://script.google.com/macros/s/.../exec"
-          class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300" />
-      </div>
+    <div>
+      <label class="text-xs font-semibold text-gray-600 block mb-1">GAS Web App URL</label>
+      <input id="gas-url-input" type="url" placeholder="https://script.google.com/macros/s/.../exec"
+        class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300" />
     </div>
     <div class="flex gap-2 mt-5">
-      <button onclick="testGASConnection()"
-        class="flex-1 bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold py-2 rounded-xl text-sm border border-blue-200 transition">接続テスト</button>
-      <button onclick="saveSettings()"
-        class="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 rounded-xl text-sm transition">保存</button>
-      <button onclick="closeModal('modal-settings')"
-        class="px-4 bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold py-2 rounded-xl text-sm transition">閉じる</button>
+      <button onclick="testGASConnection()" class="flex-1 bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold py-2 rounded-xl text-sm border border-blue-200">接続テスト</button>
+      <button onclick="saveSettings()" class="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 rounded-xl text-sm">保存</button>
+      <button onclick="closeModal('modal-settings')" class="px-4 bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold py-2 rounded-xl text-sm">閉じる</button>
     </div>
     <div id="gas-test-result" class="mt-3 text-xs"></div>
   </div>
 </div>
 
-<!-- ===== 顧客追加モーダル ===== -->
+<!-- ===========================
+     顧客追加モーダル
+     =========================== -->
 <div id="modal-add-customer" class="fixed inset-0 z-50 hidden flex items-center justify-center modal-bg p-4">
   <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md p-6 fade-in">
     <h2 class="text-base font-bold text-gray-800 mb-4">顧客追加</h2>
@@ -145,26 +165,40 @@
         class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300" />
     </div>
     <div class="flex gap-2 mt-5">
-      <button onclick="addCustomer()"
-        class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded-xl text-sm transition">追加</button>
-      <button onclick="closeModal('modal-add-customer')"
-        class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold py-2 rounded-xl text-sm transition">キャンセル</button>
+      <button onclick="addCustomer()" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded-xl text-sm">追加</button>
+      <button onclick="closeModal('modal-add-customer')" class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold py-2 rounded-xl text-sm">キャンセル</button>
     </div>
   </div>
 </div>
 
-<!-- ===== 工程追加モーダル ===== -->
+<!-- ===========================
+     工程追加モーダル
+     =========================== -->
 <div id="modal-add-task" class="fixed inset-0 z-50 hidden flex items-center justify-center modal-bg p-4">
-  <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-6 fade-in">
+  <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-6 fade-in overflow-y-auto max-h-[90vh]">
     <h2 class="text-base font-bold text-gray-800 mb-4">工程追加</h2>
     <div class="space-y-3">
       <div>
         <label class="text-xs font-semibold text-gray-600 block mb-1">顧客</label>
         <select id="task-customer" class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300 bg-white"></select>
       </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="text-xs font-semibold text-gray-600 block mb-1">種類</label>
+          <input id="task-type" type="text" list="type-list" placeholder="例: 旋削・フライス・研削"
+            class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300" />
+          <datalist id="type-list"></datalist>
+        </div>
+        <div>
+          <label class="text-xs font-semibold text-gray-600 block mb-1">品種</label>
+          <input id="task-variety" type="text" list="variety-list" placeholder="例: シャフト・フランジ"
+            class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300" />
+          <datalist id="variety-list"></datalist>
+        </div>
+      </div>
       <div>
         <label class="text-xs font-semibold text-gray-600 block mb-1">工程名 <span class="text-red-400">*</span></label>
-        <input id="task-name" type="text" placeholder="例: 機械加工・表面処理・検査"
+        <input id="task-name" type="text" placeholder="例: 機械加工・表面処理・検査・出荷"
           class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300" />
       </div>
       <div class="grid grid-cols-2 gap-3">
@@ -177,35 +211,51 @@
           <input id="task-end" type="date" class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300" />
         </div>
       </div>
-      <div>
-        <label class="text-xs font-semibold text-gray-600 block mb-1">ステータス</label>
-        <select id="task-status" class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300 bg-white">
-          <option value="pending">予定</option>
-          <option value="in_progress">進行中</option>
-          <option value="done">完了</option>
-        </select>
-      </div>
-      <div>
-        <label class="text-xs font-semibold text-gray-600 block mb-1">メモ</label>
-        <input id="task-memo" type="text" placeholder="材料・備考など"
-          class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300" />
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="text-xs font-semibold text-gray-600 block mb-1">ステータス</label>
+          <select id="task-status" class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300 bg-white">
+            <option value="pending">予定</option>
+            <option value="in_progress">進行中</option>
+            <option value="done">完了</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-xs font-semibold text-gray-600 block mb-1">メモ</label>
+          <input id="task-memo" type="text" placeholder="材料・備考など"
+            class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300" />
+        </div>
       </div>
     </div>
     <div class="flex gap-2 mt-5">
-      <button onclick="addTask()"
-        class="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 rounded-xl text-sm transition">追加</button>
-      <button onclick="closeModal('modal-add-task')"
-        class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold py-2 rounded-xl text-sm transition">キャンセル</button>
+      <button onclick="addTask()" class="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 rounded-xl text-sm">追加</button>
+      <button onclick="closeModal('modal-add-task')" class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold py-2 rounded-xl text-sm">キャンセル</button>
     </div>
   </div>
 </div>
 
-<!-- ===== 工程編集モーダル ===== -->
+<!-- ===========================
+     工程編集モーダル
+     =========================== -->
 <div id="modal-edit-task" class="fixed inset-0 z-50 hidden flex items-center justify-center modal-bg p-4">
-  <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-6 fade-in">
+  <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-6 fade-in overflow-y-auto max-h-[90vh]">
     <h2 class="text-base font-bold text-gray-800 mb-4">工程編集</h2>
     <input type="hidden" id="edit-task-id" />
     <div class="space-y-3">
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="text-xs font-semibold text-gray-600 block mb-1">種類</label>
+          <input id="edit-task-type" type="text" list="edit-type-list"
+            class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300" />
+          <datalist id="edit-type-list"></datalist>
+        </div>
+        <div>
+          <label class="text-xs font-semibold text-gray-600 block mb-1">品種</label>
+          <input id="edit-task-variety" type="text" list="edit-variety-list"
+            class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300" />
+          <datalist id="edit-variety-list"></datalist>
+        </div>
+      </div>
       <div>
         <label class="text-xs font-semibold text-gray-600 block mb-1">工程名</label>
         <input id="edit-task-name" type="text"
@@ -221,40 +271,154 @@
           <input id="edit-task-end" type="date" class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300" />
         </div>
       </div>
-      <div>
-        <label class="text-xs font-semibold text-gray-600 block mb-1">ステータス</label>
-        <select id="edit-task-status" class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300 bg-white">
-          <option value="pending">予定</option>
-          <option value="in_progress">進行中</option>
-          <option value="done">完了</option>
-        </select>
-      </div>
-      <div>
-        <label class="text-xs font-semibold text-gray-600 block mb-1">メモ</label>
-        <input id="edit-task-memo" type="text"
-          class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300" />
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="text-xs font-semibold text-gray-600 block mb-1">ステータス</label>
+          <select id="edit-task-status" class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300 bg-white">
+            <option value="pending">予定</option>
+            <option value="in_progress">進行中</option>
+            <option value="done">完了</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-xs font-semibold text-gray-600 block mb-1">メモ</label>
+          <input id="edit-task-memo" type="text"
+            class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300" />
+        </div>
       </div>
     </div>
     <div class="flex gap-2 mt-5">
-      <button onclick="saveEditTask()"
-        class="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 rounded-xl text-sm transition">保存</button>
+      <button onclick="saveEditTask()" class="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 rounded-xl text-sm">保存</button>
       <button onclick="deleteTaskById(document.getElementById('edit-task-id').value)"
-        class="flex-1 bg-red-50 hover:bg-red-100 text-red-600 font-bold py-2 rounded-xl text-sm transition border border-red-200">削除</button>
-      <button onclick="closeModal('modal-edit-task')"
-        class="px-4 bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold py-2 rounded-xl text-sm transition">閉じる</button>
+        class="flex-1 bg-red-50 hover:bg-red-100 text-red-600 font-bold py-2 rounded-xl text-sm border border-red-200">削除</button>
+      <button onclick="closeModal('modal-edit-task')" class="px-4 bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold py-2 rounded-xl text-sm">閉じる</button>
     </div>
   </div>
 </div>
 
+<!-- ===========================
+     Excel取り込みモーダル
+     =========================== -->
+<div id="modal-import" class="fixed inset-0 z-50 hidden flex items-center justify-center modal-bg p-4">
+  <div class="bg-white rounded-2xl shadow-2xl w-full max-w-3xl p-6 fade-in overflow-y-auto max-h-[92vh]">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-base font-bold text-gray-800">Excelから取り込み</h2>
+      <button onclick="closeModal('modal-import')" class="text-gray-400 hover:text-gray-600">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- 顧客選択 -->
+    <div class="mb-4">
+      <label class="text-xs font-semibold text-gray-600 block mb-1">取り込み先の顧客 <span class="text-red-400">*</span></label>
+      <select id="import-customer" class="border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-300 bg-white w-full max-w-xs"></select>
+    </div>
+
+    <!-- タブ -->
+    <div class="flex gap-2 mb-4">
+      <button onclick="switchImportTab('file')" id="itab-file"
+        class="tab-active text-xs font-bold px-4 py-2 rounded-lg transition flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        ファイル読込 (.xlsx/.csv)
+      </button>
+      <button onclick="switchImportTab('paste')" id="itab-paste"
+        class="tab-inactive text-xs font-bold px-4 py-2 rounded-lg transition flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+        コピペ貼り付け
+      </button>
+    </div>
+
+    <!-- ファイル読込パネル -->
+    <div id="import-panel-file">
+      <div id="import-drop-area"
+        class="import-drop rounded-xl p-8 text-center cursor-pointer transition"
+        onclick="document.getElementById('import-file-input').click()"
+        ondragover="event.preventDefault();this.classList.add('drag-over')"
+        ondragleave="this.classList.remove('drag-over')"
+        ondrop="handleFileDrop(event)">
+        <svg class="w-10 h-10 text-gray-300 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+        </svg>
+        <p class="text-sm text-gray-500 font-semibold">ここにファイルをドラッグ＆ドロップ</p>
+        <p class="text-xs text-gray-400 mt-1">または クリックしてファイルを選択</p>
+        <p class="text-xs text-gray-300 mt-2">.xlsx / .xls / .csv に対応</p>
+      </div>
+      <input type="file" id="import-file-input" accept=".xlsx,.xls,.csv" class="hidden" onchange="handleFileSelect(event)" />
+    </div>
+
+    <!-- コピペパネル -->
+    <div id="import-panel-paste" class="hidden">
+      <p class="text-xs text-gray-500 mb-2">
+        Excelのセルを選択してコピー（Ctrl+C）し、下の欄に貼り付け（Ctrl+V）してください。<br>
+        1行目は列名（ヘッダー行）を含めてください。
+      </p>
+      <textarea id="import-paste-area" rows="8"
+        placeholder="ここにExcelのデータを貼り付け&#10;&#10;例:&#9;工程名&#9;種類&#9;品種&#9;開始日&#9;終了日&#9;ステータス&#9;メモ&#10;&#9;機械加工&#9;旋削&#9;シャフト&#9;2026/04/01&#9;2026/04/10&#9;予定&#9;"
+        class="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-emerald-300 resize-none"></textarea>
+      <button onclick="parsePastedData()"
+        class="mt-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-4 py-2 rounded-xl transition">
+        解析する
+      </button>
+    </div>
+
+    <!-- 列マッピング＋プレビュー（解析後に表示） -->
+    <div id="import-mapping-section" class="hidden mt-5">
+      <h3 class="text-sm font-bold text-gray-700 mb-3">列マッピング確認</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4" id="import-mapping-grid"></div>
+
+      <h3 class="text-sm font-bold text-gray-700 mb-2">プレビュー <span id="preview-count" class="text-xs font-normal text-gray-400"></span></h3>
+      <div class="overflow-x-auto rounded-xl border border-gray-200 mb-4">
+        <table class="text-xs w-full">
+          <thead id="preview-thead" class="bg-gray-50"></thead>
+          <tbody id="preview-tbody"></tbody>
+        </table>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button onclick="executeImport()"
+          class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-2.5 rounded-xl text-sm transition flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          取り込む
+        </button>
+        <button onclick="document.getElementById('import-mapping-section').classList.add('hidden')"
+          class="text-sm text-gray-500 hover:text-gray-700">やり直す</button>
+        <span id="import-msg" class="text-xs text-emerald-600 font-semibold"></span>
+      </div>
+    </div>
+
+    <!-- フォーマット説明 -->
+    <div class="mt-5 bg-gray-50 rounded-xl p-4">
+      <p class="text-xs font-bold text-gray-600 mb-2">推奨列名（日本語・英語どちらも認識）</p>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-gray-500">
+        <div><span class="font-semibold text-gray-700">工程名</span>: 工程名 / 作業名 / item_name</div>
+        <div><span class="font-semibold text-gray-700">種類</span>: 種類 / 種別 / type</div>
+        <div><span class="font-semibold text-gray-700">品種</span>: 品種 / 品番 / variety</div>
+        <div><span class="font-semibold text-gray-700">開始日</span>: 開始日 / 着手日 / start</div>
+        <div><span class="font-semibold text-gray-700">終了日</span>: 終了日 / 納期 / end</div>
+        <div><span class="font-semibold text-gray-700">ステータス</span>: ステータス / 状態 / status</div>
+        <div><span class="font-semibold text-gray-700">メモ</span>: メモ / 備考 / memo</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
 <script>
 // ============================================================
 // 状態
 // ============================================================
-let customers = [];
-let tasks     = [];
+let customers        = [];
+let tasks            = [];
 let selectedCustomerId = null;
-let viewStartDate = getMonday(new Date()); // 今週月曜
-const VIEW_DAYS = 56; // 8週間表示
+let selectedType     = null;   // null = すべて
+let selectedVariety  = null;   // null = すべて
+let viewStartDate    = getMonday(new Date());
+const VIEW_DAYS      = 56;
+
+// import用
+let importRows       = [];  // { raw } 解析済み行
+let importHeaders    = [];  // 元の列名
+let importMapping    = {};  // { field: colIndex }
 
 // ============================================================
 // 起動
@@ -264,11 +428,15 @@ window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('task-start').value = today;
   document.getElementById('task-end').value   = today;
   loadLocal();
-  renderCustomerTabs();
-  renderGantt();
-  const gasUrl = localStorage.getItem('bt_gantt_gas_url');
-  if (gasUrl) loadFromGAS();
+  renderAll();
+  if (localStorage.getItem('bt_gantt_gas_url')) loadFromGAS();
 });
+
+function renderAll() {
+  renderCustomerTabs();
+  renderFilterBars();
+  renderGantt();
+}
 
 // ============================================================
 // ローカルストレージ
@@ -306,10 +474,12 @@ async function loadFromGAS() {
     const res  = await fetch(url + '?action=getAll');
     const data = await res.json();
     if (data.status !== 'ok') throw new Error(data.message);
-    customers = data.customers.map(c => ({ id: Number(c.id), name: c.name, color: c.color }));
+    customers = data.customers.map(c => ({ id:Number(c.id), name:c.name, color:c.color }));
     tasks     = data.tasks.map(t => ({
       id:          Number(t.id),
       customer_id: Number(t.customer_id),
+      type:        t.type    || '',
+      variety:     t.variety || '',
       item_name:   t.item_name,
       start_date:  t.start_date,
       end_date:    t.end_date,
@@ -318,19 +488,15 @@ async function loadFromGAS() {
     }));
     if (selectedCustomerId === null && customers.length > 0) selectedCustomerId = customers[0].id;
     saveLocal();
-    renderCustomerTabs();
-    renderGantt();
+    renderAll();
     showToast('同期完了！');
-  } catch (e) {
-    showToast('同期エラー: ' + e.message);
-  }
+  } catch(e) { showToast('同期エラー: ' + e.message); }
 }
 
 async function callGAS(params) {
   const url = localStorage.getItem('bt_gantt_gas_url');
   if (!url) return null;
-  const qs = new URLSearchParams(params).toString();
-  const res = await fetch(url + '?' + qs);
+  const res = await fetch(url + '?' + new URLSearchParams(params).toString());
   return await res.json();
 }
 
@@ -355,15 +521,12 @@ async function testGASConnection() {
   if (!url) { el.textContent = 'URLを入力してください'; el.className = 'mt-3 text-xs text-red-500'; return; }
   el.textContent = '接続テスト中...'; el.className = 'mt-3 text-xs text-gray-400';
   try {
-    const res  = await fetch(url + '?action=getAll');
-    const data = await res.json();
+    const data = await (await fetch(url + '?action=getAll')).json();
     if (data.status === 'ok') {
       el.textContent = `✅ 接続OK（顧客:${data.customers.length}件・工程:${data.tasks.length}件）`;
       el.className = 'mt-3 text-xs text-green-600';
-    } else {
-      throw new Error(data.message);
-    }
-  } catch (e) {
+    } else throw new Error(data.message);
+  } catch(e) {
     el.textContent = '❌ エラー: ' + e.message;
     el.className = 'mt-3 text-xs text-red-500';
   }
@@ -373,14 +536,10 @@ async function testGASConnection() {
 // 顧客タブ
 // ============================================================
 function renderCustomerTabs() {
-  const wrap = document.getElementById('customer-tabs');
-  wrap.innerHTML = customers.map(c => {
+  document.getElementById('customer-tabs').innerHTML = customers.map(c => {
     const active = c.id === selectedCustomerId;
-    const bg     = active ? c.color : '#f3f4f6';
-    const text   = active ? '#fff'   : '#374151';
-    const border = active ? c.color  : '#e5e7eb';
     return `<button onclick="selectCustomer(${c.id})"
-      style="background:${bg};color:${text};border-color:${border}"
+      style="background:${active?c.color:'#f3f4f6'};color:${active?'#fff':'#374151'};border-color:${active?c.color:'#e5e7eb'}"
       class="text-xs font-bold px-3 py-1.5 rounded-lg border transition shrink-0">
       ${escHtml(c.name)}
     </button>`;
@@ -388,8 +547,49 @@ function renderCustomerTabs() {
 }
 function selectCustomer(id) {
   selectedCustomerId = id;
-  renderCustomerTabs();
-  renderGantt();
+  selectedType    = null;
+  selectedVariety = null;
+  renderAll();
+}
+
+// ============================================================
+// 種類・品種フィルターバー
+// ============================================================
+function renderFilterBars() {
+  const cTasks   = tasks.filter(t => t.customer_id === selectedCustomerId);
+  const customer = customers.find(c => c.id === selectedCustomerId);
+  const color    = customer ? customer.color : '#6366f1';
+
+  // 種類ボタン
+  const types = [...new Set(cTasks.map(t => t.type || ''))].sort();
+  const typeWrap = document.getElementById('type-buttons');
+  typeWrap.innerHTML = makeFilterBtn('すべて', selectedType === null, () => { selectedType = null; selectedVariety = null; renderFilterBars(); renderGantt(); }, color)
+    + types.map(tp => {
+      const label = tp || '（未分類）';
+      return makeFilterBtn(label, selectedType === tp, () => { selectedType = tp; selectedVariety = null; renderFilterBars(); renderGantt(); }, color);
+    }).join('');
+
+  // 品種ボタン（種類でフィルタ後）
+  const filteredByType = selectedType === null ? cTasks : cTasks.filter(t => (t.type||'') === selectedType);
+  const varieties = [...new Set(filteredByType.map(t => t.variety || ''))].sort();
+  const varWrap = document.getElementById('variety-buttons');
+  const hasVarieties = varieties.some(v => v !== '');
+  document.getElementById('variety-row').style.display = hasVarieties ? '' : 'none';
+  varWrap.innerHTML = makeFilterBtn('すべて', selectedVariety === null, () => { selectedVariety = null; renderGantt(); }, '#64748b')
+    + varieties.filter(v => v !== '').map(vr =>
+        makeFilterBtn(vr, selectedVariety === vr, () => { selectedVariety = vr; renderGantt(); }, '#64748b')
+      ).join('');
+}
+function makeFilterBtn(label, active, fn, color) {
+  const id = 'fb_' + Math.random().toString(36).slice(2);
+  // ボタンをDOMに挿入後にonclickを割り当てるより、onclick属性に文字列関数は使えないので
+  // data-idパターンを使う
+  window['_fb_' + label + active] = fn; // 簡易
+  return `<button
+    style="background:${active?color:'#f8fafc'};color:${active?'#fff':'#475569'};border-color:${active?color:'#e2e8f0'}"
+    class="text-xs px-2.5 py-1 rounded-lg border font-${active?'bold':'medium'} transition shrink-0 hover:opacity-80"
+    onclick="(${fn.toString()})()"
+    >${escHtml(label)}</button>`;
 }
 
 // ============================================================
@@ -402,23 +602,16 @@ function openAddCustomer() {
 async function addCustomer() {
   const name = document.getElementById('new-customer-name').value.trim();
   if (!name) { showToast('顧客名を入力してください'); return; }
-
-  const colors = ['#3B82F6','#10B981','#F59E0B','#EF4444','#8B5CF6','#EC4899','#14B8A6','#F97316'];
-  const usedColors = customers.map(c => c.color);
-  const color = colors.find(c => !usedColors.includes(c)) || colors[customers.length % colors.length];
-  const newId = customers.length > 0 ? Math.max(...customers.map(c=>c.id)) + 1 : 1;
-
-  customers.push({ id: newId, name, color });
-  if (selectedCustomerId === null) selectedCustomerId = newId;
+  const COLORS = ['#3B82F6','#10B981','#F59E0B','#EF4444','#8B5CF6','#EC4899','#14B8A6','#F97316','#6366F1','#84CC16'];
+  const used   = customers.map(c => c.color);
+  const color  = COLORS.find(c => !used.includes(c)) || COLORS[customers.length % COLORS.length];
+  const newId  = customers.length > 0 ? Math.max(...customers.map(c=>c.id))+1 : 1;
+  customers.push({ id:newId, name, color });
+  if (!selectedCustomerId) selectedCustomerId = newId;
   saveLocal();
-  renderCustomerTabs();
-
-  // GASへ同期
+  renderAll();
   const gasUrl = localStorage.getItem('bt_gantt_gas_url');
-  if (gasUrl) {
-    try { await callGAS({ action: 'addCustomer', name }); } catch(_) {}
-  }
-
+  if (gasUrl) { try { await callGAS({ action:'addCustomer', name }); } catch(_) {} }
   closeModal('modal-add-customer');
   showToast('顧客を追加しました');
 }
@@ -427,33 +620,46 @@ async function addCustomer() {
 // 工程追加
 // ============================================================
 function openAddTask() {
-  // 顧客セレクト更新
   const sel = document.getElementById('task-customer');
   sel.innerHTML = customers.map(c =>
-    `<option value="${c.id}" ${c.id === selectedCustomerId ? 'selected' : ''}>${escHtml(c.name)}</option>`
+    `<option value="${c.id}" ${c.id===selectedCustomerId?'selected':''}>${escHtml(c.name)}</option>`
   ).join('');
+  // 既存の種類・品種をdatalistに
+  refreshDatalist('type-list', 'edit-type-list');
+  document.getElementById('task-type').value    = selectedType    || '';
+  document.getElementById('task-variety').value = selectedVariety || '';
   document.getElementById('modal-add-task').classList.remove('hidden');
+}
+function refreshDatalist(...ids) {
+  const allTypes    = [...new Set(tasks.map(t => t.type).filter(Boolean))];
+  const allVarieties= [...new Set(tasks.map(t => t.variety).filter(Boolean))];
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (id.includes('variety')) {
+      el.innerHTML = allVarieties.map(v => `<option value="${escHtml(v)}">`).join('');
+    } else {
+      el.innerHTML = allTypes.map(t => `<option value="${escHtml(t)}">`).join('');
+    }
+  });
 }
 async function addTask() {
   const customerId = parseInt(document.getElementById('task-customer').value);
-  const name  = document.getElementById('task-name').value.trim();
-  const start = document.getElementById('task-start').value;
-  const end   = document.getElementById('task-end').value;
-  const status= document.getElementById('task-status').value;
-  const memo  = document.getElementById('task-memo').value.trim();
+  const type    = document.getElementById('task-type').value.trim();
+  const variety = document.getElementById('task-variety').value.trim();
+  const name    = document.getElementById('task-name').value.trim();
+  const start   = document.getElementById('task-start').value;
+  const end     = document.getElementById('task-end').value;
+  const status  = document.getElementById('task-status').value;
+  const memo    = document.getElementById('task-memo').value.trim();
   if (!name || !start || !end) { showToast('工程名・開始日・終了日は必須です'); return; }
-
-  const newId = tasks.length > 0 ? Math.max(...tasks.map(t=>t.id)) + 1 : 1;
-  tasks.push({ id: newId, customer_id: customerId, item_name: name, start_date: start, end_date: end, status, memo });
+  const newId = tasks.length > 0 ? Math.max(...tasks.map(t=>t.id))+1 : 1;
+  tasks.push({ id:newId, customer_id:customerId, type, variety, item_name:name, start_date:start, end_date:end, status, memo });
   saveLocal();
+  renderFilterBars();
   renderGantt();
-
-  // GASへ同期
   const gasUrl = localStorage.getItem('bt_gantt_gas_url');
-  if (gasUrl) {
-    try { await callGAS({ action:'addTask', customer_id:customerId, item_name:name, start_date:start, end_date:end, status, memo }); } catch(_) {}
-  }
-
+  if (gasUrl) { try { await callGAS({ action:'addTask', customer_id:customerId, type, variety, item_name:name, start_date:start, end_date:end, status, memo }); } catch(_) {} }
   closeModal('modal-add-task');
   showToast('工程を追加しました');
 }
@@ -464,34 +670,33 @@ async function addTask() {
 function openEditTask(id) {
   const t = tasks.find(x => x.id === id);
   if (!t) return;
-  document.getElementById('edit-task-id').value     = t.id;
-  document.getElementById('edit-task-name').value   = t.item_name;
-  document.getElementById('edit-task-start').value  = t.start_date;
-  document.getElementById('edit-task-end').value    = t.end_date;
-  document.getElementById('edit-task-status').value = t.status;
-  document.getElementById('edit-task-memo').value   = t.memo;
+  document.getElementById('edit-task-id').value      = t.id;
+  document.getElementById('edit-task-type').value    = t.type    || '';
+  document.getElementById('edit-task-variety').value = t.variety || '';
+  document.getElementById('edit-task-name').value    = t.item_name;
+  document.getElementById('edit-task-start').value   = t.start_date;
+  document.getElementById('edit-task-end').value     = t.end_date;
+  document.getElementById('edit-task-status').value  = t.status;
+  document.getElementById('edit-task-memo').value    = t.memo;
+  refreshDatalist('edit-type-list', 'edit-variety-list');
   document.getElementById('modal-edit-task').classList.remove('hidden');
 }
 async function saveEditTask() {
-  const id     = parseInt(document.getElementById('edit-task-id').value);
-  const name   = document.getElementById('edit-task-name').value.trim();
-  const start  = document.getElementById('edit-task-start').value;
-  const end    = document.getElementById('edit-task-end').value;
-  const status = document.getElementById('edit-task-status').value;
-  const memo   = document.getElementById('edit-task-memo').value.trim();
-
+  const id      = parseInt(document.getElementById('edit-task-id').value);
+  const type    = document.getElementById('edit-task-type').value.trim();
+  const variety = document.getElementById('edit-task-variety').value.trim();
+  const name    = document.getElementById('edit-task-name').value.trim();
+  const start   = document.getElementById('edit-task-start').value;
+  const end     = document.getElementById('edit-task-end').value;
+  const status  = document.getElementById('edit-task-status').value;
+  const memo    = document.getElementById('edit-task-memo').value.trim();
   const idx = tasks.findIndex(t => t.id === id);
-  if (idx >= 0) {
-    tasks[idx] = { ...tasks[idx], item_name: name, start_date: start, end_date: end, status, memo };
-    saveLocal();
-    renderGantt();
-  }
-
+  if (idx >= 0) { tasks[idx] = { ...tasks[idx], type, variety, item_name:name, start_date:start, end_date:end, status, memo }; }
+  saveLocal();
+  renderFilterBars();
+  renderGantt();
   const gasUrl = localStorage.getItem('bt_gantt_gas_url');
-  if (gasUrl) {
-    try { await callGAS({ action:'updateTask', id, item_name:name, start_date:start, end_date:end, status, memo }); } catch(_) {}
-  }
-
+  if (gasUrl) { try { await callGAS({ action:'updateTask', id, type, variety, item_name:name, start_date:start, end_date:end, status, memo }); } catch(_) {} }
   closeModal('modal-edit-task');
   showToast('保存しました');
 }
@@ -500,13 +705,10 @@ async function deleteTaskById(id) {
   id = parseInt(id);
   tasks = tasks.filter(t => t.id !== id);
   saveLocal();
+  renderFilterBars();
   renderGantt();
-
   const gasUrl = localStorage.getItem('bt_gantt_gas_url');
-  if (gasUrl) {
-    try { await callGAS({ action:'deleteTask', id }); } catch(_) {}
-  }
-
+  if (gasUrl) { try { await callGAS({ action:'deleteTask', id }); } catch(_) {} }
   closeModal('modal-edit-task');
   showToast('削除しました');
 }
@@ -516,130 +718,341 @@ async function deleteTaskById(id) {
 // ============================================================
 function getMonday(d) {
   const dt = new Date(d);
-  const day = dt.getDay();
-  const diff = (day === 0) ? -6 : 1 - day;
-  dt.setDate(dt.getDate() + diff);
+  const diff = dt.getDay() === 0 ? -6 : 1 - dt.getDay();
+  dt.setDate(dt.getDate()+diff);
   dt.setHours(0,0,0,0);
   return dt;
 }
-function addDays(d, n) { const r = new Date(d); r.setDate(r.getDate()+n); return r; }
-function dateStr(d) { return d.toISOString().slice(0,10); }
-
+function addDays(d,n) { const r=new Date(d); r.setDate(r.getDate()+n); return r; }
+function dateStr(d)   { return d.toISOString().slice(0,10); }
 function shiftWeeks(n) { viewStartDate = addDays(viewStartDate, n*7); renderGantt(); }
 function goToday()     { viewStartDate = getMonday(new Date()); renderGantt(); }
 
 function renderGantt() {
   const area = document.getElementById('gantt-area');
-  const customerTasks = tasks.filter(t => t.customer_id === selectedCustomerId);
   const customer = customers.find(c => c.id === selectedCustomerId);
-
   if (!customer) {
     area.innerHTML = '<div class="text-sm text-gray-400 text-center py-12">顧客を選択してください</div>';
     return;
   }
 
-  // 日付配列（VIEW_DAYS日分）
-  const dates = [];
-  for (let i = 0; i < VIEW_DAYS; i++) dates.push(addDays(viewStartDate, i));
+  // フィルタ
+  let filtered = tasks.filter(t => t.customer_id === selectedCustomerId);
+  if (selectedType    !== null) filtered = filtered.filter(t => (t.type||'') === selectedType);
+  if (selectedVariety !== null) filtered = filtered.filter(t => (t.variety||'') === selectedVariety);
+  filtered.sort((a,b) => {
+    const ta = (a.type||'') + '|' + (a.variety||'') + '|' + a.start_date;
+    const tb = (b.type||'') + '|' + (b.variety||'') + '|' + b.start_date;
+    return ta.localeCompare(tb);
+  });
+
+  document.getElementById('gantt-count').textContent = `${filtered.length}工程表示中`;
+
+  const dates    = [];
+  for (let i=0;i<VIEW_DAYS;i++) dates.push(addDays(viewStartDate,i));
   const todayStr = new Date().toISOString().slice(0,10);
 
-  // 月ヘッダー行（月が変わるときにセル結合）
-  let monthCells = '';
-  let mStart = 0;
-  for (let i = 0; i <= dates.length; i++) {
-    const prev = i > 0 ? dates[i-1].getMonth() : -1;
-    const curr = i < dates.length ? dates[i].getMonth() : -1;
-    if (i === dates.length || (i > 0 && curr !== prev)) {
-      const span  = i - mStart;
-      const label = `${dates[mStart].getMonth()+1}月`;
-      monthCells += `<th class="day-col" colspan="${span}" style="background:#f3f4f6;font-size:11px;text-align:center">${label}</th>`;
-      mStart = i;
+  // 月ヘッダー
+  let monthCells = '', mStart = 0;
+  for (let i=0;i<=dates.length;i++) {
+    if (i===dates.length || (i>0 && dates[i].getMonth()!==dates[i-1].getMonth())) {
+      monthCells += `<th class="day-col" colspan="${i-mStart}" style="background:#f0f4f8;font-size:11px">${dates[mStart].getMonth()+1}月</th>`;
+      mStart=i;
     }
   }
 
-  // 日付ヘッダー行
-  let dayHeads = dates.map(d => {
-    const s   = dateStr(d);
-    const dow = ['日','月','火','水','木','金','土'][d.getDay()];
-    const isToday = s === todayStr;
-    const isSun = d.getDay() === 0;
-    const isSat = d.getDay() === 6;
-    const cls = isToday ? 'today-col font-bold text-blue-700'
-              : isSun   ? 'text-red-400'
-              : isSat   ? 'text-blue-400'
-              : 'text-gray-500';
+  // 日付ヘッダー
+  const dayHeads = dates.map(d => {
+    const s=dateStr(d), dow=['日','月','火','水','木','金','土'][d.getDay()];
+    const cls = s===todayStr ? 'today-col font-bold text-blue-700'
+              : d.getDay()===0 ? 'text-red-400'
+              : d.getDay()===6 ? 'text-blue-400' : 'text-gray-500';
     return `<th class="day-col ${cls}">${d.getDate()}<br><span style="font-size:9px">${dow}</span></th>`;
   }).join('');
 
-  // タスク行
+  // タスク行（種類グループ見出し付き）
   let taskRows = '';
-  if (customerTasks.length === 0) {
-    taskRows = `<tr><td class="gantt-label text-xs text-gray-400 py-4 text-center" colspan="${VIEW_DAYS+1}">工程がありません。「工程追加」ボタンで追加してください。</td></tr>`;
+  if (filtered.length === 0) {
+    taskRows = `<tr><td class="gantt-label text-xs text-gray-400 py-6 text-center" colspan="${VIEW_DAYS+1}">該当する工程がありません</td></tr>`;
   } else {
-    taskRows = customerTasks.map(t => {
-      const labelCls = t.status === 'done' ? 'line-through text-gray-400' : 'text-gray-700';
-      const statusBadge = t.status === 'done'
+    let lastGroup = '___';
+    filtered.forEach(t => {
+      const groupKey = (t.type||'') + '||' + (t.variety||'');
+      if (groupKey !== lastGroup) {
+        lastGroup = groupKey;
+        const groupLabel = [t.type, t.variety].filter(Boolean).join(' › ') || '（分類なし）';
+        taskRows += `<tr class="group-row"><td class="gantt-label px-2 py-1.5 text-xs" style="color:${customer.color}">
+          ▸ ${escHtml(groupLabel)}</td>${'<td class="day-col"></td>'.repeat(VIEW_DAYS)}</tr>`;
+      }
+
+      const statusBadge = t.status==='done'
         ? '<span class="ml-1 text-xs bg-gray-100 text-gray-400 rounded px-1">完了</span>'
-        : t.status === 'in_progress'
-        ? '<span class="ml-1 text-xs bg-blue-100 text-blue-600 rounded px-1">進行中</span>'
+        : t.status==='in_progress'
+        ? `<span class="ml-1 text-xs rounded px-1" style="background:${customer.color}22;color:${customer.color}">進行中</span>`
         : '';
+      const labelCls = t.status==='done' ? 'line-through text-gray-400' : 'text-gray-700';
 
       const cells = dates.map(d => {
         const s = dateStr(d);
         const inRange = s >= t.start_date && s <= t.end_date;
-        const isStart = s === t.start_date;
-        const isEnd   = s === t.end_date;
         const isToday = s === todayStr;
-        const bgClass = isToday ? 'today-col' : '';
-
-        if (!inRange) return `<td class="day-col ${bgClass}"></td>`;
-
-        const barClass = t.status === 'done' ? 'bar bar-done'
-                       : t.status === 'in_progress' ? 'bar bar-in_progress'
-                       : 'bar bar-pending';
-        const radius = isStart && isEnd ? 'border-radius:3px'
-                     : isStart ? 'border-radius:3px 0 0 3px'
-                     : isEnd   ? 'border-radius:0 3px 3px 0'
-                     : 'border-radius:0';
-        return `<td class="day-col ${bgClass}" style="padding:2px 0">
-          <div class="${barClass}" style="${radius};background:${t.status!=='done'&&t.status!=='pending'?customer.color:''};margin:1px 0"></div>
+        if (!inRange) return `<td class="day-col${isToday?' today-col':''}"></td>`;
+        const barCls = t.status==='done' ? 'bar bar-done'
+                     : t.status==='in_progress' ? 'bar bar-in_progress'
+                     : 'bar bar-pending';
+        const isStart = s===t.start_date, isEnd = s===t.end_date;
+        const r = isStart&&isEnd?'3px':isStart?'3px 0 0 3px':isEnd?'0 3px 3px 0':'0';
+        const bg = t.status==='in_progress' ? customer.color : '';
+        return `<td class="day-col${isToday?' today-col':''}" style="padding:2px 0">
+          <div class="${barCls}" style="border-radius:${r};background:${bg};margin:1px 0"></div>
         </td>`;
       }).join('');
 
-      return `<tr class="hover:bg-blue-50 transition cursor-pointer" onclick="openEditTask(${t.id})">
+      taskRows += `<tr class="hover:bg-blue-50 transition cursor-pointer" onclick="openEditTask(${t.id})">
         <td class="gantt-label text-xs py-1.5 px-2">
-          <div class="${labelCls} truncate" style="max-width:160px">${escHtml(t.item_name)}${statusBadge}</div>
+          <div class="${labelCls} truncate" style="max-width:180px">${escHtml(t.item_name)}${statusBadge}</div>
           <div class="text-gray-400" style="font-size:10px">${t.start_date} 〜 ${t.end_date}</div>
-          ${t.memo ? `<div class="text-gray-300 truncate" style="font-size:10px;max-width:140px">${escHtml(t.memo)}</div>` : ''}
-        </td>
-        ${cells}
-      </tr>`;
-    }).join('');
+          ${t.memo?`<div class="text-gray-300 truncate" style="font-size:10px;max-width:170px">${escHtml(t.memo)}</div>`:''}
+        </td>${cells}</tr>`;
+    });
   }
 
   area.innerHTML = `
-    <div style="padding:8px 12px 4px;border-bottom:1px solid #e5e7eb">
+    <div style="padding:8px 12px 4px;border-bottom:1px solid #e5e7eb" class="flex items-center gap-3 flex-wrap">
       <span class="text-xs font-bold" style="color:${customer.color}">${escHtml(customer.name)}</span>
-      <span class="text-xs text-gray-400 ml-2">${customerTasks.length}工程</span>
-      <span class="text-xs text-gray-400 ml-2">${dateStr(viewStartDate)} 〜 ${dateStr(addDays(viewStartDate, VIEW_DAYS-1))}</span>
+      ${selectedType    ? `<span class="text-xs bg-slate-100 text-slate-600 rounded px-2 py-0.5">${escHtml(selectedType)}</span>` : ''}
+      ${selectedVariety ? `<span class="text-xs bg-slate-100 text-slate-600 rounded px-2 py-0.5">${escHtml(selectedVariety)}</span>` : ''}
+      <span class="text-xs text-gray-400">${dateStr(viewStartDate)} 〜 ${dateStr(addDays(viewStartDate,VIEW_DAYS-1))}</span>
     </div>
     <div class="gantt-wrap">
       <table class="gantt-table">
         <thead>
-          <tr>
-            <th class="gantt-label-header">工程名</th>
-            ${monthCells}
-          </tr>
-          <tr>
-            <th class="gantt-label-header" style="font-size:10px;color:#9ca3af">クリックで編集</th>
-            ${dayHeads}
-          </tr>
+          <tr><th class="gantt-label-header">工程名</th>${monthCells}</tr>
+          <tr><th class="gantt-label-header" style="font-size:10px;color:#9ca3af">クリックで編集</th>${dayHeads}</tr>
         </thead>
-        <tbody>
-          ${taskRows}
-        </tbody>
+        <tbody>${taskRows}</tbody>
       </table>
     </div>`;
+}
+
+// ============================================================
+// Excel取り込み
+// ============================================================
+function openImport() {
+  // 顧客セレクト
+  const sel = document.getElementById('import-customer');
+  sel.innerHTML = customers.map(c =>
+    `<option value="${c.id}" ${c.id===selectedCustomerId?'selected':''}>${escHtml(c.name)}</option>`
+  ).join('');
+  document.getElementById('import-mapping-section').classList.add('hidden');
+  document.getElementById('import-paste-area').value = '';
+  document.getElementById('import-msg').textContent = '';
+  switchImportTab('file');
+  document.getElementById('modal-import').classList.remove('hidden');
+}
+
+function switchImportTab(tab) {
+  document.getElementById('import-panel-file').classList.toggle('hidden', tab!=='file');
+  document.getElementById('import-panel-paste').classList.toggle('hidden', tab!=='paste');
+  document.getElementById('itab-file').className  = (tab==='file'  ? 'tab-active' : 'tab-inactive') + ' text-xs font-bold px-4 py-2 rounded-lg transition flex items-center gap-1.5';
+  document.getElementById('itab-paste').className = (tab==='paste' ? 'tab-active' : 'tab-inactive') + ' text-xs font-bold px-4 py-2 rounded-lg transition flex items-center gap-1.5';
+}
+
+function handleFileDrop(e) {
+  e.preventDefault();
+  document.getElementById('import-drop-area').classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if (file) processFile(file);
+}
+function handleFileSelect(e) {
+  const file = e.target.files[0];
+  if (file) processFile(file);
+}
+function processFile(file) {
+  const ext = file.name.split('.').pop().toLowerCase();
+  const reader = new FileReader();
+  reader.onload = ev => {
+    try {
+      let rows;
+      if (ext === 'csv') {
+        rows = parseCSV(ev.target.result);
+      } else {
+        const wb = XLSX.read(ev.target.result, { type:'binary', cellDates:true });
+        const ws = wb.Sheets[wb.SheetNames[0]];
+        rows = XLSX.utils.sheet_to_json(ws, { header:1, raw:false, dateNF:'yyyy-mm-dd' });
+      }
+      processRows(rows);
+    } catch(err) { showToast('読み込みエラー: ' + err.message); }
+  };
+  if (ext==='csv') reader.readAsText(file, 'UTF-8');
+  else             reader.readAsBinaryString(file);
+}
+
+function parsePastedData() {
+  const text = document.getElementById('import-paste-area').value;
+  if (!text.trim()) { showToast('データを貼り付けてください'); return; }
+  const rows = text.trim().split('\n').map(line => line.split('\t'));
+  processRows(rows);
+}
+
+function parseCSV(text) {
+  return text.trim().split('\n').map(line => {
+    const cols = [];
+    let cur='', inQ=false;
+    for (const ch of line) {
+      if (ch==='"') { inQ=!inQ; continue; }
+      if (ch===','&&!inQ) { cols.push(cur); cur=''; continue; }
+      cur+=ch;
+    }
+    cols.push(cur);
+    return cols;
+  });
+}
+
+// 列名 → フィールド のマッピング辞書
+const COL_MAP = {
+  item_name:  ['工程名','作業名','品目','タスク','item_name','task','name','工程'],
+  type:       ['種類','種別','カテゴリ','category','type','加工種類'],
+  variety:    ['品種','品番','品目コード','variety','product','品名'],
+  start_date: ['開始日','着手日','開始','start','start_date','開始予定','納期開始'],
+  end_date:   ['終了日','完了日','納期','終了','end','end_date','納期日','完了予定'],
+  status:     ['ステータス','状態','進捗','status','state'],
+  memo:       ['メモ','備考','注記','memo','note','remarks'],
+};
+
+function detectMapping(headers) {
+  const mapping = {};
+  headers.forEach((h, i) => {
+    const hn = String(h).trim().toLowerCase();
+    for (const [field, aliases] of Object.entries(COL_MAP)) {
+      if (aliases.some(a => a.toLowerCase() === hn) && !(field in mapping)) {
+        mapping[field] = i;
+      }
+    }
+  });
+  return mapping;
+}
+
+function processRows(rows) {
+  if (!rows || rows.length < 2) { showToast('データが少なすぎます（ヘッダー行＋1行以上が必要）'); return; }
+  importHeaders = rows[0].map(h => String(h||'').trim());
+  importRows    = rows.slice(1).filter(r => r.some(c => c !== '' && c !== null && c !== undefined));
+  importMapping = detectMapping(importHeaders);
+  renderImportMappingUI();
+  renderImportPreview();
+  document.getElementById('import-mapping-section').classList.remove('hidden');
+}
+
+function renderImportMappingUI() {
+  const fields = [
+    { key:'item_name',  label:'工程名 *' },
+    { key:'type',       label:'種類' },
+    { key:'variety',    label:'品種' },
+    { key:'start_date', label:'開始日 *' },
+    { key:'end_date',   label:'終了日 *' },
+    { key:'status',     label:'ステータス' },
+    { key:'memo',       label:'メモ' },
+  ];
+  document.getElementById('import-mapping-grid').innerHTML = fields.map(f => {
+    const opts = [['', '（なし）'], ...importHeaders.map((h,i) => [i, h])];
+    const val  = importMapping[f.key] !== undefined ? importMapping[f.key] : '';
+    return `<div>
+      <label class="text-xs font-semibold text-gray-600 block mb-1">${f.label}</label>
+      <select onchange="importMapping['${f.key}']=this.value===''?undefined:parseInt(this.value);renderImportPreview()"
+        class="w-full border border-gray-200 rounded-lg px-2 py-1.5 text-xs bg-white focus:outline-none focus:ring-1 focus:ring-emerald-400">
+        ${opts.map(([v,t]) => `<option value="${v}" ${String(v)===String(val)?'selected':''}>${escHtml(String(t))}</option>`).join('')}
+      </select>
+    </div>`;
+  }).join('');
+}
+
+function normalizeDate(val) {
+  if (!val) return '';
+  const s = String(val).trim();
+  // YYYY/MM/DD or YYYY-MM-DD
+  const m1 = s.match(/^(\d{4})[\/\-](\d{1,2})[\/\-](\d{1,2})/);
+  if (m1) return `${m1[1]}-${m1[2].padStart(2,'0')}-${m1[3].padStart(2,'0')}`;
+  // MM/DD/YYYY
+  const m2 = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/);
+  if (m2) return `${m2[3]}-${m2[1].padStart(2,'0')}-${m2[2].padStart(2,'0')}`;
+  // Excelシリアル値
+  if (/^\d{4,5}$/.test(s)) {
+    const d = new Date(Math.round((parseInt(s) - 25569) * 86400 * 1000));
+    if (!isNaN(d)) return d.toISOString().slice(0,10);
+  }
+  return s;
+}
+
+function normalizeStatus(val) {
+  const s = String(val||'').trim();
+  if (/完了|done|finish/i.test(s)) return 'done';
+  if (/進行|作業中|in.?progress|wip/i.test(s)) return 'in_progress';
+  return 'pending';
+}
+
+function getCell(row, field) {
+  const idx = importMapping[field];
+  if (idx === undefined || idx === '') return '';
+  return String(row[idx] || '').trim();
+}
+
+function renderImportPreview() {
+  const previewRows = importRows.slice(0,5);
+  document.getElementById('preview-count').textContent = `（全${importRows.length}行、先頭5行プレビュー）`;
+
+  const dispFields = ['item_name','type','variety','start_date','end_date','status','memo'];
+  const dispLabels = ['工程名','種類','品種','開始日','終了日','ステータス','メモ'];
+
+  document.getElementById('preview-thead').innerHTML =
+    `<tr>${dispLabels.map(l=>`<th class="px-3 py-2 text-left border-b border-gray-200">${l}</th>`).join('')}</tr>`;
+
+  document.getElementById('preview-tbody').innerHTML = previewRows.map(row => {
+    const cells = dispFields.map(f => {
+      let v = getCell(row, f);
+      if (f==='start_date'||f==='end_date') v = normalizeDate(v);
+      if (f==='status') v = normalizeStatus(v)==='done'?'完了':normalizeStatus(v)==='in_progress'?'進行中':'予定';
+      return `<td class="px-3 py-1.5 border-b border-gray-100">${escHtml(v||'—')}</td>`;
+    }).join('');
+    return `<tr class="hover:bg-gray-50">${cells}</tr>`;
+  }).join('');
+}
+
+async function executeImport() {
+  const customerId = parseInt(document.getElementById('import-customer').value);
+  const maxId = tasks.length > 0 ? Math.max(...tasks.map(t=>t.id)) : 0;
+  let count = 0, skipped = 0;
+
+  importRows.forEach((row, idx) => {
+    const itemName  = getCell(row, 'item_name');
+    const startDate = normalizeDate(getCell(row, 'start_date'));
+    const endDate   = normalizeDate(getCell(row, 'end_date'));
+    if (!itemName || !startDate || !endDate) { skipped++; return; }
+    tasks.push({
+      id:          maxId + idx + 1,
+      customer_id: customerId,
+      type:        getCell(row, 'type'),
+      variety:     getCell(row, 'variety'),
+      item_name:   itemName,
+      start_date:  startDate,
+      end_date:    endDate,
+      status:      normalizeStatus(getCell(row, 'status')),
+      memo:        getCell(row, 'memo'),
+    });
+    count++;
+  });
+
+  saveLocal();
+  selectedCustomerId = customerId;
+  selectedType = null;
+  selectedVariety = null;
+  renderAll();
+
+  document.getElementById('import-msg').textContent = `✅ ${count}件取り込み完了${skipped?`（${skipped}件スキップ）`:''}`;
+  showToast(`${count}件の工程を取り込みました`);
+
+  // GAS同期
+  const gasUrl = localStorage.getItem('bt_gantt_gas_url');
+  if (gasUrl && count > 0) showToast('GAS同期は「↻ 同期」ボタンで手動で行ってください');
 }
 
 // ============================================================
@@ -650,17 +1063,16 @@ function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
 function showToast(msg) {
   const t = document.getElementById('toast');
   document.getElementById('toast-msg').textContent = msg;
-  t.style.opacity = '1';
-  setTimeout(() => t.style.opacity = '0', 2200);
+  t.style.opacity='1';
+  setTimeout(()=>t.style.opacity='0', 2400);
 }
-
 function escHtml(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
 // モーダル外クリックで閉じる
 document.querySelectorAll('[id^="modal-"]').forEach(el => {
-  el.addEventListener('click', e => { if (e.target === el) el.classList.add('hidden'); });
+  el.addEventListener('click', e => { if (e.target===el) el.classList.add('hidden'); });
 });
 </script>
 </body>

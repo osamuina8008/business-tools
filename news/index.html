@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ニュース・スケジュール ダッシュボード</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+    body { font-family: 'Noto Sans JP', sans-serif; }
+    .card-hover { transition: transform 0.15s, box-shadow 0.15s; }
+    .card-hover:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+    .fade-in { animation: fadeIn 0.4s ease; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+    .spinner { animation: spin 0.8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .source-tag { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; }
+    mark { background: #fef08a; padding: 0 2px; border-radius: 2px; }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="../index.html" class="text-gray-400 hover:text-gray-600 text-sm">← ツール一覧</a>
+        <span class="text-gray-300">|</span>
+        <h1 class="text-lg font-bold text-gray-800">ニュース ダッシュボード</h1>
+      </div>
+      <div class="flex items-center gap-2">
+        <span id="last-updated" class="text-xs text-gray-400"></span>
+        <button onclick="refreshAll()" id="refresh-btn"
+          class="flex items-center gap-1.5 text-sm text-gray-600 hover:text-blue-600 border border-gray-200 rounded-lg px-3 py-1.5 hover:bg-blue-50 transition">
+          <svg id="refresh-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+          </svg>
+          更新
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-5">
+
+    <!-- ===== ニュースセクション ===== -->
+    <section id="news-section">
+
+      <!-- Source Filter Buttons -->
+      <div class="flex flex-wrap gap-2 mb-5">
+        <button onclick="filterSource('all')" data-src="all"
+          class="src-btn active px-4 py-2 rounded-xl text-sm font-semibold bg-blue-600 text-white transition">
+          すべて
+        </button>
+        <button onclick="filterSource('nikkan')" data-src="nikkan"
+          class="src-btn px-4 py-2 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-orange-400 hover:text-orange-600 transition">
+          📰 日刊工業新聞
+        </button>
+        <button onclick="filterSource('monoist')" data-src="monoist"
+          class="src-btn px-4 py-2 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-blue-400 hover:text-blue-600 transition">
+          🔧 MONOist
+        </button>
+        <button onclick="filterSource('meti')" data-src="meti"
+          class="src-btn px-4 py-2 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-green-400 hover:text-green-600 transition">
+          🏛 経産省
+        </button>
+        <button onclick="filterSource('fabcross')" data-src="fabcross"
+          class="src-btn px-4 py-2 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-purple-400 hover:text-purple-600 transition">
+          ⚙️ fabcross
+        </button>
+        <!-- キーワードフィルター -->
+        <div class="ml-auto flex items-center gap-2">
+          <input id="keyword-filter" type="text" placeholder="キーワード絞り込み"
+            oninput="applyKeywordFilter()"
+            class="border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 w-40" />
+        </div>
+      </div>
+
+      <!-- News Grid -->
+      <div id="news-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+        <!-- Loading -->
+        <div id="loading-state" class="col-span-3 flex flex-col items-center justify-center py-16 text-gray-400">
+          <svg class="spinner w-8 h-8 mb-3 text-blue-400" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
+          </svg>
+          <p class="text-sm">ニュースを取得中...</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ===== スケジュールセクション（今後追加予定）===== -->
+    <section id="schedule-section" class="mt-4">
+      <div class="bg-white rounded-2xl border border-dashed border-gray-200 p-6 text-center text-gray-400">
+        <svg class="w-10 h-10 mx-auto mb-2 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+        </svg>
+        <p class="text-sm font-semibold">スケジュール（準備中）</p>
+        <p class="text-xs mt-1">Google Calendarと連携予定</p>
+      </div>
+    </section>
+
+  </main>
+
+<script>
+// ===== RSS ソース定義 =====
+const SOURCES = [
+  {
+    id: 'nikkan',
+    name: '日刊工業新聞',
+    color: 'bg-orange-100 text-orange-700',
+    rss: 'https://www.nikkan.co.jp/rss/news.rss',
+  },
+  {
+    id: 'monoist',
+    name: 'MONOist',
+    color: 'bg-blue-100 text-blue-700',
+    rss: 'https://monoist.itmedia.co.jp/mn/rss/',
+  },
+  {
+    id: 'meti',
+    name: '経産省',
+    color: 'bg-green-100 text-green-700',
+    rss: 'https://www.meti.go.jp/feed/press.rss',
+  },
+  {
+    id: 'fabcross',
+    name: 'fabcross',
+    color: 'bg-purple-100 text-purple-700',
+    rss: 'https://fabcross.jp/rss.xml',
+  },
+];
+
+// 金属加工業 関連キーワード（自動ハイライト）
+const METAL_KEYWORDS = ['金属', '加工', '切削', 'プレス', '溶接', '金型', '表面処理', 'めっき', '鋳造', '鍛造', '板金', 'CNC', 'NC旋盤', 'マシニング', '工作機械', '精密加工', 'アルミ', 'ステンレス', '鉄鋼', 'チタン'];
+
+let allItems = [];
+let currentSource = 'all';
+
+// ===== RSS取得 =====
+async function fetchRSS(source) {
+  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(source.rss)}&count=15`;
+  try {
+    const res = await fetch(apiUrl);
+    if (!res.ok) throw new Error('fetch failed');
+    const data = await res.json();
+    if (data.status !== 'ok') throw new Error('rss error');
+    return data.items.map(item => ({
+      sourceId: source.id,
+      sourceName: source.name,
+      sourceColor: source.color,
+      title: item.title || '',
+      link: item.link || '',
+      pubDate: item.pubDate ? new Date(item.pubDate) : new Date(),
+      description: (item.description || '').replace(/<[^>]*>/g, '').substring(0, 120),
+    }));
+  } catch (e) {
+    console.warn(`Failed: ${source.name}`, e);
+    return [];
+  }
+}
+
+// ===== キーワードハイライト =====
+function highlightKeywords(text) {
+  let result = escapeHtml(text);
+  METAL_KEYWORDS.forEach(kw => {
+    result = result.replace(new RegExp(kw, 'g'), `<mark>${kw}</mark>`);
+  });
+  return result;
+}
+function escapeHtml(str) {
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ===== 日付フォーマット =====
+function formatDate(d) {
+  if (!d || isNaN(d)) return '';
+  const now = new Date();
+  const diff = Math.floor((now - d) / 60000);
+  if (diff < 60) return `${diff}分前`;
+  if (diff < 1440) return `${Math.floor(diff/60)}時間前`;
+  return `${d.getMonth()+1}/${d.getDate()}`;
+}
+
+// ===== カード描画 =====
+function renderCards(items) {
+  const grid = document.getElementById('news-grid');
+  grid.innerHTML = '';
+
+  if (items.length === 0) {
+    grid.innerHTML = `<div class="col-span-3 text-center py-12 text-gray-400 text-sm">
+      該当するニュースが見つかりませんでした。
+    </div>`;
+    return;
+  }
+
+  items.forEach(item => {
+    const card = document.createElement('a');
+    card.href = item.link;
+    card.target = '_blank';
+    card.rel = 'noopener noreferrer';
+    card.className = 'bg-white rounded-2xl border border-gray-200 p-4 flex flex-col gap-2 card-hover fade-in no-underline';
+    card.innerHTML = `
+      <div class="flex items-center justify-between">
+        <span class="source-tag ${item.sourceColor}">${item.sourceName}</span>
+        <span class="text-xs text-gray-400">${formatDate(item.pubDate)}</span>
+      </div>
+      <p class="text-sm font-semibold text-gray-800 leading-snug line-clamp-3">${highlightKeywords(item.title)}</p>
+      <p class="text-xs text-gray-500 leading-relaxed line-clamp-2">${highlightKeywords(item.description)}</p>
+      <div class="mt-auto pt-1 text-xs text-blue-500 font-medium">続きを読む →</div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+// ===== フィルター =====
+function filterSource(srcId) {
+  currentSource = srcId;
+  document.querySelectorAll('.src-btn').forEach(b => {
+    const isActive = b.dataset.src === srcId;
+    b.className = isActive
+      ? 'src-btn active px-4 py-2 rounded-xl text-sm font-semibold bg-blue-600 text-white transition'
+      : 'src-btn px-4 py-2 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-blue-400 hover:text-blue-600 transition';
+  });
+  applyKeywordFilter();
+}
+
+function applyKeywordFilter() {
+  const kw = document.getElementById('keyword-filter').value.trim().toLowerCase();
+  let items = currentSource === 'all' ? allItems : allItems.filter(i => i.sourceId === currentSource);
+  if (kw) {
+    items = items.filter(i =>
+      i.title.toLowerCase().includes(kw) || i.description.toLowerCase().includes(kw)
+    );
+  }
+  renderCards(items);
+}
+
+// ===== 全件取得 =====
+async function refreshAll() {
+  const btn = document.getElementById('refresh-btn');
+  const icon = document.getElementById('refresh-icon');
+  btn.disabled = true;
+  icon.classList.add('spinner');
+
+  document.getElementById('news-grid').innerHTML = `
+    <div id="loading-state" class="col-span-3 flex flex-col items-center justify-center py-16 text-gray-400">
+      <svg class="spinner w-8 h-8 mb-3 text-blue-400" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
+      </svg>
+      <p class="text-sm">ニュースを取得中...</p>
+    </div>`;
+
+  const results = await Promise.all(SOURCES.map(s => fetchRSS(s)));
+  allItems = results.flat().sort((a, b) => b.pubDate - a.pubDate);
+
+  const now = new Date();
+  document.getElementById('last-updated').textContent =
+    `最終更新: ${now.getHours()}:${String(now.getMinutes()).padStart(2,'0')}`;
+
+  applyKeywordFilter();
+  btn.disabled = false;
+  icon.classList.remove('spinner');
+}
+
+// 初回ロード
+refreshAll();
+</script>
+</body>
+</html>

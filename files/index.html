@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ファイル整理ツール</title>
+  <link rel="manifest" href="../manifest.json" />
+  <link rel="apple-touch-icon" href="../icon-192.png" />
+  <meta name="theme-color" content="#eab308" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="ファイル整理" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+    body { font-family: 'Noto Sans JP', sans-serif; }
+    .spinner { animation: spin 0.8s linear infinite; display: inline-block; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .fade-in { animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
+    .toast-enter { animation: toastIn 0.3s ease forwards; }
+    .toast-exit { animation: toastOut 0.3s ease forwards; }
+    @keyframes toastIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes toastOut { from { opacity:1; transform:translateY(0); } to { opacity:0; transform:translateY(16px); } }
+    .rule-card { transition: box-shadow 0.15s; }
+    .rule-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .progress-bar { transition: width 0.2s ease; }
+    .step-active .step-num { background: #eab308; color: white; }
+    .step-done .step-num { background: #22c55e; color: white; }
+    tr.selected-row { background-color: #fefce8; }
+    .toggle-bg { transition: background 0.2s; }
+    details > summary { list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+  <!-- Toast container -->
+  <div id="toast-container" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-2 pointer-events-none"></div>
+
+  <!-- Header -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-10">
+    <div class="max-w-4xl mx-auto px-4 py-3 flex items-center gap-3">
+      <a href="../index.html" class="text-gray-400 hover:text-yellow-500 text-sm transition-colors">← 一覧</a>
+      <span class="text-gray-300">|</span>
+      <h1 class="text-lg font-bold text-gray-800">ファイル整理</h1>
+      <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full font-medium">Chrome専用</span>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-6 space-y-5">
+
+    <!-- API check banner -->
+    <div id="api-banner" class="hidden bg-red-50 border border-red-200 rounded-2xl p-4 text-sm text-red-700">
+      ⚠️ このブラウザは File System Access API に非対応です。<strong>Chrome または Edge</strong> をお使いください。
+    </div>
+
+    <!-- ===== STEP 1: フォルダ選択 ===== -->
+    <section class="bg-white rounded-2xl border border-gray-200 shadow-sm p-5 fade-in">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="step-num w-7 h-7 rounded-full bg-yellow-400 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">1</span>
+        <h2 class="text-base font-bold text-gray-800">フォルダ選択</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <!-- Source -->
+        <div>
+          <p class="text-xs text-gray-500 mb-1.5 font-medium">整理するフォルダ（移動元）</p>
+          <button id="btn-src" onclick="pickSourceFolder()"
+            class="w-full flex items-center gap-2 border-2 border-dashed border-gray-300 rounded-xl px-4 py-3 text-sm text-gray-600 hover:border-yellow-400 hover:text-yellow-600 transition-colors font-medium">
+            <span class="text-lg">📂</span> 整理するフォルダを選択
+          </button>
+          <p id="src-name" class="text-xs text-gray-400 mt-1 truncate hidden"></p>
+        </div>
+        <!-- Destination -->
+        <div>
+          <p class="text-xs text-gray-500 mb-1.5 font-medium">整理先フォルダ（移動先ルート）</p>
+          <button id="btn-dst" onclick="pickDestFolder()"
+            class="w-full flex items-center gap-2 border-2 border-dashed border-gray-300 rounded-xl px-4 py-3 text-sm text-gray-600 hover:border-yellow-400 hover:text-yellow-600 transition-colors font-medium">
+            <span class="text-lg">📁</span> 整理先フォルダを選択
+          </button>
+          <p id="dst-name" class="text-xs text-gray-400 mt-1 truncate hidden"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STEP 2: ルール設定 ===== -->
+    <section class="bg-white rounded-2xl border border-gray-200 shadow-sm p-5 fade-in">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-3">
+          <span class="step-num w-7 h-7 rounded-full bg-yellow-400 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">2</span>
+          <h2 class="text-base font-bold text-gray-800">ルール設定</h2>
+        </div>
+        <div class="flex gap-2">
+          <button onclick="resetRules()"
+            class="text-xs text-gray-400 hover:text-gray-600 px-2 py-1 rounded-lg transition-colors">
+            デフォルトに戻す
+          </button>
+          <button onclick="openAddRuleForm()"
+            class="text-xs bg-yellow-400 hover:bg-yellow-500 text-white font-bold px-3 py-1.5 rounded-xl transition-colors">
+            ＋ ルールを追加
+          </button>
+        </div>
+      </div>
+
+      <!-- Rule list -->
+      <div id="rule-list" class="space-y-2"></div>
+
+      <!-- Add rule inline form -->
+      <div id="add-rule-form" class="hidden mt-3 p-4 bg-gray-50 rounded-xl border border-gray-200">
+        <p class="text-sm font-semibold text-gray-700 mb-3">新しいルールを追加</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
+          <div>
+            <label class="text-xs text-gray-500 mb-1 block">ルール名 *</label>
+            <input id="new-rule-name" type="text" placeholder="例: PowerPoint"
+              class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-300" />
+          </div>
+          <div>
+            <label class="text-xs text-gray-500 mb-1 block">保存先フォルダ名 *</label>
+            <input id="new-rule-folder" type="text" placeholder="例: プレゼン資料"
+              class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-300" />
+          </div>
+          <div>
+            <label class="text-xs text-gray-500 mb-1 block">拡張子（カンマ区切り）</label>
+            <input id="new-rule-exts" type="text" placeholder="例: pptx, ppt"
+              class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-300" />
+          </div>
+          <div>
+            <label class="text-xs text-gray-500 mb-1 block">キーワード（カンマ区切り）</label>
+            <input id="new-rule-keywords" type="text" placeholder="例: 提案書, proposal"
+              class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-300" />
+          </div>
+        </div>
+        <div class="flex gap-2 justify-end">
+          <button onclick="closeAddRuleForm()"
+            class="text-sm px-4 py-2 rounded-xl border border-gray-200 text-gray-600 hover:bg-gray-100 transition-colors">
+            キャンセル
+          </button>
+          <button onclick="addRule()"
+            class="text-sm px-4 py-2 rounded-xl bg-yellow-400 hover:bg-yellow-500 text-white font-bold transition-colors">
+            追加する
+          </button>
+        </div>
+      </div>
+
+      <p class="text-xs text-gray-400 mt-3">※ルールは上から順に適用されます。「その他」は必ず最後に適用されます。</p>
+    </section>
+
+    <!-- ===== STEP 3: ファイル一覧 ===== -->
+    <section class="bg-white rounded-2xl border border-gray-200 shadow-sm p-5 fade-in">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-3">
+          <span class="step-num w-7 h-7 rounded-full bg-yellow-400 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">3</span>
+          <h2 class="text-base font-bold text-gray-800">ファイル一覧</h2>
+        </div>
+        <button id="btn-scan" onclick="scanFiles()"
+          class="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white text-sm font-bold px-4 py-2 rounded-xl transition-colors">
+          <span id="scan-spinner" class="hidden spinner">⟳</span>
+          ファイルを確認する
+        </button>
+      </div>
+
+      <!-- File table -->
+      <div id="file-table-wrap" class="hidden">
+        <div class="flex items-center gap-2 mb-2">
+          <button onclick="selectAll(true)"
+            class="text-xs px-3 py-1 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium transition-colors">全選択</button>
+          <button onclick="selectAll(false)"
+            class="text-xs px-3 py-1 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium transition-colors">全解除</button>
+          <span id="selected-count" class="text-xs text-gray-400 ml-2"></span>
+        </div>
+        <div class="overflow-x-auto rounded-xl border border-gray-100">
+          <table class="w-full text-sm">
+            <thead class="bg-gray-50">
+              <tr>
+                <th class="px-3 py-2 text-left w-8">
+                  <input type="checkbox" id="check-all" onchange="selectAll(this.checked)"
+                    class="rounded border-gray-300 text-yellow-400 focus:ring-yellow-300" />
+                </th>
+                <th class="px-3 py-2 text-left text-xs font-semibold text-gray-500">ファイル名</th>
+                <th class="px-3 py-2 text-left text-xs font-semibold text-gray-500">種類</th>
+                <th class="px-3 py-2 text-left text-xs font-semibold text-gray-500">整理先フォルダ</th>
+                <th class="px-3 py-2 text-left text-xs font-semibold text-gray-500">更新日</th>
+              </tr>
+            </thead>
+            <tbody id="file-tbody"></tbody>
+          </table>
+        </div>
+        <p id="no-files-msg" class="hidden text-center text-sm text-gray-400 py-6">ファイルが見つかりませんでした</p>
+      </div>
+
+      <div id="file-placeholder" class="text-sm text-gray-400 text-center py-8">
+        フォルダを選択して「ファイルを確認する」をクリックしてください
+      </div>
+    </section>
+
+    <!-- ===== STEP 4: 実行 ===== -->
+    <section class="bg-white rounded-2xl border border-gray-200 shadow-sm p-5 fade-in">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="step-num w-7 h-7 rounded-full bg-yellow-400 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">4</span>
+        <h2 class="text-base font-bold text-gray-800">実行</h2>
+      </div>
+
+      <!-- Progress -->
+      <div id="progress-wrap" class="hidden mb-4">
+        <div class="flex justify-between text-xs text-gray-500 mb-1">
+          <span id="progress-label">処理中...</span>
+          <span id="progress-pct">0%</span>
+        </div>
+        <div class="w-full h-3 bg-gray-100 rounded-full overflow-hidden">
+          <div id="progress-bar" class="progress-bar h-full bg-yellow-400 rounded-full" style="width:0%"></div>
+        </div>
+      </div>
+
+      <!-- Result -->
+      <div id="result-wrap" class="hidden mb-4 p-3 bg-green-50 rounded-xl border border-green-200">
+        <p id="result-msg" class="text-sm text-green-700 font-medium"></p>
+        <ul id="error-list" class="mt-2 space-y-1 text-xs text-red-600 hidden"></ul>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button id="btn-execute" onclick="executeOrganize()"
+          class="flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-white text-sm font-bold px-6 py-3 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+          <span id="exec-spinner" class="hidden spinner">⟳</span>
+          選択したファイルを整理
+        </button>
+        <p class="text-xs text-gray-400">※ファイルは移動先フォルダへコピー後、元フォルダから削除されます</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+  // ==========================================
+  // Constants & State
+  // ==========================================
+  const LS_KEY = 'bt_file_rules';
+
+  const RULE_COLORS = [
+    { bg: 'bg-blue-50', text: 'text-blue-700', badge: 'bg-blue-100' },
+    { bg: 'bg-green-50', text: 'text-green-700', badge: 'bg-green-100' },
+    { bg: 'bg-purple-50', text: 'text-purple-700', badge: 'bg-purple-100' },
+    { bg: 'bg-orange-50', text: 'text-orange-700', badge: 'bg-orange-100' },
+    { bg: 'bg-pink-50', text: 'text-pink-700', badge: 'bg-pink-100' },
+    { bg: 'bg-cyan-50', text: 'text-cyan-700', badge: 'bg-cyan-100' },
+    { bg: 'bg-indigo-50', text: 'text-indigo-700', badge: 'bg-indigo-100' },
+    { bg: 'bg-teal-50', text: 'text-teal-700', badge: 'bg-teal-100' },
+    { bg: 'bg-gray-50', text: 'text-gray-600', badge: 'bg-gray-100' },
+  ];
+
+  const DEFAULT_RULES = [
+    { id: 1, name: 'スキャンデータ', exts: ['pdf'], keywords: ['scan', 'スキャン'], folder: 'スキャンデータ', enabled: true },
+    { id: 2, name: '見積書・注文書', exts: ['xlsx', 'xls'], keywords: ['見積', '注文', 'quote'], folder: '見積書', enabled: true },
+    { id: 3, name: 'Word文書', exts: ['doc', 'docx'], keywords: [], folder: '文書', enabled: true },
+    { id: 4, name: '画像', exts: ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'tif', 'tiff'], keywords: [], folder: '画像', enabled: true },
+    { id: 5, name: 'その他', exts: [], keywords: [], folder: 'その他', enabled: true },
+  ];
+
+  let srcDir = null;
+  let dstDir = null;
+  let rules = [];
+  let scannedFiles = []; // [{handle, name, ext, lastModified, ruleIdx}]
+  let nextId = 100;
+
+  // ==========================================
+  // Init
+  // ==========================================
+  document.addEventListener('DOMContentLoaded', () => {
+    // API support check
+    if (!('showDirectoryPicker' in window)) {
+      document.getElementById('api-banner').classList.remove('hidden');
+    }
+    loadRules();
+    renderRules();
+  });
+
+  // ==========================================
+  // Rules Management
+  // ==========================================
+  function loadRules() {
+    try {
+      const saved = localStorage.getItem(LS_KEY);
+      if (saved) {
+        rules = JSON.parse(saved);
+        // Ensure nextId is higher than any existing id
+        nextId = Math.max(...rules.map(r => r.id), 99) + 1;
+        return;
+      }
+    } catch(e) {}
+    rules = JSON.parse(JSON.stringify(DEFAULT_RULES));
+    nextId = 100;
+  }
+
+  function saveRules() {
+    localStorage.setItem(LS_KEY, JSON.stringify(rules));
+  }
+
+  function resetRules() {
+    if (!confirm('ルールをデフォルトに戻しますか？現在のルールは削除されます。')) return;
+    rules = JSON.parse(JSON.stringify(DEFAULT_RULES));
+    nextId = 100;
+    saveRules();
+    renderRules();
+    showToast('ルールをデフォルトに戻しました', 'info');
+  }
+
+  function getRuleColor(idx) {
+    return RULE_COLORS[idx % RULE_COLORS.length];
+  }
+
+  function renderRules() {
+    const list = document.getElementById('rule-list');
+    if (rules.length === 0) {
+      list.innerHTML = '<p class="text-sm text-gray-400 text-center py-4">ルールがありません</p>';
+      return;
+    }
+
+    list.innerHTML = rules.map((rule, idx) => {
+      const color = getRuleColor(idx);
+      const extStr = rule.exts.length > 0 ? rule.exts.map(e => `.${e}`).join(', ') : '（すべて）';
+      const kwStr = rule.keywords.length > 0 ? rule.keywords.join(', ') : '—';
+      const isFallback = rule.exts.length === 0 && rule.keywords.length === 0;
+
+      return `
+        <div class="rule-card flex items-start gap-3 p-3 rounded-xl border ${rule.enabled ? 'border-gray-200 bg-white' : 'border-gray-100 bg-gray-50 opacity-60'}" data-rule-id="${rule.id}">
+          <!-- Drag handle / order indicator -->
+          <span class="text-xs font-bold text-gray-300 mt-0.5 w-5 text-center flex-shrink-0">${idx + 1}</span>
+
+          <!-- Color dot -->
+          <span class="w-3 h-3 rounded-full mt-1.5 flex-shrink-0 ${color.badge.replace('bg-', 'bg-')} ring-1 ring-inset ring-gray-200"
+            style="background-color: ${getColorHex(idx)}"></span>
+
+          <!-- Info -->
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="text-sm font-semibold text-gray-800">${escHtml(rule.name)}</span>
+              ${isFallback ? '<span class="text-xs bg-gray-100 text-gray-500 px-1.5 py-0.5 rounded font-medium">フォールバック</span>' : ''}
+            </div>
+            <div class="flex items-center gap-3 mt-1 flex-wrap text-xs text-gray-500">
+              <span>拡張子: <span class="font-medium text-gray-700">${escHtml(extStr)}</span></span>
+              <span>キーワード: <span class="font-medium text-gray-700">${escHtml(kwStr)}</span></span>
+              <span class="flex items-center gap-1">
+                → <span class="font-medium text-gray-700">${escHtml(rule.folder)}</span>
+                ${rule.name === 'スキャンデータ' ? '<span class="text-yellow-600 font-medium">(年月別)</span>' : ''}
+              </span>
+            </div>
+          </div>
+
+          <!-- Toggle + Delete -->
+          <div class="flex items-center gap-2 flex-shrink-0">
+            <button onclick="toggleRule(${rule.id})"
+              class="relative inline-flex h-5 w-9 items-center rounded-full transition-colors ${rule.enabled ? 'bg-yellow-400' : 'bg-gray-200'}"
+              title="${rule.enabled ? '無効にする' : '有効にする'}">
+              <span class="inline-block h-4 w-4 rounded-full bg-white shadow transition-transform ${rule.enabled ? 'translate-x-4' : 'translate-x-0.5'}"></span>
+            </button>
+            ${!isFallback || rule.name !== 'その他' ? `
+            <button onclick="deleteRule(${rule.id})"
+              class="text-gray-300 hover:text-red-400 transition-colors text-lg leading-none"
+              title="削除">×</button>
+            ` : '<span class="w-6"></span>'}
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function getColorHex(idx) {
+    const colors = ['#bfdbfe','#bbf7d0','#e9d5ff','#fed7aa','#fbcfe8','#a5f3fc','#c7d2fe','#99f6e4','#f3f4f6'];
+    return colors[idx % colors.length];
+  }
+
+  function toggleRule(id) {
+    const rule = rules.find(r => r.id === id);
+    if (rule) {
+      rule.enabled = !rule.enabled;
+      saveRules();
+      renderRules();
+    }
+  }
+
+  function deleteRule(id) {
+    const rule = rules.find(r => r.id === id);
+    if (!rule) return;
+    if (!confirm(`「${rule.name}」ルールを削除しますか？`)) return;
+    rules = rules.filter(r => r.id !== id);
+    saveRules();
+    renderRules();
+    showToast('ルールを削除しました', 'info');
+  }
+
+  function openAddRuleForm() {
+    document.getElementById('add-rule-form').classList.remove('hidden');
+    document.getElementById('new-rule-name').focus();
+  }
+
+  function closeAddRuleForm() {
+    document.getElementById('add-rule-form').classList.add('hidden');
+    ['new-rule-name','new-rule-folder','new-rule-exts','new-rule-keywords'].forEach(id => {
+      document.getElementById(id).value = '';
+    });
+  }
+
+  function addRule() {
+    const name = document.getElementById('new-rule-name').value.trim();
+    const folder = document.getElementById('new-rule-folder').value.trim();
+    const extsRaw = document.getElementById('new-rule-exts').value.trim();
+    const kwRaw = document.getElementById('new-rule-keywords').value.trim();
+
+    if (!name) { showToast('ルール名を入力してください', 'error'); return; }
+    if (!folder) { showToast('保存先フォルダ名を入力してください', 'error'); return; }
+
+    const exts = extsRaw ? extsRaw.split(',').map(e => e.trim().toLowerCase().replace(/^\./, '')).filter(Boolean) : [];
+    const keywords = kwRaw ? kwRaw.split(',').map(k => k.trim()).filter(Boolean) : [];
+
+    // Insert before the last "その他" rule if it exists
+    const fallbackIdx = rules.findIndex(r => r.exts.length === 0 && r.keywords.length === 0 && r.name === 'その他');
+    const newRule = { id: nextId++, name, exts, keywords, folder, enabled: true };
+
+    if (fallbackIdx >= 0) {
+      rules.splice(fallbackIdx, 0, newRule);
+    } else {
+      rules.push(newRule);
+    }
+
+    saveRules();
+    renderRules();
+    closeAddRuleForm();
+    showToast(`「${name}」ルールを追加しました`, 'success');
+  }
+
+  // ==========================================
+  // Folder Pickers
+  // ==========================================
+  async function pickSourceFolder() {
+    if (!('showDirectoryPicker' in window)) {
+      alert('このブラウザは非対応です。ChromeまたはEdgeをお使いください。');
+      return;
+    }
+    try {
+      srcDir = await window.showDirectoryPicker({ mode: 'readwrite' });
+      const nameEl = document.getElementById('src-name');
+      nameEl.textContent = `📂 ${srcDir.name}`;
+      nameEl.classList.remove('hidden');
+      document.getElementById('btn-src').classList.remove('border-gray-300', 'text-gray-600');
+      document.getElementById('btn-src').classList.add('border-yellow-400', 'text-yellow-600', 'bg-yellow-50');
+      showToast(`移動元フォルダを選択: ${srcDir.name}`, 'success');
+    } catch(e) {
+      if (e.name !== 'AbortError') showToast('フォルダの選択に失敗しました', 'error');
+    }
+  }
+
+  async function pickDestFolder() {
+    if (!('showDirectoryPicker' in window)) {
+      alert('このブラウザは非対応です。ChromeまたはEdgeをお使いください。');
+      return;
+    }
+    try {
+      dstDir = await window.showDirectoryPicker({ mode: 'readwrite' });
+      const nameEl = document.getElementById('dst-name');
+      nameEl.textContent = `📁 ${dstDir.name}`;
+      nameEl.classList.remove('hidden');
+      document.getElementById('btn-dst').classList.remove('border-gray-300', 'text-gray-600');
+      document.getElementById('btn-dst').classList.add('border-yellow-400', 'text-yellow-600', 'bg-yellow-50');
+      showToast(`整理先フォルダを選択: ${dstDir.name}`, 'success');
+    } catch(e) {
+      if (e.name !== 'AbortError') showToast('フォルダの選択に失敗しました', 'error');
+    }
+  }
+
+  // ==========================================
+  // File Scanning
+  // ==========================================
+  async function scanFiles() {
+    if (!srcDir) { showToast('移動元フォルダを選択してください', 'error'); return; }
+
+    const spinner = document.getElementById('scan-spinner');
+    const btn = document.getElementById('btn-scan');
+    spinner.classList.remove('hidden');
+    btn.disabled = true;
+
+    scannedFiles = [];
+
+    try {
+      for await (const [name, handle] of srcDir.entries()) {
+        if (handle.kind !== 'file') continue;
+        if (name.startsWith('.')) continue; // skip hidden
+
+        const file = await handle.getFile();
+        const ext = getExt(name);
+        const ruleIdx = matchRule(name, ext);
+
+        scannedFiles.push({ handle, name, ext, lastModified: file.lastModified, ruleIdx });
+      }
+
+      renderFileTable();
+    } catch(e) {
+      showToast('ファイルの読み取りに失敗しました: ' + e.message, 'error');
+    } finally {
+      spinner.classList.add('hidden');
+      btn.disabled = false;
+    }
+  }
+
+  function getExt(name) {
+    const parts = name.split('.');
+    return parts.length > 1 ? parts[parts.length - 1].toLowerCase() : '';
+  }
+
+  function matchRule(name, ext) {
+    const nameLower = name.toLowerCase();
+    const enabledRules = rules.filter(r => r.enabled);
+
+    for (let i = 0; i < enabledRules.length; i++) {
+      const rule = enabledRules[i];
+      // Fallback rule (no exts, no keywords) matches everything
+      if (rule.exts.length === 0 && rule.keywords.length === 0) {
+        return rules.indexOf(rule);
+      }
+      // Check extension
+      if (rule.exts.length > 0 && rule.exts.includes(ext)) {
+        // If also has keywords, check them too
+        if (rule.keywords.length > 0) {
+          const hasKeyword = rule.keywords.some(kw => nameLower.includes(kw.toLowerCase()));
+          if (hasKeyword) return rules.indexOf(rule);
+          // Extension matched but keyword didn't — still match on extension alone
+          return rules.indexOf(rule);
+        }
+        return rules.indexOf(rule);
+      }
+      // Check keywords only (no ext requirement)
+      if (rule.exts.length === 0 && rule.keywords.length > 0) {
+        const hasKeyword = rule.keywords.some(kw => nameLower.includes(kw.toLowerCase()));
+        if (hasKeyword) return rules.indexOf(rule);
+      }
+    }
+
+    // No match — use last enabled rule or -1
+    const lastEnabled = [...rules].reverse().find(r => r.enabled);
+    return lastEnabled ? rules.indexOf(lastEnabled) : 0;
+  }
+
+  function renderFileTable() {
+    const wrap = document.getElementById('file-table-wrap');
+    const placeholder = document.getElementById('file-placeholder');
+    const tbody = document.getElementById('file-tbody');
+    const noMsg = document.getElementById('no-files-msg');
+
+    wrap.classList.remove('hidden');
+    placeholder.classList.add('hidden');
+
+    if (scannedFiles.length === 0) {
+      tbody.innerHTML = '';
+      noMsg.classList.remove('hidden');
+      updateSelectedCount();
+      return;
+    }
+    noMsg.classList.add('hidden');
+
+    tbody.innerHTML = scannedFiles.map((f, i) => {
+      const rule = rules[f.ruleIdx];
+      const color = getRuleColor(f.ruleIdx);
+      const destFolder = getDestFolder(f);
+      const date = new Date(f.lastModified).toLocaleDateString('ja-JP', { year:'numeric', month:'2-digit', day:'2-digit' });
+      const extBadge = f.ext ? `<span class="px-1.5 py-0.5 rounded text-xs font-medium ${color.badge} ${color.text} uppercase">.${escHtml(f.ext)}</span>` : '<span class="text-gray-300">—</span>';
+
+      return `
+        <tr class="border-t border-gray-50 hover:bg-gray-50 transition-colors" data-idx="${i}">
+          <td class="px-3 py-2.5">
+            <input type="checkbox" class="file-check rounded border-gray-300 text-yellow-400 focus:ring-yellow-300"
+              data-idx="${i}" checked onchange="updateSelectedCount()" />
+          </td>
+          <td class="px-3 py-2.5">
+            <span class="text-sm text-gray-800 font-medium break-all">${escHtml(f.name)}</span>
+          </td>
+          <td class="px-3 py-2.5">${extBadge}</td>
+          <td class="px-3 py-2.5">
+            <span class="text-xs text-gray-600">${escHtml(destFolder)}</span>
+          </td>
+          <td class="px-3 py-2.5">
+            <span class="text-xs text-gray-400 whitespace-nowrap">${date}</span>
+          </td>
+        </tr>
+      `;
+    }).join('');
+
+    updateSelectedCount();
+  }
+
+  function getDestFolder(f) {
+    const rule = rules[f.ruleIdx];
+    if (!rule) return 'その他';
+    // Scan data: group by year-month
+    if (rule.name === 'スキャンデータ') {
+      const d = new Date(f.lastModified);
+      const ym = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;
+      return `${rule.folder}/${ym}`;
+    }
+    return rule.folder;
+  }
+
+  function selectAll(checked) {
+    document.querySelectorAll('.file-check').forEach(cb => cb.checked = checked);
+    document.getElementById('check-all').checked = checked;
+    updateSelectedCount();
+  }
+
+  function updateSelectedCount() {
+    const total = document.querySelectorAll('.file-check').length;
+    const selected = document.querySelectorAll('.file-check:checked').length;
+    document.getElementById('selected-count').textContent = `${selected} / ${total} 件選択中`;
+
+    // Sync header checkbox
+    const allCheck = document.getElementById('check-all');
+    if (allCheck) {
+      allCheck.checked = total > 0 && selected === total;
+      allCheck.indeterminate = selected > 0 && selected < total;
+    }
+
+    // Highlight selected rows
+    document.querySelectorAll('#file-tbody tr').forEach(tr => {
+      const cb = tr.querySelector('.file-check');
+      if (cb && cb.checked) {
+        tr.classList.add('selected-row');
+      } else {
+        tr.classList.remove('selected-row');
+      }
+    });
+  }
+
+  // ==========================================
+  // Execute
+  // ==========================================
+  async function executeOrganize() {
+    if (!srcDir) { showToast('移動元フォルダを選択してください', 'error'); return; }
+    if (!dstDir) { showToast('整理先フォルダを選択してください', 'error'); return; }
+
+    const selectedCheckboxes = document.querySelectorAll('.file-check:checked');
+    if (selectedCheckboxes.length === 0) { showToast('ファイルを選択してください', 'error'); return; }
+
+    const selectedFiles = Array.from(selectedCheckboxes).map(cb => scannedFiles[parseInt(cb.dataset.idx)]);
+
+    const btn = document.getElementById('btn-execute');
+    const spinner = document.getElementById('exec-spinner');
+    const progressWrap = document.getElementById('progress-wrap');
+    const progressBar = document.getElementById('progress-bar');
+    const progressLabel = document.getElementById('progress-label');
+    const progressPct = document.getElementById('progress-pct');
+    const resultWrap = document.getElementById('result-wrap');
+    const resultMsg = document.getElementById('result-msg');
+    const errorList = document.getElementById('error-list');
+
+    btn.disabled = true;
+    spinner.classList.remove('hidden');
+    progressWrap.classList.remove('hidden');
+    resultWrap.classList.add('hidden');
+    errorList.innerHTML = '';
+    errorList.classList.add('hidden');
+
+    let successCount = 0;
+    const errors = [];
+
+    for (let i = 0; i < selectedFiles.length; i++) {
+      const f = selectedFiles[i];
+      const pct = Math.round((i / selectedFiles.length) * 100);
+      progressBar.style.width = pct + '%';
+      progressLabel.textContent = `処理中: ${f.name}`;
+      progressPct.textContent = pct + '%';
+
+      try {
+        // 1. Read file content
+        const file = await f.handle.getFile();
+        const buffer = await file.arrayBuffer();
+
+        // 2. Determine destination folder path
+        const destPath = getDestFolder(f);
+        const destSubdir = await getOrCreateDir(dstDir, destPath);
+
+        // 3. Write file to destination
+        const newHandle = await destSubdir.getFileHandle(f.name, { create: true });
+        const writable = await newHandle.createWritable();
+        await writable.write(buffer);
+        await writable.close();
+
+        // 4. Delete original
+        await srcDir.removeEntry(f.name);
+
+        successCount++;
+      } catch(e) {
+        errors.push({ name: f.name, error: e.message });
+      }
+    }
+
+    // Complete progress
+    progressBar.style.width = '100%';
+    progressPct.textContent = '100%';
+    progressLabel.textContent = '完了';
+
+    btn.disabled = false;
+    spinner.classList.add('hidden');
+
+    // Show result
+    resultWrap.classList.remove('hidden');
+    resultMsg.textContent = `✅ ${successCount}件を整理しました`;
+
+    if (errors.length > 0) {
+      errorList.classList.remove('hidden');
+      errorList.innerHTML = errors.map(e =>
+        `<li>⚠️ ${escHtml(e.name)}: ${escHtml(e.error)}</li>`
+      ).join('');
+      resultMsg.textContent += ` (${errors.length}件のエラー)`;
+    }
+
+    // Refresh file list
+    await scanFiles();
+
+    showToast(`✅ ${successCount}件のファイルを整理しました`, 'success');
+  }
+
+  async function getOrCreateDir(root, path) {
+    const parts = path.split('/').filter(Boolean);
+    let current = root;
+    for (const part of parts) {
+      current = await current.getDirectoryHandle(part, { create: true });
+    }
+    return current;
+  }
+
+  // ==========================================
+  // Toast
+  // ==========================================
+  function showToast(message, type = 'info') {
+    const container = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+
+    const styles = {
+      success: 'bg-green-600 text-white',
+      error: 'bg-red-500 text-white',
+      info: 'bg-gray-800 text-white',
+    };
+
+    toast.className = `pointer-events-auto px-4 py-2.5 rounded-xl text-sm font-medium shadow-lg toast-enter max-w-xs text-center ${styles[type] || styles.info}`;
+    toast.textContent = message;
+    container.appendChild(toast);
+
+    setTimeout(() => {
+      toast.classList.replace('toast-enter', 'toast-exit');
+      setTimeout(() => toast.remove(), 300);
+    }, 3000);
+  }
+
+  // ==========================================
+  // Utility
+  // ==========================================
+  function escHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+  </script>
+
+</body>
+</html>

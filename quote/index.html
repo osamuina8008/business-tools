@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>見積書作成 — 業務ツール</title>
+  <link rel="manifest" href="../manifest.json" />
+  <link rel="apple-touch-icon" href="../icon-192.png" />
+  <meta name="theme-color" content="#eab308" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="見積書作成" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+    body { font-family: 'Noto Sans JP', sans-serif; }
+    .fade-in { animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
+
+    /* Print styles */
+    @media print {
+      body * { visibility: hidden; }
+      #print-area, #print-area * { visibility: visible; }
+      #print-area {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: white; padding: 20mm 15mm;
+        font-family: 'Noto Sans JP', 'MS Gothic', sans-serif;
+        font-size: 11pt;
+      }
+      .no-print { display: none !important; }
+    }
+
+    /* Modal backdrop */
+    .modal-backdrop {
+      background: rgba(0,0,0,0.5);
+    }
+
+    /* Line items table */
+    .item-row input, .item-row select {
+      border: 1px solid #e5e7eb;
+      border-radius: 4px;
+      padding: 4px 6px;
+      width: 100%;
+      font-size: 13px;
+    }
+    .item-row input:focus, .item-row select:focus {
+      outline: 2px solid #eab308;
+      border-color: transparent;
+    }
+
+    /* Amount field (readonly) */
+    .amount-field {
+      background: #f9fafb;
+      color: #374151;
+      text-align: right;
+      font-weight: 500;
+    }
+
+    /* Toast notification */
+    #toast {
+      transition: all 0.3s ease;
+    }
+
+    /* Print area */
+    #print-area {
+      display: none;
+    }
+    #print-area.visible {
+      display: block;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+<!--
+ * このツールと連携するGASスクリプトは gas/quote-sync.gs を使用
+ * Google Driveに顧客フォルダを自動作成し、見積書スプレッドシートを格納します
+-->
+
+<!-- ========== HEADER ========== -->
+<header class="bg-white border-b border-gray-200 no-print">
+  <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <a href="../index.html" class="flex items-center gap-1 text-sm text-gray-500 hover:text-yellow-600 transition font-medium">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        一覧
+      </a>
+      <div>
+        <h1 class="text-xl font-bold text-gray-800">見積書作成</h1>
+        <p class="text-xs text-gray-400 mt-0.5">製造業向け見積管理ツール</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <!-- Draft list button -->
+      <button onclick="showDrafts()" class="flex items-center gap-1.5 text-sm text-gray-600 hover:text-yellow-600 bg-gray-100 hover:bg-yellow-50 px-3 py-1.5 rounded-xl transition font-medium border border-gray-200">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+        </svg>
+        下書き一覧
+      </button>
+      <!-- Settings button -->
+      <button onclick="showSettings()" class="flex items-center gap-1.5 text-sm text-gray-600 hover:text-yellow-600 bg-gray-100 hover:bg-yellow-50 px-3 py-1.5 rounded-xl transition font-medium border border-gray-200">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+        設定
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ========== TOAST ========== -->
+<div id="toast" class="fixed top-4 right-4 z-50 hidden no-print">
+  <div id="toast-inner" class="flex items-center gap-3 px-4 py-3 rounded-2xl shadow-lg text-sm font-medium max-w-sm">
+    <span id="toast-icon"></span>
+    <span id="toast-msg"></span>
+  </div>
+</div>
+
+<!-- ========== AUTO-SAVE INDICATOR ========== -->
+<div id="autosave-indicator" class="fixed bottom-4 right-4 z-40 hidden no-print">
+  <div class="bg-white border border-gray-200 text-xs text-gray-500 px-3 py-1.5 rounded-full shadow-sm flex items-center gap-1.5">
+    <svg class="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+    </svg>
+    自動保存しました
+  </div>
+</div>
+
+<!-- ========== MAIN ========== -->
+<main class="max-w-5xl mx-auto px-4 py-6 no-print">
+
+  <!-- ===== Section 1: 基本情報 ===== -->
+  <div class="bg-white rounded-2xl border border-gray-200 shadow-sm mb-6 overflow-hidden fade-in">
+    <div class="bg-yellow-50 border-b border-yellow-100 px-6 py-3 flex items-center gap-2">
+      <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+      <h2 class="font-bold text-gray-800 text-sm">基本情報</h2>
+    </div>
+    <div class="p-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <!-- 見積番号 -->
+        <div>
+          <label class="block text-xs font-medium text-gray-600 mb-1.5">見積番号</label>
+          <div class="flex gap-2">
+            <input id="quoteNo" type="text" readonly
+              class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-xl bg-gray-50 text-gray-600 font-mono" />
+            <button onclick="regenerateQuoteNo()" title="番号を再生成"
+              class="px-2 py-2 text-gray-400 hover:text-yellow-600 hover:bg-yellow-50 rounded-xl border border-gray-200 transition">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- 見積日 -->
+        <div>
+          <label class="block text-xs font-medium text-gray-600 mb-1.5">見積日 <span class="text-red-400">*</span></label>
+          <input id="quoteDate" type="date"
+            class="w-full px-3 py-2 text-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent" />
+        </div>
+
+        <!-- 有効期限 -->
+        <div>
+          <label class="block text-xs font-medium text-gray-600 mb-1.5">有効期限</label>
+          <input id="quoteExpiry" type="date"
+            class="w-full px-3 py-2 text-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent" />
+        </div>
+
+        <!-- 顧客名 -->
+        <div>
+          <label class="block text-xs font-medium text-gray-600 mb-1.5">顧客名 <span class="text-red-400">*</span></label>
+          <input id="customerName" type="text" list="customer-list" placeholder="例：株式会社○○製作所" required
+            class="w-full px-3 py-2 text-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent" />
+          <datalist id="customer-list"></datalist>
+        </div>
+
+        <!-- 担当者名 -->
+        <div>
+          <label class="block text-xs font-medium text-gray-600 mb-1.5">担当者名 <span class="text-red-400">*</span></label>
+          <input id="staffName" type="text" placeholder="例：山田 太郎" required
+            class="w-full px-3 py-2 text-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent" />
+        </div>
+
+        <!-- 件名 -->
+        <div>
+          <label class="block text-xs font-medium text-gray-600 mb-1.5">件名 <span class="text-red-400">*</span></label>
+          <input id="subject" type="text" placeholder="例：シャフト加工一式" required
+            class="w-full px-3 py-2 text-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent" />
+        </div>
+
+        <!-- 備考 -->
+        <div class="sm:col-span-2 lg:col-span-3">
+          <label class="block text-xs font-medium text-gray-600 mb-1.5">備考</label>
+          <textarea id="remarks" rows="3" placeholder="支払条件・納期・その他特記事項など"
+            class="w-full px-3 py-2 text-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent resize-y"></textarea>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Section 2: 明細 ===== -->
+  <div class="bg-white rounded-2xl border border-gray-200 shadow-sm mb-6 overflow-hidden fade-in">
+    <div class="bg-yellow-50 border-b border-yellow-100 px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+        <h2 class="font-bold text-gray-800 text-sm">明細</h2>
+      </div>
+      <button onclick="addRow()" class="flex items-center gap-1.5 text-xs font-medium text-yellow-700 bg-yellow-100 hover:bg-yellow-200 px-3 py-1.5 rounded-xl transition">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+        </svg>
+        行を追加
+      </button>
+    </div>
+
+    <!-- Table wrapper for horizontal scroll on mobile -->
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm min-w-[640px]">
+        <thead>
+          <tr class="bg-gray-50 border-b border-gray-200">
+            <th class="text-left text-xs font-medium text-gray-500 px-3 py-2.5 w-10">No.</th>
+            <th class="text-left text-xs font-medium text-gray-500 px-3 py-2.5">品名</th>
+            <th class="text-left text-xs font-medium text-gray-500 px-3 py-2.5 w-20">数量</th>
+            <th class="text-left text-xs font-medium text-gray-500 px-3 py-2.5 w-20">単位</th>
+            <th class="text-left text-xs font-medium text-gray-500 px-3 py-2.5 w-28">単価 (円)</th>
+            <th class="text-right text-xs font-medium text-gray-500 px-3 py-2.5 w-32">金額 (円)</th>
+            <th class="text-center text-xs font-medium text-gray-500 px-3 py-2.5 w-12">削除</th>
+          </tr>
+        </thead>
+        <tbody id="items-tbody">
+          <!-- Rows injected by JS -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Totals -->
+    <div class="border-t border-gray-200 px-6 py-4">
+      <div class="flex justify-end">
+        <div class="w-full max-w-xs space-y-2">
+          <div class="flex justify-between text-sm text-gray-600">
+            <span>小計</span>
+            <span id="subtotal-display" class="font-mono font-medium">¥0</span>
+          </div>
+          <div class="flex justify-between items-center text-sm text-gray-600">
+            <div class="flex items-center gap-2">
+              <span>消費税</span>
+              <select id="taxRate" onchange="recalcAll()"
+                class="text-xs border border-gray-200 rounded-lg px-2 py-1 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                <option value="10">10%</option>
+                <option value="8">8%</option>
+                <option value="0">0% (非課税)</option>
+              </select>
+            </div>
+            <span id="tax-display" class="font-mono font-medium">¥0</span>
+          </div>
+          <div class="border-t border-gray-200 pt-2 flex justify-between items-center">
+            <span class="font-bold text-gray-800">合計金額</span>
+            <span id="total-display" class="text-2xl font-bold text-yellow-600">¥0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Section 3: アクション ===== -->
+  <div class="bg-white rounded-2xl border border-gray-200 shadow-sm mb-6 overflow-hidden fade-in">
+    <div class="bg-yellow-50 border-b border-yellow-100 px-6 py-3 flex items-center gap-2">
+      <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+      <h2 class="font-bold text-gray-800 text-sm">アクション</h2>
+    </div>
+    <div class="p-6">
+      <div class="flex flex-wrap gap-3">
+
+        <!-- Preview -->
+        <button onclick="showPreview()" class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-gray-700 text-white hover:bg-gray-800 rounded-xl transition shadow-sm">
+          <span>👁</span> プレビュー
+        </button>
+
+        <!-- Print -->
+        <button onclick="doPrint()" class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-blue-600 text-white hover:bg-blue-700 rounded-xl transition shadow-sm">
+          <span>🖨</span> 印刷
+        </button>
+
+        <!-- Save Draft -->
+        <button onclick="saveDraft()" class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 rounded-xl transition border border-gray-200">
+          <span>💾</span> 下書き保存
+        </button>
+
+        <!-- Save to Drive -->
+        <button onclick="saveToDrive()" class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-green-600 text-white hover:bg-green-700 rounded-xl transition shadow-sm">
+          <span>☁</span> Google Driveに保存
+        </button>
+
+        <!-- Reset -->
+        <button onclick="resetForm()" class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-red-50 text-red-600 hover:bg-red-100 rounded-xl transition border border-red-200">
+          <span>🔄</span> リセット
+        </button>
+
+      </div>
+
+      <!-- Drive save result -->
+      <div id="drive-result" class="hidden mt-4 p-4 bg-green-50 border border-green-200 rounded-xl text-sm text-green-800">
+        <div class="flex items-center gap-2 font-medium mb-1">
+          <span>✅</span> Google Driveに保存しました
+        </div>
+        <div id="drive-link-container"></div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ========== PRINT AREA (hidden) ========== -->
+<div id="print-area">
+  <div id="print-content"></div>
+</div>
+
+<!-- ========== PREVIEW MODAL ========== -->
+<div id="preview-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center no-print">
+  <div class="modal-backdrop absolute inset-0" onclick="closePreview()"></div>
+  <div class="relative bg-white rounded-2xl shadow-2xl max-w-3xl w-full mx-4 max-h-[90vh] flex flex-col">
+    <div class="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+      <h3 class="font-bold text-gray-800">プレビュー</h3>
+      <div class="flex gap-2">
+        <button onclick="doPrint()" class="flex items-center gap-1.5 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-xl transition">
+          <span>🖨</span> 印刷する
+        </button>
+        <button onclick="closePreview()" class="text-gray-400 hover:text-gray-600 p-2 rounded-xl hover:bg-gray-100 transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="preview-body" class="overflow-y-auto p-8 flex-1">
+      <!-- Injected by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- ========== DRAFTS MODAL ========== -->
+<div id="drafts-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center no-print">
+  <div class="modal-backdrop absolute inset-0" onclick="closeDrafts()"></div>
+  <div class="relative bg-white rounded-2xl shadow-2xl max-w-lg w-full mx-4 max-h-[80vh] flex flex-col">
+    <div class="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+      <h3 class="font-bold text-gray-800">下書き一覧</h3>
+      <button onclick="closeDrafts()" class="text-gray-400 hover:text-gray-600 p-2 rounded-xl hover:bg-gray-100 transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+    <div id="drafts-list" class="overflow-y-auto p-4 flex-1 space-y-2">
+      <!-- Injected by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- ========== SETTINGS MODAL ========== -->
+<div id="settings-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center no-print">
+  <div class="modal-backdrop absolute inset-0" onclick="closeSettings()"></div>
+  <div class="relative bg-white rounded-2xl shadow-2xl max-w-lg w-full mx-4">
+    <div class="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+      <h3 class="font-bold text-gray-800">⚙ 設定</h3>
+      <button onclick="closeSettings()" class="text-gray-400 hover:text-gray-600 p-2 rounded-xl hover:bg-gray-100 transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+    <div class="p-6 space-y-4">
+
+      <div>
+        <label class="block text-xs font-medium text-gray-600 mb-1.5">自社名</label>
+        <input id="s-companyName" type="text" placeholder="例：株式会社テクノ精工"
+          class="w-full px-3 py-2 text-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400" />
+      </div>
+
+      <div>
+        <label class="block text-xs font-medium text-gray-600 mb-1.5">担当者名（デフォルト）</label>
+        <input id="s-staffName" type="text" placeholder="例：営業部 山田 太郎"
+          class="w-full px-3 py-2 text-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400" />
+      </div>
+
+      <div>
+        <label class="block text-xs font-medium text-gray-600 mb-1.5">自社住所</label>
+        <input id="s-address" type="text" placeholder="例：〒123-4567 東京都○○区△△1-2-3"
+          class="w-full px-3 py-2 text-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400" />
+      </div>
+
+      <div>
+        <label class="block text-xs font-medium text-gray-600 mb-1.5">TEL</label>
+        <input id="s-tel" type="text" placeholder="例：03-1234-5678"
+          class="w-full px-3 py-2 text-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400" />
+      </div>
+
+      <div>
+        <label class="block text-xs font-medium text-gray-600 mb-1.5">GAS URL（Google Drive連携）</label>
+        <input id="s-gasUrl" type="url" placeholder="https://script.google.com/macros/s/..."
+          class="w-full px-3 py-2 text-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 font-mono" />
+        <p class="text-xs text-gray-400 mt-1">gas/quote-sync.gs をデプロイして取得したURLを貼り付けてください</p>
+      </div>
+
+      <div class="flex justify-end gap-3 pt-2">
+        <button onclick="closeSettings()" class="px-4 py-2 text-sm text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-xl transition">
+          キャンセル
+        </button>
+        <button onclick="saveSettings()" class="px-4 py-2 text-sm font-medium text-white bg-yellow-500 hover:bg-yellow-600 rounded-xl transition">
+          保存
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+// ============================
+// Constants & State
+// ============================
+const LS_SETTINGS  = 'bt_quote_settings';
+const LS_COUNTER   = 'bt_quote_counter';
+const LS_DRAFTS    = 'bt_quote_drafts';
+const LS_CUSTOMERS = 'bt_quote_customers';
+
+let settings = {};
+let rowCounter = 0;
+let autoSaveTimer = null;
+
+// ============================
+// Init
+// ============================
+document.addEventListener('DOMContentLoaded', () => {
+  loadSettings();
+  initDates();
+  initQuoteNo();
+  initRows();
+  populateCustomerList();
+  startAutoSave();
+
+  // Restore staff name from settings
+  const sn = document.getElementById('staffName');
+  if (sn && !sn.value && settings.staffName) {
+    sn.value = settings.staffName;
+  }
+});
+
+function loadSettings() {
+  try {
+    settings = JSON.parse(localStorage.getItem(LS_SETTINGS) || '{}');
+  } catch(e) {
+    settings = {};
+  }
+}
+
+function initDates() {
+  const today = new Date();
+  const todayStr = formatDateInput(today);
+  document.getElementById('quoteDate').value = todayStr;
+
+  const expiry = new Date(today);
+  expiry.setDate(expiry.getDate() + 30);
+  document.getElementById('quoteExpiry').value = formatDateInput(expiry);
+}
+
+function formatDateInput(d) {
+  const y = d.getFullYear();
+  const m = String(d.getMonth()+1).padStart(2,'0');
+  const dd = String(d.getDate()).padStart(2,'0');
+  return `${y}-${m}-${dd}`;
+}
+
+function formatDateDisplay(str) {
+  if (!str) return '';
+  const [y, m, d] = str.split('-');
+  return `${y}年${m}月${d}日`;
+}
+
+function formatYMD(d) {
+  const y = d.getFullYear();
+  const m = String(d.getMonth()+1).padStart(2,'0');
+  const dd = String(d.getDate()).padStart(2,'0');
+  return `${y}${m}${dd}`;
+}
+
+// ============================
+// Quote Number
+// ============================
+function initQuoteNo() {
+  const today = new Date();
+  const ymd = formatYMD(today);
+  let counter = parseInt(localStorage.getItem(LS_COUNTER) || '0');
+  counter++;
+  localStorage.setItem(LS_COUNTER, counter);
+  const num = String(counter).padStart(3, '0');
+  document.getElementById('quoteNo').value = `EST-${ymd}-${num}`;
+}
+
+function regenerateQuoteNo() {
+  initQuoteNo();
+  showToast('✅', '見積番号を再生成しました', 'green');
+}
+
+// ============================
+// Line Items
+// ============================
+function initRows() {
+  const tbody = document.getElementById('items-tbody');
+  tbody.innerHTML = '';
+  rowCounter = 0;
+  for (let i = 0; i < 3; i++) addRow();
+}
+
+function addRow() {
+  rowCounter++;
+  const tbody = document.getElementById('items-tbody');
+  const tr = document.createElement('tr');
+  tr.className = 'item-row border-b border-gray-100 hover:bg-gray-50';
+  tr.dataset.id = rowCounter;
+  tr.innerHTML = `
+    <td class="px-3 py-2 text-center text-xs text-gray-400 font-mono row-num"></td>
+    <td class="px-2 py-1.5">
+      <input type="text" class="item-name" placeholder="品名・仕様" oninput="scheduleAutoSave()" />
+    </td>
+    <td class="px-2 py-1.5">
+      <input type="number" class="item-qty" placeholder="0" min="0" step="1"
+        oninput="recalcRow(this); scheduleAutoSave();" />
+    </td>
+    <td class="px-2 py-1.5">
+      <input type="text" class="item-unit" placeholder="個" />
+    </td>
+    <td class="px-2 py-1.5">
+      <input type="number" class="item-price" placeholder="0" min="0" step="1"
+        oninput="recalcRow(this); scheduleAutoSave();" />
+    </td>
+    <td class="px-2 py-1.5">
+      <input type="text" class="item-amount amount-field" readonly placeholder="0" />
+    </td>
+    <td class="px-3 py-2 text-center">
+      <button onclick="deleteRow(this)" class="text-gray-300 hover:text-red-400 transition" title="削除">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+        </svg>
+      </button>
+    </td>
+  `;
+  tbody.appendChild(tr);
+  reNumberRows();
+}
+
+function deleteRow(btn) {
+  const row = btn.closest('tr');
+  row.remove();
+  reNumberRows();
+  recalcAll();
+}
+
+function reNumberRows() {
+  document.querySelectorAll('#items-tbody tr').forEach((tr, i) => {
+    const cell = tr.querySelector('.row-num');
+    if (cell) cell.textContent = i + 1;
+  });
+}
+
+function recalcRow(input) {
+  const tr = input.closest('tr');
+  const qty = parseFloat(tr.querySelector('.item-qty').value) || 0;
+  const price = parseFloat(tr.querySelector('.item-price').value) || 0;
+  const amount = qty * price;
+  const amountField = tr.querySelector('.item-amount');
+  amountField.value = amount > 0 ? fmtNum(amount) : '';
+  recalcAll();
+}
+
+function recalcAll() {
+  let subtotal = 0;
+  document.querySelectorAll('#items-tbody tr').forEach(tr => {
+    const qty = parseFloat(tr.querySelector('.item-qty').value) || 0;
+    const price = parseFloat(tr.querySelector('.item-price').value) || 0;
+    subtotal += qty * price;
+  });
+
+  const taxRate = parseInt(document.getElementById('taxRate').value) || 0;
+  const tax = Math.floor(subtotal * taxRate / 100);
+  const total = subtotal + tax;
+
+  document.getElementById('subtotal-display').textContent = '¥' + fmtNum(subtotal);
+  document.getElementById('tax-display').textContent = '¥' + fmtNum(tax);
+  document.getElementById('total-display').textContent = '¥' + fmtNum(total);
+}
+
+function fmtNum(n) {
+  return Math.round(n).toLocaleString('ja-JP');
+}
+
+// ============================
+// Customer Datalist
+// ============================
+function populateCustomerList() {
+  const dl = document.getElementById('customer-list');
+  dl.innerHTML = '';
+  const customers = JSON.parse(localStorage.getItem(LS_CUSTOMERS) || '[]');
+  customers.forEach(c => {
+    const opt = document.createElement('option');
+    opt.value = c;
+    dl.appendChild(opt);
+  });
+}
+
+function saveCustomer(name) {
+  if (!name) return;
+  let customers = JSON.parse(localStorage.getItem(LS_CUSTOMERS) || '[]');
+  if (!customers.includes(name)) {
+    customers.unshift(name);
+    if (customers.length > 30) customers = customers.slice(0, 30);
+    localStorage.setItem(LS_CUSTOMERS, JSON.stringify(customers));
+    populateCustomerList();
+  }
+}
+
+// ============================
+// Form Data
+// ============================
+function getFormData() {
+  const items = [];
+  document.querySelectorAll('#items-tbody tr').forEach((tr, i) => {
+    const name  = tr.querySelector('.item-name').value.trim();
+    const qty   = parseFloat(tr.querySelector('.item-qty').value) || 0;
+    const unit  = tr.querySelector('.item-unit').value.trim();
+    const price = parseFloat(tr.querySelector('.item-price').value) || 0;
+    const amount = qty * price;
+    if (name || qty || price) {
+      items.push({ no: i+1, name, qty, unit, price, amount });
+    }
+  });
+
+  let subtotal = 0;
+  items.forEach(it => subtotal += it.amount);
+  const taxRate = parseInt(document.getElementById('taxRate').value) || 0;
+  const tax = Math.floor(subtotal * taxRate / 100);
+  const total = subtotal + tax;
+
+  return {
+    quoteNo:      document.getElementById('quoteNo').value,
+    quoteDate:    document.getElementById('quoteDate').value,
+    quoteExpiry:  document.getElementById('quoteExpiry').value,
+    customerName: document.getElementById('customerName').value.trim(),
+    staffName:    document.getElementById('staffName').value.trim(),
+    subject:      document.getElementById('subject').value.trim(),
+    remarks:      document.getElementById('remarks').value.trim(),
+    items,
+    taxRate,
+    subtotal,
+    tax,
+    total,
+  };
+}
+
+function validate() {
+  const d = getFormData();
+  if (!d.customerName) { showToast('⚠️', '顧客名を入力してください', 'red'); return false; }
+  if (!d.staffName)    { showToast('⚠️', '担当者名を入力してください', 'red'); return false; }
+  if (!d.subject)      { showToast('⚠️', '件名を入力してください', 'red'); return false; }
+  if (d.items.length === 0) { showToast('⚠️', '明細を1行以上入力してください', 'red'); return false; }
+  return true;
+}
+
+// ============================
+// Draft Save / Load
+// ============================
+function saveDraft() {
+  const d = getFormData();
+  let drafts = JSON.parse(localStorage.getItem(LS_DRAFTS) || '[]');
+  const entry = {
+    id:        Date.now(),
+    savedAt:   new Date().toISOString(),
+    quoteNo:   d.quoteNo,
+    customer:  d.customerName,
+    subject:   d.subject,
+    total:     d.total,
+    data:      d,
+    // Store raw item inputs
+    rawItems:  getRawItems(),
+    taxRate:   document.getElementById('taxRate').value,
+  };
+  // Replace if same quoteNo exists
+  const idx = drafts.findIndex(x => x.quoteNo === d.quoteNo);
+  if (idx >= 0) drafts[idx] = entry;
+  else drafts.unshift(entry);
+  if (drafts.length > 50) drafts = drafts.slice(0, 50);
+  localStorage.setItem(LS_DRAFTS, JSON.stringify(drafts));
+  showToast('💾', '下書きを保存しました', 'green');
+}
+
+function getRawItems() {
+  const items = [];
+  document.querySelectorAll('#items-tbody tr').forEach(tr => {
+    items.push({
+      name:  tr.querySelector('.item-name').value,
+      qty:   tr.querySelector('.item-qty').value,
+      unit:  tr.querySelector('.item-unit').value,
+      price: tr.querySelector('.item-price').value,
+    });
+  });
+  return items;
+}
+
+function restoreDraft(draft) {
+  const d = draft.data;
+  document.getElementById('quoteNo').value     = d.quoteNo || '';
+  document.getElementById('quoteDate').value   = d.quoteDate || '';
+  document.getElementById('quoteExpiry').value = d.quoteExpiry || '';
+  document.getElementById('customerName').value = d.customerName || '';
+  document.getElementById('staffName').value   = d.staffName || '';
+  document.getElementById('subject').value     = d.subject || '';
+  document.getElementById('remarks').value     = d.remarks || '';
+  document.getElementById('taxRate').value     = draft.taxRate || '10';
+
+  // Restore rows
+  const tbody = document.getElementById('items-tbody');
+  tbody.innerHTML = '';
+  rowCounter = 0;
+  (draft.rawItems || []).forEach((item, i) => {
+    addRow();
+    const rows = document.querySelectorAll('#items-tbody tr');
+    const tr = rows[rows.length - 1];
+    tr.querySelector('.item-name').value  = item.name || '';
+    tr.querySelector('.item-qty').value   = item.qty || '';
+    tr.querySelector('.item-unit').value  = item.unit || '';
+    tr.querySelector('.item-price').value = item.price || '';
+    if (item.qty && item.price) {
+      const amount = parseFloat(item.qty) * parseFloat(item.price);
+      tr.querySelector('.item-amount').value = amount > 0 ? fmtNum(amount) : '';
+    }
+  });
+  // Ensure at least 1 row
+  if (!draft.rawItems || draft.rawItems.length === 0) addRow();
+  recalcAll();
+  closeDrafts();
+  showToast('📂', '下書きを読み込みました', 'green');
+}
+
+function showDrafts() {
+  const drafts = JSON.parse(localStorage.getItem(LS_DRAFTS) || '[]');
+  const list = document.getElementById('drafts-list');
+
+  if (drafts.length === 0) {
+    list.innerHTML = '<p class="text-center text-sm text-gray-400 py-8">下書きがありません</p>';
+  } else {
+    list.innerHTML = drafts.map(d => {
+      const dt = new Date(d.savedAt);
+      const dtStr = `${dt.getFullYear()}/${String(dt.getMonth()+1).padStart(2,'0')}/${String(dt.getDate()).padStart(2,'0')} ${String(dt.getHours()).padStart(2,'0')}:${String(dt.getMinutes()).padStart(2,'0')}`;
+      return `
+        <div class="border border-gray-200 rounded-xl p-3 hover:border-yellow-300 hover:bg-yellow-50 transition cursor-pointer group flex items-center justify-between"
+          onclick="restoreDraft(${JSON.stringify(d).replace(/"/g, '&quot;')})">
+          <div class="min-w-0">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-xs font-mono text-gray-400">${escHtml(d.quoteNo)}</span>
+              <span class="text-xs text-gray-400">${dtStr}</span>
+            </div>
+            <div class="text-sm font-medium text-gray-800 truncate">${escHtml(d.customer || '（顧客名なし）')}</div>
+            <div class="text-xs text-gray-500 truncate">${escHtml(d.subject || '（件名なし）')}</div>
+          </div>
+          <div class="ml-3 text-right flex-shrink-0">
+            <div class="text-sm font-bold text-yellow-600">¥${fmtNum(d.total)}</div>
+            <button onclick="event.stopPropagation(); deleteDraft(${d.id})" class="text-xs text-gray-300 hover:text-red-400 transition mt-1">削除</button>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  document.getElementById('drafts-modal').classList.remove('hidden');
+}
+
+function deleteDraft(id) {
+  let drafts = JSON.parse(localStorage.getItem(LS_DRAFTS) || '[]');
+  drafts = drafts.filter(d => d.id !== id);
+  localStorage.setItem(LS_DRAFTS, JSON.stringify(drafts));
+  showDrafts(); // refresh
+}
+
+function closeDrafts() {
+  document.getElementById('drafts-modal').classList.add('hidden');
+}
+
+// ============================
+// Auto Save
+// ============================
+function startAutoSave() {
+  setInterval(() => {
+    autoSaveSilent();
+  }, 30000);
+}
+
+function scheduleAutoSave() {
+  if (autoSaveTimer) clearTimeout(autoSaveTimer);
+  autoSaveTimer = setTimeout(autoSaveSilent, 3000);
+}
+
+function autoSaveSilent() {
+  const d = getFormData();
+  if (!d.customerName && !d.subject && d.items.length === 0) return;
+  saveDraftSilent();
+  showAutosaveIndicator();
+}
+
+function saveDraftSilent() {
+  const d = getFormData();
+  if (!d.quoteNo) return;
+  let drafts = JSON.parse(localStorage.getItem(LS_DRAFTS) || '[]');
+  const entry = {
+    id:        d.quoteNo + '_auto',
+    savedAt:   new Date().toISOString(),
+    quoteNo:   d.quoteNo,
+    customer:  d.customerName,
+    subject:   d.subject,
+    total:     d.total,
+    data:      d,
+    rawItems:  getRawItems(),
+    taxRate:   document.getElementById('taxRate').value,
+    auto:      true,
+  };
+  const idx = drafts.findIndex(x => x.id === entry.id);
+  if (idx >= 0) drafts[idx] = entry;
+  else drafts.unshift(entry);
+  localStorage.setItem(LS_DRAFTS, JSON.stringify(drafts));
+}
+
+function showAutosaveIndicator() {
+  const el = document.getElementById('autosave-indicator');
+  el.classList.remove('hidden');
+  setTimeout(() => el.classList.add('hidden'), 2500);
+}
+
+// ============================
+// Reset
+// ============================
+function resetForm() {
+  if (!confirm('フォームをリセットしますか？入力内容は失われます。')) return;
+  document.getElementById('customerName').value = '';
+  document.getElementById('staffName').value = settings.staffName || '';
+  document.getElementById('subject').value = '';
+  document.getElementById('remarks').value = '';
+  document.getElementById('taxRate').value = '10';
+  initDates();
+  initQuoteNo();
+  initRows();
+  document.getElementById('drive-result').classList.add('hidden');
+  showToast('🔄', 'フォームをリセットしました', 'gray');
+}
+
+// ============================
+// Preview & Print
+// ============================
+function buildQuoteHTML(forPrint = false) {
+  const d = getFormData();
+  const cn = settings.companyName || '（自社名未設定）';
+  const addr = settings.address || '';
+  const tel = settings.tel || '';
+
+  const itemRows = d.items.map((it, i) => `
+    <tr style="border-bottom: 1px solid #e5e7eb;">
+      <td style="padding: 6px 8px; text-align:center; color:#6b7280; font-size:12px;">${it.no}</td>
+      <td style="padding: 6px 8px;">${escHtml(it.name)}</td>
+      <td style="padding: 6px 8px; text-align:right;">${it.qty.toLocaleString()}</td>
+      <td style="padding: 6px 8px; text-align:center; color:#6b7280;">${escHtml(it.unit)}</td>
+      <td style="padding: 6px 8px; text-align:right;">¥${fmtNum(it.price)}</td>
+      <td style="padding: 6px 8px; text-align:right; font-weight:600;">¥${fmtNum(it.amount)}</td>
+    </tr>
+  `).join('');
+
+  const taxLabel = d.taxRate === 0 ? '消費税 (非課税)' : `消費税 (${d.taxRate}%)`;
+
+  return `
+    <div style="font-family:'Noto Sans JP',sans-serif; max-width:700px; margin:0 auto; color:#1f2937;">
+
+      <!-- Header -->
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:24px; border-bottom:2px solid #eab308; padding-bottom:16px;">
+        <div>
+          <div style="font-size:22px; font-weight:700; color:#1f2937;">御 見 積 書</div>
+          <div style="font-size:12px; color:#6b7280; margin-top:4px;">QUOTATION</div>
+        </div>
+        <div style="text-align:right; font-size:12px; color:#6b7280; line-height:1.8;">
+          <div style="font-weight:700; font-size:14px; color:#1f2937;">${escHtml(cn)}</div>
+          ${addr ? `<div>${escHtml(addr)}</div>` : ''}
+          ${tel ? `<div>TEL: ${escHtml(tel)}</div>` : ''}
+        </div>
+      </div>
+
+      <!-- Meta info -->
+      <div style="display:flex; justify-content:space-between; margin-bottom:24px;">
+        <div>
+          <div style="font-size:18px; font-weight:700; color:#1f2937; margin-bottom:8px;">
+            ${escHtml(d.customerName)} 御中
+          </div>
+          <div style="font-size:13px; color:#374151;">件名：${escHtml(d.subject)}</div>
+        </div>
+        <div style="text-align:right; font-size:12px; color:#6b7280; line-height:2;">
+          <div><span style="color:#9ca3af;">見積番号：</span>${escHtml(d.quoteNo)}</div>
+          <div><span style="color:#9ca3af;">見積日：</span>${formatDateDisplay(d.quoteDate)}</div>
+          <div><span style="color:#9ca3af;">有効期限：</span>${formatDateDisplay(d.quoteExpiry)}</div>
+          <div><span style="color:#9ca3af;">担当者：</span>${escHtml(d.staffName)}</div>
+        </div>
+      </div>
+
+      <!-- Total highlight -->
+      <div style="background:#fefce8; border:1px solid #fde047; border-radius:12px; padding:16px 24px; margin-bottom:24px; display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-size:14px; font-weight:600; color:#713f12;">お見積金額（税込）</span>
+        <span style="font-size:28px; font-weight:700; color:#ca8a04;">¥${fmtNum(d.total)}</span>
+      </div>
+
+      <!-- Items table -->
+      <table style="width:100%; border-collapse:collapse; margin-bottom:16px; font-size:13px;">
+        <thead>
+          <tr style="background:#f9fafb; border-bottom:2px solid #e5e7eb;">
+            <th style="padding:8px; text-align:center; color:#6b7280; font-weight:600; width:40px;">No.</th>
+            <th style="padding:8px; text-align:left; color:#6b7280; font-weight:600;">品名・仕様</th>
+            <th style="padding:8px; text-align:right; color:#6b7280; font-weight:600; width:60px;">数量</th>
+            <th style="padding:8px; text-align:center; color:#6b7280; font-weight:600; width:50px;">単位</th>
+            <th style="padding:8px; text-align:right; color:#6b7280; font-weight:600; width:100px;">単価</th>
+            <th style="padding:8px; text-align:right; color:#6b7280; font-weight:600; width:110px;">金額</th>
+          </tr>
+        </thead>
+        <tbody>${itemRows}</tbody>
+      </table>
+
+      <!-- Subtotals -->
+      <div style="display:flex; justify-content:flex-end; margin-bottom:24px;">
+        <table style="font-size:13px; min-width:240px;">
+          <tr>
+            <td style="padding:5px 12px; color:#6b7280;">小計</td>
+            <td style="padding:5px 12px; text-align:right; font-weight:500;">¥${fmtNum(d.subtotal)}</td>
+          </tr>
+          <tr>
+            <td style="padding:5px 12px; color:#6b7280;">${taxLabel}</td>
+            <td style="padding:5px 12px; text-align:right; font-weight:500;">¥${fmtNum(d.tax)}</td>
+          </tr>
+          <tr style="border-top:2px solid #e5e7eb;">
+            <td style="padding:8px 12px; font-weight:700; color:#1f2937;">合計金額</td>
+            <td style="padding:8px 12px; text-align:right; font-weight:700; font-size:16px; color:#ca8a04;">¥${fmtNum(d.total)}</td>
+          </tr>
+        </table>
+      </div>
+
+      ${d.remarks ? `
+        <!-- Remarks -->
+        <div style="border:1px solid #e5e7eb; border-radius:8px; padding:12px 16px; font-size:12px; color:#6b7280;">
+          <div style="font-weight:600; color:#374151; margin-bottom:4px;">備考</div>
+          <div style="white-space:pre-wrap;">${escHtml(d.remarks)}</div>
+        </div>
+      ` : ''}
+
+      <!-- Footer -->
+      <div style="margin-top:32px; text-align:center; font-size:11px; color:#9ca3af; border-top:1px solid #f3f4f6; padding-top:12px;">
+        本見積書の有効期限は発行日より30日間です。ご不明な点はお気軽にお問い合わせください。
+      </div>
+    </div>
+  `;
+}
+
+function showPreview() {
+  const html = buildQuoteHTML(false);
+  document.getElementById('preview-body').innerHTML = html;
+  document.getElementById('preview-modal').classList.remove('hidden');
+}
+
+function closePreview() {
+  document.getElementById('preview-modal').classList.add('hidden');
+}
+
+function doPrint() {
+  const html = buildQuoteHTML(true);
+  document.getElementById('print-content').innerHTML = html;
+  const pa = document.getElementById('print-area');
+  pa.classList.add('visible');
+  window.print();
+  pa.classList.remove('visible');
+}
+
+// ============================
+// Google Drive Save (GAS)
+// ============================
+async function saveToDrive() {
+  if (!validate()) return;
+
+  const gasUrl = settings.gasUrl;
+  if (!gasUrl) {
+    showToast('⚙️', 'GAS URLが設定されていません。設定画面から入力してください。', 'red');
+    return;
+  }
+
+  const d = getFormData();
+  saveCustomer(d.customerName);
+
+  // Save staff name to settings
+  settings.staffName = d.staffName;
+  localStorage.setItem(LS_SETTINGS, JSON.stringify(settings));
+
+  const btn = document.querySelector('button[onclick="saveToDrive()"]');
+  if (btn) {
+    btn.disabled = true;
+    btn.innerHTML = '<svg class="w-4 h-4 animate-spin inline mr-1" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg> 保存中...';
+  }
+
+  try {
+    const params = new URLSearchParams({
+      action:    'createQuote',
+      quoteNo:   d.quoteNo,
+      quoteDate: d.quoteDate,
+      quoteExpiry: d.quoteExpiry,
+      customer:  d.customerName,
+      staff:     d.staffName,
+      subject:   d.subject,
+      remarks:   d.remarks,
+      subtotal:  d.subtotal,
+      taxRate:   d.taxRate,
+      tax:       d.tax,
+      total:     d.total,
+      items:     JSON.stringify(d.items),
+    });
+
+    const res = await fetch(gasUrl + '?' + params.toString(), { mode: 'no-cors' });
+
+    // With no-cors we can't read response body, so assume success
+    document.getElementById('drive-result').classList.remove('hidden');
+    document.getElementById('drive-link-container').innerHTML =
+      '<span class="text-xs text-green-600">Google Driveのスプレッドシートに記録されました。</span>';
+    showToast('✅', 'Google Driveに保存しました', 'green');
+
+  } catch(err) {
+    console.error(err);
+    showToast('❌', '保存に失敗しました: ' + err.message, 'red');
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = '<span>☁</span> Google Driveに保存';
+    }
+  }
+}
+
+// ============================
+// Settings
+// ============================
+function showSettings() {
+  loadSettings();
+  document.getElementById('s-companyName').value = settings.companyName || '';
+  document.getElementById('s-staffName').value   = settings.staffName || '';
+  document.getElementById('s-address').value     = settings.address || '';
+  document.getElementById('s-tel').value         = settings.tel || '';
+  document.getElementById('s-gasUrl').value      = settings.gasUrl || '';
+  document.getElementById('settings-modal').classList.remove('hidden');
+}
+
+function saveSettings() {
+  settings = {
+    companyName: document.getElementById('s-companyName').value.trim(),
+    staffName:   document.getElementById('s-staffName').value.trim(),
+    address:     document.getElementById('s-address').value.trim(),
+    tel:         document.getElementById('s-tel').value.trim(),
+    gasUrl:      document.getElementById('s-gasUrl').value.trim(),
+  };
+  localStorage.setItem(LS_SETTINGS, JSON.stringify(settings));
+
+  // Apply default staff name to form if empty
+  const sn = document.getElementById('staffName');
+  if (sn && !sn.value && settings.staffName) {
+    sn.value = settings.staffName;
+  }
+
+  closeSettings();
+  showToast('✅', '設定を保存しました', 'green');
+}
+
+function closeSettings() {
+  document.getElementById('settings-modal').classList.add('hidden');
+}
+
+// ============================
+// Toast
+// ============================
+function showToast(icon, msg, type = 'green') {
+  const colors = {
+    green: 'bg-green-600 text-white',
+    red:   'bg-red-600 text-white',
+    gray:  'bg-gray-700 text-white',
+  };
+  const toast = document.getElementById('toast');
+  const inner = document.getElementById('toast-inner');
+  document.getElementById('toast-icon').textContent = icon;
+  document.getElementById('toast-msg').textContent  = msg;
+  inner.className = `flex items-center gap-3 px-4 py-3 rounded-2xl shadow-lg text-sm font-medium max-w-sm ${colors[type] || colors.green}`;
+  toast.classList.remove('hidden');
+  toast.style.opacity = '1';
+  clearTimeout(toast._t);
+  toast._t = setTimeout(() => {
+    toast.style.opacity = '0';
+    setTimeout(() => toast.classList.add('hidden'), 300);
+  }, 3000);
+}
+
+// ============================
+// Utility
+// ============================
+function escHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;');
+}
+
+// Keyboard shortcut: Ctrl+S / Cmd+S → save draft
+document.addEventListener('keydown', (e) => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+    e.preventDefault();
+    saveDraft();
+  }
+});
+
+// Close modals on Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closePreview();
+    closeDrafts();
+    closeSettings();
+  }
+});
+</script>
+
+</body>
+</html>

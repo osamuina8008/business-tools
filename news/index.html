@@ -148,6 +148,8 @@
               class="venue-btn text-xs font-semibold px-3 py-1 rounded-lg bg-gray-100 text-gray-600 hover:bg-orange-100 hover:text-orange-700 transition">近畿</button>
             <button onclick="filterVenue('tokai')" data-venue="tokai"
               class="venue-btn text-xs font-semibold px-3 py-1 rounded-lg bg-gray-100 text-gray-600 hover:bg-blue-100 hover:text-blue-700 transition">東海</button>
+            <button onclick="filterVenue('hokuriku')" data-venue="hokuriku"
+              class="venue-btn text-xs font-semibold px-3 py-1 rounded-lg bg-gray-100 text-gray-600 hover:bg-teal-100 hover:text-teal-700 transition">北陸</button>
             <button onclick="filterVenue('tokyo')" data-venue="tokyo"
               class="venue-btn text-xs font-semibold px-3 py-1 rounded-lg bg-gray-100 text-gray-600 hover:bg-red-100 hover:text-red-700 transition">東京</button>
           </div>
@@ -440,17 +442,7 @@ async function loadRegion(regionId, prefFilter) {
 
 // ===== 展示会データ =====
 const EXPOS = [
-  {
-    name: 'ものづくりワールド名古屋 2026',
-    sub: '機械要素技術展・設計製造ソリューション展 他',
-    date: '2026年4月8日(水)〜10日(金)',
-    venue: 'ポートメッセなごや',
-    venueId: 'tokai',
-    tags: ['金属加工','工作機械','設計'],
-    color: 'border-blue-400',
-    tagColor: 'bg-blue-100 text-blue-700',
-    url: 'https://www.manufacturing-world.jp/nagoya/',
-  },
+  // ===== 近畿（インテックス大阪・神戸・京都） =====
   {
     name: 'INTERMOLD 2026 / 金型展',
     sub: '金型・成形加工の専門展示会',
@@ -463,37 +455,61 @@ const EXPOS = [
     url: 'https://www.intermold.jp/',
   },
   {
-    name: 'ものづくりワールド東京 2026',
-    sub: '機械要素技術展・設計製造ソリューション展 他',
-    date: '2026年6月24日(水)〜26日(金)',
-    venue: '東京ビッグサイト',
-    venueId: 'tokyo',
-    tags: ['金属加工','工作機械','IoT'],
-    color: 'border-red-400',
-    tagColor: 'bg-red-100 text-red-700',
-    url: 'https://www.manufacturing-world.jp/tokyo/',
-  },
-  {
     name: 'ものづくりワールド大阪 2026',
     sub: '機械要素技術展・設計製造ソリューション展 他',
     date: '2026年9月頃（予定）',
     venue: 'インテックス大阪',
-    venueId: 'osaka',
+    venueId: 'kinki',  // 修正: 'osaka' → 'kinki'
     tags: ['金属加工','切削','溶接'],
     color: 'border-orange-400',
     tagColor: 'bg-orange-100 text-orange-700',
     url: 'https://www.manufacturing-world.jp/osaka/',
   },
   {
-    name: 'JIMTOF 2026（日本国際工作機械見本市）',
-    sub: '世界最大級の工作機械展（2年に1回）',
-    date: '2026年10〜11月（予定）',
-    venue: '東京ビッグサイト',
-    venueId: 'tokyo',
-    tags: ['工作機械','CNC','精密加工'],
-    color: 'border-red-400',
-    tagColor: 'bg-red-100 text-red-700',
-    url: 'https://www.jimtof.org/',
+    name: 'スマート工場EXPO 大阪 2026',
+    sub: 'FA・自動化・DX関連展',
+    date: '2026年秋頃（予定）',
+    venue: 'インテックス大阪',
+    venueId: 'kinki',  // 修正: 'osaka' → 'kinki'
+    tags: ['DX','FA','自動化'],
+    color: 'border-orange-400',
+    tagColor: 'bg-orange-100 text-orange-700',
+    url: 'https://www.smartfactory-expo.jp/',
+  },
+  {
+    name: 'ものづくり革新展 神戸 2026',
+    sub: '製造業DX・自動化技術展（兵庫県）',
+    date: '2026年秋頃（予定）',
+    venue: '神戸国際展示場（兵庫県）',
+    venueId: 'kinki',
+    tags: ['DX','自動化','製造業'],
+    color: 'border-orange-400',
+    tagColor: 'bg-orange-100 text-orange-700',
+    url: 'https://www.kcg.or.jp/',
+  },
+  {
+    name: '京都 試作ネット フェア',
+    sub: '試作・精密加工・表面処理（京都府）',
+    date: '毎年秋頃（京都府主催）',
+    venue: '京都パルスプラザ（京都府）',
+    venueId: 'kinki',
+    tags: ['試作','精密加工','表面処理'],
+    color: 'border-orange-400',
+    tagColor: 'bg-orange-100 text-orange-700',
+    url: 'https://www.pref.kyoto.jp/',
+  },
+
+  // ===== 東海（ポートメッセなごや） =====
+  {
+    name: 'ものづくりワールド名古屋 2026',
+    sub: '機械要素技術展・設計製造ソリューション展 他',
+    date: '2026年4月8日(水)〜10日(金)',
+    venue: 'ポートメッセなごや',
+    venueId: 'tokai',
+    tags: ['金属加工','工作機械','設計'],
+    color: 'border-blue-400',
+    tagColor: 'bg-blue-100 text-blue-700',
+    url: 'https://www.manufacturing-world.jp/nagoya/',
   },
   {
     name: '中部溶接展 2026',
@@ -507,17 +523,6 @@ const EXPOS = [
     url: 'https://www.jwa.or.jp/',
   },
   {
-    name: 'スマート工場EXPO 大阪 2026',
-    sub: 'FA・自動化・DX関連展',
-    date: '2026年秋頃（予定）',
-    venue: 'インテックス大阪',
-    venueId: 'osaka',
-    tags: ['DX','FA','自動化'],
-    color: 'border-orange-400',
-    tagColor: 'bg-orange-100 text-orange-700',
-    url: 'https://www.smartfactory-expo.jp/',
-  },
-  {
     name: 'MECT 2027（メカトロテックJAPAN）',
     sub: '工作機械・精密加工の専門展（2年に1回）',
     date: '2027年10月（予定）',
@@ -527,6 +532,76 @@ const EXPOS = [
     color: 'border-blue-400',
     tagColor: 'bg-blue-100 text-blue-700',
     url: 'https://www.mect-japan.com/',
+  },
+
+  // ===== 北陸（石川・福井・富山） =====
+  {
+    name: 'MEX金沢 2026（北陸製造業総合展）',
+    sub: '北陸最大の製造業・ものづくり総合展示会（石川県）',
+    date: '2026年5月（予定・石川県産業展示館）',
+    venue: '石川県産業展示館（石川県金沢市）',
+    venueId: 'hokuriku',
+    tags: ['金属加工','工作機械','製造業'],
+    color: 'border-teal-400',
+    tagColor: 'bg-teal-100 text-teal-700',
+    url: 'https://www.mex.gr.jp/',
+  },
+  {
+    name: 'テクノフェア石川 2026',
+    sub: '石川県内企業の技術・製品展示会',
+    date: '2026年秋頃（予定）',
+    venue: '石川県産業展示館（石川県）',
+    venueId: 'hokuriku',
+    tags: ['精密加工','金属','技術展'],
+    color: 'border-teal-400',
+    tagColor: 'bg-teal-100 text-teal-700',
+    url: 'https://www.isico.or.jp/',
+  },
+  {
+    name: 'ものづくりフェア福井 2026',
+    sub: '福井県の製造業・素材・繊維関連展示会',
+    date: '毎年秋頃（予定）',
+    venue: '福井県産業会館（福井県）',
+    venueId: 'hokuriku',
+    tags: ['製造業','素材','繊維'],
+    color: 'border-teal-400',
+    tagColor: 'bg-teal-100 text-teal-700',
+    url: 'https://www.fcci.or.jp/',
+  },
+  {
+    name: 'とやまものづくり・技術フェア',
+    sub: '富山県の精密加工・化学・電子部品関連展',
+    date: '毎年秋頃（予定）',
+    venue: '富山産業展示館テクノホール（富山県）',
+    venueId: 'hokuriku',
+    tags: ['精密','アルミ','化学'],
+    color: 'border-teal-400',
+    tagColor: 'bg-teal-100 text-teal-700',
+    url: 'https://www.toyama-cci.or.jp/',
+  },
+
+  // ===== 東京（東京ビッグサイト） =====
+  {
+    name: 'ものづくりワールド東京 2026',
+    sub: '機械要素技術展・設計製造ソリューション展 他',
+    date: '2026年6月24日(水)〜26日(金)',
+    venue: '東京ビッグサイト',
+    venueId: 'tokyo',
+    tags: ['金属加工','工作機械','IoT'],
+    color: 'border-red-400',
+    tagColor: 'bg-red-100 text-red-700',
+    url: 'https://www.manufacturing-world.jp/tokyo/',
+  },
+  {
+    name: 'JIMTOF 2026（日本国際工作機械見本市）',
+    sub: '世界最大級の工作機械展（2年に1回）',
+    date: '2026年10〜11月（予定）',
+    venue: '東京ビッグサイト',
+    venueId: 'tokyo',
+    tags: ['工作機械','CNC','精密加工'],
+    color: 'border-red-400',
+    tagColor: 'bg-red-100 text-red-700',
+    url: 'https://www.jimtof.org/',
   },
 ];
 

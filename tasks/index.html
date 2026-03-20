@@ -169,6 +169,18 @@
 
         <hr class="border-gray-100" />
 
+        <div>
+          <label class="text-sm font-bold text-gray-700 block mb-1">プッシュ通知</label>
+          <p class="text-xs text-gray-500 mb-2">今日・明日の予定をOS通知でお知らせします。</p>
+          <button onclick="requestNotifPermission()" id="notif-btn"
+            class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 rounded-2xl transition text-sm">
+            通知を許可する
+          </button>
+          <div id="notif-status" class="text-xs text-center text-gray-400 mt-1"></div>
+        </div>
+
+        <hr class="border-gray-100" />
+
         <button onclick="clearDone()"
           class="w-full text-sm text-red-500 hover:text-red-700 py-2 transition">
           完了済みタスクを全削除
@@ -253,6 +265,10 @@ async function syncCalendar() {
     calItems = data.items || [];
     renderCalTasks();
     showToast(`${calItems.length}件を同期しました`);
+    // SW にURLを送り、通知もトリガー
+    const gasUrl2 = localStorage.getItem('bt_gas_url');
+    if (gasUrl2) sendUrlToSW(gasUrl2);
+    notifyTodayEvents();
   } catch (e) {
     showToast('同期に失敗しました');
     console.error(e);
@@ -441,6 +457,85 @@ document.getElementById('settings-modal').addEventListener('click', function(e) 
 });
 
 render();
+
+// ---- Service Worker & 通知 ----
+let swReg = null;
+
+async function initSW() {
+  if (!('serviceWorker' in navigator)) return;
+  try {
+    swReg = await navigator.serviceWorker.register('./sw.js');
+    // GAS URLをSWに送信
+    const url = localStorage.getItem('bt_gas_url');
+    if (url) sendUrlToSW(url);
+    // Periodic Background Sync 登録
+    if (swReg.periodicSync) {
+      const status = await navigator.permissions.query({ name: 'periodic-background-sync' });
+      if (status.state === 'granted') {
+        await swReg.periodicSync.register('cal-check', { minInterval: 8 * 60 * 60 * 1000 }); // 8時間
+      }
+    }
+  } catch (e) { console.warn('SW registration failed:', e); }
+}
+
+function sendUrlToSW(url) {
+  if (!swReg?.active) return;
+  swReg.active.postMessage({ type: 'SET_GAS_URL', url });
+}
+
+async function requestNotifPermission() {
+  if (!('Notification' in window)) {
+    document.getElementById('notif-status').textContent = 'このブラウザは通知非対応です';
+    return;
+  }
+  const result = await Notification.requestPermission();
+  updateNotifUI(result);
+  if (result === 'granted') {
+    showToast('通知が有効になりました');
+    // 今日の予定をすぐ通知
+    notifyTodayEvents();
+  }
+}
+
+function updateNotifUI(permission) {
+  const btn = document.getElementById('notif-btn');
+  const st  = document.getElementById('notif-status');
+  if (!btn) return;
+  if (permission === 'granted') {
+    btn.textContent = '✅ 通知ON';
+    btn.className = btn.className.replace('bg-green-600 hover:bg-green-700', 'bg-gray-300 cursor-default');
+    st.textContent = '今日・明日の予定をお知らせします';
+  } else if (permission === 'denied') {
+    btn.textContent = '🚫 通知がブロックされています';
+    btn.className = btn.className.replace('bg-green-600 hover:bg-green-700', 'bg-red-100 text-red-600 cursor-default');
+    st.textContent = 'ブラウザの設定から許可してください';
+  }
+}
+
+function notifyTodayEvents() {
+  if (Notification.permission !== 'granted' || !calItems.length) return;
+  const today    = new Date().toISOString().slice(0, 10);
+  const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
+  const todayItems    = calItems.filter(i => i.date === today    && !calDismissed.has(i.id));
+  const tomorrowItems = calItems.filter(i => i.date === tomorrow && !calDismissed.has(i.id));
+
+  if (todayItems.length > 0) {
+    new Notification('📅 今日の予定', {
+      body: todayItems.map(i => (i.time ? i.time + ' ' : '') + i.title).join('\n'),
+      tag:  'cal-today',
+    });
+  }
+  if (tomorrowItems.length > 0) {
+    new Notification('📅 明日の予定', {
+      body: tomorrowItems.map(i => (i.time ? i.time + ' ' : '') + i.title).join('\n'),
+      tag:  'cal-tomorrow',
+    });
+  }
+}
+
+// 初期化
+initSW();
+if ('Notification' in window) updateNotifUI(Notification.permission);
 </script>
 </body>
 </html>

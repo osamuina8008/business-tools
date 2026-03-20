@@ -8,104 +8,273 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
     body { font-family: 'Noto Sans JP', sans-serif; }
+    .card-hover { transition: transform 0.15s, box-shadow 0.15s; }
+    .card-hover:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+    .news-item { border-left: 3px solid; }
+    .spinner { animation: spin 0.8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .fade-in { animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
+    mark { background: #fef08a; padding: 0 1px; border-radius: 2px; }
   </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
+
   <header class="bg-white border-b border-gray-200">
-    <div class="max-w-4xl mx-auto px-4 py-5">
-      <h1 class="text-xl font-bold text-gray-800">業務効率化ツール</h1>
-      <p class="text-sm text-gray-400 mt-0.5">Business Productivity Suite</p>
+    <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div>
+        <h1 class="text-xl font-bold text-gray-800">業務効率化ツール</h1>
+        <p class="text-xs text-gray-400 mt-0.5">Business Productivity Suite — 稲垣督</p>
+      </div>
+      <div class="flex items-center gap-2 text-xs text-gray-400" id="news-status"></div>
     </div>
   </header>
 
-  <main class="max-w-4xl mx-auto px-4 py-8">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+  <main class="max-w-5xl mx-auto px-4 py-6">
 
-      <!-- 1: Email -->
-      <a href="email/index.html" class="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm hover:shadow-md hover:border-blue-300 transition group">
-        <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center mb-3 group-hover:bg-blue-200 transition">
+    <!-- ツールカード -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-8">
+
+      <!-- メール作成 -->
+      <a href="email/index.html" class="bg-white rounded-2xl border border-gray-200 p-4 shadow-sm card-hover group flex flex-col items-center text-center gap-2">
+        <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center group-hover:bg-blue-200 transition">
           <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
         </div>
-        <div class="flex items-start justify-between">
-          <div>
-            <h2 class="font-bold text-gray-800 text-sm">メール作成</h2>
-            <p class="text-xs text-gray-500 mt-1">ポイントからビジネスメールを自動生成</p>
-          </div>
-          <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">完成</span>
-        </div>
+        <p class="text-xs font-bold text-gray-800">メール作成</p>
+        <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">完成</span>
       </a>
 
-      <!-- 2: File -->
-      <div class="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm opacity-60 cursor-not-allowed">
-        <div class="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center mb-3">
+      <!-- ファイル整理 -->
+      <div class="bg-white rounded-2xl border border-gray-200 p-4 shadow-sm opacity-50 cursor-not-allowed flex flex-col items-center text-center gap-2">
+        <div class="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center">
           <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
         </div>
-        <div class="flex items-start justify-between">
-          <div>
-            <h2 class="font-bold text-gray-800 text-sm">ファイル自動整理</h2>
-            <p class="text-xs text-gray-500 mt-1">ルールに基づいてファイルを自動分類</p>
-          </div>
-          <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-medium">準備中</span>
-        </div>
+        <p class="text-xs font-bold text-gray-800">ファイル整理</p>
+        <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-medium">準備中</span>
       </div>
 
-      <!-- 3: Schedule -->
-      <div class="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm opacity-60 cursor-not-allowed">
-        <div class="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center mb-3">
+      <!-- スケジュール -->
+      <div class="bg-white rounded-2xl border border-gray-200 p-4 shadow-sm opacity-50 cursor-not-allowed flex flex-col items-center text-center gap-2">
+        <div class="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center">
           <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
         </div>
-        <div class="flex items-start justify-between">
-          <div>
-            <h2 class="font-bold text-gray-800 text-sm">スケジュール作成</h2>
-            <p class="text-xs text-gray-500 mt-1">テキストからGoogle Calendarに自動登録</p>
-          </div>
-          <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-medium">準備中</span>
-        </div>
+        <p class="text-xs font-bold text-gray-800">スケジュール</p>
+        <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-medium">準備中</span>
       </div>
 
-      <!-- 4: Quote -->
-      <div class="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm opacity-60 cursor-not-allowed">
-        <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center mb-3">
+      <!-- 見積書管理 -->
+      <div class="bg-white rounded-2xl border border-gray-200 p-4 shadow-sm opacity-50 cursor-not-allowed flex flex-col items-center text-center gap-2">
+        <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center">
           <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
         </div>
-        <div class="flex items-start justify-between">
-          <div>
-            <h2 class="font-bold text-gray-800 text-sm">見積書管理</h2>
-            <p class="text-xs text-gray-500 mt-1">テンプレート複製・Google Drive格納</p>
-          </div>
-          <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-medium">準備中</span>
-        </div>
+        <p class="text-xs font-bold text-gray-800">見積書管理</p>
+        <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-medium">準備中</span>
       </div>
 
-      <!-- 5: News -->
-      <div class="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm opacity-60 cursor-not-allowed">
-        <div class="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center mb-3">
+      <!-- 業界トピックス -->
+      <a href="news/index.html" class="bg-white rounded-2xl border border-gray-200 p-4 shadow-sm card-hover group flex flex-col items-center text-center gap-2">
+        <div class="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center group-hover:bg-red-200 transition">
           <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
         </div>
-        <div class="flex items-start justify-between">
-          <div>
-            <h2 class="font-bold text-gray-800 text-sm">業界トピックス</h2>
-            <p class="text-xs text-gray-500 mt-1">日刊工業・日経ニュースの自動収集</p>
-          </div>
-          <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-medium">準備中</span>
+        <p class="text-xs font-bold text-gray-800">業界トピックス</p>
+        <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">完成</span>
+      </a>
+
+      <!-- タスク管理 -->
+      <div class="bg-white rounded-2xl border border-gray-200 p-4 shadow-sm opacity-50 cursor-not-allowed flex flex-col items-center text-center gap-2">
+        <div class="w-10 h-10 bg-yellow-100 rounded-xl flex items-center justify-center">
+          <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+        </div>
+        <p class="text-xs font-bold text-gray-800">タスク管理</p>
+        <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-medium">準備中</span>
+      </div>
+
+    </div>
+
+    <!-- ニュースダッシュボード -->
+    <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
+
+      <!-- ヘッダー -->
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+          <h2 class="font-bold text-gray-800">最新 業界ニュース</h2>
+          <span class="text-xs text-gray-400 font-normal" id="news-time"></span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="loadTopNews()" id="refresh-btn"
+            class="text-xs text-gray-500 hover:text-blue-600 flex items-center gap-1 px-2 py-1 rounded-lg hover:bg-blue-50 transition">
+            <svg id="refresh-icon" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+            </svg>
+            更新
+          </button>
+          <a href="news/index.html"
+            class="text-xs text-blue-600 hover:text-blue-800 font-semibold px-3 py-1 bg-blue-50 hover:bg-blue-100 rounded-lg transition">
+            すべて見る →
+          </a>
         </div>
       </div>
 
-      <!-- 6: Tasks -->
-      <div class="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm opacity-60 cursor-not-allowed">
-        <div class="w-10 h-10 bg-yellow-100 rounded-xl flex items-center justify-center mb-3">
-          <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
-        </div>
-        <div class="flex items-start justify-between">
-          <div>
-            <h2 class="font-bold text-gray-800 text-sm">タスク優先管理</h2>
-            <p class="text-xs text-gray-500 mt-1">優先度付き時系列タスク一覧</p>
-          </div>
-          <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-medium">準備中</span>
+      <!-- ソースタブ -->
+      <div class="flex gap-2 mb-4">
+        <button onclick="switchTab('all')" data-tab="all"
+          class="tab-btn active text-xs font-semibold px-3 py-1.5 rounded-lg bg-gray-800 text-white transition">
+          すべて
+        </button>
+        <button onclick="switchTab('nikkan')" data-tab="nikkan"
+          class="tab-btn text-xs font-semibold px-3 py-1.5 rounded-lg bg-gray-100 text-gray-600 hover:bg-orange-100 hover:text-orange-700 transition">
+          📰 日刊工業
+        </button>
+        <button onclick="switchTab('nikkei')" data-tab="nikkei"
+          class="tab-btn text-xs font-semibold px-3 py-1.5 rounded-lg bg-gray-100 text-gray-600 hover:bg-blue-100 hover:text-blue-700 transition">
+          📊 日経
+        </button>
+        <button onclick="switchTab('monoist')" data-tab="monoist"
+          class="tab-btn text-xs font-semibold px-3 py-1.5 rounded-lg bg-gray-100 text-gray-600 hover:bg-teal-100 hover:text-teal-700 transition">
+          🔧 MONOist
+        </button>
+      </div>
+
+      <!-- ニュースリスト -->
+      <div id="top-news-list">
+        <div class="flex items-center gap-2 py-8 justify-center text-gray-400">
+          <svg class="spinner w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
+          </svg>
+          <span class="text-sm">ニュースを取得中...</span>
         </div>
       </div>
 
     </div>
+
   </main>
+
+<script>
+const TOP_SOURCES = [
+  {
+    id: 'nikkan',
+    name: '日刊工業新聞',
+    color: 'border-orange-400',
+    tag: 'bg-orange-100 text-orange-700',
+    rss: 'https://www.nikkan.co.jp/rss/news.rss',
+  },
+  {
+    id: 'nikkei',
+    name: '日経新聞',
+    color: 'border-blue-500',
+    tag: 'bg-blue-100 text-blue-700',
+    rss: 'https://www.nikkei.com/rss/index.rss',
+  },
+  {
+    id: 'monoist',
+    name: 'MONOist',
+    color: 'border-teal-400',
+    tag: 'bg-teal-100 text-teal-700',
+    rss: 'https://monoist.itmedia.co.jp/mn/rss/',
+  },
+];
+
+const KEYWORDS = ['金属','加工','切削','プレス','溶接','金型','表面処理','鋼','アルミ','工作機械','製造','部品'];
+
+let allTopItems = [];
+let currentTab = 'all';
+
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+function highlight(text) {
+  let r = escHtml(text);
+  KEYWORDS.forEach(k => { r = r.replace(new RegExp(k, 'g'), `<mark>${k}</mark>`); });
+  return r;
+}
+function fmtDate(d) {
+  if (!d || isNaN(d)) return '';
+  const diff = Math.floor((new Date() - d) / 60000);
+  if (diff < 60) return `${diff}分前`;
+  if (diff < 1440) return `${Math.floor(diff/60)}時間前`;
+  return `${d.getMonth()+1}/${d.getDate()}`;
+}
+
+async function fetchRSS(src) {
+  const url = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(src.rss)}&count=10`;
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    if (data.status !== 'ok') return [];
+    return data.items.map(item => ({
+      sourceId: src.id,
+      sourceName: src.name,
+      color: src.color,
+      tag: src.tag,
+      title: item.title || '',
+      link: item.link || '#',
+      pubDate: item.pubDate ? new Date(item.pubDate) : new Date(),
+    }));
+  } catch { return []; }
+}
+
+function renderTopNews(items) {
+  const el = document.getElementById('top-news-list');
+  const show = items.slice(0, 5);
+  if (show.length === 0) {
+    el.innerHTML = `<p class="text-sm text-gray-400 text-center py-6">ニュースを取得できませんでした。しばらくしてから更新してください。</p>`;
+    return;
+  }
+  el.innerHTML = show.map(item => `
+    <a href="${escHtml(item.link)}" target="_blank" rel="noopener noreferrer"
+      class="news-item ${item.color} flex items-start gap-3 px-3 py-3 mb-2 rounded-r-xl bg-gray-50 hover:bg-blue-50 transition fade-in no-underline block">
+      <div class="flex-1 min-w-0">
+        <p class="text-sm font-semibold text-gray-800 leading-snug line-clamp-2">${highlight(item.title)}</p>
+        <div class="flex items-center gap-2 mt-1">
+          <span class="text-xs font-bold px-2 py-0.5 rounded-full ${item.tag}">${item.sourceName}</span>
+          <span class="text-xs text-gray-400">${fmtDate(item.pubDate)}</span>
+        </div>
+      </div>
+      <svg class="w-4 h-4 text-gray-300 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+      </svg>
+    </a>
+  `).join('');
+}
+
+function switchTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    const active = b.dataset.tab === tab;
+    b.className = active
+      ? 'tab-btn active text-xs font-semibold px-3 py-1.5 rounded-lg bg-gray-800 text-white transition'
+      : 'tab-btn text-xs font-semibold px-3 py-1.5 rounded-lg bg-gray-100 text-gray-600 hover:bg-orange-100 hover:text-orange-700 transition';
+  });
+  const items = tab === 'all' ? allTopItems : allTopItems.filter(i => i.sourceId === tab);
+  renderTopNews(items);
+}
+
+async function loadTopNews() {
+  const icon = document.getElementById('refresh-icon');
+  icon.classList.add('spinner');
+  document.getElementById('top-news-list').innerHTML = `
+    <div class="flex items-center gap-2 py-8 justify-center text-gray-400">
+      <svg class="spinner w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
+      </svg>
+      <span class="text-sm">取得中...</span>
+    </div>`;
+
+  const results = await Promise.all(TOP_SOURCES.map(s => fetchRSS(s)));
+  allTopItems = results.flat().sort((a, b) => b.pubDate - a.pubDate);
+
+  const now = new Date();
+  document.getElementById('news-time').textContent =
+    `更新: ${now.getHours()}:${String(now.getMinutes()).padStart(2,'0')}`;
+
+  switchTab(currentTab);
+  icon.classList.remove('spinner');
+}
+
+loadTopNews();
+</script>
 </body>
 </html>

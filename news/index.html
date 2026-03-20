@@ -293,7 +293,7 @@ let currentSource = 'all';
 
 // ===== RSS取得 =====
 async function fetchRSS(source) {
-  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(source.rss)}&count=15`;
+  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(source.rss)}`;
   try {
     const res = await fetch(apiUrl, { signal: AbortSignal.timeout(12000) });
     if (!res.ok) throw new Error('fetch failed');

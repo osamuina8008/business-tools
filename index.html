@@ -207,7 +207,7 @@ function fmtDate(d) {
 }
 
 async function fetchRSS(src) {
-  const url = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(src.rss)}&count=10`;
+  const url = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(src.rss)}`;
   try {
     const res = await fetch(url);
     const data = await res.json();

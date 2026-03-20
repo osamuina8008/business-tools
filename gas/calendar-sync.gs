@@ -1,8 +1,9 @@
 /**
- * Google Apps Script - カレンダー終日イベント取得
+ * Google Apps Script - カレンダーイベント取得（全イベント対応）
  *
  * 【設定手順】
- * 1. https://script.google.com にアクセス
+ * ※ onextec.inagaki@gmail.com アカウントで実行すること
+ * 1. https://script.google.com にアクセス（対象アカウントでログイン）
  * 2. 「新しいプロジェクト」を作成
  * 3. このコードを貼り付けて保存
  * 4. 「デプロイ」→「新しいデプロイ」
@@ -10,7 +11,7 @@
  *    実行ユーザー: 自分
  *    アクセスできるユーザー: 全員
  * 6. デプロイ → 承認 → URLをコピー
- * 7. タスクツールの「設定」にURLを貼り付け
+ * 7. タスクツールの「⚙ 設定」にURLを貼り付け
  */
 
 function doGet(e) {
@@ -18,20 +19,22 @@ function doGet(e) {
     const cal = CalendarApp.getDefaultCalendar();
     const now = new Date();
     const future = new Date();
-    future.setDate(future.getDate() + 90); // 90日先まで取得
+    future.setDate(future.getDate() + 30); // 30日先まで取得
 
     const events = cal.getEvents(now, future);
 
-    // 終日イベントのみ（タスク用途）
-    const allDay = events.filter(ev => ev.isAllDayEvent());
-
-    const items = allDay.map(ev => ({
-      id:          ev.getId(),
-      title:       ev.getTitle(),
-      date:        Utilities.formatDate(ev.getStartTime(), 'Asia/Tokyo', 'yyyy-MM-dd'),
-      description: ev.getDescription() || '',
-      location:    ev.getLocation() || '',
-    }));
+    // 全イベント（タイトルなしは除外）
+    const items = events
+      .filter(ev => ev.getTitle().trim() !== '')
+      .map(ev => ({
+        id:          ev.getId(),
+        title:       ev.getTitle(),
+        date:        Utilities.formatDate(ev.getStartTime(), 'Asia/Tokyo', 'yyyy-MM-dd'),
+        time:        ev.isAllDayEvent() ? '' : Utilities.formatDate(ev.getStartTime(), 'Asia/Tokyo', 'HH:mm'),
+        allDay:      ev.isAllDayEvent(),
+        description: ev.getDescription() || '',
+        location:    ev.getLocation() || '',
+      }));
 
     const json = JSON.stringify({ status: 'ok', items: items, count: items.length });
     return ContentService

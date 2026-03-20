@@ -90,6 +90,48 @@
 
     </section>
 
+    <!-- ===== 地域情報セクション ===== -->
+    <section id="regional-section" class="mt-6">
+      <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
+        <div class="flex items-center gap-2 mb-4">
+          <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+          <h2 class="font-bold text-gray-800">地域別 製造業ニュース</h2>
+          <span class="text-xs text-gray-400">（都道府県を選択）</span>
+        </div>
+
+        <!-- 都道府県ボタン -->
+        <div class="flex flex-wrap gap-2 mb-4">
+          <button onclick="loadRegion('大阪府')" data-pref="大阪府"
+            class="pref-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-orange-50 border border-orange-200 text-orange-700 hover:bg-orange-100 transition">大阪府</button>
+          <button onclick="loadRegion('兵庫県')" data-pref="兵庫県"
+            class="pref-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-orange-50 border border-orange-200 text-orange-700 hover:bg-orange-100 transition">兵庫県</button>
+          <button onclick="loadRegion('京都府')" data-pref="京都府"
+            class="pref-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-orange-50 border border-orange-200 text-orange-700 hover:bg-orange-100 transition">京都府</button>
+          <button onclick="loadRegion('奈良県')" data-pref="奈良県"
+            class="pref-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-orange-50 border border-orange-200 text-orange-700 hover:bg-orange-100 transition">奈良県</button>
+          <button onclick="loadRegion('和歌山県')" data-pref="和歌山県"
+            class="pref-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-orange-50 border border-orange-200 text-orange-700 hover:bg-orange-100 transition">和歌山県</button>
+          <button onclick="loadRegion('愛知県')" data-pref="愛知県"
+            class="pref-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 hover:bg-blue-100 transition">愛知県</button>
+          <button onclick="loadRegion('三重県')" data-pref="三重県"
+            class="pref-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 hover:bg-blue-100 transition">三重県</button>
+          <button onclick="loadRegion('岐阜県')" data-pref="岐阜県"
+            class="pref-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 hover:bg-blue-100 transition">岐阜県</button>
+          <button onclick="loadRegion('石川県')" data-pref="石川県"
+            class="pref-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-teal-50 border border-teal-200 text-teal-700 hover:bg-teal-100 transition">石川県</button>
+          <button onclick="loadRegion('福井県')" data-pref="福井県"
+            class="pref-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-teal-50 border border-teal-200 text-teal-700 hover:bg-teal-100 transition">福井県</button>
+        </div>
+
+        <!-- 地域ニュース結果 -->
+        <div id="regional-result">
+          <p class="text-sm text-gray-400 text-center py-6">都道府県を選択するとニュースが表示されます</p>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== 展示会スケジュール ===== -->
     <section id="schedule-section" class="mt-6">
       <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
@@ -414,6 +456,68 @@ function renderExpos() {
       </div>
     </a>
   `).join('');
+}
+
+// ===== 地域ニュース =====
+let currentPref = '';
+
+async function loadRegion(pref) {
+  currentPref = pref;
+
+  // ボタンのアクティブ切替
+  document.querySelectorAll('.pref-btn').forEach(b => {
+    const active = b.dataset.pref === pref;
+    if (active) {
+      b.classList.add('ring-2', 'ring-offset-1', 'ring-emerald-400');
+    } else {
+      b.classList.remove('ring-2', 'ring-offset-1', 'ring-emerald-400');
+    }
+  });
+
+  const el = document.getElementById('regional-result');
+  el.innerHTML = `
+    <div class="flex items-center gap-2 py-6 justify-center text-gray-400">
+      <svg class="spinner w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
+      </svg>
+      <span class="text-sm">${pref} のニュースを取得中...</span>
+    </div>`;
+
+  const q = encodeURIComponent(`製造業 OR 金属加工 OR 工場 OR 部品加工 ${pref}`);
+  const rssUrl = `https://news.google.com/rss/search?q=${q}&hl=ja&gl=JP&ceid=JP:ja`;
+  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=10`;
+
+  try {
+    const res = await fetch(apiUrl);
+    const data = await res.json();
+    if (data.status !== 'ok' || !data.items.length) throw new Error('no items');
+
+    el.innerHTML = `
+      <p class="text-xs font-semibold text-gray-500 mb-3">${pref} — 製造業・金属加工関連ニュース（最新${data.items.length}件）</p>
+      <div class="space-y-2">
+        ${data.items.map(item => {
+          const d = item.pubDate ? new Date(item.pubDate) : null;
+          const date = d ? `${d.getMonth()+1}/${d.getDate()}` : '';
+          const title = escapeHtml(item.title || '');
+          const source = escapeHtml(item.author || item.source || '');
+          return `
+            <a href="${escapeHtml(item.link || '#')}" target="_blank" rel="noopener noreferrer"
+              class="flex items-start gap-3 p-3 rounded-xl bg-gray-50 hover:bg-emerald-50 transition border-l-4 border-emerald-400 block fade-in">
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-semibold text-gray-800 leading-snug line-clamp-2">${highlightKeywords(title)}</p>
+                <div class="flex items-center gap-2 mt-1">
+                  ${source ? `<span class="text-xs text-gray-500">${source}</span>` : ''}
+                  <span class="text-xs text-gray-400">${date}</span>
+                </div>
+              </div>
+              <svg class="w-4 h-4 text-gray-300 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>`;
+        }).join('')}
+      </div>`;
+  } catch {
+    el.innerHTML = `<p class="text-sm text-gray-400 text-center py-6">${pref} のニュースを取得できませんでした。しばらくして再度お試しください。</p>`;
+  }
 }
 
 // 初回ロード

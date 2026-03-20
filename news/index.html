@@ -47,36 +47,75 @@
     <section id="news-section">
 
       <!-- Source Filter Buttons -->
-      <div class="flex flex-wrap gap-2 mb-5">
-        <button onclick="filterSource('all')" data-src="all"
-          class="src-btn active px-4 py-2 rounded-xl text-sm font-semibold bg-blue-600 text-white transition">
-          すべて
-        </button>
-        <button onclick="filterSource('nikkan')" data-src="nikkan"
-          class="src-btn px-4 py-2 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-orange-400 hover:text-orange-600 transition">
-          📰 日刊工業新聞
-        </button>
-        <button onclick="filterSource('nikkei')" data-src="nikkei"
-          class="src-btn px-4 py-2 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-red-400 hover:text-red-600 transition">
-          📊 日経新聞
-        </button>
-        <button onclick="filterSource('monoist')" data-src="monoist"
-          class="src-btn px-4 py-2 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-blue-400 hover:text-blue-600 transition">
-          🔧 MONOist
-        </button>
-        <button onclick="filterSource('meti')" data-src="meti"
-          class="src-btn px-4 py-2 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-green-400 hover:text-green-600 transition">
-          🏛 経産省
-        </button>
-        <button onclick="filterSource('fabcross')" data-src="fabcross"
-          class="src-btn px-4 py-2 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-purple-400 hover:text-purple-600 transition">
-          ⚙️ fabcross
-        </button>
-        <!-- キーワードフィルター -->
-        <div class="ml-auto flex items-center gap-2">
-          <input id="keyword-filter" type="text" placeholder="キーワード絞り込み"
-            oninput="applyKeywordFilter()"
-            class="border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 w-40" />
+      <div class="flex flex-col gap-2 mb-5">
+        <!-- 行1: 主要紙 + キーワード -->
+        <div class="flex flex-wrap gap-2 items-center">
+          <button onclick="filterSource('all')" data-src="all"
+            class="src-btn active px-4 py-2 rounded-xl text-sm font-semibold bg-blue-600 text-white transition">
+            すべて
+          </button>
+          <span class="text-xs text-gray-400 font-semibold">主要紙</span>
+          <button onclick="filterSource('nikkan')" data-src="nikkan"
+            class="src-btn px-3 py-1.5 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-orange-400 hover:text-orange-600 transition">
+            📰 日刊工業
+          </button>
+          <button onclick="filterSource('nikkei')" data-src="nikkei"
+            class="src-btn px-3 py-1.5 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-red-400 hover:text-red-600 transition">
+            📊 日経
+          </button>
+          <button onclick="filterSource('monoist')" data-src="monoist"
+            class="src-btn px-3 py-1.5 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-blue-400 hover:text-blue-600 transition">
+            🔧 MONOist
+          </button>
+          <button onclick="filterSource('meti')" data-src="meti"
+            class="src-btn px-3 py-1.5 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-green-400 hover:text-green-600 transition">
+            🏛 経産省
+          </button>
+          <button onclick="filterSource('fabcross')" data-src="fabcross"
+            class="src-btn px-3 py-1.5 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-purple-400 hover:text-purple-600 transition">
+            ⚙️ fabcross
+          </button>
+          <div class="ml-auto">
+            <input id="keyword-filter" type="text" placeholder="キーワード絞り込み"
+              oninput="applyKeywordFilter()"
+              class="border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 w-40" />
+          </div>
+        </div>
+        <!-- 行2: 金属専門紙 -->
+        <div class="flex flex-wrap gap-2 items-center">
+          <span class="text-xs text-gray-400 font-semibold">金属専門</span>
+          <button onclick="filterSource('tekko')" data-src="tekko"
+            class="src-btn px-3 py-1.5 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-gray-500 hover:text-gray-800 transition">
+            🔩 日刊鉄鋼新聞
+          </button>
+          <button onclick="filterSource('sangyo')" data-src="sangyo"
+            class="src-btn px-3 py-1.5 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-gray-500 hover:text-gray-800 transition">
+            🏭 日刊産業新聞
+          </button>
+          <button onclick="filterSource('kinsan')" data-src="kinsan"
+            class="src-btn px-3 py-1.5 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-yellow-500 hover:text-yellow-700 transition">
+            🔧 金属産業新聞
+          </button>
+          <button onclick="filterSource('shijo')" data-src="shijo"
+            class="src-btn px-3 py-1.5 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-gray-500 hover:text-gray-800 transition">
+            📈 日刊市況通信
+          </button>
+        </div>
+        <!-- 行3: 地域経済紙 -->
+        <div class="flex flex-wrap gap-2 items-center">
+          <span class="text-xs text-gray-400 font-semibold">地域経済</span>
+          <button onclick="filterSource('chukei')" data-src="chukei"
+            class="src-btn px-3 py-1.5 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-blue-400 hover:text-blue-700 transition">
+            📋 中部経済新聞
+          </button>
+          <button onclick="filterSource('kinki_ind')" data-src="kinki_ind"
+            class="src-btn px-3 py-1.5 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-orange-400 hover:text-orange-700 transition">
+            🏙 近畿産業
+          </button>
+          <button onclick="filterSource('hokuriku_ind')" data-src="hokuriku_ind"
+            class="src-btn px-3 py-1.5 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-teal-400 hover:text-teal-700 transition">
+            🏔 北陸産業
+          </button>
         </div>
       </div>
 
@@ -199,6 +238,50 @@ const SOURCES = [
     name: 'fabcross',
     color: 'bg-purple-100 text-purple-700',
     rss: 'https://news.google.com/rss/search?q=site:fabcross.jp&hl=ja&gl=JP&ceid=JP:ja',
+  },
+  // ===== 金属専門紙 =====
+  {
+    id: 'tekko',
+    name: '日刊鉄鋼新聞',
+    color: 'bg-gray-100 text-gray-700',
+    rss: 'https://news.google.com/rss/search?q=site:japanmetaldaily.com&hl=ja&gl=JP&ceid=JP:ja',
+  },
+  {
+    id: 'sangyo',
+    name: '日刊産業新聞',
+    color: 'bg-gray-100 text-gray-700',
+    rss: 'https://news.google.com/rss/search?q=site:japanmetal.com&hl=ja&gl=JP&ceid=JP:ja',
+  },
+  {
+    id: 'kinsan',
+    name: '金属産業新聞',
+    color: 'bg-yellow-100 text-yellow-700',
+    rss: 'https://news.google.com/rss/search?q=site:neji-bane.jp&hl=ja&gl=JP&ceid=JP:ja',
+  },
+  {
+    id: 'shijo',
+    name: '日刊市況通信',
+    color: 'bg-gray-100 text-gray-700',
+    rss: 'https://news.google.com/rss/search?q=site:mrj.jp&hl=ja&gl=JP&ceid=JP:ja',
+  },
+  // ===== 地域経済紙 =====
+  {
+    id: 'chukei',
+    name: '中部経済新聞',
+    color: 'bg-blue-100 text-blue-700',
+    rss: 'https://news.google.com/rss/search?q=site:chukei-news.co.jp&hl=ja&gl=JP&ceid=JP:ja',
+  },
+  {
+    id: 'kinki_ind',
+    name: '近畿産業',
+    color: 'bg-orange-100 text-orange-700',
+    rss: 'https://news.google.com/rss/search?q=近畿+製造業+産業+工場&hl=ja&gl=JP&ceid=JP:ja',
+  },
+  {
+    id: 'hokuriku_ind',
+    name: '北陸産業',
+    color: 'bg-teal-100 text-teal-700',
+    rss: 'https://news.google.com/rss/search?q=北陸+製造業+産業+工場&hl=ja&gl=JP&ceid=JP:ja',
   },
 ];
 

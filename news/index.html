@@ -124,6 +124,22 @@
             🏔 北陸産業
           </button>
         </div>
+        <!-- 行4: 熱処理・エネルギー -->
+        <div class="flex flex-wrap gap-2 items-center">
+          <span class="text-xs text-gray-400 font-semibold">熱処理・エネルギー</span>
+          <button onclick="filterSource('netsushori')" data-src="netsushori"
+            class="src-btn px-3 py-1.5 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-red-400 hover:text-red-700 transition">
+            🔥 熱処理技術
+          </button>
+          <button onclick="filterSource('energy_gas')" data-src="energy_gas"
+            class="src-btn px-3 py-1.5 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-yellow-500 hover:text-yellow-700 transition">
+            🔆 ガス・エネルギー
+          </button>
+          <button onclick="filterSource('energy_tech')" data-src="energy_tech"
+            class="src-btn px-3 py-1.5 rounded-xl text-sm font-semibold bg-white border-2 border-gray-200 text-gray-600 hover:border-green-500 hover:text-green-700 transition">
+            ⚡ 省エネ・技術革新
+          </button>
+        </div>
       </div>
 
       <!-- News Grid -->
@@ -290,10 +306,36 @@ const SOURCES = [
     color: 'bg-teal-100 text-teal-700',
     rss: 'https://news.google.com/rss/search?q=北陸+製造業+産業+工場&hl=ja&gl=JP&ceid=JP:ja',
   },
+  // ===== 熱処理・エネルギー =====
+  {
+    id: 'netsushori',
+    name: '熱処理技術',
+    color: 'bg-red-100 text-red-700',
+    rss: 'https://news.google.com/rss/search?q=熱処理+OR+焼入れ+OR+浸炭+OR+窒化+OR+焼鈍+OR+焼戻し&hl=ja&gl=JP&ceid=JP:ja',
+  },
+  {
+    id: 'energy_gas',
+    name: 'ガス・エネルギー',
+    color: 'bg-yellow-100 text-yellow-700',
+    rss: 'https://news.google.com/rss/search?q=都市ガス+OR+LNG+OR+プロパン+OR+ガス料金+OR+エネルギー価格+製造&hl=ja&gl=JP&ceid=JP:ja',
+  },
+  {
+    id: 'energy_tech',
+    name: '省エネ・技術革新',
+    color: 'bg-green-100 text-green-700',
+    rss: 'https://news.google.com/rss/search?q=省エネ+OR+熱効率+OR+カーボンニュートラル+OR+脱炭素+製造業+OR+工場&hl=ja&gl=JP&ceid=JP:ja',
+  },
 ];
 
-// 金属加工業 関連キーワード（自動ハイライト）
-const METAL_KEYWORDS = ['金属', '加工', '切削', 'プレス', '溶接', '金型', '表面処理', 'めっき', '鋳造', '鍛造', '板金', 'CNC', 'NC旋盤', 'マシニング', '工作機械', '精密加工', 'アルミ', 'ステンレス', '鉄鋼', 'チタン'];
+// 熱処理・金属加工業 関連キーワード（自動ハイライト）
+const METAL_KEYWORDS = [
+  // 金属加工
+  '金属', '加工', '切削', 'プレス', '溶接', '金型', '表面処理', 'めっき', '鋳造', '鍛造', '板金', 'CNC', 'NC旋盤', 'マシニング', '工作機械', '精密加工', 'アルミ', 'ステンレス', '鉄鋼', 'チタン',
+  // 熱処理
+  '熱処理', '焼入れ', '焼き入れ', '浸炭', '窒化', '焼鈍', '焼戻し', '高周波', '真空炉', '雰囲気炉',
+  // エネルギー・ガス
+  '都市ガス', 'LNG', 'プロパン', 'ガス料金', 'エネルギー価格', '省エネ', '熱効率', '脱炭素', 'カーボンニュートラル',
+];
 
 let allItems = [];
 let currentSource = 'all';
@@ -334,12 +376,13 @@ function escapeHtml(str) {
 }
 
 // ===== 日付ユーティリティ =====
-function isToday(d) {
+function isRecent(d) {
+  // 直近3日以内（本日 + 昨日 + 一昨日）
   if (!d || isNaN(d)) return false;
-  const now = new Date();
-  return d.getFullYear() === now.getFullYear() &&
-         d.getMonth()    === now.getMonth()    &&
-         d.getDate()     === now.getDate();
+  const cutoff = new Date();
+  cutoff.setDate(cutoff.getDate() - 2);
+  cutoff.setHours(0, 0, 0, 0);
+  return d >= cutoff;
 }
 function isWithinMonth(d) {
   if (!d || isNaN(d)) return false;
@@ -399,12 +442,12 @@ function renderCards(items, allPeriod = false) {
     return;
   }
 
-  const todayItems = items.filter(i => isToday(i.pubDate));
-  const olderItems = items.filter(i => !isToday(i.pubDate));
+  const recentItems = items.filter(i => isRecent(i.pubDate));
+  const olderItems  = items.filter(i => !isRecent(i.pubDate));
 
-  if (todayItems.length > 0) {
-    grid.appendChild(buildSectionHeader('🔴 本日', todayItems.length, 'text-red-600'));
-    todayItems.forEach(item => grid.appendChild(buildCard(item)));
+  if (recentItems.length > 0) {
+    grid.appendChild(buildSectionHeader('🔴 直近3日', recentItems.length, 'text-red-600'));
+    recentItems.forEach(item => grid.appendChild(buildCard(item)));
   }
 
   if (olderItems.length > 0) {

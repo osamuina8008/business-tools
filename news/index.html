@@ -333,18 +333,62 @@ function escapeHtml(str) {
   return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
-// ===== 日付フォーマット =====
+// ===== 日付ユーティリティ =====
+function isToday(d) {
+  if (!d || isNaN(d)) return false;
+  const now = new Date();
+  return d.getFullYear() === now.getFullYear() &&
+         d.getMonth()    === now.getMonth()    &&
+         d.getDate()     === now.getDate();
+}
+function isWithinMonth(d) {
+  if (!d || isNaN(d)) return false;
+  const cutoff = new Date();
+  cutoff.setMonth(cutoff.getMonth() - 1);
+  return d >= cutoff;
+}
 function formatDate(d) {
   if (!d || isNaN(d)) return '';
   const now = new Date();
   const diff = Math.floor((now - d) / 60000);
-  if (diff < 60) return `${diff}分前`;
+  if (diff < 60)   return `${diff}分前`;
   if (diff < 1440) return `${Math.floor(diff/60)}時間前`;
   return `${d.getMonth()+1}/${d.getDate()}`;
 }
 
-// ===== カード描画 =====
-function renderCards(items) {
+// ===== 1枚のカード生成 =====
+function buildCard(item) {
+  const card = document.createElement('a');
+  card.href = item.link;
+  card.target = '_blank';
+  card.rel = 'noopener noreferrer';
+  card.className = 'bg-white rounded-2xl border border-gray-200 p-4 flex flex-col gap-2 card-hover fade-in no-underline';
+  card.innerHTML = `
+    <div class="flex items-center justify-between">
+      <span class="source-tag ${item.sourceColor}">${item.sourceName}</span>
+      <span class="text-xs text-gray-400">${formatDate(item.pubDate)}</span>
+    </div>
+    <p class="text-sm font-semibold text-gray-800 leading-snug line-clamp-3">${highlightKeywords(item.title)}</p>
+    <p class="text-xs text-gray-500 leading-relaxed line-clamp-2">${highlightKeywords(item.description)}</p>
+    <div class="mt-auto pt-1 text-xs text-blue-500 font-medium">続きを読む →</div>
+  `;
+  return card;
+}
+
+// ===== セクションヘッダー生成 =====
+function buildSectionHeader(label, count, color) {
+  const div = document.createElement('div');
+  div.className = 'col-span-3 flex items-center gap-3 mt-2 mb-1';
+  div.innerHTML = `
+    <span class="text-sm font-bold ${color}">${label}</span>
+    <span class="text-xs text-gray-400">${count}件</span>
+    <div class="flex-1 border-t border-gray-200"></div>
+  `;
+  return div;
+}
+
+// ===== カード描画（今日 / 過去を分離） =====
+function renderCards(items, allPeriod = false) {
   const grid = document.getElementById('news-grid');
   grid.innerHTML = '';
 
@@ -355,23 +399,19 @@ function renderCards(items) {
     return;
   }
 
-  items.forEach(item => {
-    const card = document.createElement('a');
-    card.href = item.link;
-    card.target = '_blank';
-    card.rel = 'noopener noreferrer';
-    card.className = 'bg-white rounded-2xl border border-gray-200 p-4 flex flex-col gap-2 card-hover fade-in no-underline';
-    card.innerHTML = `
-      <div class="flex items-center justify-between">
-        <span class="source-tag ${item.sourceColor}">${item.sourceName}</span>
-        <span class="text-xs text-gray-400">${formatDate(item.pubDate)}</span>
-      </div>
-      <p class="text-sm font-semibold text-gray-800 leading-snug line-clamp-3">${highlightKeywords(item.title)}</p>
-      <p class="text-xs text-gray-500 leading-relaxed line-clamp-2">${highlightKeywords(item.description)}</p>
-      <div class="mt-auto pt-1 text-xs text-blue-500 font-medium">続きを読む →</div>
-    `;
-    grid.appendChild(card);
-  });
+  const todayItems = items.filter(i => isToday(i.pubDate));
+  const olderItems = items.filter(i => !isToday(i.pubDate));
+
+  if (todayItems.length > 0) {
+    grid.appendChild(buildSectionHeader('🔴 本日', todayItems.length, 'text-red-600'));
+    todayItems.forEach(item => grid.appendChild(buildCard(item)));
+  }
+
+  if (olderItems.length > 0) {
+    const olderLabel = allPeriod ? '📁 過去（全期間）' : '📁 直近1ヶ月';
+    grid.appendChild(buildSectionHeader(olderLabel, olderItems.length, 'text-gray-500'));
+    olderItems.forEach(item => grid.appendChild(buildCard(item)));
+  }
 }
 
 // ===== フィルター =====
@@ -389,12 +429,18 @@ function filterSource(srcId) {
 function applyKeywordFilter() {
   const kw = document.getElementById('keyword-filter').value.trim().toLowerCase();
   let items = currentSource === 'all' ? allItems : allItems.filter(i => i.sourceId === currentSource);
+
   if (kw) {
+    // キーワードあり → 全期間・全件を対象に検索（1ヶ月制限解除）
     items = items.filter(i =>
       i.title.toLowerCase().includes(kw) || i.description.toLowerCase().includes(kw)
     );
+    renderCards(items, true);
+  } else {
+    // キーワードなし → 直近1ヶ月のみ表示
+    items = items.filter(i => isWithinMonth(i.pubDate));
+    renderCards(items, false);
   }
-  renderCards(items);
 }
 
 // ===== 全件取得 =====

@@ -376,13 +376,20 @@ function escapeHtml(str) {
 }
 
 // ===== 日付ユーティリティ =====
-function isRecent(d) {
-  // 直近3日以内（本日 + 昨日 + 一昨日）
+function isToday(d) {
+  if (!d || isNaN(d)) return false;
+  const now = new Date();
+  return d.getFullYear() === now.getFullYear() &&
+         d.getMonth()    === now.getMonth()    &&
+         d.getDate()     === now.getDate();
+}
+function isLast3Days(d) {
+  // 昨日・一昨日（本日は除く）
   if (!d || isNaN(d)) return false;
   const cutoff = new Date();
   cutoff.setDate(cutoff.getDate() - 2);
   cutoff.setHours(0, 0, 0, 0);
-  return d >= cutoff;
+  return d >= cutoff && !isToday(d);
 }
 function isWithinMonth(d) {
   if (!d || isNaN(d)) return false;
@@ -442,12 +449,18 @@ function renderCards(items, allPeriod = false) {
     return;
   }
 
-  const recentItems = items.filter(i => isRecent(i.pubDate));
-  const olderItems  = items.filter(i => !isRecent(i.pubDate));
+  const todayItems  = items.filter(i => isToday(i.pubDate));
+  const days3Items  = items.filter(i => isLast3Days(i.pubDate));
+  const olderItems  = items.filter(i => !isToday(i.pubDate) && !isLast3Days(i.pubDate));
 
-  if (recentItems.length > 0) {
-    grid.appendChild(buildSectionHeader('🔴 直近3日', recentItems.length, 'text-red-600'));
-    recentItems.forEach(item => grid.appendChild(buildCard(item)));
+  if (todayItems.length > 0) {
+    grid.appendChild(buildSectionHeader('🔴 本日', todayItems.length, 'text-red-600'));
+    todayItems.forEach(item => grid.appendChild(buildCard(item)));
+  }
+
+  if (days3Items.length > 0) {
+    grid.appendChild(buildSectionHeader('🟡 直近3日（昨日・一昨日）', days3Items.length, 'text-yellow-600'));
+    days3Items.forEach(item => grid.appendChild(buildCard(item)));
   }
 
   if (olderItems.length > 0) {

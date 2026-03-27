@@ -4,153 +4,611 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>スケジュール管理</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
-    body { font-family: 'Noto Sans JP', sans-serif; }
-    .fade-in { animation: fadeIn 0.3s ease; }
-    @keyframes fadeIn { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
-    .event-row:hover { background: #f0f9ff; }
+    
+    body { font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic UI', sans-serif; }
+
+    /* タイムライングリッド */
+    #timeline-grid {
+      display: grid;
+      grid-template-columns: 48px repeat(7, 1fr);
+      grid-auto-rows: 30px; /* 30分 = 30px */
+      position: relative;
+    }
+
+    .time-label {
+      grid-column: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding-right: 6px;
+      font-size: 10px;
+      color: #9ca3af;
+      transform: translateY(-7px);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .grid-cell {
+      border-top: 1px solid #f3f4f6;
+      border-right: 1px solid #e5e7eb;
+      min-height: 30px;
+      position: relative;
+    }
+
+    /* 毎正時は少し濃い線 */
+    .grid-cell.hour-start {
+      border-top: 1px solid #d1d5db;
+    }
+
+    /* 日曜列の右端 */
+    .grid-cell.last-col {
+      border-right: none;
+    }
+
+    /* 今日列の背景 */
+    .grid-cell.today-col {
+      background: #fffbeb;
+    }
+
+    /* イベントブロック */
+    .event-block {
+      position: absolute;
+      left: 2px;
+      right: 2px;
+      border-radius: 4px;
+      padding: 2px 4px;
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 1.3;
+      overflow: hidden;
+      cursor: pointer;
+      z-index: 3;
+      border-left: 3px solid;
+      transition: filter 0.1s;
+    }
+    .event-block:hover { filter: brightness(0.92); }
+
+    /* 現在時刻ライン */
+    #now-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #ef4444;
+      z-index: 10;
+      pointer-events: none;
+    }
+    #now-dot {
+      position: absolute;
+      left: -4px;
+      top: -4px;
+      width: 10px;
+      height: 10px;
+      background: #ef4444;
+      border-radius: 50%;
+    }
+
+    /* ヘッダー列 */
+    .day-header {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 2px;
+      border-right: 1px solid #e5e7eb;
+      border-bottom: 2px solid #e5e7eb;
+      background: white;
+      position: sticky;
+      top: 52px;
+      z-index: 20;
+    }
+    .day-header.today-col {
+      background: #fef3c7;
+      color: #b45309;
+    }
+
+    /* モーダル */
+    #modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 50;
+      align-items: center;
+      justify-content: center;
+    }
+    #modal-overlay.open { display: flex; }
+
+    /* スクロールエリア */
+    #scroll-area {
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .fade-in { animation: fadeIn 0.2s ease; }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+    /* 週ナビ */
+    .week-nav-btn {
+      padding: 4px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid #e5e7eb;
+      background: white;
+      cursor: pointer;
+      transition: background 0.1s;
+    }
+    .week-nav-btn:hover { background: #f9fafb; }
+
+    /* タブ */
+    .tab-btn {
+      padding: 6px 16px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .tab-btn.active { background: #7c3aed; color: white; }
+    .tab-btn:not(.active) { background: #f3f4f6; color: #6b7280; }
+    .tab-btn:not(.active):hover { background: #e5e7eb; }
   </style>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 min-h-screen">
+<body class="bg-gray-50 min-h-screen flex flex-col" style="height:100vh">
 
-  <header class="bg-white border-b border-gray-200 sticky top-0 z-10">
-    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center gap-3">
-      <a href="../index.html" class="text-gray-400 hover:text-gray-600 text-sm">← ツール一覧</a>
-      <span class="text-gray-300">|</span>
-      <h1 class="text-lg font-bold text-gray-800">スケジュール管理</h1>
+<!-- ヘッダー -->
+<header class="bg-white border-b border-gray-200 sticky top-0 z-30 flex-shrink-0">
+  <div class="max-w-full px-4 py-3 flex items-center gap-3 flex-wrap">
+    <a href="../index.html" class="text-gray-400 hover:text-gray-600 text-sm flex-shrink-0">← ツール一覧</a>
+    <span class="text-gray-300">|</span>
+    <h1 class="text-lg font-bold text-gray-800 flex-shrink-0">スケジュール管理</h1>
+    <div class="flex items-center gap-2 ml-auto flex-wrap">
+      <!-- 週ナビ -->
+      <button class="week-nav-btn" onclick="shiftWeek(-1)">&#8249; 前週</button>
+      <button class="week-nav-btn" onclick="shiftWeek(0)">今週</button>
+      <button class="week-nav-btn" onclick="shiftWeek(1)">次週 &#8250;</button>
+      <span class="text-sm text-gray-500 font-semibold mx-1" id="week-label"></span>
+      <!-- 表示切替 -->
+      <div class="flex gap-1 ml-2">
+        <button class="tab-btn active" id="tab-week" onclick="switchView('week')">週</button>
+        <button class="tab-btn" id="tab-list" onclick="switchView('list')">一覧</button>
+      </div>
+      <!-- 追加ボタン -->
+      <button onclick="openModal()"
+        class="bg-purple-600 hover:bg-purple-700 text-white font-bold text-sm px-4 py-1.5 rounded-xl transition flex items-center gap-1">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+        </svg>
+        予定追加
+      </button>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main class="max-w-5xl mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- 曜日ヘッダー（週ビュー用） -->
+<div id="week-header" class="bg-white border-b border-gray-200 flex-shrink-0" style="position:sticky;top:52px;z-index:20;">
+  <div style="display:grid;grid-template-columns:48px repeat(7,1fr);">
+    <div style="border-right:1px solid #e5e7eb;border-bottom:2px solid #e5e7eb;background:white;"></div>
+    <div class="day-header" id="dh-0"></div>
+    <div class="day-header" id="dh-1"></div>
+    <div class="day-header" id="dh-2"></div>
+    <div class="day-header" id="dh-3"></div>
+    <div class="day-header" id="dh-4"></div>
+    <div class="day-header" id="dh-5"></div>
+    <div class="day-header" id="dh-6" style="border-right:none;"></div>
+  </div>
+</div>
 
-    <!-- 左: イベント追加フォーム -->
-    <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
-      <div class="flex items-center gap-2 mb-4">
-        <span class="text-xs font-bold text-purple-600 bg-purple-50 px-2 py-0.5 rounded">新規追加</span>
-        <span class="text-sm font-semibold text-gray-700">予定を追加</span>
-      </div>
+<!-- メインコンテンツ -->
+<div id="scroll-area" class="flex-1 overflow-y-auto">
 
-      <div class="space-y-3">
-        <div>
-          <label class="text-xs font-semibold text-gray-600 block mb-1">件名 <span class="text-red-400">*</span></label>
-          <input id="ev-title" type="text" placeholder="例: ABC商事 訪問・打ち合わせ"
-            class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300" />
-        </div>
-
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label class="text-xs font-semibold text-gray-600 block mb-1">日付 <span class="text-red-400">*</span></label>
-            <input id="ev-date" type="date"
-              class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300" />
-          </div>
-          <div>
-            <label class="text-xs font-semibold text-gray-600 block mb-1">開始時間</label>
-            <input id="ev-time-start" type="time" value="09:00"
-              class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300" />
-          </div>
-        </div>
-
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label class="text-xs font-semibold text-gray-600 block mb-1">終了時間</label>
-            <input id="ev-time-end" type="time" value="10:00"
-              class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300" />
-          </div>
-          <div>
-            <label class="text-xs font-semibold text-gray-600 block mb-1">種別</label>
-            <select id="ev-category" class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300 bg-white">
-              <option value="visit">顧客訪問</option>
-              <option value="meeting">社内会議</option>
-              <option value="call">電話・WEB会議</option>
-              <option value="expo">展示会</option>
-              <option value="other">その他</option>
-            </select>
-          </div>
-        </div>
-
-        <div>
-          <label class="text-xs font-semibold text-gray-600 block mb-1">場所</label>
-          <input id="ev-location" type="text" placeholder="例: ABC商事 本社 / Zoom"
-            class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300" />
-        </div>
-
-        <div>
-          <label class="text-xs font-semibold text-gray-600 block mb-1">メモ</label>
-          <textarea id="ev-memo" rows="3" placeholder="担当者名、持参物、確認事項など"
-            class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300 resize-none"></textarea>
-        </div>
-
-        <div class="flex gap-2 pt-1">
-          <button onclick="addEvent()"
-            class="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 rounded-xl transition text-sm flex items-center justify-center gap-1.5">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-            ツールに追加
-          </button>
-          <button onclick="openGoogleCalendar()"
-            class="flex-1 bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold py-2.5 rounded-xl transition text-sm flex items-center justify-center gap-1.5 border border-blue-200">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-            Googleカレンダーへ
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- 右: 今後の予定一覧 -->
-    <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-5 flex flex-col">
-      <div class="flex items-center justify-between mb-4">
-        <div class="flex items-center gap-2">
-          <span class="text-xs font-bold text-purple-600 bg-purple-50 px-2 py-0.5 rounded">予定一覧</span>
-          <span class="text-sm font-semibold text-gray-700">今後のスケジュール</span>
-        </div>
-        <select id="cat-filter" onchange="renderEvents()"
-          class="text-xs border border-gray-200 rounded-lg px-2 py-1 bg-white text-gray-600 focus:outline-none">
-          <option value="all">すべて</option>
-          <option value="visit">顧客訪問</option>
-          <option value="meeting">社内会議</option>
-          <option value="call">電話・WEB</option>
-          <option value="expo">展示会</option>
-          <option value="other">その他</option>
-        </select>
-      </div>
-
-      <div id="event-list" class="flex-1 space-y-2 overflow-y-auto max-h-[500px]">
-        <p class="text-sm text-gray-400 text-center py-8">予定はまだありません</p>
-      </div>
-    </div>
-
-  </main>
-
-  <!-- Toast -->
-  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-sm px-4 py-2.5 rounded-xl opacity-0 transition-opacity pointer-events-none z-50">
-    <span id="toast-msg"></span>
+  <!-- 週ビュー -->
+  <div id="view-week" class="relative">
+    <div id="timeline-grid"></div>
+    <div id="now-line" style="display:none;"><div id="now-dot"></div></div>
   </div>
 
+  <!-- リストビュー -->
+  <div id="view-list" class="hidden max-w-3xl mx-auto px-4 py-6">
+    <div id="list-content"></div>
+  </div>
+
+</div>
+
+<!-- 予定追加モーダル -->
+<div id="modal-overlay" onclick="closeModalOutside(event)">
+  <div class="bg-white rounded-2xl shadow-xl p-6 w-full max-w-md mx-4 fade-in">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-base font-bold text-gray-800" id="modal-title">予定を追加</h2>
+      <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="space-y-3">
+      <div>
+        <label class="text-xs font-semibold text-gray-600 block mb-1">件名 <span class="text-red-400">*</span></label>
+        <input id="ev-title" type="text" placeholder="例: 打ち合わせ"
+          class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300" />
+      </div>
+
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="text-xs font-semibold text-gray-600 block mb-1">日付 <span class="text-red-400">*</span></label>
+          <input id="ev-date" type="date"
+            class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300" />
+        </div>
+        <div>
+          <label class="text-xs font-semibold text-gray-600 block mb-1">開始</label>
+          <input id="ev-time-start" type="time" value="09:00"
+            class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300" />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="text-xs font-semibold text-gray-600 block mb-1">種別</label>
+          <select id="ev-category" class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300 bg-white">
+            <option value="study">勉強</option>
+            <option value="visit">顧客訪問</option>
+            <option value="meeting">会議</option>
+            <option value="call">電話・WEB</option>
+            <option value="personal">個人</option>
+            <option value="other">その他</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-xs font-semibold text-gray-600 block mb-1">終了</label>
+          <input id="ev-time-end" type="time" value="10:00"
+            class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300" />
+        </div>
+      </div>
+
+      <div>
+        <label class="text-xs font-semibold text-gray-600 block mb-1">場所</label>
+        <input id="ev-location" type="text" placeholder="例: Zoom / 本社会議室"
+          class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300" />
+      </div>
+
+      <div>
+        <label class="text-xs font-semibold text-gray-600 block mb-1">メモ</label>
+        <textarea id="ev-memo" rows="2" placeholder="担当者名、持参物など"
+          class="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300 resize-none"></textarea>
+      </div>
+
+      <div class="flex gap-2 pt-1">
+        <button onclick="saveEvent()"
+          class="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 rounded-xl transition text-sm">
+          <span id="modal-save-label">追加</span>
+        </button>
+        <button id="modal-delete-btn" onclick="deleteCurrentEvent()" style="display:none;"
+          class="bg-red-50 hover:bg-red-100 text-red-600 font-bold py-2.5 px-4 rounded-xl transition text-sm border border-red-200">
+          削除
+        </button>
+        <button onclick="closeModal()"
+          class="bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold py-2.5 px-4 rounded-xl transition text-sm">
+          キャンセル
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-sm px-4 py-2.5 rounded-xl opacity-0 transition-opacity pointer-events-none z-50">
+  <span id="toast-msg"></span>
+</div>
+
 <script>
-const CAT_LABELS = { visit:'顧客訪問', meeting:'社内会議', call:'電話・WEB', expo:'展示会', other:'その他' };
+// ===== 設定 =====
+const START_HOUR = 6;   // 表示開始時刻
+const END_HOUR   = 23;  // 表示終了時刻
+const PX_PER_MIN = 1;   // 1分あたりのpx (30pxrow = 30min)
+
 const CAT_COLORS = {
-  visit:  { bg:'bg-blue-100',   text:'text-blue-700',   border:'border-l-blue-500' },
-  meeting:{ bg:'bg-purple-100', text:'text-purple-700', border:'border-l-purple-500' },
-  call:   { bg:'bg-green-100',  text:'text-green-700',  border:'border-l-green-500' },
-  expo:   { bg:'bg-orange-100', text:'text-orange-700', border:'border-l-orange-500' },
-  other:  { bg:'bg-gray-100',   text:'text-gray-600',   border:'border-l-gray-400' },
+  study:   { bg:'#ede9fe', text:'#6d28d9', border:'#7c3aed' },
+  visit:   { bg:'#dbeafe', text:'#1d4ed8', border:'#3b82f6' },
+  meeting: { bg:'#f3e8ff', text:'#7e22ce', border:'#a855f7' },
+  call:    { bg:'#dcfce7', text:'#15803d', border:'#22c55e' },
+  personal:{ bg:'#fef9c3', text:'#a16207', border:'#eab308' },
+  other:   { bg:'#f3f4f6', text:'#4b5563', border:'#9ca3af' },
 };
+const CAT_LABELS = { study:'勉強', visit:'顧客訪問', meeting:'会議', call:'電話・WEB', personal:'個人', other:'その他' };
+const DAY_JA = ['日','月','火','水','木','金','土'];
 
-function loadEvents() {
-  return JSON.parse(localStorage.getItem('bt_events') || '[]');
-}
-function saveEvents(evs) {
-  localStorage.setItem('bt_events', JSON.stringify(evs));
+// ===== 状態 =====
+let weekOffset = 0;
+let currentView = 'week';
+let editingId = null;
+
+// ===== データ =====
+function loadEvents() { return JSON.parse(localStorage.getItem('sched_v2') || '[]'); }
+function saveEvents(evs) { localStorage.setItem('sched_v2', JSON.stringify(evs)); }
+
+// ===== 週計算 =====
+function getWeekDates(offset) {
+  const today = new Date();
+  const dow = today.getDay(); // 0=日
+  const mon = new Date(today);
+  mon.setDate(today.getDate() - dow + (dow === 0 ? -6 : 1) + offset * 7);
+  return Array.from({length: 7}, (_, i) => {
+    const d = new Date(mon);
+    d.setDate(mon.getDate() + i);
+    return d;
+  });
 }
 
-function addEvent() {
+function toDateStr(d) {
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+
+function todayStr() { return toDateStr(new Date()); }
+
+// ===== 週ヘッダー更新 =====
+function updateWeekHeader() {
+  const dates = getWeekDates(weekOffset);
+  const today = todayStr();
+  const months = [...new Set(dates.map(d => `${d.getMonth()+1}月`))].join('・');
+  document.getElementById('week-label').textContent = `${dates[0].getFullYear()}年 ${months}`;
+
+  dates.forEach((d, i) => {
+    const el = document.getElementById(`dh-${i}`);
+    const ds = toDateStr(d);
+    const isToday = ds === today;
+    el.innerHTML = `<div class="text-xs ${isToday ? 'text-amber-700' : 'text-gray-400'}">${DAY_JA[d.getDay()]}</div>
+      <div class="text-base font-bold ${isToday ? 'text-amber-700' : 'text-gray-700'} leading-tight">${d.getDate()}</div>`;
+    el.className = `day-header${isToday ? ' today-col' : ''}`;
+    if (i === 6) el.style.borderRight = 'none';
+  });
+}
+
+// ===== タイムライングリッド描画 =====
+function buildGrid() {
+  const grid = document.getElementById('timeline-grid');
+  grid.innerHTML = '';
+
+  const dates = getWeekDates(weekOffset);
+  const today = todayStr();
+  const totalRows = (END_HOUR - START_HOUR) * 2; // 30分刻み
+
+  for (let row = 0; row <= totalRows; row++) {
+    const totalMin = row * 30;
+    const hour = Math.floor(totalMin / 60) + START_HOUR;
+    const min  = totalMin % 60;
+    const isHour = min === 0;
+
+    // 時刻ラベル
+    const label = document.createElement('div');
+    label.className = 'time-label';
+    label.style.gridColumn = '1';
+    label.style.gridRow = `${row + 1}`;
+    if (isHour) label.textContent = `${String(hour).padStart(2,'0')}:00`;
+    grid.appendChild(label);
+
+    // 各曜日のセル
+    dates.forEach((d, ci) => {
+      const ds = toDateStr(d);
+      const cell = document.createElement('div');
+      cell.className = `grid-cell${isHour ? ' hour-start' : ''}${ds === today ? ' today-col' : ''}${ci === 6 ? ' last-col' : ''}`;
+      cell.style.gridColumn = `${ci + 2}`;
+      cell.style.gridRow = `${row + 1}`;
+      cell.dataset.date = ds;
+      cell.dataset.hour = hour;
+      cell.dataset.min  = min;
+      cell.addEventListener('click', (e) => {
+        if (e.target === cell) cellClick(ds, hour, min);
+      });
+      grid.appendChild(cell);
+    });
+  }
+
+  // 高さ設定
+  grid.style.gridTemplateRows = `repeat(${totalRows + 1}, 30px)`;
+
+  placeEvents(dates);
+  updateNowLine(dates);
+}
+
+// ===== イベント配置 =====
+function placeEvents(dates) {
+  // 既存ブロック削除
+  document.querySelectorAll('.event-block').forEach(el => el.remove());
+
+  const evs = loadEvents();
+  const dateStrs = dates.map(toDateStr);
+
+  evs.filter(ev => dateStrs.includes(ev.date)).forEach(ev => {
+    const colIdx = dateStrs.indexOf(ev.date);
+    const [sh, sm] = ev.timeStart.split(':').map(Number);
+    const [eh, em] = ev.timeEnd.split(':').map(Number);
+
+    const startMin = (sh * 60 + sm) - START_HOUR * 60;
+    const endMin   = (eh * 60 + em) - START_HOUR * 60;
+    const duration = Math.max(endMin - startMin, 30);
+
+    if (startMin < 0 || startMin >= (END_HOUR - START_HOUR) * 60) return;
+
+    const topPx  = startMin * PX_PER_MIN;
+    const heightPx = duration * PX_PER_MIN;
+
+    const c = CAT_COLORS[ev.category] || CAT_COLORS.other;
+
+    // セルを基準に配置するため、グリッドコンテナの列幅を計算
+    const grid = document.getElementById('timeline-grid');
+    const gridRect = grid.getBoundingClientRect();
+    const totalCols = 7;
+    const colWidth = (gridRect.width - 48) / totalCols; // 48px = 時刻ラベル幅
+
+    const block = document.createElement('div');
+    block.className = 'event-block fade-in';
+    block.style.top    = `${topPx}px`;
+    block.style.height = `${heightPx - 2}px`;
+    block.style.left   = `${48 + colIdx * colWidth + 2}px`;
+    block.style.width  = `${colWidth - 6}px`;
+    block.style.background = c.bg;
+    block.style.color  = c.text;
+    block.style.borderLeftColor = c.border;
+    block.title = `${ev.title} ${ev.timeStart}〜${ev.timeEnd}`;
+
+    const lines = [
+      `<span style="font-size:9px;font-weight:600;">${ev.timeStart}〜${ev.timeEnd}</span>`,
+      `<span style="font-size:10px;font-weight:700;">${escHtml(ev.title)}</span>`,
+    ];
+    if (ev.location) lines.push(`<span style="font-size:9px;opacity:0.8;">📍${escHtml(ev.location)}</span>`);
+    block.innerHTML = lines.join('<br>');
+
+    block.addEventListener('click', () => openModal(ev.id));
+
+    // グリッドコンテナに絶対配置
+    grid.style.position = 'relative';
+    block.style.position = 'absolute';
+    grid.appendChild(block);
+  });
+}
+
+// ===== 現在時刻ライン =====
+function updateNowLine(dates) {
+  const nowLine = document.getElementById('now-line');
+  const now = new Date();
+  const todayD = toDateStr(now);
+  const dateStrs = dates.map(toDateStr);
+  const colIdx = dateStrs.indexOf(todayD);
+
+  if (colIdx === -1) { nowLine.style.display = 'none'; return; }
+
+  const grid = document.getElementById('timeline-grid');
+  const gridRect = grid.getBoundingClientRect();
+  const totalCols = 7;
+  const colWidth = (gridRect.width - 48) / totalCols;
+
+  const nowMin = now.getHours() * 60 + now.getMinutes() - START_HOUR * 60;
+  if (nowMin < 0 || nowMin > (END_HOUR - START_HOUR) * 60) { nowLine.style.display = 'none'; return; }
+
+  const topPx = nowMin * PX_PER_MIN;
+
+  nowLine.style.display = 'block';
+  nowLine.style.top = `${topPx}px`;
+  nowLine.style.left = `${48 + colIdx * colWidth}px`;
+  nowLine.style.width = `${colWidth}px`;
+  nowLine.style.position = 'absolute';
+  grid.style.position = 'relative';
+  grid.appendChild(nowLine);
+}
+
+// ===== リストビュー =====
+function buildList() {
+  const evs = loadEvents().sort((a, b) => (a.date + a.timeStart).localeCompare(b.date + b.timeStart));
+  const today = todayStr();
+  const container = document.getElementById('list-content');
+
+  if (evs.length === 0) {
+    container.innerHTML = '<p class="text-sm text-gray-400 text-center py-16">予定はまだありません</p>';
+    return;
+  }
+
+  let lastDate = '';
+  container.innerHTML = evs.map(ev => {
+    const c = CAT_COLORS[ev.category] || CAT_COLORS.other;
+    const dateHeader = ev.date !== lastDate
+      ? `<p class="text-xs font-bold text-gray-500 mt-6 mb-2 first:mt-0 ${ev.date < today ? 'opacity-50' : ''}">${formatDateLabel(ev.date)}</p>`
+      : '';
+    lastDate = ev.date;
+    const isPast = ev.date < today;
+    return `${dateHeader}
+    <div class="border-l-4 rounded-r-xl px-3 py-2.5 bg-white shadow-sm mb-2 flex items-start gap-2 ${isPast ? 'opacity-50' : ''}"
+         style="border-color:${c.border}">
+      <div class="flex-1 min-w-0">
+        <div class="text-sm font-bold text-gray-800">${escHtml(ev.title)}</div>
+        <div class="flex items-center gap-2 mt-0.5 flex-wrap">
+          <span class="text-xs font-medium rounded-full px-1.5 py-0.5" style="background:${c.bg};color:${c.text};">${CAT_LABELS[ev.category]||'その他'}</span>
+          <span class="text-xs text-gray-500">${ev.timeStart}〜${ev.timeEnd}</span>
+          ${ev.location ? `<span class="text-xs text-gray-400">📍${escHtml(ev.location)}</span>` : ''}
+        </div>
+        ${ev.memo ? `<p class="text-xs text-gray-400 mt-1">${escHtml(ev.memo)}</p>` : ''}
+      </div>
+      <button onclick="openModal(${ev.id})" class="text-gray-300 hover:text-purple-500 flex-shrink-0 transition mt-0.5 text-xs">編集</button>
+    </div>`;
+  }).join('');
+}
+
+function formatDateLabel(d) {
+  const dt = new Date(d + 'T00:00:00');
+  return `${dt.getFullYear()}年${dt.getMonth()+1}月${dt.getDate()}日（${DAY_JA[dt.getDay()]}）`;
+}
+
+// ===== ビュー切替 =====
+function switchView(v) {
+  currentView = v;
+  document.getElementById('view-week').classList.toggle('hidden', v !== 'week');
+  document.getElementById('view-list').classList.toggle('hidden', v !== 'list');
+  document.getElementById('week-header').style.display = v === 'week' ? '' : 'none';
+  document.getElementById('tab-week').className = `tab-btn${v === 'week' ? ' active' : ''}`;
+  document.getElementById('tab-list').className = `tab-btn${v === 'list' ? ' active' : ''}`;
+  if (v === 'week') { buildGrid(); } else { buildList(); }
+}
+
+// ===== 週ナビ =====
+function shiftWeek(dir) {
+  if (dir === 0) weekOffset = 0;
+  else weekOffset += dir;
+  updateWeekHeader();
+  if (currentView === 'week') buildGrid();
+}
+
+// ===== セルクリック（新規）=====
+function cellClick(date, hour, min) {
+  openModal(null, date, `${String(hour).padStart(2,'0')}:${String(min).padStart(2,'0')}`);
+}
+
+// ===== モーダル =====
+function openModal(id = null, prefillDate = null, prefillTime = null) {
+  editingId = id;
+  const modal = document.getElementById('modal-overlay');
+  const ev = id ? loadEvents().find(e => e.id === id) : null;
+
+  document.getElementById('modal-title').textContent    = ev ? '予定を編集' : '予定を追加';
+  document.getElementById('modal-save-label').textContent = ev ? '保存' : '追加';
+  document.getElementById('modal-delete-btn').style.display = ev ? '' : 'none';
+
+  document.getElementById('ev-title').value      = ev ? ev.title    : '';
+  document.getElementById('ev-date').value       = ev ? ev.date     : (prefillDate || todayStr());
+  document.getElementById('ev-time-start').value = ev ? ev.timeStart: (prefillTime || '09:00');
+  document.getElementById('ev-time-end').value   = ev ? ev.timeEnd  : calcEndTime(prefillTime || '09:00');
+  document.getElementById('ev-category').value   = ev ? ev.category : 'study';
+  document.getElementById('ev-location').value   = ev ? (ev.location || '') : '';
+  document.getElementById('ev-memo').value       = ev ? (ev.memo    || '') : '';
+
+  modal.classList.add('open');
+  document.getElementById('ev-title').focus();
+}
+
+function calcEndTime(start) {
+  const [h, m] = start.split(':').map(Number);
+  const end = h * 60 + m + 60;
+  return `${String(Math.floor(end/60)%24).padStart(2,'0')}:${String(end%60).padStart(2,'0')}`;
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  editingId = null;
+}
+
+function closeModalOutside(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
+}
+
+function saveEvent() {
   const title = document.getElementById('ev-title').value.trim();
   const date  = document.getElementById('ev-date').value;
   if (!title || !date) { showToast('件名と日付は必須です'); return; }
 
-  const ev = {
-    id: Date.now(),
+  const evData = {
+    id:        editingId || Date.now(),
     title,
     date,
     timeStart: document.getElementById('ev-time-start').value,
@@ -160,98 +618,33 @@ function addEvent() {
     memo:      document.getElementById('ev-memo').value.trim(),
   };
 
-  const evs = loadEvents();
-  evs.push(ev);
-  evs.sort((a,b) => (a.date+a.timeStart).localeCompare(b.date+b.timeStart));
+  let evs = loadEvents();
+  if (editingId) {
+    evs = evs.map(e => e.id === editingId ? evData : e);
+  } else {
+    evs.push(evData);
+  }
   saveEvents(evs);
-  renderEvents();
-  clearForm();
-  showToast('予定を追加しました');
+  closeModal();
+  refresh();
+  showToast(editingId ? '更新しました' : '追加しました');
 }
 
-function deleteEvent(id) {
-  const evs = loadEvents().filter(e => e.id !== id);
+function deleteCurrentEvent() {
+  if (!editingId) return;
+  const evs = loadEvents().filter(e => e.id !== editingId);
   saveEvents(evs);
-  renderEvents();
+  closeModal();
+  refresh();
   showToast('削除しました');
 }
 
-function renderEvents() {
-  const filter = document.getElementById('cat-filter').value;
-  const today = new Date().toISOString().slice(0,10);
-  let evs = loadEvents().filter(e => e.date >= today);
-  if (filter !== 'all') evs = evs.filter(e => e.category === filter);
-
-  const el = document.getElementById('event-list');
-  if (evs.length === 0) {
-    el.innerHTML = '<p class="text-sm text-gray-400 text-center py-8">該当する予定はありません</p>';
-    return;
-  }
-
-  let lastDate = '';
-  el.innerHTML = evs.map(ev => {
-    const c = CAT_COLORS[ev.category] || CAT_COLORS.other;
-    const dateHeader = ev.date !== lastDate
-      ? `<p class="text-xs font-bold text-gray-500 mt-3 mb-1 first:mt-0">${formatDateLabel(ev.date)}</p>`
-      : '';
-    lastDate = ev.date;
-    const days = Math.round((new Date(ev.date) - new Date(today)) / 86400000);
-    const daysLabel = days === 0 ? '<span class="text-xs font-bold text-red-500 ml-1">今日</span>'
-                    : days === 1 ? '<span class="text-xs font-bold text-orange-500 ml-1">明日</span>'
-                    : days <= 7  ? `<span class="text-xs text-orange-400 ml-1">${days}日後</span>` : '';
-    return `${dateHeader}
-    <div class="event-row border-l-4 ${c.border} rounded-r-xl px-3 py-2.5 bg-gray-50 transition fade-in flex items-start gap-2">
-      <div class="flex-1 min-w-0">
-        <div class="flex items-center gap-2 flex-wrap">
-          <span class="text-sm font-bold text-gray-800 truncate">${escHtml(ev.title)}</span>
-          ${daysLabel}
-        </div>
-        <div class="flex items-center gap-2 mt-0.5 flex-wrap">
-          <span class="text-xs ${c.text} ${c.bg} px-1.5 py-0.5 rounded-full font-medium">${CAT_LABELS[ev.category]}</span>
-          <span class="text-xs text-gray-500">${ev.timeStart}〜${ev.timeEnd}</span>
-          ${ev.location ? `<span class="text-xs text-gray-400">📍${escHtml(ev.location)}</span>` : ''}
-        </div>
-        ${ev.memo ? `<p class="text-xs text-gray-400 mt-1 truncate">${escHtml(ev.memo)}</p>` : ''}
-      </div>
-      <button onclick="deleteEvent(${ev.id})" class="text-gray-300 hover:text-red-400 flex-shrink-0 transition mt-0.5">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-      </button>
-    </div>`;
-  }).join('');
+function refresh() {
+  if (currentView === 'week') buildGrid();
+  else buildList();
 }
 
-function formatDateLabel(d) {
-  const dt = new Date(d);
-  const days = ['日','月','火','水','木','金','土'];
-  return `${dt.getFullYear()}年${dt.getMonth()+1}月${dt.getDate()}日（${days[dt.getDay()]}）`;
-}
-
-function openGoogleCalendar() {
-  const title = document.getElementById('ev-title').value.trim();
-  const date  = document.getElementById('ev-date').value;
-  if (!title || !date) { showToast('件名と日付は必須です'); return; }
-
-  const ts = document.getElementById('ev-time-start').value.replace(':','');
-  const te = document.getElementById('ev-time-end').value.replace(':','');
-  const d  = date.replace(/-/g,'');
-  const loc = document.getElementById('ev-location').value.trim();
-  const memo = document.getElementById('ev-memo').value.trim();
-
-  const url = `https://calendar.google.com/calendar/render?action=TEMPLATE`
-    + `&text=${encodeURIComponent(title)}`
-    + `&dates=${d}T${ts}00/${d}T${te}00`
-    + (loc  ? `&location=${encodeURIComponent(loc)}`  : '')
-    + (memo ? `&details=${encodeURIComponent(memo)}` : '');
-  window.open(url, '_blank');
-}
-
-function clearForm() {
-  ['ev-title','ev-location','ev-memo'].forEach(id => document.getElementById(id).value = '');
-  document.getElementById('ev-time-start').value = '09:00';
-  document.getElementById('ev-time-end').value   = '10:00';
-  document.getElementById('ev-category').value   = 'visit';
-}
-
+// ===== ユーティリティ =====
 function escHtml(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
@@ -263,9 +656,33 @@ function showToast(msg) {
   setTimeout(() => t.style.opacity = '0', 2000);
 }
 
-// 今日の日付をデフォルトに
-document.getElementById('ev-date').value = new Date().toISOString().slice(0,10);
-renderEvents();
+// ===== リサイズ対応 =====
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => { if (currentView === 'week') buildGrid(); }, 150);
+});
+
+// ===== キーボード =====
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+
+// ===== 初期化 =====
+updateWeekHeader();
+buildGrid();
+
+// 現在時刻ラインを1分ごとに更新
+setInterval(() => {
+  if (currentView === 'week') updateNowLine(getWeekDates(weekOffset));
+}, 60000);
+
+// 今日の時刻にスクロール
+setTimeout(() => {
+  const now = new Date();
+  const scrollPx = Math.max(0, (now.getHours() * 60 + now.getMinutes() - START_HOUR * 60 - 60) * PX_PER_MIN);
+  document.getElementById('scroll-area').scrollTop = scrollPx;
+}, 100);
 </script>
 </body>
 </html>

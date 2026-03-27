@@ -463,6 +463,14 @@ function convertRelativeDates(text) {
     if (dow && dowMap[dow] !== undefined) { const d = new Date(today); const diff = (dowMap[dow] - today.getDay() + 7) % 7 || 7; d.setDate(d.getDate() + diff + 7); return fmtDate(d); }
     const d = new Date(today); d.setDate(d.getDate() + (8 - today.getDay()) % 7 || 7); return `来週（${d.getMonth()+1}月${d.getDate()}日週）`;
   });
+  // 単独の曜日（「水曜日」「金曜」など）→ 直近のその曜日に変換
+  s = s.replace(/([月火水木金土日])曜日?/g, (m, dow) => {
+    if (dowMap[dow] === undefined) return m;
+    const d = new Date(today);
+    const diff = (dowMap[dow] - today.getDay() + 7) % 7 || 7;
+    d.setDate(d.getDate() + diff);
+    return fmtDate(d);
+  });
   return s;
 }
 const BIZ_TERMS = {
@@ -509,7 +517,7 @@ function buildTemplateEmail(type, pointsText, tone, toName, toCompany, subjectHi
   let subject = '', body = '';
   if (type === 'アポ依頼') {
     subject = subjectHint || 'お打ち合わせのお願い';
-    body = `${recipient}\n\n${greeting}\n${opening}でございます。\n\n突然のご連絡、失礼いたします。\n\nこの度は、以下の件についてご相談させていただきたく、ご連絡申し上げました。\n\n${bulletBlock}\n\nご多忙の折、誠に恐縮ではございますが、ぜひ一度お時間をいただけますでしょうか。\n\nご都合の良い日時をいくつかご提示いただけますと幸いです。\n\nどうぞよろしくお願い申し上げます。\n\n${buildSignature()}`;
+    body = `${recipient}\n\n${greeting}\n${opening}でございます。\n\n突然のご連絡、失礼いたします。\n\nぜひ一度お時間をいただき、直接お話しさせていただきたく、ご連絡申し上げました。\n\n${bulletBlock}\n\nご多忙の折、誠に恐縮ではございますが、ご都合のよろしい日時をいくつかお知らせいただけますでしょうか。\n\nお伺いする日程につきましては、ご都合に合わせて調整させていただきます。\n\nどうぞよろしくお願い申し上げます。\n\n${buildSignature()}`;
   } else if (type === '返信') {
     subject = subjectHint ? `Re: ${subjectHint}` : 'Re: ご連絡の件';
     body = `${recipient}\n\n${greeting}\n${opening}でございます。\n\nご連絡いただきありがとうございます。\n\n以下の通りご回答申し上げます。\n\n${bulletBlock}\n\nご不明な点がございましたら、お気軽にお問い合わせください。\n\n引き続きどうぞよろしくお願い申し上げます。\n\n${buildSignature()}`;

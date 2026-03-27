@@ -485,13 +485,22 @@ function expandBizTerms(text) {
   return s;
 }
 
+// ---- 「○○は」→「【○○】」ラベル変換 ----
+const LABEL_KEYS = ['日時','場所','要件','内容','目的','時間','人数','参加者','議題','件名','備考'];
+function convertLabel(text) {
+  return text.replace(
+    new RegExp(`^(${LABEL_KEYS.join('|')})は`),
+    (_, key) => `【${key}】`
+  );
+}
+
 // ---- テンプレートメール生成 ----
 function parseBullets(text) {
   const lines = text.split('\n').map(l => l.trim()).filter(l => l);
   // 1行目が記号なし・15文字以下のラベル行なら文脈説明として除外
-  let start = (lines.length > 0 && !lines[0].match(/^[・\-\*•]/) && lines[0].length <= 15) ? 1 : 0;
+  let start = (lines.length > 0 && !lines[0].match(/^[・\-\*•【]/) && lines[0].length <= 15) ? 1 : 0;
   return lines.slice(start)
-    .map(l => expandBizTerms(convertRelativeDates(l.replace(/^[\s・\-\*•]+/, '').trim())))
+    .map(l => convertLabel(expandBizTerms(convertRelativeDates(l.replace(/^[\s・\-\*•]+/, '').trim()))))
     .filter(l => l);
 }
 function getGreeting(tone) {
@@ -512,7 +521,7 @@ function buildTemplateEmail(type, pointsText, tone, toName, toCompany, subjectHi
   else recipient = 'ご担当者様';
 
   const bullets = parseBullets(pointsText);
-  const bulletBlock = bullets.map(b => `・${b}`).join('\n');
+  const bulletBlock = bullets.map(b => b.startsWith('【') ? b : `・${b}`).join('\n');
 
   let subject = '', body = '';
   if (type === 'アポ依頼') {

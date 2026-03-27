@@ -4,15 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ビジネスメール作成ツール</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
-    body { font-family: 'Noto Sans JP', sans-serif; }
+    body { font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic UI', sans-serif; }
     textarea { resize: vertical; }
     .fade-in { animation: fadeIn 0.3s ease-in; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
     #output-text { white-space: pre-wrap; }
+    .spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(255,255,255,0.4); border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .contact-dropdown { position: absolute; z-index: 50; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-height: 180px; overflow-y: auto; width: 100%; }
+    .contact-item { padding: 8px 12px; font-size: 13px; cursor: pointer; }
+    .contact-item:hover { background: #eff6ff; }
+    .contact-wrap { position: relative; }
   </style>
+  <link rel="stylesheet" href="../tailwind.css">
 </head>
 <body class="bg-gray-50 min-h-screen">
 
@@ -22,7 +28,11 @@
       <a href="../index.html" class="text-gray-400 hover:text-gray-600 text-sm">← ツール一覧</a>
       <span class="text-gray-300">|</span>
       <h1 class="text-lg font-bold text-gray-800">ビジネスメール作成</h1>
-      <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">無料</span>
+      <span id="ai-badge" class="text-xs bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full font-medium hidden">AI</span>
+      <span id="free-badge" class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">テンプレート</span>
+      <div class="ml-auto">
+        <button onclick="openApiSettings()" class="text-xs text-gray-500 hover:text-gray-700 border border-gray-200 rounded-lg px-2 py-1.5">⚙ AI設定</button>
+      </div>
     </div>
   </header>
 
@@ -39,10 +49,10 @@
       <div class="mb-4 p-3 bg-gray-50 rounded-xl border border-gray-100">
         <p class="text-xs font-semibold text-gray-500 mb-2">差出人（自分）</p>
         <div class="grid grid-cols-2 gap-2">
-          <input id="my-name" type="text" placeholder="氏名（例: 稲垣 理）"
+          <input id="my-name" type="text" placeholder="氏名（例: 稲垣 督）"
             class="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 bg-white"
             oninput="saveSettings()" />
-          <input id="my-company" type="text" placeholder="会社名（例: ワンエクス）"
+          <input id="my-company" type="text" placeholder="会社名"
             class="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 bg-white"
             oninput="saveSettings()" />
           <input id="my-dept" type="text" placeholder="部署（省略可）"
@@ -83,35 +93,41 @@
         </div>
       </div>
 
-      <!-- 相手の情報 -->
+      <!-- 相手の情報（オートコンプリート付き） -->
       <div class="mb-4">
         <label class="text-sm font-semibold text-gray-700 block mb-2">相手の情報（省略可）</label>
         <div class="grid grid-cols-2 gap-2">
-          <input id="to-company" type="text" placeholder="相手の会社名"
-            class="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300" />
-          <input id="to-name" type="text" placeholder="氏名（例: 田中様）"
+          <div class="contact-wrap">
+            <input id="to-company" type="text" placeholder="相手の会社名" autocomplete="off"
+              class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
+              oninput="filterContacts()" onfocus="filterContacts()" onblur="hideDropdown()" />
+            <div id="contact-dropdown" class="contact-dropdown hidden"></div>
+          </div>
+          <input id="to-name" type="text" placeholder="氏名（例: 服部）"
             class="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300" />
         </div>
+        <p class="text-xs text-gray-400 mt-1">※一度使った相手は次回から候補に出ます</p>
       </div>
 
       <!-- 伝えたいポイント -->
       <div class="mb-4">
         <label class="text-sm font-semibold text-gray-700 block mb-1">
           伝えたいポイント <span class="text-red-400">*</span>
-          <span class="text-gray-400 font-normal text-xs ml-1">（箇条書きでOK）</span>
+          <span class="text-gray-400 font-normal text-xs ml-1">（箇条書き・メモ書きでOK）</span>
         </label>
         <textarea id="points" rows="6" placeholder="例：
-・先日の展示会でお会いした
-・新製品の加工精度について詳しく説明したい
-・来週〜再来週で30分ほど時間がほしい
-・オンラインでも対面でも可"
+アポイント（AIへの指示・文脈はここに書く）
+・訪問は明後日 15時か明明後日の13時過ぎで
+・要件は市況確認"
           class="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"></textarea>
+        <p id="ai-hint" class="text-xs text-purple-600 mt-1 hidden">💡 AI使用中：日時の自動変換・丁寧語変換・文脈除外を行います</p>
+        <p id="tpl-hint" class="text-xs text-gray-400 mt-1">※AIキーを設定するとより自然な文章を生成できます</p>
       </div>
 
       <!-- 件名ヒント -->
       <div class="mb-4">
         <label class="text-sm font-semibold text-gray-700 block mb-1">件名のヒント（省略可）</label>
-        <input id="subject-hint" type="text" placeholder="例: 新製品のご案内"
+        <input id="subject-hint" type="text" placeholder="例: お打ち合わせのお願い"
           class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300" />
       </div>
 
@@ -120,18 +136,18 @@
         <label class="text-sm font-semibold text-gray-700 block mb-2">文体</label>
         <div class="flex gap-4 text-sm">
           <label class="flex items-center gap-1.5 cursor-pointer">
-            <input type="radio" name="tone" value="formal" class="accent-blue-500" /> フォーマル
+            <input type="radio" name="tone" value="フォーマル" class="accent-blue-500" /> フォーマル
           </label>
           <label class="flex items-center gap-1.5 cursor-pointer">
-            <input type="radio" name="tone" value="standard" checked class="accent-blue-500" /> 標準
+            <input type="radio" name="tone" value="標準" checked class="accent-blue-500" /> 標準
           </label>
           <label class="flex items-center gap-1.5 cursor-pointer">
-            <input type="radio" name="tone" value="casual" class="accent-blue-500" /> 柔らかめ
+            <input type="radio" name="tone" value="柔らかめ" class="accent-blue-500" /> 柔らかめ
           </label>
         </div>
       </div>
 
-      <button onclick="generateEmail()"
+      <button id="gen-btn" onclick="generateEmail()"
         class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
@@ -148,7 +164,6 @@
           <span class="text-sm font-semibold text-gray-700">生成されたメール</span>
         </div>
 
-        <!-- Placeholder -->
         <div id="placeholder" class="flex-1 flex flex-col items-center justify-center text-gray-300">
           <svg class="w-16 h-16 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
@@ -156,9 +171,7 @@
           <p class="text-sm">ポイントを入力して生成ボタンを押してください</p>
         </div>
 
-        <!-- Result -->
         <div id="result" class="hidden fade-in flex-1 flex flex-col">
-          <!-- Subject -->
           <div class="mb-3">
             <p class="text-xs font-semibold text-gray-500 mb-1">件名</p>
             <div class="flex items-center gap-2">
@@ -168,12 +181,10 @@
               </button>
             </div>
           </div>
-          <!-- Body -->
           <div class="flex-1 flex flex-col">
             <p class="text-xs font-semibold text-gray-500 mb-1">本文</p>
             <div id="output-text" class="flex-1 text-sm text-gray-800 bg-gray-50 rounded-xl px-4 py-3 border border-gray-100 leading-7 min-h-[200px]"></div>
           </div>
-          <!-- Actions -->
           <div class="flex gap-2 mt-3">
             <button onclick="copyAll()" class="flex-1 border border-gray-200 hover:bg-gray-50 text-gray-700 text-sm font-medium py-2.5 rounded-xl transition flex items-center justify-center gap-1.5">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
@@ -189,12 +200,12 @@
 
       <!-- Tips -->
       <div class="bg-blue-50 rounded-2xl border border-blue-100 p-4">
-        <p class="text-xs font-semibold text-blue-700 mb-2">ポイント入力のコツ</p>
+        <p class="text-xs font-semibold text-blue-700 mb-2">ポイント入力のコツ（AI使用時）</p>
         <ul class="text-xs text-blue-600 space-y-1">
-          <li>・「・」や「-」で箇条書きにすると精度UP</li>
-          <li>・日時や場所など具体的な情報を入れると◎</li>
-          <li>・相手との関係性（初面/既知）も書くと自然な文章に</li>
-          <li>・長さは3〜7項目が最適</li>
+          <li>・1行目に「アポイント」など<b>文脈説明</b>を書くとAIが除外して処理します</li>
+          <li>・「明後日」「来週」などはAIが今日の日付を基準に変換します</li>
+          <li>・「市況確認」「納期調整」など短い表現もAIが丁寧な言い回しに変換します</li>
+          <li>・箇条書きの前後に「初対面」「既存取引先」など関係性を書くと精度UP</li>
         </ul>
       </div>
     </div>
@@ -206,10 +217,43 @@
     <span id="toast-msg">コピーしました</span>
   </div>
 
+  <!-- AI設定モーダル -->
+  <div id="modal-api" class="fixed inset-0 z-50 hidden flex items-center justify-center modal-bg" onclick="closeApiIfBg(event)">
+    <div class="bg-white rounded-2xl shadow-xl p-6 w-full max-w-md mx-4">
+      <h2 class="text-base font-bold text-gray-800 mb-1">AI設定（Gemini 無料）</h2>
+      <p class="text-xs text-gray-500 mb-4">Google AI StudioのAPIキーを入力するとAIによるメール生成が使えます（無料）。<br><a href="https://aistudio.google.com/apikey" target="_blank" class="text-blue-500 underline">aistudio.google.com</a> で取得 → キーはこのブラウザにのみ保存されます。</p>
+      <label class="text-xs font-semibold text-gray-600 block mb-1">Google AI Studio APIキー</label>
+      <div class="flex gap-2 mb-2">
+        <input id="api-key-input" type="password" placeholder="AIzaSy..." autocomplete="off"
+          class="flex-1 border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300" />
+        <button onclick="toggleApiKeyVisibility()" class="text-xs border border-gray-200 rounded-lg px-2 py-2 text-gray-500 hover:bg-gray-50">👁</button>
+      </div>
+      <p id="api-status" class="text-xs mb-4"></p>
+      <div class="flex gap-2">
+        <button onclick="saveApiKey()" class="flex-1 bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold py-2.5 rounded-xl transition">保存</button>
+        <button onclick="clearApiKey()" class="border border-gray-200 text-gray-500 text-sm px-4 py-2.5 rounded-xl hover:bg-gray-50 transition">削除</button>
+        <button onclick="closeApiSettings()" class="border border-gray-200 text-gray-500 text-sm px-4 py-2.5 rounded-xl hover:bg-gray-50 transition">閉じる</button>
+      </div>
+    </div>
+  </div>
+
 <script>
 let currentType = 'アポ依頼';
 let generatedSubject = '';
 let generatedBody = '';
+
+// ---- 今日の日付 ----
+function getTodayInfo() {
+  const d = new Date();
+  const days = ['日','月','火','水','木','金','土'];
+  return {
+    year: d.getFullYear(),
+    month: d.getMonth() + 1,
+    day: d.getDate(),
+    dow: days[d.getDay()],
+    str: `${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日（${days[d.getDay()]}）`
+  };
+}
 
 // ---- Settings ----
 function saveSettings() {
@@ -218,11 +262,86 @@ function saveSettings() {
   localStorage.setItem('bt_mydept', document.getElementById('my-dept').value);
 }
 function loadSettings() {
-  document.getElementById('my-name').value = localStorage.getItem('bt_myname') || '稲垣 督';
-  document.getElementById('my-company').value = localStorage.getItem('bt_mycompany') || '株式会社オーネックステックセンター';
+  document.getElementById('my-name').value = localStorage.getItem('bt_myname') || '';
+  document.getElementById('my-company').value = localStorage.getItem('bt_mycompany') || '';
   document.getElementById('my-dept').value = localStorage.getItem('bt_mydept') || '';
+  updateAiBadge();
 }
 window.addEventListener('load', loadSettings);
+
+// ---- API Key ----
+function updateAiBadge() {
+  const hasKey = !!localStorage.getItem('bt_claude_api_key');
+  document.getElementById('ai-badge').classList.toggle('hidden', !hasKey);
+  document.getElementById('free-badge').classList.toggle('hidden', hasKey);
+  document.getElementById('ai-hint').classList.toggle('hidden', !hasKey);
+  document.getElementById('tpl-hint').classList.toggle('hidden', hasKey);
+}
+function openApiSettings() {
+  const key = localStorage.getItem('bt_claude_api_key') || '';
+  document.getElementById('api-key-input').value = key;
+  document.getElementById('api-status').textContent = key ? '✅ APIキー設定済み' : '';
+  document.getElementById('api-status').className = 'text-xs mb-4 text-green-600';
+  document.getElementById('modal-api').classList.remove('hidden');
+}
+function closeApiSettings() { document.getElementById('modal-api').classList.add('hidden'); }
+function closeApiIfBg(e) { if (e.target === document.getElementById('modal-api')) closeApiSettings(); }
+function toggleApiKeyVisibility() {
+  const inp = document.getElementById('api-key-input');
+  inp.type = inp.type === 'password' ? 'text' : 'password';
+}
+function saveApiKey() {
+  const key = document.getElementById('api-key-input').value.trim();
+  if (!key) { alert('APIキーを入力してください'); return; }
+  localStorage.setItem('bt_claude_api_key', key);
+  document.getElementById('api-status').textContent = '✅ 保存しました';
+  document.getElementById('api-status').className = 'text-xs mb-4 text-green-600';
+  updateAiBadge();
+}
+function clearApiKey() {
+  localStorage.removeItem('bt_claude_api_key');
+  document.getElementById('api-key-input').value = '';
+  document.getElementById('api-status').textContent = '削除しました';
+  document.getElementById('api-status').className = 'text-xs mb-4 text-gray-400';
+  updateAiBadge();
+}
+
+// ---- 連絡先管理 ----
+function getContacts() {
+  return JSON.parse(localStorage.getItem('bt_email_contacts') || '[]');
+}
+function saveContact(company, name) {
+  if (!company && !name) return;
+  const contacts = getContacts();
+  const key = `${company}|||${name}`;
+  if (!contacts.find(c => `${c.company}|||${c.name}` === key)) {
+    contacts.unshift({ company: company || '', name: name || '' });
+    if (contacts.length > 50) contacts.pop();
+    localStorage.setItem('bt_email_contacts', JSON.stringify(contacts));
+  }
+}
+function filterContacts() {
+  const q = document.getElementById('to-company').value.trim().toLowerCase();
+  const contacts = getContacts();
+  const filtered = q
+    ? contacts.filter(c => c.company.toLowerCase().includes(q) || c.name.toLowerCase().includes(q))
+    : contacts;
+  const dd = document.getElementById('contact-dropdown');
+  if (filtered.length === 0) { dd.classList.add('hidden'); return; }
+  dd.innerHTML = filtered.slice(0, 10).map(c =>
+    `<div class="contact-item" onmousedown="selectContact('${esc(c.company)}','${esc(c.name)}')">${c.company}${c.name ? ' ' + c.name : ''}</div>`
+  ).join('');
+  dd.classList.remove('hidden');
+}
+function selectContact(company, name) {
+  document.getElementById('to-company').value = company;
+  document.getElementById('to-name').value = name;
+  document.getElementById('contact-dropdown').classList.add('hidden');
+}
+function hideDropdown() {
+  setTimeout(() => document.getElementById('contact-dropdown').classList.add('hidden'), 150);
+}
+function esc(s) { return s.replace(/'/g, "\\'"); }
 
 // ---- Type select ----
 function selectType(btn, type) {
@@ -235,201 +354,176 @@ function selectType(btn, type) {
   btn.classList.remove('border-gray-200','bg-white','text-gray-600');
 }
 
-// ---- Parse bullet points ----
-function parseBullets(text) {
-  return text.split('\n')
-    .map(l => l.replace(/^[\s・\-\*•]+/, '').trim())
-    .filter(l => l.length > 0);
-}
-
 // ---- Signature ----
 function buildSignature() {
-  const name = document.getElementById('my-name').value.trim() || '稲垣 理';
-  const company = document.getElementById('my-company').value.trim() || '';
-  const dept = document.getElementById('my-dept').value.trim() || '';
+  const name = document.getElementById('my-name').value.trim();
+  const company = document.getElementById('my-company').value.trim();
+  const dept = document.getElementById('my-dept').value.trim();
   let sig = '──────────────────\n';
-  sig += name + '\n';
+  if (name) sig += name + '\n';
   if (dept) sig += dept + '\n';
   if (company) sig += company + '\n';
   return sig;
 }
 
-// ---- Greeting based on tone ----
+// ---- Gemini API呼び出し（無料） ----
+async function callGemini(prompt) {
+  const apiKey = localStorage.getItem('bt_claude_api_key');
+  if (!apiKey) throw new Error('APIキー未設定');
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      contents: [{ parts: [{ text: prompt }] }],
+      generationConfig: { maxOutputTokens: 1024 }
+    })
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.error?.message || `APIエラー ${res.status}`);
+  }
+  const data = await res.json();
+  return data.candidates[0].content.parts[0].text;
+}
+
+// ---- AIメール生成 ----
+async function generateWithAI(pointsText, tone, toName, toCompany, subjectHint) {
+  const today = getTodayInfo();
+  const myName = document.getElementById('my-name').value.trim();
+  const myCompany = document.getElementById('my-company').value.trim();
+  const dept = document.getElementById('my-dept').value.trim();
+
+  const prompt = `あなたは日本のビジネスメール作成の専門家です。以下の情報をもとに、自然で丁寧なビジネスメールを生成してください。
+
+今日の日付: ${today.str}
+
+## 絶対に守るルール
+- 「明日」「明後日」「来週」「再来週」「今週末」などの相対的な日時表現は、今日（${today.month}月${today.day}日）を基準に「○月○日（曜日）」の形式に変換する
+- 入力の1行目が「アポイント」「依頼」「趣旨説明」などの文脈説明になっている場合は、メール本文には含めない
+- 「市況確認」「納期確認」「価格確認」などの短い業務用語は、ビジネスメールとして適切で丁寧な表現に変換する（例: 「現在の市場動向についてお聞きしたい」→「昨今の市況についてお伺いしたく存じます」）
+- 署名は含めない（別途追加します）
+- 文体は「${tone}」で統一する
+
+## 差出人
+- 氏名: ${myName || '（未設定）'}
+- 会社: ${myCompany || '（未設定）'}${dept ? '\n- 部署: ' + dept : ''}
+
+## 宛先
+- 会社: ${toCompany || '（未指定）'}
+- 氏名: ${toName || '（未指定）'}
+
+## メール種別
+${currentType}
+
+## 伝えたいポイント（メモ書き・箇条書き）
+${pointsText}
+
+## 件名ヒント
+${subjectHint || '（なし、適切な件名を生成してください）'}
+
+## 出力形式
+必ず以下のJSON形式のみで返してください。説明文は不要です：
+{"subject":"件名","body":"本文（宛先行から始め、結び言葉で終わる。署名なし）"}`;
+
+  const raw = await callGemini(prompt);
+
+  // JSON抽出
+  const match = raw.match(/\{[\s\S]*"subject"[\s\S]*"body"[\s\S]*\}/);
+  if (!match) throw new Error('AIの返答を解析できませんでした');
+  const parsed = JSON.parse(match[0]);
+  return { subject: parsed.subject, body: parsed.body + '\n\n' + buildSignature() };
+}
+
+// ---- テンプレートメール生成（AI無しのフォールバック） ----
+function parseBullets(text) {
+  return text.split('\n')
+    .map(l => l.replace(/^[\s・\-\*•]+/, '').trim())
+    .filter(l => l.length > 0);
+}
 function getGreeting(tone) {
-  if (tone === 'formal') return 'いつも大変お世話になっております。';
-  if (tone === 'casual') return 'いつもお世話になっております。';
+  if (tone === 'フォーマル') return 'いつも大変お世話になっております。';
+  if (tone === '柔らかめ') return 'いつもお世話になっております。';
   return 'お世話になっております。';
 }
-
-function getOpening(tone, myName, myCompany) {
-  const company = myCompany ? myCompany + 'の' : '';
-  return `${company}${myName}でございます。`;
-}
-
-// ---- Template generator ----
-function buildEmail(type, bullets, tone, toName, toCompany, subjectHint) {
-  const myName = document.getElementById('my-name').value.trim() || '稲垣 理';
-  const myCompany = document.getElementById('my-company').value.trim() || '';
+function buildTemplateEmail(type, pointsText, tone, toName, toCompany, subjectHint) {
+  const myName = document.getElementById('my-name').value.trim();
+  const myCompany = document.getElementById('my-company').value.trim();
   const greeting = getGreeting(tone);
-  const opening = getOpening(tone, myName, myCompany);
+  const opening = (myCompany ? myCompany + 'の' : '') + (myName || '');
 
-  // Recipient line
   let recipient = '';
   if (toCompany && toName) recipient = `${toCompany}\n${toName}様`;
   else if (toName) recipient = `${toName}様`;
   else if (toCompany) recipient = `${toCompany}\nご担当者様`;
   else recipient = 'ご担当者様';
 
-  // Build bullet block
+  const bullets = parseBullets(pointsText);
   const bulletBlock = bullets.map(b => `・${b}`).join('\n');
 
-  let subject = '';
-  let body = '';
-
+  let subject = '', body = '';
   if (type === 'アポ依頼') {
     subject = subjectHint || 'お打ち合わせのお願い';
-    body = `${recipient}
-
-${greeting}
-${opening}
-
-突然のご連絡、失礼いたします。
-
-この度は、以下の件についてご相談させていただきたく、ご連絡申し上げました。
-
-${bulletBlock}
-
-ご多忙の折、誠に恐縮ではございますが、ぜひ一度お時間をいただけますでしょうか。
-
-ご都合の良い日時をいくつかご提示いただけますと幸いです。
-
-どうぞよろしくお願い申し上げます。
-
-${buildSignature()}`;
-  }
-
-  else if (type === '返信') {
+    body = `${recipient}\n\n${greeting}\n${opening}でございます。\n\n突然のご連絡、失礼いたします。\n\nこの度は、以下の件についてご相談させていただきたく、ご連絡申し上げました。\n\n${bulletBlock}\n\nご多忙の折、誠に恐縮ではございますが、ぜひ一度お時間をいただけますでしょうか。\n\nご都合の良い日時をいくつかご提示いただけますと幸いです。\n\nどうぞよろしくお願い申し上げます。\n\n${buildSignature()}`;
+  } else if (type === '返信') {
     subject = subjectHint ? `Re: ${subjectHint}` : 'Re: ご連絡の件';
-    body = `${recipient}
-
-${greeting}
-${opening}
-
-ご連絡いただきありがとうございます。
-
-以下の通りご回答申し上げます。
-
-${bulletBlock}
-
-ご不明な点がございましたら、お気軽にお問い合わせください。
-
-引き続きどうぞよろしくお願い申し上げます。
-
-${buildSignature()}`;
-  }
-
-  else if (type === 'お礼') {
+    body = `${recipient}\n\n${greeting}\n${opening}でございます。\n\nご連絡いただきありがとうございます。\n\n以下の通りご回答申し上げます。\n\n${bulletBlock}\n\nご不明な点がございましたら、お気軽にお問い合わせください。\n\n引き続きどうぞよろしくお願い申し上げます。\n\n${buildSignature()}`;
+  } else if (type === 'お礼') {
     subject = subjectHint || '先日はありがとうございました';
-    body = `${recipient}
-
-${greeting}
-${opening}
-
-先日はお時間をいただき、誠にありがとうございました。
-
-${bulletBlock}
-
-今後ともどうぞよろしくお願い申し上げます。
-
-${buildSignature()}`;
-  }
-
-  else if (type === '問い合わせ') {
+    body = `${recipient}\n\n${greeting}\n${opening}でございます。\n\n先日はお時間をいただき、誠にありがとうございました。\n\n${bulletBlock}\n\n今後ともどうぞよろしくお願い申し上げます。\n\n${buildSignature()}`;
+  } else if (type === '問い合わせ') {
     subject = subjectHint || 'お問い合わせの件';
-    body = `${recipient}
-
-${greeting}
-${opening}
-
-突然のご連絡、失礼いたします。
-
-以下の点についてお伺いしたく、ご連絡申し上げました。
-
-${bulletBlock}
-
-ご確認の上、ご回答いただけますと幸いです。
-
-お手数をおかけしますが、どうぞよろしくお願い申し上げます。
-
-${buildSignature()}`;
-  }
-
-  else if (type === 'フォロー') {
+    body = `${recipient}\n\n${greeting}\n${opening}でございます。\n\n突然のご連絡、失礼いたします。\n\n以下の点についてお伺いしたく、ご連絡申し上げました。\n\n${bulletBlock}\n\nご確認の上、ご回答いただけますと幸いです。\n\nお手数をおかけしますが、どうぞよろしくお願い申し上げます。\n\n${buildSignature()}`;
+  } else if (type === 'フォロー') {
     subject = subjectHint ? `フォロー: ${subjectHint}` : '先日のご提案について';
-    body = `${recipient}
-
-${greeting}
-${opening}
-
-先日はお時間をいただきありがとうございました。
-
-その後のご状況はいかがでしょうか。
-
-${bulletBlock}
-
-引き続きご検討いただけますと幸いです。
-ご不明な点がございましたら、お気軽にご連絡ください。
-
-どうぞよろしくお願い申し上げます。
-
-${buildSignature()}`;
-  }
-
-  else if (type === 'お断り') {
+    body = `${recipient}\n\n${greeting}\n${opening}でございます。\n\n先日はお時間をいただきありがとうございました。\n\nその後のご状況はいかがでしょうか。\n\n${bulletBlock}\n\n引き続きご検討いただけますと幸いです。\nご不明な点がございましたら、お気軽にご連絡ください。\n\nどうぞよろしくお願い申し上げます。\n\n${buildSignature()}`;
+  } else if (type === 'お断り') {
     subject = subjectHint ? `Re: ${subjectHint}` : 'ご提案の件について';
-    body = `${recipient}
-
-${greeting}
-${opening}
-
-この度はご提案いただき、誠にありがとうございました。
-
-社内で慎重に検討いたしましたが、以下の理由により、今回はご辞退させていただくこととなりました。
-
-${bulletBlock}
-
-せっかくのご提案にお応えできず、大変申し訳ございません。
-またの機会にご縁がございましたら、何卒よろしくお願い申し上げます。
-
-${buildSignature()}`;
+    body = `${recipient}\n\n${greeting}\n${opening}でございます。\n\nこの度はご提案いただき、誠にありがとうございました。\n\n社内で慎重に検討いたしましたが、以下の理由により、今回はご辞退させていただくこととなりました。\n\n${bulletBlock}\n\nせっかくのご提案にお応えできず、大変申し訳ございません。\nまたの機会にご縁がございましたら、何卒よろしくお願い申し上げます。\n\n${buildSignature()}`;
   }
-
   return { subject, body: body.trim() };
 }
 
-// ---- Generate ----
-function generateEmail() {
+// ---- メイン生成処理 ----
+async function generateEmail() {
   const pointsText = document.getElementById('points').value.trim();
-  if (!pointsText) {
-    alert('伝えたいポイントを入力してください。');
-    return;
-  }
+  if (!pointsText) { alert('伝えたいポイントを入力してください。'); return; }
 
-  const bullets = parseBullets(pointsText);
   const tone = document.querySelector('input[name="tone"]:checked').value;
   const toName = document.getElementById('to-name').value.trim();
   const toCompany = document.getElementById('to-company').value.trim();
   const subjectHint = document.getElementById('subject-hint').value.trim();
 
-  const { subject, body } = buildEmail(currentType, bullets, tone, toName, toCompany, subjectHint);
+  const btn = document.getElementById('gen-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> 生成中...';
 
-  generatedSubject = subject;
-  generatedBody = body;
+  try {
+    let result;
+    const apiKey = localStorage.getItem('bt_claude_api_key');
+    if (apiKey) {
+      result = await generateWithAI(pointsText, tone, toName, toCompany, subjectHint);
+    } else {
+      result = buildTemplateEmail(currentType, pointsText, tone, toName, toCompany, subjectHint);
+    }
 
-  document.getElementById('subject-output').textContent = subject;
-  document.getElementById('output-text').textContent = body;
-  document.getElementById('placeholder').classList.add('hidden');
-  document.getElementById('result').classList.remove('hidden');
+    generatedSubject = result.subject;
+    generatedBody = result.body;
+
+    document.getElementById('subject-output').textContent = result.subject;
+    document.getElementById('output-text').textContent = result.body;
+    document.getElementById('placeholder').classList.add('hidden');
+    document.getElementById('result').classList.remove('hidden');
+
+    // 連絡先を保存
+    saveContact(toCompany, toName);
+
+  } catch (err) {
+    alert('生成に失敗しました: ' + err.message);
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg> メールを生成する`;
+  }
 }
 
 // ---- Copy ----

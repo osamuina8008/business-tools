@@ -440,11 +440,51 @@ ${subjectHint || '（なし、適切な件名を生成してください）'}
   return { subject: parsed.subject, body: parsed.body + '\n\n' + buildSignature() };
 }
 
-// ---- テンプレートメール生成（AI無しのフォールバック） ----
+// ---- 日付計算 ----
+function addDays(d, n) { const r = new Date(d); r.setDate(r.getDate() + n); return r; }
+function fmtDate(d) {
+  const dw = ['日','月','火','水','木','金','土'];
+  return `${d.getMonth()+1}月${d.getDate()}日（${dw[d.getDay()]}）`;
+}
+function convertRelativeDates(text) {
+  const today = new Date();
+  const dowMap = {'月':1,'火':2,'水':3,'木':4,'金':5,'土':6,'日':0};
+  let s = text;
+  s = s.replace(/明明後日/g, fmtDate(addDays(today, 3)));
+  s = s.replace(/明後日/g,   fmtDate(addDays(today, 2)));
+  s = s.replace(/明日/g,     fmtDate(addDays(today, 1)));
+  s = s.replace(/今日/g,     fmtDate(today));
+  s = s.replace(/今週末/g, () => { const d = new Date(today); d.setDate(d.getDate() + (6 - d.getDay())); return fmtDate(d); });
+  s = s.replace(/再来週([月火水木金土日]?)曜?/g, (_, dow) => {
+    if (dow && dowMap[dow] !== undefined) { const d = new Date(today); d.setDate(d.getDate() + (dowMap[dow] - today.getDay() + 7) % 7 + 14); return fmtDate(d); }
+    const d = new Date(today); d.setDate(d.getDate() + 15 - today.getDay()); return `再来週（${d.getMonth()+1}月${d.getDate()}日週）`;
+  });
+  s = s.replace(/来週([月火水木金土日]?)曜?/g, (_, dow) => {
+    if (dow && dowMap[dow] !== undefined) { const d = new Date(today); const diff = (dowMap[dow] - today.getDay() + 7) % 7 || 7; d.setDate(d.getDate() + diff + 7); return fmtDate(d); }
+    const d = new Date(today); d.setDate(d.getDate() + (8 - today.getDay()) % 7 || 7); return `来週（${d.getMonth()+1}月${d.getDate()}日週）`;
+  });
+  return s;
+}
+const BIZ_TERMS = {
+  '市況確認':'昨今の市場動向についてのご意見交換', '市況意見交換':'昨今の市場動向についての情報交換',
+  '近況意見交換':'最近のご状況についての情報交換', '近況確認':'最近のご状況についてのご確認',
+  '納期確認':'納期についてのご確認', '価格確認':'価格についてのご確認',
+  '在庫確認':'在庫状況のご確認', '見積':'お見積りのご提示',
+};
+function expandBizTerms(text) {
+  let s = text;
+  for (const [k, v] of Object.entries(BIZ_TERMS)) s = s.replace(new RegExp(k, 'g'), v);
+  return s;
+}
+
+// ---- テンプレートメール生成 ----
 function parseBullets(text) {
-  return text.split('\n')
-    .map(l => l.replace(/^[\s・\-\*•]+/, '').trim())
-    .filter(l => l.length > 0);
+  const lines = text.split('\n').map(l => l.trim()).filter(l => l);
+  // 1行目が記号なし・15文字以下のラベル行なら文脈説明として除外
+  let start = (lines.length > 0 && !lines[0].match(/^[・\-\*•]/) && lines[0].length <= 15) ? 1 : 0;
+  return lines.slice(start)
+    .map(l => expandBizTerms(convertRelativeDates(l.replace(/^[\s・\-\*•]+/, '').trim())))
+    .filter(l => l);
 }
 function getGreeting(tone) {
   if (tone === 'フォーマル') return 'いつも大変お世話になっております。';

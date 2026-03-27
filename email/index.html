@@ -661,7 +661,10 @@ function openGmail() {
 }
 
 // ---- Googleカレンダー仮登録 ----
-let calendarDates = []; // 生成時にセットされる [{start, end, label}]
+let calendarDates = [];
+
+function getCalEmail() { return localStorage.getItem('bt_cal_email') || ''; }
+function saveCalEmail(v) { localStorage.setItem('bt_cal_email', v); }
 
 function extractDatesFromBullets(bullets) {
   const results = [];
@@ -696,14 +699,26 @@ function extractDatesFromBullets(bullets) {
 
 function openCalendar() {
   if (calendarDates.length === 0) { alert('【日時】の情報が見つかりませんでした。'); return; }
+
+  // カレンダーアカウント確認
+  let calEmail = getCalEmail();
+  if (!calEmail) {
+    calEmail = prompt('Googleカレンダーに使用するGmailアドレスを入力してください\n（次回から自動で使用されます）', '');
+    if (!calEmail) return;
+    saveCalEmail(calEmail.trim());
+  } else {
+    const ok = confirm(`📅 カレンダーに仮登録します\n\nアカウント: ${calEmail}\n\n別のアカウントを使う場合は「キャンセル」後、⚙ カレンダー設定を変更してください。`);
+    if (!ok) return;
+  }
+
   const toCompany = document.getElementById('to-company').value.trim();
   const toName = document.getElementById('to-name').value.trim();
   const title = encodeURIComponent(`【仮】${generatedSubject}（${toCompany}${toName ? ' '+toName : ''}様）`);
   const details = encodeURIComponent('※メールで調整中\n\n' + generatedBody.slice(0, 300));
-  // 複数候補がある場合は最初の候補で登録
   const d = calendarDates[0];
-  const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${d.start}/${d.end}&details=${details}`;
-  window.open(url, '_blank');
+  // アカウント指定URL
+  const accountUrl = `https://calendar.google.com/calendar/u/${encodeURIComponent(calEmail)}/r/eventedit?text=${title}&dates=${d.start}/${d.end}&details=${details}`;
+  window.open(accountUrl, '_blank');
 }
 </script>
 </body>

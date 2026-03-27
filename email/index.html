@@ -62,10 +62,17 @@
         <p class="text-xs text-gray-400 mt-1.5">※入力内容は自動保存されます</p>
       </div>
 
-      <!-- メール種別 -->
+      <!-- メール種別（自動判定） -->
       <div class="mb-4">
-        <label class="text-sm font-semibold text-gray-700 block mb-2">メール種別</label>
-        <div class="grid grid-cols-3 gap-2">
+        <div class="flex items-center justify-between mb-1.5">
+          <label class="text-sm font-semibold text-gray-700">メール種別</label>
+          <button onclick="toggleTypePanel()" class="text-xs text-gray-400 hover:text-blue-500 underline">手動で変更</button>
+        </div>
+        <div class="flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-xl px-3 py-2">
+          <span class="text-xs text-blue-500">自動判定:</span>
+          <span id="auto-type-label" class="text-sm font-bold text-blue-700">アポ依頼</span>
+        </div>
+        <div id="type-panel" class="hidden grid grid-cols-3 gap-2 mt-2">
           <button onclick="selectType(this,'アポ依頼')" data-type="アポ依頼"
             class="type-btn border-2 border-blue-500 bg-blue-50 text-blue-700 text-sm font-semibold rounded-xl py-2 transition hover:bg-blue-100">
             アポ依頼
@@ -116,9 +123,9 @@
           <span class="text-gray-400 font-normal text-xs ml-1">（箇条書き・メモ書きでOK）</span>
         </label>
         <textarea id="points" rows="6" placeholder="例：
-アポイント（AIへの指示・文脈はここに書く）
-・訪問は明後日 15時か明明後日の13時過ぎで
-・要件は市況確認"
+日時は来週月曜13時か水曜15時
+要件は近況意見交換"
+          oninput="onPointsInput()"
           class="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"></textarea>
         <p id="ai-hint" class="text-xs text-purple-600 mt-1 hidden">💡 AI使用中：日時の自動変換・丁寧語変換・文脈除外を行います</p>
         <p id="tpl-hint" class="text-xs text-gray-400 mt-1">※AIキーを設定するとより自然な文章を生成できます</p>
@@ -355,6 +362,31 @@ function selectType(btn, type) {
   });
   btn.classList.add('border-blue-500','bg-blue-50','text-blue-700');
   btn.classList.remove('border-gray-200','bg-white','text-gray-600');
+  document.getElementById('auto-type-label').textContent = type;
+}
+
+function toggleTypePanel() {
+  const p = document.getElementById('type-panel');
+  p.classList.toggle('hidden');
+}
+
+// ---- 自動種別判定 ----
+function detectType(text) {
+  const t = text.replace(/\s/g, '');
+  if (/お断り|辞退|見送り|今回は|ご辞退/.test(t)) return 'お断り';
+  if (/フォロー|その後|進捗|ご検討|いかがでしょうか/.test(t)) return 'フォロー';
+  if (/お礼|ありがとう|感謝|先日は|お世話になりました/.test(t)) return 'お礼';
+  if (/返信|Re:|ご回答|回答します|承知/.test(t)) return '返信';
+  if (/問い合わせ|教えてください|確認したい|お伺い/.test(t) && !/日時|訪問|アポ|伺いたい/.test(t)) return '問い合わせ';
+  if (/アポ|訪問|日時|来週|明後日|明日|伺いたい|お時間/.test(t)) return 'アポ依頼';
+  return currentType; // 変化なし
+}
+
+function onPointsInput() {
+  const text = document.getElementById('points').value;
+  const detected = detectType(text);
+  currentType = detected;
+  document.getElementById('auto-type-label').textContent = detected;
 }
 
 // ---- Signature ----

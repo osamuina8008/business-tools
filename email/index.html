@@ -547,7 +547,12 @@ async function generateEmail() {
     let result;
     const apiKey = localStorage.getItem('bt_claude_api_key');
     if (apiKey) {
-      result = await generateWithAI(pointsText, tone, toName, toCompany, subjectHint);
+      try {
+        result = await generateWithAI(pointsText, tone, toName, toCompany, subjectHint);
+      } catch(aiErr) {
+        console.warn('AI失敗、スマート変換で生成:', aiErr.message);
+        result = buildTemplateEmail(currentType, pointsText, tone, toName, toCompany, subjectHint);
+      }
     } else {
       result = buildTemplateEmail(currentType, pointsText, tone, toName, toCompany, subjectHint);
     }

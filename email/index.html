@@ -532,14 +532,15 @@ function buildTemplateEmail(type, pointsText, tone, toName, toCompany, subjectHi
     const apoPre = tone === 'フォーマル'
       ? '突然のご連絡、失礼いたします。\n\nぜひ一度お時間をいただき、直接お話しさせていただきたく、ご連絡申し上げました。'
       : tone === '柔らかめ'
-      ? 'お世話になっております。一度お時間をいただけたら嬉しいと思いご連絡しました。'
-      : 'お時間をいただけますでしょうか。';
+      ? '一度お時間をいただけたらと思い、ご連絡いたしました。'
+      : '下記の件でお伺いをしたいと思っておりますが、ご都合いかがでしょうか。';
     const apoPost = tone === 'フォーマル'
       ? 'ご多忙の折、誠に恐縮ではございますが、ご都合のよろしい日時をいくつかお知らせいただけますでしょうか。\n\nお伺いする日程につきましては、ご都合に合わせて調整させていただきます。\n\nどうぞよろしくお願い申し上げます。'
       : tone === '柔らかめ'
       ? 'ご都合のよい日程をお知らせください。よろしくお願いいたします。'
-      : 'ご都合のよい日時をお聞かせいただければ幸いです。よろしくお願いいたします。';
-    body = `${recipient}\n\n${greeting}\n${opening}${tone === 'フォーマル' ? 'でございます。' : 'です。'}\n\n${apoPre}\n\n${bulletBlock}\n\n${apoPost}\n\n${buildSignature()}`;
+      : 'ご都合のよい日時をいくつかお知らせいただけますと幸いです。よろしくお願いいたします。';
+    const nameStr = opening ? `${opening}${tone === 'フォーマル' ? 'でございます。' : 'です。'}\n\n` : '';
+    body = `${recipient}\n\n${greeting}\n${nameStr}${apoPre}\n\n${bulletBlock}\n\n${apoPost}\n\n${buildSignature()}`;
   } else if (type === '返信') {
     subject = subjectHint ? `Re: ${subjectHint}` : 'Re: ご連絡の件';
     body = `${recipient}\n\n${greeting}\n${opening}でございます。\n\nご連絡いただきありがとうございます。\n\n以下の通りご回答申し上げます。\n\n${bulletBlock}\n\nご不明な点がございましたら、お気軽にお問い合わせください。\n\n引き続きどうぞよろしくお願い申し上げます。\n\n${buildSignature()}`;

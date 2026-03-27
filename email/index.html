@@ -195,6 +195,9 @@
               Gmailで開く
             </button>
           </div>
+          <button id="cal-btn" onclick="openCalendar()" class="hidden w-full mt-2 bg-blue-50 hover:bg-blue-100 text-blue-700 text-sm font-medium py-2.5 rounded-xl transition flex items-center justify-center gap-1.5 border border-blue-100">
+            📅 Googleカレンダーに仮登録
+          </button>
         </div>
       </div>
 
@@ -455,13 +458,13 @@ function convertRelativeDates(text) {
   s = s.replace(/明日/g,     fmtDate(addDays(today, 1)));
   s = s.replace(/今日/g,     fmtDate(today));
   s = s.replace(/今週末/g, () => { const d = new Date(today); d.setDate(d.getDate() + (6 - d.getDay())); return fmtDate(d); });
-  s = s.replace(/再来週([月火水木金土日]?)曜?/g, (_, dow) => {
-    if (dow && dowMap[dow] !== undefined) { const d = new Date(today); d.setDate(d.getDate() + (dowMap[dow] - today.getDay() + 7) % 7 + 14); return fmtDate(d); }
+  s = s.replace(/再来週([月火水木金土日]?)曜日?/g, (_, dow) => {
+    if (dow && dowMap[dow] !== undefined) { const d = new Date(today); const diff = (dowMap[dow] - today.getDay() + 7) % 7 || 7; d.setDate(d.getDate() + diff + 7); return fmtDate(d); }
     const d = new Date(today); d.setDate(d.getDate() + 15 - today.getDay()); return `再来週（${d.getMonth()+1}月${d.getDate()}日週）`;
   });
-  s = s.replace(/来週([月火水木金土日]?)曜?/g, (_, dow) => {
-    if (dow && dowMap[dow] !== undefined) { const d = new Date(today); const diff = (dowMap[dow] - today.getDay() + 7) % 7 || 7; d.setDate(d.getDate() + diff + 7); return fmtDate(d); }
-    const d = new Date(today); d.setDate(d.getDate() + (8 - today.getDay()) % 7 || 7); return `来週（${d.getMonth()+1}月${d.getDate()}日週）`;
+  s = s.replace(/来週([月火水木金土日]?)曜日?/g, (_, dow) => {
+    if (dow && dowMap[dow] !== undefined) { const d = new Date(today); const diff = (dowMap[dow] - today.getDay() + 7) % 7 || 7; d.setDate(d.getDate() + diff); return fmtDate(d); }
+    const d = new Date(today); const diff = (8 - today.getDay()) % 7 || 7; d.setDate(d.getDate() + diff); return `来週（${d.getMonth()+1}月${d.getDate()}日週）`;
   });
   // 単独の曜日（「水曜日」「金曜」など）→ 直近のその曜日に変換
   s = s.replace(/([月火水木金土日])曜日?/g, (m, dow) => {
@@ -526,7 +529,17 @@ function buildTemplateEmail(type, pointsText, tone, toName, toCompany, subjectHi
   let subject = '', body = '';
   if (type === 'アポ依頼') {
     subject = subjectHint || 'お打ち合わせのお願い';
-    body = `${recipient}\n\n${greeting}\n${opening}でございます。\n\n突然のご連絡、失礼いたします。\n\nぜひ一度お時間をいただき、直接お話しさせていただきたく、ご連絡申し上げました。\n\n${bulletBlock}\n\nご多忙の折、誠に恐縮ではございますが、ご都合のよろしい日時をいくつかお知らせいただけますでしょうか。\n\nお伺いする日程につきましては、ご都合に合わせて調整させていただきます。\n\nどうぞよろしくお願い申し上げます。\n\n${buildSignature()}`;
+    const apoPre = tone === 'フォーマル'
+      ? '突然のご連絡、失礼いたします。\n\nぜひ一度お時間をいただき、直接お話しさせていただきたく、ご連絡申し上げました。'
+      : tone === '柔らかめ'
+      ? 'お世話になっております。一度お時間をいただけたら嬉しいと思いご連絡しました。'
+      : 'お時間をいただけますでしょうか。';
+    const apoPost = tone === 'フォーマル'
+      ? 'ご多忙の折、誠に恐縮ではございますが、ご都合のよろしい日時をいくつかお知らせいただけますでしょうか。\n\nお伺いする日程につきましては、ご都合に合わせて調整させていただきます。\n\nどうぞよろしくお願い申し上げます。'
+      : tone === '柔らかめ'
+      ? 'ご都合のよい日程をお知らせください。よろしくお願いいたします。'
+      : 'ご都合のよい日時をお聞かせいただければ幸いです。よろしくお願いいたします。';
+    body = `${recipient}\n\n${greeting}\n${opening}${tone === 'フォーマル' ? 'でございます。' : 'です。'}\n\n${apoPre}\n\n${bulletBlock}\n\n${apoPost}\n\n${buildSignature()}`;
   } else if (type === '返信') {
     subject = subjectHint ? `Re: ${subjectHint}` : 'Re: ご連絡の件';
     body = `${recipient}\n\n${greeting}\n${opening}でございます。\n\nご連絡いただきありがとうございます。\n\n以下の通りご回答申し上げます。\n\n${bulletBlock}\n\nご不明な点がございましたら、お気軽にお問い合わせください。\n\n引き続きどうぞよろしくお願い申し上げます。\n\n${buildSignature()}`;
@@ -585,6 +598,12 @@ async function generateEmail() {
     // 連絡先を保存
     saveContact(toCompany, toName);
 
+    // カレンダーボタン（【日時】が含まれる場合のみ表示）
+    const bullets = parseBullets(pointsText);
+    calendarDates = extractDatesFromBullets(bullets);
+    const calBtn = document.getElementById('cal-btn');
+    calBtn.classList.toggle('hidden', calendarDates.length === 0);
+
   } catch (err) {
     alert('生成に失敗しました: ' + err.message);
   } finally {
@@ -611,6 +630,52 @@ function openGmail() {
   const subject = encodeURIComponent(generatedSubject);
   const body = encodeURIComponent(generatedBody);
   window.open(`https://mail.google.com/mail/?view=cm&fs=1&su=${subject}&body=${body}`, '_blank');
+}
+
+// ---- Googleカレンダー仮登録 ----
+let calendarDates = []; // 生成時にセットされる [{start, end, label}]
+
+function extractDatesFromBullets(bullets) {
+  const results = [];
+  const dateLineReg = /【日時】(.+)/;
+  for (const b of bullets) {
+    const m = b.match(dateLineReg);
+    if (!m) continue;
+    const line = m[1];
+    // 「4月6日（月）13時」形式を抽出（複数候補は「か」で分割）
+    const parts = line.split(/か|または|もしくは/);
+    for (const part of parts) {
+      const dm = part.match(/(\d{1,2})月(\d{1,2})日[^）]*）?\s*(\d{1,2})時(?:(\d{2})分)?/);
+      if (dm) {
+        const year = new Date().getFullYear();
+        const mon = parseInt(dm[1]) - 1;
+        const day = parseInt(dm[2]);
+        const hour = parseInt(dm[3]);
+        const min = parseInt(dm[4] || '0');
+        const start = new Date(year, mon, day, hour, min);
+        const end = new Date(year, mon, day, hour + 1, min);
+        const fmt = d => d.getFullYear().toString()
+          + String(d.getMonth()+1).padStart(2,'0')
+          + String(d.getDate()).padStart(2,'0')
+          + 'T' + String(d.getHours()).padStart(2,'0')
+          + String(d.getMinutes()).padStart(2,'0') + '00';
+        results.push({ start: fmt(start), end: fmt(end) });
+      }
+    }
+  }
+  return results;
+}
+
+function openCalendar() {
+  if (calendarDates.length === 0) { alert('【日時】の情報が見つかりませんでした。'); return; }
+  const toCompany = document.getElementById('to-company').value.trim();
+  const toName = document.getElementById('to-name').value.trim();
+  const title = encodeURIComponent(`【仮】${generatedSubject}（${toCompany}${toName ? ' '+toName : ''}様）`);
+  const details = encodeURIComponent('※メールで調整中\n\n' + generatedBody.slice(0, 300));
+  // 複数候補がある場合は最初の候補で登録
+  const d = calendarDates[0];
+  const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${d.start}/${d.end}&details=${details}`;
+  window.open(url, '_blank');
 }
 </script>
 </body>

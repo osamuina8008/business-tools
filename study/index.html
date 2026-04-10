@@ -184,14 +184,15 @@
     <div class="big">🔑</div>
     <h2>初回設定</h2>
     <p>
-      Gemini API キーを入力してください。<br>
-      無料で使えます（1日1,500回まで）。<br><br>
+      Groq API キーを入力してください。<br>
+      完全無料（1日14,400回）。<br><br>
       取得先 →
-      <a class="link" href="https://aistudio.google.com/apikey" target="_blank">
-        aistudio.google.com/apikey
-      </a>
+      <a class="link" href="https://console.groq.com/keys" target="_blank">
+        console.groq.com/keys
+      </a><br>
+      <span style="font-size:11px">（Googleアカウントでログイン → Create API key）</span>
     </p>
-    <input id="api-key-input" class="api-in" type="password" placeholder="AIzaSy...">
+    <input id="api-key-input" class="api-in" type="password" placeholder="gsk_...">
     <button id="save-key-btn" class="primary-btn" disabled>設定して始める</button>
     <p style="font-size:11px;color:var(--dim)">キーはこのブラウザのみに保存されます</p>
   </div>
@@ -256,9 +257,9 @@
 // 曜日 → 科目（JS getDay: 0=日,1=月,...,6=土）
 const WEEKLY = {0:"商法",1:"憲法",2:"民法",3:"刑法",4:"行政法",5:"民訴法",6:"刑訴法"};
 
-// Gemini 1.5 Flash（AI Studio無料枠）
-const GEMINI = key =>
-  `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${key}`;
+// Groq（完全無料、OpenAI互換）
+const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
+const GROQ_MODEL = "llama-3.1-8b-instant";
 
 // GitHub Raw — 毎回最新を取得（キャッシュバスター付き）
 const CTX_URL = () =>
@@ -267,7 +268,7 @@ const CTX_URL = () =>
 // ══════════════════════════════════════════════════
 // 状態
 // ══════════════════════════════════════════════════
-let apiKey  = localStorage.getItem("gemini_api_key") || "";
+let apiKey  = localStorage.getItem("groq_api_key") || "";
 let subject = WEEKLY[new Date().getDay()];
 let ctx     = null;   // GitHubから取得したコンテキスト
 let history = [];
@@ -419,7 +420,7 @@ $("save-key-btn").addEventListener("click", () => {
   const k = $("api-key-input").value.trim();
   if (!k) return;
   apiKey = k;
-  localStorage.setItem("gemini_api_key", k);
+  localStorage.setItem("groq_api_key", k);
   show(startScreen);
   loadContext();
 });
@@ -492,19 +493,26 @@ async function send(text) {
   const typing = addTyping();
 
   try {
-    if (!isStart) history.push({ role: "user", parts: [{ text: userText }] });
+    if (!isStart) history.push({ role: "user", content: userText });
 
-    const contents = isStart
-      ? [{ role: "user", parts: [{ text: "今日の復習を始めてください" }] }]
-      : history;
+    const messages = [
+      { role: "system", content: buildSystem() },
+      ...(isStart
+        ? [{ role: "user", content: "今日の復習を始めてください" }]
+        : history),
+    ];
 
-    const res = await fetch(GEMINI(apiKey), {
+    const res = await fetch(GROQ_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${apiKey}`,
+      },
       body: JSON.stringify({
-        system_instruction: { parts: [{ text: buildSystem() }] },
-        contents,
-        generationConfig: { maxOutputTokens: 600, temperature: 0.75 },
+        model: GROQ_MODEL,
+        messages,
+        max_tokens: 600,
+        temperature: 0.75,
       }),
     });
     const data = await res.json();
@@ -514,10 +522,10 @@ async function send(text) {
       const msg = data.error.message || "不明なエラー";
       addBubble("ai", `⚠️ エラー: ${msg}\n\nAPIキーをリセットして再設定してください（↺ボタン）`);
     } else {
-      const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "（応答なし）";
+      const reply = data.choices?.[0]?.message?.content || "（応答なし）";
       addBubble("ai", reply);
-      if (isStart) history.push({ role: "user", parts: [{ text: "今日の復習を始めてください" }] });
-      history.push({ role: "model", parts: [{ text: reply }] });
+      if (isStart) history.push({ role: "user", content: "今日の復習を始めてください" });
+      history.push({ role: "assistant", content: reply });
     }
   } catch(e) {
     typing.remove();
@@ -582,7 +590,7 @@ document.querySelectorAll(".qb").forEach(b => {
 $("reset-btn").addEventListener("click", () => {
   if (!confirm("リセットしますか？")) return;
   const keepKey = confirm("APIキーはそのままにしますか？");
-  if (!keepKey) { localStorage.removeItem("gemini_api_key"); apiKey = ""; }
+  if (!keepKey) { localStorage.removeItem("groq_api_key"); apiKey = ""; }
   history = [];
   ctx = null;
   chatArea.innerHTML = "";

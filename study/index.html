@@ -256,9 +256,9 @@
 // 曜日 → 科目（JS getDay: 0=日,1=月,...,6=土）
 const WEEKLY = {0:"商法",1:"憲法",2:"民法",3:"刑法",4:"行政法",5:"民訴法",6:"刑訴法"};
 
-// Gemini 1.5 Flash（無料枠が安定）
+// Gemini 2.0 Flash Lite（無料枠あり）
 const GEMINI = key =>
-  `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${key}`;
+  `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${key}`;
 
 // GitHub Raw — 毎回最新を取得（キャッシュバスター付き）
 const CTX_URL = () =>
@@ -352,8 +352,9 @@ async function loadContext() {
       $("kw-list").appendChild(c);
     });
 
-    // 間違い問題
-    (ctx.wrong_qs || []).slice(0, 5).forEach(q => {
+    // 間違い問題（wrong_topicsがあればそちらを優先）
+    const wrongItems = ctx.wrong_topics?.length ? ctx.wrong_topics : (ctx.wrong_qs || []);
+    wrongItems.slice(0, 5).forEach(q => {
       const d = document.createElement("div");
       d.className = "wq-item";
       d.textContent = "⚠️ " + q;
@@ -442,7 +443,8 @@ function buildSystem() {
   let todaySection = `## 今日の学習\n科目: ${subject}\n`;
   if (ctx) {
     if (ctx.keywords?.length) todaySection += `キーワード: ${ctx.keywords.join("、")}\n`;
-    if (ctx.wrong_qs?.length) todaySection += `間違えた問題: ${ctx.wrong_qs.slice(0,5).join("、")}\n`;
+    const wrongRef = ctx.wrong_topics?.length ? ctx.wrong_topics : ctx.wrong_qs;
+    if (wrongRef?.length) todaySection += `間違えた箇所: ${wrongRef.slice(0,5).join("、")}\n`;
   }
 
   let spacingSection = "";

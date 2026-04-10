@@ -1,9 +1,37 @@
 {
-  "subject": "刑訴法",
-  "date": "2026-04-11",
-  "keywords": [],
-  "wrong_qs": [],
-  "today_logs": [],
+  "subject": "民訴法",
+  "date": "2026-04-10",
+  "keywords": [
+    "控訴",
+    "上告",
+    "異議申立"
+  ],
+  "wrong_qs": [
+    "Q277・Q283（知識不足による得点喪失）",
+    "Q286（条文レベルでの理解不十分）",
+    "Q287（問題読解エラー（「誤っているものを選ぶ」）",
+    "Q290（の手続的・目的論的違いが未整理）"
+  ],
+  "today_logs": [
+    {
+      "type": "短答",
+      "questions_count": 11,
+      "understanding": "普通",
+      "topic": "短答"
+    },
+    {
+      "type": "短答",
+      "questions_count": 11,
+      "understanding": "普通",
+      "topic": ""
+    },
+    {
+      "type": "短答",
+      "questions_count": 0,
+      "understanding": "普通",
+      "topic": ""
+    }
+  ],
   "spacing_items": [
     {
       "interval_label": "",
@@ -42,6 +70,7 @@
       "keywords": []
     }
   ],
-  "has_data": false,
-  "updated_at": "2026-04-11T05:04:20.818833"
+  "has_data": true,
+  "updated_at": "2026-04-10T06:40:00",
+  "note": "テスト用: 昨日（4/10 民訴法）のデータ"
 }

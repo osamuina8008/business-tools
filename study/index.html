@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="復習Chat">
+  <meta name="theme-color" content="#0f172a">
+  <title>予備試験 復習Chat</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:        #0f172a;
+      --surface:   #1e293b;
+      --surface2:  #0f172a;
+      --border:    #334155;
+      --accent:    #3b82f6;
+      --accent2:   #7c3aed;
+      --text:      #f1f5f9;
+      --dim:       #94a3b8;
+      --ai-bub:    #1e3a5f;
+      --user-bub:  #1e293b;
+      --green:     #22c55e;
+      --radius:    16px;
+    }
+    html, body { height: 100%; background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      font-size: 15px; -webkit-font-smoothing: antialiased; overscroll-behavior: none; }
+
+    /* ─ レイアウト ─ */
+    #app { display: flex; flex-direction: column; height: 100dvh; max-width: 560px; margin: 0 auto; }
+
+    /* ─ ヘッダー ─ */
+    header { display: flex; align-items: center; gap: 10px; padding: 11px 14px;
+      background: var(--surface); border-bottom: 1px solid var(--border); flex-shrink: 0; }
+    header .logo { font-size: 20px; }
+    header .info { flex: 1; }
+    header .info h1 { font-size: 14px; font-weight: 700; }
+    header .info p  { font-size: 11px; color: var(--dim); margin-top: 1px; }
+    .badge { font-size: 12px; font-weight: 600;
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      color: #fff; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+    #reset-btn { background: none; border: none; color: var(--dim); font-size: 18px;
+      cursor: pointer; padding: 4px 6px; border-radius: 6px; }
+    #reset-btn:active { background: var(--border); }
+
+    /* ─ 科目バー ─ */
+    #subj-bar { display: flex; gap: 6px; padding: 8px 12px;
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      overflow-x: auto; flex-shrink: 0; scrollbar-width: none; }
+    #subj-bar::-webkit-scrollbar { display: none; }
+    .sbt { flex-shrink: 0; font-size: 12px; padding: 4px 12px; border-radius: 14px;
+      border: 1px solid var(--border); background: transparent; color: var(--dim); cursor: pointer; }
+    .sbt.on { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+
+    /* ─ セットアップ画面 ─ */
+    #setup-screen { flex: 1; display: flex; flex-direction: column; align-items: center;
+      justify-content: center; gap: 16px; padding: 28px 24px; text-align: center; }
+    #setup-screen .icon { font-size: 52px; }
+    #setup-screen h2 { font-size: 18px; font-weight: 700; }
+    #setup-screen p  { font-size: 13px; color: var(--dim); line-height: 1.7; }
+    .setup-link { color: var(--accent); text-decoration: none; }
+    .api-input { width: 100%; background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 10px 14px; color: var(--text); font-size: 14px;
+      outline: none; margin-top: 4px; }
+    .api-input:focus { border-color: var(--accent); }
+    .primary-btn { width: 100%; padding: 13px; background: linear-gradient(135deg, var(--accent2), var(--accent));
+      color: #fff; border: none; border-radius: 24px; font-size: 15px; font-weight: 700;
+      cursor: pointer; box-shadow: 0 4px 16px rgba(59,130,246,.35); margin-top: 4px; }
+    .primary-btn:disabled { opacity: .5; cursor: not-allowed; }
+    .primary-btn:active:not(:disabled) { transform: scale(.98); }
+
+    /* ─ ノート貼り付け画面 ─ */
+    #note-screen { flex: 1; display: flex; flex-direction: column; gap: 12px;
+      padding: 16px 14px; overflow-y: auto; }
+    #note-screen h2 { font-size: 15px; font-weight: 700; }
+    #note-screen p  { font-size: 12px; color: var(--dim); line-height: 1.6; }
+    textarea.note-area { flex: 1; min-height: 160px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 10px; padding: 12px;
+      color: var(--text); font-size: 13px; line-height: 1.6; resize: none; outline: none; }
+    textarea.note-area:focus { border-color: var(--accent); }
+    .row-btns { display: flex; gap: 8px; }
+    .sec-btn { flex: 1; padding: 12px; background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; color: var(--dim); font-size: 14px; cursor: pointer; }
+    .sec-btn:active { background: var(--border); }
+
+    /* ─ チャットエリア ─ */
+    #chat-area { flex: 1; overflow-y: auto; padding: 12px 12px 6px;
+      display: flex; flex-direction: column; gap: 10px; scroll-behavior: smooth; }
+
+    /* ─ バブル ─ */
+    .msg { display: flex; flex-direction: column; gap: 2px; }
+    .msg.user { align-items: flex-end; }
+    .msg.ai   { align-items: flex-start; }
+    .bub { max-width: 86%; padding: 10px 14px; border-radius: var(--radius);
+      font-size: 14px; line-height: 1.6; white-space: pre-wrap; word-break: break-word; }
+    .msg.user .bub { background: var(--user-bub); border: 1px solid var(--border);
+      border-bottom-right-radius: 4px; }
+    .msg.ai .bub   { background: var(--ai-bub); border-bottom-left-radius: 4px; }
+    .msg-time { font-size: 10px; color: var(--dim); padding: 0 4px; }
+
+    /* ─ タイピング ─ */
+    .typing { background: var(--ai-bub); border-radius: var(--radius); border-bottom-left-radius: 4px;
+      padding: 12px 16px; display: inline-flex; gap: 5px; align-items: center; }
+    .dot { width: 7px; height: 7px; background: var(--dim); border-radius: 50%; animation: bop 1.2s infinite; }
+    .dot:nth-child(2){animation-delay:.2s} .dot:nth-child(3){animation-delay:.4s}
+    @keyframes bop { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-6px)} }
+
+    /* ─ クイック返信 ─ */
+    #quick { display: flex; gap: 6px; padding: 6px 10px; overflow-x: auto;
+      flex-shrink: 0; scrollbar-width: none; }
+    #quick::-webkit-scrollbar { display: none; }
+    .qb { flex-shrink: 0; font-size: 12px; padding: 6px 14px; border-radius: 18px;
+      border: 1px solid var(--border); background: var(--surface); color: var(--text);
+      cursor: pointer; white-space: nowrap; }
+    .qb:active { background: var(--border); }
+
+    /* ─ 入力 ─ */
+    #input-row { display: flex; align-items: flex-end; gap: 8px; padding: 10px 12px;
+      padding-bottom: calc(10px + env(safe-area-inset-bottom));
+      background: var(--surface); border-top: 1px solid var(--border); flex-shrink: 0; }
+    #msg-in { flex: 1; background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 20px; padding: 9px 14px; color: var(--text); font-size: 15px;
+      outline: none; resize: none; min-height: 40px; max-height: 120px; line-height: 1.4; }
+    #msg-in:focus { border-color: var(--accent); }
+    #msg-in::placeholder { color: var(--dim); }
+    #send { width: 40px; height: 40px; border-radius: 50%; background: var(--accent);
+      border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    #send:disabled { background: var(--border); cursor: not-allowed; }
+    #send svg { width: 17px; height: 17px; fill: #fff; }
+
+    /* hidden helper */
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+<div id="app">
+
+  <!-- ヘッダー -->
+  <header>
+    <span class="logo">📖</span>
+    <div class="info">
+      <h1>予備試験 復習Chat</h1>
+      <p id="hd-date">--</p>
+    </div>
+    <span class="badge" id="hd-subj">--</span>
+    <button id="reset-btn" title="リセット">↺</button>
+  </header>
+
+  <!-- 科目バー -->
+  <div id="subj-bar">
+    <button class="sbt" data-s="憲法">憲法</button>
+    <button class="sbt" data-s="民法">民法</button>
+    <button class="sbt" data-s="刑法">刑法</button>
+    <button class="sbt" data-s="行政法">行政法</button>
+    <button class="sbt" data-s="民訴法">民訴法</button>
+    <button class="sbt" data-s="刑訴法">刑訴法</button>
+    <button class="sbt" data-s="商法">商法</button>
+  </div>
+
+  <!-- ① APIキー設定画面 -->
+  <div id="setup-screen">
+    <div class="icon">🔑</div>
+    <h2>初回設定</h2>
+    <p>
+      Gemini API キーを入力してください。<br>
+      <strong>無料</strong>で取得できます（1日1500回まで）。<br><br>
+      取得先 →
+      <a class="setup-link" href="https://aistudio.google.com/apikey" target="_blank">
+        aistudio.google.com/apikey
+      </a>
+    </p>
+    <input id="api-key-input" class="api-input" type="password" placeholder="AIzaSy...">
+    <button id="save-key-btn" class="primary-btn" disabled>設定して始める</button>
+    <p style="font-size:11px; color:var(--dim)">キーはこのブラウザのみに保存されます</p>
+  </div>
+
+  <!-- ② ノート貼り付け画面 -->
+  <div id="note-screen" class="hidden">
+    <h2>📝 今日のノートを貼り付け（任意）</h2>
+    <p>
+      Obsidianのノートやメモをここにペーストすると、<br>
+      その内容をもとに問題を出します。<br>
+      何もなくても <strong>スキップ</strong> できます。
+    </p>
+    <textarea id="note-area" class="note-area"
+      placeholder="例）&#10;#民訴法 #控訴 #附帯控訴&#10;&#10;軸1「控訴の利益＝主文への不服」..."></textarea>
+    <div class="row-btns">
+      <button class="sec-btn" id="skip-btn">スキップ →</button>
+      <button class="primary-btn" id="note-ok-btn" style="flex:2">この内容で始める</button>
+    </div>
+  </div>
+
+  <!-- ③ チャット -->
+  <div id="chat-area" class="hidden"></div>
+
+  <!-- クイック返信 -->
+  <div id="quick" class="hidden">
+    <button class="qb" data-m="次の問題をお願いします">▶ 次の問題</button>
+    <button class="qb" data-m="もう一度説明してください">🔁 もう一度</button>
+    <button class="qb" data-m="わかりました">✅ わかった</button>
+    <button class="qb" data-m="ヒントをください">💡 ヒント</button>
+    <button class="qb" data-m="終わります">🏁 終了</button>
+  </div>
+
+  <!-- 入力欄 -->
+  <div id="input-row" class="hidden">
+    <textarea id="msg-in" placeholder="回答を入力..." rows="1"></textarea>
+    <button id="send" disabled>
+      <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+
+</div><!-- /app -->
+
+<script>
+// ═══════════════════════════════════════
+// 定数・設定
+// ═══════════════════════════════════════
+
+// 曜日 → 科目（JS getDay: 0=日, 1=月, ..., 6=土）
+const WEEKLY = {0:"商法", 1:"憲法", 2:"民法", 3:"刑法", 4:"行政法", 5:"民訴法", 6:"刑訴法"};
+const GEMINI_URL = key =>
+  `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`;
+
+// ═══════════════════════════════════════
+// 状態
+// ═══════════════════════════════════════
+let apiKey      = localStorage.getItem("gemini_api_key") || "";
+let subject     = WEEKLY[new Date().getDay()];
+let noteContent = "";
+let history     = [];   // [{role:"user"|"model", parts:[{text:"..."}]}]
+let busy        = false;
+
+// ═══════════════════════════════════════
+// DOM
+// ═══════════════════════════════════════
+const $ = id => document.getElementById(id);
+const setupScreen = $("setup-screen");
+const noteScreen  = $("note-screen");
+const chatArea    = $("chat-area");
+const quick       = $("quick");
+const inputRow    = $("input-row");
+const hdSubj      = $("hd-subj");
+const hdDate      = $("hd-date");
+const apiInput    = $("api-key-input");
+const saveKeyBtn  = $("save-key-btn");
+const noteArea    = $("note-area");
+const skipBtn     = $("skip-btn");
+const noteOkBtn   = $("note-ok-btn");
+const msgIn       = $("msg-in");
+const sendBtn     = $("send");
+const resetBtn    = $("reset-btn");
+
+// ═══════════════════════════════════════
+// 初期化
+// ═══════════════════════════════════════
+function init() {
+  // 日付表示
+  const now = new Date();
+  const days = ["日","月","火","水","木","金","土"];
+  hdDate.textContent = `${now.getMonth()+1}月${now.getDate()}日（${days[now.getDay()]}）`;
+  hdSubj.textContent = subject;
+  highlightSubj(subject);
+
+  if (apiKey) {
+    showNote();          // APIキーあり → ノート画面へ
+  } else {
+    show(setupScreen);   // なし → 設定画面
+  }
+}
+
+function show(el) {
+  [setupScreen, noteScreen, chatArea, quick, inputRow].forEach(e => e.classList.add("hidden"));
+  el.classList.remove("hidden");
+}
+function showNote() {
+  show(noteScreen);
+}
+function showChat() {
+  chatArea.classList.remove("hidden");
+  quick.classList.remove("hidden");
+  inputRow.classList.remove("hidden");
+  [setupScreen, noteScreen].forEach(e => e.classList.add("hidden"));
+}
+
+// ─ 科目バー ─
+function highlightSubj(s) {
+  document.querySelectorAll(".sbt").forEach(b => b.classList.toggle("on", b.dataset.s === s));
+}
+document.querySelectorAll(".sbt").forEach(btn => {
+  btn.addEventListener("click", () => {
+    subject = btn.dataset.s;
+    hdSubj.textContent = subject;
+    highlightSubj(subject);
+    if (!chatArea.classList.contains("hidden")) {
+      send(`科目を${subject}に切り替えます。${subject}の問題を出してください。`);
+    }
+  });
+});
+
+// ═══════════════════════════════════════
+// セットアップ画面
+// ═══════════════════════════════════════
+apiInput.addEventListener("input", () => {
+  saveKeyBtn.disabled = apiInput.value.trim().length < 10;
+});
+saveKeyBtn.addEventListener("click", () => {
+  const k = apiInput.value.trim();
+  if (!k) return;
+  apiKey = k;
+  localStorage.setItem("gemini_api_key", k);
+  showNote();
+});
+
+// ═══════════════════════════════════════
+// ノート貼り付け画面
+// ═══════════════════════════════════════
+skipBtn.addEventListener("click", () => {
+  noteContent = "";
+  startChat();
+});
+noteOkBtn.addEventListener("click", () => {
+  noteContent = noteArea.value.trim();
+  startChat();
+});
+
+// ═══════════════════════════════════════
+// チャット開始
+// ═══════════════════════════════════════
+async function startChat() {
+  history = [];
+  showChat();
+  await send("__start__");
+}
+
+function buildSystem() {
+  const noteSection = noteContent
+    ? `\n## 今日の学習ノート\n${noteContent.slice(0, 2500)}\n`
+    : `\n## 今日の科目: ${subject}（ノートなし → 基本事項から問題を出すこと）\n`;
+
+  return `あなたは司法試験予備試験の学習コーチです。ユーザーが今日学習した内容を会話で復習・定着させます。
+${noteSection}
+【ルール】
+- スマホ向け：返答は短く（3〜5文以内）
+- 最初（__start__）では今日の科目・学習内容を1〜2文で紹介し、すぐ確認問題を1問出す
+- 問題形式：「❓ 〜でしょうか？」
+- 回答後：「✅ 正解！」または「💡 惜しい！正解は〜」で2文以内に解説
+- 次の問題はユーザーが求めた時だけ出す
+- ノートがある場合はその内容・弱点箇所を優先
+- 難問は出さない（短答レベル）`;
+}
+
+// ═══════════════════════════════════════
+// メッセージ送信
+// ═══════════════════════════════════════
+async function send(text) {
+  if (busy) return;
+  const isStart = text === "__start__";
+  const userText = isStart ? "start" : text.trim();
+  if (!userText) return;
+
+  if (!isStart) addBubble("user", userText);
+  msgIn.value = "";
+  autoResize();
+  sendBtn.disabled = true;
+  busy = true;
+
+  const typing = addTyping();
+
+  try {
+    // history に追加（start は含めない）
+    if (!isStart) {
+      history.push({ role: "user", parts: [{ text: userText }] });
+    }
+
+    const body = {
+      system_instruction: { parts: [{ text: buildSystem() }] },
+      contents: isStart
+        ? [{ role: "user", parts: [{ text: "今日の復習を始めてください" }] }]
+        : history,
+      generationConfig: { maxOutputTokens: 600, temperature: 0.75 }
+    };
+
+    const res  = await fetch(GEMINI_URL(apiKey), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+    const data = await res.json();
+
+    typing.remove();
+
+    if (data.error) {
+      addBubble("ai", `⚠️ エラー: ${data.error.message}`);
+      if (data.error.status === "INVALID_ARGUMENT" || data.error.code === 400) {
+        // APIキー不正の可能性
+        addBubble("ai", "APIキーが無効かもしれません。↺ ボタンでリセットして再設定してください。");
+      }
+    } else {
+      const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "（応答なし）";
+      addBubble("ai", reply);
+      // historyに追加（startの場合は user/model 両方）
+      if (isStart) {
+        history.push({ role: "user",  parts: [{ text: "今日の復習を始めてください" }] });
+      }
+      history.push({ role: "model", parts: [{ text: reply }] });
+    }
+  } catch(e) {
+    typing.remove();
+    addBubble("ai", "⚠️ 通信エラーが発生しました。インターネット接続を確認してください。");
+  }
+
+  busy = false;
+  sendBtn.disabled = (msgIn.value.trim() === "");
+  scrollBottom();
+}
+
+// ═══════════════════════════════════════
+// DOM ヘルパー
+// ═══════════════════════════════════════
+function addBubble(role, text) {
+  const row = document.createElement("div");
+  row.className = `msg ${role}`;
+  const bub = document.createElement("div");
+  bub.className = "bub";
+  bub.textContent = text;
+  const t = document.createElement("div");
+  t.className = "msg-time";
+  t.textContent = new Date().toLocaleTimeString("ja-JP", {hour:"2-digit", minute:"2-digit"});
+  row.appendChild(bub);
+  row.appendChild(t);
+  chatArea.appendChild(row);
+  scrollBottom();
+  return row;
+}
+function addTyping() {
+  const row = document.createElement("div");
+  row.className = "msg ai";
+  row.innerHTML = `<div class="typing"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>`;
+  chatArea.appendChild(row);
+  scrollBottom();
+  return row;
+}
+function scrollBottom() {
+  requestAnimationFrame(() => { chatArea.scrollTop = chatArea.scrollHeight; });
+}
+
+// ═══════════════════════════════════════
+// 入力欄
+// ═══════════════════════════════════════
+msgIn.addEventListener("input", () => {
+  autoResize();
+  sendBtn.disabled = msgIn.value.trim() === "" || busy;
+});
+msgIn.addEventListener("keydown", e => {
+  if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); if (!sendBtn.disabled) send(msgIn.value); }
+});
+sendBtn.addEventListener("click", () => { if (!sendBtn.disabled) send(msgIn.value); });
+function autoResize() {
+  msgIn.style.height = "auto";
+  msgIn.style.height = Math.min(msgIn.scrollHeight, 120) + "px";
+}
+
+// ─ クイック返信 ─
+document.querySelectorAll(".qb").forEach(b => {
+  b.addEventListener("click", () => { if (!busy) send(b.dataset.m); });
+});
+
+// ─ リセット ─
+resetBtn.addEventListener("click", () => {
+  if (!confirm("リセットしますか？\n（APIキーも消す場合はOK、消さない場合はキャンセルして↺後に「ノートをリセット」を選んでください）")) return;
+  const keepKey = confirm("APIキーはそのままにしますか？");
+  if (!keepKey) localStorage.removeItem("gemini_api_key");
+  apiKey = keepKey ? (localStorage.getItem("gemini_api_key") || "") : "";
+  history = [];
+  noteContent = "";
+  noteArea.value = "";
+  chatArea.innerHTML = "";
+  init();
+});
+
+// ═══════════════════════════════════════
+// 起動
+// ═══════════════════════════════════════
+init();
+</script>
+</body>
+</html>

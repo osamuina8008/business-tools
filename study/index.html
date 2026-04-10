@@ -258,7 +258,7 @@ const WEEKLY = {0:"商法",1:"憲法",2:"民法",3:"刑法",4:"行政法",5:"民
 
 // Gemini 1.5 Flash（無料枠が安定）
 const GEMINI = key =>
-  `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`;
+  `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${key}`;
 
 // GitHub Raw — 毎回最新を取得（キャッシュバスター付き）
 const CTX_URL = () =>

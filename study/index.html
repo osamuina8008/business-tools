@@ -103,6 +103,23 @@
     .sp-count { font-size: 11px; color: var(--dim); margin-left: auto; }
     .sp-kw   { font-size: 11px; color: var(--dim); margin-top: 4px; }
 
+    /* ─ スケジュール ─ */
+    #sched-section { margin-top: 4px; }
+    #sched-toggle { width: 100%; background: var(--surf); border: 1px solid var(--border);
+      border-radius: 10px; padding: 10px 14px; color: var(--text); font-size: 13px;
+      text-align: left; cursor: pointer; display: flex; justify-content: space-between; }
+    #sched-toggle:active { background: var(--border); }
+    #sched-body { display: none; background: var(--surf); border: 1px solid var(--border);
+      border-top: none; border-radius: 0 0 10px 10px; max-height: 260px; overflow-y: auto; }
+    #sched-body.open { display: block; }
+    .sched-row { display: flex; align-items: center; gap: 10px; padding: 7px 14px;
+      border-bottom: 1px solid var(--border); font-size: 13px; }
+    .sched-row:last-child { border-bottom: none; }
+    .sched-time { font-size: 12px; color: var(--dim); width: 42px; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+    .sched-act  { flex: 1; color: var(--text); }
+    .sched-row.now { background: rgba(59,130,246,.12); }
+    .sched-row.now .sched-act { color: #93c5fd; font-weight: 600; }
+
     /* ─ チャット ─ */
     #chat-area { flex: 1; overflow-y: auto; padding: 12px 12px 6px;
       display: flex; flex-direction: column; gap: 10px; scroll-behavior: smooth; }
@@ -218,6 +235,12 @@
       <div class="spacing-list" id="spacing-list"></div>
     </div>
 
+    <!-- スケジュール（折りたたみ） -->
+    <div id="sched-section" class="hidden">
+      <button id="sched-toggle">📅 今日のスケジュール <span id="sched-arrow">▼</span></button>
+      <div id="sched-body"></div>
+    </div>
+
     <div style="display:flex; gap:8px; margin-top:4px">
       <button class="sec-btn" id="refresh-ctx-btn">🔄 再読み込み</button>
       <button class="primary-btn" id="start-btn" style="flex:2" disabled>復習を開始する →</button>
@@ -233,6 +256,7 @@
   <!-- クイック返信 -->
   <div id="quick" class="hidden">
     <button class="qb" data-m="次の問題をお願いします">▶ 次の問題</button>
+    <button class="qb" id="qb-2択" data-m="同じ問題を2択（A/Bの選択肢形式）で出してください">🅰 2択</button>
     <button class="qb" data-m="もう一度説明してください">🔁 もう一度</button>
     <button class="qb" data-m="ヒントをください">💡 ヒント</button>
     <button class="qb" data-m="スペーシング復習の問題を出してください">🔄 復習問題</button>
@@ -371,6 +395,29 @@ async function loadContext() {
     if (wrongItems.length > 0) $("wq-list").style.flexDirection = "row";
     if (wrongItems.length > 0) $("wq-list").style.flexWrap = "wrap";
 
+    // スケジュール
+    if (ctx.today_schedule?.length > 0) {
+      $("sched-section").classList.remove("hidden");
+      const body = $("sched-body");
+      body.innerHTML = "";
+      const nowMin = new Date().getHours() * 60 + new Date().getMinutes();
+      ctx.today_schedule.forEach((e, i) => {
+        const [h, m] = e.time.split(":").map(Number);
+        const eMin = h * 60 + m;
+        const nextMin = ctx.today_schedule[i+1]
+          ? (() => { const [nh,nm]=ctx.today_schedule[i+1].time.split(":").map(Number); return nh*60+nm; })()
+          : eMin + 60;
+        const isCurrent = nowMin >= eMin && nowMin < nextMin;
+        const row = document.createElement("div");
+        row.className = "sched-row" + (isCurrent ? " now" : "");
+        row.innerHTML = `<span class="sched-time">${e.time}</span><span class="sched-act">${isCurrent ? "▶ " : ""}${e.activity}</span>`;
+        body.appendChild(row);
+      });
+      // 現在時刻付近まで自動スクロール
+      const nowRow = body.querySelector(".now");
+      if (nowRow) setTimeout(() => nowRow.scrollIntoView({block:"center"}), 100);
+    }
+
     // スペーシング復習
     if (ctx.spacing_items?.length > 0) {
       $("spacing-section").classList.remove("hidden");
@@ -470,19 +517,20 @@ function buildSystem() {
     spacingSection += "\n※ 今日の学習を先にやってから、スペーシング復習も含めること。";
   }
 
-  return `あなたは司法試験予備試験の学習コーチです。ユーザーが今日学習した内容と過去のスペーシング復習を、会話形式で定着させます。
+  return `あなたは司法試験予備試験の学習コーチです。ユーザーが今日学習した内容を会話形式で定着させます。
 
 ${todaySection}${spacingSection || "\n（スペーシング復習なし）"}
 
 【ルール】
 - スマホ向け：返答は短く（3〜5文以内）
-- 最初（start）では今日の内容を1〜2文で紹介し、すぐ確認問題を1問出す
-- 問題形式：「❓ 〜でしょうか？」
-- 回答後：「✅ 正解！」または「💡 惜しい！正解は〜」＋2文以内の解説
+- 難易度は「基本」から始める。知識の確認レベルで十分（応用・事例問題は不要）
+- 最初（start）では今日の内容を1文で紹介し、すぐ基本確認問題を1問出す
+- 問題形式：「❓ 〜は何ですか？」または「❓ 〜の要件を教えてください」
+- 「2択」と言われたら：「A: ○○　B: ××　どちらですか？」の形式で出し直す
+- 回答後：「✅ 正解！」または「💡 正解は〜」＋1〜2文の解説（条文番号を明記）
 - 次の問題はユーザーが求めた時だけ
-- 今日の学習 → スペーシング復習の順で進める
-- キーワードや間違えた問題を優先的に出題する
-- 「終わります」と言われたら学習お疲れ様メッセージで締める`;
+- キーワードや要注意条文を優先出題
+- 「終わります」と言われたらお疲れ様メッセージで締める`;
 }
 
 // ══════════════════════════════════════════════════
@@ -595,6 +643,12 @@ $("send").addEventListener("click", () => { if (!$("send").disabled) send($("msg
 
 document.querySelectorAll(".qb").forEach(b => {
   b.addEventListener("click", () => { if (!busy) send(b.dataset.m); });
+});
+
+$("sched-toggle").addEventListener("click", () => {
+  const body = $("sched-body");
+  const isOpen = body.classList.toggle("open");
+  $("sched-arrow").textContent = isOpen ? "▲" : "▼";
 });
 
 $("reset-btn").addEventListener("click", () => {

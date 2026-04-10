@@ -256,9 +256,9 @@
 // 曜日 → 科目（JS getDay: 0=日,1=月,...,6=土）
 const WEEKLY = {0:"商法",1:"憲法",2:"民法",3:"刑法",4:"行政法",5:"民訴法",6:"刑訴法"};
 
-// Gemini 2.0 Flash Lite（無料枠あり）
+// Gemini 1.5 Flash（AI Studio無料枠）
 const GEMINI = key =>
-  `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${key}`;
+  `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${key}`;
 
 // GitHub Raw — 毎回最新を取得（キャッシュバスター付き）
 const CTX_URL = () =>

@@ -1,28 +1,33 @@
 {
-  "subject": "商法",
-  "date": "2026-04-12",
+  "subject": "憲法",
+  "date": "2026-04-13",
   "keywords": [],
   "wrong_qs": [
-    "Q279",
-    "Q282",
-    "Q283（消去法。アウエは間違いだと感じた。）",
-    "Q290",
-    "Q295（手形法に入ったが、手形債務の発生において）"
+    "Q246（引っ掛け問題への判別能力不足）",
+    "Q252（「無関係」の判定基準が曖昧）",
+    "Q254（引っ掛けかどうかの判断迷い）",
+    "Q256（二者択一での判断ミス）",
+    "Q259（**根本的課題**「根拠の有無」判定が全）",
+    "Q260（**8月革命説の知識欠落**）"
   ],
   "wrong_topics": [
-    "消去法。アウエは間違いだと感じた。",
-    "手形法に入ったが、手形債務の発生において"
+    "引っ掛け問題への判別能力不足",
+    "「無関係」の判定基準が曖昧",
+    "引っ掛けかどうかの判断迷い",
+    "二者択一での判断ミス",
+    "**根本的課題**「根拠の有無」判定が全",
+    "**8月革命説の知識欠落**"
   ],
   "today_logs": [
     {
       "type": "短答",
       "questions_count": 11,
       "understanding": "普通",
-      "topic": "短答"
+      "topic": ""
     },
     {
-      "type": "短答",
-      "questions_count": 11,
+      "type": "インプット",
+      "questions_count": 0,
       "understanding": "普通",
       "topic": ""
     }
@@ -30,23 +35,49 @@
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-04-11",
-      "subject": "刑事訴訟法",
+      "date": "2026-04-12",
+      "subject": "商法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": []
+      "keywords": [
+        "手形法"
+      ]
     },
     {
       "interval_label": "",
-      "date": "2026-04-09",
-      "subject": "行政法",
+      "date": "2026-04-10",
+      "subject": "民事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": []
+      "keywords": [
+        "条文レベルで",
+        "控訴",
+        "上告"
+      ]
     },
     {
       "interval_label": "",
-      "date": "2026-04-09",
+      "date": "2026-04-06",
+      "subject": "憲法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "教科書無償条項"
+      ]
+    },
+    {
+      "interval_label": "",
+      "date": "2026-03-23",
+      "subject": "憲法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "選挙"
+      ]
+    },
+    {
+      "interval_label": "",
+      "date": "2026-03-23",
       "subject": "—",
       "questions_count": 0,
       "wrong_qs": [],
@@ -54,74 +85,65 @@
     },
     {
       "interval_label": "",
-      "date": "2026-04-05",
-      "subject": "商法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "当事者双方"
-      ]
-    },
-    {
-      "interval_label": "",
-      "date": "2026-03-22",
-      "subject": "刑事訴訟法",
+      "date": "2026-03-23",
+      "subject": "民法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-03-22",
-      "subject": "商法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "合同会社",
-        "株主全員同意"
-      ]
     }
   ],
   "today_schedule": [
     {
+      "time": "03:40",
+      "activity": "家起床"
+    },
+    {
+      "time": "03:45",
+      "activity": "家体操"
+    },
+    {
       "time": "04:00",
-      "activity": "実家"
+      "activity": "家学習"
     },
     {
       "time": "04:15",
-      "activity": "実家"
+      "activity": "家学習"
     },
     {
       "time": "04:30",
-      "activity": "実家"
+      "activity": "家学習"
     },
     {
       "time": "04:45",
-      "activity": "実家"
+      "activity": "家学習"
     },
     {
       "time": "05:00",
-      "activity": "実家"
+      "activity": "家学習"
     },
     {
       "time": "05:15",
-      "activity": "実家"
+      "activity": "家食事"
     },
     {
       "time": "05:30",
-      "activity": "実家"
+      "activity": "家食事"
     },
     {
       "time": "05:45",
-      "activity": "実家"
+      "activity": "移動家→駅"
     },
     {
       "time": "06:00",
-      "activity": "実家"
+      "activity": "電車学習"
+    },
+    {
+      "time": "06:15",
+      "activity": "電車学習"
     },
     {
       "time": "06:30",
-      "activity": "移動"
+      "activity": "電車学習"
     },
     {
       "time": "06:45",
@@ -129,105 +151,121 @@
     },
     {
       "time": "07:00",
-      "activity": "移動"
+      "activity": "移動運動"
     },
     {
       "time": "07:15",
-      "activity": "移動"
+      "activity": "移動運動"
     },
     {
       "time": "07:30",
-      "activity": "移動"
+      "activity": "仕事"
     },
     {
       "time": "08:00",
-      "activity": "移動"
+      "activity": "仕事"
     },
     {
       "time": "09:00",
-      "activity": "家掃除"
+      "activity": "仕事"
     },
     {
       "time": "10:00",
-      "activity": "家掃除"
+      "activity": "仕事"
     },
     {
       "time": "11:00",
-      "activity": "家掃除"
+      "activity": "仕事"
     },
     {
       "time": "12:00",
-      "activity": "家掃除"
+      "activity": "仕事"
+    },
+    {
+      "time": "13:00",
+      "activity": "仕事"
     },
     {
       "time": "14:00",
-      "activity": "家学習"
+      "activity": "仕事"
     },
     {
       "time": "15:00",
-      "activity": "家学習"
+      "activity": "仕事"
     },
     {
       "time": "16:00",
-      "activity": "ベスパ確認"
+      "activity": "仕事"
     },
     {
       "time": "17:00",
-      "activity": "サンパーク筋トレ"
+      "activity": "仕事"
     },
     {
       "time": "17:15",
-      "activity": "サンパーク筋トレ"
+      "activity": "仕事"
     },
     {
       "time": "17:30",
-      "activity": "移動"
+      "activity": "仕事"
+    },
+    {
+      "time": "17:45",
+      "activity": "仕事"
     },
     {
       "time": "18:00",
-      "activity": "家食事"
+      "activity": "仕事"
     },
     {
       "time": "18:15",
-      "activity": "家食事"
+      "activity": "車移動"
     },
     {
       "time": "18:30",
-      "activity": "家食事"
+      "activity": "駅学習"
     },
     {
       "time": "18:45",
-      "activity": "家食事"
+      "activity": "電車学習"
     },
     {
       "time": "19:00",
-      "activity": "家料理準備"
+      "activity": "電車学習"
     },
     {
       "time": "19:15",
-      "activity": "家料理準備"
+      "activity": "電車学習"
     },
     {
       "time": "19:30",
-      "activity": "家料理準備"
+      "activity": "移動学習"
     },
     {
       "time": "19:45",
-      "activity": "家料理準備"
+      "activity": "移動学習"
+    },
+    {
+      "time": "20:00",
+      "activity": "フィットネスくらぶ風呂など"
+    },
+    {
+      "time": "20:15",
+      "activity": "フィットネスくらぶ風呂など"
     },
     {
       "time": "20:30",
-      "activity": "家復習と到達点の確認"
+      "activity": "移動リラックス"
     },
     {
       "time": "21:00",
-      "activity": "家復習と到達点の確認"
+      "activity": "家帰宅・支度など"
     },
     {
-      "time": "21:30",
+      "time": "22:00",
       "activity": "家就寝"
     }
   ],
   "has_data": true,
-  "updated_at": "2026-04-12T20:44:44.328016"
+  "updated_at": "2026-04-13T07:00:19.937635"
 }

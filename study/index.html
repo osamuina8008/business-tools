@@ -124,6 +124,20 @@
       color: #c4b5fd; padding: 3px 10px; border-radius: 10px;
       cursor: pointer; white-space: nowrap; }
     .sp-claude-btn:active { background: rgba(139,92,246,.35); }
+    /* Claudeメモ展開パネル */
+    .claude-panel { display:none; margin-top:8px; border-top:1px solid rgba(139,92,246,.3); padding-top:8px; }
+    .claude-panel.open { display:block; }
+    .claude-note-item { margin-bottom:10px; }
+    .claude-note-title {
+      font-size:12px; font-weight:600; color:#c4b5fd; margin-bottom:4px;
+      display:flex; align-items:center; justify-content:space-between; gap:6px; }
+    .claude-note-body {
+      font-size:11px; color:#94a3b8; line-height:1.6;
+      background:rgba(15,23,42,.5); border-radius:6px; padding:6px 8px;
+      white-space:pre-wrap; word-break:break-word; max-height:160px; overflow-y:auto; }
+    .bear-open-btn { font-size:10px; background:rgba(204,102,51,.2); border:1px solid rgba(204,102,51,.4);
+      color:#f0956a; padding:2px 7px; border-radius:8px;
+      text-decoration:none; white-space:nowrap; flex-shrink:0; }
 
     /* ─ スケジュール ─ */
     #sched-section { margin-top: 4px; }
@@ -469,7 +483,7 @@ async function loadContext() {
     );
     if (validItems.length > 0) {
       $("spacing-section").classList.remove("hidden");
-      validItems.forEach(item => {
+      validItems.forEach((item, idx) => {
         const el = document.createElement("div");
         el.className = "sp-item";
         const dLabel = item.interval_label || daysAgoLabel(item.date);
@@ -478,8 +492,28 @@ async function loadContext() {
         ).join("");
         // Bear: その日付のノートを開く
         const bearDateUrl = `bear://x-callback-url/search?term=${encodeURIComponent(item.date)}`;
-        // Claude: チャットを開いてその内容を質問
-        const claudeQ = `${item.subject}（${item.date}・${(item.keywords||[]).join("/")}）について復習問題を出してください`;
+        const panelId = `cp-${idx}`;
+        // Claudeメモパネル HTML
+        const claudeNotes = item.claude_notes || [];
+        let claudePanelHtml = "";
+        if (claudeNotes.length > 0) {
+          claudePanelHtml = `<div class="claude-panel" id="${panelId}">`;
+          claudeNotes.forEach(note => {
+            const bearNoteUrl = `bear://x-callback-url/search?term=${encodeURIComponent(note.title)}`;
+            claudePanelHtml += `
+              <div class="claude-note-item">
+                <div class="claude-note-title">
+                  <span>📝 ${note.title}</span>
+                  <a class="bear-open-btn" href="${bearNoteUrl}">🐻 Bearで開く</a>
+                </div>
+                <div class="claude-note-body">${note.content.replace(/</g,"&lt;").replace(/>/g,"&gt;")}</div>
+              </div>`;
+          });
+          claudePanelHtml += `</div>`;
+        }
+        const claudeBtnHtml = claudeNotes.length > 0
+          ? `<span class="sp-claude-btn" onclick="toggleClaudePanel('${panelId}',this)">🤖 Claudeメモ▼</span>`
+          : "";
         el.innerHTML = `
           <div class="sp-left">
             <div><span class="sp-subj">${item.subject}</span>
@@ -489,8 +523,9 @@ async function loadContext() {
             <div class="sp-kws">${kwsHtml}</div>
             <div class="sp-action-row">
               <a class="sp-note-btn" href="${bearDateUrl}">📓 ${item.date}のノート</a>
-              <span class="sp-claude-btn" onclick="askClaude(${JSON.stringify(claudeQ)})">🤖 Claude に聞く</span>
+              ${claudeBtnHtml}
             </div>
+            ${claudePanelHtml}
           </div>
         `;
         $("spacing-list").appendChild(el);
@@ -527,12 +562,12 @@ function showAllChecked() {
   setTimeout(() => msg.remove(), 3000);
 }
 
-// スペーシング復習からClaudeに直接質問
-function askClaude(question) {
-  // チャットを開いてその質問を送信
-  startChat();
-  // 少し待ってから送信（チャット初期化後）
-  setTimeout(() => send(question), 800);
+// ClaudeメモパネルのToggle
+function toggleClaudePanel(id, btn) {
+  const panel = document.getElementById(id);
+  if (!panel) return;
+  const isOpen = panel.classList.toggle("open");
+  btn.textContent = isOpen ? "🤖 Claudeメモ▲" : "🤖 Claudeメモ▼";
 }
 
 function highlightSubj(s) {

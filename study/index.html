@@ -92,10 +92,15 @@
       cursor: pointer; text-decoration: none; display: inline-block; }
     .kw-chip:active { background: rgba(59,130,246,.3); }
     .wq-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
-    .wq-chip { font-size: 12px; background: rgba(245,158,11,.12); border: 1px solid rgba(245,158,11,.35);
-      color: #fcd34d; padding: 3px 10px; border-radius: 12px;
-      cursor: pointer; text-decoration: none; display: inline-block; }
-    .wq-chip:active { background: rgba(245,158,11,.25); }
+    .wq-chip {
+      font-size: 12px; background: rgba(245,158,11,.12); border: 1px solid rgba(245,158,11,.35);
+      color: #fcd34d; padding: 4px 12px; border-radius: 14px;
+      cursor: pointer; display: inline-block; user-select: none;
+      transition: all .2s; -webkit-tap-highlight-color: transparent; }
+    .wq-chip:active { transform: scale(0.95); }
+    .wq-chip.checked {
+      background: rgba(34,197,94,.18); border-color: rgba(34,197,94,.5);
+      color: #4ade80; text-decoration: line-through; opacity: 0.75; }
 
     /* スペーシング一覧 */
     .spacing-list { display: flex; flex-direction: column; gap: 6px; }
@@ -396,18 +401,37 @@ async function loadContext() {
       $("kw-list").appendChild(a);
     });
 
-    // 弱点トピック（マークダウン除去・タップ → Bear検索）
+    // 弱点トピック（チェック式ボタン）
     const JUNK = ["能力不足","判断迷い","判断ミス","読解エラー","理解不十分","未整理","エラー","得点喪失"];
     const cleanTopic = t => t.replace(/\*\*/g, "").replace(/^[\s・]+/, "").trim();
     const wrongItems = (ctx.wrong_topics || [])
       .map(cleanTopic)
       .filter(t => t.length >= 2 && !JUNK.some(j => t.includes(j)));
+    const checkedKey = "wq_checked_" + (ctx.date || "");
+    const checkedSet = new Set(JSON.parse(localStorage.getItem(checkedKey) || "[]"));
     wrongItems.slice(0, 8).forEach(t => {
-      const a = document.createElement("a");
-      a.className = "wq-chip";
-      a.textContent = "⚠️ " + t;
-      a.href = "bear://x-callback-url/search?term=" + encodeURIComponent(t);
-      $("wq-list").appendChild(a);
+      const btn = document.createElement("span");
+      btn.className = "wq-chip" + (checkedSet.has(t) ? " checked" : "");
+      btn.textContent = (checkedSet.has(t) ? "✅ " : "⚠️ ") + t;
+      btn.addEventListener("click", () => {
+        if (checkedSet.has(t)) {
+          checkedSet.delete(t);
+          btn.classList.remove("checked");
+          btn.textContent = "⚠️ " + t;
+        } else {
+          checkedSet.add(t);
+          btn.classList.add("checked");
+          btn.textContent = "✅ " + t;
+        }
+        localStorage.setItem(checkedKey, JSON.stringify([...checkedSet]));
+        // 全チェックなら達成メッセージ
+        const all = $("wq-list").querySelectorAll(".wq-chip");
+        const done = $("wq-list").querySelectorAll(".wq-chip.checked");
+        if (all.length > 0 && all.length === done.length) {
+          showAllChecked();
+        }
+      });
+      $("wq-list").appendChild(btn);
     });
 
     // スケジュール
@@ -486,6 +510,23 @@ async function loadContext() {
 // ══════════════════════════════════════════════════
 // 科目バー
 // ══════════════════════════════════════════════════
+// 全弱点チェック完了演出
+function showAllChecked() {
+  const existing = document.getElementById("all-checked-msg");
+  if (existing) return;
+  const msg = document.createElement("div");
+  msg.id = "all-checked-msg";
+  msg.style.cssText = `
+    text-align:center; padding:10px; margin-top:6px;
+    background:rgba(34,197,94,.15); border:1px solid rgba(34,197,94,.4);
+    border-radius:10px; color:#4ade80; font-size:14px; font-weight:600;
+    animation: fadeIn .4s ease;
+  `;
+  msg.textContent = "🎉 今日の弱点を全部確認！";
+  $("wq-list").after(msg);
+  setTimeout(() => msg.remove(), 3000);
+}
+
 // スペーシング復習からClaudeに直接質問
 function askClaude(question) {
   // チャットを開いてその質問を送信

@@ -88,20 +88,28 @@
     .ctx-card .status-text { font-size: 12px; color: var(--dim); }
     .kw-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
     .kw-chip { font-size: 12px; background: rgba(59,130,246,.15); border: 1px solid rgba(59,130,246,.3);
-      color: #93c5fd; padding: 3px 10px; border-radius: 12px; }
-    .wq-list { display: flex; flex-direction: column; gap: 4px; margin-top: 8px; }
-    .wq-item { font-size: 12px; color: var(--yellow); }
+      color: #93c5fd; padding: 3px 10px; border-radius: 12px;
+      cursor: pointer; text-decoration: none; display: inline-block; }
+    .kw-chip:active { background: rgba(59,130,246,.3); }
+    .wq-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+    .wq-chip { font-size: 12px; background: rgba(245,158,11,.12); border: 1px solid rgba(245,158,11,.35);
+      color: #fcd34d; padding: 3px 10px; border-radius: 12px;
+      cursor: pointer; text-decoration: none; display: inline-block; }
+    .wq-chip:active { background: rgba(245,158,11,.25); }
 
     /* スペーシング一覧 */
-    .spacing-list { display: flex; flex-direction: column; gap: 8px; }
+    .spacing-list { display: flex; flex-direction: column; gap: 6px; }
     .sp-item { background: var(--surf); border: 1px solid var(--border);
-      border-radius: 10px; padding: 10px 12px; }
-    .sp-item .sp-head { display: flex; align-items: center; gap: 6px; }
-    .sp-label { font-size: 11px; font-weight: 600; background: rgba(124,58,237,.25);
-      border: 1px solid rgba(124,58,237,.4); color: #c4b5fd; padding: 2px 8px; border-radius: 10px; }
+      border-radius: 10px; padding: 8px 12px;
+      display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .sp-left { flex: 1; min-width: 0; }
     .sp-subj { font-size: 13px; font-weight: 600; color: var(--text); }
-    .sp-count { font-size: 11px; color: var(--dim); margin-left: auto; }
-    .sp-kw   { font-size: 11px; color: var(--dim); margin-top: 4px; }
+    .sp-meta { font-size: 11px; color: var(--dim); margin-top: 2px; }
+    .sp-kws  { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+    .sp-kw-btn { font-size: 11px; background: rgba(245,158,11,.12); border: 1px solid rgba(245,158,11,.35);
+      color: #fcd34d; padding: 2px 8px; border-radius: 10px;
+      text-decoration: none; display: inline-block; white-space: nowrap; }
+    .sp-kw-btn:active { background: rgba(245,158,11,.25); }
 
     /* ─ スケジュール ─ */
     #sched-section { margin-top: 4px; }
@@ -370,31 +378,28 @@ async function loadContext() {
       ? `✅ 今日のノート取得済み（${ctx.updated_at?.slice(11,16)} 更新）`
       : `⚠️ ${ctx.date} のデータ（本日未更新）`;
 
-    // キーワード
+    // キーワード（タップ → Bear検索）
     (ctx.keywords || []).forEach(kw => {
-      const c = document.createElement("span");
-      c.className = "kw-chip";
-      c.textContent = kw;
-      $("kw-list").appendChild(c);
+      const a = document.createElement("a");
+      a.className = "kw-chip";
+      a.textContent = "📖 " + kw;
+      a.href = "bear://x-callback-url/search?term=" + encodeURIComponent(kw);
+      $("kw-list").appendChild(a);
     });
 
-    // wrong_topicsがある場合のみ表示（キーワード・条文のみ）
-    // wrong_qsの生データ（「知識不足」「読解エラー」等）は表示しない
-    const JUNK = ["知識不足","得点喪失","読解エラー","理解不十分","未整理","レベル","エラー"];
-    const wrongItems = (ctx.wrong_topics || []).filter(t =>
-      !JUNK.some(j => t.includes(j)) && t.length >= 2
-    );
-    wrongItems.slice(0, 6).forEach(t => {
-      const d = document.createElement("span");
-      d.className = "kw-chip";
-      d.style.borderColor = "rgba(245,158,11,.4)";
-      d.style.background = "rgba(245,158,11,.12)";
-      d.style.color = "#fcd34d";
-      d.textContent = "⚠️ " + t;
-      $("wq-list").appendChild(d);
+    // 弱点トピック（マークダウン除去・タップ → Bear検索）
+    const JUNK = ["能力不足","判断迷い","判断ミス","読解エラー","理解不十分","未整理","エラー","得点喪失"];
+    const cleanTopic = t => t.replace(/\*\*/g, "").replace(/^[\s・]+/, "").trim();
+    const wrongItems = (ctx.wrong_topics || [])
+      .map(cleanTopic)
+      .filter(t => t.length >= 2 && !JUNK.some(j => t.includes(j)));
+    wrongItems.slice(0, 8).forEach(t => {
+      const a = document.createElement("a");
+      a.className = "wq-chip";
+      a.textContent = "⚠️ " + t;
+      a.href = "bear://x-callback-url/search?term=" + encodeURIComponent(t);
+      $("wq-list").appendChild(a);
     });
-    if (wrongItems.length > 0) $("wq-list").style.flexDirection = "row";
-    if (wrongItems.length > 0) $("wq-list").style.flexWrap = "wrap";
 
     // スケジュール
     if (ctx.today_schedule?.length > 0) {
@@ -420,19 +425,30 @@ async function loadContext() {
     }
 
     // スペーシング復習
-    if (ctx.spacing_items?.length > 0) {
+    const today0 = new Date(); today0.setHours(0,0,0,0);
+    const daysAgoLabel = dateStr => {
+      const d = new Date(dateStr); d.setHours(0,0,0,0);
+      const n = Math.round((today0 - d) / 86400000);
+      return n === 0 ? "今日" : n === 1 ? "昨日" : n + "日前";
+    };
+    const validItems = (ctx.spacing_items || []).filter(it =>
+      it.subject && it.subject !== "—" && (it.keywords || []).length > 0
+    );
+    if (validItems.length > 0) {
       $("spacing-section").classList.remove("hidden");
-      ctx.spacing_items.forEach(item => {
+      validItems.forEach(item => {
         const el = document.createElement("div");
         el.className = "sp-item";
-        const kws = (item.keywords || []).join("・") || "—";
+        const dLabel = item.interval_label || daysAgoLabel(item.date);
+        const kwsHtml = (item.keywords || []).map(k =>
+          `<a class="sp-kw-btn" href="bear://x-callback-url/search?term=${encodeURIComponent(k)}">🐻 ${k}</a>`
+        ).join("");
         el.innerHTML = `
-          <div class="sp-head">
-            <span class="sp-label">${item.interval_label}</span>
-            <span class="sp-subj">${item.subject}</span>
-            <span class="sp-count">${item.questions_count}問</span>
+          <div class="sp-left">
+            <div><span class="sp-subj">${item.subject}</span></div>
+            <div class="sp-meta">${dLabel}に学習 → 今日復習推奨${item.questions_count > 0 ? "　" + item.questions_count + "問" : ""}</div>
+            <div class="sp-kws">${kwsHtml}</div>
           </div>
-          <div class="sp-kw">📌 ${kws}</div>
         `;
         $("spacing-list").appendChild(el);
       });

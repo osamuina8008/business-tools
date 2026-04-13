@@ -110,6 +110,15 @@
       color: #fcd34d; padding: 2px 8px; border-radius: 10px;
       text-decoration: none; display: inline-block; white-space: nowrap; }
     .sp-kw-btn:active { background: rgba(245,158,11,.25); }
+    .sp-action-row { display: flex; gap: 6px; margin-top: 6px; }
+    .sp-note-btn { font-size: 11px; background: rgba(204,102,51,.18); border: 1px solid rgba(204,102,51,.4);
+      color: #f0956a; padding: 3px 10px; border-radius: 10px;
+      text-decoration: none; display: inline-block; white-space: nowrap; }
+    .sp-note-btn:active { background: rgba(204,102,51,.35); }
+    .sp-claude-btn { font-size: 11px; background: rgba(139,92,246,.18); border: 1px solid rgba(139,92,246,.4);
+      color: #c4b5fd; padding: 3px 10px; border-radius: 10px;
+      cursor: pointer; white-space: nowrap; }
+    .sp-claude-btn:active { background: rgba(139,92,246,.35); }
 
     /* ─ スケジュール ─ */
     #sched-section { margin-top: 4px; }
@@ -443,11 +452,21 @@ async function loadContext() {
         const kwsHtml = (item.keywords || []).map(k =>
           `<a class="sp-kw-btn" href="bear://x-callback-url/search?term=${encodeURIComponent(k)}">🐻 ${k}</a>`
         ).join("");
+        // Bear: その日付のノートを開く
+        const bearDateUrl = `bear://x-callback-url/search?term=${encodeURIComponent(item.date)}`;
+        // Claude: チャットを開いてその内容を質問
+        const claudeQ = `${item.subject}（${item.date}・${(item.keywords||[]).join("/")}）について復習問題を出してください`;
         el.innerHTML = `
           <div class="sp-left">
-            <div><span class="sp-subj">${item.subject}</span></div>
+            <div><span class="sp-subj">${item.subject}</span>
+              <span style="font-size:11px;color:var(--dim);margin-left:6px">${item.date}</span>
+            </div>
             <div class="sp-meta">${dLabel}に学習 → 今日復習推奨${item.questions_count > 0 ? "　" + item.questions_count + "問" : ""}</div>
             <div class="sp-kws">${kwsHtml}</div>
+            <div class="sp-action-row">
+              <a class="sp-note-btn" href="${bearDateUrl}">📓 ${item.date}のノート</a>
+              <span class="sp-claude-btn" onclick="askClaude(${JSON.stringify(claudeQ)})">🤖 Claude に聞く</span>
+            </div>
           </div>
         `;
         $("spacing-list").appendChild(el);
@@ -467,6 +486,14 @@ async function loadContext() {
 // ══════════════════════════════════════════════════
 // 科目バー
 // ══════════════════════════════════════════════════
+// スペーシング復習からClaudeに直接質問
+function askClaude(question) {
+  // チャットを開いてその質問を送信
+  startChat();
+  // 少し待ってから送信（チャット初期化後）
+  setTimeout(() => send(question), 800);
+}
+
 function highlightSubj(s) {
   document.querySelectorAll(".sbt").forEach(b => b.classList.toggle("on", b.dataset.s === s));
 }

@@ -429,13 +429,19 @@ async function loadContext() {
       btn.textContent = (checkedSet.has(t) ? "✅ " : "⚠️ ") + t;
       btn.addEventListener("click", () => {
         if (checkedSet.has(t)) {
+          // チェック解除
           checkedSet.delete(t);
           btn.classList.remove("checked");
           btn.textContent = "⚠️ " + t;
         } else {
+          // チェック ON → Bearで検索して復習
           checkedSet.add(t);
           btn.classList.add("checked");
           btn.textContent = "✅ " + t;
+          // 少し遅延してBearを開く（DOM更新を見せてから）
+          setTimeout(() => {
+            window.location.href = "bear://x-callback-url/search?term=" + encodeURIComponent(t);
+          }, 180);
         }
         localStorage.setItem(checkedKey, JSON.stringify([...checkedSet]));
         // 全チェックなら達成メッセージ

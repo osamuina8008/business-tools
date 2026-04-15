@@ -18,6 +18,18 @@
       "questions_count": 11,
       "understanding": "要復習",
       "topic": ""
+    },
+    {
+      "type": "日記",
+      "questions_count": 0,
+      "understanding": "普通",
+      "topic": "日記"
+    },
+    {
+      "type": "日記",
+      "questions_count": 0,
+      "understanding": "普通",
+      "topic": "日記"
     }
   ],
   "spacing_items": [
@@ -259,5 +271,5 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-04-15T07:00:32.982188"
+  "updated_at": "2026-04-15T21:05:45.703889"
 }

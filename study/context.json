@@ -2,8 +2,18 @@
   "subject": "刑訴法",
   "date": "2026-04-18",
   "keywords": [],
-  "wrong_qs": [],
-  "wrong_topics": [],
+  "wrong_qs": [
+    "Q303",
+    "Q306",
+    "Q308（消去法。アとエは間違いと感じ、消去法で正）",
+    "Q309（再審について。消去法で選択肢を絞り込み正）",
+    "Q311",
+    "Q312"
+  ],
+  "wrong_topics": [
+    "消去法。アとエは間違いと感じ、消去法で正",
+    "再審について。消去法で選択肢を絞り込み正"
+  ],
   "today_logs": [],
   "spacing_items": [
     {
@@ -180,19 +190,19 @@
     },
     {
       "time": "18:30",
-      "activity": "家食事会"
+      "activity": "食事会"
     },
     {
       "time": "19:00",
-      "activity": "家食事"
+      "activity": "食事会"
     },
     {
       "time": "19:30",
-      "activity": "家食事"
+      "activity": "食事会"
     },
     {
       "time": "20:00",
-      "activity": "食事"
+      "activity": "食事会"
     },
     {
       "time": "20:30",
@@ -211,6 +221,6 @@
       "activity": "就寝"
     }
   ],
-  "has_data": false,
-  "updated_at": "2026-04-18T07:01:44.571989"
+  "has_data": true,
+  "updated_at": "2026-04-18T09:29:23.759488"
 }

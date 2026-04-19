@@ -2,9 +2,25 @@
   "subject": "商法",
   "date": "2026-04-19",
   "keywords": [],
-  "wrong_qs": [],
-  "wrong_topics": [],
-  "today_logs": [],
+  "wrong_qs": [
+    "Q305（消去法 イは正しいと思った。当初は「おか）",
+    "Q306（裏書きによらない手形の譲渡は無効と言い切）",
+    "Q313",
+    "Q325（利息文句の付された約束手形は有効だという）"
+  ],
+  "wrong_topics": [
+    "消去法 イは正しいと思った。当初は「おか",
+    "裏書きによらない手形の譲渡は無効と言い切",
+    "利息文句の付された約束手形は有効だという"
+  ],
+  "today_logs": [
+    {
+      "type": "インプット",
+      "questions_count": 7,
+      "understanding": "普通",
+      "topic": ""
+    }
+  ],
   "spacing_items": [
     {
       "interval_label": "",
@@ -64,6 +80,6 @@
     }
   ],
   "today_schedule": [],
-  "has_data": false,
-  "updated_at": "2026-04-19T07:00:34.655927"
+  "has_data": true,
+  "updated_at": "2026-04-19T16:50:40.646187"
 }

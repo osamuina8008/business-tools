@@ -4,7 +4,14 @@
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [],
+  "today_logs": [
+    {
+      "type": "復習",
+      "questions_count": 0,
+      "understanding": "普通",
+      "topic": ""
+    }
+  ],
   "spacing_items": [
     {
       "interval_label": "",
@@ -46,6 +53,6 @@
     }
   ],
   "today_schedule": [],
-  "has_data": false,
-  "updated_at": "2026-04-25T17:13:39.194038"
+  "has_data": true,
+  "updated_at": "2026-04-25T17:56:01.405805"
 }

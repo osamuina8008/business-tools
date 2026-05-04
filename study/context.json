@@ -4,7 +4,26 @@
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [],
+  "today_logs": [
+    {
+      "type": "短答",
+      "questions_count": 11,
+      "understanding": "要復習",
+      "topic": ""
+    },
+    {
+      "type": "インプット",
+      "questions_count": 11,
+      "understanding": "普通",
+      "topic": ""
+    },
+    {
+      "type": "短答",
+      "questions_count": 11,
+      "understanding": "普通",
+      "topic": ""
+    }
+  ],
   "spacing_items": [
     {
       "interval_label": "",
@@ -237,6 +256,6 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": false,
-  "updated_at": "2026-05-05T07:00:49.552384"
+  "has_data": true,
+  "updated_at": "2026-05-05T08:51:06.397321"
 }

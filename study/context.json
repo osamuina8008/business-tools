@@ -1,6 +1,6 @@
 {
-  "subject": "民法",
-  "date": "2026-05-19",
+  "subject": "刑法",
+  "date": "2026-05-20",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
@@ -10,19 +10,13 @@
       "questions_count": 11,
       "understanding": "良好",
       "topic": ""
-    },
-    {
-      "type": "インプット",
-      "questions_count": 0,
-      "understanding": "普通",
-      "topic": ""
     }
   ],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-05-18",
-      "subject": "憲法",
+      "date": "2026-05-19",
+      "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -30,24 +24,37 @@
     },
     {
       "interval_label": "",
-      "date": "2026-05-12",
-      "subject": "民法",
+      "date": "2026-05-17",
+      "subject": "商法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-05-13",
+      "subject": "刑法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "法定地上権",
-        "共同抵当",
-        "後順位抵当権者の代位"
+        "第235条",
+        "窃盗]]；看守者なし仏堂",
+        "第254条"
       ],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-04-28",
-      "subject": "民法",
+      "date": "2026-04-29",
+      "subject": "刑法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [],
+      "keywords": [
+        "客体は「人の住居若しくは",
+        "住居権者の同意に基づく立",
+        "居住者が**法律上正当な"
+      ],
       "claude_notes": []
     }
   ],
@@ -226,5 +233,5 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-05-19T07:00:52.629195"
+  "updated_at": "2026-05-20T07:00:29.890077"
 }

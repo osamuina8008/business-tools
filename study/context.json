@@ -1,27 +1,21 @@
 {
-  "subject": "刑法",
-  "date": "2026-05-20",
+  "subject": "行政法",
+  "date": "2026-05-21",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
   "today_logs": [
     {
-      "type": "短答",
-      "questions_count": 11,
-      "understanding": "良好",
-      "topic": ""
-    },
-    {
-      "type": "日記",
-      "questions_count": 0,
+      "type": "復習",
+      "questions_count": 5,
       "understanding": "普通",
-      "topic": "日記"
+      "topic": ""
     }
   ],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-05-19",
+      "date": "2026-05-20",
       "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
@@ -30,8 +24,8 @@
     },
     {
       "interval_label": "",
-      "date": "2026-05-17",
-      "subject": "商法",
+      "date": "2026-05-18",
+      "subject": "憲法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -39,28 +33,20 @@
     },
     {
       "interval_label": "",
-      "date": "2026-05-13",
-      "subject": "刑法",
+      "date": "2026-05-14",
+      "subject": "行政法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [
-        "第235条",
-        "窃盗]]；看守者なし仏堂",
-        "第254条"
-      ],
+      "keywords": [],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-04-29",
-      "subject": "刑法",
+      "date": "2026-04-30",
+      "subject": "行政法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [
-        "客体は「人の住居若しくは",
-        "住居権者の同意に基づく立",
-        "居住者が**法律上正当な"
-      ],
+      "keywords": [],
       "claude_notes": []
     }
   ],
@@ -239,5 +225,5 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-05-20T21:33:15.938492"
+  "updated_at": "2026-05-21T07:00:13.164163"
 }

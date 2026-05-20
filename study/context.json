@@ -10,6 +10,12 @@
       "questions_count": 11,
       "understanding": "良好",
       "topic": ""
+    },
+    {
+      "type": "日記",
+      "questions_count": 0,
+      "understanding": "普通",
+      "topic": "日記"
     }
   ],
   "spacing_items": [
@@ -233,5 +239,5 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-05-20T07:00:29.890077"
+  "updated_at": "2026-05-20T21:33:15.938492"
 }

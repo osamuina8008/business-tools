@@ -1,21 +1,23 @@
 {
-  "subject": "行政法",
-  "date": "2026-05-21",
+  "subject": "民訴法",
+  "date": "2026-05-22",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [
-    {
-      "type": "復習",
-      "questions_count": 5,
-      "understanding": "普通",
-      "topic": ""
-    }
-  ],
+  "today_logs": [],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-05-20",
+      "date": "2026-05-21",
+      "subject": "行政法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-05-19",
       "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
@@ -24,26 +26,8 @@
     },
     {
       "interval_label": "",
-      "date": "2026-05-18",
-      "subject": "憲法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-05-14",
-      "subject": "行政法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-04-30",
-      "subject": "行政法",
+      "date": "2026-05-15",
+      "subject": "民事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -224,6 +208,6 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": true,
-  "updated_at": "2026-05-21T21:42:56.467167"
+  "has_data": false,
+  "updated_at": "2026-05-22T07:00:27.280174"
 }

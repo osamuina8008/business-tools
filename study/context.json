@@ -1,6 +1,6 @@
 {
-  "subject": "民訴法",
-  "date": "2026-05-22",
+  "subject": "刑訴法",
+  "date": "2026-05-23",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
@@ -8,16 +8,7 @@
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-05-21",
-      "subject": "行政法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-05-19",
+      "date": "2026-05-20",
       "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
@@ -26,23 +17,19 @@
     },
     {
       "interval_label": "",
-      "date": "2026-05-15",
-      "subject": "民事訴訟法",
+      "date": "2026-05-02",
+      "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [],
+      "keywords": [
+        "弁護人の地位",
+        "弁護人の選任",
+        "弁護人の活動"
+      ],
       "claude_notes": []
     }
   ],
   "today_schedule": [
-    {
-      "time": "03:40",
-      "activity": "家起床"
-    },
-    {
-      "time": "03:45",
-      "activity": "家体操"
-    },
     {
       "time": "04:00",
       "activity": "家学習"
@@ -65,149 +52,117 @@
     },
     {
       "time": "05:15",
-      "activity": "家食事"
+      "activity": "家学習"
     },
     {
       "time": "05:30",
-      "activity": "家食事"
+      "activity": "家学習"
     },
     {
       "time": "05:45",
-      "activity": "移動家→駅"
+      "activity": "家学習"
     },
     {
       "time": "06:00",
-      "activity": "電車学習"
+      "activity": "家学習"
     },
     {
       "time": "06:15",
-      "activity": "電車学習"
+      "activity": "家学習"
     },
     {
       "time": "06:30",
-      "activity": "電車学習"
+      "activity": "家学習"
     },
     {
       "time": "06:45",
-      "activity": "移動"
+      "activity": "家学習"
     },
     {
       "time": "07:00",
-      "activity": "移動運動"
+      "activity": "家学習"
     },
     {
       "time": "07:15",
-      "activity": "移動運動"
+      "activity": "家運動"
     },
     {
       "time": "07:30",
-      "activity": "仕事"
+      "activity": "食事"
     },
     {
       "time": "08:00",
-      "activity": "仕事"
+      "activity": "食事"
+    },
+    {
+      "time": "08:30",
+      "activity": "家掃除"
     },
     {
       "time": "09:00",
-      "activity": "仕事"
+      "activity": "家"
     },
     {
       "time": "10:00",
-      "activity": "仕事"
-    },
-    {
-      "time": "11:00",
-      "activity": "仕事"
+      "activity": "家学習"
     },
     {
       "time": "12:00",
-      "activity": "仕事"
+      "activity": "食事"
     },
     {
       "time": "13:00",
-      "activity": "仕事"
+      "activity": "家学習"
     },
     {
       "time": "14:00",
-      "activity": "仕事"
+      "activity": "家学習"
     },
     {
       "time": "15:00",
-      "activity": "仕事"
-    },
-    {
-      "time": "16:00",
-      "activity": "仕事"
-    },
-    {
-      "time": "17:00",
-      "activity": "仕事"
-    },
-    {
-      "time": "17:15",
-      "activity": "仕事"
-    },
-    {
-      "time": "17:30",
-      "activity": "仕事"
-    },
-    {
-      "time": "17:45",
-      "activity": "仕事"
+      "activity": "家学習"
     },
     {
       "time": "18:00",
-      "activity": "仕事"
-    },
-    {
-      "time": "18:15",
-      "activity": "車移動"
-    },
-    {
-      "time": "18:30",
-      "activity": "駅学習"
-    },
-    {
-      "time": "18:45",
-      "activity": "電車学習"
+      "activity": "食事"
     },
     {
       "time": "19:00",
-      "activity": "電車学習"
+      "activity": "家読書"
     },
     {
       "time": "19:15",
-      "activity": "電車学習"
+      "activity": "読書"
     },
     {
       "time": "19:30",
-      "activity": "移動学習"
+      "activity": "読書"
     },
     {
       "time": "19:45",
-      "activity": "移動学習"
+      "activity": "読書"
     },
     {
       "time": "20:00",
-      "activity": "フィットネスくらぶ風呂など"
+      "activity": "家司法試験関係調査学習"
     },
     {
       "time": "20:15",
-      "activity": "フィットネスくらぶ風呂など"
+      "activity": "司法試験関係調査学習"
     },
     {
       "time": "20:30",
-      "activity": "移動リラックス"
+      "activity": "家司法試験関係調査学習"
     },
     {
       "time": "21:00",
-      "activity": "家帰宅・支度など"
+      "activity": "家司法試験関係調査学習"
     },
     {
-      "time": "22:00",
+      "time": "21:30",
       "activity": "家就寝"
     }
   ],
   "has_data": false,
-  "updated_at": "2026-05-22T20:35:29.806617"
+  "updated_at": "2026-05-23T07:00:46.188322"
 }

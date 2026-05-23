@@ -4,12 +4,19 @@
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [],
+  "today_logs": [
+    {
+      "type": "短答",
+      "questions_count": 0,
+      "understanding": "良好",
+      "topic": ""
+    }
+  ],
   "spacing_items": [
     {
       "interval_label": "",
       "date": "2026-05-20",
-      "subject": "刑事訴訟法",
+      "subject": "刑法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -167,6 +174,6 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": false,
-  "updated_at": "2026-05-23T19:50:07.672637"
+  "has_data": true,
+  "updated_at": "2026-05-23T21:23:38.587837"
 }

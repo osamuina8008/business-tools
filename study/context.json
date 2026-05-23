@@ -1,22 +1,15 @@
 {
-  "subject": "刑訴法",
-  "date": "2026-05-23",
+  "subject": "商法",
+  "date": "2026-05-24",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [
-    {
-      "type": "短答",
-      "questions_count": 0,
-      "understanding": "良好",
-      "topic": ""
-    }
-  ],
+  "today_logs": [],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-05-20",
-      "subject": "刑法",
+      "date": "2026-05-23",
+      "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -24,156 +17,78 @@
     },
     {
       "interval_label": "",
-      "date": "2026-05-02",
-      "subject": "刑事訴訟法",
+      "date": "2026-05-21",
+      "subject": "行政法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-05-17",
+      "subject": "商法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-05-03",
+      "subject": "商法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "弁護人の地位",
-        "弁護人の選任",
-        "弁護人の活動"
+        "財産引受け",
+        "発起人報酬",
+        "設立費用"
       ],
       "claude_notes": []
     }
   ],
   "today_schedule": [
     {
-      "time": "04:00",
-      "activity": "家学習"
-    },
-    {
-      "time": "04:15",
-      "activity": "家学習"
-    },
-    {
-      "time": "04:30",
-      "activity": "家学習"
-    },
-    {
-      "time": "04:45",
-      "activity": "家学習"
-    },
-    {
-      "time": "05:00",
-      "activity": "家学習"
-    },
-    {
-      "time": "05:15",
-      "activity": "家学習"
-    },
-    {
-      "time": "05:30",
-      "activity": "家学習"
-    },
-    {
       "time": "05:45",
-      "activity": "家学習"
+      "activity": "家起床"
     },
     {
       "time": "06:00",
       "activity": "家学習"
     },
     {
-      "time": "06:15",
-      "activity": "家学習"
-    },
-    {
-      "time": "06:30",
-      "activity": "家学習"
-    },
-    {
-      "time": "06:45",
-      "activity": "家学習"
-    },
-    {
-      "time": "07:00",
-      "activity": "家学習"
-    },
-    {
       "time": "07:15",
-      "activity": "家運動"
+      "activity": "家食事"
     },
     {
-      "time": "07:30",
-      "activity": "食事"
-    },
-    {
-      "time": "08:00",
-      "activity": "食事"
-    },
-    {
-      "time": "08:30",
-      "activity": "家掃除"
-    },
-    {
-      "time": "09:00",
-      "activity": "家学習"
-    },
-    {
-      "time": "10:00",
-      "activity": "家学習"
-    },
-    {
-      "time": "12:00",
-      "activity": "食事"
-    },
-    {
-      "time": "13:00",
-      "activity": "家学習"
+      "time": "08:20",
+      "activity": "地域消防団"
     },
     {
       "time": "14:00",
-      "activity": "家学習"
+      "activity": "Honda車の修理"
     },
     {
       "time": "15:00",
-      "activity": "家学習"
+      "activity": "カラオケカラオケ"
+    },
+    {
+      "time": "16:30",
+      "activity": "ジム筋トレ"
     },
     {
       "time": "18:00",
-      "activity": "食事"
+      "activity": "家食事"
     },
     {
       "time": "19:00",
-      "activity": "家読書"
+      "activity": "家学習"
     },
     {
-      "time": "19:15",
-      "activity": "読書"
-    },
-    {
-      "time": "19:30",
-      "activity": "読書"
-    },
-    {
-      "time": "19:45",
-      "activity": "読書"
-    },
-    {
-      "time": "20:00",
-      "activity": "家司法試験関係調査学習"
-    },
-    {
-      "time": "20:15",
-      "activity": "司法試験関係調査学習"
-    },
-    {
-      "time": "20:30",
-      "activity": "家司法試験関係調査学習"
-    },
-    {
-      "time": "21:00",
-      "activity": "家司法試験関係調査学習"
-    },
-    {
-      "time": "21:30",
-      "activity": "家就寝"
-    },
-    {
-      "time": "21:30",
-      "activity": "家就寝"
+      "time": "22:00",
+      "activity": "家就寝準備"
     }
   ],
-  "has_data": true,
-  "updated_at": "2026-05-23T21:31:14.607942"
+  "has_data": false,
+  "updated_at": "2026-05-24T07:00:36.740006"
 }

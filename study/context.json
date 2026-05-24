@@ -1,6 +1,6 @@
 {
-  "subject": "商法",
-  "date": "2026-05-24",
+  "subject": "憲法",
+  "date": "2026-05-25",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
@@ -8,8 +8,8 @@
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-05-23",
-      "subject": "刑事訴訟法",
+      "date": "2026-05-22",
+      "subject": "民事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -17,8 +17,8 @@
     },
     {
       "interval_label": "",
-      "date": "2026-05-21",
-      "subject": "行政法",
+      "date": "2026-05-18",
+      "subject": "憲法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -26,69 +26,129 @@
     },
     {
       "interval_label": "",
-      "date": "2026-05-17",
-      "subject": "商法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-05-03",
-      "subject": "商法",
+      "date": "2026-05-04",
+      "subject": "憲法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "財産引受け",
-        "発起人報酬",
-        "設立費用"
+        "全国民代表",
+        "議員の発言免責特権",
+        "国権の最高機関"
       ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-05-04",
+      "subject": "商法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
       "claude_notes": []
     }
   ],
   "today_schedule": [
     {
+      "time": "04:00",
+      "activity": "家"
+    },
+    {
       "time": "05:45",
-      "activity": "家起床"
+      "activity": "家"
     },
     {
       "time": "06:00",
-      "activity": "家学習"
+      "activity": "家"
+    },
+    {
+      "time": "06:30",
+      "activity": "行事"
+    },
+    {
+      "time": "06:45",
+      "activity": "行事"
+    },
+    {
+      "time": "07:00",
+      "activity": "行事"
     },
     {
       "time": "07:15",
-      "activity": "家食事"
+      "activity": "行事"
     },
     {
-      "time": "08:20",
-      "activity": "地域消防団"
+      "time": "07:30",
+      "activity": "行事"
+    },
+    {
+      "time": "08:00",
+      "activity": "行事"
+    },
+    {
+      "time": "09:00",
+      "activity": "行事"
+    },
+    {
+      "time": "10:00",
+      "activity": "行事"
+    },
+    {
+      "time": "11:00",
+      "activity": "行事"
+    },
+    {
+      "time": "12:00",
+      "activity": "行事"
+    },
+    {
+      "time": "13:00",
+      "activity": "行事"
     },
     {
       "time": "14:00",
-      "activity": "Honda車の修理"
+      "activity": "行事"
     },
     {
       "time": "15:00",
-      "activity": "カラオケカラオケ"
+      "activity": "行事"
     },
     {
-      "time": "16:30",
-      "activity": "ジム筋トレ"
+      "time": "16:00",
+      "activity": "行事"
     },
     {
-      "time": "18:00",
-      "activity": "家食事"
+      "time": "17:00",
+      "activity": "行事"
     },
     {
       "time": "19:00",
-      "activity": "家学習"
+      "activity": "家料理準備"
     },
     {
-      "time": "22:00",
-      "activity": "家就寝準備"
+      "time": "19:15",
+      "activity": "家料理準備"
+    },
+    {
+      "time": "19:30",
+      "activity": "家料理準備"
+    },
+    {
+      "time": "19:45",
+      "activity": "家料理準備"
+    },
+    {
+      "time": "20:30",
+      "activity": "家復習と到達点の確認"
+    },
+    {
+      "time": "21:00",
+      "activity": "家復習と到達点の確認"
+    },
+    {
+      "time": "21:30",
+      "activity": "家就寝"
     }
   ],
   "has_data": false,
-  "updated_at": "2026-05-24T12:07:34.147719"
+  "updated_at": "2026-05-25T07:00:35.356621"
 }

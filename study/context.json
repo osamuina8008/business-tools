@@ -1,6 +1,6 @@
 {
-  "subject": "憲法",
-  "date": "2026-05-25",
+  "subject": "民法",
+  "date": "2026-05-26",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
@@ -8,29 +8,14 @@
     {
       "type": "短答",
       "questions_count": 11,
-      "understanding": "良好",
-      "topic": ""
-    },
-    {
-      "type": "短答",
-      "questions_count": 2,
-      "understanding": "普通",
+      "understanding": "要復習",
       "topic": ""
     }
   ],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-05-22",
-      "subject": "民事訴訟法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-05-18",
+      "date": "2026-05-25",
       "subject": "憲法",
       "questions_count": 0,
       "wrong_qs": [],
@@ -39,21 +24,48 @@
     },
     {
       "interval_label": "",
-      "date": "2026-05-04",
-      "subject": "憲法",
+      "date": "2026-05-23",
+      "subject": "刑事訴訟法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-05-19",
+      "subject": "民法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-05-19",
+      "subject": "刑事訴訟法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-05-05",
+      "subject": "民法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "全国民代表",
-        "議員の発言免責特権",
-        "国権の最高機関"
+        "被担保債権不履行後の果実",
+        "物上代位への準用",
+        "利息の優先弁済範囲"
       ],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-05-04",
-      "subject": "商法",
+      "date": "2026-05-05",
+      "subject": "—",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -62,125 +74,195 @@
   ],
   "today_schedule": [
     {
+      "time": "03:45",
+      "activity": "家起床"
+    },
+    {
+      "time": "03:50",
+      "activity": "家準備"
+    },
+    {
+      "time": "03:55",
+      "activity": "家瞑想"
+    },
+    {
+      "time": "03:59",
+      "activity": "家朝準備"
+    },
+    {
       "time": "04:00",
-      "activity": "家"
+      "activity": "家学習"
+    },
+    {
+      "time": "04:15",
+      "activity": "家学習"
+    },
+    {
+      "time": "04:30",
+      "activity": "家学習"
+    },
+    {
+      "time": "04:45",
+      "activity": "家学習"
+    },
+    {
+      "time": "05:00",
+      "activity": "家学習"
+    },
+    {
+      "time": "05:15",
+      "activity": "家食事・準備"
     },
     {
       "time": "05:45",
-      "activity": "家"
+      "activity": "車音声学習"
     },
     {
       "time": "06:00",
-      "activity": "家"
+      "activity": "車音声学習"
+    },
+    {
+      "time": "06:15",
+      "activity": "車音声学習"
     },
     {
       "time": "06:30",
-      "activity": "行事"
+      "activity": "車音声学習"
     },
     {
       "time": "06:45",
-      "activity": "行事"
+      "activity": "車移動"
     },
     {
       "time": "07:00",
-      "activity": "行事"
+      "activity": "移動運動"
     },
     {
       "time": "07:15",
-      "activity": "行事"
+      "activity": "移動運動"
     },
     {
-      "time": "07:30",
-      "activity": "行事"
+      "time": "07:40",
+      "activity": "仕事仕事"
     },
     {
       "time": "08:00",
-      "activity": "行事"
+      "activity": "仕事仕事"
     },
     {
       "time": "09:00",
-      "activity": "行事"
+      "activity": "仕事仕事"
     },
     {
       "time": "10:00",
-      "activity": "行事"
+      "activity": "仕事仕事"
     },
     {
       "time": "11:00",
-      "activity": "行事"
+      "activity": "仕事仕事"
     },
     {
       "time": "12:00",
-      "activity": "行事"
+      "activity": "仕事仕事"
     },
     {
       "time": "13:00",
-      "activity": "行事"
+      "activity": "仕事仕事"
     },
     {
       "time": "14:00",
-      "activity": "行事"
+      "activity": "仕事仕事"
     },
     {
       "time": "15:00",
-      "activity": "行事"
+      "activity": "仕事仕事"
     },
     {
       "time": "16:00",
-      "activity": "行事"
+      "activity": "仕事仕事"
     },
     {
       "time": "17:00",
-      "activity": "行事"
+      "activity": "仕事仕事"
+    },
+    {
+      "time": "18:00",
+      "activity": "仕事仕事"
+    },
+    {
+      "time": "18:10",
+      "activity": "車移動"
+    },
+    {
+      "time": "18:40",
+      "activity": "電車学習"
+    },
+    {
+      "time": "18:45",
+      "activity": "電車学習"
     },
     {
       "time": "19:00",
-      "activity": "家料理準備"
+      "activity": "電車学習"
     },
     {
       "time": "19:15",
-      "activity": "家料理準備"
+      "activity": "電車学習"
     },
     {
-      "time": "19:30",
-      "activity": "家料理準備"
+      "time": "19:20",
+      "activity": "移動歩き"
     },
     {
-      "time": "19:45",
-      "activity": "家料理準備"
+      "time": "19:40",
+      "activity": "ベスパ筋トレ"
+    },
+    {
+      "time": "19:55",
+      "activity": "ベスパ運動"
+    },
+    {
+      "time": "20:05",
+      "activity": "ベスパストレッチ"
+    },
+    {
+      "time": "20:15",
+      "activity": "ベスパ風呂"
     },
     {
       "time": "20:30",
-      "activity": "家復習と到達点の確認"
+      "activity": "ベスパ風呂"
     },
     {
-      "time": "21:00",
-      "activity": "家復習と到達点の確認"
+      "time": "20:45",
+      "activity": "移動帰宅"
+    },
+    {
+      "time": "21:10",
+      "activity": "家片付け"
+    },
+    {
+      "time": "21:20",
+      "activity": "家復習・ブログ"
     },
     {
       "time": "21:30",
+      "activity": "家明日の支度"
+    },
+    {
+      "time": "21:45",
       "activity": "家就寝"
     }
   ],
   "has_data": true,
-  "updated_at": "2026-05-25T21:48:49.207233",
+  "updated_at": "2026-05-26T07:00:46.608736",
   "today_tasks": [
-    {
-      "subject": "民法",
-      "status": "今週",
-      "action": "6日前に学習済。今週の目標：全分野（総則〜家族法）基礎インプット完了",
-      "theme": "全分野（総則〜家族法）基礎インプット完了",
-      "situation": "今週0/11問。あと11問（6日ぶり）",
-      "actual_q": 0,
-      "target_q": 11,
-      "checked": false
-    },
     {
       "subject": "刑法",
       "status": "今週",
-      "action": "5日前に学習済。今週の目標：総論・各論 基礎インプット完了",
+      "action": "6日前に学習済。今週の目標：総論・各論 基礎インプット完了",
       "theme": "総論・各論 基礎インプット完了",
-      "situation": "今週0/11問。あと11問（5日ぶり）",
+      "situation": "今週0/11問。あと11問（6日ぶり）",
       "actual_q": 0,
       "target_q": 11,
       "checked": false
@@ -188,9 +270,9 @@
     {
       "subject": "行政法",
       "status": "今週",
-      "action": "4日前に学習済。今週の目標：行政法2周目・5問/週で条文定着",
+      "action": "5日前に学習済。今週の目標：行政法2周目・5問/週で条文定着",
       "theme": "行政法2周目・5問/週で条文定着",
-      "situation": "今週0/5問。あと5問（4日ぶり）",
+      "situation": "今週0/5問。あと5問（5日ぶり）",
       "actual_q": 0,
       "target_q": 5,
       "checked": false
@@ -198,9 +280,9 @@
     {
       "subject": "民事訴訟法",
       "status": "今週",
-      "action": "3日前に学習済。今週の目標：民訴2周目・5問/週で基礎定着",
+      "action": "4日前に学習済。今週の目標：民訴2周目・5問/週で基礎定着",
       "theme": "民訴2周目・5問/週で基礎定着",
-      "situation": "今週0/5問。あと5問（3日ぶり）",
+      "situation": "今週0/5問。あと5問（4日ぶり）",
       "actual_q": 0,
       "target_q": 5,
       "checked": false
@@ -208,9 +290,9 @@
     {
       "subject": "刑事訴訟法",
       "status": "今週",
-      "action": "2日前に学習済。今週の目標：刑訴2周目・5問/週で基礎定着",
+      "action": "3日前に学習済。今週の目標：刑訴2周目・5問/週で基礎定着",
       "theme": "刑訴2周目・5問/週で基礎定着",
-      "situation": "今週0/5問。あと5問（2日ぶり）",
+      "situation": "今週0/5問。あと5問（3日ぶり）",
       "actual_q": 0,
       "target_q": 5,
       "checked": false
@@ -220,7 +302,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：株主総会決議（種類・要件・瑕疵）・取締役の善管注意義務",
       "theme": "会社法2周目（構造理解・5問/週で十分）",
-      "situation": "今週0/5問。あと5問（8日ぶり）",
+      "situation": "今週0/5問。あと5問（9日ぶり）",
       "actual_q": 0,
       "target_q": 5,
       "checked": false
@@ -236,82 +318,15 @@
       "checked": false
     }
   ],
-  "quiz_question": "憲法81条が存在しない場合、最高裁判所の違憲審査権は一切認められないか？",
-  "quiz_answer_hint": "憲法98条・76条・99条",
-  "articles": [
-    "憲法76条Ⅰ",
-    "憲法76条Ⅲ",
-    "憲法81条",
-    "憲法98条",
-    "憲法99条"
-  ],
-  "freq_rating": "★★★",
-  "weak_points_text": "行政事件が司法権に含まれることを明治憲法的発想と混同し、「行政事件は本来行政権」という誤りを選びやすい傾向がある。また、憲法81条がなければ違憲審査権が認められないと短絡的に考えてしまう点も弱点として確認された。",
-  "next_focus": "違憲審査権の根拠条文（81条・98条・76条・99条）の相互関係を条文ベースで整理し、81条の位置づけを正確に言語化できるようにする。板まんだら・苫米地・警察法改正無効の3判例を事案ごとに区別して即答できるまで反復する。",
+  "quiz_question": "",
+  "quiz_answer_hint": "",
+  "articles": [],
+  "freq_rating": "",
+  "weak_points_text": "",
+  "next_focus": "",
   "persistent_weak": [],
-  "today_review_items": [
-    {
-      "q_num": "360",
-      "theme": "Q360の概略",
-      "axis": "ここがまず最大のポイントです。\n\nAweSomeさんが引っかかった",
-      "ketsuron": "ア：×　イ：○　ウ：○　エ：×"
-    },
-    {
-      "q_num": "361",
-      "theme": "Q361の概略",
-      "axis": "",
-      "ketsuron": "ア：2（誤り）　イ：2（誤り）　ウ：1（正しい）　ア：板まんだら事件"
-    },
-    {
-      "q_num": "362",
-      "theme": "Q362の結論",
-      "axis": "司法権は裁判所が行使する。ただし、行政機関や特殊な裁判機関との関係で、どこまで許されるかを区別する。",
-      "ketsuron": "ア：2（誤り）　イ：2（誤り）　ウ：1（正しい）　イ：行政機関の事実認定に、裁判所がどこまで縛られるか"
-    },
-    {
-      "q_num": "363",
-      "theme": "Q363の結論",
-      "axis": "裁判官の独立は守る。でも、裁判所が社会から完全に批判されない聖域になるわけではない。",
-      "ketsuron": "ア：×　イ：○　ウ：○　ア：最高裁が下級裁判所に具体的判断を指示できるか"
-    },
-    {
-      "q_num": "364",
-      "theme": "Q364の結論",
-      "axis": "通常裁判所のルートから外れるものは原則ダメ。ただし、憲法が特別に認めたものはOK。行政機関は前審ならOKだが、裁判所を無条件に縛るのはNG。",
-      "ketsuron": "ア：2（誤り）　イ：1（正しい）　ウ：2（誤り）　イ：裁判官弾劾裁判所は特別裁判所なのにOK？"
-    },
-    {
-      "q_num": "365",
-      "theme": "Q365の結論",
-      "axis": "裁判官は独立して判断する。でも、何をしても許される無敵状態ではない。",
-      "ketsuron": "ア：○　イ：○　ウ：×　ア：なぜ正しいか"
-    },
-    {
-      "q_num": "372",
-      "theme": "Q372の結論",
-      "axis": "国民審査権は、選挙権と同じように、国民主権に基づく重要な権能。だから、在外国民に全く行使を認めないのは違憲。さらに長年放置した立法不作為は国賠上も違法。",
-      "ketsuron": "ア：2（誤り）　イ：1（正しい）　ウ：2（誤り）　ア：なぜ誤りか"
-    },
-    {
-      "q_num": "373",
-      "theme": "Q373の結論",
-      "axis": "違憲審査権は最高裁だけのものではない。下級裁判所も持つ。",
-      "ketsuron": "ア：×　イ：○　ウ：○"
-    },
-    {
-      "q_num": "374",
-      "theme": "Q374の結論",
-      "axis": "イ＝一部違憲・部分無効",
-      "ketsuron": "ア：×　イ：○　ウ：×　イ：国籍法3条Ⅰの準正要件"
-    },
-    {
-      "q_num": "375",
-      "theme": "Q375の結論",
-      "axis": "です。\n\n今日のQ361でも出てきた",
-      "ketsuron": "ア：○　イ：○　ウ：×　ア：砂川事件"
-    }
-  ],
-  "today_study_guide": "tags: #憲法 #短答 #重要度A #比較 #論証\n\n仕事中（8:53）なので、**学習は不可です。17時以降の夕方復習まで待ちましょう。**\n\nただし、**今朝の朝①・朝②の学習記録を見ると、昨日（5月25日）の憲法11問は正確に記録できていますね。** その代わり、進捗チェック①と④の一言だけが空欄です。帰宅後17時に夜ログを入力する際は、この2項目だけ埋めてください。\n\n昨日の憲法11問で**違憲審査制が大穴だと判明**しました。夕方復習17時～20時で、優先度順にこれをやってください：\n\n1. **憲法76・79・80・81条をテキストで精読**（10分）\n2. **下級裁判所の違憲審査権を30秒暗唱で定着**（5分）\n   - 「最大判昭25.2.1：下級も持つ。81条は終審を定めるのみ」\n3. **違憲判決の4類型を表で確認**（5分）\n::youtube:: 司法試験 憲法 違憲審査制 下級裁判所 解説\n::youtube:: 司法試験 憲法 違憲判決の方法 法令違憲適用違憲 わかりやすい\n\n今夜は**新問は不要**。昨日のQ360・Q361・Q373の誤答3問を「なぜ間違えたか」を条文で言語化できるまで復習するだけです。",
+  "today_review_items": [],
+  "today_study_guide": "",
   "news_feed": [
     {
       "title": "予備試験学習サイトを（とりあえず）HTML1枚で自作してみた話",
@@ -324,6 +339,13 @@
       "title": "【予備試験・法科大学院入試対策】 2025年冬開講 『論文マスター』 リリース!",
       "label": "「予備校ニュース」 【予備試験・法科大学院入試対策】 2025年冬開講 『論文マスター』 リリース!",
       "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/25A01041.html",
+      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
+      "category": "prep"
+    },
+    {
+      "title": "【予備試験対策】 「予備試験 論文過去問マスター/CBT論文過去問答練」 NEW 2025年版 5/27(水)配信開始! CBT演習はすぐにご利用可能!",
+      "label": "「予備校・イベント・教材」 【予備試験対策】 「予備試験 論文過去問マスター/CBT論文過去問答練」 NEW 2025年版 5/27(水)配信開始! CBT演習はすぐにご利用可能!",
+      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/25A33001.html",
       "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
       "category": "prep"
     },
@@ -375,13 +397,6 @@
       "url": "https://www.nichibenren.or.jp/activity/training/law_schools.html",
       "source": "日弁連｜活動・トピックス",
       "category": "media"
-    },
-    {
-      "title": "司法試験予備試験に関するＱ＆Ａ",
-      "label": "「まず疑問の整理」 司法試験予備試験に関するＱ＆Ａ",
-      "url": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00210.html",
-      "source": "法務省｜司法試験・予備試験",
-      "category": "official"
     }
   ]
 }

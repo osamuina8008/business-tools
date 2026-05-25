@@ -74,8 +74,71 @@
     .api-in:focus { border-color: var(--acc); }
 
     /* ─ スタート画面 ─ */
-    #start-screen { flex: 1; display: flex; flex-direction: column; gap: 12px;
-      padding: 14px 14px; overflow-y: auto; }
+    #start-screen { flex: 1; display: flex; flex-direction: column; gap: 10px;
+      padding: 12px 14px; overflow-y: auto; }
+    #start-screen > h2 { font-size: 15px; font-weight: 700; color: var(--text); }
+
+    /* 横向き2カラムレイアウト */
+    @media (orientation: landscape) {
+      #app { max-width: 1100px; }
+      #start-screen {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        column-gap: 14px;
+        row-gap: 0;
+        padding: 10px 14px;
+        align-items: start;
+      }
+      #start-screen > h2 { grid-column: 1 / -1; margin-bottom: 2px; }
+      #ls-left  { display: flex; flex-direction: column; gap: 10px; }
+      #ls-right { display: flex; flex-direction: column; gap: 10px; }
+      #ls-bottom { grid-column: 1 / -1; }
+    }
+    @media (orientation: portrait) {
+      #ls-left, #ls-right, #ls-bottom { display: contents; }
+    }
+
+    /* 最優先チップ行 */
+    .priority-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .pri-chip { font-size: 11px; padding: 3px 10px; border-radius: 14px; border: 1px solid;
+      font-weight: 600; white-space: nowrap; }
+    .pri-chip.late  { background: rgba(220,38,38,.15); border-color: rgba(220,38,38,.5); color: #fca5a5; }
+    .pri-chip.week  { background: rgba(59,130,246,.12); border-color: rgba(59,130,246,.4); color: #93c5fd; }
+
+    /* タスクカード（per-subject） */
+    .task-card { background: var(--surf); border: 1px solid var(--border);
+      border-radius: 12px; padding: 10px 12px; display: flex; flex-direction: column; gap: 5px; }
+    .task-card.late { border-left: 4px solid #dc2626; }
+    .task-card.week { border-left: 4px solid #3b82f6; }
+    .tc-head { display: flex; align-items: center; gap: 7px; }
+    .tc-subj { font-size: 14px; font-weight: 700; color: var(--text); }
+    .tc-badge { font-size: 10px; padding: 2px 7px; border-radius: 999px; font-weight: 600; }
+    .tc-badge.late { background: #7f1d1d; color: #fca5a5; }
+    .tc-badge.week { background: #1e3a5f; color: #93c5fd; }
+    .tc-sit  { font-size: 11px; color: var(--dim); }
+    .tc-theme { font-size: 11px; color: #a5b4fc; }
+    .tc-action { font-size: 12px; color: var(--text); line-height: 1.5;
+      background: rgba(255,255,255,.04); border-radius: 6px; padding: 4px 8px; }
+    .tc-check-row { display: flex; align-items: center; gap: 8px; margin-top: 2px; cursor: pointer;
+      -webkit-tap-highlight-color: transparent; }
+    .tc-check-icon { font-size: 20px; min-width: 24px; transition: transform .15s; }
+    .tc-check-row:active .tc-check-icon { transform: scale(1.25); }
+    .tc-check-label { font-size: 12px; color: var(--dim); }
+    .task-card.done { opacity: .55; }
+    .task-card.done .tc-action { text-decoration: line-through; }
+
+    /* ニュースセクション */
+    #news-section .news-item { padding: 7px 0; border-bottom: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 3px; }
+    #news-section .news-item:last-child { border-bottom: none; }
+    .news-badge { display: inline-block; font-size: 10px; padding: 1px 6px; border-radius: 10px;
+      font-weight: 600; margin-right: 4px; }
+    .news-badge.check { background: rgba(239,68,68,.2); border: 1px solid rgba(239,68,68,.4); color: #fca5a5; }
+    .news-badge.yoko  { background: rgba(124,58,237,.2); border: 1px solid rgba(124,58,237,.4); color: #c4b5fd; }
+    .news-title { font-size: 12px; color: #93c5fd; line-height: 1.5; }
+    .news-src   { font-size: 10px; color: var(--dim); }
+
     #start-screen h2 { font-size: 15px; font-weight: 700; color: var(--text); }
     .ctx-card { background: var(--surf); border: 1px solid var(--border);
       border-radius: 12px; padding: 12px 14px; }
@@ -239,6 +302,14 @@
     body.light .bear-open-btn { background: rgba(153,62,25,.1); border-color: rgba(153,62,25,.3); color: #9a3412; }
     body.light .badge { background: linear-gradient(135deg,#6b21a8,#1d4ed8); }
     body.light #send { background: var(--acc); }
+    body.light .task-card { background: var(--surf); }
+    body.light .tc-theme { color: #4338ca; }
+    body.light .tc-action { background: rgba(0,0,0,.04); color: var(--text); }
+    body.light .tc-badge.late { background: #fee2e2; color: #b91c1c; }
+    body.light .tc-badge.week { background: #dbeafe; color: #1d4ed8; }
+    body.light .pri-chip.late { background: rgba(220,38,38,.08); color: #b91c1c; }
+    body.light .pri-chip.week { background: rgba(29,78,216,.08); color: #1d4ed8; }
+    body.light .news-title { color: #1d4ed8; }
     body.light .primary-btn { background: linear-gradient(135deg,#6b21a8,#1d4ed8); }
     body.light .typing { background: var(--ai-bub); }
     body.light .dot { background: var(--dim); }
@@ -304,73 +375,107 @@
   <div id="start-screen" class="hidden">
     <h2>📋 今日の復習内容</h2>
 
-    <!-- 🏁 今日やること（チェックイン） -->
-    <div id="today-tasks-section" class="hidden">
-      <h2 style="margin-top:4px">🏁 今日やること</h2>
-      <div class="ctx-card" id="today-tasks-card">
+    <!-- ━━ LEFT COLUMN ━━ -->
+    <div id="ls-left">
+
+      <!-- 今日の学習（ヘッダーカード） -->
+      <div class="ctx-card" id="today-card">
+        <div class="card-title">TODAY — 今日の学習</div>
+        <div class="subj-big" id="today-subj">--</div>
+        <div class="status-row">
+          <div class="status-dot" id="status-dot"></div>
+          <div class="status-text" id="status-text">読み込み中...</div>
+        </div>
+        <div class="kw-list" id="kw-list"></div>
+        <div class="wq-list" id="wq-list"></div>
+      </div>
+
+      <!-- 最優先チップ -->
+      <div id="priority-chips-section" class="hidden">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px">
+          <h2>⚡ 最優先</h2>
+          <span id="priority-summary" style="font-size:11px;color:var(--dim)"></span>
+        </div>
+        <div class="priority-chips" id="priority-chips"></div>
+      </div>
+
+      <!-- 🏁 今日やること（タスクカード） -->
+      <div id="today-tasks-section" class="hidden">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px">
+          <h2>🏁 今日やること</h2>
+          <span id="today-tasks-all-done" class="hidden"
+            style="font-size:12px;color:#4ade80;font-weight:700;">🎉 全完了！</span>
+        </div>
         <div id="today-tasks-list" style="display:flex;flex-direction:column;gap:8px;"></div>
-        <div id="today-tasks-all-done" class="hidden" style="text-align:center;padding:8px;font-size:14px;color:#4ade80;font-weight:700;">🎉 全タスク完了！</div>
       </div>
-    </div>
 
-    <!-- 今日の学習 -->
-    <div class="ctx-card" id="today-card">
-      <div class="card-title">TODAY — 今日の学習</div>
-      <div class="subj-big" id="today-subj">--</div>
-      <div class="status-row">
-        <div class="status-dot" id="status-dot"></div>
-        <div class="status-text" id="status-text">読み込み中...</div>
+    </div><!-- /ls-left -->
+
+    <!-- ━━ RIGHT COLUMN ━━ -->
+    <div id="ls-right">
+
+      <!-- 今日の1問（クイズ） -->
+      <div id="quiz-section" class="hidden">
+        <h2 style="margin-bottom:5px">🧠 今日の1問</h2>
+        <div class="ctx-card" id="quiz-card">
+          <div id="quiz-question" style="font-size:14px;line-height:1.6;color:var(--text)"></div>
+          <div id="quiz-hint" class="hidden"
+            style="margin-top:8px;font-size:12px;color:var(--dim);border-left:3px solid #3b82f6;padding-left:8px"></div>
+          <button id="quiz-show-hint-btn" class="sec-btn" style="margin-top:8px;font-size:12px">💡 ヒントを見る</button>
+        </div>
       </div>
-      <div class="kw-list" id="kw-list"></div>
-      <div class="wq-list" id="wq-list"></div>
-    </div>
 
-    <!-- 今日の1問（クイズ） -->
-    <div id="quiz-section" class="hidden">
-      <h2 style="margin-top:4px">🧠 今日の1問</h2>
-      <div class="ctx-card" id="quiz-card">
-        <div id="quiz-question" style="font-size:15px;line-height:1.6;color:var(--text)"></div>
-        <div id="quiz-hint" style="margin-top:10px;font-size:12px;color:var(--dim);border-left:3px solid var(--accent);padding-left:8px"></div>
-        <button id="quiz-show-hint-btn" class="sec-btn" style="margin-top:10px;font-size:12px">💡 ヒントを見る</button>
+      <!-- 試験ニュース -->
+      <div id="news-section" class="hidden">
+        <h2 style="margin-bottom:5px">📰 試験ニュース</h2>
+        <div class="ctx-card">
+          <div id="news-list"></div>
+        </div>
       </div>
-    </div>
 
-    <!-- 重要条文 -->
-    <div id="articles-section" class="hidden">
-      <h2 style="margin-top:4px">📖 重要条文</h2>
-      <div class="ctx-card">
-        <div id="articles-list" style="line-height:2"></div>
+      <!-- 重要条文 -->
+      <div id="articles-section" class="hidden">
+        <h2 style="margin-bottom:5px">📖 重要条文</h2>
+        <div class="ctx-card">
+          <div id="articles-list" style="line-height:2.2;font-size:13px"></div>
+        </div>
       </div>
-    </div>
 
-    <!-- 繰り返し苦手論点 -->
-    <div id="persistent-weak-section" class="hidden">
-      <h2 style="margin-top:4px">🔴 繰り返し苦手論点</h2>
-      <div class="ctx-card" style="border-left:4px solid #ef4444">
-        <div id="persistent-weak-list"></div>
+      <!-- 繰り返し苦手論点 -->
+      <div id="persistent-weak-section" class="hidden">
+        <h2 style="margin-bottom:5px">🔴 繰り返し苦手論点</h2>
+        <div class="ctx-card" style="border-left:4px solid #ef4444">
+          <div id="persistent-weak-list"></div>
+        </div>
       </div>
-    </div>
 
-    <!-- スペーシング復習 -->
-    <div id="spacing-section" class="hidden">
-      <h2 style="margin-top:4px">🔄 スペーシング復習</h2>
-      <div class="spacing-list" id="spacing-list"></div>
-    </div>
+      <!-- スペーシング復習 -->
+      <div id="spacing-section" class="hidden">
+        <h2 style="margin-bottom:5px">🔄 スペーシング復習</h2>
+        <div class="spacing-list" id="spacing-list"></div>
+      </div>
 
-    <!-- スケジュール（折りたたみ） -->
-    <div id="sched-section" class="hidden">
-      <button id="sched-toggle">📅 今日のスケジュール <span id="sched-arrow">▼</span></button>
-      <div id="sched-body"></div>
-    </div>
+    </div><!-- /ls-right -->
 
-    <div style="display:flex; gap:8px; margin-top:4px">
-      <button class="sec-btn" id="refresh-ctx-btn">🔄 再読み込み</button>
-      <button class="primary-btn" id="start-btn" style="flex:2" disabled>復習を開始する →</button>
-    </div>
-    <p style="font-size:11px;color:var(--dim);text-align:center">
-      ※ 毎朝7時にMacから自動更新されます
-    </p>
-  </div>
+    <!-- ━━ BOTTOM (full width) ━━ -->
+    <div id="ls-bottom">
+
+      <!-- スケジュール（折りたたみ） -->
+      <div id="sched-section" class="hidden">
+        <button id="sched-toggle">📅 今日のスケジュール <span id="sched-arrow">▼</span></button>
+        <div id="sched-body"></div>
+      </div>
+
+      <div style="display:flex; gap:8px; margin-top:6px">
+        <button class="sec-btn" id="refresh-ctx-btn">🔄 再読み込み</button>
+        <button class="primary-btn" id="start-btn" style="flex:2" disabled>復習を開始する →</button>
+      </div>
+      <p style="font-size:11px;color:var(--dim);text-align:center;margin-top:4px">
+        ※ 毎朝7時にMacから自動更新されます
+      </p>
+
+    </div><!-- /ls-bottom -->
+  </div><!-- /start-screen -->
 
   <!-- ③ チャット -->
   <div id="chat-area" class="hidden"></div>
@@ -479,40 +584,62 @@ function showChat() {
 // コンテキスト読み込み（GitHub Raw）
 // ══════════════════════════════════════════════════
 async function loadContext() {
+  // リセット
   $("status-dot").className = "status-dot gray";
   $("status-text").textContent = "読み込み中...";
   $("start-btn").disabled = true;
   $("kw-list").innerHTML = "";
   $("wq-list").innerHTML = "";
   $("spacing-list").innerHTML = "";
-  $("spacing-section").classList.add("hidden");
-  $("quiz-section").classList.add("hidden");
-  $("articles-section").classList.add("hidden");
-  $("persistent-weak-section").classList.add("hidden");
-  $("today-tasks-section").classList.add("hidden");
   $("today-tasks-list").innerHTML = "";
+  $("priority-chips").innerHTML = "";
+  ["spacing-section","quiz-section","articles-section","persistent-weak-section",
+   "today-tasks-section","priority-chips-section","news-section"].forEach(id =>
+    $(id).classList.add("hidden"));
+
+  // Mac ローカル API（Wi-Fi内のみ）
+  const MAC_API    = "http://192.168.0.8:5001/api/checkin";
+  const today0Str  = new Date().toISOString().slice(0, 10);
+  const CHECKIN_KEY = "checkins_" + today0Str;
+
+  async function postCheckin(subj, status, action, checked) {
+    try {
+      await fetch(MAC_API, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({subject: subj, status, action, checked}),
+        signal: AbortSignal.timeout(3000)
+      });
+    } catch (_) {}
+  }
+  function saveCheckinLocal(subj, checked) {
+    const s = JSON.parse(localStorage.getItem(CHECKIN_KEY) || "{}");
+    s[subj] = checked;
+    localStorage.setItem(CHECKIN_KEY, JSON.stringify(s));
+  }
+  function loadCheckinLocal() {
+    return JSON.parse(localStorage.getItem(CHECKIN_KEY) || "{}");
+  }
 
   try {
-    const res  = await fetch(CTX_URL());
+    const res = await fetch(CTX_URL());
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     ctx = await res.json();
 
-    // 今日の科目（コンテキストの科目を優先）
+    // ─ 科目・ステータス ─
     if (ctx.subject) {
       subject = ctx.subject;
       $("hd-subj").textContent = subject;
       highlightSubj(subject);
     }
     $("today-subj").textContent = subject;
-
-    // ステータス
-    const isToday = ctx.date === new Date().toISOString().slice(0, 10);
+    const isToday = ctx.date === today0Str;
     $("status-dot").className = "status-dot" + (isToday ? "" : " gray");
     $("status-text").textContent = isToday
-      ? `✅ 今日のノート取得済み（${ctx.updated_at?.slice(11,16)} 更新）`
+      ? `✅ 取得済み（${(ctx.updated_at || "").slice(11,16)} 更新）`
       : `⚠️ ${ctx.date} のデータ（本日未更新）`;
 
-    // キーワード（タップ → Bear検索）
+    // ─ キーワード（Bear検索リンク） ─
     (ctx.keywords || []).forEach(kw => {
       const a = document.createElement("a");
       a.className = "kw-chip";
@@ -521,171 +648,169 @@ async function loadContext() {
       $("kw-list").appendChild(a);
     });
 
-    // 弱点トピック（チェック式ボタン）
+    // ─ 弱点トピック（チェック式） ─
     const JUNK = ["能力不足","判断迷い","判断ミス","読解エラー","理解不十分","未整理","エラー","得点喪失"];
-    const cleanTopic = t => t.replace(/\*\*/g, "").replace(/^[\s・]+/, "").trim();
-    const wrongItems = (ctx.wrong_topics || [])
-      .map(cleanTopic)
+    const cleanTopic = t => t.replace(/\*\*/g,"").replace(/^[\s・]+/,"").trim();
+    const wrongItems = (ctx.wrong_topics || []).map(cleanTopic)
       .filter(t => t.length >= 2 && !JUNK.some(j => t.includes(j)));
     const checkedKey = "wq_checked_" + (ctx.date || "");
     const checkedSet = new Set(JSON.parse(localStorage.getItem(checkedKey) || "[]"));
-    wrongItems.slice(0, 8).forEach(t => {
+    wrongItems.slice(0,8).forEach(t => {
       const btn = document.createElement("span");
       btn.className = "wq-chip" + (checkedSet.has(t) ? " checked" : "");
       btn.textContent = (checkedSet.has(t) ? "✅ " : "⚠️ ") + t;
       btn.addEventListener("click", () => {
-        if (checkedSet.has(t)) {
-          // チェック解除
-          checkedSet.delete(t);
-          btn.classList.remove("checked");
-          btn.textContent = "⚠️ " + t;
-        } else {
-          // チェック ON → Bearで検索して復習
-          checkedSet.add(t);
-          btn.classList.add("checked");
-          btn.textContent = "✅ " + t;
-          // 少し遅延してBearを開く（DOM更新を見せてから）
-          setTimeout(() => {
-            window.location.href = "bear://x-callback-url/search?term=" + encodeURIComponent(t);
-          }, 180);
+        const on = checkedSet.has(t);
+        if (on) { checkedSet.delete(t); btn.classList.remove("checked"); btn.textContent = "⚠️ " + t; }
+        else {
+          checkedSet.add(t); btn.classList.add("checked"); btn.textContent = "✅ " + t;
+          setTimeout(() => { window.location.href = "bear://x-callback-url/search?term=" + encodeURIComponent(t); }, 180);
         }
         localStorage.setItem(checkedKey, JSON.stringify([...checkedSet]));
-        // 全チェックなら達成メッセージ
         const all = $("wq-list").querySelectorAll(".wq-chip");
         const done = $("wq-list").querySelectorAll(".wq-chip.checked");
-        if (all.length > 0 && all.length === done.length) {
-          showAllChecked();
-        }
+        if (all.length && all.length === done.length) showAllChecked();
       });
       $("wq-list").appendChild(btn);
     });
 
-    // 🏁 今日やること（チェックイン）
-    const MAC_API = "http://192.168.0.8:5001/api/checkin";
-    const CHECKIN_KEY = "checkins_" + (ctx.date || new Date().toISOString().slice(0,10));
-
-    async function postCheckin(subject, status, action, checked) {
-      try {
-        await fetch(MAC_API, {
-          method: "POST",
-          headers: {"Content-Type": "application/json"},
-          body: JSON.stringify({subject, status, action, checked}),
-          signal: AbortSignal.timeout(3000)
-        });
-      } catch (_) { /* 外出中は失敗して当然 */ }
+    // ─ ⚡ 最優先チップ ─
+    const tasks = ctx.today_tasks || [];
+    if (tasks.length > 0) {
+      const lateCount = tasks.filter(t => t.status === "遅れ").length;
+      const weekCount = tasks.filter(t => t.status === "今週").length;
+      $("priority-summary").textContent =
+        `遅れ ${lateCount}科目 | 今週枠 ${weekCount}科目`;
+      tasks.forEach(task => {
+        const chip = document.createElement("span");
+        chip.className = `pri-chip ${task.status === "遅れ" ? "late" : "week"}`;
+        chip.textContent = `${task.subject}・${task.status}`;
+        $("priority-chips").appendChild(chip);
+      });
+      $("priority-chips-section").classList.remove("hidden");
     }
 
-    function saveCheckinLocal(subject, checked) {
-      const store = JSON.parse(localStorage.getItem(CHECKIN_KEY) || "{}");
-      store[subject] = checked;
-      localStorage.setItem(CHECKIN_KEY, JSON.stringify(store));
-    }
-
-    function loadCheckinLocal() {
-      return JSON.parse(localStorage.getItem(CHECKIN_KEY) || "{}");
-    }
-
-    if (ctx.today_tasks?.length > 0) {
+    // ─ 🏁 今日やること（リッチタスクカード） ─
+    if (tasks.length > 0) {
       $("today-tasks-section").classList.remove("hidden");
       const savedCheckins = loadCheckinLocal();
       const list = $("today-tasks-list");
-      list.innerHTML = "";
 
-      ctx.today_tasks.forEach(task => {
+      tasks.forEach(task => {
         const isDone = savedCheckins[task.subject] === true;
-        const item = document.createElement("div");
-        item.style.cssText = "display:flex;align-items:center;gap:10px;padding:8px 4px;border-bottom:1px solid rgba(255,255,255,.07);cursor:pointer;";
+        const kindCls = task.status === "遅れ" ? "late" : "week";
+        const card = document.createElement("div");
+        card.className = `task-card ${kindCls}${isDone ? " done" : ""}`;
 
-        const badge = task.status === "遅れ"
-          ? `<span style="font-size:10px;padding:2px 6px;border-radius:999px;background:#7f1d1d;color:#fca5a5;">遅れ</span>`
-          : `<span style="font-size:10px;padding:2px 6px;border-radius:999px;background:#1e3a5f;color:#93c5fd;">今週</span>`;
+        const sitHtml = task.situation
+          ? `<div class="tc-sit">📊 現状：${task.situation}</div>` : "";
+        const themeHtml = task.theme
+          ? `<div class="tc-theme">🎯 テーマ：${task.theme}</div>` : "";
+        const actionHtml = task.action
+          ? `<div class="tc-action">📝 今日の一手：${task.action}</div>` : "";
 
-        item.innerHTML = `
-          <span class="task-check-icon" style="font-size:22px;min-width:28px;">${isDone ? "✅" : "⬜"}</span>
-          <div style="flex:1;${isDone ? "opacity:.5;text-decoration:line-through;" : ""}">
-            <span style="font-weight:700;">${task.subject}</span>
-            ${badge}
-            <div style="font-size:12px;color:var(--dim);margin-top:2px;">${task.action || "短答5問解く"}</div>
+        card.innerHTML = `
+          <div class="tc-head">
+            <span class="tc-subj">${task.subject}</span>
+            <span class="tc-badge ${kindCls}">${task.status}</span>
+          </div>
+          ${sitHtml}${themeHtml}${actionHtml}
+          <div class="tc-check-row">
+            <span class="tc-check-icon">${isDone ? "✅" : "⬜"}</span>
+            <span class="tc-check-label">${isDone ? "完了済み" : "タップして完了"}</span>
           </div>`;
 
-        item.addEventListener("click", () => {
-          const nowDone = item.querySelector(".task-check-icon").textContent === "✅";
+        card.querySelector(".tc-check-row").addEventListener("click", () => {
+          const nowDone = card.querySelector(".tc-check-icon").textContent === "✅";
           const next = !nowDone;
-          item.querySelector(".task-check-icon").textContent = next ? "✅" : "⬜";
-          item.querySelectorAll("span,div")[2].style.cssText += next ? "opacity:.5;text-decoration:line-through;" : "opacity:1;text-decoration:none;";
+          card.querySelector(".tc-check-icon").textContent = next ? "✅" : "⬜";
+          card.querySelector(".tc-check-label").textContent = next ? "完了済み" : "タップして完了";
+          card.classList.toggle("done", next);
           saveCheckinLocal(task.subject, next);
           postCheckin(task.subject, task.status, task.action, next);
-          // 全完了チェック
-          const checks = $("today-tasks-list").querySelectorAll(".task-check-icon");
-          const allDone = [...checks].every(c => c.textContent === "✅");
+          const allCards = list.querySelectorAll(".task-card");
+          const allDone  = [...allCards].every(c => c.classList.contains("done"));
           $("today-tasks-all-done").classList.toggle("hidden", !allDone);
         });
-
-        list.appendChild(item);
+        list.appendChild(card);
       });
 
-      // 全完了チェック（ページ読み込み時）
-      const allInit = ctx.today_tasks.every(t => savedCheckins[t.subject] === true);
-      if (allInit) $("today-tasks-all-done").classList.remove("hidden");
+      // 初期完了チェック
+      if (tasks.every(t => savedCheckins[t.subject] === true))
+        $("today-tasks-all-done").classList.remove("hidden");
     }
 
-    // 🧠 今日の1問（クイズ）
+    // ─ 🧠 今日の1問 ─
     if (ctx.quiz_question) {
       $("quiz-section").classList.remove("hidden");
       $("quiz-question").textContent = ctx.quiz_question;
-      const hintEl = $("quiz-hint");
+      const hintEl  = $("quiz-hint");
       const hintBtn = $("quiz-show-hint-btn");
       hintEl.textContent = "ヒント：" + (ctx.quiz_answer_hint || "—");
-      hintEl.classList.add("hidden");
       hintBtn.addEventListener("click", () => {
         hintEl.classList.remove("hidden");
         hintBtn.classList.add("hidden");
       });
     }
 
-    // 📖 重要条文
-    if (ctx.articles?.length > 0) {
-      $("articles-section").classList.remove("hidden");
-      $("articles-list").innerHTML = ctx.articles
-        .map(a => `<div style="padding:2px 0">📌 <strong>${a}</strong></div>`)
-        .join("");
+    // ─ 📰 試験ニュース（articles を使用） ─
+    const newsItems = ctx.articles || [];
+    if (newsItems.length > 0) {
+      $("news-section").classList.remove("hidden");
+      $("news-list").innerHTML = newsItems.map(a => {
+        // 「要チェック」「予備校」タグを検出
+        const hasCheck = /必須|要確認|要チェック/i.test(a);
+        const hasYoko  = /予備校|講座|リリース/i.test(a);
+        const badge = hasCheck
+          ? `<span class="news-badge check">要チェック</span>`
+          : hasYoko
+          ? `<span class="news-badge yoko">予備校</span>`
+          : "";
+        return `<div class="news-item">${badge}<span class="news-title">${a}</span></div>`;
+      }).join("");
     }
 
-    // 🔴 繰り返し苦手論点
-    if (ctx.persistent_weak?.length > 0) {
+    // ─ 📖 重要条文 ─
+    if (newsItems.length === 0 && (ctx.articles || []).length > 0) {
+      // articles がニュース扱いされなかった場合のフォールバック
+    }
+    // articles はニュースに統合したので articles-section は非表示のまま
+
+    // ─ 🔴 繰り返し苦手論点 ─
+    if ((ctx.persistent_weak || []).length > 0) {
       $("persistent-weak-section").classList.remove("hidden");
-      $("persistent-weak-list").innerHTML = ctx.persistent_weak
-        .map(p => `<div style="padding:3px 0;font-size:14px">
+      $("persistent-weak-list").innerHTML = ctx.persistent_weak.map(p =>
+        `<div style="padding:3px 0;font-size:13px">
           <span style="color:#ef4444;font-weight:700">${p.keyword}</span>
           <span style="font-size:11px;color:var(--dim);margin-left:6px">${p.count}回出現</span>
-        </div>`)
-        .join("");
+          ${p.subject ? `<span style="font-size:10px;color:var(--dim);margin-left:4px">(${p.subject})</span>` : ""}
+        </div>`
+      ).join("");
     }
 
-    // スケジュール
-    if (ctx.today_schedule?.length > 0) {
+    // ─ 📅 スケジュール ─
+    if ((ctx.today_schedule || []).length > 0) {
       $("sched-section").classList.remove("hidden");
       const body = $("sched-body");
       body.innerHTML = "";
-      const nowMin = new Date().getHours() * 60 + new Date().getMinutes();
+      const nowMin = new Date().getHours()*60 + new Date().getMinutes();
       ctx.today_schedule.forEach((e, i) => {
         const [h, m] = e.time.split(":").map(Number);
-        const eMin = h * 60 + m;
+        const eMin = h*60+m;
         const nextMin = ctx.today_schedule[i+1]
           ? (() => { const [nh,nm]=ctx.today_schedule[i+1].time.split(":").map(Number); return nh*60+nm; })()
-          : eMin + 60;
+          : eMin+60;
         const isCurrent = nowMin >= eMin && nowMin < nextMin;
         const row = document.createElement("div");
         row.className = "sched-row" + (isCurrent ? " now" : "");
         row.innerHTML = `<span class="sched-time">${e.time}</span><span class="sched-act">${isCurrent ? "▶ " : ""}${e.activity}</span>`;
         body.appendChild(row);
       });
-      // 現在時刻付近まで自動スクロール
       const nowRow = body.querySelector(".now");
       if (nowRow) setTimeout(() => nowRow.scrollIntoView({block:"center"}), 100);
     }
 
-    // スペーシング復習
+    // ─ 🔄 スペーシング復習 ─
     const today0 = new Date(); today0.setHours(0,0,0,0);
     const daysAgoLabel = dateStr => {
       const d = new Date(dateStr); d.setHours(0,0,0,0);
@@ -693,8 +818,7 @@ async function loadContext() {
       return n === 0 ? "今日" : n === 1 ? "昨日" : n + "日前";
     };
     const validItems = (ctx.spacing_items || []).filter(it =>
-      it.subject && it.subject !== "—" && (it.keywords || []).length > 0
-    );
+      it.subject && it.subject !== "—" && (it.keywords || []).length > 0);
     if (validItems.length > 0) {
       $("spacing-section").classList.remove("hidden");
       validItems.forEach((item, idx) => {
@@ -704,10 +828,8 @@ async function loadContext() {
         const kwsHtml = (item.keywords || []).map(k =>
           `<a class="sp-kw-btn" href="bear://x-callback-url/search?term=${encodeURIComponent(k)}">🐻 ${k}</a>`
         ).join("");
-        // Bear: その日付のノートを開く
         const bearDateUrl = `bear://x-callback-url/search?term=${encodeURIComponent(item.date)}`;
         const panelId = `cp-${idx}`;
-        // Claudeメモパネル HTML
         const claudeNotes = item.claude_notes || [];
         let claudePanelHtml = "";
         if (claudeNotes.length > 0) {
@@ -740,8 +862,7 @@ async function loadContext() {
               ${claudeBtnHtml}
             </div>
             ${claudePanelHtml}
-          </div>
-        `;
+          </div>`;
         $("spacing-list").appendChild(el);
       });
     }

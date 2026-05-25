@@ -4,7 +4,14 @@
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [],
+  "today_logs": [
+    {
+      "type": "短答",
+      "questions_count": 11,
+      "understanding": "良好",
+      "topic": ""
+    }
+  ],
   "spacing_items": [
     {
       "interval_label": "",
@@ -149,6 +156,57 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": false,
-  "updated_at": "2026-05-25T08:41:08.126832"
+  "has_data": true,
+  "updated_at": "2026-05-25T15:12:29.606117",
+  "today_tasks": [
+    {
+      "subject": "民法",
+      "status": "今週",
+      "action": "6日前に学習済。今週の目標：全分野（総則〜家族法）基礎インプ",
+      "checked": false
+    },
+    {
+      "subject": "刑法",
+      "status": "今週",
+      "action": "5日前に学習済。今週の目標：総論・各論 基礎インプット完了",
+      "checked": false
+    },
+    {
+      "subject": "行政法",
+      "status": "今週",
+      "action": "4日前に学習済。今週の目標：行政法2周目・5問/週で条文定着",
+      "checked": false
+    },
+    {
+      "subject": "民事訴訟法",
+      "status": "今週",
+      "action": "3日前に学習済。今週の目標：民訴2周目・5問/週で基礎定着",
+      "checked": false
+    },
+    {
+      "subject": "刑事訴訟法",
+      "status": "今週",
+      "action": "2日前に学習済。今週の目標：刑訴2周目・5問/週で基礎定着",
+      "checked": false
+    },
+    {
+      "subject": "商法",
+      "status": "遅れ",
+      "action": "短答3問｜論点：株主総会決議（種類・要件・瑕疵）・取締役の善",
+      "checked": false
+    },
+    {
+      "subject": "実務基礎",
+      "status": "遅れ",
+      "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
+      "checked": false
+    }
+  ],
+  "quiz_question": "",
+  "quiz_answer_hint": "",
+  "articles": [],
+  "freq_rating": "",
+  "weak_points_text": "",
+  "next_focus": "",
+  "persistent_weak": []
 }

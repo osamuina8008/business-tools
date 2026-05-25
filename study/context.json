@@ -157,7 +157,7 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-05-25T15:47:33.252434",
+  "updated_at": "2026-05-25T15:53:15.706315",
   "today_tasks": [
     {
       "subject": "民法",
@@ -236,5 +236,7 @@
   "freq_rating": "",
   "weak_points_text": "",
   "next_focus": "",
-  "persistent_weak": []
+  "persistent_weak": [],
+  "today_review_items": [],
+  "today_study_guide": ""
 }

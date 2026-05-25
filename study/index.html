@@ -315,6 +315,32 @@
       <div class="wq-list" id="wq-list"></div>
     </div>
 
+    <!-- 今日の1問（クイズ） -->
+    <div id="quiz-section" class="hidden">
+      <h2 style="margin-top:4px">🧠 今日の1問</h2>
+      <div class="ctx-card" id="quiz-card">
+        <div id="quiz-question" style="font-size:15px;line-height:1.6;color:var(--text)"></div>
+        <div id="quiz-hint" style="margin-top:10px;font-size:12px;color:var(--dim);border-left:3px solid var(--accent);padding-left:8px"></div>
+        <button id="quiz-show-hint-btn" class="sec-btn" style="margin-top:10px;font-size:12px">💡 ヒントを見る</button>
+      </div>
+    </div>
+
+    <!-- 重要条文 -->
+    <div id="articles-section" class="hidden">
+      <h2 style="margin-top:4px">📖 重要条文</h2>
+      <div class="ctx-card">
+        <div id="articles-list" style="line-height:2"></div>
+      </div>
+    </div>
+
+    <!-- 繰り返し苦手論点 -->
+    <div id="persistent-weak-section" class="hidden">
+      <h2 style="margin-top:4px">🔴 繰り返し苦手論点</h2>
+      <div class="ctx-card" style="border-left:4px solid #ef4444">
+        <div id="persistent-weak-list"></div>
+      </div>
+    </div>
+
     <!-- スペーシング復習 -->
     <div id="spacing-section" class="hidden">
       <h2 style="margin-top:4px">🔄 スペーシング復習</h2>
@@ -450,6 +476,9 @@ async function loadContext() {
   $("wq-list").innerHTML = "";
   $("spacing-list").innerHTML = "";
   $("spacing-section").classList.add("hidden");
+  $("quiz-section").classList.add("hidden");
+  $("articles-section").classList.add("hidden");
+  $("persistent-weak-section").classList.add("hidden");
 
   try {
     const res  = await fetch(CTX_URL());
@@ -518,6 +547,39 @@ async function loadContext() {
       });
       $("wq-list").appendChild(btn);
     });
+
+    // 🧠 今日の1問（クイズ）
+    if (ctx.quiz_question) {
+      $("quiz-section").classList.remove("hidden");
+      $("quiz-question").textContent = ctx.quiz_question;
+      const hintEl = $("quiz-hint");
+      const hintBtn = $("quiz-show-hint-btn");
+      hintEl.textContent = "ヒント：" + (ctx.quiz_answer_hint || "—");
+      hintEl.classList.add("hidden");
+      hintBtn.addEventListener("click", () => {
+        hintEl.classList.remove("hidden");
+        hintBtn.classList.add("hidden");
+      });
+    }
+
+    // 📖 重要条文
+    if (ctx.articles?.length > 0) {
+      $("articles-section").classList.remove("hidden");
+      $("articles-list").innerHTML = ctx.articles
+        .map(a => `<div style="padding:2px 0">📌 <strong>${a}</strong></div>`)
+        .join("");
+    }
+
+    // 🔴 繰り返し苦手論点
+    if (ctx.persistent_weak?.length > 0) {
+      $("persistent-weak-section").classList.remove("hidden");
+      $("persistent-weak-list").innerHTML = ctx.persistent_weak
+        .map(p => `<div style="padding:3px 0;font-size:14px">
+          <span style="color:#ef4444;font-weight:700">${p.keyword}</span>
+          <span style="font-size:11px;color:var(--dim);margin-left:6px">${p.count}回出現</span>
+        </div>`)
+        .join("");
+    }
 
     // スケジュール
     if (ctx.today_schedule?.length > 0) {

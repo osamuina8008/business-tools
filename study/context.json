@@ -10,6 +10,12 @@
       "questions_count": 11,
       "understanding": "良好",
       "topic": ""
+    },
+    {
+      "type": "短答",
+      "questions_count": 10,
+      "understanding": "普通",
+      "topic": ""
     }
   ],
   "spacing_items": [
@@ -157,7 +163,7 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-05-25T16:20:43.829918",
+  "updated_at": "2026-05-25T16:39:21.964630",
   "today_tasks": [
     {
       "subject": "民法",

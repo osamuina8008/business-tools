@@ -130,13 +130,17 @@
 
     /* ニュースセクション */
     #news-section .news-item { padding: 7px 0; border-bottom: 1px solid var(--border);
-      display: flex; flex-direction: column; gap: 3px; }
+      display: flex; flex-direction: column; gap: 2px; }
     #news-section .news-item:last-child { border-bottom: none; }
     .news-badge { display: inline-block; font-size: 10px; padding: 1px 6px; border-radius: 10px;
-      font-weight: 600; margin-right: 4px; }
+      font-weight: 600; margin-right: 4px; white-space: nowrap; }
     .news-badge.check { background: rgba(239,68,68,.2); border: 1px solid rgba(239,68,68,.4); color: #fca5a5; }
     .news-badge.yoko  { background: rgba(124,58,237,.2); border: 1px solid rgba(124,58,237,.4); color: #c4b5fd; }
-    .news-title { font-size: 12px; color: #93c5fd; line-height: 1.5; }
+    .news-badge.exam  { background: rgba(245,158,11,.2); border: 1px solid rgba(245,158,11,.4); color: #fcd34d; }
+    .news-badge.news  { background: rgba(34,197,94,.15); border: 1px solid rgba(34,197,94,.4); color: #86efac; }
+    a.news-title { font-size: 12px; color: #93c5fd; line-height: 1.5; text-decoration: none; display: block; }
+    a.news-title:active { opacity: .7; }
+    span.news-title { font-size: 12px; color: var(--text); line-height: 1.5; }
     .news-src   { font-size: 10px; color: var(--dim); }
 
     #start-screen h2 { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
@@ -890,28 +894,42 @@ async function loadContext() {
       });
     }
 
-    // ─ 📰 試験ニュース（articles を使用） ─
-    const newsItems = ctx.articles || [];
-    if (newsItems.length > 0) {
+    // ─ 📰 試験ニュース（news_feed 優先、なければ articles） ─
+    const CAT_BADGE = {
+      creator: ["要チェック", "check"],
+      prep:    ["予備校",   "yoko"],
+      exam:    ["試験情報", "exam"],
+      news:    ["ニュース", "news"],
+    };
+    const newsFeed = ctx.news_feed || [];
+    const fallbackArticles = ctx.articles || [];
+    if (newsFeed.length > 0) {
       $("news-section").classList.remove("hidden");
-      $("news-list").innerHTML = newsItems.map(a => {
-        // 「要チェック」「予備校」タグを検出
-        const hasCheck = /必須|要確認|要チェック/i.test(a);
-        const hasYoko  = /予備校|講座|リリース/i.test(a);
-        const badge = hasCheck
-          ? `<span class="news-badge check">要チェック</span>`
-          : hasYoko
-          ? `<span class="news-badge yoko">予備校</span>`
-          : "";
-        return `<div class="news-item">${badge}<span class="news-title">${a}</span></div>`;
+      $("news-list").innerHTML = newsFeed.map(item => {
+        const [badgeLabel, badgeCls] = CAT_BADGE[item.category] || ["", ""];
+        const badge = badgeLabel
+          ? `<span class="news-badge ${badgeCls}">${badgeLabel}</span>` : "";
+        const link = item.url
+          ? `<a class="news-title" href="${item.url}" target="_blank">${item.title}</a>`
+          : `<span class="news-title">${item.title}</span>`;
+        const src = item.source
+          ? `<span class="news-src">${item.source}</span>` : "";
+        return `<div class="news-item">${badge}${link}${src ? "<br>" + src : ""}</div>`;
       }).join("");
+    } else if (fallbackArticles.length > 0) {
+      $("news-section").classList.remove("hidden");
+      $("news-list").innerHTML = fallbackArticles.map(a =>
+        `<div class="news-item"><span class="news-title">${a}</span></div>`
+      ).join("");
     }
 
-    // ─ 📖 重要条文 ─
-    if (newsItems.length === 0 && (ctx.articles || []).length > 0) {
-      // articles がニュース扱いされなかった場合のフォールバック
+    // ─ 📖 重要条文（Slackがあれば） ─
+    if (fallbackArticles.length > 0 && newsFeed.length > 0) {
+      // articles（Slack）があれば articles-section に表示
+      $("articles-section").classList.remove("hidden");
+      $("articles-list").innerHTML = fallbackArticles
+        .map(a => `<div style="padding:2px 0">📌 <strong>${a}</strong></div>`).join("");
     }
-    // articles はニュースに統合したので articles-section は非表示のまま
 
     // ─ 🔴 繰り返し苦手論点 ─
     if ((ctx.persistent_weak || []).length > 0) {

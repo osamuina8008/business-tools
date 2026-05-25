@@ -157,48 +157,76 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-05-25T15:24:22.830293",
+  "updated_at": "2026-05-25T15:43:12.133198",
   "today_tasks": [
     {
       "subject": "民法",
       "status": "今週",
-      "action": "6日前に学習済。今週の目標：全分野（総則〜家族法）基礎インプ",
+      "action": "6日前に学習済。今週の目標：全分野（総則〜家族法）基礎インプット完了",
+      "theme": "全分野（総則〜家族法）基礎インプット完了",
+      "situation": "今週0/11問。あと11問（6日ぶり）",
+      "actual_q": 0,
+      "target_q": 11,
       "checked": false
     },
     {
       "subject": "刑法",
       "status": "今週",
       "action": "5日前に学習済。今週の目標：総論・各論 基礎インプット完了",
+      "theme": "総論・各論 基礎インプット完了",
+      "situation": "今週0/11問。あと11問（5日ぶり）",
+      "actual_q": 0,
+      "target_q": 11,
       "checked": false
     },
     {
       "subject": "行政法",
       "status": "今週",
       "action": "4日前に学習済。今週の目標：行政法2周目・5問/週で条文定着",
+      "theme": "行政法2周目・5問/週で条文定着",
+      "situation": "今週0/5問。あと5問（4日ぶり）",
+      "actual_q": 0,
+      "target_q": 5,
       "checked": false
     },
     {
       "subject": "民事訴訟法",
       "status": "今週",
       "action": "3日前に学習済。今週の目標：民訴2周目・5問/週で基礎定着",
+      "theme": "民訴2周目・5問/週で基礎定着",
+      "situation": "今週0/5問。あと5問（3日ぶり）",
+      "actual_q": 0,
+      "target_q": 5,
       "checked": false
     },
     {
       "subject": "刑事訴訟法",
       "status": "今週",
       "action": "2日前に学習済。今週の目標：刑訴2周目・5問/週で基礎定着",
+      "theme": "刑訴2周目・5問/週で基礎定着",
+      "situation": "今週0/5問。あと5問（2日ぶり）",
+      "actual_q": 0,
+      "target_q": 5,
       "checked": false
     },
     {
       "subject": "商法",
       "status": "遅れ",
-      "action": "短答3問｜論点：株主総会決議（種類・要件・瑕疵）・取締役の善",
+      "action": "短答3問｜論点：株主総会決議（種類・要件・瑕疵）・取締役の善管注意義務",
+      "theme": "会社法2周目（構造理解・5問/週で十分）",
+      "situation": "今週0/5問。あと5問（8日ぶり）",
+      "actual_q": 0,
+      "target_q": 5,
       "checked": false
     },
     {
       "subject": "実務基礎",
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
+      "theme": "民事・刑事実務の概観を掴む",
+      "situation": "今週0/5問。あと5問（999日ぶり）",
+      "actual_q": 0,
+      "target_q": 5,
       "checked": false
     }
   ],

@@ -1,39 +1,16 @@
 {
-  "subject": "民法",
-  "date": "2026-05-26",
-  "keywords": [],
+  "subject": "刑法",
+  "date": "2026-05-27",
+  "keywords": [
+    "現在の立ち位置とフィード"
+  ],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [
-    {
-      "type": "短答",
-      "questions_count": 11,
-      "understanding": "要復習",
-      "topic": ""
-    }
-  ],
+  "today_logs": [],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-05-25",
-      "subject": "憲法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-05-23",
-      "subject": "刑事訴訟法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-05-19",
+      "date": "2026-05-26",
       "subject": "民法",
       "questions_count": 0,
       "wrong_qs": [],
@@ -42,8 +19,8 @@
     },
     {
       "interval_label": "",
-      "date": "2026-05-19",
-      "subject": "刑事訴訟法",
+      "date": "2026-05-20",
+      "subject": "刑法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -51,24 +28,15 @@
     },
     {
       "interval_label": "",
-      "date": "2026-05-05",
-      "subject": "民法",
+      "date": "2026-05-06",
+      "subject": "刑法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "被担保債権不履行後の果実",
-        "物上代位への準用",
-        "利息の優先弁済範囲"
+        "信用毀損罪",
+        "威力業務妨害罪",
+        "電子計算機損壊等業務妨害"
       ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-05-05",
-      "subject": "—",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
       "claude_notes": []
     }
   ],
@@ -114,24 +82,24 @@
       "activity": "家食事・準備"
     },
     {
-      "time": "05:45",
-      "activity": "車音声学習"
+      "time": "05:30",
+      "activity": "移動家→駅"
     },
     {
-      "time": "06:00",
-      "activity": "車音声学習"
+      "time": "06:05",
+      "activity": "電車学習"
     },
     {
       "time": "06:15",
-      "activity": "車音声学習"
+      "activity": "電車学習"
     },
     {
       "time": "06:30",
-      "activity": "車音声学習"
+      "activity": "電車学習"
     },
     {
       "time": "06:45",
-      "activity": "車移動"
+      "activity": "移動移動"
     },
     {
       "time": "07:00",
@@ -255,14 +223,14 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-05-26T21:10:45.939777",
+  "updated_at": "2026-05-27T07:00:11.254961",
   "today_tasks": [
     {
       "subject": "刑法",
-      "status": "今週",
-      "action": "6日前に学習済。今週の目標：総論・各論 基礎インプット完了",
+      "status": "遅れ",
+      "action": "短答3問｜論点：構成要件該当性・違法性阻却（正当防衛の要件）・共犯の成立",
       "theme": "総論・各論 基礎インプット完了",
-      "situation": "今週0/11問。あと11問（6日ぶり）",
+      "situation": "今週0/11問。あと11問（7日ぶり）",
       "actual_q": 0,
       "target_q": 11,
       "checked": false
@@ -270,9 +238,9 @@
     {
       "subject": "行政法",
       "status": "今週",
-      "action": "5日前に学習済。今週の目標：行政法2周目・5問/週で条文定着",
+      "action": "6日前に学習済。今週の目標：行政法2周目・5問/週で条文定着",
       "theme": "行政法2周目・5問/週で条文定着",
-      "situation": "今週0/5問。あと5問（5日ぶり）",
+      "situation": "今週0/5問。あと5問（6日ぶり）",
       "actual_q": 0,
       "target_q": 5,
       "checked": false
@@ -280,9 +248,9 @@
     {
       "subject": "民事訴訟法",
       "status": "今週",
-      "action": "4日前に学習済。今週の目標：民訴2周目・5問/週で基礎定着",
+      "action": "5日前に学習済。今週の目標：民訴2周目・5問/週で基礎定着",
       "theme": "民訴2周目・5問/週で基礎定着",
-      "situation": "今週0/5問。あと5問（4日ぶり）",
+      "situation": "今週0/5問。あと5問（5日ぶり）",
       "actual_q": 0,
       "target_q": 5,
       "checked": false
@@ -290,9 +258,9 @@
     {
       "subject": "刑事訴訟法",
       "status": "今週",
-      "action": "3日前に学習済。今週の目標：刑訴2周目・5問/週で基礎定着",
+      "action": "4日前に学習済。今週の目標：刑訴2周目・5問/週で基礎定着",
       "theme": "刑訴2周目・5問/週で基礎定着",
-      "situation": "今週0/5問。あと5問（3日ぶり）",
+      "situation": "今週0/5問。あと5問（4日ぶり）",
       "actual_q": 0,
       "target_q": 5,
       "checked": false
@@ -302,7 +270,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：株主総会決議（種類・要件・瑕疵）・取締役の善管注意義務",
       "theme": "会社法2周目（構造理解・5問/週で十分）",
-      "situation": "今週0/5問。あと5問（9日ぶり）",
+      "situation": "今週0/5問。あと5問（10日ぶり）",
       "actual_q": 0,
       "target_q": 5,
       "checked": false
@@ -318,18 +286,18 @@
       "checked": false
     }
   ],
-  "quiz_question": "返還時期の定めのない金銭消費貸借で、貸主が期間を定めずに催告した場合、借主はいつから履行遅滞となるか？",
-  "quiz_answer_hint": "民法591条1項・大判昭5.1.29",
+  "quiz_question": "保険金目的で放火した場合、詐欺罪の実行の着手はいつ認められるか？",
+  "quiz_answer_hint": "刑法246条1項・大判昭7.6.15（保険金請求時）",
   "articles": [
-    "民法415条",
-    "民法416条",
-    "民法419条",
-    "民法420条",
-    "民法423条"
+    "刑法246条1項",
+    "刑法246条2項",
+    "刑法246条の2",
+    "刑法108条・109条",
+    "刑法60条"
   ],
   "freq_rating": "★★★",
-  "weak_points_text": "解除時の原状回復における利息の起算点（民法545条2項）の理解が不十分で、受領時からの利息付与を見落とす誤答が生じている。また、不法行為における弁護士費用の履行遅滞時期に関する判例（最判昭58.9.6）の知識が定着しておらず、遅滞発生時点の判断でミスが生じている。",
-  "next_focus": "民法545条2項の解除と利息の関係、および金銭債務の特則（民法419条）における不可抗力免責不可の原則を条文レベルで確実に押さえる。債権者代位権の転用型と無資力要件の有無の違いを事案ごとに整理する。",
+  "weak_points_text": "保険金詐欺における実行着手時期（放火時ではなく請求時）の理由付けが混同されやすい。ゴルフ場事件の長野・宮崎の結論の分岐基準（確認措置の有無）が類似事案で正確に使い分けられていない可能性がある。",
+  "next_focus": "電子計算機使用詐欺罪（246条の2）と1項・2項詐欺との識別基準を整理する。恐喝・横領との構成要件の差異比較へ進む。",
   "persistent_weak": [],
   "today_review_items": [],
   "today_study_guide": "",

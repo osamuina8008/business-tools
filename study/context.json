@@ -1,18 +1,12 @@
 {
-  "subject": "行政法",
-  "date": "2026-05-28",
+  "subject": "民訴法",
+  "date": "2026-05-29",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
   "today_logs": [
     {
       "type": "インプット",
-      "questions_count": 11,
-      "understanding": "普通",
-      "topic": ""
-    },
-    {
-      "type": "短答",
       "questions_count": 5,
       "understanding": "普通",
       "topic": ""
@@ -21,8 +15,8 @@
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-05-25",
-      "subject": "憲法",
+      "date": "2026-05-28",
+      "subject": "刑法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -30,8 +24,39 @@
     },
     {
       "interval_label": "",
-      "date": "2026-05-21",
+      "date": "2026-05-28",
       "subject": "行政法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-05-26",
+      "subject": "民法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "債務不履行による損害賠償",
+        "損害賠償の範囲",
+        "損害賠償の方法"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-05-22",
+      "subject": "民事訴訟法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-05-08",
+      "subject": "民法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -221,24 +246,14 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-05-28T07:00:43.311120",
+  "updated_at": "2026-05-29T07:00:54.326054",
   "today_tasks": [
-    {
-      "subject": "民事訴訟法",
-      "status": "今週",
-      "action": "6日前に学習済。今週の目標：民訴2周目・5問/週で基礎定着",
-      "theme": "民訴2周目・5問/週で基礎定着",
-      "situation": "今週0/5問。あと5問（6日ぶり）",
-      "actual_q": 0,
-      "target_q": 5,
-      "checked": false
-    },
     {
       "subject": "刑事訴訟法",
       "status": "今週",
-      "action": "5日前に学習済。今週の目標：刑訴2周目・5問/週で基礎定着",
+      "action": "6日前に学習済。今週の目標：刑訴2周目・5問/週で基礎定着",
       "theme": "刑訴2周目・5問/週で基礎定着",
-      "situation": "今週0/5問。あと5問（5日ぶり）",
+      "situation": "今週0/5問。あと5問（6日ぶり）",
       "actual_q": 0,
       "target_q": 5,
       "checked": false
@@ -248,7 +263,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：株主総会決議（種類・要件・瑕疵）・取締役の善管注意義務",
       "theme": "会社法2周目（構造理解・5問/週で十分）",
-      "situation": "今週0/5問。あと5問（11日ぶり）",
+      "situation": "今週0/5問。あと5問（12日ぶり）",
       "actual_q": 0,
       "target_q": 5,
       "checked": false
@@ -264,17 +279,12 @@
       "checked": false
     }
   ],
-  "quiz_question": "理由附記に不備がある処分は、後の審査裁決で根拠が示されれば瑕疵が治癒されるか？",
-  "quiz_answer_hint": "行政手続法14条・最判昭47.12.5",
-  "articles": [
-    "行政手続法8条",
-    "行政手続法14条",
-    "行政事件訴訟法30条",
-    "行政事件訴訟法36条"
-  ],
-  "freq_rating": "★★★",
-  "weak_points_text": "裁量基準（行政規則）の法的性質と違法判断の関係が不安定で、裁量基準違反が当然に違法となるか否かの判断に迷いが生じている。争訟裁断的行政処分における不可変更力の例外を見落とし、職権取消しの原則論に引っ張られる傾向がある。",
-  "next_focus": "行政裁量の司法審査の枠組み（裁量逸脱・濫用＝違法、当不当にとどまる場合は適法）を判例ごとに整理し、マクリーン事件・懲戒処分判例・小田急判決の射程を区別して定着させる。",
+  "quiz_question": "",
+  "quiz_answer_hint": "",
+  "articles": [],
+  "freq_rating": "",
+  "weak_points_text": "",
+  "next_focus": "",
   "persistent_weak": [],
   "today_review_items": [],
   "today_study_guide": "",

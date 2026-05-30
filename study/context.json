@@ -1,17 +1,15 @@
 {
-  "subject": "刑訴法",
-  "date": "2026-05-30",
-  "keywords": [
-    "肢5（推定）"
-  ],
+  "subject": "商法",
+  "date": "2026-05-31",
+  "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
   "today_logs": [],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-05-29",
-      "subject": "民事訴訟法",
+      "date": "2026-05-28",
+      "subject": "刑法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -19,8 +17,17 @@
     },
     {
       "interval_label": "",
-      "date": "2026-05-23",
-      "subject": "刑事訴訟法",
+      "date": "2026-05-28",
+      "subject": "行政法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-05-10",
+      "subject": "商法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -28,15 +35,15 @@
     }
   ],
   "today_schedule": [],
-  "has_data": true,
-  "updated_at": "2026-05-30T21:45:58.888417",
+  "has_data": false,
+  "updated_at": "2026-05-31T07:00:14.052910",
   "today_tasks": [
     {
       "subject": "刑事訴訟法",
       "status": "遅れ",
       "action": "短答3問｜論点：捜査の端緒・逮捕の種類と要件・接見交通権",
       "theme": "刑訴2周目・5問/週で基礎定着",
-      "situation": "今週0/5問。あと5問（7日ぶり）",
+      "situation": "今週0/5問。あと5問（8日ぶり）",
       "actual_q": 0,
       "target_q": 5,
       "checked": false
@@ -46,7 +53,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：株主総会決議（種類・要件・瑕疵）・取締役の善管注意義務",
       "theme": "会社法2周目（構造理解・5問/週で十分）",
-      "situation": "今週0/5問。あと5問（13日ぶり）",
+      "situation": "今週0/5問。あと5問（14日ぶり）",
       "actual_q": 0,
       "target_q": 5,
       "checked": false

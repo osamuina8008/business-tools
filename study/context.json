@@ -1,17 +1,13 @@
 {
-  "subject": "憲法",
-  "date": "2026-06-01",
-  "keywords": [
-    "見解の根拠関係",
-    "司法権の範囲",
-    "部分社会"
-  ],
+  "subject": "民法",
+  "date": "2026-06-02",
+  "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
   "today_logs": [
     {
       "type": "短答",
-      "questions_count": 11,
+      "questions_count": 1,
       "understanding": "良好",
       "topic": ""
     }
@@ -19,26 +15,34 @@
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-05-29",
-      "subject": "民事訴訟法",
+      "date": "2026-06-01",
+      "subject": "憲法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [],
+      "keywords": [
+        "見解の根拠関係",
+        "司法権の範囲",
+        "部分社会"
+      ],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-05-25",
-      "subject": "憲法",
+      "date": "2026-05-26",
+      "subject": "民法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [],
+      "keywords": [
+        "債務不履行による損害賠償",
+        "損害賠償の範囲",
+        "損害賠償の方法"
+      ],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-05-11",
-      "subject": "憲法",
+      "date": "2026-05-12",
+      "subject": "民法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -87,24 +91,24 @@
       "activity": "家食事・準備"
     },
     {
-      "time": "05:45",
-      "activity": "車音声学習"
+      "time": "05:30",
+      "activity": "移動家→駅"
     },
     {
-      "time": "06:00",
-      "activity": "車音声学習"
+      "time": "06:05",
+      "activity": "電車学習"
     },
     {
       "time": "06:15",
-      "activity": "車音声学習"
+      "activity": "電車学習"
     },
     {
       "time": "06:30",
-      "activity": "車音声学習"
+      "activity": "電車学習"
     },
     {
       "time": "06:45",
-      "activity": "車移動"
+      "activity": "移動移動"
     },
     {
       "time": "07:00",
@@ -168,19 +172,11 @@
     },
     {
       "time": "18:40",
-      "activity": "電車学習"
-    },
-    {
-      "time": "18:45",
-      "activity": "電車学習"
+      "activity": "車音声学習"
     },
     {
       "time": "19:00",
-      "activity": "電車学習"
-    },
-    {
-      "time": "19:15",
-      "activity": "電車学習"
+      "activity": "車音声学習"
     },
     {
       "time": "19:20",
@@ -228,14 +224,14 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-06-01T07:00:47.475291",
+  "updated_at": "2026-06-02T07:00:47.595828",
   "today_tasks": [
     {
       "subject": "民法",
-      "status": "今週",
-      "action": "6日前に学習済。今週の目標：全分野（総則〜家族法）基礎インプット完了",
+      "status": "遅れ",
+      "action": "短答3問｜論点：物権変動（対抗要件・善意取得）・抵当権の効力範囲",
       "theme": "全分野（総則〜家族法）基礎インプット完了",
-      "situation": "今週0/11問。あと11問（6日ぶり）",
+      "situation": "今週0/11問。あと11問（7日ぶり）",
       "actual_q": 0,
       "target_q": 11,
       "checked": false
@@ -243,9 +239,9 @@
     {
       "subject": "刑法",
       "status": "今週",
-      "action": "4日前に学習済。今週の目標：総論・各論 基礎インプット完了",
+      "action": "5日前に学習済。今週の目標：総論・各論 基礎インプット完了",
       "theme": "総論・各論 基礎インプット完了",
-      "situation": "今週0/11問。あと11問（4日ぶり）",
+      "situation": "今週0/11問。あと11問（5日ぶり）",
       "actual_q": 0,
       "target_q": 11,
       "checked": false
@@ -253,9 +249,9 @@
     {
       "subject": "行政法",
       "status": "今週",
-      "action": "4日前に学習済。今週の目標：行政法2周目・5問/週で条文定着",
+      "action": "5日前に学習済。今週の目標：行政法2周目・5問/週で条文定着",
       "theme": "行政法2周目・5問/週で条文定着",
-      "situation": "今週0/5問。あと5問（4日ぶり）",
+      "situation": "今週0/5問。あと5問（5日ぶり）",
       "actual_q": 0,
       "target_q": 5,
       "checked": false
@@ -263,9 +259,9 @@
     {
       "subject": "民事訴訟法",
       "status": "今週",
-      "action": "3日前に学習済。今週の目標：民訴2周目・5問/週で基礎定着",
+      "action": "4日前に学習済。今週の目標：民訴2周目・5問/週で基礎定着",
       "theme": "民訴2周目・5問/週で基礎定着",
-      "situation": "今週0/5問。あと5問（3日ぶり）",
+      "situation": "今週0/5問。あと5問（4日ぶり）",
       "actual_q": 0,
       "target_q": 5,
       "checked": false
@@ -275,7 +271,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：捜査の端緒・逮捕の種類と要件・接見交通権",
       "theme": "刑訴2周目・5問/週で基礎定着",
-      "situation": "今週0/5問。あと5問（9日ぶり）",
+      "situation": "今週0/5問。あと5問（10日ぶり）",
       "actual_q": 0,
       "target_q": 5,
       "checked": false
@@ -285,7 +281,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：株主総会決議（種類・要件・瑕疵）・取締役の善管注意義務",
       "theme": "会社法2周目（構造理解・5問/週で十分）",
-      "situation": "今週0/5問。あと5問（15日ぶり）",
+      "situation": "今週0/5問。あと5問（16日ぶり）",
       "actual_q": 0,
       "target_q": 5,
       "checked": false
@@ -295,23 +291,18 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の概観を掴む",
-      "situation": "今週0/5問。あと5問（999日ぶり）",
-      "actual_q": 0,
+      "situation": "今週1/5問。あと4問",
+      "actual_q": 1,
       "target_q": 5,
       "checked": false
     }
   ],
-  "quiz_question": "大学が学生に単位を授与しない場合、その処分は司法審査の対象となるか？",
-  "quiz_answer_hint": "裁判所法3条1項・富山大学事件（最判昭52.3.15）",
-  "articles": [
-    "憲法76条1項",
-    "憲法81条",
-    "憲法73条3号",
-    "裁判所法3条1項"
-  ],
-  "freq_rating": "★★★",
-  "weak_points_text": "政党処分の司法審査において「内容の合理性審査」と「手続の適正性審査」の区別が曖昧で、袴田事件の審査対象が手続に限定される点を見落とす傾向がある。また、合憲限定解釈が憲法判断回避手段の一つであるという位置づけと、板まんだら事件・富山大学事件の判旨の具体的な文言の記憶が不十分である。",
-  "next_focus": "部分社会の法理について「一般市民法秩序との関連性」の有無で場合分けする判例一覧表を作成し、富山大学事件・袴田事件・出席停止懲罰判例の判断枠組みの違いを比較整理する。条約修正権については否定説の論拠と国会承認の法的性質を条文に結びつけて定着させる。",
+  "quiz_question": "",
+  "quiz_answer_hint": "",
+  "articles": [],
+  "freq_rating": "",
+  "weak_points_text": "",
+  "next_focus": "",
   "persistent_weak": [],
   "today_review_items": [],
   "today_study_guide": "",
@@ -324,9 +315,9 @@
       "category": "creator"
     },
     {
-      "title": "【予備試験・法科大学院入試対策】 2025年冬開講 『論文マスター』 リリース!",
-      "label": "「予備校ニュース」 【予備試験・法科大学院入試対策】 2025年冬開講 『論文マスター』 リリース!",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/25A01041.html",
+      "title": "【予備試験対策】 2026年予備試験 「論文直前答練」・「全国公開論文模試」 6/26 (金) 受付開始! 《CBTテストセンター先着順受付&20%OFFクーポン進呈!》",
+      "label": "「予備校・イベント・教材」 【予備試験対策】 2026年予備試験 「論文直前答練」・「全国公開論文模試」 6/26 (金) 受付開始! 《CBTテストセンター先着順受付&20%OFFクーポン進呈!》",
+      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/yobi/pgyobisho.html",
       "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
       "category": "prep"
     },
@@ -348,13 +339,6 @@
       "title": "【予備試験対策】 『予備試験短答 戦略的学習メソッド確立講座』 学習の方向性をつかんで短答突破!",
       "label": "「予備校ニュース」 【予備試験対策】 『予備試験短答 戦略的学習メソッド確立講座』 学習の方向性をつかんで短答突破!",
       "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/26A31020.html",
-      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
-      "category": "prep"
-    },
-    {
-      "title": "【予告】 2026年予備試験 「論文直前答練」・「全国公開論文模試」 《6月下旬受付開始》",
-      "label": "「予備校・イベント・教材」 【予告】 2026年予備試験 「論文直前答練」・「全国公開論文模試」 《6月下旬受付開始》",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/yobi/26A34011yokoku.html",
       "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
       "category": "prep"
     },
@@ -385,6 +369,13 @@
       "url": "https://www.nichibenren.or.jp/activity/training/law_schools.html",
       "source": "日弁連｜活動・トピックス",
       "category": "media"
+    },
+    {
+      "title": "司法試験予備試験に関するＱ＆Ａ",
+      "label": "「まず疑問の整理」 司法試験予備試験に関するＱ＆Ａ",
+      "url": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00210.html",
+      "source": "法務省｜司法試験・予備試験",
+      "category": "official"
     }
   ]
 }

@@ -1,13 +1,17 @@
 {
-  "subject": "民法",
-  "date": "2026-06-02",
-  "keywords": [],
+  "subject": "刑法",
+  "date": "2026-06-03",
+  "keywords": [
+    "判旨は§247が全体財産",
+    "保証債務負担時点で**既",
+    "経済的見地からの損害認定"
+  ],
   "wrong_qs": [],
   "wrong_topics": [],
   "today_logs": [
     {
       "type": "短答",
-      "questions_count": 1,
+      "questions_count": 11,
       "understanding": "良好",
       "topic": ""
     }
@@ -15,34 +19,17 @@
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-06-01",
-      "subject": "憲法",
+      "date": "2026-06-02",
+      "subject": "実務基礎",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [
-        "見解の根拠関係",
-        "司法権の範囲",
-        "部分社会"
-      ],
+      "keywords": [],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-05-26",
-      "subject": "民法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "債務不履行による損害賠償",
-        "損害賠償の範囲",
-        "損害賠償の方法"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-05-12",
-      "subject": "民法",
+      "date": "2026-05-13",
+      "subject": "刑法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -172,11 +159,19 @@
     },
     {
       "time": "18:40",
-      "activity": "車音声学習"
+      "activity": "電車学習"
+    },
+    {
+      "time": "18:45",
+      "activity": "電車学習"
     },
     {
       "time": "19:00",
-      "activity": "車音声学習"
+      "activity": "電車学習"
+    },
+    {
+      "time": "19:15",
+      "activity": "電車学習"
     },
     {
       "time": "19:20",
@@ -224,24 +219,14 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-06-02T21:39:05.902564",
+  "updated_at": "2026-06-03T07:00:06.106033",
   "today_tasks": [
     {
       "subject": "民法",
       "status": "遅れ",
       "action": "短答3問｜論点：物権変動（対抗要件・善意取得）・抵当権の効力範囲",
       "theme": "全分野（総則〜家族法）基礎インプット完了",
-      "situation": "今週0/11問。あと11問（7日ぶり）",
-      "actual_q": 0,
-      "target_q": 11,
-      "checked": false
-    },
-    {
-      "subject": "刑法",
-      "status": "今週",
-      "action": "5日前に学習済。今週の目標：総論・各論 基礎インプット完了",
-      "theme": "総論・各論 基礎インプット完了",
-      "situation": "今週0/11問。あと11問（5日ぶり）",
+      "situation": "今週0/11問。あと11問（8日ぶり）",
       "actual_q": 0,
       "target_q": 11,
       "checked": false
@@ -249,9 +234,9 @@
     {
       "subject": "行政法",
       "status": "今週",
-      "action": "5日前に学習済。今週の目標：行政法2周目・5問/週で条文定着",
+      "action": "6日前に学習済。今週の目標：行政法2周目・5問/週で条文定着",
       "theme": "行政法2周目・5問/週で条文定着",
-      "situation": "今週0/5問。あと5問（5日ぶり）",
+      "situation": "今週0/5問。あと5問（6日ぶり）",
       "actual_q": 0,
       "target_q": 5,
       "checked": false
@@ -259,9 +244,9 @@
     {
       "subject": "民事訴訟法",
       "status": "今週",
-      "action": "4日前に学習済。今週の目標：民訴2周目・5問/週で基礎定着",
+      "action": "5日前に学習済。今週の目標：民訴2周目・5問/週で基礎定着",
       "theme": "民訴2周目・5問/週で基礎定着",
-      "situation": "今週0/5問。あと5問（4日ぶり）",
+      "situation": "今週0/5問。あと5問（5日ぶり）",
       "actual_q": 0,
       "target_q": 5,
       "checked": false
@@ -271,7 +256,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：捜査の端緒・逮捕の種類と要件・接見交通権",
       "theme": "刑訴2周目・5問/週で基礎定着",
-      "situation": "今週0/5問。あと5問（10日ぶり）",
+      "situation": "今週0/5問。あと5問（11日ぶり）",
       "actual_q": 0,
       "target_q": 5,
       "checked": false
@@ -281,7 +266,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：株主総会決議（種類・要件・瑕疵）・取締役の善管注意義務",
       "theme": "会社法2周目（構造理解・5問/週で十分）",
-      "situation": "今週0/5問。あと5問（16日ぶり）",
+      "situation": "今週0/5問。あと5問（17日ぶり）",
       "actual_q": 0,
       "target_q": 5,
       "checked": false
@@ -291,18 +276,24 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の概観を掴む",
-      "situation": "今週1/5問。あと4問",
+      "situation": "今週1/5問。あと4問（1日ぶり）",
       "actual_q": 1,
       "target_q": 5,
       "checked": false
     }
   ],
-  "quiz_question": "",
-  "quiz_answer_hint": "",
-  "articles": [],
-  "freq_rating": "",
-  "weak_points_text": "",
-  "next_focus": "",
+  "quiz_question": "抵当権設定後に目的不動産をさらに第三者に売却した場合、横領罪は成立するか？",
+  "quiz_answer_hint": "刑法252条・最判平15.4.23",
+  "articles": [
+    "刑法252条",
+    "刑法253条",
+    "刑法247条",
+    "刑法256条",
+    "刑法257条"
+  ],
+  "freq_rating": "★★★",
+  "weak_points_text": "横領罪と背任罪の区別において、客体が「特定の物（財物）」か「本人の全体財産」かの峻別が不十分。盗品等関与罪では、有償・無償譲受け罪に現実の引渡しが必要な点と、保管罪に本犯からの委託関係が必要な点の区別が定着していない。不法原因給付がある場合の民法708条と刑法上の「他人の物」性の関係について、判例の論理を正確に再現できていない。",
+  "next_focus": "横領罪・背任罪・窃盗罪の三者比較表を自作し、保護法益・客体・行為者の地位を一覧化して反射的に区別できるようにする。盗品等関与罪の各類型（有償譲受け・無償譲受け・保管・運搬・あっせん）について既遂時期と委託関係の要否を整理する。",
   "persistent_weak": [],
   "today_review_items": [],
   "today_study_guide": "",
@@ -313,55 +304,6 @@
       "url": "https://qiita.com/inuinu_wanwan/items/34b7bef8d615dc68c161",
       "source": "Qiita｜「司法試験」タグの新着",
       "category": "creator"
-    },
-    {
-      "title": "【予備試験対策】 2026年予備試験 「論文直前答練」・「全国公開論文模試」 6/26 (金) 受付開始! 《CBTテストセンター先着順受付&20%OFFクーポン進呈!》",
-      "label": "「予備校・イベント・教材」 【予備試験対策】 2026年予備試験 「論文直前答練」・「全国公開論文模試」 6/26 (金) 受付開始! 《CBTテストセンター先着順受付&20%OFFクーポン進呈!》",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/yobi/pgyobisho.html",
-      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
-      "category": "prep"
-    },
-    {
-      "title": "【予備試験対策】 「予備試験 論文過去問マスター/CBT論文過去問答練」 NEW 2025年版 5/27(水)配信開始! CBT演習はすぐにご利用可能!",
-      "label": "「予備校・イベント・教材」 【予備試験対策】 「予備試験 論文過去問マスター/CBT論文過去問答練」 NEW 2025年版 5/27(水)配信開始! CBT演習はすぐにご利用可能!",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/25A33001.html",
-      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
-      "category": "prep"
-    },
-    {
-      "title": "【予備試験対策】 「基礎・論文マスター選択科目」 倒産法 新収録講義リリース!",
-      "label": "「予備校・イベント・教材」 【予備試験対策】 「基礎・論文マスター選択科目」 倒産法 新収録講義リリース!",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/25A01068.html",
-      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
-      "category": "prep"
-    },
-    {
-      "title": "【予備試験対策】 『予備試験短答 戦略的学習メソッド確立講座』 学習の方向性をつかんで短答突破!",
-      "label": "「予備校ニュース」 【予備試験対策】 『予備試験短答 戦略的学習メソッド確立講座』 学習の方向性をつかんで短答突破!",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/26A31020.html",
-      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
-      "category": "prep"
-    },
-    {
-      "title": "【受験生応援イベント】 6/26(金) 19時から 「2026年司法試験直前!応援トーク」 伊藤真塾長・岡崎敬講師へのご質問を受付中です!",
-      "label": "「予備校・イベント・教材」 【受験生応援イベント】 6/26(金) 19時から 「2026年司法試験直前!応援トーク」 伊藤真塾長・岡崎敬講師へのご質問を受付中です!",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/feature/shiken/shihou/chokuzen.html",
-      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
-      "category": "prep"
-    },
-    {
-      "title": "【司法試験対策】 「司法試験 論文過去問マスター/CBT論文過去問答練」 NEW 2025年版 4/17(金)教材発送開始!",
-      "label": "「予備校・イベント・教材」 【司法試験対策】 「司法試験 論文過去問マスター/CBT論文過去問答練」 NEW 2025年版 4/17(金)教材発送開始!",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/26A23001_1.html",
-      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
-      "category": "prep"
-    },
-    {
-      "title": "司法試験合格〜司法修習",
-      "label": "「予備校ニュース」 司法試験合格〜司法修習",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/about/syuusyuu/index.html",
-      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
-      "category": "prep"
     },
     {
       "title": "法科大学院を中核とする新しい法曹養成制度の充実・発展に向けた取組（法科大学院センター）",
@@ -375,6 +317,55 @@
       "label": "「まず疑問の整理」 司法試験予備試験に関するＱ＆Ａ",
       "url": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00210.html",
       "source": "法務省｜司法試験・予備試験",
+      "category": "official"
+    },
+    {
+      "title": "司法試験予備試験の実施について",
+      "label": "「日程・要項の骨格」 司法試験予備試験の実施について",
+      "url": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00026.html",
+      "source": "法務省｜司法試験・予備試験",
+      "category": "official"
+    },
+    {
+      "title": "司法試験予備試験の結果について",
+      "label": "「結果・合格情報」 司法試験予備試験の結果について",
+      "url": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00027.html",
+      "source": "法務省｜司法試験・予備試験",
+      "category": "official"
+    },
+    {
+      "title": "資格試験の勉強",
+      "label": "「受験生・記事ピック」 資格試験の勉強",
+      "url": "https://qiita.com/norimoriyan/items/7382315759cfe4b6d461",
+      "source": "Qiita｜「司法試験」タグの新着",
+      "category": "creator"
+    },
+    {
+      "title": "司法修習費用に関する給費、給付、貸与等の問題（司法修習費用問題対策本部）",
+      "label": "「業界トピック」 司法修習費用に関する給費、給付、貸与等の問題（司法修習費用問題対策本部）",
+      "url": "https://www.nichibenren.or.jp/activity/training/shihousyuusyuu_hiyou.html",
+      "source": "日弁連｜活動・トピックス",
+      "category": "media"
+    },
+    {
+      "title": "法科大学院生や司法修習生が法律家として社会のさまざまな分野で活躍するための支援や各種課題に継続的に取り組んでいます。 次代を担う法律家の養成",
+      "label": "「業界トピック」 法科大学院生や司法修習生が法律家として社会のさまざまな分野で活躍するための支援や各種課題に継続的に取り組んでいます。 次代を担う法律家の養成",
+      "url": "https://www.nichibenren.or.jp/activity/training.html",
+      "source": "日弁連｜活動・トピックス",
+      "category": "media"
+    },
+    {
+      "title": "判例検索システムの使い方",
+      "label": "「判例検索の入り口」 判例検索システムの使い方",
+      "url": "https://www.courts.go.jp/app/tukaikata/index.html",
+      "source": "裁判所｜判例検索トップ",
+      "category": "official"
+    },
+    {
+      "title": "掲載判例の説明",
+      "label": "「判例検索の入り口」 掲載判例の説明",
+      "url": "https://www.courts.go.jp/app/setumei/index.html",
+      "source": "裁判所｜判例検索トップ",
       "category": "official"
     }
   ]

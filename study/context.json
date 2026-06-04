@@ -13,6 +13,12 @@
       "questions_count": 5,
       "understanding": "良好",
       "topic": ""
+    },
+    {
+      "type": "日記",
+      "questions_count": 0,
+      "understanding": "普通",
+      "topic": "日記"
     }
   ],
   "spacing_items": [
@@ -253,7 +259,7 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-06-04T07:00:27.603347",
+  "updated_at": "2026-06-04T21:38:04.138577",
   "today_tasks": [
     {
       "subject": "民法",

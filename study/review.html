@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="復習フィード">
+  <meta name="theme-color" content="#6d5dfc">
+  <link rel="apple-touch-icon" href="review-icon-180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="review-icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="review-icon-512.png">
+  <title>予備試験 復習フィード</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      /* ── ライト（朝・デフォルト） ── */
+      --bg1:    #f3f1ff;
+      --bg2:    #fdf6f9;
+      --surf:   #ffffff;
+      --surf2:  #f6f5fb;
+      --border: #e7e3f5;
+      --text:   #1c1730;
+      --dim:    #7b7596;
+      --acc:    #6d5dfc;
+      --acc2:   #c44bd6;
+      --shadow: 0 6px 22px rgba(80,60,180,.10), 0 2px 6px rgba(80,60,180,.06);
+      --shadow-lg: 0 14px 40px rgba(90,60,190,.18);
+      --rad:    20px;
+      /* カテゴリ色 */
+      --c-review: #4f86ff;  --c-review-bg: rgba(79,134,255,.10);
+      --c-weak:   #ef4768;  --c-weak-bg:   rgba(239,71,104,.10);
+      --c-task:   #f5901e;  --c-task-bg:   rgba(245,144,30,.12);
+      --c-quiz:   #18b389;  --c-quiz-bg:   rgba(24,179,137,.12);
+      --c-tip:    #8b5cf6;  --c-tip-bg:    rgba(139,92,246,.10);
+      --c-read:   #0ea5b7;  --c-read-bg:   rgba(14,165,183,.10);
+    }
+    body.dark {
+      --bg1:    #0b1024;
+      --bg2:    #14102e;
+      --surf:   #1a2040;
+      --surf2:  #141a36;
+      --border: #2a3158;
+      --text:   #eef1ff;
+      --dim:    #9aa3c7;
+      --acc:    #8b7bff;
+      --acc2:   #e06ff0;
+      --shadow: 0 6px 22px rgba(0,0,0,.35);
+      --shadow-lg: 0 16px 44px rgba(0,0,0,.5);
+      --c-review-bg: rgba(79,134,255,.16);
+      --c-weak-bg:   rgba(239,71,104,.16);
+      --c-task-bg:   rgba(245,144,30,.18);
+      --c-quiz-bg:   rgba(24,179,137,.18);
+      --c-tip-bg:    rgba(139,92,246,.18);
+      --c-read-bg:   rgba(14,165,183,.18);
+    }
+
+    html, body { height: 100%; }
+    body {
+      background: linear-gradient(160deg, var(--bg1), var(--bg2));
+      background-attachment: fixed;
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Helvetica Neue", sans-serif;
+      font-size: 15px; -webkit-font-smoothing: antialiased; overscroll-behavior: none;
+      line-height: 1.5;
+    }
+    #app { display: flex; flex-direction: column; height: 100dvh; max-width: 1100px; margin: 0 auto; }
+
+    /* ── ヘッダー ── */
+    header {
+      display: flex; align-items: center; gap: 10px;
+      padding: calc(10px + env(safe-area-inset-top)) 16px 10px;
+      flex-shrink: 0; }
+    .logo { font-size: 22px; }
+    header h1 { flex: 1; font-size: 16px; font-weight: 800; letter-spacing: .01em; }
+    header h1 small { display: block; font-size: 11px; font-weight: 500; color: var(--dim); margin-top: 1px; }
+    .icon-btn {
+      background: var(--surf); border: 1px solid var(--border); color: var(--dim);
+      font-size: 15px; cursor: pointer; padding: 0; width: 34px; height: 34px;
+      border-radius: 11px; display: flex; align-items: center; justify-content: center;
+      box-shadow: var(--shadow); flex-shrink: 0; transition: transform .12s; }
+    .icon-btn:active { transform: scale(.9); }
+
+    /* ── 科目バー ── */
+    #subj-bar {
+      display: flex; gap: 7px; padding: 4px 16px 12px;
+      overflow-x: auto; flex-shrink: 0; scrollbar-width: none; }
+    #subj-bar::-webkit-scrollbar { display: none; }
+    .sbt {
+      flex-shrink: 0; font-size: 13px; padding: 7px 15px; border-radius: 16px;
+      border: 1px solid var(--border); background: var(--surf); color: var(--dim);
+      cursor: pointer; font-weight: 600; box-shadow: var(--shadow); transition: all .15s;
+      -webkit-tap-highlight-color: transparent; }
+    .sbt:active { transform: scale(.94); }
+    .sbt.on {
+      background: linear-gradient(135deg, var(--acc), var(--acc2));
+      border-color: transparent; color: #fff;
+      box-shadow: 0 6px 18px rgba(120,80,240,.35); }
+    .sbt.feat.on { background: linear-gradient(135deg, #f5901e, #ef4768); box-shadow: 0 6px 18px rgba(240,100,60,.35); }
+
+    /* ── スクロール本体 ── */
+    #scroll { flex: 1; overflow-y: auto; padding: 0 16px calc(24px + env(safe-area-inset-bottom));
+      -webkit-overflow-scrolling: touch; }
+
+    /* ── あいさつ ── */
+    .greet { margin: 2px 2px 14px; }
+    .greet .hi { font-size: 19px; font-weight: 800; letter-spacing: .01em; }
+    .greet .sub { font-size: 12.5px; color: var(--dim); margin-top: 3px; }
+    .greet .stats { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+    .stat-pill {
+      font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 13px;
+      background: var(--surf); border: 1px solid var(--border); box-shadow: var(--shadow);
+      display: inline-flex; align-items: center; gap: 5px; }
+    .stat-pill .num { color: var(--acc); }
+
+    /* ── カテゴリチップ ── */
+    #cat-bar { display: flex; gap: 7px; overflow-x: auto; padding: 2px 0 14px;
+      scrollbar-width: none; }
+    #cat-bar::-webkit-scrollbar { display: none; }
+    .cat-chip {
+      flex-shrink: 0; font-size: 12.5px; padding: 6px 13px; border-radius: 14px;
+      border: 1px solid var(--border); background: var(--surf); color: var(--dim);
+      cursor: pointer; font-weight: 700; box-shadow: var(--shadow); white-space: nowrap;
+      -webkit-tap-highlight-color: transparent; transition: transform .12s; }
+    .cat-chip:active { transform: scale(.93); }
+    .cat-chip.on { background: var(--text); color: var(--surf); border-color: var(--text); }
+
+    /* ── HERO カード ── */
+    .hero {
+      position: relative; border-radius: 24px; padding: 20px 20px 18px; margin-bottom: 16px;
+      color: #fff; overflow: hidden; box-shadow: var(--shadow-lg); cursor: pointer;
+      background: linear-gradient(135deg, var(--acc), var(--acc2));
+      -webkit-tap-highlight-color: transparent; transition: transform .15s; }
+    .hero:active { transform: scale(.985); }
+    .hero::after { content:""; position:absolute; right:-40px; top:-40px; width:170px; height:170px;
+      background: radial-gradient(circle, rgba(255,255,255,.22), transparent 70%); }
+    .hero .h-label { font-size: 11px; font-weight: 800; letter-spacing: .12em; opacity: .9; }
+    .hero .h-title { font-size: 20px; font-weight: 800; line-height: 1.4; margin: 8px 0 6px; position: relative; }
+    .hero .h-why { font-size: 13px; opacity: .92; line-height: 1.6; position: relative; }
+    .hero .h-go {
+      margin-top: 15px; display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,.95); color: #3b2a8c; font-weight: 800; font-size: 14.5px;
+      padding: 11px 20px; border-radius: 16px; border: none; cursor: pointer;
+      box-shadow: 0 6px 16px rgba(0,0,0,.18); position: relative; }
+    .hero .h-go:active { transform: scale(.96); }
+
+    /* ── セクション見出し ── */
+    .sec-h { font-size: 13px; font-weight: 800; color: var(--dim); margin: 6px 2px 9px;
+      display: flex; align-items: center; gap: 6px; }
+
+    /* ── カードグリッド ── */
+    #cards { display: grid; grid-template-columns: 1fr; gap: 11px; }
+    @media (min-width: 720px) { #cards { grid-template-columns: 1fr 1fr; } }
+
+    .card {
+      position: relative; background: var(--surf); border: 1px solid var(--border);
+      border-radius: var(--rad); padding: 14px 15px 13px; box-shadow: var(--shadow);
+      cursor: pointer; overflow: hidden; transition: transform .14s, box-shadow .14s;
+      -webkit-tap-highlight-color: transparent; display: flex; flex-direction: column; gap: 7px; }
+    .card:active { transform: scale(.98); }
+    .card::before { content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background: var(--cc, var(--acc)); }
+    .card .c-top { display: flex; align-items: center; gap: 8px; }
+    .card .c-ico {
+      width: 34px; height: 34px; border-radius: 11px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 17px;
+      background: var(--ccbg, var(--surf2)); }
+    .card .c-badge { font-size: 10.5px; font-weight: 800; letter-spacing: .04em;
+      color: var(--cc, var(--acc)); }
+    .card .c-when { font-size: 11px; color: var(--dim); margin-left: auto; white-space: nowrap; }
+    .card .c-title { font-size: 14.5px; font-weight: 700; line-height: 1.45; color: var(--text); }
+    .card .c-why { font-size: 12px; color: var(--dim); line-height: 1.55; }
+    .card .c-kws { display: flex; flex-wrap: wrap; gap: 5px; }
+    .card .c-kw {
+      font-size: 11px; padding: 3px 9px; border-radius: 10px; text-decoration: none;
+      background: var(--ccbg, var(--surf2)); color: var(--cc, var(--acc)); font-weight: 600;
+      white-space: nowrap; }
+    .card .c-foot { display: flex; align-items: center; gap: 8px; margin-top: 2px; }
+    .card .c-go {
+      flex: 1; font-size: 13px; font-weight: 800; padding: 9px; border-radius: 13px; border: none;
+      background: var(--cc, var(--acc)); color: #fff; cursor: pointer; transition: transform .12s; }
+    .card .c-go:active { transform: scale(.96); }
+    .card .c-bear {
+      font-size: 12px; padding: 9px 12px; border-radius: 13px; text-decoration: none;
+      background: var(--surf2); border: 1px solid var(--border); color: var(--dim);
+      white-space: nowrap; font-weight: 600; }
+
+    /* ── 「別の提案」ボタン ── */
+    #more-row { display: flex; justify-content: center; margin-top: 18px; }
+    #more-btn {
+      font-size: 14px; font-weight: 800; padding: 12px 26px; border-radius: 18px;
+      background: var(--surf); border: 1px dashed var(--acc); color: var(--acc);
+      cursor: pointer; box-shadow: var(--shadow); transition: transform .12s; }
+    #more-btn:active { transform: scale(.95); }
+
+    .empty { text-align: center; color: var(--dim); font-size: 13px; padding: 40px 20px; }
+
+    /* ── ローディング（スケルトン） ── */
+    .skel { background: var(--surf); border: 1px solid var(--border); border-radius: var(--rad);
+      height: 120px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+    .skel::after { content:""; position:absolute; inset:0;
+      background: linear-gradient(90deg, transparent, rgba(140,120,220,.10), transparent);
+      animation: sweep 1.2s infinite; }
+    @keyframes sweep { to { transform: translateX(100%); } }
+
+    /* ── 設定画面 ── */
+    #setup { flex: 1; display: flex; flex-direction: column; align-items: center;
+      justify-content: center; gap: 14px; padding: 30px 26px; text-align: center; }
+    #setup .big { font-size: 50px; }
+    #setup h2 { font-size: 20px; font-weight: 800; }
+    #setup p { font-size: 13px; color: var(--dim); line-height: 1.8; }
+    #setup a { color: var(--acc); font-weight: 700; text-decoration: none; }
+    .api-in { width: 100%; max-width: 360px; background: var(--surf); border: 1px solid var(--border);
+      border-radius: 14px; padding: 13px 16px; color: var(--text); font-size: 15px; outline: none;
+      box-shadow: var(--shadow); }
+    .api-in:focus { border-color: var(--acc); }
+    .big-btn { width: 100%; max-width: 360px; padding: 14px; border: none; border-radius: 18px;
+      background: linear-gradient(135deg, var(--acc), var(--acc2)); color: #fff;
+      font-size: 16px; font-weight: 800; cursor: pointer; box-shadow: var(--shadow-lg); }
+    .big-btn:disabled { opacity: .5; }
+    .big-btn:active:not(:disabled) { transform: scale(.98); }
+
+    /* ── チャット ── */
+    #chat-wrap { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+    #chat-top { display: flex; align-items: center; gap: 10px; padding: 8px 16px;
+      flex-shrink: 0; }
+    #back-btn { background: var(--surf); border: 1px solid var(--border); border-radius: 13px;
+      padding: 8px 14px; font-size: 13px; font-weight: 700; color: var(--text); cursor: pointer;
+      box-shadow: var(--shadow); -webkit-tap-highlight-color: transparent; }
+    #back-btn:active { transform: scale(.95); }
+    #chat-subj { font-size: 13px; font-weight: 800; padding: 6px 14px; border-radius: 14px;
+      background: linear-gradient(135deg, var(--acc), var(--acc2)); color: #fff; }
+    #chat-area { flex: 1; overflow-y: auto; padding: 8px 16px 6px;
+      display: flex; flex-direction: column; gap: 11px; scroll-behavior: smooth; }
+    .msg { display: flex; flex-direction: column; gap: 3px; max-width: 88%; }
+    .msg.user { align-self: flex-end; align-items: flex-end; }
+    .msg.ai   { align-self: flex-start; align-items: flex-start; }
+    .bub { padding: 12px 15px; border-radius: 19px; font-size: 14.5px; line-height: 1.65;
+      white-space: pre-wrap; word-break: break-word; box-shadow: var(--shadow); }
+    .msg.user .bub { background: linear-gradient(135deg, var(--acc), var(--acc2)); color: #fff;
+      border-bottom-right-radius: 6px; }
+    .msg.ai .bub { background: var(--surf); border: 1px solid var(--border); border-bottom-left-radius: 6px; }
+    .msg-time { font-size: 10px; color: var(--dim); padding: 0 6px; }
+    .typing { background: var(--surf); border: 1px solid var(--border); border-radius: 19px;
+      border-bottom-left-radius: 6px; padding: 14px 18px; display: inline-flex; gap: 5px;
+      box-shadow: var(--shadow); }
+    .dot { width: 7px; height: 7px; background: var(--dim); border-radius: 50%; animation: bop 1.2s infinite; }
+    .dot:nth-child(2){animation-delay:.2s} .dot:nth-child(3){animation-delay:.4s}
+    @keyframes bop{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+
+    #quick { display: flex; gap: 7px; padding: 8px 16px 4px; overflow-x: auto;
+      flex-shrink: 0; scrollbar-width: none; }
+    #quick::-webkit-scrollbar { display: none; }
+    .qb { flex-shrink: 0; font-size: 12.5px; padding: 8px 15px; border-radius: 15px;
+      border: 1px solid var(--border); background: var(--surf); color: var(--text);
+      cursor: pointer; white-space: nowrap; font-weight: 600; box-shadow: var(--shadow);
+      -webkit-tap-highlight-color: transparent; }
+    .qb:active { transform: scale(.94); }
+    #input-row { display: flex; align-items: flex-end; gap: 9px; padding: 8px 16px;
+      padding-bottom: calc(10px + env(safe-area-inset-bottom)); flex-shrink: 0; }
+    #msg-in { flex: 1; background: var(--surf); border: 1px solid var(--border);
+      border-radius: 20px; padding: 11px 16px; color: var(--text); font-size: 15px;
+      outline: none; resize: none; min-height: 44px; max-height: 130px; line-height: 1.4;
+      box-shadow: var(--shadow); }
+    #msg-in:focus { border-color: var(--acc); }
+    #send { width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; border: none; cursor: pointer;
+      background: linear-gradient(135deg, var(--acc), var(--acc2)); display: flex;
+      align-items: center; justify-content: center; box-shadow: var(--shadow); }
+    #send:disabled { opacity: .4; }
+    #send svg { width: 18px; height: 18px; fill: #fff; }
+
+    .hidden { display: none !important; }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+    .card, .hero { animation: fadeUp .3s ease both; }
+  </style>
+</head>
+<body>
+<div id="app">
+
+  <!-- ヘッダー -->
+  <header>
+    <span class="logo">📚</span>
+    <h1>復習フィード<small id="hd-date">--</small></h1>
+    <button class="icon-btn" id="theme-btn" title="テーマ">🌙</button>
+    <button class="icon-btn" id="font-btn" title="文字サイズ" style="font-weight:800">A</button>
+    <button class="icon-btn" id="reset-btn" title="リセット">↺</button>
+  </header>
+
+  <!-- 科目バー（フィード時のフィルタ／チャット時の科目切替） -->
+  <div id="subj-bar">
+    <button class="sbt feat on" data-s="">✨ おすすめ</button>
+    <button class="sbt" data-s="憲法">憲法</button>
+    <button class="sbt" data-s="民法">民法</button>
+    <button class="sbt" data-s="刑法">刑法</button>
+    <button class="sbt" data-s="行政法">行政法</button>
+    <button class="sbt" data-s="民訴法">民訴法</button>
+    <button class="sbt" data-s="刑訴法">刑訴法</button>
+    <button class="sbt" data-s="商法">商法</button>
+  </div>
+
+  <!-- ① 設定 -->
+  <div id="setup" class="hidden">
+    <div class="big">🔑</div>
+    <h2>はじめの設定</h2>
+    <p>
+      Groq の APIキーを入力してください。<br>
+      <b style="color:var(--text)">完全無料</b>（1日14,400回・課金なし）。<br><br>
+      取得先 → <a href="https://console.groq.com/keys" target="_blank">console.groq.com/keys</a><br>
+      <span style="font-size:11.5px">Googleでログイン → 「Create API Key」でコピー</span>
+    </p>
+    <input id="api-key-input" class="api-in" type="password" placeholder="gsk_..." autocomplete="off">
+    <button id="save-key-btn" class="big-btn" disabled>設定して始める</button>
+    <p style="font-size:11.5px">キーはこの端末のブラウザにだけ保存されます</p>
+  </div>
+
+  <!-- ② フィード -->
+  <div id="scroll" class="hidden">
+    <div class="greet">
+      <div class="hi" id="greet-hi">おかえりなさい</div>
+      <div class="sub" id="greet-sub">今日の復習、ここから一歩だけ。</div>
+      <div class="stats" id="greet-stats"></div>
+    </div>
+    <div id="cat-bar"></div>
+    <div id="hero-slot"></div>
+    <div class="sec-h" id="cards-head">✨ あなたへの提案</div>
+    <div id="cards"></div>
+    <div id="more-row" class="hidden">
+      <button id="more-btn">🎲 別の提案を見る</button>
+    </div>
+  </div>
+
+  <!-- ③ チャット -->
+  <div id="chat-wrap" class="hidden">
+    <div id="chat-top">
+      <button id="back-btn">← フィード</button>
+      <span id="chat-subj">--</span>
+    </div>
+    <div id="chat-area"></div>
+    <div id="quick">
+      <button class="qb" data-m="次の問題をお願いします">▶ 次の問題</button>
+      <button class="qb" data-m="今の問題を A / B の2択にしてください">🅰 2択にする</button>
+      <button class="qb" data-m="もう少しやさしく説明してください">🔁 やさしく</button>
+      <button class="qb" data-m="ヒントをください">💡 ヒント</button>
+      <button class="qb" data-m="関連する論点も教えてください">🔗 関連論点</button>
+      <button class="qb" data-m="今日はここまでにします。まとめてください">🏁 まとめ</button>
+    </div>
+    <div id="input-row">
+      <textarea id="msg-in" placeholder="答えや質問を入力..." rows="1"></textarea>
+      <button id="send" disabled><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ════════════════════════════════════════════
+//  定数
+// ════════════════════════════════════════════
+const WEEKLY = {0:"商法",1:"憲法",2:"民法",3:"刑法",4:"行政法",5:"民訴法",6:"刑訴法"};
+const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
+const GROQ_MODEL = "llama-3.3-70b-versatile";
+const CTX_URL = () => `https://raw.githubusercontent.com/osamuina8008/business-tools/main/study/context.json?t=${Date.now()}`;
+
+// カテゴリ定義
+const CAT = {
+  review: { label:"復習どき", icon:"🔄", color:"var(--c-review)", bg:"var(--c-review-bg)" },
+  weak:   { label:"苦手",     icon:"🔴", color:"var(--c-weak)",   bg:"var(--c-weak-bg)" },
+  task:   { label:"今日やる", icon:"🏁", color:"var(--c-task)",   bg:"var(--c-task-bg)" },
+  quiz:   { label:"今日の1問",icon:"🧠", color:"var(--c-quiz)",   bg:"var(--c-quiz-bg)" },
+  tip:    { label:"コツ",     icon:"💡", color:"var(--c-tip)",    bg:"var(--c-tip-bg)" },
+  read:   { label:"読みもの", icon:"📰", color:"var(--c-read)",   bg:"var(--c-read-bg)" },
+};
+
+// ════════════════════════════════════════════
+//  状態
+// ════════════════════════════════════════════
+let apiKey  = localStorage.getItem("groq_api_key") || "";
+let ctx     = null;
+let ALL_CARDS = [];
+let subjFilter = "";       // "" = 全科目
+let catFilter  = "all";
+let reshuffle  = 0;
+let history    = [];
+let busy       = false;
+let chatSubject = WEEKLY[new Date().getDay()];
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const bear = t => `bear://x-callback-url/search?term=${encodeURIComponent(t)}`;
+
+// ════════════════════════════════════════════
+//  ワンポイント（コツ）データ
+// ════════════════════════════════════════════
+const TIPS = {
+  "憲法": [
+    {t:"違憲審査基準の選び方", b:"精神的自由（表現・思想）→厳格審査。経済的自由（職業選択）→合理性審査。身体的自由→中間審査が多数説。まず権利の性質を特定するのが第一歩。", kw:"違憲審査基準"},
+    {t:"二重の基準論", b:"精神的自由は民主主義の前提→違憲推定・厳格審査。経済的自由は事後救済可能→合憲推定・緩やかな審査。論文の論証枠組みとして頻出。", kw:"二重の基準"},
+    {t:"統治行為論の限界", b:"高度に政治的な行為（条約・衆院解散）は司法審査になじまないが、人権侵害があれば例外。砂川事件が典型。", kw:"統治行為"},
+    {t:"法の下の平等（14条）", b:"「等しいものを等しく」が原則。区別が合理的かを問う。人種・信条・性別・門地の列挙事由に特に注意。", kw:"法の下の平等"},
+    {t:"私人間効力", b:"憲法は対国家が原則。私人間は民法90条等を通じた間接適用が判例（三菱樹脂事件）。直接適用説との違いを押さえる。", kw:"私人間効力"},
+  ],
+  "民法": [
+    {t:"意思表示の瑕疵（93〜96条）", b:"心裡留保・虚偽表示→善意の第三者に対抗不可。錯誤→要素の錯誤で取消可。詐欺→取消可・善意無過失の第三者に対抗不可。", kw:"意思表示"},
+    {t:"時効完成後の信義則", b:"時効完成後に援用しないと誤信させた場合、信義則上援用が制限される（最判S41.4.20）。「時効の援用と信義則」で頻出。", kw:"消滅時効"},
+    {t:"危険負担（536条）", b:"2020年改正で買主に反対給付拒絶権。特定物売買で目的物滅失時の処理が改正前後で変わる点に注意。", kw:"危険負担"},
+    {t:"不法行為の「過失」", b:"予見可能性＋回避可能性が過失の2要素。医療・交通など類型ごとに注意義務の水準が異なる。", kw:"過失"},
+    {t:"対抗要件（177条）", b:"不動産物権変動は登記がないと第三者に対抗不可。「第三者」の範囲（背信的悪意者は除外）が論点。", kw:"対抗要件"},
+  ],
+  "刑法": [
+    {t:"共同正犯と幇助の区別", b:"正犯意思があれば共同正犯、なければ幇助。利益・関与の程度・主導性が判断要素。", kw:"共同正犯"},
+    {t:"不作為犯の作為義務", b:"①法令②契約③先行行為④条理から作為義務を導く。保護責任者遺棄（218条）との区別も重要。", kw:"不作為犯"},
+    {t:"正当防衛の要件", b:"①急迫性②不正の侵害③防衛の意思④やむを得ずした行為。自招侵害・過剰防衛との区別も押さえる。", kw:"正当防衛"},
+    {t:"事実の錯誤", b:"具体的符合説と法定的符合説で結論が変わる。客体の錯誤・方法の錯誤の処理を整理。", kw:"事実の錯誤"},
+    {t:"窃盗と横領の区別", b:"窃盗＝他人占有物を奪取。横領＝自己占有の他人物を領得。占有の帰属が分水嶺。", kw:"窃盗横領"},
+  ],
+  "行政法": [
+    {t:"処分性の判断", b:"行訴法3条2項「公権力の主体たる行為」＋「直接・具体的な法的効果」。抗告訴訟の入口なので確実に。", kw:"処分性"},
+    {t:"取消訴訟の出訴期間", b:"処分を知った日から6か月（14条1項）、処分から1年（同2項）。正当な理由で延長可。徒過は却下事由。", kw:"出訴期間"},
+    {t:"裁量権逸脱・濫用の4類型", b:"①事実誤認②他事考慮③比例原則違反④平等原則違反。「社会観念上著しく妥当を欠く」かが基準。", kw:"裁量権"},
+    {t:"国家賠償1条と2条", b:"1条：公権力の行使→過失必要。2条：営造物の設置管理の瑕疵→無過失責任。道路・河川は2条。", kw:"国家賠償"},
+    {t:"原告適格（9条）", b:"「法律上の利益を有する者」。処分の根拠法令の趣旨・目的から個別的利益が保護されているかを検討。", kw:"原告適格"},
+  ],
+  "民訴法": [
+    {t:"既判力の時的限界", b:"標準時（口頭弁論終結時）前に存在した事由は遮断。相殺の抗弁など主張できたのにしなかった事由は再訴不可。", kw:"既判力"},
+    {t:"弁論主義の3つのテーゼ", b:"①主要事実は当事者の主張が必要②自白は裁判所を拘束③証拠は当事者提出のもののみ。間接・補助事実は対象外。", kw:"弁論主義"},
+    {t:"訴訟物の特定", b:"請求の趣旨＋請求原因で特定。給付・確認・形成で異なる。重複起訴（142条）との関係も重要。", kw:"訴訟物"},
+    {t:"処分権主義", b:"訴訟の開始・範囲・終了は当事者の意思による（246条）。申立事項と判決事項の一致が要請される。", kw:"処分権主義"},
+    {t:"既判力の客観的範囲", b:"主文に包含するものに限る（114条1項）。理由中の判断には原則及ばない（相殺は例外・114条2項）。", kw:"既判力の範囲"},
+  ],
+  "刑訴法": [
+    {t:"令状主義の例外", b:"逮捕に伴う捜索（220条）等。令状なしの捜索・差押は違法収集証拠排除の問題に直結。", kw:"令状主義"},
+    {t:"自白法則と排除法則", b:"自白法則：任意性のない自白は証拠能力なし。違法収集証拠排除法則：重大な違法＋排除相当性（最判S53）。", kw:"自白法則"},
+    {t:"伝聞法則と例外", b:"320条で原則禁止、321〜328条に例外。知覚→記憶→表現→叙述のどこかの誤りを排除する趣旨。", kw:"伝聞法則"},
+    {t:"勾留の要件（60条）", b:"①相当な理由②住所不定・罪証隠滅・逃亡のおそれの1つ。原則10日＋延長10日。", kw:"勾留"},
+    {t:"職務質問と所持品検査", b:"警職法2条。所持品検査は承諾が原則だが、必要性・緊急性・相当性で限定的に許容（最判S53米子事件）。", kw:"職務質問"},
+  ],
+  "商法": [
+    {t:"善管注意義務 vs 忠実義務", b:"善管注意義務（民644条）と忠実義務（355条）は同質説が判例・通説（最大判S45）。", kw:"善管注意義務"},
+    {t:"株主代表訴訟（847条）", b:"6か月以上保有→会社へ提訴請求→60日不提訴で代表訴訟。勝訴の利益は会社に帰属。", kw:"株主代表訴訟"},
+    {t:"表見代表取締役（354条）", b:"社長等の名称付与＋取引の場合、会社は善意の第三者に対抗不可。悪意・重過失は保護されない。", kw:"表見代表取締役"},
+    {t:"剰余金配当の財源規制", b:"分配可能額（461条）超過は違法配当。取締役は連帯返還義務（462条）。", kw:"剰余金配当"},
+    {t:"利益相反取引（356条）", b:"直接取引・間接取引は取締役会の承認が必要。承認なき取引の効力と取締役の責任を整理。", kw:"利益相反取引"},
+  ],
+};
+
+// ════════════════════════════════════════════
+//  乱数（シード付きシャッフル＝再読み込みで顔ぶれが変わる）
+// ════════════════════════════════════════════
+function rng(seed){ return function(){ seed|=0; seed=seed+0x6D2B79F5|0;
+  let t=Math.imul(seed^seed>>>15,1|seed); t=t+Math.imul(t^t>>>7,61|t)^t;
+  return ((t^t>>>14)>>>0)/4294967296; }; }
+function shuffle(arr, seed){ const r=rng(seed); const a=arr.slice();
+  for(let i=a.length-1;i>0;i--){ const j=Math.floor(r()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+const daysAgoLabel = ds => {
+  if(!ds) return "";
+  const t=new Date(); t.setHours(0,0,0,0);
+  const d=new Date(ds); d.setHours(0,0,0,0);
+  const n=Math.round((t-d)/86400000);
+  return n<=0?"今日":n===1?"昨日":`${n}日前`;
+};
+
+// ════════════════════════════════════════════
+//  提案カードの生成（context.json → カード群）
+// ════════════════════════════════════════════
+function buildCards(ctx){
+  const cards = [];
+  const cleanKw = k => String(k).replace(/\*\*/g,"").replace(/^[\s・\-]+/,"").trim();
+  const JUNK = ["能力不足","判断迷い","判断ミス","読解エラー","理解不十分","未整理","エラー","得点喪失","知識不足","レベル"];
+  const ok = t => t && t.length>=2 && !JUNK.some(j=>t.includes(j));
+
+  // ① スペーシング復習（最優先）
+  (ctx?.spacing_items||[]).forEach(it=>{
+    if(!it.subject || it.subject==="—") return;
+    const kws = (it.keywords||[]).map(cleanKw).filter(ok).slice(0,3);
+    const lab = it.interval_label || daysAgoLabel(it.date);
+    const focus = kws[0] ? `「${kws[0]}」` : "前回の内容";
+    cards.push({
+      cat:"review", subject:it.subject,
+      title:`${it.subject}の${focus}、そろそろ復習どき`,
+      why:`${lab}に学習。忘れかけの“いま”がいちばん定着します。`,
+      when:lab, kws, bearTerm:it.date,
+      chat:`${it.subject}の「${kws.join("、")||"前回学習した内容"}」を復習したいです。基本確認問題を1問ずつ出して、答えたら短く解説してください。`,
+      score: 100 + (kws.length?5:0),
+    });
+  });
+
+  // ② 繰り返し苦手
+  (ctx?.persistent_weak||[]).forEach(p=>{
+    if(!ok(p.keyword)) return;
+    cards.push({
+      cat:"weak", subject:p.subject||"",
+      title:`何度も間違えてる「${p.keyword}」、今日こそ`,
+      why:`これまで${p.count||"複数"}回つまずいた論点。ここを潰すと一気に伸びます。`,
+      when:`${p.count||""}回`, kws:[p.keyword], bearTerm:p.keyword,
+      chat:`${p.subject?p.subject+"の":""}「${p.keyword}」が苦手です。基礎から確認できるよう、やさしい問題で1つずつ整理させてください。`,
+      score: 96,
+    });
+  });
+
+  // ③ 弱点キーワード（wrong_topics）
+  (ctx?.wrong_topics||[]).map(cleanKw).filter(ok).slice(0,5).forEach(t=>{
+    cards.push({
+      cat:"weak", subject:ctx?.subject||"",
+      title:`前回ひっかかった「${t}」を確認`,
+      why:`直近で間違えたところ。記憶が新しいうちに上書きしましょう。`,
+      kws:[t], bearTerm:t,
+      chat:`「${t}」について、基本確認問題を1問出してください。答えたら条文番号つきで短く解説を。`,
+      score: 88,
+    });
+  });
+
+  // ④ 今日やること
+  (ctx?.today_tasks||[]).forEach(t=>{
+    if(!t.subject) return;
+    const late = t.status==="遅れ";
+    const theme = t.theme ? t.theme : "";
+    cards.push({
+      cat:"task", subject:t.subject,
+      title:`${t.subject}：${t.action ? t.action.split("｜")[0] : (theme||"今日の一手")}`,
+      why:`${t.situation?t.situation+"。":""}${late?"少し遅れ気味。5分でも前進を。":"今日の枠。軽く触れておこう。"}`,
+      when:t.status, kws: theme?[theme]:[], bearTerm:t.subject,
+      chat:`${t.subject}の今日の課題に取り組みます。テーマは「${t.theme||t.action||"基礎確認"}」。確認問題を1問ずつ出してください。`,
+      score: late ? 92 : 74,
+    });
+  });
+
+  // ⑤ 今日の1問
+  if(ctx?.quiz_question){
+    cards.push({
+      cat:"quiz", subject:ctx.subject||"",
+      title:`今日の1問に挑戦`,
+      why: ctx.quiz_question.length>70 ? ctx.quiz_question.slice(0,70)+"…" : ctx.quiz_question,
+      kws: ctx.quiz_answer_hint?[ctx.quiz_answer_hint]:[], bearTerm: ctx.quiz_answer_hint||ctx.subject,
+      chat:`次の問題を一緒に考えたいです：「${ctx.quiz_question}」。まずヒントを出し、私の答えを待ってから解説してください。`,
+      score: 80,
+    });
+  }
+
+  // ⑥ 弱点の核心 / 次の狙い（現在科目の深掘り）
+  if(ctx?.weak_points_text && ctx.weak_points_text.length>10){
+    cards.push({
+      cat:"weak", subject:ctx.subject||"",
+      title:`${ctx.subject||""}の弱点、核心を整理`,
+      why: ctx.weak_points_text.length>78 ? ctx.weak_points_text.slice(0,78)+"…" : ctx.weak_points_text,
+      bearTerm: ctx.subject||"", kws:[],
+      chat:`${ctx.subject||"今日の科目"}で私がつまずきやすいのは次の点です：「${ctx.weak_points_text}」。ここを克服できるよう、ポイントを質問形式で確認させてください。`,
+      score: 84,
+    });
+  }
+  if(ctx?.next_focus && ctx.next_focus.length>10){
+    cards.push({
+      cat:"task", subject:ctx.subject||"",
+      title:`次に伸ばすならここ`,
+      why: ctx.next_focus.length>78 ? ctx.next_focus.slice(0,78)+"…" : ctx.next_focus,
+      bearTerm: ctx.subject||"", kws:[],
+      chat:`次の方針で進めたいです：「${ctx.next_focus}」。この方針に沿って、確認問題を1問ずつ出してください。`,
+      score: 72,
+    });
+  }
+
+  // ⑦ 今日の問題振り返り
+  (ctx?.today_review_items||[]).slice(0,4).forEach(it=>{
+    const axis = it.axis || it.theme || "";
+    cards.push({
+      cat:"review", subject:ctx?.subject||"",
+      title:`Q${it.q_num} をもう一度`,
+      why: axis ? (axis.length>70?axis.slice(0,70)+"…":axis) : "今日解いた問題の振り返り。",
+      kws:[], bearTerm:`Q${it.q_num}`,
+      chat:`今日解いた Q${it.q_num}（${axis||"論点の振り返り"}）を、別の角度から1問出して理解を確かめさせてください。`,
+      score: 78,
+    });
+  });
+
+  // ⑧ コツ（TIPS）— 全科目から
+  Object.entries(TIPS).forEach(([subj, arr])=>{
+    arr.forEach(tip=>{
+      cards.push({
+        cat:"tip", subject:subj,
+        title:`${subj}：${tip.t}`,
+        why: tip.b,
+        kws:[tip.kw], bearTerm:tip.kw,
+        chat:`${subj}の「${tip.kw}」について理解を確かめたいです。基本確認問題を1問出してください。`,
+        score: 40,
+      });
+    });
+  });
+
+  // ⑨ 読みもの（news_feed / articles）
+  (ctx?.news_feed||[]).slice(0,6).forEach(n=>{
+    if(!n.title) return;
+    cards.push({
+      cat:"read", subject:"", read:true, url:n.url||"",
+      title: n.title.length>54 ? n.title.slice(0,54)+"…" : n.title,
+      why: n.source ? `📎 ${n.source}` : "気分転換に、関連トピックを1本。",
+      kws:[], bearTerm:"",
+      score: 30,
+    });
+  });
+  (ctx?.articles||[]).slice(0,4).forEach(a=>{
+    if(!a) return;
+    cards.push({
+      cat:"read", subject:ctx?.subject||"", read:false,
+      title:`重要条文：${a}`,
+      why:`今日のテーマに関わる条文。素読みで定着を。`,
+      kws:[a], bearTerm:a,
+      chat:`「${a}」の趣旨と要件を、穴埋め形式で確認させてください。`,
+      score: 34,
+    });
+  });
+
+  return cards;
+}
+
+// ════════════════════════════════════════════
+//  あいさつ（時間帯・連続日数）
+// ════════════════════════════════════════════
+function updateStreak(){
+  const today = new Date().toISOString().slice(0,10);
+  const last = localStorage.getItem("rf_last");
+  let cnt = parseInt(localStorage.getItem("rf_streak")||"0");
+  if(last===today){ /* 同日 */ }
+  else {
+    const y = new Date(Date.now()-86400000).toISOString().slice(0,10);
+    cnt = (last===y) ? cnt+1 : 1;
+    localStorage.setItem("rf_streak", cnt);
+    localStorage.setItem("rf_last", today);
+  }
+  return cnt;
+}
+function renderGreeting(){
+  const h = new Date().getHours();
+  let hi, sub;
+  if(h<6){ hi="早起きおつかれさまです 🌅"; sub="この静かな時間が、いちばん効きます。"; }
+  else if(h<11){ hi="おはようございます ☀️"; sub="今日の一歩、ここから。"; }
+  else if(h<17){ hi="おつかれさまです 📖"; sub="スキマ時間にひとつ、復習を。"; }
+  else if(h<22){ hi="今日もおつかれさまです 🌇"; sub="寝る前の復習がいちばん残ります。"; }
+  else { hi="おつかれさまです 🌙"; sub="ひとつだけ確認して、よく休みましょう。"; }
+  $("greet-hi").textContent = hi;
+  $("greet-sub").textContent = sub;
+  const streak = updateStreak();
+  const count = ALL_CARDS.length;
+  const subj = ctx?.subject || chatSubject;
+  $("greet-stats").innerHTML =
+    `<span class="stat-pill">🔥 <span class="num">${streak}</span>日つづけて</span>`
+  + `<span class="stat-pill">✨ 今日の提案 <span class="num">${count}</span>件</span>`
+  + (subj?`<span class="stat-pill">📌 きょうは <span class="num">${esc(subj)}</span></span>`:"");
+}
+
+// ════════════════════════════════════════════
+//  フィード描画
+// ════════════════════════════════════════════
+function activeCards(){
+  let list = ALL_CARDS.slice();
+  if(subjFilter) list = list.filter(c => c.subject===subjFilter || (c.cat==="read" && !c.subject));
+  if(catFilter!=="all") list = list.filter(c => c.cat===catFilter);
+  // スコア順 → 同帯はシードシャッフルで毎回違う顔ぶれ
+  const day = Math.floor(Date.now()/86400000);
+  const sh = shuffle(list, day*97 + reshuffle*31 + (subjFilter?subjFilter.length:0));
+  sh.sort((a,b)=> b.score - a.score);
+  return sh;
+}
+
+function renderCatBar(){
+  const present = new Set(ALL_CARDS
+    .filter(c => !subjFilter || c.subject===subjFilter || (c.cat==="read"&&!c.subject))
+    .map(c=>c.cat));
+  let html = `<button class="cat-chip ${catFilter==="all"?"on":""}" data-c="all">すべて</button>`;
+  Object.entries(CAT).forEach(([k,v])=>{
+    if(present.has(k)) html += `<button class="cat-chip ${catFilter===k?"on":""}" data-c="${k}">${v.icon} ${v.label}</button>`;
+  });
+  $("cat-bar").innerHTML = html;
+  $("cat-bar").querySelectorAll(".cat-chip").forEach(b=>{
+    b.onclick = ()=>{ catFilter=b.dataset.c; renderFeed(); };
+  });
+}
+
+function cardHTML(c){
+  const m = CAT[c.cat];
+  const kws = (c.kws||[]).filter(Boolean).map(k=>
+    `<a class="c-kw" href="${bear(k)}" onclick="event.stopPropagation()">🐻 ${esc(k)}</a>`).join("");
+  const foot = c.read && c.url
+    ? `<a class="c-go" style="text-align:center;text-decoration:none;line-height:1.2" href="${esc(c.url)}" target="_blank" onclick="event.stopPropagation()">記事を開く ↗</a>`
+    : `<button class="c-go">▶ これを復習</button>`
+      + (c.bearTerm?`<a class="c-bear" href="${bear(c.bearTerm)}" onclick="event.stopPropagation()">🐻 メモ</a>`:"");
+  return `<div class="card" style="--cc:${m.color};--ccbg:${m.bg}">
+    <div class="c-top">
+      <div class="c-ico">${m.icon}</div>
+      <span class="c-badge">${m.label}</span>
+      ${c.when?`<span class="c-when">${esc(c.when)}</span>`:""}
+    </div>
+    <div class="c-title">${esc(c.title)}</div>
+    ${c.why?`<div class="c-why">${esc(c.why)}</div>`:""}
+    ${kws?`<div class="c-kws">${kws}</div>`:""}
+    <div class="c-foot">${foot}</div>
+  </div>`;
+}
+
+function renderFeed(){
+  renderGreeting();
+  renderCatBar();
+  const list = activeCards();
+  const heroSlot = $("hero-slot");
+  const cardsEl  = $("cards");
+
+  if(list.length===0){
+    heroSlot.innerHTML="";
+    cardsEl.innerHTML = `<div class="empty">提案がありません。<br>右上の ↺ で再読み込みしてみてください。</div>`;
+    $("more-row").classList.add("hidden");
+    return;
+  }
+
+  // HERO（先頭・読みもの以外を優先）
+  const heroIdx = list.findIndex(c=>!c.read);
+  const hero = list[heroIdx>=0?heroIdx:0];
+  const rest = list.filter(c=>c!==hero);
+  const m = CAT[hero.cat];
+  heroSlot.innerHTML = `<div class="hero" id="hero-card">
+    <div class="h-label">${m.icon} ${m.label}${hero.subject?" ・ "+esc(hero.subject):""}</div>
+    <div class="h-title">${esc(hero.title)}</div>
+    <div class="h-why">${esc(hero.why||"")}</div>
+    <button class="h-go">▶ いますぐ復習する</button>
+  </div>`;
+  $("hero-card").onclick = ()=> launch(hero);
+
+  cardsEl.innerHTML = rest.map(cardHTML).join("");
+  // カードのクリック割り当て
+  [...cardsEl.querySelectorAll(".card")].forEach((el,i)=>{
+    const c = rest[i];
+    const go = el.querySelector(".c-go");
+    if(!(c.read && c.url)){
+      el.onclick = ()=> launch(c);
+      if(go && go.tagName==="BUTTON") go.onclick = (e)=>{ e.stopPropagation(); launch(c); };
+    }
+  });
+  $("cards-head").textContent = subjFilter ? `✨ ${subjFilter}の提案` : "✨ あなたへの提案";
+  $("more-row").classList.remove("hidden");
+}
+
+// ════════════════════════════════════════════
+//  画面遷移
+// ════════════════════════════════════════════
+function showSetup(){ $("setup").classList.remove("hidden"); $("scroll").classList.add("hidden"); $("chat-wrap").classList.add("hidden"); }
+function showFeed(){
+  $("setup").classList.add("hidden"); $("chat-wrap").classList.add("hidden");
+  $("scroll").classList.remove("hidden");
+  document.querySelector(".sbt[data-s='']").classList.toggle("on", subjFilter==="");
+}
+function showChatScreen(){ $("setup").classList.add("hidden"); $("scroll").classList.add("hidden"); $("chat-wrap").classList.remove("hidden"); }
+
+// ════════════════════════════════════════════
+//  提案 → チャット起動
+// ════════════════════════════════════════════
+function launch(card){
+  if(card.read && card.url){ window.open(card.url, "_blank"); return; }
+  chatSubject = card.subject || ctx?.subject || chatSubject;
+  $("chat-subj").textContent = chatSubject;
+  history = [];
+  $("chat-area").innerHTML = "";
+  showChatScreen();
+  send(card.chat || `${chatSubject}の復習を始めたいです。基本確認問題を1問出してください。`, {hidden:true, intro:card.title});
+}
+
+// ════════════════════════════════════════════
+//  コンテキスト読み込み
+// ════════════════════════════════════════════
+async function loadFeed(){
+  showFeed();
+  $("hero-slot").innerHTML = `<div class="skel" style="height:150px;margin-bottom:16px"></div>`;
+  $("cards").innerHTML = `<div class="skel"></div><div class="skel"></div><div class="skel"></div>`;
+  $("more-row").classList.add("hidden");
+  try {
+    const res = await fetch(CTX_URL());
+    if(!res.ok) throw new Error("HTTP "+res.status);
+    ctx = await res.json();
+  } catch(e){
+    ctx = null;
+  }
+  ALL_CARDS = buildCards(ctx);
+  // データが薄い時の保険：現在科目のコツを必ず確保（buildCardsで全科目TIPS済み）
+  renderFeed();
+}
+
+// ════════════════════════════════════════════
+//  Groq チャット
+// ════════════════════════════════════════════
+function buildSystem(){
+  let extra = "";
+  if(ctx){
+    if(ctx.keywords?.length) extra += `\n今日のキーワード: ${ctx.keywords.join("、")}`;
+    if(ctx.weak_points_text) extra += `\n弱点メモ: ${ctx.weak_points_text}`;
+  }
+  return `あなたは司法試験予備試験の学習コーチです。受験生（53歳・予備試験2028年合格目標・毎朝3時半起きで学習）の復習を、短い会話で定着させます。
+
+現在の科目: ${chatSubject}${extra}
+
+【進め方】
+- 1回の返答は短く（3〜5文）。スマホ・タブレットで読む前提。
+- 難易度は「基本」から。知識確認レベルで十分。
+- まず今回のテーマを1文で示し、すぐに基本確認問題を1問出す。
+- 問題形式は「❓ 〜とは？」「❓ 〜の要件は？」など。
+- 「2択」と言われたら「A: ○○ / B: ××、どちら？」で出し直す。
+- 回答後は「✅ 正解！」or「💡 正解は〜」＋1〜2文の解説（条文番号を明記）。
+- 次の問題はユーザーが求めた時だけ出す。
+- 励ましの一言を時々添える。「まとめて」と言われたら今日の要点を3つに整理して締める。`;
+}
+
+async function send(text, opts={}){
+  if(busy) return;
+  const userText = (text||"").trim();
+  if(!userText) return;
+  if(!opts.hidden) addBubble("user", userText);
+  else if(opts.intro) addBubble("ai", `📌 「${opts.intro}」を復習しましょう！`);
+  $("msg-in").value=""; autoResize();
+  $("send").disabled=true; busy=true;
+  const typing = addTyping();
+  try{
+    history.push({role:"user", content:userText});
+    const messages = [{role:"system", content:buildSystem()}, ...history];
+    const res = await fetch(GROQ_URL, {
+      method:"POST",
+      headers:{"Content-Type":"application/json","Authorization":`Bearer ${apiKey}`},
+      body: JSON.stringify({model:GROQ_MODEL, messages, max_tokens:600, temperature:0.75}),
+    });
+    const data = await res.json();
+    typing.remove();
+    if(data.error){
+      addBubble("ai", `⚠️ エラー：${data.error.message||"不明"}\n\nAPIキーが切れている場合は、右上の ↺ → キーを入れ直してください。`);
+    } else {
+      const reply = data.choices?.[0]?.message?.content || "（応答なし）";
+      addBubble("ai", reply);
+      history.push({role:"assistant", content:reply});
+    }
+  } catch(e){
+    typing.remove();
+    addBubble("ai", "⚠️ 通信エラー。ネット接続を確認してください。");
+  }
+  busy=false; $("send").disabled = ($("msg-in").value.trim()==="");
+  scrollBottom();
+}
+
+function addBubble(role, text){
+  const row=document.createElement("div"); row.className=`msg ${role}`;
+  const bub=document.createElement("div"); bub.className="bub"; bub.textContent=text;
+  const t=document.createElement("div"); t.className="msg-time";
+  t.textContent=new Date().toLocaleTimeString("ja-JP",{hour:"2-digit",minute:"2-digit"});
+  row.appendChild(bub); row.appendChild(t); $("chat-area").appendChild(row); scrollBottom();
+}
+function addTyping(){
+  const row=document.createElement("div"); row.className="msg ai";
+  row.innerHTML=`<div class="typing"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>`;
+  $("chat-area").appendChild(row); scrollBottom(); return row;
+}
+function scrollBottom(){ requestAnimationFrame(()=>{ $("chat-area").scrollTop=$("chat-area").scrollHeight; }); }
+function autoResize(){ const el=$("msg-in"); el.style.height="auto"; el.style.height=Math.min(el.scrollHeight,130)+"px"; }
+
+// ════════════════════════════════════════════
+//  イベント
+// ════════════════════════════════════════════
+// 科目バー
+document.querySelectorAll(".sbt").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    document.querySelectorAll(".sbt").forEach(b=>b.classList.remove("on"));
+    btn.classList.add("on");
+    const s = btn.dataset.s;
+    if(!$("chat-wrap").classList.contains("hidden")){
+      // チャット中：科目切替
+      if(s){ chatSubject=s; $("chat-subj").textContent=s;
+        send(`科目を${s}に切り替えます。${s}の基本確認問題を1問出してください。`); }
+      else { backToFeed(); }
+    } else {
+      subjFilter = s; catFilter="all"; reshuffle=0; renderFeed();
+    }
+  });
+});
+
+// 設定
+$("api-key-input").addEventListener("input", e=>{ $("save-key-btn").disabled = e.target.value.trim().length<10; });
+$("save-key-btn").addEventListener("click", ()=>{
+  const k=$("api-key-input").value.trim(); if(!k) return;
+  apiKey=k; localStorage.setItem("groq_api_key", k); loadFeed();
+});
+
+// 別の提案
+$("more-btn").addEventListener("click", ()=>{ reshuffle++; renderFeed();
+  $("scroll").scrollTo({top:0, behavior:"smooth"}); });
+
+// チャット入力
+$("msg-in").addEventListener("input", ()=>{ autoResize(); $("send").disabled=$("msg-in").value.trim()===""||busy; });
+$("msg-in").addEventListener("keydown", e=>{ if(e.key==="Enter"&&!e.shiftKey){ e.preventDefault(); if(!$("send").disabled) send($("msg-in").value); }});
+$("send").addEventListener("click", ()=>{ if(!$("send").disabled) send($("msg-in").value); });
+document.querySelectorAll(".qb").forEach(b=> b.addEventListener("click", ()=>{ if(!busy) send(b.dataset.m); }));
+
+function backToFeed(){
+  document.querySelectorAll(".sbt").forEach(b=>b.classList.remove("on"));
+  document.querySelector(".sbt[data-s='']").classList.add("on");
+  subjFilter=""; catFilter="all"; loadFeed();
+}
+$("back-btn").addEventListener("click", backToFeed);
+
+// テーマ
+function applyTheme(dark){ document.body.classList.toggle("dark", dark);
+  $("theme-btn").textContent = dark?"☀️":"🌙"; localStorage.setItem("rf_theme", dark?"dark":"light"); }
+$("theme-btn").addEventListener("click", ()=> applyTheme(!document.body.classList.contains("dark")));
+
+// 文字サイズ
+const SIZES=[15,17,19]; let sizeIdx=parseInt(localStorage.getItem("rf_font")||"0");
+function applyFont(){ document.body.style.fontSize=SIZES[sizeIdx]+"px";
+  $("font-btn").textContent = sizeIdx===0?"A":sizeIdx===1?"A+":"A++"; }
+$("font-btn").addEventListener("click", ()=>{ sizeIdx=(sizeIdx+1)%SIZES.length; localStorage.setItem("rf_font",sizeIdx); applyFont(); });
+
+// リセット
+$("reset-btn").addEventListener("click", ()=>{
+  if(!confirm("リセットしますか？")) return;
+  if(!confirm("APIキーは残しますか？（キャンセルで削除）")){ localStorage.removeItem("groq_api_key"); apiKey=""; }
+  history=[]; ctx=null; subjFilter=""; catFilter="all"; reshuffle=0;
+  $("chat-area").innerHTML="";
+  init();
+});
+
+// ════════════════════════════════════════════
+//  起動
+// ════════════════════════════════════════════
+function init(){
+  const now=new Date(); const d=["日","月","火","水","木","金","土"];
+  $("hd-date").textContent = `${now.getMonth()+1}/${now.getDate()}（${d[now.getDay()]}）`;
+  applyTheme((localStorage.getItem("rf_theme")||"light")==="dark");
+  applyFont();
+  if(!apiKey){ showSetup(); }
+  else { loadFeed(); }
+}
+init();
+</script>
+</body>
+</html>

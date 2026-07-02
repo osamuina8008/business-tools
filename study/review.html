@@ -184,6 +184,52 @@
       background: var(--surf2); border: 1px solid var(--border); color: var(--dim);
       white-space: nowrap; font-weight: 600; }
 
+    /* ── 復習済みマーク ── */
+    .card.done { opacity: .72; }
+    .c-done, .h-done {
+      font-size: 10.5px; font-weight: 800; letter-spacing: .03em;
+      color: var(--c-quiz); background: var(--c-quiz-bg);
+      padding: 2px 8px; border-radius: 8px; white-space: nowrap; }
+    .h-done { color: #fff; background: rgba(255,255,255,.22); }
+    .stat-pill.tap { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    .stat-pill.tap:active { transform: scale(.94); }
+    .stat-pill.done-pill .num { color: var(--c-quiz); }
+
+    /* ── 復習ログ オーバーレイ ── */
+    #log-ov {
+      position: fixed; inset: 0; z-index: 60; display: flex;
+      align-items: flex-end; justify-content: center;
+      background: rgba(20,16,40,.45); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+      animation: fadeUp .18s ease both; }
+    .log-panel {
+      background: var(--surf); width: 100%; max-width: 560px; max-height: 82vh;
+      border-radius: 24px 24px 0 0; display: flex; flex-direction: column;
+      box-shadow: var(--shadow-lg); overflow: hidden; }
+    @media (min-width: 600px) { #log-ov { align-items: center; } .log-panel { border-radius: 24px; } }
+    .log-head { display: flex; align-items: center; gap: 10px; padding: 16px 18px;
+      border-bottom: 1px solid var(--border); font-size: 16px; font-weight: 800; }
+    .log-head span { flex: 1; }
+    #log-close { width: 32px; height: 32px; }
+    #log-list { flex: 1; overflow-y: auto; padding: 6px 14px 10px;
+      -webkit-overflow-scrolling: touch; }
+    .log-day { position: sticky; top: 0; background: var(--surf); z-index: 1;
+      font-size: 11.5px; font-weight: 800; color: var(--dim); padding: 10px 4px 6px; }
+    .log-item { display: flex; gap: 10px; align-items: flex-start;
+      padding: 9px 4px; border-bottom: 1px solid var(--border); }
+    .log-item:last-child { border-bottom: none; }
+    .li-ico { width: 30px; height: 30px; border-radius: 9px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 15px; }
+    .li-body { flex: 1; min-width: 0; }
+    .li-title { font-size: 13.5px; font-weight: 700; line-height: 1.45; }
+    .li-meta { font-size: 11px; color: var(--dim); margin-top: 2px; }
+    .li-time { margin-left: auto; font-size: 11px; color: var(--dim); white-space: nowrap; padding-top: 2px; }
+    .log-empty { text-align: center; color: var(--dim); font-size: 13px; padding: 44px 20px; line-height: 1.9; }
+    .log-foot { padding: 12px 16px calc(14px + env(safe-area-inset-bottom));
+      border-top: 1px solid var(--border); }
+    #log-clear { width: 100%; padding: 11px; border-radius: 14px; cursor: pointer;
+      border: 1px solid var(--border); background: var(--surf2); color: var(--c-weak); font-weight: 700; }
+    #log-clear:active { transform: scale(.98); }
+
     /* ── 「別の提案」ボタン ── */
     #more-row { display: flex; justify-content: center; margin-top: 18px; }
     #more-btn {
@@ -280,6 +326,7 @@
   <header>
     <span class="logo">📚</span>
     <h1>復習フィード<small id="hd-date">--</small></h1>
+    <button class="icon-btn" id="log-btn" title="復習ログ">📖</button>
     <button class="icon-btn" id="theme-btn" title="テーマ">🌙</button>
     <button class="icon-btn" id="font-btn" title="文字サイズ" style="font-weight:800">A</button>
     <button class="icon-btn" id="reset-btn" title="リセット">↺</button>
@@ -349,6 +396,18 @@
     </div>
   </div>
 
+  <!-- ④ 復習ログ -->
+  <div id="log-ov" class="hidden">
+    <div class="log-panel">
+      <div class="log-head">
+        <span>📖 復習ログ</span>
+        <button class="icon-btn" id="log-close" title="閉じる">✕</button>
+      </div>
+      <div id="log-list"></div>
+      <div class="log-foot"><button id="log-clear">🗑 ログを消去</button></div>
+    </div>
+  </div>
+
 </div>
 
 <script>
@@ -386,6 +445,33 @@ let chatSubject = WEEKLY[new Date().getDay()];
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 const bear = t => `bear://x-callback-url/search?term=${encodeURIComponent(t)}`;
+
+// ════════════════════════════════════════════
+//  復習ログ（復習した記録＝マーク＋履歴）
+// ════════════════════════════════════════════
+let reviewLog = (()=>{ try{ return JSON.parse(localStorage.getItem("rf_review_log")||"[]"); }
+  catch(e){ return []; } })();
+// id → 最終復習timestamp（マーク表示用）
+let REVIEWED = {};
+function rebuildReviewed(){ REVIEWED={}; reviewLog.forEach(e=>{
+  if(!REVIEWED[e.id] || e.ts>REVIEWED[e.id]) REVIEWED[e.id]=e.ts; }); }
+rebuildReviewed();
+
+// カードの安定ID（同じ提案は同じID）
+const cardId = c => `${c.cat}::${c.subject||""}::${c.title}`;
+const dayKey = ts => new Date(ts - new Date().getTimezoneOffset()*60000).toISOString().slice(0,10);
+
+function recordReview(c){
+  const id = cardId(c);
+  reviewLog.push({ id, title:c.title, subject:c.subject||"", cat:c.cat, ts:Date.now() });
+  if(reviewLog.length>500) reviewLog = reviewLog.slice(-500);
+  localStorage.setItem("rf_review_log", JSON.stringify(reviewLog));
+  REVIEWED[id] = Date.now();
+}
+function todayReviewCount(){
+  const t = dayKey(Date.now());
+  return reviewLog.filter(e=> dayKey(e.ts)===t).length;
+}
 
 // ════════════════════════════════════════════
 //  ワンポイント（コツ）データ
@@ -639,10 +725,13 @@ function renderGreeting(){
   const streak = updateStreak();
   const count = ALL_CARDS.length;
   const subj = ctx?.subject || chatSubject;
+  const doneCnt = todayReviewCount();
   $("greet-stats").innerHTML =
     `<span class="stat-pill">🔥 <span class="num">${streak}</span>日つづけて</span>`
   + `<span class="stat-pill">✨ 今日の提案 <span class="num">${count}</span>件</span>`
+  + (doneCnt?`<span class="stat-pill tap done-pill" id="done-pill">✅ 今日 <span class="num">${doneCnt}</span>件復習</span>`:"")
   + (subj?`<span class="stat-pill">📌 きょうは <span class="num">${esc(subj)}</span></span>`:"");
+  const dp = $("done-pill"); if(dp) dp.onclick = openLog;
 }
 
 // ════════════════════════════════════════════
@@ -675,16 +764,18 @@ function renderCatBar(){
 
 function cardHTML(c){
   const m = CAT[c.cat];
+  const rv = REVIEWED[cardId(c)];
   const kws = (c.kws||[]).filter(Boolean).map(k=>
     `<a class="c-kw" href="${bear(k)}" onclick="event.stopPropagation()">🐻 ${esc(k)}</a>`).join("");
   const foot = c.read && c.url
     ? `<a class="c-go" style="text-align:center;text-decoration:none;line-height:1.2" href="${esc(c.url)}" target="_blank" onclick="event.stopPropagation()">記事を開く ↗</a>`
-    : `<button class="c-go">▶ これを復習</button>`
+    : `<button class="c-go">${rv?"🔁 もう一度":"▶ これを復習"}</button>`
       + (c.bearTerm?`<a class="c-bear" href="${bear(c.bearTerm)}" onclick="event.stopPropagation()">🐻 メモ</a>`:"");
-  return `<div class="card" style="--cc:${m.color};--ccbg:${m.bg}">
+  return `<div class="card${rv?" done":""}" style="--cc:${m.color};--ccbg:${m.bg}">
     <div class="c-top">
       <div class="c-ico">${m.icon}</div>
       <span class="c-badge">${m.label}</span>
+      ${rv?`<span class="c-done">✓ 済</span>`:""}
       ${c.when?`<span class="c-when">${esc(c.when)}</span>`:""}
     </div>
     <div class="c-title">${esc(c.title)}</div>
@@ -713,11 +804,12 @@ function renderFeed(){
   const hero = list[heroIdx>=0?heroIdx:0];
   const rest = list.filter(c=>c!==hero);
   const m = CAT[hero.cat];
+  const heroRv = REVIEWED[cardId(hero)];
   heroSlot.innerHTML = `<div class="hero" id="hero-card">
-    <div class="h-label">${m.icon} ${m.label}${hero.subject?" ・ "+esc(hero.subject):""}</div>
+    <div class="h-label">${m.icon} ${m.label}${hero.subject?" ・ "+esc(hero.subject):""}${heroRv?` &nbsp;<span class="h-done">✓ 復習済み</span>`:""}</div>
     <div class="h-title">${esc(hero.title)}</div>
     <div class="h-why">${esc(hero.why||"")}</div>
-    <button class="h-go">▶ いますぐ復習する</button>
+    <button class="h-go">${heroRv?"🔁 もう一度復習する":"▶ いますぐ復習する"}</button>
   </div>`;
   $("hero-card").onclick = ()=> launch(hero);
 
@@ -750,7 +842,8 @@ function showChatScreen(){ $("setup").classList.add("hidden"); $("scroll").class
 //  提案 → チャット起動
 // ════════════════════════════════════════════
 function launch(card){
-  if(card.read && card.url){ window.open(card.url, "_blank"); return; }
+  recordReview(card);
+  if(card.read && card.url){ renderFeed(); window.open(card.url, "_blank"); return; }
   chatSubject = card.subject || ctx?.subject || chatSubject;
   $("chat-subj").textContent = chatSubject;
   history = [];
@@ -889,12 +982,62 @@ $("msg-in").addEventListener("keydown", e=>{ if(e.key==="Enter"&&!e.shiftKey){ e
 $("send").addEventListener("click", ()=>{ if(!$("send").disabled) send($("msg-in").value); });
 document.querySelectorAll(".qb").forEach(b=> b.addEventListener("click", ()=>{ if(!busy) send(b.dataset.m); }));
 
+// ════════════════════════════════════════════
+//  復習ログ 表示
+// ════════════════════════════════════════════
+function fmtLogDay(ts){
+  const w=["日","月","火","水","木","金","土"];
+  const d=new Date(ts);
+  const today=new Date(); today.setHours(0,0,0,0);
+  const dd=new Date(ts); dd.setHours(0,0,0,0);
+  const n=Math.round((today-dd)/86400000);
+  const base=`${d.getMonth()+1}月${d.getDate()}日（${w[d.getDay()]}）`;
+  return n===0?base+" ・ 今日":n===1?base+" ・ 昨日":base;
+}
+function renderLog(){
+  const el=$("log-list");
+  if(reviewLog.length===0){
+    el.innerHTML=`<div class="log-empty">まだ復習の記録がありません。<br>カードの「▶ これを復習」から始めると、<br>ここに残っていきます。</div>`;
+    return;
+  }
+  const items=[...reviewLog].reverse();
+  let html=""; let curDay="";
+  items.forEach(e=>{
+    const dk=dayKey(e.ts);
+    if(dk!==curDay){ curDay=dk; html+=`<div class="log-day">${fmtLogDay(e.ts)}</div>`; }
+    const m=CAT[e.cat]||{icon:"📘",label:"復習",color:"var(--acc)",bg:"var(--surf2)"};
+    const time=new Date(e.ts).toLocaleTimeString("ja-JP",{hour:"2-digit",minute:"2-digit"});
+    html+=`<div class="log-item">
+      <div class="li-ico" style="background:${m.bg};color:${m.color}">${m.icon}</div>
+      <div class="li-body">
+        <div class="li-title">${esc(e.title)}</div>
+        <div class="li-meta">${e.subject?esc(e.subject)+" ・ ":""}${m.label}</div>
+      </div>
+      <span class="li-time">${time}</span>
+    </div>`;
+  });
+  el.innerHTML=html;
+}
+function openLog(){ renderLog(); $("log-ov").classList.remove("hidden"); }
+function closeLog(){ $("log-ov").classList.add("hidden"); }
+
 function backToFeed(){
   document.querySelectorAll(".sbt").forEach(b=>b.classList.remove("on"));
   document.querySelector(".sbt[data-s='']").classList.add("on");
   subjFilter=""; catFilter="all"; loadFeed();
 }
 $("back-btn").addEventListener("click", backToFeed);
+
+// 復習ログ
+$("log-btn").addEventListener("click", openLog);
+$("log-close").addEventListener("click", closeLog);
+$("log-ov").addEventListener("click", e=>{ if(e.target===$("log-ov")) closeLog(); });
+$("log-clear").addEventListener("click", ()=>{
+  if(!confirm("復習ログをすべて消去しますか？（マークも消えます）")) return;
+  reviewLog=[]; localStorage.removeItem("rf_review_log"); rebuildReviewed();
+  renderLog();
+  if(!$("scroll").classList.contains("hidden")) renderFeed();
+});
 
 // テーマ
 function applyTheme(dark){ document.body.classList.toggle("dark", dark);

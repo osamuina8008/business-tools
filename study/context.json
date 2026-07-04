@@ -1,98 +1,71 @@
 {
-  "subject": "刑訴法",
-  "date": "2026-07-04",
+  "subject": "商法",
+  "date": "2026-07-05",
   "keywords": [
-    "全肢"
+    "取締役会設置会社と非設置会社の",
+    "表見代表取締役・代表権の瑕疵",
+    "取締役会決議を欠く取引の効力"
   ],
-  "wrong_qs": [
-    "Q434（完全に理解できていない）"
-  ],
-  "wrong_topics": [
-    "完全に理解できていない"
-  ],
-  "today_logs": [
-    {
-      "type": "短答",
-      "questions_count": 8,
-      "understanding": "普通",
-      "topic": ""
-    },
-    {
-      "type": "短答",
-      "questions_count": 12,
-      "understanding": "普通",
-      "topic": ""
-    },
-    {
-      "type": "短答",
-      "questions_count": 7,
-      "understanding": "普通",
-      "topic": ""
-    },
-    {
-      "type": "インプット",
-      "questions_count": 0,
-      "understanding": "普通",
-      "topic": ""
-    }
-  ],
+  "wrong_qs": [],
+  "wrong_topics": [],
+  "today_logs": [],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-07-03",
-      "subject": "民事訴訟法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-01",
-      "subject": "刑法",
+      "date": "2026-07-04",
+      "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "収賄罪",
-        "信用毀損罪"
+        "参考人の証人尋問請求",
+        "取調べの録音・録画義務",
+        "外国人の刑事手続"
       ],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-06-27",
-      "subject": "刑事訴訟法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-06-27",
+      "date": "2026-07-04",
       "subject": "民法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-06-27",
-      "subject": "刑法",
-      "questions_count": 0,
-      "wrong_qs": [],
       "keywords": [
-        "公務執行妨害",
-        "逃走罪",
-        "犯人蔵匿"
+        "対抗要件ある不動産の賃貸人地位",
+        "地位移転の対抗要件",
+        "敷金・費用償還債務の承継"
       ],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-06-13",
-      "subject": "刑事訴訟法",
+      "date": "2026-07-04",
+      "subject": "刑法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "親族相盗の範囲",
+        "先行処分後の横領罪成立",
+        "賄賂罪の客体・要求"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-06-28",
+      "subject": "民法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "受領遅滞後の注意義務",
+        "受領遅滞中の双方不帰責滅失",
+        "買主の過失による滅失"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-06-28",
+      "subject": "商法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -246,14 +219,14 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-07-04T22:36:56.592850",
+  "updated_at": "2026-07-05T07:00:17.899026",
   "today_tasks": [
     {
       "subject": "憲法",
       "status": "遅れ",
       "action": "短答3問｜論点：違憲審査基準（LRA・比較衡量）・表現の自由・平等原則",
       "theme": "短答2周目開始・論文構成（骨組みのみ）",
-      "situation": "今週8/15問。あと7問（5日ぶり）",
+      "situation": "今週8/15問。あと7問（6日ぶり）",
       "actual_q": 8,
       "target_q": 15,
       "checked": false
@@ -263,7 +236,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：構成要件該当性・違法性阻却（正当防衛の要件）・共犯の成立",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週7/15問。あと8問",
+      "situation": "今週7/15問。あと8問（1日ぶり）",
       "actual_q": 7,
       "target_q": 15,
       "checked": false
@@ -273,7 +246,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：取消訴訟の訴訟要件（処分性・原告適格・出訴期間）",
       "theme": "短答2周目・条文ベース定着",
-      "situation": "今週0/15問。あと15問（8日ぶり）",
+      "situation": "今週0/15問。あと15問（9日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -283,7 +256,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：訴訟要件（当事者適格・訴えの利益）・既判力の範囲",
       "theme": "短答2周目",
-      "situation": "今週8/15問。あと7問（1日ぶり）",
+      "situation": "今週8/15問。あと7問（2日ぶり）",
       "actual_q": 8,
       "target_q": 15,
       "checked": false
@@ -293,17 +266,17 @@
       "status": "遅れ",
       "action": "短答3問｜論点：捜査の端緒・逮捕の種類と要件・接見交通権",
       "theme": "短答2周目",
-      "situation": "今週8/15問。あと7問",
+      "situation": "今週8/15問。あと7問（1日ぶり）",
       "actual_q": 8,
       "target_q": 15,
       "checked": false
     },
     {
       "subject": "商法",
-      "status": "今週",
-      "action": "6日前に学習済。今週の目標：短答2周目",
+      "status": "遅れ",
+      "action": "短答3問｜論点：株主総会決議（種類・要件・瑕疵）・取締役の善管注意義務",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（6日ぶり）",
+      "situation": "今週0/15問。あと15問（7日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -313,23 +286,18 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（11日ぶり）",
+      "situation": "今週0/10問。あと10問（12日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "賃借人交替（賃借権譲渡）の場合、旧賃借人の敷金は新賃借人に当然承継されるか？",
-  "quiz_answer_hint": "民法622条の2第1項2号",
-  "articles": [
-    "民法605条の2Ⅲ・Ⅳ",
-    "民法613条Ⅲ",
-    "民法622条の2Ⅰ・Ⅱ",
-    "借地借家法10条"
-  ],
-  "freq_rating": "★★★",
-  "weak_points_text": "賃貸人交替時の敷金承継（残額のみ）と賃借人交替時の敷金不承継の対比が混同しやすい。敷金充当を相殺と混同し意思表示が必要と誤解する傾向がある。",
-  "next_focus": "605条の2Ⅳ・622条の2・昭44最判を軸に敷金の承継・充当の詳細フローを整理する。転貸借の三面関係（修繕請求・賃料直接請求の方向性）を図式化して定着させる。",
+  "quiz_question": "",
+  "quiz_answer_hint": "",
+  "articles": [],
+  "freq_rating": "",
+  "weak_points_text": "",
+  "next_focus": "",
   "persistent_weak": [
     {
       "keyword": "処分権主義",

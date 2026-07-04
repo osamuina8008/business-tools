@@ -2,8 +2,7 @@
   "subject": "刑訴法",
   "date": "2026-07-04",
   "keywords": [
-    "全肢",
-    "暗記"
+    "全肢"
   ],
   "wrong_qs": [
     "Q434（完全に理解できていない）"
@@ -44,9 +43,7 @@
       "subject": "民事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [
-        "暗記"
-      ],
+      "keywords": [],
       "claude_notes": []
     },
     {
@@ -98,9 +95,7 @@
       "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [
-        "暗記"
-      ],
+      "keywords": [],
       "claude_notes": []
     }
   ],
@@ -251,7 +246,7 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-07-04T22:27:52.513264",
+  "updated_at": "2026-07-04T22:36:56.592850",
   "today_tasks": [
     {
       "subject": "憲法",

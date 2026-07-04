@@ -13,6 +13,12 @@
       "questions_count": 8,
       "understanding": "普通",
       "topic": ""
+    },
+    {
+      "type": "短答",
+      "questions_count": 12,
+      "understanding": "普通",
+      "topic": ""
     }
   ],
   "spacing_items": [
@@ -229,7 +235,7 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-07-04T15:20:20.373187",
+  "updated_at": "2026-07-04T15:35:14.473084",
   "today_tasks": [
     {
       "subject": "憲法",

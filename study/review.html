@@ -383,12 +383,12 @@
     </div>
     <div id="chat-area"></div>
     <div id="quick">
-      <button class="qb" data-m="次の問題をお願いします">▶ 次の問題</button>
-      <button class="qb" data-m="今の問題を A / B の2択にしてください">🅰 2択にする</button>
-      <button class="qb" data-m="もう少しやさしく説明してください">🔁 やさしく</button>
-      <button class="qb" data-m="ヒントをください">💡 ヒント</button>
+      <button class="qb" data-m="いちばん重要な要点を、もう少し詳しく教えてください">🔎 もっと詳しく</button>
+      <button class="qb" data-m="重複しない別の要点を5つ挙げてください">🔄 別の5つ</button>
+      <button class="qb" data-m="もう少しやさしく説明してください">🟢 やさしく</button>
       <button class="qb" data-m="関連する論点も教えてください">🔗 関連論点</button>
-      <button class="qb" data-m="今日はここまでにします。まとめてください">🏁 まとめ</button>
+      <button class="qb" data-m="確認のため、基本問題を1問だけ出してください">🧠 1問出す</button>
+      <button class="qb" data-m="今日はここまでにします。要点を3つにまとめてください">🏁 まとめ</button>
     </div>
     <div id="input-row">
       <textarea id="msg-in" placeholder="答えや質問を入力..." rows="1"></textarea>
@@ -564,7 +564,7 @@ function buildCards(ctx){
       title:`${it.subject}の${focus}、そろそろ復習どき`,
       why:`${lab}に学習。忘れかけの“いま”がいちばん定着します。`,
       when:lab, kws, bearTerm:it.date,
-      chat:`${it.subject}の「${kws.join("、")||"前回学習した内容"}」を復習したいです。基本確認問題を1問ずつ出して、答えたら短く解説してください。`,
+      chat:`${it.subject}の「${kws.join("、")||"前回学習した内容"}」について、覚えるべき要点を5つ、条文番号つきで簡潔に挙げてください。`,
       score: 100 + (kws.length?5:0),
     });
   });
@@ -577,7 +577,7 @@ function buildCards(ctx){
       title:`何度も間違えてる「${p.keyword}」、今日こそ`,
       why:`これまで${p.count||"複数"}回つまずいた論点。ここを潰すと一気に伸びます。`,
       when:`${p.count||""}回`, kws:[p.keyword], bearTerm:p.keyword,
-      chat:`${p.subject?p.subject+"の":""}「${p.keyword}」が苦手です。基礎から確認できるよう、やさしい問題で1つずつ整理させてください。`,
+      chat:`${p.subject?p.subject+"の":""}「${p.keyword}」が苦手です。基礎から押さえるべき要点を5つ、やさしく簡潔に挙げてください。`,
       score: 96,
     });
   });
@@ -589,7 +589,7 @@ function buildCards(ctx){
       title:`前回ひっかかった「${t}」を確認`,
       why:`直近で間違えたところ。記憶が新しいうちに上書きしましょう。`,
       kws:[t], bearTerm:t,
-      chat:`「${t}」について、基本確認問題を1問出してください。答えたら条文番号つきで短く解説を。`,
+      chat:`「${t}」について、覚えるべき要点を5つ、条文番号つきで簡潔に挙げてください。`,
       score: 88,
     });
   });
@@ -604,7 +604,7 @@ function buildCards(ctx){
       title:`${t.subject}：${t.action ? t.action.split("｜")[0] : (theme||"今日の一手")}`,
       why:`${t.situation?t.situation+"。":""}${late?"少し遅れ気味。5分でも前進を。":"今日の枠。軽く触れておこう。"}`,
       when:t.status, kws: theme?[theme]:[], bearTerm:t.subject,
-      chat:`${t.subject}の今日の課題に取り組みます。テーマは「${t.theme||t.action||"基礎確認"}」。確認問題を1問ずつ出してください。`,
+      chat:`${t.subject}の今日の課題に取り組みます。テーマは「${t.theme||t.action||"基礎確認"}」。このテーマの要点を5つ、簡潔に挙げてください。`,
       score: late ? 92 : 74,
     });
   });
@@ -616,7 +616,7 @@ function buildCards(ctx){
       title:`今日の1問に挑戦`,
       why: ctx.quiz_question.length>70 ? ctx.quiz_question.slice(0,70)+"…" : ctx.quiz_question,
       kws: ctx.quiz_answer_hint?[ctx.quiz_answer_hint]:[], bearTerm: ctx.quiz_answer_hint||ctx.subject,
-      chat:`次の問題を一緒に考えたいです：「${ctx.quiz_question}」。まずヒントを出し、私の答えを待ってから解説してください。`,
+      chat:`次のテーマについて、覚えるべき要点を5つ、簡潔に挙げてください：「${ctx.quiz_question}」。`,
       score: 80,
     });
   }
@@ -628,7 +628,7 @@ function buildCards(ctx){
       title:`${ctx.subject||""}の弱点、核心を整理`,
       why: ctx.weak_points_text.length>78 ? ctx.weak_points_text.slice(0,78)+"…" : ctx.weak_points_text,
       bearTerm: ctx.subject||"", kws:[],
-      chat:`${ctx.subject||"今日の科目"}で私がつまずきやすいのは次の点です：「${ctx.weak_points_text}」。ここを克服できるよう、ポイントを質問形式で確認させてください。`,
+      chat:`${ctx.subject||"今日の科目"}で私がつまずきやすいのは次の点です：「${ctx.weak_points_text}」。ここを克服するために押さえるべき要点を5つ、簡潔に挙げてください。`,
       score: 84,
     });
   }
@@ -638,7 +638,7 @@ function buildCards(ctx){
       title:`次に伸ばすならここ`,
       why: ctx.next_focus.length>78 ? ctx.next_focus.slice(0,78)+"…" : ctx.next_focus,
       bearTerm: ctx.subject||"", kws:[],
-      chat:`次の方針で進めたいです：「${ctx.next_focus}」。この方針に沿って、確認問題を1問ずつ出してください。`,
+      chat:`次の方針で進めたいです：「${ctx.next_focus}」。この方針に沿って、押さえるべき要点を5つ、簡潔に挙げてください。`,
       score: 72,
     });
   }
@@ -651,7 +651,7 @@ function buildCards(ctx){
       title:`Q${it.q_num} をもう一度`,
       why: axis ? (axis.length>70?axis.slice(0,70)+"…":axis) : "今日解いた問題の振り返り。",
       kws:[], bearTerm:`Q${it.q_num}`,
-      chat:`今日解いた Q${it.q_num}（${axis||"論点の振り返り"}）を、別の角度から1問出して理解を確かめさせてください。`,
+      chat:`今日解いた Q${it.q_num}（${axis||"論点の振り返り"}）について、復習すべき要点を5つ、簡潔に挙げてください。`,
       score: 78,
     });
   });
@@ -664,7 +664,7 @@ function buildCards(ctx){
         title:`${subj}：${tip.t}`,
         why: tip.b,
         kws:[tip.kw], bearTerm:tip.kw,
-        chat:`${subj}の「${tip.kw}」について理解を確かめたいです。基本確認問題を1問出してください。`,
+        chat:`${subj}の「${tip.kw}」について、覚えるべき要点を5つ、条文番号つきで簡潔に挙げてください。`,
         score: 40,
       });
     });
@@ -688,7 +688,7 @@ function buildCards(ctx){
       title:`重要条文：${a}`,
       why:`今日のテーマに関わる条文。素読みで定着を。`,
       kws:[a], bearTerm:a,
-      chat:`「${a}」の趣旨と要件を、穴埋め形式で確認させてください。`,
+      chat:`「${a}」の趣旨と要件を、要点5つで簡潔に整理してください。`,
       score: 34,
     });
   });
@@ -849,7 +849,7 @@ function launch(card){
   history = [];
   $("chat-area").innerHTML = "";
   showChatScreen();
-  send(card.chat || `${chatSubject}の復習を始めたいです。基本確認問題を1問出してください。`, {hidden:true, intro:card.title});
+  send(card.chat || `${chatSubject}の復習を始めたいです。今日押さえるべき要点を5つ、簡潔に挙げてください。`, {hidden:true, intro:card.title});
 }
 
 // ════════════════════════════════════════════
@@ -881,26 +881,27 @@ function buildSystem(){
     if(ctx.keywords?.length) extra += `\n今日のキーワード: ${ctx.keywords.join("、")}`;
     if(ctx.weak_points_text) extra += `\n弱点メモ: ${ctx.weak_points_text}`;
   }
-  return `あなたは司法試験予備試験の学習コーチです。受験生（53歳・予備試験2028年合格目標・毎朝3時半起きで学習）の復習を、短い会話で定着させます。
+  return `あなたは司法試験予備試験の学習コーチです。受験生（53歳・予備試験2028年合格目標・毎朝3時半起きで学習）の復習を助けます。
 
 現在の科目: ${chatSubject}${extra}
 
-【進め方】
-- 1回の返答は短く（3〜5文）。スマホ・タブレットで読む前提。
-- 難易度は「基本」。条文・定義・趣旨・要件など、答えが一つに決まる知識確認レベルにする。学説の細かい対立や微妙な当てはめ・ひっかけは出さない。
-- まず今回のテーマを1文で示し、すぐに基本確認問題を1問出す。
-- 問題形式は「❓ 〜とは？」「❓ 〜の要件は？」など。
+【基本の進め方＝「要点5つ」】
+- ユーザーがテーマを示したら、そのテーマで覚えるべき要点を5つ、簡潔に挙げる。これが基本の返答。クイズ・問題は基本的に出さない。
+- 出力は必ず次の形にする：
+  ・1行目にテーマを短く1文。
+  ・続けて「1. …」「2. …」…「5. …」の番号つきで5項目。
+  ・各項目は1〜2文。可能なら条文番号・定義・要件・趣旨を明記する。難易度は「基本」（学説の細かい対立や重箱ひっかけは避ける）。
+  ・最後に覚え方のコツか励ましを一言だけ添える（任意）。
+- スマホ・タブレットで読む前提。全体を短くまとめる。
 
-【出題ルール（重要）】
-- 問題を出す前に、必ず自分の中で正解を1つに確定してから出す。正解が定まらない問い・「どちらとも言える」問いは絶対に出さない。
-- 「2択」と言われたら「A: ○○ / B: ××」の形で出し直す。片方が明確に正しく、もう片方が明確に誤りになる選択肢だけにする。「実は両方誤り」のような選択肢は禁止。
-
-【採点ルール（重要）】
-- ユーザーがA/Bや答えを言ったら、返答の1行目で必ず正誤を明示する：正しければ「✅ 正解！（A）」、誤りなら「❌ 残念、正解は B」。
-- その後に1〜2文で理由（条文番号を明記）。あとから問題の前提をずらしたり、「実は〜ではない」と設問自体を否定したりしない。設問がおかしいと気づいたら、それを引きずらず次の問題で仕切り直す。
-
-- 次の問題はユーザーが求めた時だけ出す。
-- 励ましの一言を時々添える。「まとめて」と言われたら今日の要点を3つに整理して締める。`;
+【追加のやりとり】
+- 「もっと詳しく」→ 5要点のうち特に重要な1つを3〜5文で深掘り。
+- 「別の5つ」→ 先に挙げたものと重複しない別の要点を5つ挙げる。
+- 「やさしく」→ 専門用語を減らし、噛み砕いて説明し直す。
+- 「関連論点」→ そのテーマに関連する論点名を挙げ、各1文で要旨を添える。
+- 追加の質問には、その点だけ短く（3〜5文）答える。
+- 「問題を出して」「1問」など明示された時だけ、答えが一つに決まる基本確認問題を1問だけ出す（正解は必ず1つに確定してから出す）。ユーザーが答えたら1行目で正誤を明示し、1〜2文で理由（条文番号）を述べる。
+- 「まとめて」と言われたら今日の要点を3つに絞って締める。`;
 }
 
 async function send(text, opts={}){
@@ -964,7 +965,7 @@ document.querySelectorAll(".sbt").forEach(btn=>{
     if(!$("chat-wrap").classList.contains("hidden")){
       // チャット中：科目切替
       if(s){ chatSubject=s; $("chat-subj").textContent=s;
-        send(`科目を${s}に切り替えます。${s}の基本確認問題を1問出してください。`); }
+        send(`科目を${s}に切り替えます。${s}の今日押さえるべき要点を5つ、簡潔に挙げてください。`); }
       else { backToFeed(); }
     } else {
       subjFilter = s; catFilter="all"; reshuffle=0; renderFeed();

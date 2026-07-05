@@ -1,29 +1,31 @@
 {
-  "subject": "商法",
-  "date": "2026-07-05",
+  "subject": "憲法",
+  "date": "2026-07-06",
   "keywords": [
-    "取締役会設置会社と非設置会社の",
-    "表見代表取締役・代表権の瑕疵",
-    "取締役会決議を欠く取引の効力"
+    "人権享有主体",
+    "特別権力関係・被拘禁者の人権",
+    "公務員の人権・政治的行為"
   ],
-  "wrong_qs": [],
-  "wrong_topics": [],
+  "wrong_qs": [
+    "Q560（内容不明確だが「よくわかっていなかった」）",
+    "Q562（正誤の選択方向（「正しいもの」vs「誤っ）",
+    "Q564（委任契約は受任者の死亡で終了すると思って）"
+  ],
+  "wrong_topics": [
+    "内容不明確だが「よくわかっていなかった」",
+    "正誤の選択方向（「正しいもの」vs「誤っ",
+    "委任契約は受任者の死亡で終了すると思って"
+  ],
   "today_logs": [
     {
-      "type": "復習",
-      "questions_count": 8,
+      "type": "インプット",
+      "questions_count": 10,
       "understanding": "普通",
       "topic": ""
     },
     {
       "type": "短答",
-      "questions_count": 0,
-      "understanding": "普通",
-      "topic": ""
-    },
-    {
-      "type": "短答",
-      "questions_count": 0,
+      "questions_count": 5,
       "understanding": "普通",
       "topic": ""
     }
@@ -31,232 +33,285 @@
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-07-04",
-      "subject": "刑事訴訟法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "参考人の証人尋問請求",
-        "取調べの録音・録画義務",
-        "外国人の刑事手続"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-04",
-      "subject": "民法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "対抗要件ある不動産の賃貸人地位",
-        "地位移転の対抗要件",
-        "敷金・費用償還債務の承継"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-04",
-      "subject": "刑法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "親族相盗の範囲",
-        "先行処分後の横領罪成立",
-        "賄賂罪の客体・要求"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-06-28",
-      "subject": "民法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "受領遅滞後の注意義務",
-        "受領遅滞中の双方不帰責滅失",
-        "買主の過失による滅失"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-06-28",
+      "date": "2026-07-05",
       "subject": "商法",
       "questions_count": 0,
       "wrong_qs": [],
+      "keywords": [
+        "取締役会設置会社と非設置会社の",
+        "表見代表取締役・代表権の瑕疵",
+        "取締役会決議を欠く取引の効力"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-05",
+      "subject": "刑法",
+      "questions_count": 0,
+      "wrong_qs": [],
       "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-05",
+      "subject": "民法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "先取特権と敷金の関係",
+        "敷金充当請求の可否",
+        "必要費負担"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-03",
+      "subject": "民事訴訟法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-06-29",
+      "subject": "憲法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "全体"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-06-29",
+      "subject": "民法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "善意売主の解除権",
+        "数量超過の代金増額請求",
+        "権利不適合と期間制限"
+      ],
       "claude_notes": []
     }
   ],
   "today_schedule": [
     {
+      "time": "03:45",
+      "activity": "家起床"
+    },
+    {
+      "time": "03:50",
+      "activity": "家準備"
+    },
+    {
+      "time": "03:55",
+      "activity": "家瞑想"
+    },
+    {
+      "time": "03:59",
+      "activity": "家朝準備"
+    },
+    {
       "time": "04:00",
-      "activity": "実家"
+      "activity": "家学習"
     },
     {
       "time": "04:15",
-      "activity": "実家"
+      "activity": "家学習"
     },
     {
       "time": "04:30",
-      "activity": "実家"
+      "activity": "家学習"
     },
     {
       "time": "04:45",
-      "activity": "実家"
+      "activity": "家学習"
     },
     {
       "time": "05:00",
-      "activity": "実家"
+      "activity": "家学習"
     },
     {
       "time": "05:15",
-      "activity": "実家"
+      "activity": "家食事・準備"
     },
     {
       "time": "05:30",
-      "activity": "実家"
+      "activity": "移動家→駅"
     },
     {
-      "time": "05:45",
-      "activity": "実家"
+      "time": "06:05",
+      "activity": "電車学習"
     },
     {
-      "time": "06:00",
-      "activity": "実家"
+      "time": "06:15",
+      "activity": "電車学習"
     },
     {
       "time": "06:30",
-      "activity": "移動"
+      "activity": "電車学習"
     },
     {
       "time": "06:45",
-      "activity": "移動"
+      "activity": "移動移動"
     },
     {
       "time": "07:00",
-      "activity": "移動"
+      "activity": "移動運動"
     },
     {
       "time": "07:15",
-      "activity": "移動"
+      "activity": "移動運動"
     },
     {
-      "time": "07:30",
-      "activity": "移動"
+      "time": "07:40",
+      "activity": "仕事仕事"
     },
     {
       "time": "08:00",
-      "activity": "移動"
+      "activity": "仕事仕事"
     },
     {
       "time": "09:00",
-      "activity": "家掃除"
+      "activity": "仕事仕事"
     },
     {
       "time": "10:00",
-      "activity": "家掃除"
+      "activity": "仕事仕事"
     },
     {
       "time": "11:00",
-      "activity": "家掃除"
+      "activity": "仕事仕事"
     },
     {
       "time": "12:00",
-      "activity": "家掃除"
+      "activity": "仕事仕事"
+    },
+    {
+      "time": "13:00",
+      "activity": "仕事仕事"
     },
     {
       "time": "14:00",
-      "activity": "家学習"
+      "activity": "仕事仕事"
     },
     {
       "time": "15:00",
-      "activity": "家学習"
+      "activity": "仕事仕事"
     },
     {
       "time": "16:00",
-      "activity": "ベスパ確認"
+      "activity": "仕事仕事"
     },
     {
       "time": "17:00",
-      "activity": "ベスパ筋トレ"
-    },
-    {
-      "time": "17:15",
-      "activity": "ベスパ筋トレ"
-    },
-    {
-      "time": "17:30",
-      "activity": "移動"
+      "activity": "仕事仕事"
     },
     {
       "time": "18:00",
-      "activity": "家食事"
+      "activity": "仕事仕事"
     },
     {
-      "time": "18:15",
-      "activity": "家食事"
+      "time": "18:10",
+      "activity": "車移動"
     },
     {
-      "time": "18:30",
-      "activity": "家食事"
+      "time": "18:40",
+      "activity": "電車学習"
     },
     {
       "time": "18:45",
-      "activity": "家食事"
+      "activity": "電車学習"
     },
     {
       "time": "19:00",
-      "activity": "家料理準備"
+      "activity": "電車学習"
     },
     {
       "time": "19:15",
-      "activity": "家料理準備"
+      "activity": "電車学習"
     },
     {
-      "time": "19:30",
-      "activity": "家料理準備"
+      "time": "19:20",
+      "activity": "移動歩き"
     },
     {
-      "time": "19:45",
-      "activity": "家料理準備"
+      "time": "19:40",
+      "activity": "ベスパ筋トレ"
+    },
+    {
+      "time": "19:55",
+      "activity": "ベスパ運動"
+    },
+    {
+      "time": "20:05",
+      "activity": "ベスパストレッチ"
+    },
+    {
+      "time": "20:15",
+      "activity": "ベスパ風呂"
     },
     {
       "time": "20:30",
-      "activity": "家復習と到達点の確認"
+      "activity": "ベスパ風呂"
     },
     {
-      "time": "21:00",
-      "activity": "家復習と到達点の確認"
+      "time": "20:45",
+      "activity": "移動帰宅"
+    },
+    {
+      "time": "21:10",
+      "activity": "家片付け"
+    },
+    {
+      "time": "21:20",
+      "activity": "家復習・ブログ"
     },
     {
       "time": "21:30",
+      "activity": "家明日の支度"
+    },
+    {
+      "time": "21:45",
       "activity": "家就寝"
     }
   ],
   "has_data": true,
-  "updated_at": "2026-07-05T09:49:44.402602",
+  "updated_at": "2026-07-06T07:00:35.263952",
   "today_tasks": [
     {
       "subject": "憲法",
       "status": "遅れ",
       "action": "短答3問｜論点：違憲審査基準（LRA・比較衡量）・表現の自由・平等原則",
       "theme": "短答2周目開始・論文構成（骨組みのみ）",
-      "situation": "今週8/15問。あと7問（6日ぶり）",
-      "actual_q": 8,
+      "situation": "今週10/15問。あと5問",
+      "actual_q": 10,
+      "target_q": 15,
+      "checked": false
+    },
+    {
+      "subject": "民法",
+      "status": "遅れ",
+      "action": "短答3問｜論点：物権変動（対抗要件・善意取得）・抵当権の効力範囲",
+      "theme": "短答2周目・頻出論点の論文骨組み",
+      "situation": "今週5/15問。あと10問",
+      "actual_q": 5,
       "target_q": 15,
       "checked": false
     },
     {
       "subject": "刑法",
-      "status": "遅れ",
-      "action": "短答3問｜論点：構成要件該当性・違法性阻却（正当防衛の要件）・共犯の成立",
+      "status": "今週",
+      "action": "1日前に学習済。今週の目標：短答2周目・論文構成入門",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週7/15問。あと8問",
-      "actual_q": 7,
+      "situation": "今週0/15問。あと15問（1日ぶり）",
+      "actual_q": 0,
       "target_q": 15,
       "checked": false
     },
@@ -265,38 +320,38 @@
       "status": "遅れ",
       "action": "短答3問｜論点：取消訴訟の訴訟要件（処分性・原告適格・出訴期間）",
       "theme": "短答2周目・条文ベース定着",
-      "situation": "今週0/15問。あと15問（9日ぶり）",
+      "situation": "今週0/15問。あと15問（10日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
     },
     {
       "subject": "民事訴訟法",
-      "status": "遅れ",
-      "action": "短答3問｜論点：訴訟要件（当事者適格・訴えの利益）・既判力の範囲",
+      "status": "今週",
+      "action": "3日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週8/15問。あと7問（2日ぶり）",
-      "actual_q": 8,
+      "situation": "今週0/15問。あと15問（3日ぶり）",
+      "actual_q": 0,
       "target_q": 15,
       "checked": false
     },
     {
       "subject": "刑事訴訟法",
-      "status": "遅れ",
-      "action": "短答3問｜論点：捜査の端緒・逮捕の種類と要件・接見交通権",
+      "status": "今週",
+      "action": "2日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週8/15問。あと7問（1日ぶり）",
-      "actual_q": 8,
+      "situation": "今週0/15問。あと15問（2日ぶり）",
+      "actual_q": 0,
       "target_q": 15,
       "checked": false
     },
     {
       "subject": "商法",
-      "status": "遅れ",
-      "action": "短答3問｜論点：株主総会決議（種類・要件・瑕疵）・取締役の善管注意義務",
+      "status": "今週",
+      "action": "1日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週8/15問。あと7問",
-      "actual_q": 8,
+      "situation": "今週0/15問。あと15問（1日ぶり）",
+      "actual_q": 0,
       "target_q": 15,
       "checked": false
     },
@@ -305,18 +360,24 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（12日ぶり）",
+      "situation": "今週0/10問。あと10問（13日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "",
-  "quiz_answer_hint": "",
-  "articles": [],
-  "freq_rating": "",
-  "weak_points_text": "",
-  "next_focus": "",
+  "quiz_question": "無償委任の受任者が負う注意義務の程度は有償の場合と異なるか？",
+  "quiz_answer_hint": "民法644条",
+  "articles": [
+    "民法644条",
+    "民法651条",
+    "民法653条",
+    "民法650条",
+    "民法655条"
+  ],
+  "freq_rating": "★★★",
+  "weak_points_text": "無償委任でも善管注意義務が課される点を寄託の自己財産同一注意義務と混同しやすい。不利な時期の解除について「解除自体が不可」と誤解するひっかけに注意が必要。",
+  "next_focus": "死亡不終了特約の有効性と651条の損害賠償免責要件（やむを得ない事由）を判例ベースで整理する。寄託との注意義務の比較表を作成して混同を防ぐ。",
   "persistent_weak": [
     {
       "keyword": "処分権主義",

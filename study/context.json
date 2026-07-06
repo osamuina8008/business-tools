@@ -1,31 +1,28 @@
 {
-  "subject": "憲法",
-  "date": "2026-07-06",
+  "subject": "民法",
+  "date": "2026-07-07",
   "keywords": [
-    "人権享有主体",
-    "特別権力関係・被拘禁者の人権",
-    "公務員の人権・政治的行為"
+    "有償寄託において保管料を",
+    "無報酬受寄者の解除権",
+    "第三者保管の要件"
   ],
   "wrong_qs": [
-    "Q560（内容不明確だが「よくわかっていなかった」）",
-    "Q562（正誤の選択方向（「正しいもの」vs「誤っ）",
-    "Q564（委任契約は受任者の死亡で終了すると思って）"
+    "Q567・Q568（の基本ルール全般が未定着）",
+    "Q571・Q573（の基本ルールが初見状態）",
+    "Q573（「やむを得ない事由がある場合に限り脱退で）",
+    "Q574・Q575・Q577（「知識不足」と自覚あり）",
+    "Q566・Q572・Q576（常識・感覚で正解しているが条文根拠が不明）"
   ],
   "wrong_topics": [
-    "内容不明確だが「よくわかっていなかった」",
-    "正誤の選択方向（「正しいもの」vs「誤っ",
-    "委任契約は受任者の死亡で終了すると思って"
+    "の基本ルール全般が未定着",
+    "の基本ルールが初見状態",
+    "「やむを得ない事由がある場合に限り脱退で",
+    "常識・感覚で正解しているが条文根拠が不明"
   ],
   "today_logs": [
     {
-      "type": "インプット",
-      "questions_count": 10,
-      "understanding": "普通",
-      "topic": ""
-    },
-    {
       "type": "短答",
-      "questions_count": 5,
+      "questions_count": 12,
       "understanding": "普通",
       "topic": ""
     }
@@ -33,69 +30,99 @@
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-07-05",
-      "subject": "商法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "取締役会設置会社と非設置会社の",
-        "表見代表取締役・代表権の瑕疵",
-        "取締役会決議を欠く取引の効力"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-05",
-      "subject": "刑法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-05",
-      "subject": "民法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "先取特権と敷金の関係",
-        "敷金充当請求の可否",
-        "必要費負担"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-03",
-      "subject": "民事訴訟法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-06-29",
+      "date": "2026-07-06",
       "subject": "憲法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "全体"
+        "正誤",
+        "委任契約",
+        "人権享有主体"
       ],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-06-29",
+      "date": "2026-07-06",
       "subject": "民法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "善意売主の解除権",
-        "数量超過の代金増額請求",
-        "権利不適合と期間制限"
+        "正誤",
+        "委任契約",
+        "費用償還請求"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-04",
+      "subject": "刑事訴訟法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "参考人の証人尋問請求",
+        "取調べの録音・録画義務",
+        "外国人の刑事手続"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-04",
+      "subject": "民法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "対抗要件ある不動産の賃貸人地位",
+        "地位移転の対抗要件",
+        "敷金・費用償還債務の承継"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-04",
+      "subject": "刑法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "親族相盗の範囲",
+        "先行処分後の横領罪成立",
+        "賄賂罪の客体・要求"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-06-30",
+      "subject": "民法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "使用貸借",
+        "賃貸借",
+        "同時履行の抗弁権は消えるか"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-06-16",
+      "subject": "憲法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-06-16",
+      "subject": "民法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "通常"
       ],
       "claude_notes": []
     }
@@ -283,34 +310,24 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-07-06T21:41:12.202644",
+  "updated_at": "2026-07-07T07:00:33.968182",
   "today_tasks": [
     {
       "subject": "憲法",
       "status": "遅れ",
       "action": "短答3問｜論点：違憲審査基準（LRA・比較衡量）・表現の自由・平等原則",
       "theme": "短答2周目開始・論文構成（骨組みのみ）",
-      "situation": "今週10/15問。あと5問",
+      "situation": "今週10/15問。あと5問（1日ぶり）",
       "actual_q": 10,
-      "target_q": 15,
-      "checked": false
-    },
-    {
-      "subject": "民法",
-      "status": "遅れ",
-      "action": "短答3問｜論点：物権変動（対抗要件・善意取得）・抵当権の効力範囲",
-      "theme": "短答2周目・頻出論点の論文骨組み",
-      "situation": "今週5/15問。あと10問",
-      "actual_q": 5,
       "target_q": 15,
       "checked": false
     },
     {
       "subject": "刑法",
       "status": "今週",
-      "action": "1日前に学習済。今週の目標：短答2周目・論文構成入門",
+      "action": "2日前に学習済。今週の目標：短答2周目・論文構成入門",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週0/15問。あと15問（1日ぶり）",
+      "situation": "今週0/15問。あと15問（2日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -320,13 +337,23 @@
       "status": "遅れ",
       "action": "短答3問｜論点：取消訴訟の訴訟要件（処分性・原告適格・出訴期間）",
       "theme": "短答2周目・条文ベース定着",
-      "situation": "今週0/15問。あと15問（10日ぶり）",
+      "situation": "今週0/15問。あと15問（11日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
     },
     {
       "subject": "民事訴訟法",
+      "status": "今週",
+      "action": "4日前に学習済。今週の目標：短答2周目",
+      "theme": "短答2周目",
+      "situation": "今週0/15問。あと15問（4日ぶり）",
+      "actual_q": 0,
+      "target_q": 15,
+      "checked": false
+    },
+    {
+      "subject": "刑事訴訟法",
       "status": "今週",
       "action": "3日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
@@ -336,7 +363,7 @@
       "checked": false
     },
     {
-      "subject": "刑事訴訟法",
+      "subject": "商法",
       "status": "今週",
       "action": "2日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
@@ -346,38 +373,22 @@
       "checked": false
     },
     {
-      "subject": "商法",
-      "status": "今週",
-      "action": "1日前に学習済。今週の目標：短答2周目",
-      "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（1日ぶり）",
-      "actual_q": 0,
-      "target_q": 15,
-      "checked": false
-    },
-    {
       "subject": "実務基礎",
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（13日ぶり）",
+      "situation": "今週0/10問。あと10問（14日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "無償委任の受任者が負う注意義務の程度は有償の場合と異なるか？",
-  "quiz_answer_hint": "民法644条",
-  "articles": [
-    "民法644条",
-    "民法651条",
-    "民法653条",
-    "民法650条",
-    "民法655条"
-  ],
-  "freq_rating": "★★★",
-  "weak_points_text": "無償委任でも善管注意義務が課される点を寄託の自己財産同一注意義務と混同しやすい。不利な時期の解除について「解除自体が不可」と誤解するひっかけに注意が必要。",
-  "next_focus": "死亡不終了特約の有効性と651条の損害賠償免責要件（やむを得ない事由）を判例ベースで整理する。寄託との注意義務の比較表を作成して混同を防ぐ。",
+  "quiz_question": "",
+  "quiz_answer_hint": "",
+  "articles": [],
+  "freq_rating": "",
+  "weak_points_text": "",
+  "next_focus": "",
   "persistent_weak": [
     {
       "keyword": "処分権主義",

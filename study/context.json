@@ -1,28 +1,17 @@
 {
-  "subject": "民法",
-  "date": "2026-07-07",
+  "subject": "刑法",
+  "date": "2026-07-08",
   "keywords": [
-    "有償寄託において保管料を",
-    "無報酬受寄者の解除権",
-    "第三者保管の要件"
+    "刑罰論",
+    "罪刑法定主義",
+    "刑法の場所的適用範囲"
   ],
-  "wrong_qs": [
-    "Q567・Q568（の基本ルール全般が未定着）",
-    "Q571・Q573（の基本ルールが初見状態）",
-    "Q573（「やむを得ない事由がある場合に限り脱退で）",
-    "Q574・Q575・Q577（「知識不足」と自覚あり）",
-    "Q566・Q572・Q576（常識・感覚で正解しているが条文根拠が不明）"
-  ],
-  "wrong_topics": [
-    "の基本ルール全般が未定着",
-    "の基本ルールが初見状態",
-    "「やむを得ない事由がある場合に限り脱退で",
-    "常識・感覚で正解しているが条文根拠が不明"
-  ],
+  "wrong_qs": [],
+  "wrong_topics": [],
   "today_logs": [
     {
-      "type": "短答",
-      "questions_count": 12,
+      "type": "インプット",
+      "questions_count": 8,
       "understanding": "普通",
       "topic": ""
     }
@@ -30,86 +19,34 @@
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-07-06",
-      "subject": "憲法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "正誤",
-        "委任契約",
-        "人権享有主体"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-06",
+      "date": "2026-07-07",
       "subject": "民法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "正誤",
-        "委任契約",
-        "費用償還請求"
+        "有償寄託において保管料を",
+        "無報酬受寄者の解除権",
+        "第三者保管の要件"
       ],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-07-04",
-      "subject": "刑事訴訟法",
+      "date": "2026-07-05",
+      "subject": "商法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "参考人の証人尋問請求",
-        "取調べの録音・録画義務",
-        "外国人の刑事手続"
+        "取締役会設置会社と非設置会社の",
+        "表見代表取締役・代表権の瑕疵",
+        "取締役会決議を欠く取引の効力"
       ],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-07-04",
-      "subject": "民法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "対抗要件ある不動産の賃貸人地位",
-        "地位移転の対抗要件",
-        "敷金・費用償還債務の承継"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-04",
+      "date": "2026-07-05",
       "subject": "刑法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "親族相盗の範囲",
-        "先行処分後の横領罪成立",
-        "賄賂罪の客体・要求"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-06-30",
-      "subject": "民法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "使用貸借",
-        "賃貸借",
-        "同時履行の抗弁権は消えるか"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-06-16",
-      "subject": "憲法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -117,13 +54,36 @@
     },
     {
       "interval_label": "",
-      "date": "2026-06-16",
+      "date": "2026-07-05",
       "subject": "民法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "通常"
+        "先取特権と敷金の関係",
+        "敷金充当請求の可否",
+        "必要費負担"
       ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-01",
+      "subject": "刑法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "収賄罪",
+        "信用毀損罪"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-06-17",
+      "subject": "民法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
       "claude_notes": []
     }
   ],
@@ -310,25 +270,25 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-07-07T07:00:33.968182",
+  "updated_at": "2026-07-08T07:00:43.816427",
   "today_tasks": [
     {
       "subject": "憲法",
       "status": "遅れ",
       "action": "短答3問｜論点：違憲審査基準（LRA・比較衡量）・表現の自由・平等原則",
       "theme": "短答2周目開始・論文構成（骨組みのみ）",
-      "situation": "今週10/15問。あと5問（1日ぶり）",
+      "situation": "今週10/15問。あと5問（2日ぶり）",
       "actual_q": 10,
       "target_q": 15,
       "checked": false
     },
     {
       "subject": "刑法",
-      "status": "今週",
-      "action": "2日前に学習済。今週の目標：短答2周目・論文構成入門",
+      "status": "遅れ",
+      "action": "短答3問｜論点：構成要件該当性・違法性阻却（正当防衛の要件）・共犯の成立",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週0/15問。あと15問（2日ぶり）",
-      "actual_q": 0,
+      "situation": "今週8/15問。あと7問",
+      "actual_q": 8,
       "target_q": 15,
       "checked": false
     },
@@ -337,13 +297,23 @@
       "status": "遅れ",
       "action": "短答3問｜論点：取消訴訟の訴訟要件（処分性・原告適格・出訴期間）",
       "theme": "短答2周目・条文ベース定着",
-      "situation": "今週0/15問。あと15問（11日ぶり）",
+      "situation": "今週0/15問。あと15問（12日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
     },
     {
       "subject": "民事訴訟法",
+      "status": "今週",
+      "action": "5日前に学習済。今週の目標：短答2周目",
+      "theme": "短答2周目",
+      "situation": "今週0/15問。あと15問（5日ぶり）",
+      "actual_q": 0,
+      "target_q": 15,
+      "checked": false
+    },
+    {
+      "subject": "刑事訴訟法",
       "status": "今週",
       "action": "4日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
@@ -353,7 +323,7 @@
       "checked": false
     },
     {
-      "subject": "刑事訴訟法",
+      "subject": "商法",
       "status": "今週",
       "action": "3日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
@@ -363,21 +333,11 @@
       "checked": false
     },
     {
-      "subject": "商法",
-      "status": "今週",
-      "action": "2日前に学習済。今週の目標：短答2周目",
-      "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（2日ぶり）",
-      "actual_q": 0,
-      "target_q": 15,
-      "checked": false
-    },
-    {
       "subject": "実務基礎",
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（14日ぶり）",
+      "situation": "今週0/10問。あと10問（15日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -433,13 +393,6 @@
       "category": "prep"
     },
     {
-      "title": "【受験生応援イベント】 6/26(金) 19時から 「2026年司法試験直前!応援トーク」 伊藤真塾長・岡崎敬講師へのご質問を受付中です!",
-      "label": "「予備校・イベント・教材」 【受験生応援イベント】 6/26(金) 19時から 「2026年司法試験直前!応援トーク」 伊藤真塾長・岡崎敬講師へのご質問を受付中です!",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/feature/shiken/shihou/chokuzen.html",
-      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
-      "category": "prep"
-    },
-    {
       "title": "【受験生応援イベント】 「2026年予備試験直前!応援トーク」 7/4(土)18時から伊藤塾東京校 & Zoomオンラインライブ実施!",
       "label": "「予備校ニュース」 【受験生応援イベント】 「2026年予備試験直前!応援トーク」 7/4(土)18時から伊藤塾東京校 & Zoomオンラインライブ実施!",
       "url": "https://www.itojuku.co.jp/shiken/shihou/feature/shiken/yobi/tantouchokuzen.html",
@@ -473,6 +426,13 @@
       "url": "https://www.nichibenren.or.jp/activity/training/law_schools.html",
       "source": "日弁連｜活動・トピックス",
       "category": "media"
+    },
+    {
+      "title": "司法試験予備試験に関するＱ＆Ａ",
+      "label": "「まず疑問の整理」 司法試験予備試験に関するＱ＆Ａ",
+      "url": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00210.html",
+      "source": "法務省｜司法試験・予備試験",
+      "category": "official"
     }
   ]
 }

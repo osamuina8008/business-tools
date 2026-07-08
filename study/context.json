@@ -1,17 +1,19 @@
 {
-  "subject": "刑法",
-  "date": "2026-07-08",
-  "keywords": [
-    "刑罰論",
-    "罪刑法定主義",
-    "刑法の場所的適用範囲"
-  ],
+  "subject": "行政法",
+  "date": "2026-07-09",
+  "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
   "today_logs": [
     {
       "type": "インプット",
-      "questions_count": 8,
+      "questions_count": 10,
+      "understanding": "普通",
+      "topic": ""
+    },
+    {
+      "type": "短答",
+      "questions_count": 15,
       "understanding": "普通",
       "topic": ""
     }
@@ -19,68 +21,60 @@
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-07-07",
-      "subject": "民法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "有償寄託において保管料を",
-        "無報酬受寄者の解除権",
-        "第三者保管の要件"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-05",
-      "subject": "商法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "取締役会設置会社と非設置会社の",
-        "表見代表取締役・代表権の瑕疵",
-        "取締役会決議を欠く取引の効力"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-05",
-      "subject": "刑法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-05",
-      "subject": "民法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "先取特権と敷金の関係",
-        "敷金充当請求の可否",
-        "必要費負担"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-01",
+      "date": "2026-07-08",
       "subject": "刑法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "収賄罪",
-        "信用毀損罪"
+        "刑罰論",
+        "罪刑法定主義",
+        "刑法の場所的適用範囲"
       ],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-06-17",
+      "date": "2026-07-06",
+      "subject": "憲法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "正誤",
+        "委任契約",
+        "人権享有主体"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-06",
       "subject": "民法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "正誤",
+        "委任契約",
+        "費用償還請求"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-06-18",
+      "subject": "行政法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "行政契約の自由と限界",
+        "行政指導の留保と限界",
+        "行政指導の処分性"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-06-18",
+      "subject": "刑法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -270,14 +264,14 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-07-08T07:00:43.816427",
+  "updated_at": "2026-07-09T07:00:24.428447",
   "today_tasks": [
     {
       "subject": "憲法",
       "status": "遅れ",
       "action": "短答3問｜論点：違憲審査基準（LRA・比較衡量）・表現の自由・平等原則",
       "theme": "短答2周目開始・論文構成（骨組みのみ）",
-      "situation": "今週10/15問。あと5問（2日ぶり）",
+      "situation": "今週10/15問。あと5問（3日ぶり）",
       "actual_q": 10,
       "target_q": 15,
       "checked": false
@@ -287,23 +281,23 @@
       "status": "遅れ",
       "action": "短答3問｜論点：構成要件該当性・違法性阻却（正当防衛の要件）・共犯の成立",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週8/15問。あと7問",
+      "situation": "今週8/15問。あと7問（1日ぶり）",
       "actual_q": 8,
       "target_q": 15,
       "checked": false
     },
     {
-      "subject": "行政法",
-      "status": "遅れ",
-      "action": "短答3問｜論点：取消訴訟の訴訟要件（処分性・原告適格・出訴期間）",
-      "theme": "短答2周目・条文ベース定着",
-      "situation": "今週0/15問。あと15問（12日ぶり）",
+      "subject": "民事訴訟法",
+      "status": "今週",
+      "action": "6日前に学習済。今週の目標：短答2周目",
+      "theme": "短答2周目",
+      "situation": "今週0/15問。あと15問（6日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
     },
     {
-      "subject": "民事訴訟法",
+      "subject": "刑事訴訟法",
       "status": "今週",
       "action": "5日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
@@ -313,7 +307,7 @@
       "checked": false
     },
     {
-      "subject": "刑事訴訟法",
+      "subject": "商法",
       "status": "今週",
       "action": "4日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
@@ -323,30 +317,41 @@
       "checked": false
     },
     {
-      "subject": "商法",
-      "status": "今週",
-      "action": "3日前に学習済。今週の目標：短答2周目",
-      "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（3日ぶり）",
-      "actual_q": 0,
-      "target_q": 15,
-      "checked": false
-    },
-    {
       "subject": "実務基礎",
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（15日ぶり）",
+      "situation": "今週0/10問。あと10問（16日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "",
-  "quiz_answer_hint": "",
-  "articles": [],
-  "freq_rating": "",
+  "quiz_question": "産業廃棄物処理施設の設置許可を取り消す場合、聴聞と弁明のどちらが必要か？",
+  "quiz_answer_hint": "行政手続法13条1項1号イ（許認可取消→聴聞）",
+  "articles": [
+    {
+      "gist": "審査基準：公表義務・具体的設定義務",
+      "ref": "行政手続法5条"
+    },
+    {
+      "gist": "処分基準：設定・公表は努力義務",
+      "ref": "行政手続法12条"
+    },
+    {
+      "gist": "許認可取消は聴聞が必要",
+      "ref": "行政手続法13条1項1号イ"
+    },
+    {
+      "gist": "理由提示：名あて人に同時提示",
+      "ref": "行政手続法14条1項"
+    },
+    {
+      "gist": "資料閲覧権：不利益を受ける参加人のみ",
+      "ref": "行政手続法18条1項"
+    }
+  ],
+  "freq_rating": "★★★",
   "weak_points_text": "",
   "next_focus": "",
   "persistent_weak": [

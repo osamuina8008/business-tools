@@ -1,80 +1,48 @@
 {
-  "subject": "行政法",
-  "date": "2026-07-09",
-  "keywords": [],
+  "subject": "民訴法",
+  "date": "2026-07-10",
+  "keywords": [
+    "全体",
+    "争点整理",
+    "証拠調べ"
+  ],
   "wrong_qs": [],
   "wrong_topics": [],
   "today_logs": [
     {
-      "type": "インプット",
+      "type": "復習",
       "questions_count": 10,
-      "understanding": "普通",
-      "topic": ""
-    },
-    {
-      "type": "短答",
-      "questions_count": 15,
-      "understanding": "普通",
+      "understanding": "要復習",
       "topic": ""
     }
   ],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-07-08",
-      "subject": "刑法",
+      "date": "2026-07-09",
+      "subject": "行政法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [
-        "刑罰論",
-        "罪刑法定主義",
-        "刑法の場所的適用範囲"
-      ],
+      "keywords": [],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-07-06",
-      "subject": "憲法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "正誤",
-        "委任契約",
-        "人権享有主体"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-06",
+      "date": "2026-07-07",
       "subject": "民法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "正誤",
-        "委任契約",
-        "費用償還請求"
+        "有償寄託において保管料を",
+        "無報酬受寄者の解除権",
+        "第三者保管の要件"
       ],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-06-18",
-      "subject": "行政法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "行政契約の自由と限界",
-        "行政指導の留保と限界",
-        "行政指導の処分性"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-06-18",
-      "subject": "刑法",
+      "date": "2026-07-03",
+      "subject": "民事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -264,14 +232,14 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-07-09T07:00:24.428447",
+  "updated_at": "2026-07-10T07:00:51.831312",
   "today_tasks": [
     {
       "subject": "憲法",
       "status": "遅れ",
       "action": "短答3問｜論点：違憲審査基準（LRA・比較衡量）・表現の自由・平等原則",
       "theme": "短答2周目開始・論文構成（骨組みのみ）",
-      "situation": "今週10/15問。あと5問（3日ぶり）",
+      "situation": "今週10/15問。あと5問（4日ぶり）",
       "actual_q": 10,
       "target_q": 15,
       "checked": false
@@ -281,13 +249,23 @@
       "status": "遅れ",
       "action": "短答3問｜論点：構成要件該当性・違法性阻却（正当防衛の要件）・共犯の成立",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週8/15問。あと7問（1日ぶり）",
+      "situation": "今週8/15問。あと7問（2日ぶり）",
       "actual_q": 8,
       "target_q": 15,
       "checked": false
     },
     {
       "subject": "民事訴訟法",
+      "status": "遅れ",
+      "action": "短答3問｜論点：訴訟要件（当事者適格・訴えの利益）・既判力の範囲",
+      "theme": "短答2周目",
+      "situation": "今週10/15問。あと5問",
+      "actual_q": 10,
+      "target_q": 15,
+      "checked": false
+    },
+    {
+      "subject": "刑事訴訟法",
       "status": "今週",
       "action": "6日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
@@ -297,7 +275,7 @@
       "checked": false
     },
     {
-      "subject": "刑事訴訟法",
+      "subject": "商法",
       "status": "今週",
       "action": "5日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
@@ -307,48 +285,38 @@
       "checked": false
     },
     {
-      "subject": "商法",
-      "status": "今週",
-      "action": "4日前に学習済。今週の目標：短答2周目",
-      "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（4日ぶり）",
-      "actual_q": 0,
-      "target_q": 15,
-      "checked": false
-    },
-    {
       "subject": "実務基礎",
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（16日ぶり）",
+      "situation": "今週0/10問。あと10問（17日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "産業廃棄物処理施設の設置許可を取り消す場合、聴聞と弁明のどちらが必要か？",
-  "quiz_answer_hint": "行政手続法13条1項1号イ（許認可取消→聴聞）",
+  "quiz_question": "口頭弁論終結後判決言渡し前に被告が死亡した場合、訴訟手続は中断するか？",
+  "quiz_answer_hint": "民訴法124条1項柱書・132条1項",
   "articles": [
     {
-      "gist": "審査基準：公表義務・具体的設定義務",
-      "ref": "行政手続法5条"
+      "gist": "訴訟手続の中断事由を列挙",
+      "ref": "民訴法124条1項"
     },
     {
-      "gist": "処分基準：設定・公表は努力義務",
-      "ref": "行政手続法12条"
+      "gist": "中断中でも判決言渡しは可能",
+      "ref": "民訴法132条1項"
     },
     {
-      "gist": "許認可取消は聴聞が必要",
-      "ref": "行政手続法13条1項1号イ"
+      "gist": "片方欠席時の陳述擬制",
+      "ref": "民訴法158条"
     },
     {
-      "gist": "理由提示：名あて人に同時提示",
-      "ref": "行政手続法14条1項"
+      "gist": "弁論準備手続は文書等に限定",
+      "ref": "民訴法170条2項"
     },
     {
-      "gist": "資料閲覧権：不利益を受ける参加人のみ",
-      "ref": "行政手続法18条1項"
+      "gist": "選定当事者制度・脱退効",
+      "ref": "民訴法30条1・2項"
     }
   ],
   "freq_rating": "★★★",

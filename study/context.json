@@ -1,26 +1,84 @@
 {
-  "subject": "民訴法",
-  "date": "2026-07-10",
+  "subject": "刑訴法",
+  "date": "2026-07-11",
   "keywords": [
-    "全体",
-    "争点整理",
-    "証拠調べ"
+    "身体検査令状",
+    "捜索差押令状",
+    "鑑定処分許可"
   ],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [
-    {
-      "type": "復習",
-      "questions_count": 10,
-      "understanding": "要復習",
-      "topic": ""
-    }
-  ],
+  "today_logs": [],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-07-09",
-      "subject": "行政法",
+      "date": "2026-07-10",
+      "subject": "民事訴訟法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "全体",
+        "争点整理",
+        "証拠調べ"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-08",
+      "subject": "刑法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "刑罰論",
+        "罪刑法定主義",
+        "刑法の場所的適用範囲"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-04",
+      "subject": "刑事訴訟法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "参考人の証人尋問請求",
+        "取調べの録音・録画義務",
+        "外国人の刑事手続"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-04",
+      "subject": "民法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "対抗要件ある不動産の賃貸人地位",
+        "地位移転の対抗要件",
+        "敷金・費用償還債務の承継"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-04",
+      "subject": "刑法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "親族相盗の範囲",
+        "先行処分後の横領罪成立",
+        "賄賂罪の客体・要求"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-06-20",
+      "subject": "民事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -28,21 +86,21 @@
     },
     {
       "interval_label": "",
-      "date": "2026-07-07",
-      "subject": "民法",
+      "date": "2026-06-20",
+      "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "有償寄託において保管料を",
-        "無報酬受寄者の解除権",
-        "第三者保管の要件"
+        "相殺",
+        "混同",
+        "勾留理由開示"
       ],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-07-03",
-      "subject": "民事訴訟法",
+      "date": "2026-06-20",
+      "subject": "民法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -51,195 +109,159 @@
   ],
   "today_schedule": [
     {
-      "time": "03:45",
-      "activity": "家起床"
-    },
-    {
-      "time": "03:50",
-      "activity": "家準備"
-    },
-    {
-      "time": "03:55",
-      "activity": "家瞑想"
-    },
-    {
-      "time": "03:59",
-      "activity": "家朝準備"
-    },
-    {
       "time": "04:00",
-      "activity": "家学習"
+      "activity": "実家"
     },
     {
       "time": "04:15",
-      "activity": "家学習"
+      "activity": "実家"
     },
     {
       "time": "04:30",
-      "activity": "家学習"
+      "activity": "実家"
     },
     {
       "time": "04:45",
-      "activity": "家学習"
+      "activity": "実家"
     },
     {
       "time": "05:00",
-      "activity": "家学習"
+      "activity": "実家"
     },
     {
       "time": "05:15",
-      "activity": "家食事・準備"
+      "activity": "実家"
     },
     {
       "time": "05:30",
-      "activity": "移動家→駅"
+      "activity": "実家"
     },
     {
-      "time": "06:05",
-      "activity": "電車学習"
+      "time": "05:45",
+      "activity": "実家"
     },
     {
-      "time": "06:15",
-      "activity": "電車学習"
+      "time": "06:00",
+      "activity": "実家"
     },
     {
       "time": "06:30",
-      "activity": "電車学習"
+      "activity": "移動"
     },
     {
       "time": "06:45",
-      "activity": "移動移動"
+      "activity": "移動"
     },
     {
       "time": "07:00",
-      "activity": "移動運動"
+      "activity": "移動"
     },
     {
       "time": "07:15",
-      "activity": "移動運動"
+      "activity": "移動"
     },
     {
-      "time": "07:40",
-      "activity": "仕事仕事"
+      "time": "07:30",
+      "activity": "移動"
     },
     {
       "time": "08:00",
-      "activity": "仕事仕事"
+      "activity": "移動"
     },
     {
       "time": "09:00",
-      "activity": "仕事仕事"
+      "activity": "家掃除"
     },
     {
       "time": "10:00",
-      "activity": "仕事仕事"
+      "activity": "家掃除"
     },
     {
       "time": "11:00",
-      "activity": "仕事仕事"
+      "activity": "家掃除"
     },
     {
       "time": "12:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "13:00",
-      "activity": "仕事仕事"
+      "activity": "家掃除"
     },
     {
       "time": "14:00",
-      "activity": "仕事仕事"
+      "activity": "家学習"
     },
     {
       "time": "15:00",
-      "activity": "仕事仕事"
+      "activity": "家学習"
     },
     {
       "time": "16:00",
-      "activity": "仕事仕事"
+      "activity": "ベスパ確認"
     },
     {
       "time": "17:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "18:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "18:10",
-      "activity": "車移動"
-    },
-    {
-      "time": "18:40",
-      "activity": "電車学習"
-    },
-    {
-      "time": "18:45",
-      "activity": "電車学習"
-    },
-    {
-      "time": "19:00",
-      "activity": "電車学習"
-    },
-    {
-      "time": "19:15",
-      "activity": "電車学習"
-    },
-    {
-      "time": "19:20",
-      "activity": "移動歩き"
-    },
-    {
-      "time": "19:40",
       "activity": "ベスパ筋トレ"
     },
     {
-      "time": "19:55",
-      "activity": "ベスパ運動"
+      "time": "17:15",
+      "activity": "ベスパ筋トレ"
     },
     {
-      "time": "20:05",
-      "activity": "ベスパストレッチ"
+      "time": "17:30",
+      "activity": "移動"
     },
     {
-      "time": "20:15",
-      "activity": "ベスパ風呂"
+      "time": "18:00",
+      "activity": "家食事"
+    },
+    {
+      "time": "18:15",
+      "activity": "家食事"
+    },
+    {
+      "time": "18:30",
+      "activity": "家食事"
+    },
+    {
+      "time": "18:45",
+      "activity": "家食事"
+    },
+    {
+      "time": "19:00",
+      "activity": "家料理準備"
+    },
+    {
+      "time": "19:15",
+      "activity": "家料理準備"
+    },
+    {
+      "time": "19:30",
+      "activity": "家料理準備"
+    },
+    {
+      "time": "19:45",
+      "activity": "家料理準備"
     },
     {
       "time": "20:30",
-      "activity": "ベスパ風呂"
+      "activity": "家復習と到達点の確認"
     },
     {
-      "time": "20:45",
-      "activity": "移動帰宅"
-    },
-    {
-      "time": "21:10",
-      "activity": "家片付け"
-    },
-    {
-      "time": "21:20",
-      "activity": "家復習・ブログ"
+      "time": "21:00",
+      "activity": "家復習と到達点の確認"
     },
     {
       "time": "21:30",
-      "activity": "家明日の支度"
-    },
-    {
-      "time": "21:45",
       "activity": "家就寝"
     }
   ],
   "has_data": true,
-  "updated_at": "2026-07-10T07:00:51.831312",
+  "updated_at": "2026-07-11T07:00:37.780380",
   "today_tasks": [
     {
       "subject": "憲法",
       "status": "遅れ",
       "action": "短答3問｜論点：違憲審査基準（LRA・比較衡量）・表現の自由・平等原則",
       "theme": "短答2周目開始・論文構成（骨組みのみ）",
-      "situation": "今週10/15問。あと5問（4日ぶり）",
+      "situation": "今週10/15問。あと5問（5日ぶり）",
       "actual_q": 10,
       "target_q": 15,
       "checked": false
@@ -249,7 +271,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：構成要件該当性・違法性阻却（正当防衛の要件）・共犯の成立",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週8/15問。あと7問（2日ぶり）",
+      "situation": "今週8/15問。あと7問（3日ぶり）",
       "actual_q": 8,
       "target_q": 15,
       "checked": false
@@ -259,13 +281,23 @@
       "status": "遅れ",
       "action": "短答3問｜論点：訴訟要件（当事者適格・訴えの利益）・既判力の範囲",
       "theme": "短答2周目",
-      "situation": "今週10/15問。あと5問",
+      "situation": "今週10/15問。あと5問（1日ぶり）",
       "actual_q": 10,
       "target_q": 15,
       "checked": false
     },
     {
       "subject": "刑事訴訟法",
+      "status": "遅れ",
+      "action": "短答3問｜論点：捜査の端緒・逮捕の種類と要件・接見交通権",
+      "theme": "短答2周目",
+      "situation": "今週0/15問。あと15問（7日ぶり）",
+      "actual_q": 0,
+      "target_q": 15,
+      "checked": false
+    },
+    {
+      "subject": "商法",
       "status": "今週",
       "action": "6日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
@@ -275,51 +307,20 @@
       "checked": false
     },
     {
-      "subject": "商法",
-      "status": "今週",
-      "action": "5日前に学習済。今週の目標：短答2周目",
-      "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（5日ぶり）",
-      "actual_q": 0,
-      "target_q": 15,
-      "checked": false
-    },
-    {
       "subject": "実務基礎",
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（17日ぶり）",
+      "situation": "今週0/10問。あと10問（18日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "口頭弁論終結後判決言渡し前に被告が死亡した場合、訴訟手続は中断するか？",
-  "quiz_answer_hint": "民訴法124条1項柱書・132条1項",
-  "articles": [
-    {
-      "gist": "訴訟手続の中断事由を列挙",
-      "ref": "民訴法124条1項"
-    },
-    {
-      "gist": "中断中でも判決言渡しは可能",
-      "ref": "民訴法132条1項"
-    },
-    {
-      "gist": "片方欠席時の陳述擬制",
-      "ref": "民訴法158条"
-    },
-    {
-      "gist": "弁論準備手続は文書等に限定",
-      "ref": "民訴法170条2項"
-    },
-    {
-      "gist": "選定当事者制度・脱退効",
-      "ref": "民訴法30条1・2項"
-    }
-  ],
-  "freq_rating": "★★★",
+  "quiz_question": "",
+  "quiz_answer_hint": "",
+  "articles": [],
+  "freq_rating": "",
   "weak_points_text": "",
   "next_focus": "",
   "persistent_weak": [

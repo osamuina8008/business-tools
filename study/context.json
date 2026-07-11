@@ -8,7 +8,20 @@
   ],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [],
+  "today_logs": [
+    {
+      "type": "インプット",
+      "questions_count": 10,
+      "understanding": "普通",
+      "topic": ""
+    },
+    {
+      "type": "インプット",
+      "questions_count": 0,
+      "understanding": "普通",
+      "topic": ""
+    }
+  ],
   "spacing_items": [
     {
       "interval_label": "",
@@ -254,7 +267,7 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-07-11T07:00:37.780380",
+  "updated_at": "2026-07-11T09:17:04.618379",
   "today_tasks": [
     {
       "subject": "憲法",
@@ -273,16 +286,6 @@
       "theme": "短答2周目・論文構成入門",
       "situation": "今週8/15問。あと7問（3日ぶり）",
       "actual_q": 8,
-      "target_q": 15,
-      "checked": false
-    },
-    {
-      "subject": "民事訴訟法",
-      "status": "遅れ",
-      "action": "短答3問｜論点：訴訟要件（当事者適格・訴えの利益）・既判力の範囲",
-      "theme": "短答2周目",
-      "situation": "今週10/15問。あと5問（1日ぶり）",
-      "actual_q": 10,
       "target_q": 15,
       "checked": false
     },

@@ -1,96 +1,18 @@
 {
-  "subject": "刑訴法",
-  "date": "2026-07-11",
+  "subject": "商法",
+  "date": "2026-07-12",
   "keywords": [
-    "身体検査令状",
-    "捜索差押令状",
-    "鑑定処分許可"
+    "競業取引",
+    "利益相反取引の承認手続と",
+    "本件取引が利益相反取引に"
   ],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [
-    {
-      "type": "インプット",
-      "questions_count": 10,
-      "understanding": "普通",
-      "topic": ""
-    },
-    {
-      "type": "インプット",
-      "questions_count": 0,
-      "understanding": "普通",
-      "topic": ""
-    }
-  ],
+  "today_logs": [],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-07-10",
-      "subject": "民事訴訟法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "全体",
-        "争点整理",
-        "証拠調べ"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-08",
-      "subject": "刑法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "刑罰論",
-        "罪刑法定主義",
-        "刑法の場所的適用範囲"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-04",
-      "subject": "刑事訴訟法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "参考人の証人尋問請求",
-        "取調べの録音・録画義務",
-        "外国人の刑事手続"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-04",
-      "subject": "民法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "対抗要件ある不動産の賃貸人地位",
-        "地位移転の対抗要件",
-        "敷金・費用償還債務の承継"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-04",
-      "subject": "刑法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "親族相盗の範囲",
-        "先行処分後の横領罪成立",
-        "賄賂罪の客体・要求"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-06-20",
+      "date": "2026-07-11",
       "subject": "民事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
@@ -99,24 +21,85 @@
     },
     {
       "interval_label": "",
-      "date": "2026-06-20",
-      "subject": "刑事訴訟法",
+      "date": "2026-07-11",
+      "subject": "民法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "相殺",
-        "混同",
-        "勾留理由開示"
+        "報酬請求権",
+        "費用前払請求権",
+        "過失なく受けた損害の賠償請求権"
       ],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-06-20",
-      "subject": "民法",
+      "date": "2026-07-11",
+      "subject": "刑事訴訟法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "身体検査令状",
+        "捜索差押令状",
+        "鑑定処分許可"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-09",
+      "subject": "行政法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-05",
+      "subject": "商法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "取締役会設置会社と非設置会社の",
+        "表見代表取締役・代表権の瑕疵",
+        "取締役会決議を欠く取引の効力"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-05",
+      "subject": "刑法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-05",
+      "subject": "民法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "先取特権と敷金の関係",
+        "敷金充当請求の可否",
+        "必要費負担"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-06-21",
+      "subject": "商法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "取締役選任",
+        "契約成立後",
+        "同時履行"
+      ],
       "claude_notes": []
     }
   ],
@@ -267,14 +250,14 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-07-11T09:17:04.618379",
+  "updated_at": "2026-07-12T11:01:37.030610",
   "today_tasks": [
     {
       "subject": "憲法",
       "status": "遅れ",
       "action": "短答3問｜論点：違憲審査基準（LRA・比較衡量）・表現の自由・平等原則",
       "theme": "短答2周目開始・論文構成（骨組みのみ）",
-      "situation": "今週10/15問。あと5問（5日ぶり）",
+      "situation": "今週10/15問。あと5問（6日ぶり）",
       "actual_q": 10,
       "target_q": 15,
       "checked": false
@@ -284,7 +267,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：構成要件該当性・違法性阻却（正当防衛の要件）・共犯の成立",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週8/15問。あと7問（3日ぶり）",
+      "situation": "今週8/15問。あと7問（4日ぶり）",
       "actual_q": 8,
       "target_q": 15,
       "checked": false
@@ -294,17 +277,17 @@
       "status": "遅れ",
       "action": "短答3問｜論点：捜査の端緒・逮捕の種類と要件・接見交通権",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（7日ぶり）",
-      "actual_q": 0,
+      "situation": "今週10/15問。あと5問（1日ぶり）",
+      "actual_q": 10,
       "target_q": 15,
       "checked": false
     },
     {
       "subject": "商法",
-      "status": "今週",
-      "action": "6日前に学習済。今週の目標：短答2周目",
+      "status": "遅れ",
+      "action": "短答3問｜論点：株主総会決議（種類・要件・瑕疵）・取締役の善管注意義務",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（6日ぶり）",
+      "situation": "今週0/15問。あと15問（7日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -314,7 +297,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（18日ぶり）",
+      "situation": "今週0/10問。あと10問（19日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -352,6 +335,13 @@
       "title": "【予備試験・司法試験対策】 『民法論文試験の債権的請求の問題攻略講座』 物権的請求に続く、岡口基一講師の新講座です!",
       "label": "「予備校ニュース」 【予備試験・司法試験対策】 『民法論文試験の債権的請求の問題攻略講座』 物権的請求に続く、岡口基一講師の新講座です!",
       "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/25A33004.html",
+      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
+      "category": "prep"
+    },
+    {
+      "title": "【予備試験・法科大学院入試対策】 2025年冬開講 『論文マスター』 リリース!",
+      "label": "「予備校ニュース」 【予備試験・法科大学院入試対策】 2025年冬開講 『論文マスター』 リリース!",
+      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/25A01041.html",
       "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
       "category": "prep"
     },
@@ -403,13 +393,6 @@
       "url": "https://www.nichibenren.or.jp/activity/training/law_schools.html",
       "source": "日弁連｜活動・トピックス",
       "category": "media"
-    },
-    {
-      "title": "司法試験予備試験に関するＱ＆Ａ",
-      "label": "「まず疑問の整理」 司法試験予備試験に関するＱ＆Ａ",
-      "url": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00210.html",
-      "source": "法務省｜司法試験・予備試験",
-      "category": "official"
     }
   ]
 }

@@ -1,13 +1,23 @@
 {
-  "subject": "憲法",
-  "date": "2026-07-13",
-  "keywords": [],
+  "subject": "民法",
+  "date": "2026-07-14",
+  "keywords": [
+    "共同不法行為者",
+    "樹木の栽植",
+    "過失相殺の要件"
+  ],
   "wrong_qs": [],
   "wrong_topics": [],
   "today_logs": [
     {
       "type": "短答",
-      "questions_count": 10,
+      "questions_count": 0,
+      "understanding": "普通",
+      "topic": ""
+    },
+    {
+      "type": "短答",
+      "questions_count": 14,
       "understanding": "普通",
       "topic": ""
     }
@@ -15,80 +25,72 @@
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-07-12",
-      "subject": "民法",
+      "date": "2026-07-13",
+      "subject": "憲法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "不当利得の請求原因",
-        "現存利益の抗弁",
-        "悪意受益者の加重責任"
+        "全農林警職法事件以降の公",
+        "私人間効力の三学説の内容",
+        "私人間効力の三学説それぞ"
       ],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-07-12",
-      "subject": "商法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "競業取引",
-        "利益相反取引の承認手続と",
-        "本件取引が利益相反取引に"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-10",
+      "date": "2026-07-11",
       "subject": "民事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [
-        "全体",
-        "争点整理",
-        "証拠調べ"
-      ],
+      "keywords": [],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-07-06",
-      "subject": "憲法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "正誤",
-        "委任契約",
-        "人権享有主体"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-06",
+      "date": "2026-07-11",
       "subject": "民法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "費用償還請求",
-        "代弁済・担保請求",
-        "無過失損害賠償"
+        "報酬請求権",
+        "費用前払請求権",
+        "過失なく受けた損害の賠償請求権"
       ],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-06-22",
-      "subject": "憲法",
+      "date": "2026-07-11",
+      "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "憲法改正",
-        "内容未把握",
-        "内閣の憲法改正発案権"
+        "身体検査令状",
+        "捜索差押令状",
+        "鑑定処分許可"
       ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-07",
+      "subject": "民法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "有償寄託において保管料を",
+        "無報酬受寄者の解除権",
+        "第三者保管の要件"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-06-23",
+      "subject": "実務基礎",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
       "claude_notes": []
     }
   ],
@@ -214,6 +216,10 @@
       "activity": "車移動"
     },
     {
+      "time": "18:30",
+      "activity": "車夕食"
+    },
+    {
       "time": "18:40",
       "activity": "電車学習"
     },
@@ -263,7 +269,11 @@
     },
     {
       "time": "21:20",
-      "activity": "家復習・ブログ"
+      "activity": "家復習"
+    },
+    {
+      "time": "21:25",
+      "activity": "家ブログ"
     },
     {
       "time": "21:30",
@@ -275,34 +285,34 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-07-13T07:00:57.544299",
+  "updated_at": "2026-07-14T07:00:16.129383",
   "today_tasks": [
     {
       "subject": "憲法",
       "status": "遅れ",
       "action": "短答3問｜論点：違憲審査基準（LRA・比較衡量）・表現の自由・平等原則",
       "theme": "短答2周目開始・論文構成（骨組みのみ）",
-      "situation": "今週10/15問。あと5問",
+      "situation": "今週10/15問。あと5問（1日ぶり）",
       "actual_q": 10,
       "target_q": 15,
       "checked": false
     },
     {
       "subject": "民法",
-      "status": "今週",
-      "action": "1日前に学習済。今週の目標：短答2周目・頻出論点の論文骨組み",
+      "status": "遅れ",
+      "action": "短答5問｜論点：代理（表見代理・無権代理）・時効・債務不履行・不法行為",
       "theme": "短答2周目・頻出論点の論文骨組み",
-      "situation": "今週0/15問。あと15問（1日ぶり）",
-      "actual_q": 0,
+      "situation": "今週14/15問。あと1問",
+      "actual_q": 14,
       "target_q": 15,
       "checked": false
     },
     {
       "subject": "刑法",
       "status": "今週",
-      "action": "5日前に学習済。今週の目標：短答2周目・論文構成入門",
+      "action": "6日前に学習済。今週の目標：短答2周目・論文構成入門",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週0/15問。あと15問（5日ぶり）",
+      "situation": "今週0/15問。あと15問（6日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -310,9 +320,9 @@
     {
       "subject": "行政法",
       "status": "今週",
-      "action": "4日前に学習済。今週の目標：短答2周目・条文ベース定着",
+      "action": "5日前に学習済。今週の目標：短答2周目・条文ベース定着",
       "theme": "短答2周目・条文ベース定着",
-      "situation": "今週0/15問。あと15問（4日ぶり）",
+      "situation": "今週0/15問。あと15問（5日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -320,9 +330,9 @@
     {
       "subject": "民事訴訟法",
       "status": "今週",
-      "action": "2日前に学習済。今週の目標：短答2周目",
+      "action": "3日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（2日ぶり）",
+      "situation": "今週0/15問。あと15問（3日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -330,9 +340,9 @@
     {
       "subject": "刑事訴訟法",
       "status": "今週",
-      "action": "2日前に学習済。今週の目標：短答2周目",
+      "action": "3日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（2日ぶり）",
+      "situation": "今週0/15問。あと15問（3日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -340,9 +350,9 @@
     {
       "subject": "商法",
       "status": "今週",
-      "action": "1日前に学習済。今週の目標：短答2周目",
+      "action": "2日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（1日ぶり）",
+      "situation": "今週0/15問。あと15問（2日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -352,7 +362,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（20日ぶり）",
+      "situation": "今週0/10問。あと10問（21日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false

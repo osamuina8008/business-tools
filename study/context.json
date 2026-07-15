@@ -261,7 +261,7 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-07-15T07:00:50.367920",
+  "updated_at": "2026-07-15T22:08:54.605423",
   "today_tasks": [
     {
       "subject": "憲法",
@@ -334,10 +334,27 @@
       "checked": false
     }
   ],
-  "quiz_question": "",
-  "quiz_answer_hint": "",
-  "articles": [],
-  "freq_rating": "",
+  "quiz_question": "監禁中に法定刑引き上げの新法が施行された場合、どの法律が適用されるか？",
+  "quiz_answer_hint": "継続犯（刑法124条）は行為継続中のため新法適用",
+  "articles": [
+    {
+      "gist": "住居侵入・不退去罪",
+      "ref": "刑法130条"
+    },
+    {
+      "gist": "保護責任者遺棄・不保護罪",
+      "ref": "刑法218条"
+    },
+    {
+      "gist": "監禁罪",
+      "ref": "刑法124条"
+    },
+    {
+      "gist": "故意・過失の一般原則",
+      "ref": "刑法38条"
+    }
+  ],
+  "freq_rating": "★★★",
   "weak_points_text": "",
   "next_focus": "",
   "persistent_weak": [

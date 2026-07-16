@@ -1,22 +1,16 @@
 {
-  "subject": "行政法",
-  "date": "2026-07-16",
+  "subject": "民訴法",
+  "date": "2026-07-17",
   "keywords": [
-    "中止等の求め",
-    "行政指導指針の策定義務",
-    "不利益取扱いの禁止"
+    "責問権の性質",
+    "任意規定違反限定）と放棄",
+    "喪失の方式"
   ],
   "wrong_qs": [],
   "wrong_topics": [],
   "today_logs": [
     {
-      "type": "インプット",
-      "questions_count": 15,
-      "understanding": "普通",
-      "topic": ""
-    },
-    {
-      "type": "インプット",
+      "type": "短答",
       "questions_count": 15,
       "understanding": "普通",
       "topic": ""
@@ -25,43 +19,59 @@
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-07-15",
-      "subject": "刑法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "状態犯と継続犯の区別基準",
-        "継続犯における新法の遡及",
-        "既遂時期と終了時期のズレ"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-13",
-      "subject": "憲法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "全農林警職法事件以降の公",
-        "私人間効力の三学説の内容",
-        "私人間効力の三学説それぞ"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-09",
+      "date": "2026-07-16",
       "subject": "行政法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [],
+      "keywords": [
+        "中止等の求め",
+        "行政指導指針の策定義務",
+        "不利益取扱いの禁止"
+      ],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-06-25",
-      "subject": "刑法",
+      "date": "2026-07-14",
+      "subject": "民法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "共同不法行為者",
+        "樹木の栽植",
+        "過失相殺の要件"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-10",
+      "subject": "民事訴訟法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "全体",
+        "争点整理",
+        "証拠調べ"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-06-26",
+      "subject": "民事訴訟法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "処分権主義の適用範囲",
+        "釈明権と処分権主義の境界"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-06-26",
+      "subject": "行政法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -259,14 +269,14 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-07-16T07:00:30.966228",
+  "updated_at": "2026-07-17T07:00:50.351082",
   "today_tasks": [
     {
       "subject": "憲法",
       "status": "遅れ",
       "action": "短答3問｜論点：違憲審査基準（LRA・比較衡量）・表現の自由・平等原則",
       "theme": "短答2周目開始・論文構成（骨組みのみ）",
-      "situation": "今週10/15問。あと5問（3日ぶり）",
+      "situation": "今週10/15問。あと5問（4日ぶり）",
       "actual_q": 10,
       "target_q": 15,
       "checked": false
@@ -276,27 +286,17 @@
       "status": "遅れ",
       "action": "短答5問｜論点：代理（表見代理・無権代理）・時効・債務不履行・不法行為",
       "theme": "短答2周目・頻出論点の論文骨組み",
-      "situation": "今週14/15問。あと1問（2日ぶり）",
+      "situation": "今週14/15問。あと1問（3日ぶり）",
       "actual_q": 14,
-      "target_q": 15,
-      "checked": false
-    },
-    {
-      "subject": "民事訴訟法",
-      "status": "今週",
-      "action": "5日前に学習済。今週の目標：短答2周目",
-      "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（5日ぶり）",
-      "actual_q": 0,
       "target_q": 15,
       "checked": false
     },
     {
       "subject": "刑事訴訟法",
       "status": "今週",
-      "action": "5日前に学習済。今週の目標：短答2周目",
+      "action": "6日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（5日ぶり）",
+      "situation": "今週0/15問。あと15問（6日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -304,9 +304,9 @@
     {
       "subject": "商法",
       "status": "今週",
-      "action": "4日前に学習済。今週の目標：短答2周目",
+      "action": "5日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（4日ぶり）",
+      "situation": "今週0/15問。あと15問（5日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -316,16 +316,37 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（23日ぶり）",
+      "situation": "今週0/10問。あと10問（24日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "",
-  "quiz_answer_hint": "",
-  "articles": [],
-  "freq_rating": "",
+  "quiz_question": "送達の瑕疵がある場合、被告が異議を述べずに弁論すると瑕疵は治癒されるか？",
+  "quiz_answer_hint": "民訴法90条・名古屋高判昭44.10.31",
+  "articles": [
+    {
+      "gist": "異議権の放棄・喪失を定める",
+      "ref": "民訴法90条"
+    },
+    {
+      "gist": "裁判上の自白の成立を定める",
+      "ref": "民訴法179条"
+    },
+    {
+      "gist": "同時履行の抗弁権を定める",
+      "ref": "民法533条"
+    },
+    {
+      "gist": "補充送達の方法を定める",
+      "ref": "民訴法106条1項"
+    },
+    {
+      "gist": "直接主義・弁論更新を定める",
+      "ref": "民訴法249条"
+    }
+  ],
+  "freq_rating": "★★★",
   "weak_points_text": "",
   "next_focus": "",
   "persistent_weak": [
@@ -358,15 +379,8 @@
       "category": "prep"
     },
     {
-      "title": "【予備試験・法科大学院入試対策】 2025年冬開講 『論文マスター』 リリース!",
-      "label": "「予備校ニュース」 【予備試験・法科大学院入試対策】 2025年冬開講 『論文マスター』 リリース!",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/25A01041.html",
-      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
-      "category": "prep"
-    },
-    {
-      "title": "【予備試験対策】 2026年予備試験 「論文直前答練」・「全国公開論文模試」 6/26 (金) 受付開始! 《CBTテストセンター先着順受付&20%OFFクーポン進呈!》",
-      "label": "「予備校・イベント・教材」 【予備試験対策】 2026年予備試験 「論文直前答練」・「全国公開論文模試」 6/26 (金) 受付開始! 《CBTテストセンター先着順受付&20%OFFクーポン進呈!》",
+      "title": "【予備試験対策】 2026年予備試験 「論文直前答練」・「全国公開論文模試」 《CBTテストセンター先着順受付 & 20%OFFクーポン進呈》",
+      "label": "「予備校・イベント・教材」 【予備試験対策】 2026年予備試験 「論文直前答練」・「全国公開論文模試」 《CBTテストセンター先着順受付 & 20%OFFクーポン進呈》",
       "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/yobi/pgyobisho.html",
       "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
       "category": "prep"
@@ -375,6 +389,13 @@
       "title": "【予備試験対策】 「基礎・論文マスター選択科目」 倒産法 新収録講義リリース!",
       "label": "「予備校・イベント・教材」 【予備試験対策】 「基礎・論文マスター選択科目」 倒産法 新収録講義リリース!",
       "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/25A01068.html",
+      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
+      "category": "prep"
+    },
+    {
+      "title": "【予備試験対策】 『予備試験受験生のための要件事実講義/事実認定講義』 論文・口述対策にもイチオシ!",
+      "label": "「予備校・イベント・教材」 【予備試験対策】 『予備試験受験生のための要件事実講義/事実認定講義』 論文・口述対策にもイチオシ!",
+      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/25A33003_0.html",
       "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
       "category": "prep"
     },

@@ -1,27 +1,13 @@
 {
-  "subject": "商法",
-  "date": "2026-07-19",
-  "keywords": [
-    "監査役の独立性",
-    "指名委員会等設置会社",
-    "会計監査人"
-  ],
-  "wrong_qs": [
-    "競業取引 vs 利益相反取引の入口判断",
-    "423条Ⅱ・Ⅲの推定内容の混同",
-    "承認と免責の関係"
-  ],
+  "subject": "憲法",
+  "date": "2026-07-20",
+  "keywords": [],
+  "wrong_qs": [],
   "wrong_topics": [],
   "today_logs": [
     {
       "type": "インプット",
-      "questions_count": 0,
-      "understanding": "普通",
-      "topic": ""
-    },
-    {
-      "type": "短答",
-      "questions_count": 0,
+      "questions_count": 15,
       "understanding": "普通",
       "topic": ""
     }
@@ -29,241 +15,316 @@
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-07-16",
-      "subject": "行政法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "行政事件訴訟法10条2項",
-        "中止等の求め",
-        "行政指導指針の策定義務"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-12",
-      "subject": "民法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "不当利得の請求原因",
-        "現存利益の抗弁",
-        "悪意受益者の加重責任"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-12",
+      "date": "2026-07-19",
       "subject": "商法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "競業取引",
-        "利益相反取引の承認手続と",
-        "本件取引が利益相反取引に"
+        "監査役の独立性",
+        "指名委員会等設置会社",
+        "会計監査人"
       ],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-06-28",
-      "subject": "民法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "受領遅滞後の注意義務",
-        "受領遅滞中の双方不帰責滅失",
-        "買主の過失による滅失"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-06-28",
-      "subject": "商法",
+      "date": "2026-07-19",
+      "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-17",
+      "subject": "民事訴訟法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "責問権の性質",
+        "任意規定違反限定）と放棄",
+        "喪失の方式"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-13",
+      "subject": "憲法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "民法90条]]",
+        "民法90条]]の規定によ",
+        "憲法13条]]"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-06-29",
+      "subject": "憲法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "全体"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-06-29",
+      "subject": "民法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "善意売主の解除権",
+        "数量超過の代金増額請求",
+        "権利不適合と期間制限"
+      ],
       "claude_notes": []
     }
   ],
   "today_schedule": [
     {
+      "time": "03:45",
+      "activity": "家起床"
+    },
+    {
+      "time": "03:50",
+      "activity": "家準備"
+    },
+    {
+      "time": "03:55",
+      "activity": "家瞑想"
+    },
+    {
+      "time": "03:59",
+      "activity": "家朝準備"
+    },
+    {
       "time": "04:00",
-      "activity": "実家"
+      "activity": "家学習"
     },
     {
       "time": "04:15",
-      "activity": "実家"
+      "activity": "家学習"
     },
     {
       "time": "04:30",
-      "activity": "実家"
+      "activity": "家学習"
     },
     {
       "time": "04:45",
-      "activity": "実家"
+      "activity": "家学習"
     },
     {
       "time": "05:00",
-      "activity": "実家"
+      "activity": "家学習"
     },
     {
       "time": "05:15",
-      "activity": "実家"
+      "activity": "家食事・準備"
     },
     {
       "time": "05:30",
-      "activity": "実家"
+      "activity": "移動家→駅"
     },
     {
-      "time": "05:45",
-      "activity": "実家"
+      "time": "06:05",
+      "activity": "電車学習"
     },
     {
-      "time": "06:00",
-      "activity": "実家"
+      "time": "06:15",
+      "activity": "電車学習"
     },
     {
       "time": "06:30",
-      "activity": "移動"
+      "activity": "電車学習"
     },
     {
       "time": "06:45",
-      "activity": "移動"
+      "activity": "移動移動"
     },
     {
       "time": "07:00",
-      "activity": "移動"
+      "activity": "移動運動"
     },
     {
       "time": "07:15",
-      "activity": "移動"
+      "activity": "移動運動"
     },
     {
-      "time": "07:30",
-      "activity": "移動"
+      "time": "07:40",
+      "activity": "仕事仕事"
     },
     {
       "time": "08:00",
-      "activity": "移動"
+      "activity": "仕事仕事"
     },
     {
       "time": "09:00",
-      "activity": "家掃除"
+      "activity": "仕事仕事"
     },
     {
       "time": "10:00",
-      "activity": "家掃除"
+      "activity": "仕事仕事"
     },
     {
       "time": "11:00",
-      "activity": "家掃除"
+      "activity": "仕事仕事"
     },
     {
       "time": "12:00",
-      "activity": "家掃除"
+      "activity": "仕事仕事"
+    },
+    {
+      "time": "13:00",
+      "activity": "仕事仕事"
     },
     {
       "time": "14:00",
-      "activity": "家学習"
+      "activity": "仕事仕事"
     },
     {
       "time": "15:00",
-      "activity": "家学習"
+      "activity": "仕事仕事"
     },
     {
       "time": "16:00",
-      "activity": "ベスパ確認"
+      "activity": "仕事仕事"
     },
     {
       "time": "17:00",
-      "activity": "ベスパ筋トレ"
-    },
-    {
-      "time": "17:15",
-      "activity": "ベスパ筋トレ"
-    },
-    {
-      "time": "17:30",
-      "activity": "移動"
+      "activity": "仕事仕事"
     },
     {
       "time": "18:00",
-      "activity": "家食事"
+      "activity": "仕事仕事"
     },
     {
-      "time": "18:15",
-      "activity": "家食事"
+      "time": "18:10",
+      "activity": "車移動"
     },
     {
       "time": "18:30",
-      "activity": "家食事"
+      "activity": "車夕食"
+    },
+    {
+      "time": "18:40",
+      "activity": "電車学習"
     },
     {
       "time": "18:45",
-      "activity": "家食事"
+      "activity": "電車学習"
     },
     {
       "time": "19:00",
-      "activity": "家料理準備"
+      "activity": "電車学習"
     },
     {
       "time": "19:15",
-      "activity": "家料理準備"
+      "activity": "電車学習"
     },
     {
-      "time": "19:30",
-      "activity": "家料理準備"
+      "time": "19:20",
+      "activity": "移動歩き"
     },
     {
-      "time": "19:45",
-      "activity": "家料理準備"
+      "time": "19:40",
+      "activity": "ベスパ筋トレ"
+    },
+    {
+      "time": "19:55",
+      "activity": "ベスパ運動"
+    },
+    {
+      "time": "20:05",
+      "activity": "ベスパストレッチ"
+    },
+    {
+      "time": "20:15",
+      "activity": "ベスパ風呂"
     },
     {
       "time": "20:30",
-      "activity": "家復習と到達点の確認"
+      "activity": "ベスパ風呂"
     },
     {
-      "time": "21:00",
-      "activity": "家復習と到達点の確認"
+      "time": "20:45",
+      "activity": "移動帰宅"
+    },
+    {
+      "time": "21:10",
+      "activity": "家片付け"
+    },
+    {
+      "time": "21:20",
+      "activity": "家復習"
+    },
+    {
+      "time": "21:25",
+      "activity": "家ブログ"
     },
     {
       "time": "21:30",
+      "activity": "家明日の支度"
+    },
+    {
+      "time": "21:45",
       "activity": "家就寝"
     }
   ],
   "has_data": true,
-  "updated_at": "2026-07-19T23:11:49.219657",
+  "updated_at": "2026-07-20T07:00:52.203010",
   "today_tasks": [
     {
-      "subject": "憲法",
-      "status": "遅れ",
-      "action": "短答3問｜論点：違憲審査基準（LRA・比較衡量）・表現の自由・平等原則",
-      "theme": "短答2周目開始・論文構成（骨組みのみ）",
-      "situation": "今週10/15問。あと5問（6日ぶり）",
-      "actual_q": 10,
+      "subject": "民法",
+      "status": "今週",
+      "action": "6日前に学習済。今週の目標：短答2周目・頻出論点の論文骨組み",
+      "theme": "短答2周目・頻出論点の論文骨組み",
+      "situation": "今週0/15問。あと15問（6日ぶり）",
+      "actual_q": 0,
       "target_q": 15,
       "checked": false
     },
     {
-      "subject": "民法",
-      "status": "遅れ",
-      "action": "短答5問｜論点：代理（表見代理・無権代理）・時効・債務不履行・不法行為",
-      "theme": "短答2周目・頻出論点の論文骨組み",
-      "situation": "今週14/15問。あと1問（5日ぶり）",
-      "actual_q": 14,
+      "subject": "刑法",
+      "status": "今週",
+      "action": "5日前に学習済。今週の目標：短答2周目・論文構成入門",
+      "theme": "短答2周目・論文構成入門",
+      "situation": "今週0/15問。あと15問（5日ぶり）",
+      "actual_q": 0,
+      "target_q": 15,
+      "checked": false
+    },
+    {
+      "subject": "行政法",
+      "status": "今週",
+      "action": "4日前に学習済。今週の目標：短答2周目・条文ベース定着",
+      "theme": "短答2周目・条文ベース定着",
+      "situation": "今週0/15問。あと15問（4日ぶり）",
+      "actual_q": 0,
+      "target_q": 15,
+      "checked": false
+    },
+    {
+      "subject": "民事訴訟法",
+      "status": "今週",
+      "action": "3日前に学習済。今週の目標：短答2周目",
+      "theme": "短答2周目",
+      "situation": "今週0/15問。あと15問（3日ぶり）",
+      "actual_q": 0,
       "target_q": 15,
       "checked": false
     },
     {
       "subject": "刑事訴訟法",
       "status": "今週",
-      "action": "0日前に学習済。今週の目標：短答2周目",
+      "action": "1日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問",
+      "situation": "今週0/15問。あと15問（1日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -271,9 +332,9 @@
     {
       "subject": "商法",
       "status": "今週",
-      "action": "0日前に学習済。今週の目標：短答2周目",
+      "action": "1日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問",
+      "situation": "今週0/15問。あと15問（1日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -283,34 +344,22 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（26日ぶり）",
+      "situation": "今週0/10問。あと10問（27日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "その他資本剰余金を資本準備金に振り替える場合に必要な機関決定はどれか？",
-  "quiz_answer_hint": "会社法459条・内部組替えのため取締役会決議で足りる",
+  "quiz_question": "京都府学連事件で最高裁が根拠とした権利の表現は何か？",
+  "quiz_answer_hint": "憲法13条・『私生活上の自由の一つ』（プライバシー権とは明言せず）",
   "articles": [
     {
-      "ref": "会社法336条",
-      "gist": "監査役の任期は原則4年"
+      "gist": "幸福追求権・新しい人権の根拠",
+      "ref": "憲法13条"
     },
     {
-      "ref": "会社法445条",
-      "gist": "資本金の額の決定ルール"
-    },
-    {
-      "ref": "会社法449条",
-      "gist": "資本金減少に債権者保護手続必要"
-    },
-    {
-      "ref": "会社法210条",
-      "gist": "著しく不公正な方法等で差止可"
-    },
-    {
-      "ref": "会社法459条",
-      "gist": "取締役会設置会社は取締役会で剰余金処分可"
+      "gist": "法の下の平等・不合理な差別禁止",
+      "ref": "憲法14条1項"
     }
   ],
   "freq_rating": "★★★",

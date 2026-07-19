@@ -236,7 +236,7 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-07-19T11:24:11.029893",
+  "updated_at": "2026-07-19T23:11:49.219657",
   "today_tasks": [
     {
       "subject": "憲法",
@@ -289,10 +289,31 @@
       "checked": false
     }
   ],
-  "quiz_question": "",
-  "quiz_answer_hint": "",
-  "articles": [],
-  "freq_rating": "",
+  "quiz_question": "その他資本剰余金を資本準備金に振り替える場合に必要な機関決定はどれか？",
+  "quiz_answer_hint": "会社法459条・内部組替えのため取締役会決議で足りる",
+  "articles": [
+    {
+      "ref": "会社法336条",
+      "gist": "監査役の任期は原則4年"
+    },
+    {
+      "ref": "会社法445条",
+      "gist": "資本金の額の決定ルール"
+    },
+    {
+      "ref": "会社法449条",
+      "gist": "資本金減少に債権者保護手続必要"
+    },
+    {
+      "ref": "会社法210条",
+      "gist": "著しく不公正な方法等で差止可"
+    },
+    {
+      "ref": "会社法459条",
+      "gist": "取締役会設置会社は取締役会で剰余金処分可"
+    }
+  ],
+  "freq_rating": "★★★",
   "weak_points_text": "",
   "next_focus": "",
   "persistent_weak": [

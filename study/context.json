@@ -1,6 +1,6 @@
 {
-  "subject": "憲法",
-  "date": "2026-07-20",
+  "subject": "民法",
+  "date": "2026-07-21",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
@@ -15,21 +15,8 @@
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-07-19",
-      "subject": "商法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "監査役の独立性",
-        "指名委員会等設置会社",
-        "会計監査人"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-19",
-      "subject": "刑事訴訟法",
+      "date": "2026-07-20",
+      "subject": "憲法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -37,51 +24,27 @@
     },
     {
       "interval_label": "",
-      "date": "2026-07-17",
-      "subject": "民事訴訟法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "責問権の性質",
-        "任意規定違反限定）と放棄",
-        "喪失の方式"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-13",
-      "subject": "憲法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "民法90条]]",
-        "民法90条]]の規定によ",
-        "憲法13条]]"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-06-29",
-      "subject": "憲法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "全体"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-06-29",
+      "date": "2026-07-14",
       "subject": "民法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "善意売主の解除権",
-        "数量超過の代金増額請求",
-        "権利不適合と期間制限"
+        "共同不法行為者",
+        "樹木の栽植",
+        "過失相殺の要件"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-06-30",
+      "subject": "民法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "使用貸借",
+        "賃貸借",
+        "同時履行の抗弁権は消えるか"
       ],
       "claude_notes": []
     }
@@ -277,24 +240,14 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-07-20T07:00:52.203010",
+  "updated_at": "2026-07-21T07:00:27.792739",
   "today_tasks": [
-    {
-      "subject": "民法",
-      "status": "今週",
-      "action": "6日前に学習済。今週の目標：短答2周目・頻出論点の論文骨組み",
-      "theme": "短答2周目・頻出論点の論文骨組み",
-      "situation": "今週0/15問。あと15問（6日ぶり）",
-      "actual_q": 0,
-      "target_q": 15,
-      "checked": false
-    },
     {
       "subject": "刑法",
       "status": "今週",
-      "action": "5日前に学習済。今週の目標：短答2周目・論文構成入門",
+      "action": "6日前に学習済。今週の目標：短答2周目・論文構成入門",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週0/15問。あと15問（5日ぶり）",
+      "situation": "今週0/15問。あと15問（6日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -302,9 +255,9 @@
     {
       "subject": "行政法",
       "status": "今週",
-      "action": "4日前に学習済。今週の目標：短答2周目・条文ベース定着",
+      "action": "5日前に学習済。今週の目標：短答2周目・条文ベース定着",
       "theme": "短答2周目・条文ベース定着",
-      "situation": "今週0/15問。あと15問（4日ぶり）",
+      "situation": "今週0/15問。あと15問（5日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -312,9 +265,9 @@
     {
       "subject": "民事訴訟法",
       "status": "今週",
-      "action": "3日前に学習済。今週の目標：短答2周目",
+      "action": "4日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（3日ぶり）",
+      "situation": "今週0/15問。あと15問（4日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -322,9 +275,9 @@
     {
       "subject": "刑事訴訟法",
       "status": "今週",
-      "action": "1日前に学習済。今週の目標：短答2周目",
+      "action": "2日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（1日ぶり）",
+      "situation": "今週0/15問。あと15問（2日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -332,9 +285,9 @@
     {
       "subject": "商法",
       "status": "今週",
-      "action": "1日前に学習済。今週の目標：短答2周目",
+      "action": "2日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（1日ぶり）",
+      "situation": "今週0/15問。あと15問（2日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -344,22 +297,34 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（27日ぶり）",
+      "situation": "今週0/10問。あと10問（28日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "京都府学連事件で最高裁が根拠とした権利の表現は何か？",
-  "quiz_answer_hint": "憲法13条・『私生活上の自由の一つ』（プライバシー権とは明言せず）",
+  "quiz_question": "未成年者Aが親権者の同意なく自分の子Cを認知した。親権者はこれを取り消せるか？",
+  "quiz_answer_hint": "民法780条：認知に法定代理人の同意不要→取消し不可",
   "articles": [
     {
-      "gist": "幸福追求権・新しい人権の根拠",
-      "ref": "憲法13条"
+      "gist": "信義誠実の原則",
+      "ref": "民法1条2項"
     },
     {
-      "gist": "法の下の平等・不合理な差別禁止",
-      "ref": "憲法14条1項"
+      "gist": "権利濫用禁止",
+      "ref": "民法1条3項"
+    },
+    {
+      "gist": "成年被後見人の行為取消し・日常生活行為例外",
+      "ref": "民法9条"
+    },
+    {
+      "gist": "制限行為能力者も代理人になれる",
+      "ref": "民法102条"
+    },
+    {
+      "gist": "未成年者の認知に法定代理人の同意不要",
+      "ref": "民法780条"
     }
   ],
   "freq_rating": "★★★",
@@ -393,16 +358,23 @@
       "category": "creator"
     },
     {
-      "title": "【予備試験・司法試験対策】 『民法論文試験の債権的請求の問題攻略講座』 物権的請求に続く、岡口基一講師の新講座です!",
-      "label": "「予備校ニュース」 【予備試験・司法試験対策】 『民法論文試験の債権的請求の問題攻略講座』 物権的請求に続く、岡口基一講師の新講座です!",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/25A33004.html",
+      "title": "2026年予備試験短答式試験実施をうけて 伊藤塾からの大切なご案内",
+      "label": "「予備校ニュース」 2026年予備試験短答式試験実施をうけて 伊藤塾からの大切なご案内",
+      "url": "https://www.itojuku.co.jp/shiken/shihou/feature/shiken/yobi/index.html",
       "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
       "category": "prep"
     },
     {
-      "title": "【予備試験・法科大学院入試対策】 2025年冬開講 『論文マスター』 リリース!",
-      "label": "「予備校ニュース」 【予備試験・法科大学院入試対策】 2025年冬開講 『論文マスター』 リリース!",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/25A01041.html",
+      "title": "2026年司法試験 実施をうけて 伊藤塾からの大切なご案内",
+      "label": "「予備校ニュース」 2026年司法試験 実施をうけて 伊藤塾からの大切なご案内",
+      "url": "https://www.itojuku.co.jp/shiken/shihou/feature/shiken/shihou/index.html",
+      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
+      "category": "prep"
+    },
+    {
+      "title": "【予備試験・司法試験対策】 『民法論文試験の債権的請求の問題攻略講座』 物権的請求に続く、岡口基一講師の新講座です!",
+      "label": "「予備校ニュース」 【予備試験・司法試験対策】 『民法論文試験の債権的請求の問題攻略講座』 物権的請求に続く、岡口基一講師の新講座です!",
+      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/25A33004.html",
       "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
       "category": "prep"
     },
@@ -447,13 +419,6 @@
       "url": "https://www.itojuku.co.jp/shiken/shihou/about/syuusyuu/index.html",
       "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
       "category": "prep"
-    },
-    {
-      "title": "法科大学院を中核とする新しい法曹養成制度の充実・発展に向けた取組（法科大学院センター）",
-      "label": "「業界トピック」 法科大学院を中核とする新しい法曹養成制度の充実・発展に向けた取組（法科大学院センター）",
-      "url": "https://www.nichibenren.or.jp/activity/training/law_schools.html",
-      "source": "日弁連｜活動・トピックス",
-      "category": "media"
     }
   ]
 }

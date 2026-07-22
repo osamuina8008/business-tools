@@ -1,10 +1,16 @@
 {
-  "subject": "民法",
-  "date": "2026-07-21",
+  "subject": "行政法",
+  "date": "2026-07-23",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
   "today_logs": [
+    {
+      "type": "インプット",
+      "questions_count": 0,
+      "understanding": "普通",
+      "topic": ""
+    },
     {
       "type": "インプット",
       "questions_count": 15,
@@ -24,27 +30,14 @@
     },
     {
       "interval_label": "",
-      "date": "2026-07-14",
-      "subject": "民法",
+      "date": "2026-07-16",
+      "subject": "行政法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "共同不法行為者",
-        "樹木の栽植",
-        "過失相殺の要件"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-06-30",
-      "subject": "民法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "使用貸借",
-        "賃貸借",
-        "同時履行の抗弁権は消えるか"
+        "行政事件訴訟法10条2項",
+        "中止等の求め",
+        "行政指導指針の策定義務"
       ],
       "claude_notes": []
     }
@@ -240,30 +233,30 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-07-21T07:00:27.792739",
+  "updated_at": "2026-07-23T07:00:08.423736",
   "today_tasks": [
     {
       "subject": "刑法",
-      "status": "今週",
-      "action": "6日前に学習済。今週の目標：短答2周目・論文構成入門",
+      "status": "遅れ",
+      "action": "短答3問｜論点：構成要件該当性・違法性阻却（正当防衛の要件）・共犯の成立",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週0/15問。あと15問（6日ぶり）",
-      "actual_q": 0,
-      "target_q": 15,
-      "checked": false
-    },
-    {
-      "subject": "行政法",
-      "status": "今週",
-      "action": "5日前に学習済。今週の目標：短答2周目・条文ベース定着",
-      "theme": "短答2周目・条文ベース定着",
-      "situation": "今週0/15問。あと15問（5日ぶり）",
+      "situation": "今週0/15問。あと15問（8日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
     },
     {
       "subject": "民事訴訟法",
+      "status": "今週",
+      "action": "6日前に学習済。今週の目標：短答2周目",
+      "theme": "短答2周目",
+      "situation": "今週0/15問。あと15問（6日ぶり）",
+      "actual_q": 0,
+      "target_q": 15,
+      "checked": false
+    },
+    {
+      "subject": "刑事訴訟法",
       "status": "今週",
       "action": "4日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
@@ -273,21 +266,11 @@
       "checked": false
     },
     {
-      "subject": "刑事訴訟法",
-      "status": "今週",
-      "action": "2日前に学習済。今週の目標：短答2周目",
-      "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（2日ぶり）",
-      "actual_q": 0,
-      "target_q": 15,
-      "checked": false
-    },
-    {
       "subject": "商法",
       "status": "今週",
-      "action": "2日前に学習済。今週の目標：短答2周目",
+      "action": "4日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（2日ぶり）",
+      "situation": "今週0/15問。あと15問（4日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -297,34 +280,34 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（28日ぶり）",
+      "situation": "今週0/10問。あと10問（30日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "未成年者Aが親権者の同意なく自分の子Cを認知した。親権者はこれを取り消せるか？",
-  "quiz_answer_hint": "民法780条：認知に法定代理人の同意不要→取消し不可",
+  "quiz_question": "土地区画整理事業計画決定に処分性が認められる理由は何か？",
+  "quiz_answer_hint": "最大判平20.9.10：宅地所有者等の法的地位に具体的変動が生じるため",
   "articles": [
     {
-      "gist": "信義誠実の原則",
-      "ref": "民法1条2項"
+      "gist": "行政事件訴訟の4類型を定める",
+      "ref": "行訴法2条"
     },
     {
-      "gist": "権利濫用禁止",
-      "ref": "民法1条3項"
+      "gist": "処分取消訴訟の対象を定める",
+      "ref": "行訴法3条2項"
     },
     {
-      "gist": "成年被後見人の行為取消し・日常生活行為例外",
-      "ref": "民法9条"
+      "gist": "法律上の利益を有する者のみ原告適格",
+      "ref": "行訴法9条1項"
     },
     {
-      "gist": "制限行為能力者も代理人になれる",
-      "ref": "民法102条"
+      "gist": "原告適格判断の考慮要素を明示",
+      "ref": "行訴法9条2項"
     },
     {
-      "gist": "未成年者の認知に法定代理人の同意不要",
-      "ref": "民法780条"
+      "gist": "自己の法律上利益に関係ない違法は主張不可",
+      "ref": "行訴法10条1項"
     }
   ],
   "freq_rating": "★★★",

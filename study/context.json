@@ -1,18 +1,12 @@
 {
-  "subject": "行政法",
-  "date": "2026-07-23",
+  "subject": "民訴法",
+  "date": "2026-07-24",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
   "today_logs": [
     {
-      "type": "インプット",
-      "questions_count": 0,
-      "understanding": "普通",
-      "topic": ""
-    },
-    {
-      "type": "インプット",
+      "type": "短答",
       "questions_count": 15,
       "understanding": "普通",
       "topic": ""
@@ -21,8 +15,20 @@
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-07-20",
-      "subject": "憲法",
+      "date": "2026-07-23",
+      "subject": "行政法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "中止等の求め",
+        "行政指導指針の策定義務"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-21",
+      "subject": "民法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -30,15 +36,24 @@
     },
     {
       "interval_label": "",
-      "date": "2026-07-16",
-      "subject": "行政法",
+      "date": "2026-07-17",
+      "subject": "民事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "行政事件訴訟法10条2項",
-        "中止等の求め",
-        "行政指導指針の策定義務"
+        "責問権の性質",
+        "任意規定違反限定）と放棄",
+        "喪失の方式"
       ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-03",
+      "subject": "民事訴訟法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
       "claude_notes": []
     }
   ],
@@ -233,24 +248,14 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-07-23T07:00:08.423736",
+  "updated_at": "2026-07-24T07:00:19.680332",
   "today_tasks": [
     {
       "subject": "刑法",
       "status": "遅れ",
       "action": "短答3問｜論点：構成要件該当性・違法性阻却（正当防衛の要件）・共犯の成立",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週0/15問。あと15問（8日ぶり）",
-      "actual_q": 0,
-      "target_q": 15,
-      "checked": false
-    },
-    {
-      "subject": "民事訴訟法",
-      "status": "今週",
-      "action": "6日前に学習済。今週の目標：短答2周目",
-      "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（6日ぶり）",
+      "situation": "今週0/15問。あと15問（9日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -258,9 +263,9 @@
     {
       "subject": "刑事訴訟法",
       "status": "今週",
-      "action": "4日前に学習済。今週の目標：短答2周目",
+      "action": "5日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（4日ぶり）",
+      "situation": "今週0/15問。あと15問（5日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -268,9 +273,9 @@
     {
       "subject": "商法",
       "status": "今週",
-      "action": "4日前に学習済。今週の目標：短答2周目",
+      "action": "5日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（4日ぶり）",
+      "situation": "今週0/15問。あと15問（5日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -280,34 +285,34 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（30日ぶり）",
+      "situation": "今週0/10問。あと10問（31日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "土地区画整理事業計画決定に処分性が認められる理由は何か？",
-  "quiz_answer_hint": "最大判平20.9.10：宅地所有者等の法的地位に具体的変動が生じるため",
+  "quiz_question": "証人尋問終了後に申出当事者は証拠申出を撤回できるか？",
+  "quiz_answer_hint": "心証形成後は撤回不可（民訴183条・証拠共通の原則）",
   "articles": [
     {
-      "gist": "行政事件訴訟の4類型を定める",
-      "ref": "行訴法2条"
+      "gist": "裁判所が職権で調査嘱託できる",
+      "ref": "民訴186条"
     },
     {
-      "gist": "処分取消訴訟の対象を定める",
-      "ref": "行訴法3条2項"
+      "gist": "自由心証主義の根拠条文",
+      "ref": "民訴247条"
     },
     {
-      "gist": "法律上の利益を有する者のみ原告適格",
-      "ref": "行訴法9条1項"
+      "gist": "証拠保全の手続を定める",
+      "ref": "民訴234〜242条"
     },
     {
-      "gist": "原告適格判断の考慮要素を明示",
-      "ref": "行訴法9条2項"
+      "gist": "提訴前の書面照会を認める",
+      "ref": "民訴132条の2"
     },
     {
-      "gist": "自己の法律上利益に関係ない違法は主張不可",
-      "ref": "行訴法10条1項"
+      "gist": "前後2時点占有で継続を推定",
+      "ref": "民法186条2項"
     }
   ],
   "freq_rating": "★★★",
@@ -390,18 +395,18 @@
       "category": "prep"
     },
     {
-      "title": "【特別トークイベント】 初代司法試験受験生が語る!『CBT元年のリアル』 7/25(土) 19時より、伊藤塾東京校&Zoomライブ開催!! 《要申込》",
-      "label": "「予備校・イベント・教材」 【特別トークイベント】 初代司法試験受験生が語る!『CBT元年のリアル』 7/25(土) 19時より、伊藤塾東京校&Zoomライブ開催!! 《要申込》",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/feature/shiken/shihou/cbtreal.html",
-      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
-      "category": "prep"
-    },
-    {
       "title": "司法試験合格〜司法修習",
       "label": "「予備校ニュース」 司法試験合格〜司法修習",
       "url": "https://www.itojuku.co.jp/shiken/shihou/about/syuusyuu/index.html",
       "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
       "category": "prep"
+    },
+    {
+      "title": "法科大学院を中核とする新しい法曹養成制度の充実・発展に向けた取組（法科大学院センター）",
+      "label": "「業界トピック」 法科大学院を中核とする新しい法曹養成制度の充実・発展に向けた取組（法科大学院センター）",
+      "url": "https://www.nichibenren.or.jp/activity/training/law_schools.html",
+      "source": "日弁連｜活動・トピックス",
+      "category": "media"
     }
   ]
 }

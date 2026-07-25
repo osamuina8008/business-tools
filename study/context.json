@@ -1,66 +1,85 @@
 {
-  "subject": "刑訴法",
-  "date": "2026-07-25",
+  "subject": "商法",
+  "date": "2026-07-26",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [
-    {
-      "type": "インプット",
-      "questions_count": 15,
-      "understanding": "普通",
-      "topic": ""
-    }
-  ],
+  "today_logs": [],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-07-24",
-      "subject": "民事訴訟法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "既判力の客観的範囲",
-        "移送の種類"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-04",
+      "date": "2026-07-25",
       "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-23",
+      "subject": "行政法",
+      "questions_count": 0,
+      "wrong_qs": [],
       "keywords": [
-        "参考人の証人尋問請求",
-        "取調べの録音・録画義務",
-        "外国人の刑事手続"
+        "中止等の求め",
+        "行政指導指針の策定義務"
       ],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-07-04",
+      "date": "2026-07-19",
+      "subject": "商法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "監査役の独立性",
+        "指名委員会等設置会社",
+        "会計監査人"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-19",
+      "subject": "刑事訴訟法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-05",
+      "subject": "商法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "取締役会設置会社と非設置会社の",
+        "表見代表取締役・代表権の瑕疵",
+        "取締役会決議を欠く取引の効力"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-05",
+      "subject": "刑法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-05",
       "subject": "民法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "対抗要件ある不動産の賃貸人地位",
-        "地位移転の対抗要件",
-        "敷金・費用償還債務の承継"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-04",
-      "subject": "刑法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "親族相盗の範囲",
-        "先行処分後の横領罪成立",
-        "賄賂罪の客体・要求"
+        "報酬債権に対し注文者が追",
+        "相殺後の報酬残債"
       ],
       "claude_notes": []
     }
@@ -211,25 +230,25 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": true,
-  "updated_at": "2026-07-25T21:21:38.970360",
+  "has_data": false,
+  "updated_at": "2026-07-26T07:00:50.074567",
   "today_tasks": [
     {
       "subject": "刑法",
       "status": "遅れ",
       "action": "短答3問｜論点：構成要件該当性・違法性阻却（正当防衛の要件）・共犯の成立",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週0/15問。あと15問（10日ぶり）",
+      "situation": "今週0/15問。あと15問（11日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
     },
     {
       "subject": "商法",
-      "status": "今週",
-      "action": "6日前に学習済。今週の目標：短答2周目",
+      "status": "遅れ",
+      "action": "短答3問｜論点：株主総会決議（種類・要件・瑕疵）・取締役の善管注意義務",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（6日ぶり）",
+      "situation": "今週0/15問。あと15問（7日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -239,29 +258,16 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（32日ぶり）",
+      "situation": "今週0/10問。あと10問（33日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "日本の刑訴法上、証拠十分でも検察官が不起訴にできる根拠条文は何条か？",
-  "quiz_answer_hint": "刑訴法248条（起訴便宜主義）",
-  "articles": [
-    {
-      "gist": "起訴便宜主義・訴追不要なら不起訴可",
-      "ref": "刑訴法248条"
-    },
-    {
-      "gist": "起訴独占主義・公訴は検察官のみ提起",
-      "ref": "刑訴法247条"
-    },
-    {
-      "gist": "執行猶予の必要的取消事由",
-      "ref": "刑法26条"
-    }
-  ],
-  "freq_rating": "★★★",
+  "quiz_question": "",
+  "quiz_answer_hint": "",
+  "articles": [],
+  "freq_rating": "",
   "weak_points_text": "",
   "next_focus": "",
   "persistent_weak": [

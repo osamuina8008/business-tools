@@ -349,12 +349,12 @@
     <div class="big">🔑</div>
     <h2>はじめの設定</h2>
     <p>
-      Groq の APIキーを入力してください。<br>
-      <b style="color:var(--text)">完全無料</b>（1日14,400回・課金なし）。<br><br>
-      取得先 → <a href="https://console.groq.com/keys" target="_blank">console.groq.com/keys</a><br>
-      <span style="font-size:11.5px">Googleでログイン → 「Create API Key」でコピー</span>
+      Anthropic の APIキーを入力してください。<br>
+      精度重視で <b style="color:var(--text)">Claude Haiku</b> を使用（目安 月数十〜200円程度）。<br><br>
+      取得先 → <a href="https://console.anthropic.com/settings/keys" target="_blank">console.anthropic.com</a><br>
+      <span style="font-size:11.5px">ログイン → 「Create Key」でコピー</span>
     </p>
-    <input id="api-key-input" class="api-in" type="password" placeholder="gsk_..." autocomplete="off">
+    <input id="api-key-input" class="api-in" type="password" placeholder="sk-ant-..." autocomplete="off">
     <button id="save-key-btn" class="big-btn" disabled>設定して始める</button>
     <p style="font-size:11.5px">キーはこの端末のブラウザにだけ保存されます</p>
   </div>
@@ -415,8 +415,8 @@
 //  定数
 // ════════════════════════════════════════════
 const WEEKLY = {0:"商法",1:"憲法",2:"民法",3:"刑法",4:"行政法",5:"民訴法",6:"刑訴法"};
-const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
-const GROQ_MODEL = "llama-3.3-70b-versatile";
+const API_URL = "https://api.anthropic.com/v1/messages";
+const API_MODEL = "claude-haiku-4-5-20251001";
 const CTX_URL = () => `https://raw.githubusercontent.com/osamuina8008/business-tools/main/study/context.json?t=${Date.now()}`;
 
 // カテゴリ定義
@@ -432,7 +432,7 @@ const CAT = {
 // ════════════════════════════════════════════
 //  状態
 // ════════════════════════════════════════════
-let apiKey  = localStorage.getItem("groq_api_key") || "";
+let apiKey  = localStorage.getItem("anthropic_api_key") || "";
 let ctx     = null;
 let ALL_CARDS = [];
 let subjFilter = "";       // "" = 全科目
@@ -849,7 +849,15 @@ function launch(card){
   history = [];
   $("chat-area").innerHTML = "";
   showChatScreen();
-  send(card.chat || `${chatSubject}の復習を始めたいです。今日押さえるべき論点キーワードを5〜7個、条文番号なしで簡潔に挙げてください。`, {hidden:true, intro:card.title});
+  addBubble("ai", `📌 「${card.title}」を復習しましょう！`);
+  const prompt = card.chat || `${chatSubject}の復習を始めたいです。今日押さえるべき論点キーワードを5〜7個、条文番号なしで簡潔に挙げてください。`;
+  // 開いた瞬間はAIを呼ばない（コスト0）。タップで初めてHaikuに問い合わせる。
+  const row=document.createElement("div"); row.className="msg ai";
+  const btn=document.createElement("button"); btn.className="qb";
+  btn.style.cssText="font-weight:700";
+  btn.textContent="▶ 論点キーワードを表示（Haiku）";
+  btn.addEventListener("click", ()=>{ row.remove(); send(prompt, {hidden:true}); });
+  row.appendChild(btn); $("chat-area").appendChild(row); scrollBottom();
 }
 
 // ════════════════════════════════════════════
@@ -873,7 +881,7 @@ async function loadFeed(){
 }
 
 // ════════════════════════════════════════════
-//  Groq チャット
+//  Claude (Haiku) チャット
 // ════════════════════════════════════════════
 function buildSystem(){
   let extra = "";
@@ -921,18 +929,22 @@ async function send(text, opts={}){
   const typing = addTyping();
   try{
     history.push({role:"user", content:userText});
-    const messages = [{role:"system", content:buildSystem()}, ...history];
-    const res = await fetch(GROQ_URL, {
+    const res = await fetch(API_URL, {
       method:"POST",
-      headers:{"Content-Type":"application/json","Authorization":`Bearer ${apiKey}`},
-      body: JSON.stringify({model:GROQ_MODEL, messages, max_tokens:600, temperature:0.75}),
+      headers:{
+        "Content-Type":"application/json",
+        "x-api-key": apiKey,
+        "anthropic-version": "2023-06-01",
+        "anthropic-dangerous-direct-browser-access": "true",
+      },
+      body: JSON.stringify({model:API_MODEL, max_tokens:600, system:buildSystem(), messages:history}),
     });
     const data = await res.json();
     typing.remove();
-    if(data.error){
-      addBubble("ai", `⚠️ エラー：${data.error.message||"不明"}\n\nAPIキーが切れている場合は、右上の ↺ → キーを入れ直してください。`);
+    if(data.type==="error" || data.error){
+      addBubble("ai", `⚠️ エラー：${data.error?.message||"不明"}\n\nAPIキーが切れている場合は、右上の ↺ → キーを入れ直してください。`);
     } else {
-      const reply = data.choices?.[0]?.message?.content || "（応答なし）";
+      const reply = (data.content||[]).filter(b=>b.type==="text").map(b=>b.text).join("") || "（応答なし）";
       addBubble("ai", reply);
       history.push({role:"assistant", content:reply});
     }
@@ -983,7 +995,7 @@ document.querySelectorAll(".sbt").forEach(btn=>{
 $("api-key-input").addEventListener("input", e=>{ $("save-key-btn").disabled = e.target.value.trim().length<10; });
 $("save-key-btn").addEventListener("click", ()=>{
   const k=$("api-key-input").value.trim(); if(!k) return;
-  apiKey=k; localStorage.setItem("groq_api_key", k); loadFeed();
+  apiKey=k; localStorage.setItem("anthropic_api_key", k); loadFeed();
 });
 
 // 別の提案
@@ -1067,7 +1079,7 @@ $("font-btn").addEventListener("click", ()=>{ sizeIdx=(sizeIdx+1)%SIZES.length; 
 // リセット
 $("reset-btn").addEventListener("click", ()=>{
   if(!confirm("リセットしますか？")) return;
-  if(!confirm("APIキーは残しますか？（キャンセルで削除）")){ localStorage.removeItem("groq_api_key"); apiKey=""; }
+  if(!confirm("APIキーは残しますか？（キャンセルで削除）")){ localStorage.removeItem("anthropic_api_key"); apiKey=""; }
   history=[]; ctx=null; subjFilter=""; catFilter="all"; reshuffle=0;
   $("chat-area").innerHTML="";
   init();

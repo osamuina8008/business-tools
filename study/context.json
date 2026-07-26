@@ -1,10 +1,21 @@
 {
   "subject": "商法",
   "date": "2026-07-26",
-  "keywords": [],
+  "keywords": [
+    "株主保護の総合",
+    "続と無効の訴え",
+    "業譲渡の異同②"
+  ],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [],
+  "today_logs": [
+    {
+      "type": "短答",
+      "questions_count": 15,
+      "understanding": "普通",
+      "topic": ""
+    }
+  ],
   "spacing_items": [
     {
       "interval_label": "",
@@ -230,8 +241,8 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": false,
-  "updated_at": "2026-07-26T09:48:44.490409",
+  "has_data": true,
+  "updated_at": "2026-07-26T15:16:33.576245",
   "today_tasks": [
     {
       "subject": "刑法",
@@ -239,16 +250,6 @@
       "action": "短答3問｜論点：構成要件該当性・違法性阻却（正当防衛の要件）・共犯の成立",
       "theme": "短答2周目・論文構成入門",
       "situation": "今週0/15問。あと15問（11日ぶり）",
-      "actual_q": 0,
-      "target_q": 15,
-      "checked": false
-    },
-    {
-      "subject": "商法",
-      "status": "遅れ",
-      "action": "短答3問｜論点：株主総会決議（種類・要件・瑕疵）・取締役の善管注意義務",
-      "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（7日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false

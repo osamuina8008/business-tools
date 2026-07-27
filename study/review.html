@@ -564,7 +564,7 @@ function buildCards(ctx){
       title:`${it.subject}の${focus}、そろそろ復習どき`,
       why:`${lab}に学習。忘れかけの“いま”がいちばん定着します。`,
       when:lab, kws, bearTerm:it.date,
-      chat:`${it.subject}の「${kws.join("、")||"前回学習した内容"}」について、覚えておくべき論点キーワードを5〜7個、条文番号なしで簡潔に挙げてください。`,
+      chat:`${it.subject}の「${kws.join("、")||"前回学習した内容"}」について、覚えておくべき論点キーワードを5〜7個、簡潔に挙げてください。`,
       score: 100 + (kws.length?5:0),
     });
   });
@@ -577,7 +577,7 @@ function buildCards(ctx){
       title:`何度も間違えてる「${p.keyword}」、今日こそ`,
       why:`これまで${p.count||"複数"}回つまずいた論点。ここを潰すと一気に伸びます。`,
       when:`${p.count||""}回`, kws:[p.keyword], bearTerm:p.keyword,
-      chat:`${p.subject?p.subject+"の":""}「${p.keyword}」が苦手です。基礎から押さえるべき論点キーワードを5〜7個、条文番号なしでやさしく簡潔に挙げてください。`,
+      chat:`${p.subject?p.subject+"の":""}「${p.keyword}」が苦手です。基礎から押さえるべき論点キーワードを5〜7個、やさしく簡潔に挙げてください。`,
       score: 96,
     });
   });
@@ -589,7 +589,7 @@ function buildCards(ctx){
       title:`前回ひっかかった「${t}」を確認`,
       why:`直近で間違えたところ。記憶が新しいうちに上書きしましょう。`,
       kws:[t], bearTerm:t,
-      chat:`「${t}」について、覚えておくべき論点キーワードを5〜7個、条文番号なしで簡潔に挙げてください。`,
+      chat:`「${t}」について、覚えておくべき論点キーワードを5〜7個、簡潔に挙げてください。`,
       score: 88,
     });
   });
@@ -604,7 +604,7 @@ function buildCards(ctx){
       title:`${t.subject}：${t.action ? t.action.split("｜")[0] : (theme||"今日の一手")}`,
       why:`${t.situation?t.situation+"。":""}${late?"少し遅れ気味。5分でも前進を。":"今日の枠。軽く触れておこう。"}`,
       when:t.status, kws: theme?[theme]:[], bearTerm:t.subject,
-      chat:`${t.subject}の今日の課題に取り組みます。テーマは「${t.theme||t.action||"基礎確認"}」。このテーマの論点キーワードを5〜7個、条文番号なしで簡潔に挙げてください。`,
+      chat:`${t.subject}の今日の課題に取り組みます。テーマは「${t.theme||t.action||"基礎確認"}」。このテーマの論点キーワードを5〜7個、簡潔に挙げてください。`,
       score: late ? 92 : 74,
     });
   });
@@ -616,7 +616,7 @@ function buildCards(ctx){
       title:`今日の1問に挑戦`,
       why: ctx.quiz_question.length>70 ? ctx.quiz_question.slice(0,70)+"…" : ctx.quiz_question,
       kws: ctx.quiz_answer_hint?[ctx.quiz_answer_hint]:[], bearTerm: ctx.quiz_answer_hint||ctx.subject,
-      chat:`次のテーマについて、覚えておくべき論点キーワードを5〜7個、条文番号なしで簡潔に挙げてください：「${ctx.quiz_question}」。`,
+      chat:`次のテーマについて、覚えておくべき論点キーワードを5〜7個、簡潔に挙げてください：「${ctx.quiz_question}」。`,
       score: 80,
     });
   }
@@ -628,7 +628,7 @@ function buildCards(ctx){
       title:`${ctx.subject||""}の弱点、核心を整理`,
       why: ctx.weak_points_text.length>78 ? ctx.weak_points_text.slice(0,78)+"…" : ctx.weak_points_text,
       bearTerm: ctx.subject||"", kws:[],
-      chat:`${ctx.subject||"今日の科目"}で私がつまずきやすいのは次の点です：「${ctx.weak_points_text}」。ここを克服するために押さえるべき論点キーワードを5〜7個、条文番号なしで簡潔に挙げてください。`,
+      chat:`${ctx.subject||"今日の科目"}で私がつまずきやすいのは次の点です：「${ctx.weak_points_text}」。ここを克服するために押さえるべき論点キーワードを5〜7個、簡潔に挙げてください。`,
       score: 84,
     });
   }
@@ -638,7 +638,7 @@ function buildCards(ctx){
       title:`次に伸ばすならここ`,
       why: ctx.next_focus.length>78 ? ctx.next_focus.slice(0,78)+"…" : ctx.next_focus,
       bearTerm: ctx.subject||"", kws:[],
-      chat:`次の方針で進めたいです：「${ctx.next_focus}」。この方針に沿って、押さえるべき論点キーワードを5〜7個、条文番号なしで簡潔に挙げてください。`,
+      chat:`次の方針で進めたいです：「${ctx.next_focus}」。この方針に沿って、押さえるべき論点キーワードを5〜7個、簡潔に挙げてください。`,
       score: 72,
     });
   }
@@ -651,7 +651,7 @@ function buildCards(ctx){
       title:`Q${it.q_num} をもう一度`,
       why: axis ? (axis.length>70?axis.slice(0,70)+"…":axis) : "今日解いた問題の振り返り。",
       kws:[], bearTerm:`Q${it.q_num}`,
-      chat:`今日解いた Q${it.q_num}（${axis||"論点の振り返り"}）について、復習すべき論点キーワードを5〜7個、条文番号なしで簡潔に挙げてください。`,
+      chat:`今日解いた Q${it.q_num}（${axis||"論点の振り返り"}）について、復習すべき論点キーワードを5〜7個、簡潔に挙げてください。`,
       score: 78,
     });
   });
@@ -664,7 +664,7 @@ function buildCards(ctx){
         title:`${subj}：${tip.t}`,
         why: tip.b,
         kws:[tip.kw], bearTerm:tip.kw,
-        chat:`${subj}の「${tip.kw}」について、覚えておくべき論点キーワードを5〜7個、条文番号なしで簡潔に挙げてください。`,
+        chat:`${subj}の「${tip.kw}」について、覚えておくべき論点キーワードを5〜7個、簡潔に挙げてください。`,
         score: 40,
       });
     });
@@ -688,7 +688,7 @@ function buildCards(ctx){
       title:`重要条文：${a}`,
       why:`今日のテーマに関わる条文。素読みで定着を。`,
       kws:[a], bearTerm:a,
-      chat:`「${a}」について、押さえておくべき論点キーワードを5〜7個、条文番号なしで簡潔に挙げてください。`,
+      chat:`「${a}」について、押さえておくべき論点キーワードを5〜7個、簡潔に挙げてください。`,
       score: 34,
     });
   });
@@ -850,7 +850,7 @@ function launch(card){
   $("chat-area").innerHTML = "";
   showChatScreen();
   addBubble("ai", `📌 「${card.title}」を復習しましょう！`);
-  const prompt = card.chat || `${chatSubject}の復習を始めたいです。今日押さえるべき論点キーワードを5〜7個、条文番号なしで簡潔に挙げてください。`;
+  const prompt = card.chat || `${chatSubject}の復習を始めたいです。今日押さえるべき論点キーワードを5〜7個、簡潔に挙げてください。`;
   // 開いた瞬間はAIを呼ばない（コスト0）。タップで初めてHaikuに問い合わせる。
   const row=document.createElement("div"); row.className="msg ai";
   const btn=document.createElement("button"); btn.className="qb";
@@ -899,9 +899,9 @@ function buildSystem(){
 【最重要ルール（全返答で厳守）】
 - 聞き返さない・確認しない。テーマが曖昧・断片的でも、科目と文脈から最も自然な論点を推定し、そのまま論点キーワードを出す。「〜についてですか？」「言い直してください」等の質問返しは禁止。
 - テーマのキーワードは先頭の文字が欠けていることがある（例：「業譲渡」→「営業譲渡」、「追」→「追完」、「続と無効の訴え」→「手続と無効の訴え」）。文脈から自然に補って解釈する。
-- 具体的な条文番号・条数（例：「348条」「第354条」など）は一切書かない。制度名・論点名で書く（例：「表見代表取締役の規律」）。
+- 参考条文を添えてよい（復習用）。ただし現行法（民法は2020年施行の債権法改正後）に基づき、確実に分かる条文だけを末尾に「(参考: ○条)」の形で1つ添える。自信がない番号は推測で書かず省略する。条文番号を断定的な根拠として使わず、効力の断定にも使わない。
 - 効力を一方的に断定しない（「必ず無効」「当然に有効」等は禁止）。「原則」と「例外」、または満たすべき要件をセットで示すにとどめる。
-- 出典は「会社法」で書く（「商法」とは書かない）。
+- 現行法の用語で書く（例：民法は「瑕疵担保責任」ではなく「契約不適合責任」。相殺は単独行為＝意思表示であり「相殺契約」ではない）。会社法は「商法」と書かず「会社法」。
 - 断片的な暗記を促さない。「誰が・何を・どの要件で」を意識させる。
 - 難易度は「基本」。学説の細かい対立や重箱ひっかけは避ける。
 
@@ -909,12 +909,12 @@ function buildSystem(){
 - ユーザーがテーマを示したら、覚えておくべき論点キーワードだけを挙げる。これが基本の返答。解説文は書かない。クイズ・問題は基本的に出さない。
 - 出力は必ず次の形にする：
   ・1行目にテーマを短く1文。
-  ・続けて「・論点名 — 一言の手がかり（1文以内・条文番号なし・効力の断定なし）」を5〜7個、箇条書きで。
+  ・続けて「・論点名 — 一言の手がかり（1文以内・効力の断定なし）　(参考: ○条)」を5〜7個、箇条書きで。参考条文は確実なものだけ添え、無ければ付けない。
   ・最後に必ず1行：「※条数と効力は自分の教材で必ず確認」。
 - スマホ・タブレットで読む前提。全体を短くまとめる。
 
 【追加のやりとり】
-- 「もっと詳しく」→ キーワードのうち特に重要な1つを3〜5文で深掘り（条文番号は書かず、要件と例外の形で）。
+- 「もっと詳しく」→ キーワードのうち特に重要な1つを3〜5文で深掘り（確実な参考条文は添えてよいが、要件と例外の形で。効力は断定しない）。
 - 「別の5つ」→ 先に挙げたものと重複しない別の論点キーワードを5〜7個挙げる。
 - 「やさしく」→ 専門用語を減らし、噛み砕いて説明し直す。
 - 「関連論点」→ そのテーマに関連する論点名を挙げ、各1文で手がかりを添える。
@@ -988,7 +988,7 @@ document.querySelectorAll(".sbt").forEach(btn=>{
     if(!$("chat-wrap").classList.contains("hidden")){
       // チャット中：科目切替
       if(s){ chatSubject=s; $("chat-subj").textContent=s;
-        send(`科目を${s}に切り替えます。${s}の今日押さえるべき論点キーワードを5〜7個、条文番号なしで簡潔に挙げてください。`); }
+        send(`科目を${s}に切り替えます。${s}の今日押さえるべき論点キーワードを5〜7個、簡潔に挙げてください。`); }
       else { backToFeed(); }
     } else {
       subjFilter = s; catFilter="all"; reshuffle=0; renderFeed();

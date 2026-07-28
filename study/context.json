@@ -1,10 +1,19 @@
 {
   "subject": "刑法",
   "date": "2026-07-29",
-  "keywords": [],
+  "keywords": [
+    "刑法211条]]／ひっか"
+  ],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [],
+  "today_logs": [
+    {
+      "type": "短答",
+      "questions_count": 15,
+      "understanding": "普通",
+      "topic": ""
+    }
+  ],
   "spacing_items": [
     {
       "interval_label": "",
@@ -223,8 +232,8 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": false,
-  "updated_at": "2026-07-29T07:00:22.556515",
+  "has_data": true,
+  "updated_at": "2026-07-29T07:06:46.941175",
   "today_tasks": [
     {
       "subject": "民法",
@@ -232,16 +241,6 @@
       "action": "短答3問｜論点：物権変動（対抗要件・善意取得）・抵当権の効力範囲",
       "theme": "短答2周目・頻出論点の論文骨組み",
       "situation": "今週0/15問。あと15問（8日ぶり）",
-      "actual_q": 0,
-      "target_q": 15,
-      "checked": false
-    },
-    {
-      "subject": "刑法",
-      "status": "遅れ",
-      "action": "短答3問｜論点：構成要件該当性・違法性阻却（正当防衛の要件）・共犯の成立",
-      "theme": "短答2周目・論文構成入門",
-      "situation": "今週0/15問。あと15問（14日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false

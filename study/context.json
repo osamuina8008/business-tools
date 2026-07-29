@@ -1,15 +1,13 @@
 {
-  "subject": "刑法",
-  "date": "2026-07-29",
-  "keywords": [
-    "刑法211条]]／ひっか"
-  ],
+  "subject": "行政法",
+  "date": "2026-07-30",
+  "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
   "today_logs": [
     {
       "type": "短答",
-      "questions_count": 15,
+      "questions_count": 10,
       "understanding": "普通",
       "topic": ""
     }
@@ -17,28 +15,46 @@
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-07-26",
-      "subject": "商法",
+      "date": "2026-07-29",
+      "subject": "刑法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "株主保護の総合",
-        "続と無効の訴え",
-        "業譲渡の異同②"
+        "刑法211条]]／ひっか",
+        "特定論点で突出した弱点"
       ],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-07-08",
-      "subject": "刑法",
+      "date": "2026-07-27",
+      "subject": "憲法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "刑罰論",
-        "罪刑法定主義",
-        "刑法の場所的適用範囲"
+        "条文番号と判例の対応"
       ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-23",
+      "subject": "行政法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "中止等の求め",
+        "行政指導指針の策定義務"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-09",
+      "subject": "行政法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
       "claude_notes": []
     }
   ],
@@ -233,30 +249,40 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-07-29T07:06:46.941175",
+  "updated_at": "2026-07-30T07:00:40.891030",
   "today_tasks": [
     {
       "subject": "民法",
       "status": "遅れ",
       "action": "短答3問｜論点：物権変動（対抗要件・善意取得）・抵当権の効力範囲",
       "theme": "短答2周目・頻出論点の論文骨組み",
-      "situation": "今週0/15問。あと15問（8日ぶり）",
+      "situation": "今週0/15問。あと15問（9日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
     },
     {
       "subject": "行政法",
-      "status": "今週",
-      "action": "6日前に学習済。今週の目標：短答2周目・条文ベース定着",
+      "status": "遅れ",
+      "action": "短答3問｜論点：取消訴訟の訴訟要件（処分性・原告適格・出訴期間）",
       "theme": "短答2周目・条文ベース定着",
+      "situation": "今週10/15問。あと5問",
+      "actual_q": 10,
+      "target_q": 15,
+      "checked": false
+    },
+    {
+      "subject": "民事訴訟法",
+      "status": "今週",
+      "action": "6日前に学習済。今週の目標：短答2周目",
+      "theme": "短答2周目",
       "situation": "今週0/15問。あと15問（6日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
     },
     {
-      "subject": "民事訴訟法",
+      "subject": "刑事訴訟法",
       "status": "今週",
       "action": "5日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
@@ -266,7 +292,7 @@
       "checked": false
     },
     {
-      "subject": "刑事訴訟法",
+      "subject": "商法",
       "status": "今週",
       "action": "4日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
@@ -276,30 +302,29 @@
       "checked": false
     },
     {
-      "subject": "商法",
-      "status": "今週",
-      "action": "3日前に学習済。今週の目標：短答2周目",
-      "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（3日ぶり）",
-      "actual_q": 0,
-      "target_q": 15,
-      "checked": false
-    },
-    {
       "subject": "実務基礎",
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（36日ぶり）",
+      "situation": "今週0/10問。あと10問（37日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "",
-  "quiz_answer_hint": "",
-  "articles": [],
-  "freq_rating": "",
+  "quiz_question": "土地改良事業の工事・換地が全部完了した後、施行認可の取消訴訟の訴えの利益は残るか？",
+  "quiz_answer_hint": "最判平4.1.24。後続する換地処分等の効力が認可取消しにより影響を受けるため利益あり。原状回復困難は行訴法31条の事情判決で処理。",
+  "articles": [
+    {
+      "gist": "取消訴訟は法律上の利益を有する者のみ提起可",
+      "ref": "行訴法9条1項"
+    },
+    {
+      "gist": "原状回復不能時の事情判決を規定",
+      "ref": "行訴法31条"
+    }
+  ],
+  "freq_rating": "★★★",
   "weak_points_text": "",
   "next_focus": "",
   "persistent_weak": [

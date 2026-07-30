@@ -1,13 +1,17 @@
 {
-  "subject": "行政法",
-  "date": "2026-07-30",
-  "keywords": [],
+  "subject": "民訴法",
+  "date": "2026-07-31",
+  "keywords": [
+    "意見陳述の方法",
+    "成立の真正",
+    "二段の推定"
+  ],
   "wrong_qs": [],
   "wrong_topics": [],
   "today_logs": [
     {
-      "type": "短答",
-      "questions_count": 10,
+      "type": "インプット",
+      "questions_count": 16,
       "understanding": "普通",
       "topic": ""
     }
@@ -15,46 +19,38 @@
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-07-29",
-      "subject": "刑法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "刑法211条]]／ひっか",
-        "特定論点で突出した弱点"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-27",
-      "subject": "憲法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "条文番号と判例の対応"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-23",
+      "date": "2026-07-30",
       "subject": "行政法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "中止等の求め",
-        "行政指導指針の策定義務"
+        "民訴法143条]]との違"
       ],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-07-09",
-      "subject": "行政法",
+      "date": "2026-07-24",
+      "subject": "民事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [],
+      "keywords": [
+        "既判力の客観的範囲",
+        "移送の種類"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-10",
+      "subject": "民事訴訟法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "全体",
+        "争点整理",
+        "証拠調べ"
+      ],
       "claude_notes": []
     }
   ],
@@ -249,14 +245,14 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-07-30T07:00:40.891030",
+  "updated_at": "2026-07-31T07:00:09.620946",
   "today_tasks": [
     {
       "subject": "民法",
       "status": "遅れ",
       "action": "短答3問｜論点：物権変動（対抗要件・善意取得）・抵当権の効力範囲",
       "theme": "短答2周目・頻出論点の論文骨組み",
-      "situation": "今週0/15問。あと15問（9日ぶり）",
+      "situation": "今週0/15問。あと15問（10日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -266,13 +262,13 @@
       "status": "遅れ",
       "action": "短答3問｜論点：取消訴訟の訴訟要件（処分性・原告適格・出訴期間）",
       "theme": "短答2周目・条文ベース定着",
-      "situation": "今週10/15問。あと5問",
+      "situation": "今週10/15問。あと5問（1日ぶり）",
       "actual_q": 10,
       "target_q": 15,
       "checked": false
     },
     {
-      "subject": "民事訴訟法",
+      "subject": "刑事訴訟法",
       "status": "今週",
       "action": "6日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
@@ -282,7 +278,7 @@
       "checked": false
     },
     {
-      "subject": "刑事訴訟法",
+      "subject": "商法",
       "status": "今週",
       "action": "5日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
@@ -292,36 +288,38 @@
       "checked": false
     },
     {
-      "subject": "商法",
-      "status": "今週",
-      "action": "4日前に学習済。今週の目標：短答2周目",
-      "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（4日ぶり）",
-      "actual_q": 0,
-      "target_q": 15,
-      "checked": false
-    },
-    {
       "subject": "実務基礎",
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（37日ぶり）",
+      "situation": "今週0/10問。あと10問（38日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "土地改良事業の工事・換地が全部完了した後、施行認可の取消訴訟の訴えの利益は残るか？",
-  "quiz_answer_hint": "最判平4.1.24。後続する換地処分等の効力が認可取消しにより影響を受けるため利益あり。原状回復困難は行訴法31条の事情判決で処理。",
+  "quiz_question": "本案終局判決後に訴えを取り下げた場合、同一訴えの再提起は許されるか？",
+  "quiz_answer_hint": "民訴262条2項・最判昭52.7.19",
   "articles": [
     {
-      "gist": "取消訴訟は法律上の利益を有する者のみ提起可",
-      "ref": "行訴法9条1項"
+      "gist": "鑑定人は裁判所が指定する",
+      "ref": "民訴213条"
     },
     {
-      "gist": "原状回復不能時の事情判決を規定",
-      "ref": "行訴法31条"
+      "gist": "私文書の二段の推定",
+      "ref": "民訴228条4項"
+    },
+    {
+      "gist": "公務秘密文書の提出義務除外",
+      "ref": "民訴220条4号ロ"
+    },
+    {
+      "gist": "訴え取下げは判決確定まで可",
+      "ref": "民訴261条"
+    },
+    {
+      "gist": "本案終局判決後の取下げで再訴禁止",
+      "ref": "民訴262条2項"
     }
   ],
   "freq_rating": "★★★",
@@ -404,18 +402,18 @@
       "category": "prep"
     },
     {
+      "title": "【司法試験対策】 2027年合格目標 TKC 司法試験 [短答式]全国実力確認テスト 《本試験会場 新宿のCBTテストセンターで実施!》 受付 8/30(日)まで!",
+      "label": "「予備校・イベント・教材」 【司法試験対策】 2027年合格目標 TKC 司法試験 [短答式]全国実力確認テスト 《本試験会場 新宿のCBTテストセンターで実施!》 受付 8/30(日)まで!",
+      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/27A22001.html",
+      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
+      "category": "prep"
+    },
+    {
       "title": "司法試験合格〜司法修習",
       "label": "「予備校ニュース」 司法試験合格〜司法修習",
       "url": "https://www.itojuku.co.jp/shiken/shihou/about/syuusyuu/index.html",
       "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
       "category": "prep"
-    },
-    {
-      "title": "法科大学院を中核とする新しい法曹養成制度の充実・発展に向けた取組（法科大学院センター）",
-      "label": "「業界トピック」 法科大学院を中核とする新しい法曹養成制度の充実・発展に向けた取組（法科大学院センター）",
-      "url": "https://www.nichibenren.or.jp/activity/training/law_schools.html",
-      "source": "日弁連｜活動・トピックス",
-      "category": "media"
     }
   ]
 }

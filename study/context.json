@@ -1,39 +1,27 @@
 {
-  "subject": "刑訴法",
-  "date": "2026-08-01",
-  "keywords": [],
+  "subject": "商法",
+  "date": "2026-08-02",
+  "keywords": [
+    "株主総会決議の瑕疵に関す",
+    "株主総会決議取消しの訴え",
+    "株主総会決議の取消しの訴"
+  ],
   "wrong_qs": [],
   "wrong_topics": [],
   "today_logs": [],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-07-31",
+      "date": "2026-08-01",
       "subject": "民事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [
-        "意見陳述の方法",
-        "成立の真正",
-        "二段の推定"
-      ],
+      "keywords": [],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-07-29",
-      "subject": "刑法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "刑法211条]]／ひっか",
-        "特定論点で突出した弱点"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-25",
+      "date": "2026-08-01",
       "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
@@ -42,36 +30,51 @@
     },
     {
       "interval_label": "",
-      "date": "2026-07-11",
-      "subject": "民事訴訟法",
+      "date": "2026-07-30",
+      "subject": "行政法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [],
+      "keywords": [
+        "民訴法143条]]との違"
+      ],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-07-11",
+      "date": "2026-07-26",
+      "subject": "商法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "株主保護の総合",
+        "続と無効の訴え",
+        "業譲渡の異同②"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-12",
       "subject": "民法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "報酬請求権",
-        "費用前払請求権",
-        "過失なく受けた損害の賠償請求権"
+        "不当利得の請求原因",
+        "現存利益の抗弁",
+        "悪意受益者の加重責任"
       ],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-07-11",
-      "subject": "刑事訴訟法",
+      "date": "2026-07-12",
+      "subject": "商法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "身体検査令状",
-        "捜索差押令状",
-        "鑑定処分許可"
+        "競業取引",
+        "利益相反取引の承認手続と",
+        "本件取引が利益相反取引に"
       ],
       "claude_notes": []
     }
@@ -222,15 +225,15 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": false,
-  "updated_at": "2026-08-01T07:00:28.351772",
+  "has_data": true,
+  "updated_at": "2026-08-02T07:00:55.577467",
   "today_tasks": [
     {
       "subject": "民法",
       "status": "遅れ",
       "action": "短答3問｜論点：物権変動（対抗要件・善意取得）・抵当権の効力範囲",
       "theme": "短答2周目・頻出論点の論文骨組み",
-      "situation": "今週0/15問。あと15問（11日ぶり）",
+      "situation": "今週0/15問。あと15問（12日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -240,27 +243,17 @@
       "status": "遅れ",
       "action": "短答3問｜論点：取消訴訟の訴訟要件（処分性・原告適格・出訴期間）",
       "theme": "短答2周目・条文ベース定着",
-      "situation": "今週10/15問。あと5問（2日ぶり）",
+      "situation": "今週10/15問。あと5問（3日ぶり）",
       "actual_q": 10,
       "target_q": 15,
       "checked": false
     },
     {
-      "subject": "刑事訴訟法",
+      "subject": "商法",
       "status": "遅れ",
-      "action": "短答3問｜論点：捜査の端緒・逮捕の種類と要件・接見交通権",
+      "action": "短答3問｜論点：株主総会決議（種類・要件・瑕疵）・取締役の善管注意義務",
       "theme": "短答2周目",
       "situation": "今週0/15問。あと15問（7日ぶり）",
-      "actual_q": 0,
-      "target_q": 15,
-      "checked": false
-    },
-    {
-      "subject": "商法",
-      "status": "今週",
-      "action": "6日前に学習済。今週の目標：短答2周目",
-      "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（6日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -270,7 +263,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（39日ぶり）",
+      "situation": "今週0/10問。あと10問（40日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false

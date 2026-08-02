@@ -8,7 +8,20 @@
   ],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [],
+  "today_logs": [
+    {
+      "type": "インプット",
+      "questions_count": 0,
+      "understanding": "普通",
+      "topic": ""
+    },
+    {
+      "type": "インプット",
+      "questions_count": 20,
+      "understanding": "普通",
+      "topic": ""
+    }
+  ],
   "spacing_items": [
     {
       "interval_label": "",
@@ -226,7 +239,7 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-08-02T07:00:55.577467",
+  "updated_at": "2026-08-02T10:00:43.789466",
   "today_tasks": [
     {
       "subject": "民法",
@@ -249,16 +262,6 @@
       "checked": false
     },
     {
-      "subject": "商法",
-      "status": "遅れ",
-      "action": "短答3問｜論点：株主総会決議（種類・要件・瑕疵）・取締役の善管注意義務",
-      "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（7日ぶり）",
-      "actual_q": 0,
-      "target_q": 15,
-      "checked": false
-    },
-    {
       "subject": "実務基礎",
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
@@ -269,10 +272,31 @@
       "checked": false
     }
   ],
-  "quiz_question": "",
-  "quiz_answer_hint": "",
-  "articles": [],
-  "freq_rating": "",
+  "quiz_question": "決議の内容が定款に違反する場合、無効確認の訴えを提起できるか？",
+  "quiz_answer_hint": "会社法830条2項（法令違反のみ）・831条1項2号（定款違反は取消し）",
+  "articles": [
+    {
+      "gist": "決議内容の法令違反→無効確認の訴え",
+      "ref": "会社法830条2項"
+    },
+    {
+      "gist": "手続・方法・内容定款違反→取消しの訴え",
+      "ref": "会社法831条1項"
+    },
+    {
+      "gist": "裁量棄却：取消しの訴えのみ適用",
+      "ref": "会社法831条2項"
+    },
+    {
+      "gist": "取消しの訴えの被告は当該株式会社のみ",
+      "ref": "会社法834条17号"
+    },
+    {
+      "gist": "認容確定判決のみ対世効あり",
+      "ref": "会社法838条"
+    }
+  ],
+  "freq_rating": "★★★",
   "weak_points_text": "",
   "next_focus": "",
   "persistent_weak": [

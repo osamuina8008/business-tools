@@ -1,13 +1,19 @@
 {
-  "subject": "憲法",
-  "date": "2026-08-03",
+  "subject": "民法",
+  "date": "2026-08-04",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
   "today_logs": [
     {
-      "type": "インプット",
+      "type": "短答",
       "questions_count": 20,
+      "understanding": "普通",
+      "topic": ""
+    },
+    {
+      "type": "復習",
+      "questions_count": 0,
       "understanding": "普通",
       "topic": ""
     }
@@ -15,33 +21,7 @@
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-08-02",
-      "subject": "商法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "株主総会決議の瑕疵に関す",
-        "株主総会決議取消しの訴え",
-        "株主総会決議の取消しの訴"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-31",
-      "subject": "民事訴訟法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "意見陳述の方法",
-        "成立の真正",
-        "二段の推定"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-27",
+      "date": "2026-08-03",
       "subject": "憲法",
       "questions_count": 0,
       "wrong_qs": [],
@@ -50,14 +30,32 @@
     },
     {
       "interval_label": "",
-      "date": "2026-07-13",
-      "subject": "憲法",
+      "date": "2026-08-01",
+      "subject": "民事訴訟法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-08-01",
+      "subject": "刑事訴訟法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-14",
+      "subject": "民法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "民法90条]]",
-        "民法90条]]の規定によ",
-        "憲法13条]]"
+        "共同不法行為者",
+        "樹木の栽植",
+        "過失相殺の要件"
       ],
       "claude_notes": []
     }
@@ -253,24 +251,14 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-08-03T07:00:01.001505",
+  "updated_at": "2026-08-04T07:00:56.738442",
   "today_tasks": [
-    {
-      "subject": "民法",
-      "status": "遅れ",
-      "action": "短答3問｜論点：物権変動（対抗要件・善意取得）・抵当権の効力範囲",
-      "theme": "短答2周目・頻出論点の論文骨組み",
-      "situation": "今週0/15問。あと15問（13日ぶり）",
-      "actual_q": 0,
-      "target_q": 15,
-      "checked": false
-    },
     {
       "subject": "刑法",
       "status": "今週",
-      "action": "5日前に学習済。今週の目標：短答2周目・論文構成入門",
+      "action": "6日前に学習済。今週の目標：短答2周目・論文構成入門",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週0/15問。あと15問（5日ぶり）",
+      "situation": "今週0/15問。あと15問（6日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -278,9 +266,9 @@
     {
       "subject": "行政法",
       "status": "今週",
-      "action": "4日前に学習済。今週の目標：短答2周目・条文ベース定着",
+      "action": "5日前に学習済。今週の目標：短答2周目・条文ベース定着",
       "theme": "短答2周目・条文ベース定着",
-      "situation": "今週0/15問。あと15問（4日ぶり）",
+      "situation": "今週0/15問。あと15問（5日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -288,9 +276,9 @@
     {
       "subject": "民事訴訟法",
       "status": "今週",
-      "action": "2日前に学習済。今週の目標：短答2周目",
+      "action": "3日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（2日ぶり）",
+      "situation": "今週0/15問。あと15問（3日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -298,9 +286,9 @@
     {
       "subject": "刑事訴訟法",
       "status": "今週",
-      "action": "2日前に学習済。今週の目標：短答2周目",
+      "action": "3日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（2日ぶり）",
+      "situation": "今週0/15問。あと15問（3日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -308,9 +296,9 @@
     {
       "subject": "商法",
       "status": "今週",
-      "action": "1日前に学習済。今週の目標：短答2周目",
+      "action": "2日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（1日ぶり）",
+      "situation": "今週0/15問。あと15問（2日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -320,34 +308,34 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（41日ぶり）",
+      "situation": "今週0/10問。あと10問（42日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "起立斉唱命令は教員の思想・良心の自由を直接制約するか？",
-  "quiz_answer_hint": "最判平成23年5月30日：直接制約ではなく「間接的な制約の面がある」にとどまる",
+  "quiz_question": "虚偽表示の買主Bの相続人Cは民法94条Ⅱの第三者に当たるか？",
+  "quiz_answer_hint": "民法94条Ⅱ・相続人は被相続人の地位を承継するため第三者に当たらない",
   "articles": [
     {
-      "gist": "思想・良心の自由を絶対的に保障",
-      "ref": "憲法19条"
+      "gist": "心裡留保・善意第三者保護",
+      "ref": "民法93条"
     },
     {
-      "gist": "信教の自由・宗教的結社の自由",
-      "ref": "憲法20条1項"
+      "gist": "虚偽表示・善意第三者保護",
+      "ref": "民法94条"
     },
     {
-      "gist": "国の宗教的活動を禁止",
-      "ref": "憲法20条3項"
+      "gist": "錯誤取消し・動機錯誤の表示要件",
+      "ref": "民法95条"
     },
     {
-      "gist": "表現の自由を保障",
-      "ref": "憲法21条1項"
+      "gist": "詐欺強迫取消し・第三者保護",
+      "ref": "民法96条"
     },
     {
-      "gist": "宗教団体への公金支出を禁止",
-      "ref": "憲法89条"
+      "gist": "追認による取消権の消滅",
+      "ref": "民法122条"
     }
   ],
   "freq_rating": "★★★",

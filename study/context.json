@@ -1,19 +1,23 @@
 {
-  "subject": "民法",
-  "date": "2026-08-04",
-  "keywords": [],
-  "wrong_qs": [],
-  "wrong_topics": [],
+  "subject": "刑法",
+  "date": "2026-08-05",
+  "keywords": [
+    "急迫性の総合",
+    "事例への当てはめ",
+    "防衛の各要件の定義"
+  ],
+  "wrong_qs": [
+    "罪数論",
+    "過失犯（刑211条）",
+    "今日の問題の具体的な×・△は未記入のため空欄"
+  ],
+  "wrong_topics": [
+    "刑211条"
+  ],
   "today_logs": [
     {
       "type": "短答",
-      "questions_count": 20,
-      "understanding": "普通",
-      "topic": ""
-    },
-    {
-      "type": "復習",
-      "questions_count": 0,
+      "questions_count": 15,
       "understanding": "普通",
       "topic": ""
     }
@@ -21,41 +25,50 @@
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-08-03",
-      "subject": "憲法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-08-01",
-      "subject": "民事訴訟法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-08-01",
-      "subject": "刑事訴訟法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-14",
+      "date": "2026-08-04",
       "subject": "民法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "共同不法行為者",
-        "樹木の栽植",
-        "過失相殺の要件"
+        "条文番号と文言の紐付け"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-08-02",
+      "subject": "商法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "株主総会決議の瑕疵に関す",
+        "株主総会決議取消しの訴え",
+        "株主総会決議の取消しの訴"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-29",
+      "subject": "刑法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "刑法211条]]／ひっか",
+        "特定論点で突出した弱点"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-15",
+      "subject": "刑法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "状態犯と継続犯の区別基準",
+        "継続犯における新法の遡及",
+        "既遂時期と終了時期のズレ"
       ],
       "claude_notes": []
     }
@@ -251,24 +264,14 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-08-04T21:41:57.067496",
+  "updated_at": "2026-08-05T07:00:35.841244",
   "today_tasks": [
-    {
-      "subject": "刑法",
-      "status": "今週",
-      "action": "6日前に学習済。今週の目標：短答2周目・論文構成入門",
-      "theme": "短答2周目・論文構成入門",
-      "situation": "今週0/15問。あと15問（6日ぶり）",
-      "actual_q": 0,
-      "target_q": 15,
-      "checked": false
-    },
     {
       "subject": "行政法",
       "status": "今週",
-      "action": "5日前に学習済。今週の目標：短答2周目・条文ベース定着",
+      "action": "6日前に学習済。今週の目標：短答2周目・条文ベース定着",
       "theme": "短答2周目・条文ベース定着",
-      "situation": "今週0/15問。あと15問（5日ぶり）",
+      "situation": "今週0/15問。あと15問（6日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -276,9 +279,9 @@
     {
       "subject": "民事訴訟法",
       "status": "今週",
-      "action": "3日前に学習済。今週の目標：短答2周目",
+      "action": "4日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（3日ぶり）",
+      "situation": "今週0/15問。あと15問（4日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -286,9 +289,9 @@
     {
       "subject": "刑事訴訟法",
       "status": "今週",
-      "action": "3日前に学習済。今週の目標：短答2周目",
+      "action": "4日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（3日ぶり）",
+      "situation": "今週0/15問。あと15問（4日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -296,9 +299,9 @@
     {
       "subject": "商法",
       "status": "今週",
-      "action": "2日前に学習済。今週の目標：短答2周目",
+      "action": "3日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（2日ぶり）",
+      "situation": "今週0/15問。あと15問（3日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -308,34 +311,26 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（42日ぶり）",
+      "situation": "今週0/10問。あと10問（43日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "虚偽表示の買主Bの相続人Cは民法94条Ⅱの第三者に当たるか？",
-  "quiz_answer_hint": "民法94条Ⅱ・相続人は被相続人の地位を承継するため第三者に当たらない",
+  "quiz_question": "侵害を予期して現場に赴いた場合、直ちに急迫性は失われるか？",
+  "quiz_answer_hint": "最決平29.4.26：予期のみでは足りず、積極的加害意思の有無を検討する。",
   "articles": [
     {
-      "gist": "心裡留保・善意第三者保護",
-      "ref": "民法93条"
+      "gist": "急迫不正の侵害への防衛行為を阻却",
+      "ref": "刑法36条1項"
     },
     {
-      "gist": "虚偽表示・善意第三者保護",
-      "ref": "民法94条"
+      "gist": "過剰防衛の任意的減免",
+      "ref": "刑法36条2項"
     },
     {
-      "gist": "錯誤取消し・動機錯誤の表示要件",
-      "ref": "民法95条"
-    },
-    {
-      "gist": "詐欺強迫取消し・第三者保護",
-      "ref": "民法96条"
-    },
-    {
-      "gist": "追認による取消権の消滅",
-      "ref": "民法122条"
+      "gist": "緊急避難の成立と過剰避難のただし書",
+      "ref": "刑法37条1項"
     }
   ],
   "freq_rating": "★★★",

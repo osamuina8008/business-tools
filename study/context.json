@@ -1,74 +1,67 @@
 {
-  "subject": "刑法",
-  "date": "2026-08-05",
-  "keywords": [
-    "急迫性の総合",
-    "事例への当てはめ",
-    "防衛の各要件の定義"
-  ],
-  "wrong_qs": [
-    "罪数論",
-    "過失犯（刑211条）",
-    "今日の問題の具体的な×・△は未記入のため空欄"
-  ],
-  "wrong_topics": [
-    "刑211条"
-  ],
+  "subject": "行政法",
+  "date": "2026-08-06",
+  "keywords": [],
+  "wrong_qs": [],
+  "wrong_topics": [],
   "today_logs": [
     {
-      "type": "短答",
+      "type": "インプット",
       "questions_count": 15,
       "understanding": "普通",
+      "topic": ""
+    },
+    {
+      "type": "短答",
+      "questions_count": 0,
+      "understanding": "良好",
       "topic": ""
     }
   ],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-08-04",
-      "subject": "民法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "条文番号と文言の紐付け"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-08-02",
-      "subject": "商法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "株主総会決議の瑕疵に関す",
-        "株主総会決議取消しの訴え",
-        "株主総会決議の取消しの訴"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-29",
+      "date": "2026-08-05",
       "subject": "刑法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "刑法211条]]／ひっか",
-        "特定論点で突出した弱点"
+        "急迫性の総合",
+        "事例への当てはめ",
+        "防衛の各要件の定義"
       ],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-07-15",
-      "subject": "刑法",
+      "date": "2026-08-03",
+      "subject": "憲法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-30",
+      "subject": "行政法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "状態犯と継続犯の区別基準",
-        "継続犯における新法の遡及",
-        "既遂時期と終了時期のズレ"
+        "民訴法143条]]との違"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-16",
+      "subject": "行政法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "行政事件訴訟法10条2項",
+        "中止等の求め",
+        "行政指導指針の策定義務"
       ],
       "claude_notes": []
     }
@@ -264,24 +257,14 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-08-05T07:00:35.841244",
+  "updated_at": "2026-08-06T07:00:34.196984",
   "today_tasks": [
-    {
-      "subject": "行政法",
-      "status": "今週",
-      "action": "6日前に学習済。今週の目標：短答2周目・条文ベース定着",
-      "theme": "短答2周目・条文ベース定着",
-      "situation": "今週0/15問。あと15問（6日ぶり）",
-      "actual_q": 0,
-      "target_q": 15,
-      "checked": false
-    },
     {
       "subject": "民事訴訟法",
       "status": "今週",
-      "action": "4日前に学習済。今週の目標：短答2周目",
+      "action": "5日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（4日ぶり）",
+      "situation": "今週0/15問。あと15問（5日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -289,9 +272,9 @@
     {
       "subject": "刑事訴訟法",
       "status": "今週",
-      "action": "4日前に学習済。今週の目標：短答2周目",
+      "action": "5日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（4日ぶり）",
+      "situation": "今週0/15問。あと15問（5日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -299,9 +282,9 @@
     {
       "subject": "商法",
       "status": "今週",
-      "action": "3日前に学習済。今週の目標：短答2周目",
+      "action": "4日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（3日ぶり）",
+      "situation": "今週0/15問。あと15問（4日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -311,26 +294,34 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（43日ぶり）",
+      "situation": "今週0/10問。あと10問（44日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "侵害を予期して現場に赴いた場合、直ちに急迫性は失われるか？",
-  "quiz_answer_hint": "最決平29.4.26：予期のみでは足りず、積極的加害意思の有無を検討する。",
+  "quiz_question": "取消訴訟において裁判所が当事者の主張しない事実を職権でしんしゃくできるか？",
+  "quiz_answer_hint": "行訴法7条・24条。職権証拠調べ規定はあるがしんしゃく規定は存在しない",
   "articles": [
     {
-      "gist": "急迫不正の侵害への防衛行為を阻却",
-      "ref": "刑法36条1項"
+      "gist": "行訴法に定めなき事項は民訴法準用",
+      "ref": "行訴法7条"
     },
     {
-      "gist": "過剰防衛の任意的減免",
-      "ref": "刑法36条2項"
+      "gist": "職権証拠調べ可・職権探知は不可",
+      "ref": "行訴法24条"
     },
     {
-      "gist": "緊急避難の成立と過剰避難のただし書",
-      "ref": "刑法37条1項"
+      "gist": "執行停止の要件・重大な損害",
+      "ref": "行訴法25条"
+    },
+    {
+      "gist": "取消判決の第三者効",
+      "ref": "行訴法32条"
+    },
+    {
+      "gist": "取消判決の拘束力",
+      "ref": "行訴法33条"
     }
   ],
   "freq_rating": "★★★",
@@ -362,27 +353,6 @@
       "url": "https://qiita.com/inuinu_wanwan/items/34b7bef8d615dc68c161",
       "source": "Qiita｜「司法試験」タグの新着",
       "category": "creator"
-    },
-    {
-      "title": "2026年予備試験短答式試験実施をうけて 伊藤塾からの大切なご案内",
-      "label": "「予備校ニュース」 2026年予備試験短答式試験実施をうけて 伊藤塾からの大切なご案内",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/feature/shiken/yobi/index.html",
-      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
-      "category": "prep"
-    },
-    {
-      "title": "2026年司法試験 実施をうけて 伊藤塾からの大切なご案内",
-      "label": "「予備校ニュース」 2026年司法試験 実施をうけて 伊藤塾からの大切なご案内",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/feature/shiken/shihou/index.html",
-      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
-      "category": "prep"
-    },
-    {
-      "title": "【予備試験対策】 2026年予備試験 「論文直前答練」・「全国公開論文模試」 《CBTテストセンター先着順受付 & 20%OFFクーポン進呈》",
-      "label": "「予備校・イベント・教材」 【予備試験対策】 2026年予備試験 「論文直前答練」・「全国公開論文模試」 《CBTテストセンター先着順受付 & 20%OFFクーポン進呈》",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/yobi/pgyobisho.html",
-      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
-      "category": "prep"
     },
     {
       "title": "【予備試験対策】 「基礎・論文マスター選択科目」 倒産法 新収録講義リリース!",
@@ -425,6 +395,27 @@
       "url": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00210.html",
       "source": "法務省｜司法試験・予備試験",
       "category": "official"
+    },
+    {
+      "title": "司法試験予備試験の実施について",
+      "label": "「日程・要項の骨格」 司法試験予備試験の実施について",
+      "url": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00026.html",
+      "source": "法務省｜司法試験・予備試験",
+      "category": "official"
+    },
+    {
+      "title": "司法試験予備試験の結果について",
+      "label": "「結果・合格情報」 司法試験予備試験の結果について",
+      "url": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00027.html",
+      "source": "法務省｜司法試験・予備試験",
+      "category": "official"
+    },
+    {
+      "title": "資格試験の勉強",
+      "label": "「受験生・記事ピック」 資格試験の勉強",
+      "url": "https://qiita.com/norimoriyan/items/7382315759cfe4b6d461",
+      "source": "Qiita｜「司法試験」タグの新着",
+      "category": "creator"
     }
   ]
 }

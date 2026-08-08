@@ -4,7 +4,14 @@
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [],
+  "today_logs": [
+    {
+      "type": "インプット",
+      "questions_count": 15,
+      "understanding": "普通",
+      "topic": ""
+    }
+  ],
   "spacing_items": [
     {
       "interval_label": "",
@@ -184,23 +191,13 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": false,
-  "updated_at": "2026-08-08T07:23:50.866102",
+  "has_data": true,
+  "updated_at": "2026-08-08T23:13:18.373901",
   "today_tasks": [
     {
       "subject": "民事訴訟法",
       "status": "遅れ",
       "action": "短答3問｜論点：訴訟要件（当事者適格・訴えの利益）・既判力の範囲",
-      "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（7日ぶり）",
-      "actual_q": 0,
-      "target_q": 15,
-      "checked": false
-    },
-    {
-      "subject": "刑事訴訟法",
-      "status": "遅れ",
-      "action": "短答3問｜論点：捜査の端緒・逮捕の種類と要件・接見交通権",
       "theme": "短答2周目",
       "situation": "今週0/15問。あと15問（7日ぶり）",
       "actual_q": 0,
@@ -290,13 +287,6 @@
       "category": "prep"
     },
     {
-      "title": "【予備試験対策】 追加受付!2026年予備試験 「論文直前答練」・「全国公開論文模試」 《CBTテストセンター先着順受付 & 20%OFFクーポン進呈》",
-      "label": "「予備校・イベント・教材」 【予備試験対策】 追加受付!2026年予備試験 「論文直前答練」・「全国公開論文模試」 《CBTテストセンター先着順受付 & 20%OFFクーポン進呈》",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/yobi/pgyobisho.html",
-      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
-      "category": "prep"
-    },
-    {
       "title": "【司法試験対策】 2027年合格目標 TKC 司法試験 [短答式]全国実力確認テスト 《本試験会場 新宿のCBTテストセンターで実施!》 受付 8/30(日)まで!",
       "label": "「予備校・イベント・教材」 【司法試験対策】 2027年合格目標 TKC 司法試験 [短答式]全国実力確認テスト 《本試験会場 新宿のCBTテストセンターで実施!》 受付 8/30(日)まで!",
       "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/27A22001.html",
@@ -321,6 +311,13 @@
       "title": "司法試験予備試験に関するＱ＆Ａ",
       "label": "「まず疑問の整理」 司法試験予備試験に関するＱ＆Ａ",
       "url": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00210.html",
+      "source": "法務省｜司法試験・予備試験",
+      "category": "official"
+    },
+    {
+      "title": "司法試験予備試験の実施について",
+      "label": "「日程・要項の骨格」 司法試験予備試験の実施について",
+      "url": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00026.html",
       "source": "法務省｜司法試験・予備試験",
       "category": "official"
     }

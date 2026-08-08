@@ -1,35 +1,15 @@
 {
-  "subject": "刑訴法",
-  "date": "2026-08-08",
+  "subject": "商法",
+  "date": "2026-08-09",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [
-    {
-      "type": "インプット",
-      "questions_count": 15,
-      "understanding": "普通",
-      "topic": ""
-    }
-  ],
+  "today_logs": [],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-08-05",
-      "subject": "刑法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "急迫性の総合",
-        "事例への当てはめ",
-        "防衛の各要件の定義"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-08-01",
-      "subject": "民事訴訟法",
+      "date": "2026-08-08",
+      "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -37,7 +17,42 @@
     },
     {
       "interval_label": "",
-      "date": "2026-08-01",
+      "date": "2026-08-06",
+      "subject": "行政法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-08-02",
+      "subject": "商法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "株主総会決議の瑕疵に関す",
+        "株主総会決議取消しの訴え",
+        "株主総会決議の取消しの訴"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-19",
+      "subject": "商法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "監査役の独立性",
+        "指名委員会等設置会社",
+        "会計監査人"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-19",
       "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
@@ -191,25 +206,25 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": true,
-  "updated_at": "2026-08-08T23:13:18.373901",
+  "has_data": false,
+  "updated_at": "2026-08-09T07:30:48.233705",
   "today_tasks": [
     {
       "subject": "民事訴訟法",
       "status": "遅れ",
       "action": "短答3問｜論点：訴訟要件（当事者適格・訴えの利益）・既判力の範囲",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（7日ぶり）",
+      "situation": "今週0/15問。あと15問（8日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
     },
     {
       "subject": "商法",
-      "status": "今週",
-      "action": "6日前に学習済。今週の目標：短答2周目",
+      "status": "遅れ",
+      "action": "短答3問｜論点：株主総会決議（種類・要件・瑕疵）・取締役の善管注意義務",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（6日ぶり）",
+      "situation": "今週0/15問。あと15問（7日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -219,7 +234,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（46日ぶり）",
+      "situation": "今週0/10問。あと10問（47日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false

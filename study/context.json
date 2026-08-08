@@ -1,7 +1,11 @@
 {
   "subject": "商法",
   "date": "2026-08-09",
-  "keywords": [],
+  "keywords": [
+    "組合の比較",
+    "閲覧請求権",
+    "定款自治の限界"
+  ],
   "wrong_qs": [],
   "wrong_topics": [],
   "today_logs": [],
@@ -206,8 +210,8 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": false,
-  "updated_at": "2026-08-09T07:30:48.233705",
+  "has_data": true,
+  "updated_at": "2026-08-09T07:39:36.191647",
   "today_tasks": [
     {
       "subject": "民事訴訟法",

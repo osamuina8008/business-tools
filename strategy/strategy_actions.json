@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-10T18:30:44+09:00",
+  "updated": "2026-08-10T18:34:24+09:00",
   "disclaimer": "仮説ベースの提案・指示。最終判断は人が行う。",
   "count": 40,
   "summary": "提案・指示 40件（優先度順）\n\nP0 【攻め所】豊和工業: 防炭処理をしてくれない。界隈の部品メーカー外注先が攻略対象。\nP0 【最重要攻め所】豊和工業界隈: 困りごと: 防炭処理をしてくれない。アンカー: 豊和工業、ヤマザキマザック、水谷精機工作所。豊和/マザック筋: 防炭対応の困りごと情報あり(要フォロー)\nP1 【攻め所】ヤマザキマザック: 豊和筋。防炭対応の困りごと聞き取り。\nP1 【攻め所】水谷精機工作所: 豊和筋。防炭対応の困りごと聞き取り。\nP1 【攻めどころ】三重・いなべ市周辺: 困りごと: 中部熱処理・栗山熱処理の評判が悪い(シグマ技研)→攻略候補。いなべ市周辺: 競合評判の聞き取りあり。熱処理外注ニーズを要確認\nP1 【攻めどころ】兵庫・姫路界隈: 困りごと: 処理に困っているところがあると聞いている。姫路界隈: 熱処理困りごとの聞き取りあり\nP1 【攻めどころ】兵庫・尼崎界隈: 困りごと: 処理に困っているところがあると聞いている。尼崎界隈: 熱処理困りごとの聞き取りあり\nP1 【攻めどころ】刈谷市・ジェイテクト刈谷界隈: 困りごと: 熱処理で困っていると聞いている。刈谷・ジェイテクト界隈: 熱処理困りごとの聞き取りあり\nP1 【攻めどころ】和歌山市界隈: 困りごと: 処理に困っているところがあると聞いている。和歌山市界隈: 熱処理困りごとの聞き取りあり\nP1 【攻めどころ】大阪・豊中市界隈: 困りごと: 処理に困っているところがあると聞いている。豊中市界隈: 熱処理困りごとの聞き取りあり\nP1 【優先訪問】(株)ヒガシヤマ: ランクAかつ熱処理先未把握。初回で①現行外注先 ②困りごと（納期・防炭・品質）③決裁者を確認する。\nP1 【優先訪問】(株)東振精機: ランクAかつ熱処理先未把握。初回で①現行外注先 ②困りごと（納期・防炭・品質）③決裁者を確認する。",
@@ -311,50 +311,87 @@
     },
     {
       "priority": 2,
-      "kind": "news",
-      "title": "【新聞の種】大手",
-      "instruction": "慶尚南道宜寧の大成総合熱処理は最近、スマート工場を構築した後、生産量が75%増え、不良率は50%減少した。 これまでは作業者の経験と熟練度に依存していた高周波熱処理工程の温度と時間、設備稼動状態などを.. → 活動圏の顧客・攻めどころと突合し、訪問ネタにするか判断。",
-      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBmVDIwOFFrT21RZEdnM0hMTEg1OXFncXpYZVVUVlBjQUFRNmx2U3gzVmszYnU3NnpsZVdGUFQ0LXEya09sd2NxX184WlpVUnVRMFE?oc=5"
+      "kind": "customer_relation",
+      "title": "【取引先ネタ×(株)ヒガシヤマ】コマツ",
+      "instruction": "マスター登録の取引先。コマツの熱処理・外注動向を訪問時に確認。クリックで関連新聞を開く。",
+      "company_id": "fb42a9a5cca7",
+      "company": "(株)ヒガシヤマ",
+      "lat": 36.56565,
+      "lng": 136.6586,
+      "link": "https://news.google.com/search?q=%E3%82%B3%E3%83%9E%E3%83%84%20%E7%86%B1%E5%87%A6%E7%90%86&hl=ja&gl=JP&ceid=JP:ja",
+      "matched_customer": "コマツ"
     },
     {
       "priority": 2,
-      "kind": "news",
-      "title": "【新聞の種】豊田自動織機",
-      "instruction": "アンモニア専焼で熱処理、実製品と同水準の品質実現/Daigasエナジー×豊田自動織機 → 活動圏の顧客・攻めどころと突合し、訪問ネタにするか判断。",
-      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9ycy1FU0tqNlp5NTVDak5qZTlMeVpHbjc0aUwtaDduWDlXOWNvS0pWQUJYWE1aS3oyNG85ZmstcWQxeXNZT3RiNlRGdFJrZy1TelRDN24xeGN1VXV2VGhMRkxsZUpLd3p2MnBnbw?oc=5"
+      "kind": "customer_relation",
+      "title": "【取引先ネタ×(株)丸開鉄工】コマツ関連企業",
+      "instruction": "マスター登録の取引先。コマツ関連企業の熱処理・外注動向を訪問時に確認。クリックで関連新聞を開く。",
+      "company_id": "87d8dcc64da9",
+      "company": "(株)丸開鉄工",
+      "lat": 36.40385,
+      "lng": 136.4459,
+      "link": "https://news.google.com/search?q=%E3%82%B3%E3%83%9E%E3%83%84%E9%96%A2%E9%80%A3%E4%BC%81%E6%A5%AD%20%E7%86%B1%E5%87%A6%E7%90%86&hl=ja&gl=JP&ceid=JP:ja",
+      "matched_customer": "コマツ関連企業"
     },
     {
       "priority": 2,
-      "kind": "news",
-      "title": "【新聞の種】豊田自動織機",
-      "instruction": "豊田自動織機とDaigasグループ、アンモニア専焼による金属熱処理に成功 → 活動圏の顧客・攻めどころと突合し、訪問ネタにするか判断。",
-      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFB4WjJoZldPUmJQODZzZ2lCUm9pSHZKaWdDRGl5cWpUZDRPeER2ZDFxNk41N25NVURFSEw5bkNTQWY1N29kRlBJb09IUnhyV3ltWW9fVGRUdVJUUEpYZXlIR2hra1RIQQ?oc=5"
+      "kind": "customer_relation",
+      "title": "【取引先ネタ×(株)大徳鉄工】コマツ",
+      "instruction": "マスター登録の取引先。コマツの熱処理・外注動向を訪問時に確認。クリックで関連新聞を開く。",
+      "company_id": "2204538f0efc",
+      "company": "(株)大徳鉄工",
+      "lat": 36.664,
+      "lng": 136.7213,
+      "link": "https://news.google.com/search?q=%E3%82%B3%E3%83%9E%E3%83%84%20%E7%86%B1%E5%87%A6%E7%90%86&hl=ja&gl=JP&ceid=JP:ja",
+      "matched_customer": "コマツ"
     },
     {
       "priority": 2,
-      "kind": "news",
-      "title": "【新聞の種】豊田自動織機",
-      "instruction": "熱処理工程にアンモニア 豊田自動織機、脱炭素化へ国内初実証：ニュース → 活動圏の顧客・攻めどころと突合し、訪問ネタにするか判断。",
-      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9zbC1ycTRLQlEzWG1yZU5scENUajBKNEhWX0g3cktJZEU5b3F0YnlnVy1rNzdqWWF3RXl4MzNSRlB5b2w2NkVGOFR6b29rTnNTd3RmOTV3aThnZnhHTVpB?oc=5"
+      "kind": "customer_relation",
+      "title": "【取引先ネタ×(株)西研精機製作所】ジェイテクト",
+      "instruction": "マスター登録の取引先。ジェイテクトの熱処理・外注動向を訪問時に確認。クリックで関連新聞を開く。",
+      "company_id": "e4fc81ec8f30",
+      "company": "(株)西研精機製作所",
+      "lat": 36.55795,
+      "lng": 136.6537,
+      "link": "https://news.google.com/search?q=%E3%82%B8%E3%82%A7%E3%82%A4%E3%83%86%E3%82%AF%E3%83%88%20%E7%86%B1%E5%87%A6%E7%90%86&hl=ja&gl=JP&ceid=JP:ja",
+      "matched_customer": "ジェイテクト"
     },
     {
       "priority": 2,
-      "kind": "news",
-      "title": "【新聞の種】豊田自動織機",
-      "instruction": "豊田自動織機とDaigasエナジー、アンモニア燃料による金属熱処理で国内初の実証成功 → 活動圏の顧客・攻めどころと突合し、訪問ネタにするか判断。",
-      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1GQ2tmZ2Z4N2VRdHAyUFJ0VThkWXRacmJmZ0tPR0loa3JmeXA0RGhjUTJQcVlpbjNhQjd5eUFUNVNTYlNMTTV5SzJLTlhYak05QU5STGhYWEpoTlA3MWFn?oc=5"
+      "kind": "customer_relation",
+      "title": "【取引先ネタ×オリエンタルチエン工業(株)】ジェイテクト",
+      "instruction": "マスター登録の取引先。ジェイテクトの熱処理・外注動向を訪問時に確認。クリックで関連新聞を開く。",
+      "company_id": "5f050d689018",
+      "company": "オリエンタルチエン工業(株)",
+      "lat": 36.5081,
+      "lng": 136.5712,
+      "link": "https://news.google.com/search?q=%E3%82%B8%E3%82%A7%E3%82%A4%E3%83%86%E3%82%AF%E3%83%88%20%E7%86%B1%E5%87%A6%E7%90%86&hl=ja&gl=JP&ceid=JP:ja",
+      "matched_customer": "ジェイテクト"
     },
     {
-      "priority": 3,
-      "kind": "tactic",
-      "title": "【戦術】実行指示 1",
-      "instruction": "豊和/マザック/水谷筋: 防炭ができない困りごと → 防炭対応を提案材料に。"
+      "priority": 2,
+      "kind": "customer_relation",
+      "title": "【取引先ネタ×オリエンタルチエン工業(株)】三菱重工",
+      "instruction": "マスター登録の取引先。三菱重工の熱処理・外注動向を訪問時に確認。クリックで関連新聞を開く。",
+      "company_id": "5f050d689018",
+      "company": "オリエンタルチエン工業(株)",
+      "lat": 36.5081,
+      "lng": 136.5712,
+      "link": "https://news.google.com/search?q=%E4%B8%89%E8%8F%B1%E9%87%8D%E5%B7%A5%20%E7%86%B1%E5%87%A6%E7%90%86&hl=ja&gl=JP&ceid=JP:ja",
+      "matched_customer": "三菱重工"
     },
     {
-      "priority": 3,
-      "kind": "tactic",
-      "title": "【戦術】実行指示 2",
-      "instruction": "刈谷・ジェイテクト界隈: 熱処理困りごとの聞き取り → 既存接点の深掘り。"
+      "priority": 2,
+      "kind": "customer_relation",
+      "title": "【取引先ネタ×サンテック(株)】ホンダ",
+      "instruction": "マスター登録の取引先。ホンダの熱処理・外注動向を訪問時に確認。クリックで関連新聞を開く。",
+      "company_id": "09a514a7215f",
+      "company": "サンテック(株)",
+      "lat": 37.38605,
+      "lng": 136.8957,
+      "link": "https://news.google.com/search?q=%E3%83%9B%E3%83%B3%E3%83%80%20%E7%86%B1%E5%87%A6%E7%90%86&hl=ja&gl=JP&ceid=JP:ja",
+      "matched_customer": "ホンダ"
     }
   ]
 }

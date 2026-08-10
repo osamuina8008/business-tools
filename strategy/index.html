@@ -214,15 +214,16 @@ function circleIcon(color, size = 16) {
 function showAnchor(a) {
   const el = document.getElementById('detail-panel');
   if (a.lat != null && a.lng != null) focusPin(a.lat, a.lng, 11);
+  const won = a.status === 'won';
   el.innerHTML = `
-    <p class="text-xs font-bold text-orange-800 mb-1">最重要攻め所</p>
-    <h3 class="text-base font-bold text-slate-900">${esc(a.name)}</h3>
+    <p class="text-xs font-bold ${won ? 'text-emerald-800' : 'text-orange-800'} mb-1">${won ? '受注済み・フォロー' : '最重要攻め所'}</p>
+    <h3 class="text-base font-bold text-slate-900">${esc(a.name)}${won ? ' <span class="text-[10px] bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded font-bold">受注</span>' : ''}</h3>
     <p class="text-xs text-slate-500 mt-1">${esc([a.prefecture, a.area, a.address].filter(Boolean).join(' '))}</p>
-    <div class="mt-3 p-2 rounded-lg bg-orange-50 border border-orange-200 text-xs text-orange-900">
-      <span class="font-bold">困りごと:</span> ${esc(a.pain || '')}
+    <div class="mt-3 p-2 rounded-lg ${won ? 'bg-emerald-50 border border-emerald-200 text-xs text-emerald-900' : 'bg-orange-50 border border-orange-200 text-xs text-orange-900'}">
+      <span class="font-bold">${won ? '状況:' : '困りごと:'}</span> ${esc(a.pain || '')}
     </div>
     ${(a.sources||[]).length ? `<p class="text-xs text-slate-500 mt-2">関連: ${esc((a.sources||[]).join(' / '))}</p>` : ''}
-    <p class="text-xs text-slate-500 mt-2">ここ自体は競合・大手。攻めるのは周辺の部品メーカー外注先。</p>`;
+    <p class="text-xs text-slate-500 mt-2">${won ? '追加案件・納品・紹介を継続。新規開拓対象からは外す。' : 'ここ自体は競合・大手。攻めるのは周辺の部品メーカー外注先。'}</p>`;
 }
 
 function showAnchorById(id) {
@@ -239,10 +240,10 @@ function renderAnchors(data) {
   }
   el.innerHTML = anchors.map(a => `
     <button type="button" onclick="showAnchorById('${esc(a.id)}')"
-      class="text-left rounded-xl border-2 ${a.id === 'howa' ? 'border-orange-400 bg-orange-50' : 'border-orange-200 bg-orange-50/60'} hover:bg-orange-50 p-3 transition">
-      <p class="text-sm font-bold text-orange-900">${a.id === 'howa' ? '★ ' : ''}${esc(a.name)}</p>
+      class="text-left rounded-xl border-2 ${a.status === 'won' ? 'border-emerald-400 bg-emerald-50' : a.id === 'howa' ? 'border-orange-400 bg-orange-50' : 'border-orange-200 bg-orange-50/60'} hover:bg-orange-50 p-3 transition">
+      <p class="text-sm font-bold ${a.status === 'won' ? 'text-emerald-900' : 'text-orange-900'}">${a.status === 'won' ? '受注 ' : a.id === 'howa' ? '★ ' : ''}${esc(a.name)}</p>
       <p class="text-xs text-slate-600 mt-1">${esc(a.area || '')}</p>
-      <p class="text-xs text-orange-800 mt-1">${esc(a.pain || '')}</p>
+      <p class="text-xs ${a.status === 'won' ? 'text-emerald-800' : 'text-orange-800'} mt-1">${esc(a.pain || '')}</p>
     </button>`).join('');
 }
 
@@ -455,7 +456,7 @@ function renderActions(payload) {
   const tagMap = {
     hotspot: '攻め', attack_anchor: '攻め所', eight: 'Eight',
     news_match: '新聞×社', news_hint: '参考新聞', customer_relation: '取引先ネタ',
-    news: '新聞', tactic: '戦術', competitor: '競合',
+    news: '新聞', tactic: '戦術', competitor: '競合', win_follow: '受注',
   };
   el.innerHTML = list.map((a, i) => {
     const hasLink = !!(a.link);

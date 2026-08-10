@@ -1,9 +1,9 @@
 {
   "version": 3,
-  "updated": "2026-08-10T19:52:03+09:00",
+  "updated": "2026-08-10T20:50:36+09:00",
   "disclaimer": "strategy_master.xlsx 由来。営業報告書CSV優先。新聞一致は news_hits に集約。",
   "source": "strategy_master.xlsx",
-  "count": 85,
+  "count": 86,
   "news_matched_companies": 0,
   "companies": [
     {
@@ -1582,6 +1582,34 @@
       "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認",
       "note": "",
       "reports": [],
+      "eight_people": [],
+      "news_hits": [],
+      "news_hints": []
+    },
+    {
+      "id": "148f5e5b3474",
+      "name": "ヤマザキマザック",
+      "address": "",
+      "prefecture": "",
+      "lat": null,
+      "lng": null,
+      "industry": "",
+      "rank": "",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "visit_report",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／メモに困りごと/拡大シグナルあり／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規受注",
+          "body": "2026-08-10 新規受注。追加案件・納品フォロー。豊和筋防炭は周辺外注先で継続。",
+          "summary": "",
+          "source_file": "cmd_20260810_205029_470746.csv"
+        }
+      ],
       "eight_people": [],
       "news_hits": [],
       "news_hints": []

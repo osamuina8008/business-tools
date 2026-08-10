@@ -55,14 +55,15 @@
   "pain_hotspots": [
     {
       "id": "houwa",
-      "area": "愛知・豊和工業界隈",
+      "area": "愛知・豊和工業（清須本社）界隈",
       "region": "tokai",
       "prefecture": "愛知県",
       "city_hints": [
+        "清須",
         "豊和"
       ],
-      "lat": 35.083,
-      "lng": 137.156,
+      "lat": 35.1986,
+      "lng": 136.848,
       "pain": "防炭処理をしてくれない",
       "sources": [
         "豊和工業界隈",
@@ -213,6 +214,48 @@
         "外注"
       ],
       "marker": "attack"
+    }
+  ],
+  "attack_anchors": [
+    {
+      "id": "howa",
+      "name": "豊和工業",
+      "hotspot_id": "houwa",
+      "area": "愛知県清須市（本社）",
+      "prefecture": "愛知県",
+      "address": "清須市須ケ口1900",
+      "lat": 35.1986,
+      "lng": 136.848,
+      "pain": "防炭処理をしてくれない。界隈の部品メーカー外注先が攻略対象。",
+      "sources": [
+        "豊和工業界隈",
+        "ヤマザキマザック",
+        "水谷精機工作所"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "mazak",
+      "name": "ヤマザキマザック",
+      "hotspot_id": "houwa",
+      "area": "岐阜県各務原市",
+      "prefecture": "岐阜県",
+      "address": "各務原市",
+      "lat": 35.3644,
+      "lng": 136.8474,
+      "pain": "豊和筋。防炭対応の困りごと聞き取り。",
+      "priority": 1
+    },
+    {
+      "id": "mizutani",
+      "name": "水谷精機工作所",
+      "hotspot_id": "houwa",
+      "area": "愛知県",
+      "prefecture": "愛知県",
+      "lat": 35.12,
+      "lng": 137.05,
+      "pain": "豊和筋。防炭対応の困りごと聞き取り。",
+      "priority": 1
     }
   ],
   "competitor_adjacent_targets": [

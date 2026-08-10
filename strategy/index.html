@@ -68,18 +68,27 @@
       </div>
     </section>
 
+    <!-- 最重要攻め所 -->
+    <section class="bg-white rounded-2xl border-2 border-orange-300 shadow-sm p-4 md:p-5 fade-in">
+      <h2 class="font-bold text-orange-900 mb-2">最重要攻め所</h2>
+      <p class="text-xs text-slate-500 mb-3">石川の開拓先ピンとは別レイヤー。地図はここを中心に表示します。</p>
+      <div id="anchor-list" class="grid grid-cols-1 md:grid-cols-3 gap-2"></div>
+    </section>
+
     <!-- 地図 + 詳細 -->
     <section class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 md:p-5 fade-in">
       <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
         <h2 class="font-bold text-slate-800">攻略マップ</h2>
         <div class="pin-legend flex flex-wrap gap-3 text-xs text-slate-600">
+          <span><i class="dot" style="background:#c2410c;width:14px;height:14px"></i>攻め所（豊和等）</span>
           <span><i class="dot" style="background:#ea580c"></i>攻めどころ</span>
           <span><i class="dot" style="background:#7c3aed"></i>競合（熱処理屋）</span>
-          <span><i class="dot" style="background:#2563eb"></i>ターゲット顧客</span>
           <span><i class="dot" style="background:#0d9488"></i>訪問・開拓先</span>
-          <span><i class="dot" style="background:#db2777"></i>Eight名刺</span>
-          <span><i class="dot" style="background:#94a3b8"></i>未進出</span>
         </div>
+        <label class="text-xs text-slate-600 flex items-center gap-1.5">
+          <input id="show-visits-on-map" type="checkbox" class="rounded" />
+          開拓先85社を地図に表示
+        </label>
       </div>
       <div class="grid grid-cols-1 lg:grid-cols-5 gap-4">
         <div class="lg:col-span-3">
@@ -171,6 +180,7 @@ let territory = null;
 let visits = null;
 let actionsData = null;
 let map = null;
+let visitLayer = null;
 let briefText = '';
 let actionsText = '';
 let companyById = {};
@@ -181,13 +191,48 @@ function esc(s) {
     .replace(/"/g,'&quot;');
 }
 
-function circleIcon(color) {
+function circleIcon(color, size = 16) {
   return L.divIcon({
     className: '',
-    html: `<div style="width:16px;height:16px;border-radius:999px;background:${color};border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.35)"></div>`,
-    iconSize: [16, 16],
-    iconAnchor: [8, 8],
+    html: `<div style="width:${size}px;height:${size}px;border-radius:999px;background:${color};border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.35)"></div>`,
+    iconSize: [size, size],
+    iconAnchor: [size / 2, size / 2],
   });
+}
+
+function showAnchor(a) {
+  const el = document.getElementById('detail-panel');
+  if (a.lat != null && a.lng != null) focusPin(a.lat, a.lng, 11);
+  el.innerHTML = `
+    <p class="text-xs font-bold text-orange-800 mb-1">最重要攻め所</p>
+    <h3 class="text-base font-bold text-slate-900">${esc(a.name)}</h3>
+    <p class="text-xs text-slate-500 mt-1">${esc([a.prefecture, a.area, a.address].filter(Boolean).join(' '))}</p>
+    <div class="mt-3 p-2 rounded-lg bg-orange-50 border border-orange-200 text-xs text-orange-900">
+      <span class="font-bold">困りごと:</span> ${esc(a.pain || '')}
+    </div>
+    ${(a.sources||[]).length ? `<p class="text-xs text-slate-500 mt-2">関連: ${esc((a.sources||[]).join(' / '))}</p>` : ''}
+    <p class="text-xs text-slate-500 mt-2">ここ自体は競合・大手。攻めるのは周辺の部品メーカー外注先。</p>`;
+}
+
+function showAnchorById(id) {
+  const a = (territory?.attack_anchors || []).find(x => x.id === id);
+  if (a) showAnchor(a);
+}
+
+function renderAnchors(data) {
+  const anchors = data.attack_anchors || [];
+  const el = document.getElementById('anchor-list');
+  if (!anchors.length) {
+    el.innerHTML = '<p class="text-sm text-slate-400">—</p>';
+    return;
+  }
+  el.innerHTML = anchors.map(a => `
+    <button type="button" onclick="showAnchorById('${esc(a.id)}')"
+      class="text-left rounded-xl border-2 ${a.id === 'howa' ? 'border-orange-400 bg-orange-50' : 'border-orange-200 bg-orange-50/60'} hover:bg-orange-50 p-3 transition">
+      <p class="text-sm font-bold text-orange-900">${a.id === 'howa' ? '★ ' : ''}${esc(a.name)}</p>
+      <p class="text-xs text-slate-600 mt-1">${esc(a.area || '')}</p>
+      <p class="text-xs text-orange-800 mt-1">${esc(a.pain || '')}</p>
+    </button>`).join('');
 }
 
 function renderLists(data) {
@@ -203,12 +248,12 @@ function renderLists(data) {
   document.getElementById('coverage-summary').textContent = data.coverage?.summary || '';
 
   document.getElementById('hotspot-list').innerHTML =
-    (data.pain_hotspots || []).map(h => `
+    [...(data.pain_hotspots || [])].sort((a, b) => (a.id === 'houwa' ? -1 : b.id === 'houwa' ? 1 : 0)).map(h => `
       <button type="button" onclick="focusPin(${h.lat},${h.lng})"
-        class="w-full text-left rounded-xl border border-orange-100 bg-orange-50/60 hover:bg-orange-50 p-3 transition">
-        <p class="text-sm font-bold text-slate-800">${esc(h.area)}</p>
+        class="w-full text-left rounded-xl border ${h.id === 'houwa' ? 'border-orange-300 bg-orange-100/80' : 'border-orange-100 bg-orange-50/60'} hover:bg-orange-50 p-3 transition">
+        <p class="text-sm font-bold text-slate-800">${h.id === 'houwa' ? '★ ' : ''}${esc(h.area)}</p>
         <p class="text-xs text-slate-600 mt-1">${esc(h.pain || '')}</p>
-        ${(h.sources||[]).length ? `<p class="text-xs text-slate-400 mt-1">情報源: ${esc(h.sources.join(' / '))}</p>` : ''}
+        ${(h.sources||[]).length ? `<p class="text-xs text-slate-400 mt-1">アンカー: ${esc(h.sources.join(' / '))}</p>` : ''}
       </button>`).join('');
 
   document.getElementById('target-list').innerHTML =
@@ -280,7 +325,7 @@ function renderActions(payload) {
     const click = canCompany
       ? `showCompany('${esc(a.company_id)}')`
       : (canFocus ? `focusPin(${a.lat},${a.lng})` : '');
-    const tag = a.kind === 'hotspot' ? '攻め' : a.kind === 'eight' ? 'Eight' : a.kind === 'news_match' ? '新聞×社' : a.kind === 'news' ? '新聞' : a.kind === 'tactic' ? '戦術' : '訪問';
+    const tag = a.kind === 'hotspot' ? '攻め' : a.kind === 'attack_anchor' ? '攻め所' : a.kind === 'eight' ? 'Eight' : a.kind === 'news_match' ? '新聞×社' : a.kind === 'news' ? '新聞' : a.kind === 'tactic' ? '戦術' : '訪問';
     return `
       <button type="button" ${click ? `onclick="${click}"` : ''}
         class="w-full text-left rounded-xl border border-amber-100 bg-amber-50/50 hover:bg-amber-50 p-3 transition ${click ? '' : 'cursor-default'}">
@@ -332,11 +377,23 @@ function buildMap(data, visitData) {
   }).addTo(map);
 
   const bounds = [];
+  visitLayer = L.layerGroup();
+
+  (data.attack_anchors || []).forEach(a => {
+    if (a.lat == null || a.lng == null) return;
+    bounds.push([a.lat, a.lng]);
+    const size = a.id === 'howa' ? 22 : 18;
+    L.marker([a.lat, a.lng], { icon: circleIcon('#c2410c', size), zIndexOffset: 1000 })
+      .addTo(map)
+      .bindPopup(`<strong>攻め所: ${esc(a.name)}</strong><br>${esc(a.pain || '')}`)
+      .on('click', () => showAnchorById(a.id));
+  });
 
   (data.pain_hotspots || []).forEach(h => {
     if (h.lat == null || h.lng == null) return;
     bounds.push([h.lat, h.lng]);
-    L.marker([h.lat, h.lng], { icon: circleIcon(COLORS.attack) })
+    const size = h.id === 'houwa' ? 20 : 16;
+    L.marker([h.lat, h.lng], { icon: circleIcon(COLORS.attack, size) })
       .addTo(map)
       .bindPopup(`<strong>${esc(h.area)}</strong><br>${esc(h.pain || '')}<br><span style="color:#64748b;font-size:12px">攻めどころ</span>`);
   });
@@ -344,11 +401,9 @@ function buildMap(data, visitData) {
   (data.competitor_adjacent_targets || []).forEach(c => {
     if (c.lat == null || c.lng == null) return;
     bounds.push([c.lat, c.lng]);
-    const color = COLORS.competitor;
-    const label = '競合（熱処理屋・訪問しない）';
-    L.marker([c.lat, c.lng], { icon: circleIcon(color) })
+    L.marker([c.lat, c.lng], { icon: circleIcon(COLORS.competitor) })
       .addTo(map)
-      .bindPopup(`<strong>${esc(c.name)}</strong><br>${esc(c.note || c.area || '')}<br><span style="color:#64748b;font-size:12px">${label}</span>`);
+      .bindPopup(`<strong>${esc(c.name)}</strong><br>${esc(c.note || c.area || '')}<br><span style="color:#64748b;font-size:12px">競合（熱処理屋）</span>`);
   });
 
   (data.coverage?.not_yet || []).forEach(n => {
@@ -361,15 +416,33 @@ function buildMap(data, visitData) {
 
   (visitData?.companies || []).forEach(c => {
     if (c.lat == null || c.lng == null) return;
-    bounds.push([c.lat, c.lng]);
     const color = c.marker === 'eight' ? COLORS.eight : COLORS.visit;
-    const m = L.marker([c.lat, c.lng], { icon: circleIcon(color) }).addTo(map);
+    const m = L.marker([c.lat, c.lng], { icon: circleIcon(color) });
     m.bindPopup(`<strong>${esc(c.name)}</strong><br>${esc(c.proposal || c.address || '')}<br><button type="button" onclick="showCompany('${esc(c.id)}')" style="margin-top:6px;font-size:12px;color:#0f766e;font-weight:700">詳細を開く</button>`);
     m.on('click', () => showCompany(c.id));
+    visitLayer.addLayer(m);
   });
+
+  const showVisits = () => {
+    if (!map || !visitLayer) return;
+    if (document.getElementById('show-visits-on-map')?.checked) {
+      visitLayer.addTo(map);
+    } else {
+      map.removeLayer(visitLayer);
+    }
+  };
+  const cb = document.getElementById('show-visits-on-map');
+  if (cb) {
+    cb.checked = false;
+    cb.onchange = showVisits;
+  }
+  showVisits();
 
   if (bounds.length >= 2) {
     map.fitBounds(bounds, { padding: [28, 28] });
+  } else if ((data.attack_anchors || []).length) {
+    const h = data.attack_anchors.find(a => a.id === 'howa') || data.attack_anchors[0];
+    map.setView([h.lat, h.lng], 9);
   }
   setTimeout(() => map.invalidateSize(), 100);
 }
@@ -462,6 +535,7 @@ async function main() {
   territory = await tRes.json();
   visits = vRes.ok ? await vRes.json() : { companies: [] };
   companyById = Object.fromEntries((visits.companies || []).map(c => [c.id, c]));
+  renderAnchors(territory);
   renderLists(territory);
   buildMap(territory, visits);
   renderCompanyList();

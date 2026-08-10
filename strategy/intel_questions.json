@@ -1,0 +1,169 @@
+{
+  "version": 1,
+  "updated": "2026-08-10",
+  "purpose": "営業知見ヒアリング。回答は攻略提案AIの材料になる。",
+  "sections": [
+    {
+      "id": "current_activity",
+      "title": "今やっていることの確認",
+      "description": "いま実際に動いている営業活動を把握します。",
+      "questions": [
+        {
+          "id": "act_weekly_focus",
+          "type": "text",
+          "prompt": "今週〜今月、特に力を入れている地域・顧客・テーマは何ですか？",
+          "placeholder": "例: 刈谷のジェイテクト筋フォロー、いなべ周辺の新規"
+        },
+        {
+          "id": "act_channels",
+          "type": "multi",
+          "prompt": "いま使っている営業チャネルは？",
+          "options": ["訪問", "電話", "メール", "展示会", "紹介", "既存深掘り", "その他"]
+        },
+        {
+          "id": "act_report_exists",
+          "type": "single",
+          "prompt": "営業報告書（日報・週報・訪問メモ）はありますか？",
+          "options": ["ある（定期）", "ある（不定期）", "ほぼ無い", "これから作りたい"]
+        },
+        {
+          "id": "act_report_place",
+          "type": "text",
+          "prompt": "報告書がある場合、置き場所・形式は？（Driveパス、Excel、Notionなど）",
+          "placeholder": "例: Drive 20_社内/… / Excel月次"
+        }
+      ]
+    },
+    {
+      "id": "industries",
+      "title": "熱処理を使う業界（あなたの見立て）",
+      "description": "提案の業界フィルタに使います。",
+      "questions": [
+        {
+          "id": "ind_core",
+          "type": "multi",
+          "prompt": "あなたが狙うべき「熱処理ユーザー業界」は？",
+          "options": [
+            "自動車部品",
+            "工作機械",
+            "歯車・減速機",
+            "軸受",
+            "建機・農機",
+            "金型",
+            "航空・宇宙",
+            "エネルギー",
+            "その他"
+          ]
+        },
+        {
+          "id": "ind_notes",
+          "type": "text",
+          "prompt": "業界ごとの補足（強い・弱い・季節性など）",
+          "placeholder": "例: 自動車は刈谷・豊田が厚い。歯車は近畿にも多い"
+        }
+      ]
+    },
+    {
+      "id": "vendor_map",
+      "title": "会社 → 現行の熱処理先",
+      "description": "分かる範囲だけでOK。不明は「不明」で残せます。",
+      "questions": [
+        {
+          "id": "vendor_entries",
+          "type": "longtext",
+          "prompt": "分かっている「顧客（または見込み）→ 今の熱処理先」を列挙してください",
+          "placeholder": "例:\nジェイテクト刈谷 → 不明\nシグマ技研 → 中部熱処理？（要確認）\n〇〇歯車 → 東研サーモテック"
+        },
+        {
+          "id": "vendor_switch_triggers",
+          "type": "multi",
+          "prompt": "取引先を変えそうなトリガーは？",
+          "options": [
+            "品質問題",
+            "納期遅れ",
+            "単価",
+            "対応力（防炭など）",
+            "設備トラブル・火災",
+            "担当者交代",
+            "増産で外注先不足",
+            "その他"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pain_intel",
+      "title": "困りごと・チャンスの聞き取り",
+      "description": "客観情報や人づての情報を蓄積します。",
+      "questions": [
+        {
+          "id": "pain_entries",
+          "type": "longtext",
+          "prompt": "困りごと／チャンスの聞き取りを書いてください（誰から・どこ・何）",
+          "placeholder": "例:\nヤマザキマザック → 豊和界隈で防炭してくれない\nシグマ技研 → 中部熱処理・栗山の評判が悪い"
+        },
+        {
+          "id": "pain_signals_priority",
+          "type": "multi",
+          "prompt": "新聞で特に拾いたいシグナルは？",
+          "options": [
+            "工場新設・増産",
+            "設備投資（炉）",
+            "熱処理トラブル・火災",
+            "外注・納期・品質",
+            "撤退・統合",
+            "防炭・浸炭・特殊処理",
+            "その他"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "process_focus",
+      "title": "攻めたい処理・強み",
+      "description": "提案の「刺さる一言」に使います。",
+      "questions": [
+        {
+          "id": "proc_offer",
+          "type": "multi",
+          "prompt": "特に売りたい／差別化できる処理は？",
+          "options": [
+            "防炭",
+            "浸炭焼入れ",
+            "焼入れ・焼戻し",
+            "高周波",
+            "真空",
+            "窒化",
+            "焼鈍",
+            "その他"
+          ]
+        },
+        {
+          "id": "proc_strength",
+          "type": "text",
+          "prompt": "御社の強みを一言で",
+          "placeholder": "例: 防炭対応、小ロット短納期、近畿〜東海の機動力"
+        }
+      ]
+    },
+    {
+      "id": "open_notes",
+      "title": "自由記述・次に聞きたいこと",
+      "description": "上記に入らない知見があれば。",
+      "questions": [
+        {
+          "id": "open_free",
+          "type": "longtext",
+          "prompt": "その他、攻略判断に効く知見",
+          "placeholder": "自由記述"
+        },
+        {
+          "id": "open_ask_me",
+          "type": "longtext",
+          "prompt": "こちら（AI）から追加で聞いてほしいこと",
+          "placeholder": "例: 単価感、NG業界、紹介ルートの有無"
+        }
+      ]
+    }
+  ]
+}

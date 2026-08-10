@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>営業知見ヒアリング</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic UI', sans-serif; }
+    .chip-on { background:#0f766e; color:#fff; border-color:#0f766e; }
+  </style>
+</head>
+<body class="bg-slate-50 min-h-screen">
+
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-20">
+    <div class="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <a href="./index.html" class="text-slate-400 hover:text-slate-600 text-sm">← 戦略と戦術</a>
+        <span class="text-slate-300">|</span>
+        <div>
+          <h1 class="text-lg font-bold text-slate-800">営業知見ヒアリング</h1>
+          <p class="text-xs text-slate-400">聞くシステム — 回答が攻略提案の材料になります</p>
+        </div>
+      </div>
+      <span id="progress-label" class="text-xs font-semibold text-teal-700 bg-teal-50 px-2.5 py-1 rounded-lg">0%</span>
+    </div>
+    <div class="h-1 bg-slate-100">
+      <div id="progress-bar" class="h-1 bg-teal-600 transition-all" style="width:0%"></div>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 py-5 space-y-4">
+
+    <div class="rounded-xl border border-amber-100 bg-amber-50 px-3 py-2 text-xs text-amber-900">
+      全部埋めなくてもOKです。「今やっていること」だけでも提案の精度が上がります。
+      ブラウザに自動保存され、書き出しで本体データに渡せます。
+    </div>
+
+    <!-- 未回答リマインダー -->
+    <section class="bg-white rounded-2xl border border-slate-200 p-4">
+      <div class="flex items-center justify-between gap-2 mb-2">
+        <h2 class="text-sm font-bold text-slate-800">いま確認したいこと</h2>
+        <button type="button" onclick="jumpNextUnanswered()"
+          class="text-xs font-semibold text-teal-700 hover:underline">次の未回答へ →</button>
+      </div>
+      <ul id="todo-unanswered" class="text-sm text-slate-600 space-y-1"></ul>
+    </section>
+
+    <div id="sections" class="space-y-4"></div>
+
+    <div class="flex flex-wrap gap-2 sticky bottom-4 bg-slate-50/95 py-3 border-t border-slate-100">
+      <button type="button" onclick="saveLocal(true)"
+        class="text-sm font-semibold bg-teal-700 hover:bg-teal-800 text-white px-4 py-2 rounded-xl">保存</button>
+      <button type="button" onclick="exportJson()"
+        class="text-sm font-semibold border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 px-4 py-2 rounded-xl">JSON書き出し</button>
+      <button type="button" onclick="copySlack()"
+        class="text-sm font-semibold border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 px-4 py-2 rounded-xl">Slack用にコピー</button>
+      <button type="button" onclick="clearLocal()"
+        class="text-sm text-slate-400 hover:text-rose-600 px-3 py-2">下書きクリア</button>
+    </div>
+  </main>
+
+<script>
+const STORAGE_KEY = 'bt_sales_intel_draft_v1';
+let questionsDoc = null;
+let answers = {};
+
+function esc(s) {
+  return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function loadDraft() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) answers = JSON.parse(raw) || {};
+  } catch { answers = {}; }
+}
+
+function saveLocal(showToast) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(answers));
+  updateProgress();
+  renderTodos();
+  if (showToast) {
+    const el = document.getElementById('progress-label');
+    const old = el.textContent;
+    el.textContent = '保存済み';
+    setTimeout(() => { el.textContent = old; updateProgress(); }, 1200);
+  }
+}
+
+function setAnswer(qid, value) {
+  answers[qid] = value;
+  saveLocal(false);
+}
+
+function toggleMulti(qid, opt) {
+  const cur = Array.isArray(answers[qid]) ? [...answers[qid]] : [];
+  const i = cur.indexOf(opt);
+  if (i >= 0) cur.splice(i, 1); else cur.push(opt);
+  setAnswer(qid, cur);
+  renderSections();
+}
+
+function isAnswered(q) {
+  const v = answers[q.id];
+  if (q.type === 'multi') return Array.isArray(v) && v.length > 0;
+  if (q.type === 'single') return !!v;
+  return !!(v && String(v).trim());
+}
+
+function allQuestions() {
+  return (questionsDoc?.sections || []).flatMap(s =>
+    (s.questions || []).map(q => ({ ...q, sectionTitle: s.title }))
+  );
+}
+
+function updateProgress() {
+  const qs = allQuestions();
+  const done = qs.filter(isAnswered).length;
+  const pct = qs.length ? Math.round((done / qs.length) * 100) : 0;
+  document.getElementById('progress-bar').style.width = pct + '%';
+  document.getElementById('progress-label').textContent = `${done}/${qs.length}（${pct}%）`;
+}
+
+function renderTodos() {
+  const unanswered = allQuestions().filter(q => !isAnswered(q)).slice(0, 5);
+  const el = document.getElementById('todo-unanswered');
+  if (!unanswered.length) {
+    el.innerHTML = '<li class="text-teal-700 font-semibold">未回答はありません。書き出しで本体へ渡してください。</li>';
+    return;
+  }
+  el.innerHTML = unanswered.map(q =>
+    `<li><button type="button" class="text-left hover:text-teal-700" onclick="document.getElementById('q-${q.id}')?.scrollIntoView({behavior:'smooth',block:'center'})">・${esc(q.sectionTitle)} — ${esc(q.prompt)}</button></li>`
+  ).join('');
+}
+
+function jumpNextUnanswered() {
+  const next = allQuestions().find(q => !isAnswered(q));
+  if (next) document.getElementById('q-' + next.id)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function renderQuestion(q) {
+  const v = answers[q.id];
+  let body = '';
+  if (q.type === 'multi') {
+    const selected = Array.isArray(v) ? v : [];
+    body = `<div class="flex flex-wrap gap-2 mt-2">${(q.options||[]).map(opt => {
+      const on = selected.includes(opt);
+      return `<button type="button" onclick='toggleMulti(${JSON.stringify(q.id)}, ${JSON.stringify(opt)})'
+        class="text-xs font-semibold px-3 py-1.5 rounded-full border ${on ? 'chip-on' : 'bg-white text-slate-600 border-slate-200'}">${esc(opt)}</button>`;
+    }).join('')}</div>`;
+  } else if (q.type === 'single') {
+    body = `<div class="flex flex-wrap gap-2 mt-2">${(q.options||[]).map(opt => {
+      const on = v === opt;
+      return `<button type="button" onclick='setAnswer(${JSON.stringify(q.id)}, ${JSON.stringify(opt)}); renderSections()'
+        class="text-xs font-semibold px-3 py-1.5 rounded-full border ${on ? 'chip-on' : 'bg-white text-slate-600 border-slate-200'}">${esc(opt)}</button>`;
+    }).join('')}</div>`;
+  } else if (q.type === 'longtext') {
+    body = `<textarea class="mt-2 w-full border border-slate-200 rounded-xl px-3 py-2 text-sm min-h-[110px] focus:outline-none focus:ring-2 focus:ring-teal-300"
+      placeholder="${esc(q.placeholder || '')}"
+      oninput="setAnswer('${q.id}', this.value)">${esc(v || '')}</textarea>`;
+  } else {
+    body = `<input type="text" class="mt-2 w-full border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-teal-300"
+      placeholder="${esc(q.placeholder || '')}" value="${esc(v || '')}"
+      oninput="setAnswer('${q.id}', this.value)" />`;
+  }
+  const done = isAnswered(q);
+  return `
+    <div id="q-${q.id}" class="rounded-xl border ${done ? 'border-teal-100 bg-teal-50/30' : 'border-slate-100 bg-slate-50'} p-3">
+      <p class="text-sm font-semibold text-slate-800">${esc(q.prompt)} ${done ? '<span class="text-teal-600 text-xs">✓</span>' : ''}</p>
+      ${body}
+    </div>`;
+}
+
+function renderSections() {
+  const root = document.getElementById('sections');
+  root.innerHTML = (questionsDoc.sections || []).map(sec => `
+    <section class="bg-white rounded-2xl border border-slate-200 p-4">
+      <h2 class="font-bold text-slate-800">${esc(sec.title)}</h2>
+      <p class="text-xs text-slate-400 mt-1 mb-3">${esc(sec.description || '')}</p>
+      <div class="space-y-3">${(sec.questions || []).map(renderQuestion).join('')}</div>
+    </section>
+  `).join('');
+  updateProgress();
+  renderTodos();
+}
+
+function buildIntelPayload() {
+  const parseVendorLines = (text) => {
+    return String(text || '').split(/\n+/).map(l => l.trim()).filter(Boolean).map(line => {
+      const parts = line.split(/→|->|⇒/).map(s => s.trim());
+      if (parts.length >= 2) return { company: parts[0], vendor: parts.slice(1).join('→'), raw: line };
+      return { company: line, vendor: '不明', raw: line };
+    });
+  };
+  const parsePainLines = (text) => {
+    return String(text || '').split(/\n+/).map(l => l.trim()).filter(Boolean).map(line => {
+      const parts = line.split(/→|->|⇒/).map(s => s.trim());
+      if (parts.length >= 2) return { source: parts[0], note: parts.slice(1).join('→'), raw: line };
+      return { source: '', note: line, raw: line };
+    });
+  };
+  return {
+    version: 1,
+    updated: new Date().toISOString(),
+    disclaimer: '本人の営業知見・聞き取り。断定ではなく提案材料。',
+    current_activity: {
+      weekly_focus: answers.act_weekly_focus || '',
+      channels: answers.act_channels || [],
+      report_exists: answers.act_report_exists || '',
+      report_place: answers.act_report_place || '',
+    },
+    industries: {
+      core: answers.ind_core || [],
+      notes: answers.ind_notes || '',
+    },
+    vendor_map: parseVendorLines(answers.vendor_entries),
+    pain_intel: parsePainLines(answers.pain_entries),
+    process_focus: {
+      offer: answers.proc_offer || [],
+      strength: answers.proc_strength || '',
+    },
+    signal_priority: answers.pain_signals_priority || [],
+    vendor_switch_triggers: answers.vendor_switch_triggers || [],
+    open_notes: answers.open_free || '',
+    ask_ai_next: answers.open_ask_me || '',
+    raw_answers: { ...answers },
+  };
+}
+
+function exportJson() {
+  const payload = buildIntelPayload();
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `sales_intel_export_${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function copySlack() {
+  const p = buildIntelPayload();
+  const lines = [
+    '【営業知見ヒアリング】',
+    `今週の注力: ${p.current_activity.weekly_focus || '（未記入）'}`,
+    `チャネル: ${(p.current_activity.channels || []).join('、') || '—'}`,
+    `報告書: ${p.current_activity.report_exists || '—'} ${p.current_activity.report_place || ''}`,
+    `業界: ${(p.industries.core || []).join('、') || '—'}`,
+    `売り処理: ${(p.process_focus.offer || []).join('、') || '—'} / 強み: ${p.process_focus.strength || '—'}`,
+    '',
+    '■現行熱処理先',
+    ...(p.vendor_map.length ? p.vendor_map.map(v => `・${v.company} → ${v.vendor}`) : ['・（未記入）']),
+    '',
+    '■困りごと・チャンス',
+    ...(p.pain_intel.length ? p.pain_intel.map(x => `・${x.source ? x.source + ' → ' : ''}${x.note}`) : ['・（未記入）']),
+  ];
+  navigator.clipboard.writeText(lines.join('\n')).then(
+    () => alert('Slack用テキストをコピーしました（#work-memo に貼れます）'),
+    () => prompt('コピー失敗。手動で選択:', lines.join('\n'))
+  );
+}
+
+function clearLocal() {
+  if (!confirm('ブラウザ下書きを消しますか？（書き出し済みなら本体は残ります）')) return;
+  answers = {};
+  localStorage.removeItem(STORAGE_KEY);
+  renderSections();
+}
+
+async function main() {
+  loadDraft();
+  const res = await fetch('./intel_questions.json?v=' + Date.now());
+  questionsDoc = await res.json();
+  renderSections();
+}
+
+main().catch(e => {
+  document.getElementById('sections').innerHTML =
+    `<p class="text-sm text-rose-600">質問票の読み込みに失敗: ${esc(e.message)}</p>`;
+});
+</script>
+</body>
+</html>

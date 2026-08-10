@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ニュース・スケジュール ダッシュボード</title>
+  <title>業界情報・攻略ボード</title>
   <link rel="manifest" href="../manifest.json" />
   <link rel="apple-touch-icon" href="../icon-192.png" />
   <meta name="theme-color" content="#eab308" />
@@ -34,7 +34,7 @@
       <div class="flex items-center gap-3">
         <a href="../index.html" class="text-gray-400 hover:text-gray-600 text-sm">← ツール一覧</a>
         <span class="text-gray-300">|</span>
-        <h1 class="text-lg font-bold text-gray-800">ニュース ダッシュボード</h1>
+        <h1 class="text-lg font-bold text-gray-800">業界情報・攻略ボード</h1>
       </div>
       <div class="flex items-center gap-2">
         <span id="last-updated" class="text-xs text-gray-400"></span>
@@ -155,6 +155,85 @@
         </div>
       </div>
 
+    </section>
+
+    <!-- ===== 攻略推奨セクション ===== -->
+    <section id="strategy-section" class="mt-6">
+      <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
+        <div class="flex items-start justify-between gap-3 mb-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+              </svg>
+              <h2 class="font-bold text-gray-800">攻略推奨（聞き取り・推測）</h2>
+            </div>
+            <p id="strategy-disclaimer" class="text-xs text-gray-400 mt-1">聞き取り・推測ベース。訪問判断は人が行う。</p>
+          </div>
+          <span id="strategy-updated" class="text-xs text-gray-400 whitespace-nowrap"></span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-4">
+          <div class="rounded-xl border border-gray-100 bg-gray-50 p-4">
+            <p class="text-xs font-bold text-gray-500 mb-2">活動圏 / 手薄・未進出</p>
+            <p id="strategy-coverage" class="text-sm text-gray-800 leading-relaxed">読み込み中...</p>
+            <div id="strategy-not-yet" class="mt-3 space-y-1"></div>
+          </div>
+          <div class="rounded-xl border border-amber-100 bg-amber-50/60 p-4 lg:col-span-2">
+            <p class="text-xs font-bold text-amber-700 mb-2">今期の攻めどころ（困りごと聞き取り）</p>
+            <div id="strategy-hotspots" class="space-y-2">
+              <p class="text-sm text-gray-400">読み込み中...</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div class="rounded-xl border border-indigo-100 bg-indigo-50/50 p-4">
+            <p class="text-xs font-bold text-indigo-700 mb-2">競合隣接ターゲット</p>
+            <div id="strategy-competitors" class="space-y-2">
+              <p class="text-sm text-gray-400">読み込み中...</p>
+            </div>
+          </div>
+          <div class="rounded-xl border border-emerald-100 bg-emerald-50/50 p-4">
+            <p class="text-xs font-bold text-emerald-700 mb-2">今週のニュース根拠（最大3件）</p>
+            <div id="strategy-evidence" class="space-y-2">
+              <p class="text-sm text-gray-400">ニュース照合中...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 熱処理ニーズ探知 ===== -->
+    <section id="radar-section" class="mt-6">
+      <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
+        <div class="flex items-start justify-between gap-3 mb-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"/>
+              </svg>
+              <h2 class="font-bold text-gray-800">熱処理ニーズ探知（新聞の種）</h2>
+            </div>
+            <p id="radar-disclaimer" class="text-xs text-gray-400 mt-1">大手×困りごとシグナルを新聞から収集。推測・訪問判断の材料。</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span id="radar-updated" class="text-xs text-gray-400 whitespace-nowrap"></span>
+            <button onclick="loadHeatTreatmentRadar(true)"
+              class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-rose-200 text-rose-700 hover:bg-rose-50 transition">
+              再収集
+            </button>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-2 mb-4" id="radar-query-tags"></div>
+
+        <div id="radar-results" class="space-y-2">
+          <p class="text-sm text-gray-400 py-4 text-center">種を収集中...</p>
+        </div>
+        <p class="text-xs text-gray-400 mt-3">★ = 大手/競合ヒットで攻略価値が高め。詳細クエリは heat_treatment_radar.json</p>
+      </div>
     </section>
 
     <!-- ===== 地域情報セクション ===== -->
@@ -524,6 +603,7 @@ async function refreshAll() {
     `最終更新: ${now.getHours()}:${String(now.getMinutes()).padStart(2,'0')}`;
 
   applyKeywordFilter();
+  if (territoryData) fetchStrategyEvidence(territoryData);
   btn.disabled = false;
   icon.classList.remove('spinner');
 }
@@ -850,10 +930,282 @@ function renderExpos() {
   `).join('');
 }
 
+// ===== 攻略推奨（territory_strategy.json） =====
+let territoryData = null;
+
+function renderTerritoryStatic(data) {
+  document.getElementById('strategy-disclaimer').textContent =
+    data.disclaimer || '聞き取り・推測ベース。訪問判断は人が行う。';
+  document.getElementById('strategy-updated').textContent =
+    data.updated ? `更新: ${data.updated}` : '';
+
+  const cov = data.coverage || {};
+  const core = (cov.core || []).join('・');
+  const reachable = (cov.reachable || []).join('・');
+  document.getElementById('strategy-coverage').textContent =
+    cov.summary || `中心: ${core}／到達可: ${reachable}`;
+
+  const notYetEl = document.getElementById('strategy-not-yet');
+  const notYet = cov.not_yet || [];
+  notYetEl.innerHTML = notYet.length
+    ? notYet.map(n => `
+        <div class="text-sm text-gray-700">
+          <span class="font-semibold text-rose-600">未進出</span>
+          ${escapeHtml(n.area)}${n.note ? `（${escapeHtml(n.note)}）` : ''}
+        </div>`).join('')
+    : '<p class="text-xs text-gray-400">手薄エリアの記載なし</p>';
+
+  const hotEl = document.getElementById('strategy-hotspots');
+  hotEl.innerHTML = (data.pain_hotspots || []).map(h => `
+    <div class="bg-white/80 border border-amber-100 rounded-lg p-3">
+      <p class="text-sm font-bold text-gray-800">${escapeHtml(h.area)}</p>
+      <p class="text-xs text-gray-600 mt-1">${escapeHtml(h.pain || '')}</p>
+      ${(h.sources || []).length
+        ? `<p class="text-xs text-gray-400 mt-1">情報源: ${escapeHtml(h.sources.join(' / '))}</p>`
+        : ''}
+    </div>`).join('') || '<p class="text-sm text-gray-400">記載なし</p>';
+
+  const compEl = document.getElementById('strategy-competitors');
+  compEl.innerHTML = (data.competitor_adjacent_targets || []).map(c => `
+    <div class="bg-white/80 border border-indigo-100 rounded-lg p-3">
+      <p class="text-sm font-bold text-gray-800">${escapeHtml(c.name)}</p>
+      <p class="text-xs text-gray-600 mt-0.5">${escapeHtml(c.area || '')}</p>
+      ${c.note ? `<p class="text-xs text-gray-400 mt-1">${escapeHtml(c.note)}</p>` : ''}
+    </div>`).join('') || '<p class="text-sm text-gray-400">記載なし</p>';
+}
+
+async function fetchStrategyEvidence(data) {
+  const el = document.getElementById('strategy-evidence');
+  const keywords = data.news_keywords || ['熱処理', '外注'];
+  const areas = (data.pain_hotspots || [])
+    .flatMap(h => [h.prefecture, ...(h.city_hints || [])].filter(Boolean));
+  const areaQ = [...new Set(areas)].slice(0, 8).map(a => `"${a}"`).join(' OR ');
+  const kwQ = keywords.slice(0, 6).join(' OR ');
+  const searchQuery = `(${kwQ}) (${areaQ || '近畿 OR 東海 OR 北陸'})`;
+  const rssUrl = `https://news.google.com/rss/search?q=${encodeURIComponent(searchQuery)}&hl=ja&gl=JP&ceid=JP:ja`;
+  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=12`;
+
+  try {
+    const res = await fetch(apiUrl);
+    const json = await res.json();
+    if (json.status !== 'ok' || !json.items?.length) throw new Error('no items');
+
+    const seen = new Set();
+    const hotspots = data.pain_hotspots || [];
+    const picked = [];
+    const noise = ['放熱', '基板', '半導体', '硝子', 'ガラス'];
+    const areaKeys = ['豊和', '刈谷', '和歌山', '豊中', '尼崎', '姫路', 'いなべ', '員弁'];
+    for (const item of json.items) {
+      const rawTitle = item.title || '';
+      const displayTitle = rawTitle.replace(/\s*[-–—]\s*[^-–—]+$/, '').trim();
+      const key = displayTitle.toLowerCase();
+      if (seen.has(key)) continue;
+      seen.add(key);
+
+      const blob = displayTitle;
+      if (noise.some(n => blob.includes(n))) continue;
+      const hasKw = keywords.some(k => blob.includes(k));
+      if (!hasKw) continue;
+
+      let matchedArea = '';
+      for (const h of hotspots) {
+        const hints = [...(h.city_hints || [])];
+        for (const part of areaKeys) {
+          if ((h.area || '').includes(part)) hints.push(part);
+        }
+        if (hints.some(t => t && blob.includes(t))) {
+          matchedArea = h.area;
+          break;
+        }
+      }
+      if (!matchedArea) continue;
+      picked.push({
+        title: displayTitle,
+        link: item.link || '#',
+        source: (rawTitle.match(/[-–—]\s*([^-–—]+)$/) || [])[1]?.trim() || '',
+        matchedArea,
+        hypothesis: `${matchedArea}の困りごと仮説を補強`,
+      });
+      if (picked.length >= 3) break;
+    }
+
+    if (!picked.length) {
+      el.innerHTML = '<p class="text-sm text-gray-400">直近で地域×熱処理のヒットなし（固定の攻めどころを優先）</p>';
+      return;
+    }
+
+    el.innerHTML = picked.map(p => `
+      <a href="${escapeHtml(p.link)}" target="_blank" rel="noopener noreferrer"
+        class="block bg-white/80 border border-emerald-100 rounded-lg p-3 hover:bg-emerald-50 transition">
+        <p class="text-sm font-semibold text-gray-800 leading-snug">${highlightKeywords(escapeHtml(p.title))}</p>
+        <p class="text-xs text-emerald-700 mt-1">${escapeHtml(p.hypothesis)}</p>
+        ${p.source ? `<p class="text-xs text-gray-400 mt-0.5">${escapeHtml(p.source)}</p>` : ''}
+      </a>`).join('');
+  } catch {
+    el.innerHTML = '<p class="text-sm text-gray-400">ニュース根拠を取得できませんでした。攻めどころの固定メモを参照してください。</p>';
+  }
+}
+
+async function loadTerritoryStrategy() {
+  try {
+    const res = await fetch('territory_strategy.json?v=' + Date.now());
+    if (!res.ok) throw new Error('load failed');
+    territoryData = await res.json();
+    renderTerritoryStatic(territoryData);
+    await fetchStrategyEvidence(territoryData);
+  } catch {
+    document.getElementById('strategy-coverage').textContent = '攻略設定を読み込めませんでした';
+    document.getElementById('strategy-hotspots').innerHTML =
+      '<p class="text-sm text-gray-400">territory_strategy.json を確認してください</p>';
+    document.getElementById('strategy-competitors').innerHTML = '';
+    document.getElementById('strategy-evidence').innerHTML =
+      '<p class="text-sm text-gray-400">—</p>';
+  }
+}
+
+// ===== 熱処理ニーズ探知 =====
+let radarConfig = null;
+
+function scoreRadarTitle(title, cfg) {
+  const noise = cfg.noise_terms || [];
+  if (noise.some(n => title.includes(n))) return null;
+  const signals = (cfg.pain_signals || []).filter(s => s.term && title.includes(s.term));
+  if (!signals.length) return null;
+  let score = signals.reduce((a, s) => a + (s.weight || 1), 0);
+  const majors = [];
+  for (const m of (cfg.major_watchlist || [])) {
+    const names = [m.name, ...(m.aliases || [])];
+    if (names.some(n => n && title.includes(n))) {
+      majors.push(m);
+      score += m.tier === 'A' ? 5 : (m.tier === 'competitor' ? 4 : 3);
+    }
+  }
+  if (score < (cfg.min_score || 5)) return null;
+  return {
+    score,
+    majors: majors.map(m => m.name),
+    signals: signals.map(s => s.term),
+    worth: majors.length > 0 && score >= (cfg.min_score || 5) + 2,
+  };
+}
+
+function renderRadarSeeds(seeds, meta) {
+  const el = document.getElementById('radar-results');
+  document.getElementById('radar-updated').textContent = meta || '';
+  if (!seeds.length) {
+    el.innerHTML = '<p class="text-sm text-gray-400 text-center py-6">条件に合う種がありませんでした</p>';
+    return;
+  }
+  el.innerHTML = seeds.map(s => {
+    const star = s.worth || s.worth_pursuit ? '★' : '・';
+    const majors = (s.majors || []).join('、') || '—';
+    const sigs = (s.signals || []).slice(0, 4).join('、');
+    const why = s.why || `言及: ${majors} / シグナル: ${sigs}`;
+    const src = s.source || s.query_label || '';
+    return `
+      <a href="${escapeHtml(s.link || '#')}" target="_blank" rel="noopener noreferrer"
+        class="flex gap-3 p-3 rounded-xl border ${s.worth || s.worth_pursuit ? 'border-rose-200 bg-rose-50/50' : 'border-gray-100 bg-gray-50'} hover:bg-rose-50 transition block fade-in">
+        <div class="text-rose-600 font-bold text-sm w-10 flex-shrink-0">${star}${s.score}</div>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm font-semibold text-gray-800 leading-snug">${highlightKeywords(escapeHtml(s.title || ''))}</p>
+          <p class="text-xs text-rose-700 mt-1">${escapeHtml(why)}</p>
+          <div class="flex flex-wrap gap-2 mt-1 text-xs text-gray-400">
+            ${src ? `<span>${escapeHtml(src)}</span>` : ''}
+            ${(s.query_label ? `<span class="bg-white px-1.5 py-0.5 rounded border border-gray-200">${escapeHtml(s.query_label)}</span>` : '')}
+          </div>
+        </div>
+      </a>`;
+  }).join('');
+}
+
+async function fetchRadarQuery(q, cfg) {
+  const rssUrl = `https://news.google.com/rss/search?q=${encodeURIComponent(q.query)}&hl=ja&gl=JP&ceid=JP:ja`;
+  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=10`;
+  const res = await fetch(apiUrl);
+  const data = await res.json();
+  if (data.status !== 'ok' || !data.items) return [];
+  const out = [];
+  for (const item of data.items) {
+    const raw = item.title || '';
+    const title = raw.replace(/\s*[-–—]\s*[^-–—]+$/, '').trim();
+    const source = (raw.match(/[-–—]\s*([^-–—]+)$/) || [])[1]?.trim() || '';
+    const scored = scoreRadarTitle(title, cfg);
+    if (!scored) continue;
+    out.push({
+      title,
+      link: item.link || '#',
+      source,
+      query_id: q.id,
+      query_label: q.label,
+      ...scored,
+      worth_pursuit: scored.worth,
+      why: `言及: ${(scored.majors||[]).join('、') || '—'} / シグナル: ${(scored.signals||[]).slice(0,4).join('、')}`,
+    });
+  }
+  return out;
+}
+
+async function loadHeatTreatmentRadar(live) {
+  const el = document.getElementById('radar-results');
+  el.innerHTML = '<p class="text-sm text-gray-400 text-center py-6">種を収集中...</p>';
+  try {
+    if (!radarConfig) {
+      const res = await fetch('heat_treatment_radar.json?v=' + Date.now());
+      if (!res.ok) throw new Error('config');
+      radarConfig = await res.json();
+      document.getElementById('radar-disclaimer').textContent =
+        radarConfig.disclaimer || document.getElementById('radar-disclaimer').textContent;
+      document.getElementById('radar-query-tags').innerHTML =
+        (radarConfig.search_queries || []).map(q =>
+          `<span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-rose-50 text-rose-700 border border-rose-100">${escapeHtml(q.label)}</span>`
+        ).join('');
+    }
+
+    // 保存済みの種があれば先に表示（朝ブリーフィング収集分）
+    if (!live) {
+      try {
+        const saved = await fetch('heat_treatment_seeds.json?v=' + Date.now());
+        if (saved.ok) {
+          const payload = await saved.json();
+          if (payload.seeds?.length) {
+            renderRadarSeeds(payload.seeds, payload.collected_at
+              ? `収集: ${String(payload.collected_at).slice(0, 16).replace('T', ' ')}`
+              : '');
+            // 裏でライブも更新
+            loadHeatTreatmentRadar(true);
+            return;
+          }
+        }
+      } catch (_) { /* liveへ */ }
+    }
+
+    const results = await Promise.all(
+      (radarConfig.search_queries || []).map(q => fetchRadarQuery(q, radarConfig).catch(() => []))
+    );
+    const seen = new Set();
+    const seeds = [];
+    for (const batch of results) {
+      for (const s of batch) {
+        const key = (s.title || '').toLowerCase();
+        if (seen.has(key)) continue;
+        seen.add(key);
+        seeds.push(s);
+      }
+    }
+    seeds.sort((a, b) => b.score - a.score);
+    const maxN = radarConfig.max_seeds || 12;
+    renderRadarSeeds(seeds.slice(0, maxN), 'ライブ収集');
+  } catch {
+    el.innerHTML = '<p class="text-sm text-gray-400 text-center py-6">探知データを取得できませんでした</p>';
+  }
+}
+
 // 初回ロード（近畿地方をデフォルト表示）
 refreshAll();
 renderExpos();
 loadRegion('kinki');
+loadTerritoryStrategy();
+loadHeatTreatmentRadar(false);
 </script>
 </body>
 </html>

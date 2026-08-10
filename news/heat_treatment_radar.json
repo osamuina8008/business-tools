@@ -1,0 +1,109 @@
+{
+  "version": 1,
+  "updated": "2026-08-10",
+  "disclaimer": "新聞記事からの推測・種収集。断定ではなく訪問判断の材料。",
+  "search_queries": [
+    {
+      "id": "pain_outsource",
+      "label": "外注・納期・品質",
+      "query": "(熱処理 OR 焼入れ OR 浸炭 OR 防炭) (外注 OR 納期 OR 品質 OR 困窮 OR 不足 OR 遅れ)"
+    },
+    {
+      "id": "pain_bontan",
+      "label": "防炭・浸炭",
+      "query": "(防炭 OR 浸炭 OR 浸炭焼入れ) (熱処理 OR 外注 OR 加工 OR 部品)"
+    },
+    {
+      "id": "capex_furnace",
+      "label": "炉・設備投資",
+      "query": "(熱処理 OR 焼入れ) (設備投資 OR 真空炉 OR 雰囲気炉 OR 新工場 OR 増産)"
+    },
+    {
+      "id": "competitor_space",
+      "label": "競合・業界再編",
+      "query": "(熱処理) (撤退 OR 閉鎖 OR 統合 OR 倒産 OR 廃業 OR 事業譲渡) (東海 OR 近畿 OR 北陸 OR 三重 OR 愛知 OR 大阪 OR 兵庫)"
+    },
+    {
+      "id": "auto_gear",
+      "label": "自動車・歯車・シャフト",
+      "query": "(熱処理 OR 焼入れ OR 浸炭) (歯車 OR ギヤ OR シャフト OR ピン OR 軸受) (自動車 OR 部品)"
+    },
+    {
+      "id": "tokai_focus",
+      "label": "東海フォーカス",
+      "query": "(熱処理 OR 焼入れ OR 浸炭) (愛知 OR 刈谷 OR 豊田 OR 三重 OR いなべ OR 岐阜)"
+    }
+  ],
+  "major_watchlist": [
+    {"name": "ジェイテクト", "aliases": ["JTEKT", "光洋"], "tier": "A"},
+    {"name": "ヤマザキマザック", "aliases": ["マザック", "Yamazaki Mazak"], "tier": "A"},
+    {"name": "DMG森精機", "aliases": ["森精機", "DMG MORI"], "tier": "A"},
+    {"name": "デンソー", "aliases": ["DENSO"], "tier": "A"},
+    {"name": "アイシン", "aliases": ["AISIN"], "tier": "A"},
+    {"name": "豊田自動織機", "aliases": ["トヨタ自動織機"], "tier": "A"},
+    {"name": "トヨタ", "aliases": ["TOYOTA"], "tier": "A"},
+    {"name": "ヤンマー", "aliases": ["Yanmar"], "tier": "A"},
+    {"name": "NSK", "aliases": ["日本精工"], "tier": "A"},
+    {"name": "NTN", "aliases": [], "tier": "A"},
+    {"name": "ダイハツ", "aliases": [], "tier": "A"},
+    {"name": "スズキ", "aliases": ["Suzuki"], "tier": "A"},
+    {"name": "ホンダ", "aliases": ["本田技研", "Honda"], "tier": "A"},
+    {"name": "三菱重工", "aliases": ["三菱重工業"], "tier": "A"},
+    {"name": "川崎重工", "aliases": ["川崎重工業"], "tier": "A"},
+    {"name": "コマツ", "aliases": ["小松製作所"], "tier": "A"},
+    {"name": "クボタ", "aliases": [], "tier": "A"},
+    {"name": "シンフォニア", "aliases": ["シンフォニアテクノロジー"], "tier": "B"},
+    {"name": "神鋼造機", "aliases": [], "tier": "B"},
+    {"name": "メタルアート", "aliases": [], "tier": "B"},
+    {"name": "豊和工業", "aliases": ["Howa"], "tier": "B"},
+    {"name": "水谷精機", "aliases": [], "tier": "B"},
+    {"name": "東研サーモテック", "aliases": ["トーケン", "Token"], "tier": "competitor"},
+    {"name": "中部熱処理", "aliases": [], "tier": "competitor"},
+    {"name": "栗山熱処理", "aliases": [], "tier": "competitor"},
+    {"name": "東伸熱工", "aliases": [], "tier": "competitor"},
+    {"name": "和宏精密", "aliases": [], "tier": "competitor"}
+  ],
+  "pain_signals": [
+    {"term": "外注", "weight": 3},
+    {"term": "防炭", "weight": 4},
+    {"term": "浸炭", "weight": 2},
+    {"term": "納期", "weight": 3},
+    {"term": "遅れ", "weight": 3},
+    {"term": "不足", "weight": 3},
+    {"term": "品質", "weight": 2},
+    {"term": "不良", "weight": 3},
+    {"term": "撤退", "weight": 4},
+    {"term": "閉鎖", "weight": 4},
+    {"term": "廃業", "weight": 4},
+    {"term": "倒産", "weight": 4},
+    {"term": "火災", "weight": 3},
+    {"term": "設備投資", "weight": 2},
+    {"term": "内製", "weight": 2},
+    {"term": "増産", "weight": 2},
+    {"term": "新工場", "weight": 2},
+    {"term": "真空炉", "weight": 2},
+    {"term": "熱処理", "weight": 1},
+    {"term": "焼入れ", "weight": 1}
+  ],
+  "noise_terms": [
+    "放熱基板",
+    "放熱",
+    "半導体",
+    "硝子",
+    "ガラス",
+    "掲示板",
+    "ゲームショウ",
+    "厨房",
+    "給食",
+    "リップ",
+    "株価予想",
+    "株主優待",
+    "要工業"
+  ],
+  "exclude_notes": {
+    "要工業": "大阪の金属熱処理・破産は既知・情報古いため収集対象外（2026-08-10）"
+  },
+  "min_score": 5,
+  "max_seeds": 12,
+  "slack_max": 2
+}

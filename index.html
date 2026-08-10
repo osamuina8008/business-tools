@@ -38,14 +38,40 @@
         <h1 class="text-xl font-bold text-gray-800">業務効率化ツール</h1>
         <p class="text-xs text-gray-400 mt-0.5">Business Productivity Suite — 稲垣督</p>
       </div>
-      <div class="flex items-center gap-2 text-xs text-gray-400" id="news-status"></div>
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2 text-xs text-gray-400" id="news-status"></div>
+        <button type="button" id="restart-btn" onclick="restartApp()"
+          class="flex items-center gap-1.5 text-xs font-semibold text-gray-600 hover:text-blue-700 border border-gray-200 hover:border-blue-300 bg-white hover:bg-blue-50 rounded-lg px-3 py-1.5 transition"
+          title="キャッシュを捨てて最新版を読み込み直す">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+          </svg>
+          再起動
+        </button>
+      </div>
     </div>
   </header>
 
   <main class="max-w-5xl mx-auto px-4 py-6">
 
-    <!-- ツールカード（1行・ドラッグ並び替え対応） -->
-    <div class="tools-row mb-6" id="tools-row"></div>
+    <!-- 常用ツール -->
+    <div class="tools-row mb-3" id="tools-row"></div>
+
+    <!-- 旧ボタン群（折りたたみ） -->
+    <div class="mb-6">
+      <button type="button" id="legacy-toggle"
+        onclick="toggleLegacyTools()"
+        class="flex items-center gap-2 text-xs font-semibold text-gray-500 hover:text-gray-700 px-1 py-1.5 transition">
+        <svg id="legacy-chevron" class="w-3.5 h-3.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+        旧ボタン群
+        <span class="font-normal text-gray-400">（メール・ガントなど・常用しないもの）</span>
+      </button>
+      <div id="legacy-panel" class="hidden mt-2">
+        <div class="tools-row rounded-xl border border-dashed border-gray-200 bg-gray-50/80 p-2" id="legacy-row"></div>
+      </div>
+    </div>
 
     <!-- ツール追加モーダル -->
     <div id="modal-add-tool" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black bg-opacity-40">
@@ -127,15 +153,19 @@
 // ツールカード
 // ============================================================
 const DEFAULT_TOOLS = [
-  { id:'email',    name:'メール作成',    url:'email/index.html',    bg:'bg-blue-100',   icon:'mail' },
-  { id:'files',    name:'ファイル整理',  url:'files/index.html',    bg:'bg-orange-100', icon:'folder' },
-  { id:'schedule', name:'スケジュール',  url:'schedule/index.html', bg:'bg-purple-100', icon:'calendar' },
-  { id:'quote',    name:'見積書管理',    url:'quote/index.html',    bg:'bg-green-100',  icon:'doc' },
-  { id:'news',     name:'業界トピックス',url:'news/index.html',     bg:'bg-red-100',    icon:'news' },
-  { id:'tasks',    name:'タスク管理',    url:'tasks/index.html',    bg:'bg-yellow-100', icon:'task' },
-  { id:'gantt',    name:'製造ガント',    url:'gantt/index.html',    bg:'bg-indigo-100', icon:'chart' },
-  { id:'study',    name:'復習Chat',      url:'study/index.html',    bg:'bg-violet-100', icon:'study' },
+  { id:'news',     name:'業界トピックス',url:'news/index.html',     bg:'bg-red-100',    icon:'news',   group:'primary' },
+  { id:'email',    name:'メール作成',    url:'email/index.html',    bg:'bg-blue-100',   icon:'mail',   group:'legacy' },
+  { id:'files',    name:'ファイル整理',  url:'files/index.html',    bg:'bg-orange-100', icon:'folder', group:'legacy' },
+  { id:'schedule', name:'スケジュール',  url:'schedule/index.html', bg:'bg-purple-100', icon:'calendar', group:'legacy' },
+  { id:'quote',    name:'見積書管理',    url:'quote/index.html',    bg:'bg-green-100',  icon:'doc',    group:'legacy' },
+  { id:'tasks',    name:'タスク管理',    url:'tasks/index.html',    bg:'bg-yellow-100', icon:'task',   group:'legacy' },
+  { id:'gantt',    name:'製造ガント',    url:'gantt/index.html',    bg:'bg-indigo-100', icon:'chart',  group:'legacy' },
+  { id:'study',    name:'復習Chat',      url:'study/index.html',    bg:'bg-violet-100', icon:'study',  group:'legacy' },
 ];
+
+const LEGACY_IDS = new Set(
+  DEFAULT_TOOLS.filter(t => t.group === 'legacy').map(t => t.id)
+);
 
 const ICONS = {
   mail:     '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>',
@@ -149,33 +179,63 @@ const ICONS = {
   study:    '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>',
 };
 
+function catalogById() {
+  const map = {};
+  DEFAULT_TOOLS.forEach(t => { map[t.id] = t; });
+  return map;
+}
+
 function loadTools() {
-  const saved = localStorage.getItem('bt_tools_order');
+  const catalog = catalogById();
+  const saved = localStorage.getItem('bt_tools_order_v2');
   if (saved) {
     try {
       const order = JSON.parse(saved);
-      // デフォルト＋カスタムをマージ
-      const all = [...DEFAULT_TOOLS];
-      order.forEach(t => { if (!all.find(d => d.id === t.id)) all.push(t); });
-      return order.map(o => all.find(d => d.id === o.id)).filter(Boolean);
+      order.forEach(t => { if (!catalog[t.id]) catalog[t.id] = t; });
+      return order.map(o => {
+        const base = catalog[o.id];
+        if (!base) return null;
+        return { ...base, ...o, group: LEGACY_IDS.has(o.id) ? 'legacy' : (o.group || base.group || 'primary') };
+      }).filter(Boolean);
     } catch {}
   }
-  return [...DEFAULT_TOOLS];
+  // 旧localStorage（v1）があればカスタムだけ引き継ぎ
+  const legacySaved = localStorage.getItem('bt_tools_order');
+  let customs = [];
+  if (legacySaved) {
+    try {
+      const order = JSON.parse(legacySaved);
+      customs = order.filter(t => t.id && !catalog[t.id] && String(t.id).startsWith('custom_'));
+    } catch {}
+  }
+  return [
+    ...DEFAULT_TOOLS.filter(t => t.group === 'primary'),
+    ...customs.map(t => ({ ...t, group: 'primary', bg: t.bg || 'bg-gray-100', icon: t.icon || 'link' })),
+    ...DEFAULT_TOOLS.filter(t => t.group === 'legacy'),
+  ];
 }
-function saveTools(tools) {
-  localStorage.setItem('bt_tools_order', JSON.stringify(tools));
+function saveTools(list) {
+  localStorage.setItem('bt_tools_order_v2', JSON.stringify(list));
 }
 
 let tools = loadTools();
 let dragSrc = null;
+let dragGroup = null;
+let legacyOpen = localStorage.getItem('bt_legacy_open') === '1';
 
-function renderTools() {
-  const row = document.getElementById('tools-row');
-  row.innerHTML = tools.map((t, i) => `
+function toolsInGroup(group) {
+  return tools
+    .map((t, i) => ({ t, i }))
+    .filter(({ t }) => (t.group || 'primary') === group);
+}
+
+function toolCardHtml(t, i) {
+  return `
     <div class="tool-card bg-white rounded-xl border border-gray-200 shadow-sm flex flex-col items-center justify-center gap-1.5 p-2 flex-shrink-0"
       style="width:76px; min-height:76px"
       draggable="true"
       data-index="${i}"
+      data-group="${t.group || 'primary'}"
       ondragstart="onDragStart(event,${i})"
       ondragover="onDragOver(event,${i})"
       ondrop="onDrop(event,${i})"
@@ -185,14 +245,45 @@ function renderTools() {
         ${ICONS[t.icon] || ICONS.link}
       </div>
       <p class="text-xs font-semibold text-gray-700 text-center leading-tight" style="font-size:10px">${t.name}</p>
-    </div>
-  `).join('') + `
+    </div>`;
+}
+
+function renderTools() {
+  const primary = toolsInGroup('primary');
+  const legacy = toolsInGroup('legacy');
+
+  document.getElementById('tools-row').innerHTML =
+    primary.map(({ t, i }) => toolCardHtml(t, i)).join('') + `
     <button onclick="openAddTool()"
       class="flex-shrink-0 bg-gray-50 border-2 border-dashed border-gray-300 hover:border-blue-400 hover:bg-blue-50 rounded-xl flex flex-col items-center justify-center gap-1 text-gray-400 hover:text-blue-500 transition"
       style="width:76px; min-height:76px">
       <span class="text-xl font-light leading-none">＋</span>
       <span style="font-size:10px" class="font-medium">追加</span>
     </button>`;
+
+  document.getElementById('legacy-row').innerHTML =
+    legacy.map(({ t, i }) => toolCardHtml(t, i)).join('') ||
+    '<p class="text-xs text-gray-400 px-2 py-3">旧ボタンはありません</p>';
+
+  applyLegacyOpen();
+}
+
+function applyLegacyOpen() {
+  const panel = document.getElementById('legacy-panel');
+  const chevron = document.getElementById('legacy-chevron');
+  if (legacyOpen) {
+    panel.classList.remove('hidden');
+    chevron.style.transform = 'rotate(90deg)';
+  } else {
+    panel.classList.add('hidden');
+    chevron.style.transform = 'rotate(0deg)';
+  }
+}
+
+function toggleLegacyTools() {
+  legacyOpen = !legacyOpen;
+  localStorage.setItem('bt_legacy_open', legacyOpen ? '1' : '0');
+  applyLegacyOpen();
 }
 
 function gotoTool(url) { if (!dragging) window.location.href = url; }
@@ -200,24 +291,28 @@ let dragging = false;
 
 function onDragStart(e, i) {
   dragging = true; dragSrc = i;
+  dragGroup = tools[i]?.group || 'primary';
   e.currentTarget.classList.add('dragging');
   e.dataTransfer.effectAllowed = 'move';
 }
 function onDragOver(e, i) {
   e.preventDefault();
+  // 同じグループ内だけ並び替え
+  if ((tools[i]?.group || 'primary') !== dragGroup) return;
   document.querySelectorAll('.tool-card').forEach(c => c.classList.remove('drag-over'));
-  document.querySelectorAll('.tool-card')[i]?.classList.add('drag-over');
+  e.currentTarget.classList.add('drag-over');
 }
 function onDrop(e, i) {
   e.preventDefault();
   if (dragSrc === null || dragSrc === i) return;
+  if ((tools[i]?.group || 'primary') !== dragGroup) return;
   const moved = tools.splice(dragSrc, 1)[0];
   tools.splice(i, 0, moved);
   saveTools(tools);
   renderTools();
 }
 function onDragEnd() {
-  dragging = false; dragSrc = null;
+  dragging = false; dragSrc = null; dragGroup = null;
   document.querySelectorAll('.tool-card').forEach(c => c.classList.remove('dragging','drag-over'));
   setTimeout(() => { dragging = false; }, 100);
 }
@@ -228,7 +323,12 @@ function addTool() {
   const name = document.getElementById('new-tool-name').value.trim();
   const url  = document.getElementById('new-tool-url').value.trim();
   if (!name || !url) { alert('名前とURLを入力してください'); return; }
-  tools.push({ id: 'custom_' + Date.now(), name, url, bg: 'bg-gray-100', icon: 'link' });
+  // カスタムは常用側へ
+  const primaryTail = tools.map((t, i) => ({ t, i })).filter(x => (x.t.group || 'primary') === 'primary');
+  const insertAt = primaryTail.length ? primaryTail[primaryTail.length - 1].i + 1 : 0;
+  tools.splice(insertAt, 0, {
+    id: 'custom_' + Date.now(), name, url, bg: 'bg-gray-100', icon: 'link', group: 'primary'
+  });
   saveTools(tools);
   renderTools();
   document.getElementById('new-tool-name').value = '';
@@ -237,6 +337,29 @@ function addTool() {
 }
 
 renderTools();
+
+async function restartApp() {
+  const btn = document.getElementById('restart-btn');
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = '再起動中…';
+  }
+  try {
+    // 並び替えキャッシュは残しつつ、古い1列レイアウト用キーは掃除
+    localStorage.removeItem('bt_tools_order');
+    if ('caches' in window) {
+      const keys = await caches.keys();
+      await Promise.all(keys.map(k => caches.delete(k)));
+    }
+    if ('serviceWorker' in navigator) {
+      const regs = await navigator.serviceWorker.getRegistrations();
+      await Promise.all(regs.map(r => r.unregister()));
+    }
+  } catch (_) { /* 続行して強制リロード */ }
+  const url = new URL(window.location.href);
+  url.searchParams.set('_restart', String(Date.now()));
+  window.location.replace(url.toString());
+}
 
 // ============================================================
 // ニュース

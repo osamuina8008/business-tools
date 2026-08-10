@@ -1,357 +1,1425 @@
 {
-  "updated": "2026-08-11T06:34:10+09:00",
-  "disclaimer": "公開Web・既存開拓リストからの推定。訪問判断は人が行う。",
-  "search_queries": [
-    "愛知 歯車 SCM415 OR SCM435 浸炭",
-    "大阪 歯車製作 熱処理 外注",
-    "兵庫 金属加工 SCM 調質",
-    "ジェイテクト 歯車 熱処理",
-    "豊和工業 外注 機械加工 浸炭"
-  ],
-  "count": 18,
-  "targets": [
+  "updated": "2026-08-11T07:05:51+09:00",
+  "disclaimer": "攻めどころ界隈の公開情報・聞き取りベース。既存顧客・コマツ筋・高周波メイン等は除外済み。",
+  "how_to_use": "各界隈の社名一覧を見て訪問先を決める。探索枠は現地で社名を確定して埋める。",
+  "count": 26,
+  "group_count": 8,
+  "groups": [
     {
-      "id": "daiwa-gear",
-      "name": "大和歯車製作株式会社",
-      "category": "歯車製造",
-      "area": "大阪府東大阪市／和歌山県日高川町",
-      "prefecture": "大阪府",
-      "materials": [
-        "SCM系",
-        "合金鋼"
-      ],
-      "heat_relation": "焼入工程あり（協力熱処理10社＋自社設備）",
-      "reason": "精密歯車一貫。取引先にヤマザキマザック等。焼入を外部協力＋自社で実施→熱処理ニーズ明確。",
-      "source_url": "https://daiwa-gear.jp/process.html",
-      "linked_majors": [
-        "ヤマザキマザック",
-        "川崎重工業",
-        "三菱重工業"
-      ],
-      "priority": 0,
-      "lat": 34.6794,
-      "lng": 135.6009
+      "hotspot_id": "willbe_tsushima",
+      "area": "愛知・Willbe（津島）界隈",
+      "pain": "旧三菱重工メイキエンジン。汎用エンジン部品でSCM・熱処理ニーズが見込める本命。",
+      "lat": 35.177,
+      "lng": 136.741,
+      "count": 4,
+      "companies": [
+        {
+          "name": "株式会社Willbe",
+          "category": "汎用エンジン・発電機（大手OEM）",
+          "area": "愛知県津島市",
+          "materials": [
+            "SCM系想定",
+            "構造用鋼"
+          ],
+          "heat_relation": "エンジン部品（歯車・シャフト等）で浸炭・調質ニーズが見込める",
+          "reason": "狙いの本命。旧三菱重工メイキ。周辺外注の熱処理・防炭困りごとを聞き取る。",
+          "source_url": "https://willbe-corp.com/about/information/",
+          "linked_majors": [
+            "名光精機",
+            "旧三菱重工メイキ"
+          ],
+          "priority": 0,
+          "lat": 35.177,
+          "lng": 136.741,
+          "id": "willbe_tsushima-Willbe",
+          "hotspot_id": "willbe_tsushima",
+          "hotspot_area": "愛知・Willbe（津島）界隈"
+        },
+        {
+          "name": "株式会社名光精機",
+          "category": "精密部品・Willbe親会社",
+          "area": "愛知県津島市",
+          "materials": [
+            "鉄系精密部品"
+          ],
+          "heat_relation": "エンジン・精密部品で熱処理外注の可能性",
+          "reason": "Willbeの親会社。津島拠点の加工ネットワーク入口。",
+          "source_url": "https://willbe-corp.com/about/information/",
+          "linked_majors": [
+            "Willbe"
+          ],
+          "priority": 0,
+          "lat": 35.18,
+          "lng": 136.74,
+          "id": "willbe_tsushima-名光精機",
+          "hotspot_id": "willbe_tsushima",
+          "hotspot_area": "愛知・Willbe（津島）界隈"
+        },
+        {
+          "name": "株式会社葵精工",
+          "category": "機械加工（一貫）",
+          "area": "愛知県津島市",
+          "materials": [
+            "工作機械部品",
+            "産業機械部品"
+          ],
+          "heat_relation": "素材〜加工〜熱処理〜表面処理の一貫を公式に明示",
+          "reason": "主要取引先に豊和工業。津島×豊和筋の加工先。熱処理外注実態を確認。",
+          "source_url": "http://www.aoi-sk.co.jp/company/",
+          "linked_majors": [
+            "豊和工業",
+            "オークマ"
+          ],
+          "priority": 0,
+          "lat": 35.17,
+          "lng": 136.73,
+          "id": "willbe_tsushima-葵精工",
+          "hotspot_id": "willbe_tsushima",
+          "hotspot_area": "愛知・Willbe（津島）界隈"
+        },
+        {
+          "name": "タケウチ興業株式会社",
+          "category": "シャフト・精密機械部品",
+          "area": "愛知県津島市",
+          "materials": [
+            "スチール",
+            "SUS",
+            "アルミ"
+          ],
+          "heat_relation": "シャフト類は調質・焼入ニーズが出やすい",
+          "reason": "Willbe本社同市のシャフト加工。鉄系なら熱処理聞き取り候補。",
+          "source_url": "https://www.takeuchi-kougyou.co.jp/",
+          "linked_majors": [
+            "Willbe界隈"
+          ],
+          "priority": 1,
+          "lat": 35.175,
+          "lng": 136.74,
+          "id": "willbe_tsushima-タケウチ興業",
+          "hotspot_id": "willbe_tsushima",
+          "hotspot_area": "愛知・Willbe（津島）界隈"
+        },
+        {
+          "name": "津島・愛西・弥富の追加加工（探索枠）",
+          "category": "探索メモ",
+          "area": "津島・愛西・弥富・蟹江",
+          "materials": [
+            "SCM/SC"
+          ],
+          "heat_relation": "エンジン周辺の軸・歯車外注",
+          "reason": "Willbe周辺の加工先をさらに社名確定する枠。",
+          "source_url": "",
+          "linked_majors": [
+            "Willbe"
+          ],
+          "priority": 1,
+          "lat": 35.18,
+          "lng": 136.74,
+          "is_placeholder": true,
+          "id": "willbe_tsushima-津島・愛西・弥富の追加加工（探索枠）",
+          "hotspot_id": "willbe_tsushima",
+          "hotspot_area": "愛知・Willbe（津島）界隈"
+        }
+      ]
     },
     {
-      "id": "jtekt-gear",
-      "name": "株式会社ジェイテクトギヤシステム",
-      "category": "歯車製造（大手系列）",
-      "area": "愛知県瀬戸市・日進市／岐阜県御嵩町",
-      "prefecture": "愛知県",
+      "hotspot_id": "houwa",
+      "area": "愛知・豊和工業（清須本社）界隈",
+      "pain": "防炭処理をしてくれない → 周辺部品メーカーの外注先を刈る",
+      "lat": 35.1986,
+      "lng": 136.848,
+      "count": 9,
+      "companies": [
+        {
+          "name": "水谷精機工作所",
+          "category": "精密部品・工作機械関連",
+          "area": "三重県桑名市",
+          "materials": [
+            "鉄系精密部品"
+          ],
+          "heat_relation": "豊和筋・防炭困りごとの聞き取り起点",
+          "reason": "攻め所アンカー。防炭対応の困りごと深掘り→周辺紹介を取る。",
+          "source_url": "",
+          "linked_majors": [
+            "豊和工業"
+          ],
+          "priority": 0,
+          "lat": 35.0666,
+          "lng": 136.6843,
+          "id": "houwa-水谷精機工作所",
+          "hotspot_id": "houwa",
+          "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+        },
+        {
+          "name": "株式会社シンセラ",
+          "category": "歯切・精密加工",
+          "area": "愛知県",
+          "materials": [
+            "SCM415"
+          ],
+          "heat_relation": "浸炭焼入れは協力先連携と明記",
+          "reason": "ハスバ歯車×SCM415×浸炭外注。防炭・歪み困りごとが刺さりやすい。",
+          "source_url": "https://kinzoku-sessaku.com/",
+          "linked_majors": [],
+          "priority": 1,
+          "lat": 35.15,
+          "lng": 136.9,
+          "id": "houwa-シンセラ",
+          "hotspot_id": "houwa",
+          "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+        },
+        {
+          "name": "株式会社ナゴヤギア",
+          "category": "大型歯車",
+          "area": "愛知県名古屋市南区",
+          "materials": [
+            "SCM",
+            "SCM440"
+          ],
+          "heat_relation": "製品例で高周波焼入あり。浸炭案件も要確認",
+          "reason": "SCM歯車の公開実績。現行熱処理先・困りごと確認。",
+          "source_url": "https://ja.nc-net.or.jp/company/46004/",
+          "linked_majors": [],
+          "priority": 1,
+          "lat": 35.1,
+          "lng": 136.93,
+          "id": "houwa-ナゴヤギア",
+          "hotspot_id": "houwa",
+          "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+        },
+        {
+          "name": "株式会社前田鉄工所",
+          "category": "歯車・シャフト・油圧部品",
+          "area": "愛知県名古屋市中川区",
+          "materials": [
+            "SCM系",
+            "歯車鋼"
+          ],
+          "heat_relation": "歯切〜熱処理後研磨まで対応と明記",
+          "reason": "名古屋西寄り。歯車・シャフトで熱処理後工程あり。豊和筋の外注候補探索。",
+          "source_url": "http://maedatekko.co.jp/",
+          "linked_majors": [],
+          "priority": 1,
+          "lat": 35.14,
+          "lng": 136.85,
+          "id": "houwa-前田鉄工所",
+          "hotspot_id": "houwa",
+          "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+        },
+        {
+          "name": "清須・稲沢・一宮の歯切・シャフト（探索枠）",
+          "category": "探索メモ",
+          "area": "清須・稲沢・一宮・あま",
+          "materials": [
+            "SCM系想定"
+          ],
+          "heat_relation": "豊和外注の歯切・軸物が点在",
+          "reason": "豊和本社周辺で社名を確定して埋める枠。",
+          "source_url": "",
+          "linked_majors": [
+            "豊和工業"
+          ],
+          "priority": 1,
+          "lat": 35.2,
+          "lng": 136.85,
+          "is_placeholder": true,
+          "id": "houwa-清須・稲沢・一宮の歯切・シャフト（探索枠）",
+          "hotspot_id": "houwa",
+          "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+        },
+        {
+          "name": "石田歯車工業株式会社",
+          "category": "歯車製造",
+          "area": "愛知県名古屋市緑区",
+          "materials": [
+            "各種歯車鋼"
+          ],
+          "heat_relation": "協力企業経由で焼入・歯面研磨まで完成品対応",
+          "reason": "歯切特化＋焼入外注。熱処理困りごとの聞き取り向き。",
+          "source_url": "https://ishida-haguruma-co-jp.secure-web.jp/",
+          "linked_majors": [],
+          "priority": 1,
+          "lat": 35.08,
+          "lng": 136.97,
+          "id": "houwa-石田歯車工業",
+          "hotspot_id": "houwa",
+          "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+        },
+        {
+          "name": "豊和鍛工株式会社",
+          "category": "鍛造",
+          "area": "愛知県",
+          "materials": [
+            "構造用鋼",
+            "SCM系想定"
+          ],
+          "heat_relation": "鍛造→熱処理→仕上の工程あり（※豊和工業とは別法人）",
+          "reason": "鍛造後熱処理が入る鉄系。防炭・浸炭の外注実態を確認。",
+          "source_url": "https://howa-forging.co.jp/introduction/",
+          "linked_majors": [],
+          "priority": 1,
+          "lat": 35.1,
+          "lng": 137.05,
+          "id": "houwa-豊和鍛工",
+          "hotspot_id": "houwa",
+          "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+        },
+        {
+          "name": "協育歯車工業株式会社（名古屋）",
+          "category": "規格歯車",
+          "area": "愛知県名古屋市熱田区（支店）",
+          "materials": [
+            "SCM435",
+            "SCM440",
+            "S45C"
+          ],
+          "heat_relation": "SCM＋高周波等の熱処理オプション公開",
+          "reason": "東海探索の入口。規格歯車の熱処理外注ニーズ確認。",
+          "source_url": "https://www.kggear.co.jp/company/",
+          "linked_majors": [],
+          "priority": 2,
+          "lat": 35.13,
+          "lng": 136.9,
+          "id": "houwa-協育歯車工業（名古屋）",
+          "hotspot_id": "houwa",
+          "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+        },
+        {
+          "name": "株式会社MD（東海市）",
+          "category": "金属加工",
+          "area": "愛知県東海市",
+          "materials": [
+            "SCM415",
+            "SCM420",
+            "SCM435"
+          ],
+          "heat_relation": "SCMの浸炭・調質前提の加工知見を公開",
+          "reason": "愛知のSCM加工先候補。熱処理前提部品の外注先確認。",
+          "source_url": "https://mdfujimaki.com/archives/5111",
+          "linked_majors": [],
+          "priority": 2,
+          "lat": 35.02,
+          "lng": 136.9,
+          "id": "houwa-MD（東海市）",
+          "hotspot_id": "houwa",
+          "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+        },
+        {
+          "name": "株式会社前田精密製作所",
+          "category": "精密歯車",
+          "area": "広域／東海案件",
+          "materials": [
+            "各種歯車鋼"
+          ],
+          "heat_relation": "工程に熱処理(焼入)あり",
+          "reason": "精密歯車一貫。東海の歯切・焼入外注探索。",
+          "source_url": "https://maeda-mss.com/gear_mfg/",
+          "linked_majors": [],
+          "priority": 2,
+          "lat": 35.18,
+          "lng": 136.85,
+          "id": "houwa-前田精密製作所",
+          "hotspot_id": "houwa",
+          "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+        }
+      ]
+    },
+    {
+      "hotspot_id": "kariya_jtekt",
+      "area": "刈谷市・ジェイテクト刈谷界隈",
+      "pain": "熱処理で困っていると聞いている",
+      "lat": 34.9893,
+      "lng": 137.0021,
+      "count": 5,
+      "companies": [
+        {
+          "name": "東光工業株式会社",
+          "category": "自動車金属・歯車部品",
+          "area": "愛知県高浜市／安城市",
+          "materials": [
+            "自動車部品鋼"
+          ],
+          "heat_relation": "沿革に高周波焼入設備。現行の浸炭・外注構成を確認",
+          "reason": "高浜〜安城。アイシン取引の歴史。刈谷ルートの本命候補。",
+          "source_url": "http://www.toko-gear.com/gaiyou.html",
+          "linked_majors": [
+            "アイシン"
+          ],
+          "priority": 0,
+          "lat": 34.93,
+          "lng": 136.99,
+          "id": "kariya_jtekt-東光工業",
+          "hotspot_id": "kariya_jtekt",
+          "hotspot_area": "刈谷市・ジェイテクト刈谷界隈"
+        },
+        {
+          "name": "株式会社ジェイテクトギヤシステム",
+          "category": "歯車（大手系列）",
+          "area": "愛知県瀬戸・日進／岐阜県御嵩",
+          "materials": [
+            "自動車・産業歯車（SCM系）"
+          ],
+          "heat_relation": "デフギヤ等は浸炭・調質が標準。系列外ニーズも要確認",
+          "reason": "刈谷ジェイテクト界隈の歯車拠点。系列外・周辺外注の困りごとを聞き取る。",
+          "source_url": "https://www.gear.jtekt.co.jp/company/factory/",
+          "linked_majors": [
+            "ジェイテクト"
+          ],
+          "priority": 0,
+          "lat": 35.223,
+          "lng": 137.084,
+          "id": "kariya_jtekt-ジェイテクトギヤシステム",
+          "hotspot_id": "kariya_jtekt",
+          "hotspot_area": "刈谷市・ジェイテクト刈谷界隈"
+        },
+        {
+          "name": "高浜歯車工業株式会社",
+          "category": "歯車加工専門",
+          "area": "愛知県高浜市",
+          "materials": [
+            "自動車歯車鋼"
+          ],
+          "heat_relation": "東光グループ。親会社側に高周波設備の歴史あり。浸炭外注実態を確認",
+          "reason": "刈谷隣接の高浜。ジェイテクト界隈の歯切専門。熱処理困りごと聞き取り向き。",
+          "source_url": "https://takahama-gear.com/about.php",
+          "linked_majors": [
+            "東光工業",
+            "アイシン界隈"
+          ],
+          "priority": 0,
+          "lat": 34.927,
+          "lng": 136.987,
+          "id": "kariya_jtekt-高浜歯車工業",
+          "hotspot_id": "kariya_jtekt",
+          "hotspot_area": "刈谷市・ジェイテクト刈谷界隈"
+        },
+        {
+          "name": "刈谷・安城・知立の歯切・シャフト（探索枠）",
+          "category": "探索メモ",
+          "area": "刈谷・安城・知立・豊田西",
+          "materials": [
+            "SCM415/420系想定"
+          ],
+          "heat_relation": "自動車歯車は浸炭が標準。周辺の独立歯切・シャフト屋を拾う",
+          "reason": "刈谷本命エリア。現地で社名を確定し、この枠を具体社名で埋める。",
+          "source_url": "",
+          "linked_majors": [
+            "ジェイテクト",
+            "アイシン界隈"
+          ],
+          "priority": 1,
+          "lat": 34.99,
+          "lng": 137.0,
+          "is_placeholder": true,
+          "id": "kariya_jtekt-刈谷・安城・知立の歯切・シャフト（探索枠）",
+          "hotspot_id": "kariya_jtekt",
+          "hotspot_area": "刈谷市・ジェイテクト刈谷界隈"
+        },
+        {
+          "name": "刈谷・知立・高浜の追加歯切（探索枠）",
+          "category": "探索メモ",
+          "area": "刈谷・知立・高浜・碧南",
+          "materials": [
+            "SCM415/420"
+          ],
+          "heat_relation": "自動車歯車は浸炭標準",
+          "reason": "独立系の歯切屋をさらに拾って社名確定する枠。",
+          "source_url": "",
+          "linked_majors": [
+            "ジェイテクト"
+          ],
+          "priority": 1,
+          "lat": 34.99,
+          "lng": 137.0,
+          "is_placeholder": true,
+          "id": "kariya_jtekt-刈谷・知立・高浜の追加歯切（探索枠）",
+          "hotspot_id": "kariya_jtekt",
+          "hotspot_area": "刈谷市・ジェイテクト刈谷界隈"
+        },
+        {
+          "name": "株式会社日下歯車製作所",
+          "category": "輸送機器歯車",
+          "area": "愛知県豊田市（刈谷創業）",
+          "materials": [
+            "各種歯車鋼"
+          ],
+          "heat_relation": "自動車・二輪歯車で熱処理前提が強い",
+          "reason": "刈谷創業の歯車屋。周辺困りごと・外注先確認。",
+          "source_url": "http://kusaka-gear.co.jp/corp/",
+          "linked_majors": [
+            "ホンダ",
+            "アイシン",
+            "クボタ"
+          ],
+          "priority": 1,
+          "lat": 35.02,
+          "lng": 137.12,
+          "id": "kariya_jtekt-日下歯車製作所",
+          "hotspot_id": "kariya_jtekt",
+          "hotspot_area": "刈谷市・ジェイテクト刈谷界隈"
+        },
+        {
+          "name": "株式会社都筑製作所",
+          "category": "シャフト・軸物",
+          "area": "東海（拠点要確認）",
+          "materials": [
+            "SCM",
+            "SCR",
+            "SUS"
+          ],
+          "heat_relation": "高周波・浸炭を工程に含むシャフトソリューション",
+          "reason": "SCMシャフト×熱処理。刈谷自動車サプライの軸物ニーズと相性が良い。",
+          "source_url": "https://www.tsuzuki-mfg.co.jp/solution/shaft/",
+          "linked_majors": [],
+          "priority": 2,
+          "lat": 35.0,
+          "lng": 137.0,
+          "id": "kariya_jtekt-都筑製作所",
+          "hotspot_id": "kariya_jtekt",
+          "hotspot_area": "刈谷市・ジェイテクト刈谷界隈"
+        }
+      ]
+    },
+    {
+      "hotspot_id": "toyonaka",
+      "area": "大阪・豊中市界隈",
+      "pain": "処理に困っているところがあると聞いている（種まき刈り取り）",
+      "lat": 34.7814,
+      "lng": 135.4697,
+      "count": 3,
+      "companies": [
+        {
+          "name": "株式会社大川歯車製作所",
+          "category": "精密歯車",
+          "area": "大阪府豊中市",
+          "materials": [
+            "金属歯車各種"
+          ],
+          "heat_relation": "焼入は協力会社へ依頼と公式工程に明記",
+          "reason": "豊中ど真ん中の精密歯車。熱処理外注先・困りごと再ヒアリング本命。",
+          "source_url": "http://www.ohgk.co.jp/company/index.html",
+          "linked_majors": [],
+          "priority": 0,
+          "lat": 34.781,
+          "lng": 135.47,
+          "id": "toyonaka-大川歯車製作所",
+          "hotspot_id": "toyonaka",
+          "hotspot_area": "大阪・豊中市界隈"
+        },
+        {
+          "name": "東福鍛工株式会社",
+          "category": "鍛造・歯車素材",
+          "area": "大阪府",
+          "materials": [
+            "SC",
+            "SCM",
+            "SNCM"
+          ],
+          "heat_relation": "鍛造〜熱処理〜加工の一貫。SCMギア明示",
+          "reason": "大阪のSCM鍛造ギア。豊中ルートの拡張候補。",
+          "source_url": "https://ja.nc-net.or.jp/company/93919/",
+          "linked_majors": [],
+          "priority": 1,
+          "lat": 34.7,
+          "lng": 135.48,
+          "id": "toyonaka-東福鍛工",
+          "hotspot_id": "toyonaka",
+          "hotspot_area": "大阪・豊中市界隈"
+        },
+        {
+          "name": "豊中〜吹田〜池田の追加加工（探索枠）",
+          "category": "探索メモ",
+          "area": "豊中・吹田・池田",
+          "materials": [
+            "SCM/SC"
+          ],
+          "heat_relation": "焼入外注が多い",
+          "reason": "大川歯車以外の同業を現地で増やす。",
+          "source_url": "",
+          "linked_majors": [],
+          "priority": 1,
+          "lat": 34.78,
+          "lng": 135.47,
+          "is_placeholder": true,
+          "id": "toyonaka-豊中〜吹田〜池田の追加加工（探索枠）",
+          "hotspot_id": "toyonaka",
+          "hotspot_area": "大阪・豊中市界隈"
+        },
+        {
+          "name": "後藤鉄工所（G-SHAFT・参考）",
+          "category": "シャフト",
+          "area": "近畿（拠点要確認）",
+          "materials": [
+            "SCM415",
+            "SCM440",
+            "SCM435"
+          ],
+          "heat_relation": "調質・浸炭・窒化の公開事例多数",
+          "reason": "SCMシャフト×熱処理の典型。豊中ルートの比較・紹介ネタ。",
+          "source_url": "https://goto-tec.co.jp/shaft/",
+          "linked_majors": [],
+          "priority": 2,
+          "lat": 34.75,
+          "lng": 135.45,
+          "id": "toyonaka-後藤鉄工所（G-SHAFT・参考）",
+          "hotspot_id": "toyonaka",
+          "hotspot_area": "大阪・豊中市界隈"
+        },
+        {
+          "name": "豊中〜吹田〜東大阪の歯切（探索枠）",
+          "category": "探索メモ",
+          "area": "豊中〜吹田〜東大阪",
+          "materials": [
+            "SCM系想定"
+          ],
+          "heat_relation": "近畿の歯車屋は焼入外注が多い",
+          "reason": "豊中ルートで周辺歯切を拾い、社名確定していく枠。",
+          "source_url": "",
+          "linked_majors": [],
+          "priority": 2,
+          "lat": 34.78,
+          "lng": 135.47,
+          "is_placeholder": true,
+          "id": "toyonaka-豊中〜吹田〜東大阪の歯切（探索枠）",
+          "hotspot_id": "toyonaka",
+          "hotspot_area": "大阪・豊中市界隈"
+        }
+      ]
+    },
+    {
+      "hotspot_id": "amagasaki",
+      "area": "兵庫・尼崎界隈",
+      "pain": "処理に困っているところがあると聞いている（種まき刈り取り）",
+      "lat": 34.7334,
+      "lng": 135.4063,
+      "count": 1,
+      "companies": [
+        {
+          "name": "阪神歯車",
+          "category": "歯車・スプロケット",
+          "area": "兵庫県尼崎市",
+          "materials": [
+            "SS",
+            "S35C",
+            "SCM430"
+          ],
+          "heat_relation": "浸炭・高周波・窒化を協力4社と連携と明記",
+          "reason": "尼崎の歯車屋。SCM扱い＋熱処理外注。困りごと再確認の本命。",
+          "source_url": "https://www.hanshin-gear.co.jp/business.html",
+          "linked_majors": [],
+          "priority": 0,
+          "lat": 34.73,
+          "lng": 135.41,
+          "id": "amagasaki-阪神歯車",
+          "hotspot_id": "amagasaki",
+          "hotspot_area": "兵庫・尼崎界隈"
+        },
+        {
+          "name": "尼崎臨海・塚口の機械加工・歯切（探索枠）",
+          "category": "探索メモ",
+          "area": "尼崎臨海・塚口",
+          "materials": [
+            "SCM/SC"
+          ],
+          "heat_relation": "焼入外注が多い",
+          "reason": "阪神歯車以外の同業を現地で増やす。",
+          "source_url": "",
+          "linked_majors": [],
+          "priority": 1,
+          "lat": 34.73,
+          "lng": 135.41,
+          "is_placeholder": true,
+          "id": "amagasaki-尼崎臨海・塚口の機械加工・歯切（探索枠）",
+          "hotspot_id": "amagasaki",
+          "hotspot_area": "兵庫・尼崎界隈"
+        },
+        {
+          "name": "尼崎・西宮・伊丹の鉄系加工（探索枠）",
+          "category": "探索メモ",
+          "area": "尼崎〜西宮〜伊丹",
+          "materials": [
+            "SCM/SC想定"
+          ],
+          "heat_relation": "シャフト・フランジ・歯切の熱処理外注",
+          "reason": "兵庫ルートで社名を増やして埋める枠。",
+          "source_url": "",
+          "linked_majors": [],
+          "priority": 2,
+          "lat": 34.73,
+          "lng": 135.4,
+          "is_placeholder": true,
+          "id": "amagasaki-尼崎・西宮・伊丹の鉄系加工（探索枠）",
+          "hotspot_id": "amagasaki",
+          "hotspot_area": "兵庫・尼崎界隈"
+        }
+      ]
+    },
+    {
+      "hotspot_id": "himeji",
+      "area": "兵庫・姫路界隈",
+      "pain": "処理に困っているところがあると聞いている（種まき刈り取り）",
+      "lat": 34.8154,
+      "lng": 134.6856,
+      "count": 1,
+      "companies": [
+        {
+          "name": "姫路歯車工業株式会社",
+          "category": "歯車",
+          "area": "兵庫県高砂市",
+          "materials": [
+            "鉄鋼・機械部品"
+          ],
+          "heat_relation": "歯車製造→焼入外注の可能性を確認",
+          "reason": "姫路界隈（高砂）の歯車屋。種まき刈り取りの具体社名。",
+          "source_url": "",
+          "linked_majors": [],
+          "priority": 0,
+          "lat": 34.78,
+          "lng": 134.78,
+          "id": "himeji-姫路歯車工業",
+          "hotspot_id": "himeji",
+          "hotspot_area": "兵庫・姫路界隈"
+        },
+        {
+          "name": "姫路・加古川・高砂の歯車・鍛造・シャフト（探索枠）",
+          "category": "探索メモ",
+          "area": "姫路〜加古川〜高砂",
+          "materials": [
+            "SCM系想定"
+          ],
+          "heat_relation": "播磨の鉄工団地に熱処理外注ニーズが点在",
+          "reason": "種まき刈り取りエリア。訪問で社名を確定しリストを厚くする。",
+          "source_url": "",
+          "linked_majors": [],
+          "priority": 1,
+          "lat": 34.82,
+          "lng": 134.69,
+          "is_placeholder": true,
+          "id": "himeji-姫路・加古川・高砂の歯車・鍛造・シャフト（探索枠）",
+          "hotspot_id": "himeji",
+          "hotspot_area": "兵庫・姫路界隈"
+        },
+        {
+          "name": "播磨（加古川・たつの）の鍛造・シャフト（探索枠）",
+          "category": "探索メモ",
+          "area": "姫路・加古川・高砂・たつの",
+          "materials": [
+            "SCM系"
+          ],
+          "heat_relation": "熱処理外注ニーズ点在",
+          "reason": "訪問で社名を増やして埋める。",
+          "source_url": "",
+          "linked_majors": [],
+          "priority": 1,
+          "lat": 34.82,
+          "lng": 134.69,
+          "is_placeholder": true,
+          "id": "himeji-播磨（加古川・たつの）の鍛造・シャフト（探索枠）",
+          "hotspot_id": "himeji",
+          "hotspot_area": "兵庫・姫路界隈"
+        }
+      ]
+    },
+    {
+      "hotspot_id": "wakayama",
+      "area": "和歌山市界隈",
+      "pain": "処理に困っているところがあると聞いている",
+      "lat": 34.2305,
+      "lng": 135.1708,
+      "count": 0,
+      "companies": [
+        {
+          "name": "和歌山市内の機械加工・歯切（探索枠）",
+          "category": "探索メモ",
+          "area": "和歌山市・海南",
+          "materials": [
+            "鉄系"
+          ],
+          "heat_relation": "焼入外注",
+          "reason": "大和歯車は顧客のため除外。周辺同業・下請けを社名確定する。",
+          "source_url": "",
+          "linked_majors": [],
+          "priority": 1,
+          "lat": 34.23,
+          "lng": 135.17,
+          "is_placeholder": true,
+          "id": "wakayama-和歌山市内の機械加工・歯切（探索枠）",
+          "hotspot_id": "wakayama",
+          "hotspot_area": "和歌山市界隈"
+        },
+        {
+          "name": "和歌山・日高の歯切・鍛造周辺（探索枠）",
+          "category": "探索メモ（大和歯車本体は顧客のため除外）",
+          "area": "和歌山市〜日高川",
+          "materials": [
+            "SCM系"
+          ],
+          "heat_relation": "顧客周辺の同業・下請けを拾う",
+          "reason": "大和歯車は既存顧客のため本体は出さない。周辺同業を社名確定する枠。",
+          "source_url": "",
+          "linked_majors": [],
+          "priority": 2,
+          "lat": 34.23,
+          "lng": 135.17,
+          "is_placeholder": true,
+          "id": "wakayama-和歌山・日高の歯切・鍛造周辺（探索枠）",
+          "hotspot_id": "wakayama",
+          "hotspot_area": "和歌山市界隈"
+        }
+      ]
+    },
+    {
+      "hotspot_id": "inabe",
+      "area": "三重・いなべ市周辺",
+      "pain": "中部熱処理・栗山熱処理の評判が悪い → 周辺顧客を刈る",
+      "lat": 35.0744,
+      "lng": 136.5614,
+      "count": 3,
+      "companies": [
+        {
+          "name": "株式会社石垣歯車製作所",
+          "category": "歯車・シャフト",
+          "area": "三重県四日市市",
+          "materials": [
+            "各種歯車鋼"
+          ],
+          "heat_relation": "歯切・シャフト。焼入外注の可能性",
+          "reason": "いなべ近傍（四日市）。競合評判悪化エリアの歯切候補。",
+          "source_url": "https://www.is-gear.com/",
+          "linked_majors": [],
+          "priority": 0,
+          "lat": 34.97,
+          "lng": 136.64,
+          "id": "inabe-石垣歯車製作所",
+          "hotspot_id": "inabe",
+          "hotspot_area": "三重・いなべ市周辺"
+        },
+        {
+          "name": "水谷精機工作所（桑名）",
+          "category": "精密部品",
+          "area": "三重県桑名市",
+          "materials": [
+            "鉄系"
+          ],
+          "heat_relation": "豊和筋＋いなべ近傍",
+          "reason": "いなべ〜桑名ルートで再訪・周辺紹介。",
+          "source_url": "",
+          "linked_majors": [
+            "豊和工業"
+          ],
+          "priority": 0,
+          "lat": 35.0666,
+          "lng": 136.6843,
+          "id": "inabe-水谷精機工作所（桑名）",
+          "hotspot_id": "inabe",
+          "hotspot_area": "三重・いなべ市周辺"
+        },
+        {
+          "name": "シグマ技研周辺の部品メーカー（探索枠）",
+          "category": "探索メモ",
+          "area": "三重県いなべ市周辺",
+          "materials": [
+            "鉄系機械部品"
+          ],
+          "heat_relation": "競合評判悪化の聞き取りあり→外注切替候補",
+          "reason": "熱処理屋は客にしない。周辺の歯車・シャフト・鍛造を社名確定する。",
+          "source_url": "",
+          "linked_majors": [
+            "シグマ技研（情報源）"
+          ],
+          "priority": 1,
+          "lat": 35.07,
+          "lng": 136.56,
+          "is_placeholder": true,
+          "id": "inabe-シグマ技研周辺の部品メーカー（探索枠）",
+          "hotspot_id": "inabe",
+          "hotspot_area": "三重・いなべ市周辺"
+        },
+        {
+          "name": "金田工業株式会社",
+          "category": "冷間鍛造・シャフト",
+          "area": "三重（要確認）",
+          "materials": [
+            "SCM",
+            "SCR"
+          ],
+          "heat_relation": "工程に浸炭焼入を含む公開事例",
+          "reason": "SCM鍛造ギア・シャフト×浸炭。いなべ〜四日市ルートの候補。",
+          "source_url": "https://www.kanetakogyo.co.jp/products/",
+          "linked_majors": [],
+          "priority": 1,
+          "lat": 35.0,
+          "lng": 136.6,
+          "id": "inabe-金田工業",
+          "hotspot_id": "inabe",
+          "hotspot_area": "三重・いなべ市周辺"
+        }
+      ]
+    }
+  ],
+  "targets": [
+    {
+      "name": "阪神歯車",
+      "category": "歯車・スプロケット",
+      "area": "兵庫県尼崎市",
       "materials": [
-        "自動車・産業機械歯車（SCM系多用）"
+        "SS",
+        "S35C",
+        "SCM430"
       ],
-      "heat_relation": "デフギヤ等は浸炭・調質が標準。グループに熱処理あり。周辺外注余地も要確認",
-      "reason": "刈谷ジェイテクト界隈の歯車拠点。攻めどころ刈谷と直結。系列外の困りごと聞き取り候補。",
+      "heat_relation": "浸炭・高周波・窒化を協力4社と連携と明記",
+      "reason": "尼崎の歯車屋。SCM扱い＋熱処理外注。困りごと再確認の本命。",
+      "source_url": "https://www.hanshin-gear.co.jp/business.html",
+      "linked_majors": [],
+      "priority": 0,
+      "lat": 34.73,
+      "lng": 135.41,
+      "id": "amagasaki-阪神歯車",
+      "hotspot_id": "amagasaki",
+      "hotspot_area": "兵庫・尼崎界隈"
+    },
+    {
+      "name": "姫路歯車工業株式会社",
+      "category": "歯車",
+      "area": "兵庫県高砂市",
+      "materials": [
+        "鉄鋼・機械部品"
+      ],
+      "heat_relation": "歯車製造→焼入外注の可能性を確認",
+      "reason": "姫路界隈（高砂）の歯車屋。種まき刈り取りの具体社名。",
+      "source_url": "",
+      "linked_majors": [],
+      "priority": 0,
+      "lat": 34.78,
+      "lng": 134.78,
+      "id": "himeji-姫路歯車工業",
+      "hotspot_id": "himeji",
+      "hotspot_area": "兵庫・姫路界隈"
+    },
+    {
+      "name": "水谷精機工作所",
+      "category": "精密部品・工作機械関連",
+      "area": "三重県桑名市",
+      "materials": [
+        "鉄系精密部品"
+      ],
+      "heat_relation": "豊和筋・防炭困りごとの聞き取り起点",
+      "reason": "攻め所アンカー。防炭対応の困りごと深掘り→周辺紹介を取る。",
+      "source_url": "",
+      "linked_majors": [
+        "豊和工業"
+      ],
+      "priority": 0,
+      "lat": 35.0666,
+      "lng": 136.6843,
+      "id": "houwa-水谷精機工作所",
+      "hotspot_id": "houwa",
+      "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+    },
+    {
+      "name": "株式会社石垣歯車製作所",
+      "category": "歯車・シャフト",
+      "area": "三重県四日市市",
+      "materials": [
+        "各種歯車鋼"
+      ],
+      "heat_relation": "歯切・シャフト。焼入外注の可能性",
+      "reason": "いなべ近傍（四日市）。競合評判悪化エリアの歯切候補。",
+      "source_url": "https://www.is-gear.com/",
+      "linked_majors": [],
+      "priority": 0,
+      "lat": 34.97,
+      "lng": 136.64,
+      "id": "inabe-石垣歯車製作所",
+      "hotspot_id": "inabe",
+      "hotspot_area": "三重・いなべ市周辺"
+    },
+    {
+      "name": "水谷精機工作所（桑名）",
+      "category": "精密部品",
+      "area": "三重県桑名市",
+      "materials": [
+        "鉄系"
+      ],
+      "heat_relation": "豊和筋＋いなべ近傍",
+      "reason": "いなべ〜桑名ルートで再訪・周辺紹介。",
+      "source_url": "",
+      "linked_majors": [
+        "豊和工業"
+      ],
+      "priority": 0,
+      "lat": 35.0666,
+      "lng": 136.6843,
+      "id": "inabe-水谷精機工作所（桑名）",
+      "hotspot_id": "inabe",
+      "hotspot_area": "三重・いなべ市周辺"
+    },
+    {
+      "name": "東光工業株式会社",
+      "category": "自動車金属・歯車部品",
+      "area": "愛知県高浜市／安城市",
+      "materials": [
+        "自動車部品鋼"
+      ],
+      "heat_relation": "沿革に高周波焼入設備。現行の浸炭・外注構成を確認",
+      "reason": "高浜〜安城。アイシン取引の歴史。刈谷ルートの本命候補。",
+      "source_url": "http://www.toko-gear.com/gaiyou.html",
+      "linked_majors": [
+        "アイシン"
+      ],
+      "priority": 0,
+      "lat": 34.93,
+      "lng": 136.99,
+      "id": "kariya_jtekt-東光工業",
+      "hotspot_id": "kariya_jtekt",
+      "hotspot_area": "刈谷市・ジェイテクト刈谷界隈"
+    },
+    {
+      "name": "株式会社ジェイテクトギヤシステム",
+      "category": "歯車（大手系列）",
+      "area": "愛知県瀬戸・日進／岐阜県御嵩",
+      "materials": [
+        "自動車・産業歯車（SCM系）"
+      ],
+      "heat_relation": "デフギヤ等は浸炭・調質が標準。系列外ニーズも要確認",
+      "reason": "刈谷ジェイテクト界隈の歯車拠点。系列外・周辺外注の困りごとを聞き取る。",
       "source_url": "https://www.gear.jtekt.co.jp/company/factory/",
       "linked_majors": [
         "ジェイテクト"
       ],
       "priority": 0,
       "lat": 35.223,
-      "lng": 137.084
+      "lng": 137.084,
+      "id": "kariya_jtekt-ジェイテクトギヤシステム",
+      "hotspot_id": "kariya_jtekt",
+      "hotspot_area": "刈谷市・ジェイテクト刈谷界隈"
     },
     {
-      "id": "kg-gear",
-      "name": "協育歯車工業株式会社",
+      "name": "高浜歯車工業株式会社",
+      "category": "歯車加工専門",
+      "area": "愛知県高浜市",
+      "materials": [
+        "自動車歯車鋼"
+      ],
+      "heat_relation": "東光グループ。親会社側に高周波設備の歴史あり。浸炭外注実態を確認",
+      "reason": "刈谷隣接の高浜。ジェイテクト界隈の歯切専門。熱処理困りごと聞き取り向き。",
+      "source_url": "https://takahama-gear.com/about.php",
+      "linked_majors": [
+        "東光工業",
+        "アイシン界隈"
+      ],
+      "priority": 0,
+      "lat": 34.927,
+      "lng": 136.987,
+      "id": "kariya_jtekt-高浜歯車工業",
+      "hotspot_id": "kariya_jtekt",
+      "hotspot_area": "刈谷市・ジェイテクト刈谷界隈"
+    },
+    {
+      "name": "株式会社大川歯車製作所",
+      "category": "精密歯車",
+      "area": "大阪府豊中市",
+      "materials": [
+        "金属歯車各種"
+      ],
+      "heat_relation": "焼入は協力会社へ依頼と公式工程に明記",
+      "reason": "豊中ど真ん中の精密歯車。熱処理外注先・困りごと再ヒアリング本命。",
+      "source_url": "http://www.ohgk.co.jp/company/index.html",
+      "linked_majors": [],
+      "priority": 0,
+      "lat": 34.781,
+      "lng": 135.47,
+      "id": "toyonaka-大川歯車製作所",
+      "hotspot_id": "toyonaka",
+      "hotspot_area": "大阪・豊中市界隈"
+    },
+    {
+      "name": "株式会社Willbe",
+      "category": "汎用エンジン・発電機（大手OEM）",
+      "area": "愛知県津島市",
+      "materials": [
+        "SCM系想定",
+        "構造用鋼"
+      ],
+      "heat_relation": "エンジン部品（歯車・シャフト等）で浸炭・調質ニーズが見込める",
+      "reason": "狙いの本命。旧三菱重工メイキ。周辺外注の熱処理・防炭困りごとを聞き取る。",
+      "source_url": "https://willbe-corp.com/about/information/",
+      "linked_majors": [
+        "名光精機",
+        "旧三菱重工メイキ"
+      ],
+      "priority": 0,
+      "lat": 35.177,
+      "lng": 136.741,
+      "id": "willbe_tsushima-Willbe",
+      "hotspot_id": "willbe_tsushima",
+      "hotspot_area": "愛知・Willbe（津島）界隈"
+    },
+    {
+      "name": "株式会社名光精機",
+      "category": "精密部品・Willbe親会社",
+      "area": "愛知県津島市",
+      "materials": [
+        "鉄系精密部品"
+      ],
+      "heat_relation": "エンジン・精密部品で熱処理外注の可能性",
+      "reason": "Willbeの親会社。津島拠点の加工ネットワーク入口。",
+      "source_url": "https://willbe-corp.com/about/information/",
+      "linked_majors": [
+        "Willbe"
+      ],
+      "priority": 0,
+      "lat": 35.18,
+      "lng": 136.74,
+      "id": "willbe_tsushima-名光精機",
+      "hotspot_id": "willbe_tsushima",
+      "hotspot_area": "愛知・Willbe（津島）界隈"
+    },
+    {
+      "name": "株式会社葵精工",
+      "category": "機械加工（一貫）",
+      "area": "愛知県津島市",
+      "materials": [
+        "工作機械部品",
+        "産業機械部品"
+      ],
+      "heat_relation": "素材〜加工〜熱処理〜表面処理の一貫を公式に明示",
+      "reason": "主要取引先に豊和工業。津島×豊和筋の加工先。熱処理外注実態を確認。",
+      "source_url": "http://www.aoi-sk.co.jp/company/",
+      "linked_majors": [
+        "豊和工業",
+        "オークマ"
+      ],
+      "priority": 0,
+      "lat": 35.17,
+      "lng": 136.73,
+      "id": "willbe_tsushima-葵精工",
+      "hotspot_id": "willbe_tsushima",
+      "hotspot_area": "愛知・Willbe（津島）界隈"
+    },
+    {
+      "name": "株式会社シンセラ",
+      "category": "歯切・精密加工",
+      "area": "愛知県",
+      "materials": [
+        "SCM415"
+      ],
+      "heat_relation": "浸炭焼入れは協力先連携と明記",
+      "reason": "ハスバ歯車×SCM415×浸炭外注。防炭・歪み困りごとが刺さりやすい。",
+      "source_url": "https://kinzoku-sessaku.com/",
+      "linked_majors": [],
+      "priority": 1,
+      "lat": 35.15,
+      "lng": 136.9,
+      "id": "houwa-シンセラ",
+      "hotspot_id": "houwa",
+      "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+    },
+    {
+      "name": "株式会社ナゴヤギア",
+      "category": "大型歯車",
+      "area": "愛知県名古屋市南区",
+      "materials": [
+        "SCM",
+        "SCM440"
+      ],
+      "heat_relation": "製品例で高周波焼入あり。浸炭案件も要確認",
+      "reason": "SCM歯車の公開実績。現行熱処理先・困りごと確認。",
+      "source_url": "https://ja.nc-net.or.jp/company/46004/",
+      "linked_majors": [],
+      "priority": 1,
+      "lat": 35.1,
+      "lng": 136.93,
+      "id": "houwa-ナゴヤギア",
+      "hotspot_id": "houwa",
+      "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+    },
+    {
+      "name": "株式会社前田鉄工所",
+      "category": "歯車・シャフト・油圧部品",
+      "area": "愛知県名古屋市中川区",
+      "materials": [
+        "SCM系",
+        "歯車鋼"
+      ],
+      "heat_relation": "歯切〜熱処理後研磨まで対応と明記",
+      "reason": "名古屋西寄り。歯車・シャフトで熱処理後工程あり。豊和筋の外注候補探索。",
+      "source_url": "http://maedatekko.co.jp/",
+      "linked_majors": [],
+      "priority": 1,
+      "lat": 35.14,
+      "lng": 136.85,
+      "id": "houwa-前田鉄工所",
+      "hotspot_id": "houwa",
+      "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+    },
+    {
+      "name": "石田歯車工業株式会社",
+      "category": "歯車製造",
+      "area": "愛知県名古屋市緑区",
+      "materials": [
+        "各種歯車鋼"
+      ],
+      "heat_relation": "協力企業経由で焼入・歯面研磨まで完成品対応",
+      "reason": "歯切特化＋焼入外注。熱処理困りごとの聞き取り向き。",
+      "source_url": "https://ishida-haguruma-co-jp.secure-web.jp/",
+      "linked_majors": [],
+      "priority": 1,
+      "lat": 35.08,
+      "lng": 136.97,
+      "id": "houwa-石田歯車工業",
+      "hotspot_id": "houwa",
+      "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+    },
+    {
+      "name": "豊和鍛工株式会社",
+      "category": "鍛造",
+      "area": "愛知県",
+      "materials": [
+        "構造用鋼",
+        "SCM系想定"
+      ],
+      "heat_relation": "鍛造→熱処理→仕上の工程あり（※豊和工業とは別法人）",
+      "reason": "鍛造後熱処理が入る鉄系。防炭・浸炭の外注実態を確認。",
+      "source_url": "https://howa-forging.co.jp/introduction/",
+      "linked_majors": [],
+      "priority": 1,
+      "lat": 35.1,
+      "lng": 137.05,
+      "id": "houwa-豊和鍛工",
+      "hotspot_id": "houwa",
+      "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+    },
+    {
+      "name": "金田工業株式会社",
+      "category": "冷間鍛造・シャフト",
+      "area": "三重（要確認）",
+      "materials": [
+        "SCM",
+        "SCR"
+      ],
+      "heat_relation": "工程に浸炭焼入を含む公開事例",
+      "reason": "SCM鍛造ギア・シャフト×浸炭。いなべ〜四日市ルートの候補。",
+      "source_url": "https://www.kanetakogyo.co.jp/products/",
+      "linked_majors": [],
+      "priority": 1,
+      "lat": 35.0,
+      "lng": 136.6,
+      "id": "inabe-金田工業",
+      "hotspot_id": "inabe",
+      "hotspot_area": "三重・いなべ市周辺"
+    },
+    {
+      "name": "株式会社日下歯車製作所",
+      "category": "輸送機器歯車",
+      "area": "愛知県豊田市（刈谷創業）",
+      "materials": [
+        "各種歯車鋼"
+      ],
+      "heat_relation": "自動車・二輪歯車で熱処理前提が強い",
+      "reason": "刈谷創業の歯車屋。周辺困りごと・外注先確認。",
+      "source_url": "http://kusaka-gear.co.jp/corp/",
+      "linked_majors": [
+        "ホンダ",
+        "アイシン",
+        "クボタ"
+      ],
+      "priority": 1,
+      "lat": 35.02,
+      "lng": 137.12,
+      "id": "kariya_jtekt-日下歯車製作所",
+      "hotspot_id": "kariya_jtekt",
+      "hotspot_area": "刈谷市・ジェイテクト刈谷界隈"
+    },
+    {
+      "name": "東福鍛工株式会社",
+      "category": "鍛造・歯車素材",
+      "area": "大阪府",
+      "materials": [
+        "SC",
+        "SCM",
+        "SNCM"
+      ],
+      "heat_relation": "鍛造〜熱処理〜加工の一貫。SCMギア明示",
+      "reason": "大阪のSCM鍛造ギア。豊中ルートの拡張候補。",
+      "source_url": "https://ja.nc-net.or.jp/company/93919/",
+      "linked_majors": [],
+      "priority": 1,
+      "lat": 34.7,
+      "lng": 135.48,
+      "id": "toyonaka-東福鍛工",
+      "hotspot_id": "toyonaka",
+      "hotspot_area": "大阪・豊中市界隈"
+    },
+    {
+      "name": "タケウチ興業株式会社",
+      "category": "シャフト・精密機械部品",
+      "area": "愛知県津島市",
+      "materials": [
+        "スチール",
+        "SUS",
+        "アルミ"
+      ],
+      "heat_relation": "シャフト類は調質・焼入ニーズが出やすい",
+      "reason": "Willbe本社同市のシャフト加工。鉄系なら熱処理聞き取り候補。",
+      "source_url": "https://www.takeuchi-kougyou.co.jp/",
+      "linked_majors": [
+        "Willbe界隈"
+      ],
+      "priority": 1,
+      "lat": 35.175,
+      "lng": 136.74,
+      "id": "willbe_tsushima-タケウチ興業",
+      "hotspot_id": "willbe_tsushima",
+      "hotspot_area": "愛知・Willbe（津島）界隈"
+    },
+    {
+      "name": "協育歯車工業株式会社（名古屋）",
       "category": "規格歯車",
-      "area": "名古屋支店（熱田）／大阪サテライト",
-      "prefecture": "愛知県",
+      "area": "愛知県名古屋市熱田区（支店）",
       "materials": [
         "SCM435",
         "SCM440",
         "S45C"
       ],
-      "heat_relation": "製品検索でSCM＋高周波等を選択可能",
-      "reason": "名古屋支店あり。SCM規格歯車で熱処理オプション公開。東海探索の入口。",
+      "heat_relation": "SCM＋高周波等の熱処理オプション公開",
+      "reason": "東海探索の入口。規格歯車の熱処理外注ニーズ確認。",
       "source_url": "https://www.kggear.co.jp/company/",
       "linked_majors": [],
-      "priority": 1,
-      "lat": 35.13,
-      "lng": 136.9
-    },
-    {
-      "id": "toufuku-tankou",
-      "name": "東福鍛工株式会社",
-      "category": "鍛造・歯車素材",
-      "area": "大阪府",
-      "prefecture": "大阪府",
-      "materials": [
-        "SC",
-        "SCM",
-        "SNCM",
-        "SUS"
-      ],
-      "heat_relation": "素材〜鍛造〜熱処理〜加工の一貫。ギア等でSCM明示",
-      "reason": "SCM材ギア・フランジギア等を鍛造。熱処理を工程に含むため外注/内製確認の価値が高い。",
-      "source_url": "https://ja.nc-net.or.jp/company/93919/product/detail/225971/",
-      "linked_majors": [],
-      "priority": 1,
-      "lat": 34.7,
-      "lng": 135.48
-    },
-    {
-      "id": "sakanishi",
-      "name": "坂西精機株式会社",
-      "category": "精密歯車・減速機",
-      "area": "東京都",
-      "prefecture": "東京都",
-      "materials": [
-        "SCM415",
-        "SCM435",
-        "S45C"
-      ],
-      "heat_relation": "公式でSCM415浸炭、SCM435高周波・浸炭窒化を明示",
-      "reason": "公開カタログでSCM＋熱処理の組み合わせが明確。",
-      "source_url": "https://www.sakanishi.co.jp/products/products_1.html",
-      "linked_majors": [],
       "priority": 2,
-      "lat": 35.68,
-      "lng": 139.65
+      "lat": 35.13,
+      "lng": 136.9,
+      "id": "houwa-協育歯車工業（名古屋）",
+      "hotspot_id": "houwa",
+      "hotspot_area": "愛知・豊和工業（清須本社）界隈"
     },
     {
-      "id": "md-tokai",
       "name": "株式会社MD（東海市）",
       "category": "金属加工",
       "area": "愛知県東海市",
-      "prefecture": "愛知県",
       "materials": [
         "SCM415",
         "SCM420",
         "SCM435"
       ],
-      "heat_relation": "SCMの浸炭・調質を前提にした加工解説",
-      "reason": "愛知でSCM材選定・加工の公開知見。熱処理前提の部品加工先候補。",
+      "heat_relation": "SCMの浸炭・調質前提の加工知見を公開",
+      "reason": "愛知のSCM加工先候補。熱処理前提部品の外注先確認。",
       "source_url": "https://mdfujimaki.com/archives/5111",
       "linked_majors": [],
       "priority": 2,
       "lat": 35.02,
-      "lng": 136.9
+      "lng": 136.9,
+      "id": "houwa-MD（東海市）",
+      "hotspot_id": "houwa",
+      "hotspot_area": "愛知・豊和工業（清須本社）界隈"
     },
     {
-      "id": "kikui-gear",
-      "name": "株式会社菊伊歯車",
+      "name": "株式会社前田精密製作所",
       "category": "精密歯車",
-      "area": "神奈川県",
-      "prefecture": "神奈川県",
+      "area": "広域／東海案件",
       "materials": [
-        "S45C",
-        "SCM415"
+        "各種歯車鋼"
       ],
-      "heat_relation": "熱処理は協力業者へ依頼と明記",
-      "reason": "SCM415等を扱い熱処理外注。外注先争い・困りごと聞き取り余地。",
-      "source_url": "https://kikui-gear.com/",
+      "heat_relation": "工程に熱処理(焼入)あり",
+      "reason": "精密歯車一貫。東海の歯切・焼入外注探索。",
+      "source_url": "https://maeda-mss.com/gear_mfg/",
       "linked_majors": [],
       "priority": 2,
-      "lat": 35.51,
-      "lng": 139.62
+      "lat": 35.18,
+      "lng": 136.85,
+      "id": "houwa-前田精密製作所",
+      "hotspot_id": "houwa",
+      "hotspot_area": "愛知・豊和工業（清須本社）界隈"
     },
     {
-      "id": "howa-forging",
-      "name": "豊和鍛工株式会社",
-      "category": "鍛造",
-      "area": "愛知県",
-      "prefecture": "愛知県",
+      "name": "株式会社都筑製作所",
+      "category": "シャフト・軸物",
+      "area": "東海（拠点要確認）",
       "materials": [
-        "構造用鋼・SCM系想定"
+        "SCM",
+        "SCR",
+        "SUS"
       ],
-      "heat_relation": "公式工程に鍛造→熱処理→仕上",
-      "reason": "※豊和工業（工作機械）とは別。鍛造後熱処理が工程に入る鉄系部品メーカー。",
-      "source_url": "https://howa-forging.co.jp/introduction/",
+      "heat_relation": "高周波・浸炭を工程に含むシャフトソリューション",
+      "reason": "SCMシャフト×熱処理。刈谷自動車サプライの軸物ニーズと相性が良い。",
+      "source_url": "https://www.tsuzuki-mfg.co.jp/solution/shaft/",
       "linked_majors": [],
       "priority": 2,
-      "lat": 35.1,
-      "lng": 137.05
+      "lat": 35.0,
+      "lng": 137.0,
+      "id": "kariya_jtekt-都筑製作所",
+      "hotspot_id": "kariya_jtekt",
+      "hotspot_area": "刈谷市・ジェイテクト刈谷界隈"
     },
     {
-      "id": "visit-8afdbb6577ae",
-      "name": "(有)茶谷鉄工所",
-      "category": "既存開拓（歯車・軸・鍛造等）",
-      "area": "石川県 白山市旭岳3-7",
-      "prefecture": "石川県",
+      "name": "後藤鉄工所（G-SHAFT・参考）",
+      "category": "シャフト",
+      "area": "近畿（拠点要確認）",
       "materials": [
-        "要確認（鉄系機械部品）"
+        "SCM415",
+        "SCM440",
+        "SCM435"
       ],
-      "heat_relation": "熱処理先未把握",
-      "reason": "既存開拓リスト。業種「特殊カム、ウォーム減速機」。石川のため優先度低。SCM/熱処理利用は未確認→外注先確認。",
-      "source_url": "",
+      "heat_relation": "調質・浸炭・窒化の公開事例多数",
+      "reason": "SCMシャフト×熱処理の典型。豊中ルートの比較・紹介ネタ。",
+      "source_url": "https://goto-tec.co.jp/shaft/",
       "linked_majors": [],
-      "priority": 3,
-      "lat": 36.51685,
-      "lng": 136.5684,
-      "from_visit_list": true,
-      "rank": "ランクC"
-    },
-    {
-      "id": "visit-8c13193630dd",
-      "name": "(株)二水",
-      "category": "既存開拓（歯車・軸・鍛造等）",
-      "area": "石川県 白山市横江町1726-16",
-      "prefecture": "石川県",
-      "materials": [
-        "要確認（鉄系機械部品）"
-      ],
-      "heat_relation": "熱処理先未把握",
-      "reason": "既存開拓リスト。業種「典三ウォーム、ヘリカルギヤ、歯研ギヤ」。石川のため優先度低。SCM/熱処理利用は未確認→外注先確認。",
-      "source_url": "",
-      "linked_majors": [],
-      "priority": 3,
-      "lat": 36.51895,
-      "lng": 136.57015,
-      "from_visit_list": true,
-      "rank": ""
-    },
-    {
-      "id": "visit-a3a05b6dd0c2",
-      "name": "(株)二羽歯切",
-      "category": "既存開拓（歯車・軸・鍛造等）",
-      "area": "石川県 金沢市長田本町チ16番地",
-      "prefecture": "石川県",
-      "materials": [
-        "要確認（鉄系機械部品）"
-      ],
-      "heat_relation": "熱処理先未把握",
-      "reason": "既存開拓リスト。業種「フォーム、インターナルギヤ、特殊歯車」。石川のため優先度低。SCM/熱処理利用は未確認→外注先確認。",
-      "source_url": "",
-      "linked_majors": [],
-      "priority": 3,
-      "lat": 36.5569,
-      "lng": 136.6523,
-      "from_visit_list": true,
-      "rank": "ランクC"
-    },
-    {
-      "id": "visit-059b298b83dc",
-      "name": "(株)吉本歯切",
-      "category": "既存開拓（歯車・軸・鍛造等）",
-      "area": "石川県 河北郡津幡町浅田甲181",
-      "prefecture": "石川県",
-      "materials": [
-        "要確認（鉄系機械部品）"
-      ],
-      "heat_relation": "熱処理先未把握",
-      "reason": "既存開拓リスト。業種「産業機械部品、鍛圧機械部品」。石川のため優先度低。SCM/熱処理利用は未確認→外注先確認。",
-      "source_url": "",
-      "linked_majors": [],
-      "priority": 3,
-      "lat": 36.67135,
-      "lng": 136.73215,
-      "from_visit_list": true,
-      "rank": ""
-    },
-    {
-      "id": "visit-7a0bd1dcd11d",
-      "name": "(株)東振精機",
-      "category": "既存開拓（歯車・軸・鍛造等）",
-      "area": "石川県 能美市寺井町ハ18番地",
-      "prefecture": "石川県",
-      "materials": [
-        "要確認（鉄系機械部品）"
-      ],
-      "heat_relation": "熱処理先未把握",
-      "reason": "既存開拓リスト。業種「精密ピン、シャフト類」。石川のため優先度低。SCM/熱処理利用は未確認→外注先確認。",
-      "source_url": "",
-      "linked_majors": [],
-      "priority": 3,
-      "lat": 36.4456,
-      "lng": 136.5527,
-      "from_visit_list": true,
-      "rank": "ランクA"
-    },
-    {
-      "id": "visit-0985c2eede13",
-      "name": "(株)林鍛造所",
-      "category": "既存開拓（歯車・軸・鍛造等）",
-      "area": "石川県 かほく市宇気い5番地",
-      "prefecture": "石川県",
-      "materials": [
-        "要確認（鉄系機械部品）"
-      ],
-      "heat_relation": "熱処理先未把握",
-      "reason": "既存開拓リスト。業種「一般機械部品」。石川のため優先度低。SCM/熱処理利用は未確認→外注先確認。",
-      "source_url": "",
-      "linked_majors": [],
-      "priority": 3,
-      "lat": 36.72245,
-      "lng": 136.70945,
-      "from_visit_list": true,
-      "rank": "ランクC"
-    },
-    {
-      "id": "visit-63d4a11db8f8",
-      "name": "(株)竹内歯車製作所",
-      "category": "既存開拓（歯車・軸・鍛造等）",
-      "area": "石川県 金沢市港1丁目71番地",
-      "prefecture": "石川県",
-      "materials": [
-        "要確認（鉄系機械部品）"
-      ],
-      "heat_relation": "熱処理先未把握",
-      "reason": "既存開拓リスト。業種「農業機械部品、繊維機械部品」。石川のため優先度低。SCM/熱処理利用は未確認→外注先確認。",
-      "source_url": "",
-      "linked_majors": [],
-      "priority": 3,
-      "lat": 36.5597,
-      "lng": 136.65125,
-      "from_visit_list": true,
-      "rank": "ランクC"
-    },
-    {
-      "id": "visit-1393bc2a61ee",
-      "name": "(株)近江工業所",
-      "category": "既存開拓（歯車・軸・鍛造等）",
-      "area": "石川県 小松市上小松町丙95-1",
-      "prefecture": "石川県",
-      "materials": [
-        "要確認（鉄系機械部品）"
-      ],
-      "heat_relation": "熱処理先未把握",
-      "reason": "既存開拓リスト。業種「シャフト、ボルト、ナット、ブロック」。石川のため優先度低。SCM/熱処理利用は未確認→外注先確認。",
-      "source_url": "",
-      "linked_majors": [],
-      "priority": 3,
-      "lat": 36.41155,
-      "lng": 136.44835,
-      "from_visit_list": true,
-      "rank": "ランクB"
-    },
-    {
-      "id": "visit-4425026e79e9",
-      "name": "カネマツ鋼材(株)",
-      "category": "既存開拓（歯車・軸・鍛造等）",
-      "area": "石川県 白山市福留町222番地    加工部",
-      "prefecture": "石川県",
-      "materials": [
-        "要確認（鉄系機械部品）"
-      ],
-      "heat_relation": "熱処理先未把握",
-      "reason": "既存開拓リスト。業種「長尺難削シャフト加工」。石川のため優先度低。SCM/熱処理利用は未確認→外注先確認。",
-      "source_url": "",
-      "linked_majors": [],
-      "priority": 3,
-      "lat": 36.51475,
-      "lng": 136.5649,
-      "from_visit_list": true,
-      "rank": ""
-    },
-    {
-      "id": "visit-f8a9ead6e765",
-      "name": "中田技研",
-      "category": "既存開拓（歯車・軸・鍛造等）",
-      "area": "石川県 能美郡川北町橘新74",
-      "prefecture": "石川県",
-      "materials": [
-        "要確認（鉄系機械部品）"
-      ],
-      "heat_relation": "熱処理先未把握",
-      "reason": "既存開拓リスト。業種「シャフト、超鋼ドリルのホーニング」。石川のため優先度低。SCM/熱処理利用は未確認→外注先確認。",
-      "source_url": "",
-      "linked_majors": [],
-      "priority": 3,
-      "lat": 36.47395,
-      "lng": 136.5501,
-      "from_visit_list": true,
-      "rank": "ランクD"
+      "priority": 2,
+      "lat": 34.75,
+      "lng": 135.45,
+      "id": "toyonaka-後藤鉄工所（G-SHAFT・参考）",
+      "hotspot_id": "toyonaka",
+      "hotspot_area": "大阪・豊中市界隈"
     }
+  ],
+  "excluded_notes": [
+    {
+      "name": "大和歯車製作",
+      "why": "既存顧客（Notion顧客DB）"
+    },
+    {
+      "name": "茶谷GEAR（旧茶谷鉄工所）",
+      "why": "新規受注・取引開始済み"
+    },
+    {
+      "name": "二水",
+      "why": "従来顧客"
+    },
+    {
+      "name": "カネマツ鋼材",
+      "why": "既存顧客"
+    },
+    {
+      "name": "竹内歯車",
+      "why": "訪問済・規模小で対象外"
+    },
+    {
+      "name": "林鍛造所",
+      "why": "商談終了"
+    },
+    {
+      "name": "二羽歯切（丹羽）",
+      "why": "高周波焼入れメイン→一覧除外"
+    },
+    {
+      "name": "吉本歯切",
+      "why": "コマツ認定が必要・OTCでは不可"
+    },
+    {
+      "name": "コマツキカイ",
+      "why": "訪問済・コマツ向けは攻略対象外"
+    },
+    {
+      "name": "コマツ向け全般",
+      "why": "OTCでは対応不可のため対象外"
+    }
+  ],
+  "search_queries": [
+    "Willbe 津島 外注 歯車 OR シャフト OR 熱処理",
+    "清須 OR 津島 歯車 SCM 浸炭",
+    "刈谷 歯車 熱処理 外注 -熱煉",
+    "豊中 歯車 焼入 協力",
+    "尼崎 歯車 SCM 浸炭",
+    "姫路 シャフト OR 歯車 熱処理"
   ]
 }

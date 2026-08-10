@@ -153,7 +153,7 @@
           <h2 class="font-bold text-orange-800">攻めどころ（困りごと聞き取り）</h2>
           <button type="button" id="scm-radar-btn" onclick="toggleScmRadar()"
             class="text-xs font-semibold bg-orange-700 hover:bg-orange-800 text-white px-3 py-1.5 rounded-lg">
-            SCM・歯車・鉄加工を探す
+            界隈の攻略候補一覧
           </button>
         </div>
         <div id="hotspot-list" class="space-y-2"></div>
@@ -337,44 +337,78 @@ function renderScmRadar(data) {
   const note = document.getElementById('scm-radar-note');
   const queries = document.getElementById('scm-query-links');
   const list = document.getElementById('scm-radar-list');
-  meta.textContent = `${data.count || 0}件 · 更新 ${esc((data.updated || '').slice(0, 16))}`;
-  note.textContent = data.disclaimer || '';
+  meta.textContent = `${data.count || 0}社 · 界隈${data.group_count || 0} · 更新 ${esc((data.updated || '').slice(0, 16))}`;
+  note.textContent = (data.how_to_use || '') + ' ' + (data.disclaimer || '');
   queries.innerHTML = (data.search_queries || []).map(q =>
     `<a href="${googleSearchUrl(q)}" target="_blank" rel="noopener"
       class="text-[11px] px-2 py-1 rounded-md border border-orange-200 bg-white text-orange-800 hover:bg-orange-50">${esc(q)}</a>`
   ).join('');
-  const targets = [...(data.targets || [])].sort((a, b) => (a.priority ?? 9) - (b.priority ?? 9));
-  list.innerHTML = targets.map(t => {
-    const mats = (t.materials || []).slice(0, 4).join('・');
-    const majors = (t.linked_majors || []).length
-      ? `<p class="text-xs text-slate-500 mt-0.5">大手接点: ${esc(t.linked_majors.join(' / '))}</p>` : '';
-    const src = t.source_url
-      ? `<a href="${esc(t.source_url)}" target="_blank" rel="noopener" class="text-xs text-orange-700 underline">出典</a>`
-      : '';
-    const lat = Number(t.lat), lng = Number(t.lng);
-    const focus = (Number.isFinite(lat) && Number.isFinite(lng))
-      ? `onclick="focusPin(${lat},${lng})"` : '';
+
+  const groups = data.groups || [];
+  list.innerHTML = groups.map(g => {
+    const comps = g.companies || [];
+    const cards = comps.map(t => {
+      const mats = (t.materials || []).slice(0, 4).join('・');
+      const majors = (t.linked_majors || []).length
+        ? `<p class="text-xs text-slate-500 mt-0.5">大手接点: ${esc(t.linked_majors.join(' / '))}</p>` : '';
+      const src = t.source_url
+        ? `<a href="${esc(t.source_url)}" target="_blank" rel="noopener" class="text-xs text-orange-700 underline" onclick="event.stopPropagation()">出典</a>`
+        : '';
+      const lat = Number(t.lat), lng = Number(t.lng);
+      const focus = (Number.isFinite(lat) && Number.isFinite(lng))
+        ? `onclick="focusPin(${lat},${lng})"` : '';
+      const ph = t.is_placeholder
+        ? 'border-dashed border-orange-300 bg-orange-50/40'
+        : 'border-orange-200 bg-white';
+      const tag = t.is_placeholder
+        ? '<span class="text-[10px] font-bold text-amber-800 bg-amber-100 px-1.5 py-0.5 rounded">探索枠</span>'
+        : `P${t.priority ?? '—'}`;
+      return `
+      <div ${focus} class="rounded-xl border ${ph} p-3 ${focus ? 'cursor-pointer hover:bg-orange-50' : ''}">
+        <div class="flex items-start justify-between gap-2">
+          <p class="text-sm font-bold text-slate-800">${tag} ${esc(t.name || '')}</p>
+          ${src}
+        </div>
+        <p class="text-xs text-slate-600 mt-0.5">${esc(t.category || '')} · ${esc(t.area || '')}</p>
+        <p class="text-xs text-orange-900 mt-1 font-medium">理由: ${esc(t.reason || '')}</p>
+        <p class="text-xs text-slate-500 mt-0.5">熱処理: ${esc(t.heat_relation || '')}${mats ? ' / 材質: ' + esc(mats) : ''}</p>
+        ${majors}
+      </div>`;
+    }).join('') || '<p class="text-sm text-slate-400">この界隈の社名は未充足。探索枠を埋める。</p>';
+
+    const glat = Number(g.lat), glng = Number(g.lng);
+    const gfocus = (Number.isFinite(glat) && Number.isFinite(glng))
+      ? `onclick="focusPin(${glat},${glng})"` : '';
     return `
-    <div ${focus} class="rounded-xl border border-orange-200 bg-white p-3 ${focus ? 'cursor-pointer hover:bg-orange-50' : ''}">
-      <div class="flex items-start justify-between gap-2">
-        <p class="text-sm font-bold text-slate-800">P${t.priority ?? '—'} ${esc(t.name || '')}</p>
-        ${src}
-      </div>
-      <p class="text-xs text-slate-600 mt-0.5">${esc(t.category || '')} · ${esc(t.area || '')}</p>
-      <p class="text-xs text-orange-900 mt-1 font-medium">理由: ${esc(t.reason || '')}</p>
-      <p class="text-xs text-slate-500 mt-0.5">熱処理: ${esc(t.heat_relation || '')}${mats ? ' / 材質: ' + esc(mats) : ''}</p>
-      ${majors}
+    <div class="rounded-xl border border-orange-300 bg-orange-50/70 p-3">
+      <button type="button" ${gfocus} class="w-full text-left">
+        <p class="text-sm font-bold text-orange-950">${esc(g.area || '')}</p>
+        <p class="text-xs text-slate-600 mt-0.5">${esc(g.pain || '')}</p>
+        <p class="text-xs text-orange-800 mt-1 font-semibold">攻略候補 ${g.count || 0}社（探索枠除く）</p>
+      </button>
+      <div class="mt-2 space-y-2">${cards}</div>
     </div>`;
   }).join('') || '<p class="text-sm text-slate-400">候補なし</p>';
+
+  const excl = data.excluded_notes || [];
+  if (excl.length) {
+    list.innerHTML += `
+      <div class="rounded-xl border border-slate-200 bg-slate-50 p-3">
+        <p class="text-xs font-bold text-slate-700 mb-1">一覧から除外（顧客・対象外）</p>
+        <ul class="text-xs text-slate-600 space-y-0.5">
+          ${excl.map(e => `<li>・${esc(e.name)} — ${esc(e.why)}</li>`).join('')}
+        </ul>
+      </div>`;
+  }
 }
 
-async function toggleScmRadar() {
+async function toggleScmRadarasync function toggleScmRadar() {
   const panel = document.getElementById('scm-radar-panel');
   const btn = document.getElementById('scm-radar-btn');
   if (scmRadarOpen) {
     panel.classList.add('hidden');
     scmRadarOpen = false;
-    btn.textContent = 'SCM・歯車・鉄加工を探す';
+    btn.textContent = '界隈の攻略候補一覧';
     return;
   }
   btn.textContent = '読込中…';
@@ -384,10 +418,10 @@ async function toggleScmRadar() {
     renderScmRadar(data);
     panel.classList.remove('hidden');
     scmRadarOpen = true;
-    btn.textContent = '一覧を閉じる';
+    btn.textContent = '界隈一覧を閉じる';
   } catch (e) {
     alert(e.message || String(e));
-    btn.textContent = 'SCM・歯車・鉄加工を探す';
+    btn.textContent = '界隈の攻略候補一覧';
   } finally {
     btn.disabled = false;
   }

@@ -184,12 +184,14 @@ let territory = null;
 let visits = null;
 let actionsData = null;
 let competitorIntel = null;
+let companyIntel = null;
 let map = null;
 let visitLayer = null;
 let briefText = '';
 let actionsText = '';
 let companyById = {};
 let competitorById = {};
+let companyIntelById = {};
 
 function esc(s) {
   return String(s || '')
@@ -364,11 +366,23 @@ function showCompany(id) {
   const reports = (c.reports || []).slice().reverse();
   const people = c.eight_people || [];
   const news = c.news_hits || [];
+  const intel = companyIntelById[c.id] || {};
+  const intelLine = intel.scale_summary || '';
   el.innerHTML = `
     <p class="text-xs font-bold text-teal-700 mb-1">${esc(c.marker === 'eight' ? 'Eight名刺' : '訪問・開拓')}</p>
-    <h3 class="text-base font-bold text-slate-900">${esc(c.name)}</h3>
+    <h3 class="text-base font-bold text-slate-900">${esc(intel.profile?.official_name || c.name)}</h3>
     <p class="text-xs text-slate-500 mt-1">${esc([c.prefecture, c.address].filter(Boolean).join(' '))}</p>
     <p class="text-xs text-slate-500">${esc([c.industry, c.rank, c.heat_vendor].filter(Boolean).join(' · '))}</p>
+
+    ${(intel.profile && Object.keys(intel.profile).length) || (intel.customers||[]).length ? `
+    <div class="mt-3 p-2 rounded-lg bg-teal-50 border border-teal-200 text-xs">
+      <p class="text-xs font-bold text-teal-900 mb-1">公式サイト情報</p>
+      ${intel.scale_summary ? `<p class="font-semibold text-teal-800">${esc(intel.scale_summary)}</p>` : ''}
+      ${intel.profile?.business ? `<p class="mt-1"><span class="font-bold">事業:</span> ${esc(intel.profile.business)}</p>` : ''}
+      ${intel.profile?.products ? `<p class="mt-1"><span class="font-bold">製品:</span> ${esc(intel.profile.products)}</p>` : ''}
+      ${(intel.customers||[]).length ? `<p class="mt-1"><span class="font-bold">主要取引先:</span> ${esc(intel.customers.slice(0,12).join(' / '))}</p>` : ''}
+      ${intel.source_url ? `<a href="${esc(intel.source_url)}" target="_blank" rel="noopener" class="inline-block mt-2 text-teal-700 font-bold hover:underline">ソースを開く ↗</a>` : ''}
+    </div>` : ''}
     ${news.length ? `<div class="mt-3 p-2 rounded-lg bg-rose-50 border border-rose-100">
       <p class="text-xs font-bold text-rose-800 mb-1">新聞一致 (${news.length})</p>
       ${news.map(n => `
@@ -471,13 +485,18 @@ function renderCompanyList(filter = '') {
     return hay.includes(q);
   });
   document.getElementById('visit-meta').textContent = `${list.length} / ${(visits?.companies || []).length}社`;
-  document.getElementById('company-list').innerHTML = list.map(c => `
+  document.getElementById('company-list').innerHTML = list.map(c => {
+    const intel = companyIntelById[c.id] || {};
+    const hasIntel = !!(intel.scale_summary || (intel.customers||[]).length);
+    return `
     <button type="button" onclick="showCompany('${esc(c.id)}')"
-      class="text-left rounded-xl border ${(c.news_hits||[]).length ? 'border-rose-200 bg-rose-50/50' : 'border-teal-100 bg-teal-50/40'} hover:bg-teal-50 p-3 transition">
+      class="text-left rounded-xl border ${(c.news_hits||[]).length ? 'border-rose-200 bg-rose-50/50' : hasIntel ? 'border-teal-200 bg-teal-50/60' : 'border-teal-100 bg-teal-50/40'} hover:bg-teal-50 p-3 transition">
       <p class="text-sm font-bold text-slate-800">${esc(c.name)} ${(c.news_hits||[]).length ? `<span class="text-[10px] text-rose-700 font-bold">新聞${c.news_hits.length}</span>` : ''}</p>
       <p class="text-xs text-slate-500 mt-0.5">${esc([c.prefecture, c.rank, c.marker].filter(Boolean).join(' · '))}</p>
-      ${c.proposal ? `<p class="text-xs text-amber-800 mt-1 line-clamp-2">${esc(c.proposal)}</p>` : ''}
-    </button>`).join('') || '<p class="text-sm text-slate-400">該当なし。マスターExcelを build してください。</p>';
+      ${intel.scale_summary ? `<p class="text-xs text-teal-800 mt-1 line-clamp-2">${esc(intel.scale_summary)}</p>` : ''}
+      ${!intel.scale_summary && c.proposal ? `<p class="text-xs text-amber-800 mt-1 line-clamp-2">${esc(c.proposal)}</p>` : ''}
+    </button>`;
+  }).join('') || '<p class="text-sm text-slate-400">該当なし。マスターExcelを build してください。</p>';
 }
 
 function buildMap(data, visitData) {
@@ -651,18 +670,31 @@ async function loadCompetitorIntel() {
   }
 }
 
+async function loadCompanyIntel() {
+  try {
+    const res = await fetch('./company_intel.json?v=' + Date.now());
+    if (!res.ok) return null;
+    return await res.json();
+  } catch {
+    return null;
+  }
+}
+
 async function main() {
-  const [tRes, vRes, aRes, intelPayload] = await Promise.all([
+  const [tRes, vRes, aRes, intelPayload, ciPayload] = await Promise.all([
     fetch('../news/territory_strategy.json?v=' + Date.now()),
     fetch('./visit_reports.json?v=' + Date.now()),
     fetch('./strategy_actions.json?v=' + Date.now()),
     loadCompetitorIntel(),
+    loadCompanyIntel(),
   ]);
   if (!tRes.ok) throw new Error('territory load failed');
   territory = await tRes.json();
   visits = vRes.ok ? await vRes.json() : { companies: [] };
   competitorIntel = intelPayload;
+  companyIntel = ciPayload;
   competitorById = Object.fromEntries((competitorIntel?.competitors || []).map(c => [c.id, c]));
+  companyIntelById = Object.fromEntries((companyIntel?.companies || []).map(c => [c.id, c]));
   companyById = Object.fromEntries((visits.companies || []).map(c => [c.id, c]));
   renderAnchors(territory);
   renderLists(territory);

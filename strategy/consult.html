@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>戦略相談 — 考え方・AI相談</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic UI', sans-serif; }
+    #chat-log { scroll-behavior: smooth; }
+    .bubble-me { background: #0f766e; color: #fff; }
+    .bubble-ai { background: #f1f5f9; color: #0f172a; border: 1px solid #e2e8f0; }
+    textarea { resize: vertical; }
+  </style>
+</head>
+<body class="bg-slate-50 min-h-screen">
+
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <a href="./index.html" class="text-slate-400 hover:text-slate-600 text-sm">← 戦略と戦術</a>
+        <span class="text-slate-300">|</span>
+        <div>
+          <h1 class="text-lg font-bold text-slate-800">戦略相談</h1>
+          <p class="text-xs text-slate-400">現状の戦略・戦術に対する考え方を書き、AIと相談する</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <span id="save-status" class="text-xs text-slate-400"></span>
+        <button type="button" onclick="saveDraft(true)"
+          class="text-xs font-semibold text-white bg-teal-700 hover:bg-teal-800 px-3 py-1.5 rounded-lg">保存</button>
+        <button type="button" onclick="exportJson()"
+          class="text-xs font-semibold border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 px-3 py-1.5 rounded-lg">JSON書き出し</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-5 grid grid-cols-1 lg:grid-cols-5 gap-5">
+
+    <!-- 左: 現状コンテキスト -->
+    <aside class="lg:col-span-2 space-y-4">
+      <section class="bg-white rounded-2xl border border-slate-200 p-4">
+        <div class="flex items-center justify-between mb-2">
+          <h2 class="text-sm font-bold text-slate-800">いまの戦略・戦術（正本）</h2>
+          <span id="ctx-updated" class="text-[10px] text-slate-400"></span>
+        </div>
+        <p class="text-xs text-slate-500 mb-3">地図画面と同じデータ。ここは参照用です。</p>
+        <div class="mb-3">
+          <p id="strategy-title" class="text-xs font-bold text-teal-800 mb-1">戦略</p>
+          <ul id="strategy-points" class="text-xs text-slate-700 space-y-1 list-disc pl-4"></ul>
+        </div>
+        <div>
+          <p id="tactics-title" class="text-xs font-bold text-indigo-800 mb-1">戦術</p>
+          <ul id="tactics-points" class="text-xs text-slate-700 space-y-1 list-disc pl-4"></ul>
+        </div>
+      </section>
+
+      <section class="bg-white rounded-2xl border border-amber-100 p-4">
+        <h2 class="text-sm font-bold text-amber-900 mb-2">今日の提案・指示（上位）</h2>
+        <div id="actions-preview" class="space-y-2 max-h-72 overflow-auto text-xs">
+          <p class="text-slate-400">読み込み中…</p>
+        </div>
+      </section>
+
+      <section class="bg-white rounded-2xl border border-orange-100 p-4">
+        <h2 class="text-sm font-bold text-orange-900 mb-2">攻めどころ</h2>
+        <div id="hotspot-preview" class="space-y-1.5 text-xs text-slate-700"></div>
+      </section>
+    </aside>
+
+    <!-- 右: 考え方 + AI相談 -->
+    <div class="lg:col-span-3 space-y-4">
+
+      <section class="bg-white rounded-2xl border border-slate-200 p-4 md:p-5">
+        <h2 class="font-bold text-slate-800 mb-1">私の考え方（現状）</h2>
+        <p class="text-xs text-slate-500 mb-4">左の提案・戦略に対して、どう見ているかを書いてください。ブラウザに自動保存されます。</p>
+
+        <div class="space-y-4">
+          <label class="block">
+            <span class="text-xs font-bold text-slate-600">戦略への見方・修正したいこと</span>
+            <textarea id="f-strategy" rows="3" placeholder="例: 石川の調質争奪を戦略の軸に格上げしたい。豊和だけだと東海偏重…"
+              class="mt-1 w-full border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-teal-300"
+              oninput="onField()"></textarea>
+          </label>
+          <label class="block">
+            <span class="text-xs font-bold text-slate-600">戦術への見方・現場での動き方</span>
+            <textarea id="f-tactics" rows="3" placeholder="例: 三洋金属熱錬の調質案件を先に潰しに行く。ランクAは熱処理先確認を最優先…"
+              class="mt-1 w-full border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-teal-300"
+              oninput="onField()"></textarea>
+          </label>
+          <label class="block">
+            <span class="text-xs font-bold text-slate-600">今日の提案・指示への反応</span>
+            <textarea id="f-actions" rows="3" placeholder="例: P2の競合カードが多すぎる。攻め所と取引先ネタだけ残したい。松本機械は熱処理先が分かっているはず…"
+              class="mt-1 w-full border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-teal-300"
+              oninput="onField()"></textarea>
+          </label>
+          <label class="block">
+            <span class="text-xs font-bold text-slate-600">今週の仮説・相談したい論点</span>
+            <textarea id="f-hypothesis" rows="3" placeholder="例: オリエンタル×ジェイテクトを防炭提案の切り口にできるか？ 三洋の石川攻勢に対する守り方は？"
+              class="mt-1 w-full border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-teal-300"
+              oninput="onField()"></textarea>
+          </label>
+        </div>
+      </section>
+
+      <section class="bg-white rounded-2xl border-2 border-teal-200 shadow-sm p-4 md:p-5 flex flex-col min-h-[420px]">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+          <h2 class="font-bold text-teal-900">AIと相談</h2>
+          <div class="flex flex-wrap gap-2">
+            <button type="button" onclick="copyPrompt()"
+              class="text-xs font-semibold text-white bg-teal-700 hover:bg-teal-800 px-3 py-1.5 rounded-lg">相談プロンプトをコピー</button>
+            <button type="button" onclick="clearChat()"
+              class="text-xs text-slate-400 hover:text-rose-600 px-2 py-1.5">チャットクリア</button>
+          </div>
+        </div>
+        <p class="text-[11px] text-slate-500 mb-3">
+          サイト単体ではAI APIに接続しません。<strong>「相談プロンプトをコピー」</strong>→ Cursor / ChatGPT に貼って返答を得てください。
+          返答は下の「AIの返答を貼る」で記録できます。
+        </p>
+
+        <div class="flex flex-wrap gap-1.5 mb-3">
+          <button type="button" class="chip text-[11px] font-semibold px-2.5 py-1 rounded-full border border-teal-200 bg-teal-50 text-teal-800 hover:bg-teal-100"
+            onclick="askPreset('今日の提案・指示の優先順位を、私の考え方を踏まえて並べ替えて。削るべきものも指摘して。')">優先順位を整理</button>
+          <button type="button" class="chip text-[11px] font-semibold px-2.5 py-1 rounded-full border border-teal-200 bg-teal-50 text-teal-800 hover:bg-teal-100"
+            onclick="askPreset('現状の戦略・戦術の穴を指摘し、石川の調質争奪と豊和防炭を両立する改訂案を出して。')">戦略の穴を指摘</button>
+          <button type="button" class="chip text-[11px] font-semibold px-2.5 py-1 rounded-full border border-teal-200 bg-teal-50 text-teal-800 hover:bg-teal-100"
+            onclick="askPreset('今週の訪問ルート案を、攻め所・ランクA・取引先ネタから3本提案して。各ルートの狙いを短く。')">訪問ルート案</button>
+          <button type="button" class="chip text-[11px] font-semibold px-2.5 py-1 rounded-full border border-teal-200 bg-teal-50 text-teal-800 hover:bg-teal-100"
+            onclick="askPreset('競合（熱処理屋）カードの指示が抽象的すぎる。各競合について、周辺で取るべき部品メーカーの切り口を具体化して。')">競合攻めを具体化</button>
+        </div>
+
+        <div id="chat-log" class="flex-1 overflow-auto space-y-3 mb-3 min-h-[180px] max-h-[320px] rounded-xl bg-slate-50 border border-slate-100 p-3"></div>
+
+        <div class="space-y-2">
+          <div class="flex gap-2">
+            <input id="chat-input" type="text" placeholder="聞きたいことを入力（Enterで記録＋プロンプト準備）"
+              class="flex-1 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-teal-300"
+              onkeydown="if(event.key==='Enter'){event.preventDefault();sendMine();}" />
+            <button type="button" onclick="sendMine()"
+              class="text-sm font-semibold bg-teal-700 hover:bg-teal-800 text-white px-4 py-2 rounded-xl shrink-0">送る</button>
+          </div>
+          <div class="flex gap-2">
+            <textarea id="ai-paste" rows="2" placeholder="AIの返答をここに貼り付け → 「返答を記録」"
+              class="flex-1 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-teal-300"></textarea>
+            <button type="button" onclick="pasteAi()"
+              class="text-xs font-semibold border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 px-3 py-2 rounded-xl shrink-0">返答を記録</button>
+          </div>
+        </div>
+      </section>
+
+      <p class="text-[11px] text-slate-400 pb-6">
+        書き出しJSONはデスクトップ「戦略マップ投入箱」に入れても現状は参照用です（地図反映は別途）。
+        戦略・戦術の正本更新はマスターExcel、または相談結果をCMD/知見ヒアリングへ落としてください。
+      </p>
+    </div>
+  </main>
+
+<script>
+const STORAGE = 'bt_strategy_consult_v1';
+let territory = null;
+let actionsData = null;
+let draft = {
+  strategy_view: '',
+  tactics_view: '',
+  actions_view: '',
+  hypothesis: '',
+  chat: [],
+  updated: null,
+};
+
+function esc(s) {
+  return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function loadDraft() {
+  try {
+    const raw = localStorage.getItem(STORAGE);
+    if (raw) draft = { ...draft, ...JSON.parse(raw) };
+  } catch { /* ignore */ }
+  document.getElementById('f-strategy').value = draft.strategy_view || '';
+  document.getElementById('f-tactics').value = draft.tactics_view || '';
+  document.getElementById('f-actions').value = draft.actions_view || '';
+  document.getElementById('f-hypothesis').value = draft.hypothesis || '';
+  renderChat();
+}
+
+function onField() {
+  draft.strategy_view = document.getElementById('f-strategy').value;
+  draft.tactics_view = document.getElementById('f-tactics').value;
+  draft.actions_view = document.getElementById('f-actions').value;
+  draft.hypothesis = document.getElementById('f-hypothesis').value;
+  saveDraft(false);
+}
+
+function saveDraft(toast) {
+  draft.updated = new Date().toISOString();
+  localStorage.setItem(STORAGE, JSON.stringify(draft));
+  const el = document.getElementById('save-status');
+  el.textContent = toast ? '保存しました' : (draft.updated ? '自動保存 ' + draft.updated.slice(11, 16) : '');
+  if (toast) setTimeout(() => { el.textContent = '自動保存 ' + draft.updated.slice(11, 16); }, 1200);
+}
+
+function renderChat() {
+  const el = document.getElementById('chat-log');
+  if (!(draft.chat || []).length) {
+    el.innerHTML = '<p class="text-xs text-slate-400">まだ相談履歴はありません。定型ボタンか、下の入力から始めてください。</p>';
+    return;
+  }
+  el.innerHTML = draft.chat.map(m => `
+    <div class="flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}">
+      <div class="max-w-[90%] rounded-2xl px-3 py-2 text-sm whitespace-pre-wrap ${m.role === 'user' ? 'bubble-me' : 'bubble-ai'}">
+        <p class="text-[10px] opacity-70 mb-0.5">${m.role === 'user' ? 'あなた' : 'AI（貼り付け）'}</p>
+        ${esc(m.text)}
+      </div>
+    </div>`).join('');
+  el.scrollTop = el.scrollHeight;
+}
+
+function sendMine() {
+  const input = document.getElementById('chat-input');
+  const text = input.value.trim();
+  if (!text) return;
+  draft.chat = draft.chat || [];
+  draft.chat.push({ role: 'user', text, at: new Date().toISOString() });
+  input.value = '';
+  saveDraft(false);
+  renderChat();
+  copyPrompt(true);
+}
+
+function askPreset(q) {
+  document.getElementById('chat-input').value = q;
+  sendMine();
+}
+
+function pasteAi() {
+  const t = document.getElementById('ai-paste').value.trim();
+  if (!t) return;
+  draft.chat = draft.chat || [];
+  draft.chat.push({ role: 'assistant', text: t, at: new Date().toISOString() });
+  document.getElementById('ai-paste').value = '';
+  saveDraft(false);
+  renderChat();
+}
+
+function clearChat() {
+  if (!confirm('相談チャットを消しますか？（考え方の欄は残ります）')) return;
+  draft.chat = [];
+  saveDraft(false);
+  renderChat();
+}
+
+function buildContextBlock() {
+  const s = territory?.strategy || {};
+  const t = territory?.tactics || {};
+  const actions = (actionsData?.actions || []).slice(0, 12);
+  const hotspots = territory?.pain_hotspots || [];
+  const lines = [];
+  lines.push('【役割】熱処理外注の営業戦略アドバイザー。断定せず、訪問判断材料として提案する。');
+  lines.push('');
+  lines.push('【現状の戦略（システム正本）】' + (s.title || ''));
+  (s.points || []).forEach(p => lines.push('・' + p));
+  lines.push('');
+  lines.push('【現状の戦術（システム正本）】' + (t.title || ''));
+  (t.points || []).forEach(p => lines.push('・' + p));
+  lines.push('');
+  lines.push('【攻めどころ】');
+  hotspots.forEach(h => lines.push(`・${h.area}: ${h.pain || ''}`));
+  lines.push('');
+  lines.push('【今日の提案・指示（上位）】');
+  actions.forEach(a => lines.push(`・P${a.priority} ${a.title}: ${a.instruction}`));
+  lines.push('');
+  lines.push('【私の考え方】');
+  lines.push('戦略への見方: ' + (draft.strategy_view || '（未記入）'));
+  lines.push('戦術への見方: ' + (draft.tactics_view || '（未記入）'));
+  lines.push('提案への反応: ' + (draft.actions_view || '（未記入）'));
+  lines.push('今週の仮説: ' + (draft.hypothesis || '（未記入）'));
+  const lastUser = [...(draft.chat || [])].reverse().find(m => m.role === 'user');
+  if (lastUser) {
+    lines.push('');
+    lines.push('【今回の相談】');
+    lines.push(lastUser.text);
+  }
+  lines.push('');
+  lines.push('【出力してほしいこと】');
+  lines.push('1. 私の考え方と正本のズレの指摘');
+  lines.push('2. 今週やるべきこと（優先3つ、具体的な社名・切り口）');
+  lines.push('3. やらないこと（ノイズ）');
+  lines.push('4. 戦略・戦術文の改訂案（短文）');
+  return lines.join('\n');
+}
+
+async function copyPrompt(silent) {
+  const text = buildContextBlock();
+  try {
+    await navigator.clipboard.writeText(text);
+    if (!silent) alert('相談プロンプトをコピーしました。Cursor / ChatGPT に貼ってください。');
+    else {
+      const el = document.getElementById('save-status');
+      el.textContent = 'プロンプトをコピー済み';
+      setTimeout(() => saveDraft(false), 1500);
+    }
+  } catch {
+    prompt('コピーできませんでした。手動で選択:', text);
+  }
+}
+
+function exportJson() {
+  onField();
+  const payload = {
+    version: 1,
+    kind: 'strategy_consult',
+    updated: new Date().toISOString(),
+    thinking: {
+      strategy_view: draft.strategy_view,
+      tactics_view: draft.tactics_view,
+      actions_view: draft.actions_view,
+      hypothesis: draft.hypothesis,
+    },
+    chat: draft.chat || [],
+    snapshot: {
+      strategy: territory?.strategy || null,
+      tactics: territory?.tactics || null,
+      top_actions: (actionsData?.actions || []).slice(0, 15),
+      hotspots: (territory?.pain_hotspots || []).map(h => ({ area: h.area, pain: h.pain })),
+    },
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `strategy_consult_${new Date().toISOString().slice(0, 10)}.json`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function renderContext() {
+  document.getElementById('ctx-updated').textContent = territory?.updated ? `更新: ${territory.updated}` : '';
+  document.getElementById('strategy-title').textContent = territory?.strategy?.title || '戦略';
+  document.getElementById('tactics-title').textContent = territory?.tactics?.title || '戦術';
+  document.getElementById('strategy-points').innerHTML =
+    (territory?.strategy?.points || []).map(p => `<li>${esc(p)}</li>`).join('') || '<li class="text-slate-400">—</li>';
+  document.getElementById('tactics-points').innerHTML =
+    (territory?.tactics?.points || []).map(p => `<li>${esc(p)}</li>`).join('') || '<li class="text-slate-400">—</li>';
+
+  const actions = (actionsData?.actions || []).slice(0, 10);
+  document.getElementById('actions-preview').innerHTML = actions.length
+    ? actions.map(a => `
+      <div class="rounded-lg border border-amber-100 bg-amber-50/50 p-2">
+        <p class="font-bold text-slate-800"><span class="text-amber-800">P${a.priority}</span> ${esc(a.title)}</p>
+        <p class="text-slate-600 mt-0.5">${esc(a.instruction)}</p>
+      </div>`).join('')
+    : '<p class="text-slate-400">提案なし</p>';
+
+  document.getElementById('hotspot-preview').innerHTML =
+    (territory?.pain_hotspots || []).map(h =>
+      `<p><span class="font-semibold">${esc(h.area)}</span> — ${esc(h.pain || '')}</p>`
+    ).join('') || '<p class="text-slate-400">—</p>';
+}
+
+async function main() {
+  loadDraft();
+  const [tRes, aRes] = await Promise.all([
+    fetch('../news/territory_strategy.json?v=' + Date.now()),
+    fetch('./strategy_actions.json?v=' + Date.now()),
+  ]);
+  if (!tRes.ok) throw new Error('territory load failed');
+  territory = await tRes.json();
+  actionsData = aRes.ok ? await aRes.json() : { actions: [] };
+  renderContext();
+}
+
+main().catch(e => {
+  document.getElementById('actions-preview').innerHTML =
+    `<p class="text-rose-600">読み込み失敗: ${esc(e.message)}</p>`;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+{
+  "version": 1,
+  "updated": "2026-08-10T15:32:46+09:00",
+  "disclaimer": "仮説ベースの提案・指示。最終判断は人が行う。",
+  "count": 26,
+  "summary": "提案・指示 26件（優先度順）\n\nP1 【攻めどころ】三重・いなべ市周辺: 困りごと: 中部熱処理・栗山熱処理の評判が悪い(シグマ技研)→攻略候補。いなべ市周辺: 競合評判の聞き取りあり。熱処理外注ニーズを要確認\nP1 【攻めどころ】兵庫・姫路界隈: 困りごと: 処理に困っているところがあると聞いている。姫路界隈: 熱処理困りごとの聞き取りあり\nP1 【攻めどころ】兵庫・尼崎界隈: 困りごと: 処理に困っているところがあると聞いている。尼崎界隈: 熱処理困りごとの聞き取りあり\nP1 【攻めどころ】刈谷市・ジェイテクト刈谷界隈: 困りごと: 熱処理で困っていると聞いている。刈谷・ジェイテクト界隈: 熱処理困りごとの聞き取りあり\nP1 【攻めどころ】和歌山市界隈: 困りごと: 処理に困っているところがあると聞いている。和歌山市界隈: 熱処理困りごとの聞き取りあり\nP1 【攻めどころ】大阪・豊中市界隈: 困りごと: 処理に困っているところがあると聞いている。豊中市界隈: 熱処理困りごとの聞き取りあり\nP1 【攻めどころ】愛知・豊和工業界隈: 困りごと: 防炭処理をしてくれない。豊和/マザック筋: 防炭対応の困りごと情報あり(要フォロー)\nP1 【優先訪問】(株)ヒガシヤマ: ランクAかつ熱処理先未把握。初回で①現行外注先 ②困りごと（納期・防炭・品質）③決裁者を確認する。\nP1 【優先訪問】(株)東振精機: ランクAかつ熱処理先未把握。初回で①現行外注先 ②困りごと（納期・防炭・品質）③決裁者を確認する。\nP1 【優先訪問】土肥研磨工業(株): ランクAかつ熱処理先未把握。初回で①現行外注先 ②困りごと（納期・防炭・品質）③決裁者を確認する。\nP1 【優先訪問】松本機械工業(株): ランクAかつ熱処理先未把握。初回で①現行外注先 ②困りごと（納期・防炭・品質）③決裁者を確認する。\nP2 【競合隣接】中部熱処理: 評判が悪いとの聞き取りあり。周辺顧客がターゲット → 周辺顧客リストを作り、現行熱処理先と不満の有無を確認する。",
+  "actions": [
+    {
+      "priority": 1,
+      "kind": "hotspot",
+      "title": "【攻めどころ】三重・いなべ市周辺",
+      "instruction": "困りごと: 中部熱処理・栗山熱処理の評判が悪い(シグマ技研)→攻略候補。いなべ市周辺: 競合評判の聞き取りあり。熱処理外注ニーズを要確認",
+      "lat": 35.0744,
+      "lng": 136.5614,
+      "area": "三重・いなべ市周辺"
+    },
+    {
+      "priority": 1,
+      "kind": "hotspot",
+      "title": "【攻めどころ】兵庫・姫路界隈",
+      "instruction": "困りごと: 処理に困っているところがあると聞いている。姫路界隈: 熱処理困りごとの聞き取りあり",
+      "lat": 34.8154,
+      "lng": 134.6856,
+      "area": "兵庫・姫路界隈"
+    },
+    {
+      "priority": 1,
+      "kind": "hotspot",
+      "title": "【攻めどころ】兵庫・尼崎界隈",
+      "instruction": "困りごと: 処理に困っているところがあると聞いている。尼崎界隈: 熱処理困りごとの聞き取りあり",
+      "lat": 34.7334,
+      "lng": 135.4063,
+      "area": "兵庫・尼崎界隈"
+    },
+    {
+      "priority": 1,
+      "kind": "hotspot",
+      "title": "【攻めどころ】刈谷市・ジェイテクト刈谷界隈",
+      "instruction": "困りごと: 熱処理で困っていると聞いている。刈谷・ジェイテクト界隈: 熱処理困りごとの聞き取りあり",
+      "lat": 34.9893,
+      "lng": 137.0021,
+      "area": "刈谷市・ジェイテクト刈谷界隈"
+    },
+    {
+      "priority": 1,
+      "kind": "hotspot",
+      "title": "【攻めどころ】和歌山市界隈",
+      "instruction": "困りごと: 処理に困っているところがあると聞いている。和歌山市界隈: 熱処理困りごとの聞き取りあり",
+      "lat": 34.2305,
+      "lng": 135.1708,
+      "area": "和歌山市界隈"
+    },
+    {
+      "priority": 1,
+      "kind": "hotspot",
+      "title": "【攻めどころ】大阪・豊中市界隈",
+      "instruction": "困りごと: 処理に困っているところがあると聞いている。豊中市界隈: 熱処理困りごとの聞き取りあり",
+      "lat": 34.7813,
+      "lng": 135.4697,
+      "area": "大阪・豊中市界隈"
+    },
+    {
+      "priority": 1,
+      "kind": "hotspot",
+      "title": "【攻めどころ】愛知・豊和工業界隈",
+      "instruction": "困りごと: 防炭処理をしてくれない。豊和/マザック筋: 防炭対応の困りごと情報あり(要フォロー)",
+      "lat": 35.083,
+      "lng": 137.156,
+      "area": "愛知・豊和工業界隈"
+    },
+    {
+      "priority": 1,
+      "kind": "visit_priority",
+      "title": "【優先訪問】(株)ヒガシヤマ",
+      "instruction": "ランクAかつ熱処理先未把握。初回で①現行外注先 ②困りごと（納期・防炭・品質）③決裁者を確認する。",
+      "company_id": "fb42a9a5cca7",
+      "company": "(株)ヒガシヤマ",
+      "lat": 36.6404,
+      "lng": 136.6816
+    },
+    {
+      "priority": 1,
+      "kind": "visit_priority",
+      "title": "【優先訪問】(株)東振精機",
+      "instruction": "ランクAかつ熱処理先未把握。初回で①現行外注先 ②困りごと（納期・防炭・品質）③決裁者を確認する。",
+      "company_id": "7a0bd1dcd11d",
+      "company": "(株)東振精機",
+      "lat": 36.6064,
+      "lng": 136.6256
+    },
+    {
+      "priority": 1,
+      "kind": "visit_priority",
+      "title": "【優先訪問】土肥研磨工業(株)",
+      "instruction": "ランクAかつ熱処理先未把握。初回で①現行外注先 ②困りごと（納期・防炭・品質）③決裁者を確認する。",
+      "company_id": "624d975e05bb",
+      "company": "土肥研磨工業(株)",
+      "lat": 36.6604,
+      "lng": 136.5476
+    },
+    {
+      "priority": 1,
+      "kind": "visit_priority",
+      "title": "【優先訪問】松本機械工業(株)",
+      "instruction": "ランクAかつ熱処理先未把握。初回で①現行外注先 ②困りごと（納期・防炭・品質）③決裁者を確認する。",
+      "company_id": "d65935423c2f",
+      "company": "松本機械工業(株)",
+      "lat": 36.6544,
+      "lng": 136.5916
+    },
+    {
+      "priority": 2,
+      "kind": "competitor",
+      "title": "【競合隣接】中部熱処理",
+      "instruction": "評判が悪いとの聞き取りあり。周辺顧客がターゲット → 周辺顧客リストを作り、現行熱処理先と不満の有無を確認する。",
+      "lat": 35.05,
+      "lng": 136.62,
+      "company": "中部熱処理"
+    },
+    {
+      "priority": 2,
+      "kind": "competitor",
+      "title": "【競合隣接】栗山熱処理",
+      "instruction": "評判が悪いとの聞き取りあり。周辺顧客がターゲット → 周辺顧客リストを作り、現行熱処理先と不満の有無を確認する。",
+      "lat": 35.09,
+      "lng": 136.58,
+      "company": "栗山熱処理"
+    },
+    {
+      "priority": 2,
+      "kind": "news",
+      "title": "【新聞の種】NTN",
+      "instruction": "NTN、独自開発した特殊熱処理技術「HA-C」を深溝玉軸受に適用した「HA-C軸受」の提案を自動車市場などに向けて開始 → 活動圏の顧客・攻めどころと突合し、訪問ネタにするか判断。",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5WbmtuTEtvNlY5RU9aS3hCVWJyUkp1NWZ6V3gxS3cyWTd1Q3c3cnNOanFyU0I3b2pEWEJKTy1nOTM5Vk5QTmZlbE8xRGtIbFlBVmFPbmxoam5EdXlodTdWSkhmOFRhRjMzMWVVTw?oc=5"
+    },
+    {
+      "priority": 2,
+      "kind": "news",
+      "title": "【新聞の種】ジェイテクト",
+      "instruction": "ジェイテクト、新素材と熱処理により耐久性の高い「長寿命軸受」を開発 → 活動圏の顧客・攻めどころと突合し、訪問ネタにするか判断。",
+      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5lMzRnc1FTNHh2cklSTzlwakFtOTNYNHdVYmM4WU8yUjFhQ1dWZFIyX0pHeE04RlZ2cnNMVzhacEZORWE2UjZxR0JHZy10WWFhSDFRVWdUNEVDaTNBLU04WFVYLWw?oc=5"
+    },
+    {
+      "priority": 2,
+      "kind": "news",
+      "title": "【新聞の種】トヨタ",
+      "instruction": "トヨタから受注、自動車製造を脱炭素化する「熱処理炉向け水素バーナー」の実力 → 活動圏の顧客・攻めどころと突合し、訪問ネタにするか判断。",
+      "link": "https://news.google.com/rss/articles/CBMiQkFVX3lxTE9BQ2JUbkVyLWNhb0gxUXVyVXV3RWwtMkJlamxvX2ZLWnlNSFBaZEZFWUhUTHZMMlFYanVvZ1hzeHlEdw?oc=5"
+    },
+    {
+      "priority": 2,
+      "kind": "news",
+      "title": "【新聞の種】豊田自動織機",
+      "instruction": "アンモニア専焼で熱処理、実製品と同水準の品質実現/Daigasエナジー×豊田自動織機 → 活動圏の顧客・攻めどころと突合し、訪問ネタにするか判断。",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9ycy1FU0tqNlp5NTVDak5qZTlMeVpHbjc0aUwtaDduWDlXOWNvS0pWQUJYWE1aS3oyNG85ZmstcWQxeXNZT3RiNlRGdFJrZy1TelRDN24xeGN1VXV2VGhMRkxsZUpLd3p2MnBnbw?oc=5"
+    },
+    {
+      "priority": 2,
+      "kind": "news",
+      "title": "【新聞の種】豊田自動織機",
+      "instruction": "豊田自動織機とDaigasグループ、アンモニア専焼による金属熱処理に成功 → 活動圏の顧客・攻めどころと突合し、訪問ネタにするか判断。",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFB4WjJoZldPUmJQODZzZ2lCUm9pSHZKaWdDRGl5cWpUZDRPeER2ZDFxNk41N25NVURFSEw5bkNTQWY1N29kRlBJb09IUnhyV3ltWW9fVGRUdVJUUEpYZXlIR2hra1RIQQ?oc=5"
+    },
+    {
+      "priority": 3,
+      "kind": "competitor",
+      "title": "【ターゲット】和宏精密",
+      "instruction": "今後ターゲットとして見込める → 周辺顧客リストを作り、現行熱処理先と不満の有無を確認する。",
+      "lat": 36.5613,
+      "lng": 136.6562,
+      "company": "和宏精密"
+    },
+    {
+      "priority": 3,
+      "kind": "competitor",
+      "title": "【ターゲット】東伸熱工",
+      "instruction": "今後ターゲットとして見込める → 周辺顧客リストを作り、現行熱処理先と不満の有無を確認する。",
+      "lat": 35.12,
+      "lng": 136.88,
+      "company": "東伸熱工"
+    },
+    {
+      "priority": 3,
+      "kind": "competitor",
+      "title": "【ターゲット】東研サーモテック三重工場",
+      "instruction": "今後ターゲットとして見込める → 周辺顧客リストを作り、現行熱処理先と不満の有無を確認する。",
+      "lat": 34.87,
+      "lng": 136.58,
+      "company": "東研サーモテック三重工場"
+    },
+    {
+      "priority": 3,
+      "kind": "tactic",
+      "title": "【戦術】実行指示 1",
+      "instruction": "豊和/マザック/水谷筋: 防炭ができない困りごと → 防炭対応を提案材料に。"
+    },
+    {
+      "priority": 3,
+      "kind": "tactic",
+      "title": "【戦術】実行指示 2",
+      "instruction": "刈谷・ジェイテクト界隈: 熱処理困りごとの聞き取り → 既存接点の深掘り。"
+    },
+    {
+      "priority": 3,
+      "kind": "tactic",
+      "title": "【戦術】実行指示 3",
+      "instruction": "いなべ: 中部熱処理・栗山の評判悪化情報 → 競合乗り換え候補を探る。"
+    },
+    {
+      "priority": 3,
+      "kind": "tactic",
+      "title": "【戦術】実行指示 4",
+      "instruction": "近畿(豊中・尼崎・姫路・和歌山): 処理困りごとの聞き取り → 訪問ルートに組み込む。"
+    },
+    {
+      "priority": 3,
+      "kind": "tactic",
+      "title": "【戦術】実行指示 5",
+      "instruction": "新聞探知(熱処理ニーズ種)で大手の設備・外注・品質ネタを毎日拾い、Slack要約で確認。"
+    }
+  ]
+}

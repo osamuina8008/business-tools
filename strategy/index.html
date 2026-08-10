@@ -46,9 +46,25 @@
     </p>
 
     <p class="text-xs text-slate-600 bg-white border border-slate-200 rounded-xl px-3 py-2">
-      正本は <code class="bg-slate-100 px-1 rounded">strategy_master.xlsx</code>（企業・競合・攻めどころ・訪問・Eight名刺）。
-      確認用CSVも同フォルダに出力されます。Eightの名刺CSVはあとから取り込み可能です。
+      <strong>自動反映:</strong> デスクトップの「戦略マップ投入箱」に EightのCSV / Excel / CSV を入れるだけ。
+      約5分以内（または「戦略マップを反映.command」）で地図と公開サイトが更新されます。コマンド入力は不要です。
     </p>
+
+    <!-- 提案・指示 -->
+    <section class="bg-white rounded-2xl border border-amber-200 shadow-sm p-4 md:p-5 fade-in">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+        <h2 class="font-bold text-amber-900">今日の提案・指示</h2>
+        <div class="flex items-center gap-2">
+          <span id="actions-meta" class="text-xs text-slate-400"></span>
+          <button type="button" onclick="copyActions()"
+            class="text-xs font-semibold text-amber-900 bg-amber-100 hover:bg-amber-200 px-3 py-1.5 rounded-lg">指示をコピー</button>
+        </div>
+      </div>
+      <p class="text-xs text-slate-500 mb-3">戦略・戦術・攻めどころ・ランク・Eight・新聞の種から自動生成。タップで地図へ。</p>
+      <div id="actions-list" class="space-y-2 max-h-96 overflow-auto">
+        <p class="text-sm text-slate-400">読み込み中...</p>
+      </div>
+    </section>
 
     <!-- 地図 + 詳細 -->
     <section class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 md:p-5 fade-in">
@@ -150,8 +166,10 @@ const COLORS = {
 
 let territory = null;
 let visits = null;
+let actionsData = null;
 let map = null;
 let briefText = '';
+let actionsText = '';
 let companyById = {};
 
 function esc(s) {
@@ -229,6 +247,49 @@ function showCompany(id) {
           <p class="text-xs text-slate-600 mt-1 whitespace-pre-wrap">${esc(r.body || '')}</p>
         </div>`).join('') : '<p class="text-xs text-slate-400">記録なし（Excelの visits シートに追加可）</p>'}
     </div>`;
+}
+
+function renderActions(payload) {
+  actionsData = payload || { actions: [] };
+  const list = actionsData.actions || [];
+  document.getElementById('actions-meta').textContent = actionsData.updated
+    ? `${list.length}件 · ${String(actionsData.updated).slice(0, 16).replace('T', ' ')}`
+    : `${list.length}件`;
+  actionsText = actionsData.summary || list.map(a => `P${a.priority} ${a.title}\n  → ${a.instruction}`).join('\n\n');
+  const el = document.getElementById('actions-list');
+  if (!list.length) {
+    el.innerHTML = '<p class="text-sm text-slate-400">提案がまだありません。投入箱にデータを入れるか build を実行してください。</p>';
+    return;
+  }
+  el.innerHTML = list.map((a, i) => {
+    const canFocus = a.lat != null && a.lng != null;
+    const canCompany = a.company_id && companyById[a.company_id];
+    const click = canCompany
+      ? `showCompany('${esc(a.company_id)}')`
+      : (canFocus ? `focusPin(${a.lat},${a.lng})` : '');
+    const tag = a.kind === 'hotspot' ? '攻め' : a.kind === 'eight' ? 'Eight' : a.kind === 'news' ? '新聞' : a.kind === 'tactic' ? '戦術' : '訪問';
+    return `
+      <button type="button" ${click ? `onclick="${click}"` : ''}
+        class="w-full text-left rounded-xl border border-amber-100 bg-amber-50/50 hover:bg-amber-50 p-3 transition ${click ? '' : 'cursor-default'}">
+        <div class="flex items-start gap-2">
+          <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-200 text-amber-900 shrink-0">P${a.priority}</span>
+          <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-white border border-amber-100 text-slate-600 shrink-0">${esc(tag)}</span>
+          <div class="min-w-0">
+            <p class="text-sm font-bold text-slate-800">${esc(a.title)}</p>
+            <p class="text-xs text-slate-600 mt-1">${esc(a.instruction)}</p>
+          </div>
+        </div>
+      </button>`;
+  }).join('');
+}
+
+async function copyActions() {
+  try {
+    await navigator.clipboard.writeText(actionsText || '');
+    alert('提案・指示をコピーしました');
+  } catch {
+    prompt('コピーできませんでした', actionsText);
+  }
 }
 
 function renderCompanyList(filter = '') {
@@ -379,9 +440,10 @@ async function loadSeeds() {
 }
 
 async function main() {
-  const [tRes, vRes] = await Promise.all([
+  const [tRes, vRes, aRes] = await Promise.all([
     fetch('../news/territory_strategy.json?v=' + Date.now()),
     fetch('./visit_reports.json?v=' + Date.now()),
+    fetch('./strategy_actions.json?v=' + Date.now()),
   ]);
   if (!tRes.ok) throw new Error('territory load failed');
   territory = await tRes.json();
@@ -391,8 +453,36 @@ async function main() {
   buildMap(territory, visits);
   renderCompanyList();
   document.getElementById('company-filter').addEventListener('input', (e) => renderCompanyList(e.target.value));
+  if (aRes.ok) {
+    renderActions(await aRes.json());
+  } else {
+    // クライアント側フォールバック（旧デプロイ対策）
+    renderActions(buildClientActions(territory, visits));
+  }
   const seeds = await loadSeeds();
   buildBrief(territory, seeds, visits);
+}
+
+function buildClientActions(data, visitData) {
+  const actions = [];
+  (data.pain_hotspots || []).forEach(h => {
+    actions.push({
+      priority: 1, kind: 'hotspot', title: `【攻めどころ】${h.area || ''}`,
+      instruction: `${h.pain || ''}。周辺で訪問候補を決める。`,
+      lat: h.lat, lng: h.lng,
+    });
+  });
+  (visitData.companies || []).filter(c => (c.rank || '').includes('A')).slice(0, 10).forEach(c => {
+    actions.push({
+      priority: 1, kind: 'visit_priority', title: `【優先訪問】${c.name}`,
+      instruction: c.proposal || '熱処理先・困りごとを確認',
+      company_id: c.id, lat: c.lat, lng: c.lng,
+    });
+  });
+  (data.tactics?.points || []).slice(0, 5).forEach((t, i) => {
+    actions.push({ priority: 3, kind: 'tactic', title: `【戦術】${i + 1}`, instruction: t });
+  });
+  return { updated: null, actions, summary: actions.map(a => `${a.title}: ${a.instruction}`).join('\n') };
 }
 
 main().catch(err => {

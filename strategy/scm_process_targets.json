@@ -1,8 +1,8 @@
 {
-  "updated": "2026-08-11T07:37:15+09:00",
+  "updated": "2026-08-11T08:56:28+09:00",
   "disclaimer": "攻めどころ界隈の公開情報・聞き取りベース。既存顧客・コマツ筋・高周波メイン等は除外済み。",
   "how_to_use": "各界隈の社名一覧を見て訪問先を決める。探索枠は現地で社名を確定して埋める。",
-  "count": 26,
+  "count": 25,
   "group_count": 8,
   "groups": [
     {
@@ -128,7 +128,7 @@
       "pain": "防炭処理をしてくれない → 周辺部品メーカーの外注先を刈る",
       "lat": 35.1986,
       "lng": 136.848,
-      "count": 9,
+      "count": 8,
       "companies": [
         {
           "name": "水谷精機工作所",
@@ -147,24 +147,6 @@
           "lat": 35.0666,
           "lng": 136.6843,
           "id": "houwa-水谷精機工作所",
-          "hotspot_id": "houwa",
-          "hotspot_area": "愛知・豊和工業（清須本社）界隈"
-        },
-        {
-          "name": "株式会社シンセラ",
-          "category": "歯切・精密加工",
-          "area": "愛知県",
-          "materials": [
-            "SCM415"
-          ],
-          "heat_relation": "浸炭焼入れは協力先連携と明記",
-          "reason": "ハスバ歯車×SCM415×浸炭外注。防炭・歪み困りごとが刺さりやすい。",
-          "source_url": "https://kinzoku-sessaku.com/",
-          "linked_majors": [],
-          "priority": 1,
-          "lat": 35.15,
-          "lng": 136.9,
-          "id": "houwa-シンセラ",
           "hotspot_id": "houwa",
           "hotspot_area": "愛知・豊和工業（清須本社）界隈"
         },
@@ -1098,24 +1080,6 @@
       "hotspot_area": "愛知・Willbe（津島）界隈"
     },
     {
-      "name": "株式会社シンセラ",
-      "category": "歯切・精密加工",
-      "area": "愛知県",
-      "materials": [
-        "SCM415"
-      ],
-      "heat_relation": "浸炭焼入れは協力先連携と明記",
-      "reason": "ハスバ歯車×SCM415×浸炭外注。防炭・歪み困りごとが刺さりやすい。",
-      "source_url": "https://kinzoku-sessaku.com/",
-      "linked_majors": [],
-      "priority": 1,
-      "lat": 35.15,
-      "lng": 136.9,
-      "id": "houwa-シンセラ",
-      "hotspot_id": "houwa",
-      "hotspot_area": "愛知・豊和工業（清須本社）界隈"
-    },
-    {
       "name": "株式会社ナゴヤギア",
       "category": "大型歯車",
       "area": "愛知県名古屋市南区",
@@ -1424,6 +1388,14 @@
     {
       "name": "サンエー精機",
       "why": "訪問済。可能性はあるが石川で便が悪い・新規探検は低優先"
+    },
+    {
+      "name": "株式会社シンセラ",
+      "why": "広島県世羅町。活動圏外のため除外"
+    },
+    {
+      "name": "広島県の業者全般",
+      "why": "活動圏外のため一覧に出さない"
     }
   ],
   "search_queries": [

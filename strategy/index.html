@@ -268,17 +268,28 @@ function renderLists(data) {
       </button>`).join('');
 
   document.getElementById('target-list').innerHTML =
-    (data.competitor_adjacent_targets || []).map(c => {
+    [...(data.competitor_adjacent_targets || [])]
+      .sort((a, b) => {
+        const ia = competitorById[a.id] || {};
+        const ib = competitorById[b.id] || {};
+        const sa = ia.scope === 'company_wide' ? 0 : 1;
+        const sb = ib.scope === 'company_wide' ? 0 : 1;
+        if (sa !== sb) return sa - sb;
+        return (a.name || '').localeCompare(b.name || '', 'ja');
+      })
+      .map(c => {
       const intel = competitorById[c.id] || {};
+      const isCorp = intel.scope === 'company_wide' || (c.name || '').includes('(全社)');
       const scale = intel.scale_summary || '';
       const eq = intel.equipment_summary || '';
       const hints = (intel.client_hints || []).length;
       const sectors = (intel.client_sectors || []).slice(0, 3).join('・');
-      const sub = [scale, eq].filter(Boolean).join(' / ') || '調査中（クリックで詳細）';
+      const sub = [scale, eq].filter(Boolean).join(' / ')
+        || (isCorp ? '全社規模・設備' : '調査中（クリックで詳細）');
       return `
       <button type="button" onclick="showCompetitor('${esc(c.id)}')"
-        class="w-full text-left rounded-xl border border-indigo-100 bg-indigo-50/50 hover:bg-indigo-50 p-3 transition">
-        <p class="text-sm font-bold text-slate-800">${esc(c.name)}</p>
+        class="w-full text-left rounded-xl border ${isCorp ? 'border-violet-300 bg-violet-50' : 'border-indigo-100 bg-indigo-50/50'} hover:bg-indigo-50 p-3 transition">
+        <p class="text-sm font-bold text-slate-800">${esc(c.name)} ${isCorp ? '<span class="text-[10px] font-bold text-violet-800 bg-violet-100 px-1.5 py-0.5 rounded">全社</span>' : '<span class="text-[10px] text-slate-500">拠点</span>'}</p>
         <p class="text-xs text-slate-600 mt-0.5">${esc(c.area || '')}</p>
         <p class="text-xs text-indigo-900 mt-1 font-medium">${esc(sub)}</p>
         ${sectors ? `<p class="text-xs text-slate-500 mt-0.5">業種: ${esc(sectors)}</p>` : ''}

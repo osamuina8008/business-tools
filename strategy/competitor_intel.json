@@ -1,7 +1,7 @@
 {
-  "collected_at": "2026-08-10T18:31:45+09:00",
+  "collected_at": "2026-08-10T19:52:03+09:00",
   "disclaimer": "公式サイト・新聞RSSから自動収集。取引先は公開情報ベースの推定。",
-  "count": 19,
+  "count": 20,
   "competitors": [
     {
       "id": "48667cd1fe79",
@@ -441,48 +441,12 @@
       "area": "三重県・三重工場界隈",
       "updated": "2026-08-10T18:31:31+09:00",
       "profile": {
-        "official_name": "株式会社東研サーモテック",
-        "equipment_note": "設備数は東研サーモテック全社の公式設備一覧。三重工場単体の台数ではない。"
+        "official_name": "株式会社東研サーモテック 三重工場",
+        "equipment_note": "設備台数は「東研サーモテック(全社)」を参照"
       },
-      "scale_summary": "【全社合計・三重工場単体ではない】炉計65基相当",
-      "equipment": [
-        {
-          "name": "バッチ式浸炭炉",
-          "count": 39,
-          "spec": ""
-        },
-        {
-          "name": "ローラーハース式連続浸炭炉",
-          "count": 14,
-          "spec": ""
-        },
-        {
-          "name": "メッシュベルト式連続焼入炉",
-          "count": 7,
-          "spec": ""
-        },
-        {
-          "name": "バッチ式真空焼戻炉",
-          "count": 2,
-          "spec": ""
-        },
-        {
-          "name": "メッシュベルト式プレスクエンチ炉",
-          "count": 1,
-          "spec": ""
-        },
-        {
-          "name": "メッシュベルト式連続オーステンパ炉",
-          "count": 1,
-          "spec": ""
-        },
-        {
-          "name": "連続プレステンパー炉",
-          "count": 1,
-          "spec": ""
-        }
-      ],
-      "equipment_summary": "【全社】バッチ式浸炭炉39基・連続浸炭炉14基・連続焼入7基・真空焼戻2基 他",
+      "scale_summary": "三重工場拠点（設備は全社エントリ参照）",
+      "equipment": [],
+      "equipment_summary": "",
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
@@ -565,8 +529,8 @@
         }
       ],
       "errors": [],
-      "scope": "company_wide",
-      "note": "設備数は東研サーモテック全社の公式設備一覧。三重工場単体の台数ではない。"
+      "scope": "plant",
+      "note": "拠点。設備は全社エントリ参照。"
     },
     {
       "id": "2f820eff3e7c",
@@ -842,6 +806,138 @@
         }
       ],
       "sources": [],
+      "errors": []
+    },
+    {
+      "id": "d3281ccf5d5a",
+      "name": "東研サーモテック(全社)",
+      "area": "全社（本社・大阪府寝屋川市）",
+      "updated": "2026-08-10T19:52:03+09:00",
+      "scope": "company_wide",
+      "profile": {
+        "official_name": "株式会社東研サーモテック",
+        "equipment_note": "公式設備一覧は全社合計。拠点別台数は非公開。"
+      },
+      "scale_summary": "【全社】炉計65基相当 / バッチ浸炭39・連続浸炭14 等",
+      "equipment": [
+        {
+          "name": "バッチ式浸炭炉",
+          "count": 39,
+          "spec": ""
+        },
+        {
+          "name": "ローラーハース式連続浸炭炉",
+          "count": 14,
+          "spec": ""
+        },
+        {
+          "name": "メッシュベルト式連続焼入炉",
+          "count": 7,
+          "spec": ""
+        },
+        {
+          "name": "バッチ式真空焼戻炉",
+          "count": 2,
+          "spec": ""
+        },
+        {
+          "name": "メッシュベルト式プレスクエンチ炉",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "メッシュベルト式連続オーステンパ炉",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "連続プレステンパー炉",
+          "count": 1,
+          "spec": ""
+        }
+      ],
+      "equipment_summary": "【全社】バッチ式浸炭炉39基・ローラーハース式連続浸炭炉14基・メッシュベルト式連続焼入炉7基・バッチ式真空焼戻炉2基・他",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [
+        {
+          "title": "勝機をつかめ!地域のグッドカンパニー/東研サーモテック 試作から量産まで一貫",
+          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBSWDFWWUN1VUFELWlDQ2VQQUxkQ0dpRUJscl9kb0pqbVhzbmZ0eHl3dFMzNlJDOHJGWTFBdnYxb2hGSmJCYVF2Q1ZFLTBGQUlkb3BCNFRZZ2xoY3M?oc=5",
+          "source": "日刊工業新聞",
+          "pub": "2023-02-28T05:03:42+09:00",
+          "query": "東研サーモテック 熱処理",
+          "clients": []
+        },
+        {
+          "title": "熱処理の東研サーモが新事業",
+          "link": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE1hcDk0T2lTejA5YjlqUEIwUmZuMkVGdVdIendJMGpEMElIdHFsUldnQl9CYVdXanQ3QzJjOWpoRWQ0bjR3WUE?oc=5",
+          "source": "nna.jp",
+          "pub": "2024-11-28T17:00:00+09:00",
+          "query": "東研サーモテック 熱処理",
+          "clients": []
+        },
+        {
+          "title": "「タイ進出で日本の受注増」ブーメラン効果の謎 -東研サーモテック",
+          "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1MREt5MWRhVVE2c2RmcjdmS05CUEVtMy1QMkpUTVFNU2hfOGRfTW92RE9jOXliaUMwekE1ZTFVRllycjZkSlRkMW1OSG9DUkgyV3ZFd0R3?oc=5",
+          "source": "president.jp",
+          "pub": "2013-02-19T17:00:00+09:00",
+          "query": "東研サーモテック 熱処理",
+          "clients": []
+        },
+        {
+          "title": "【特集1】KYTの実践力を鍛える ボード使ってスピーディーに 管理者は「問いかけ」手法学ぶ/東研サーモテック ゼロ災運動より",
+          "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTFBXVy1DcGZUcUQ0LVhTa1BpTnJzQ2pnY2NvVTJUaFRRWDNUWTFubDROZ2VtM3ZSalRwZzRWd0ljd2hfLVVTbGJNalJR?oc=5",
+          "source": "労働新聞社",
+          "pub": "2019-04-09T16:00:00+09:00",
+          "query": "東研サーモテック 熱処理",
+          "clients": []
+        },
+        {
+          "title": "株式会社東研サーモテックが紀北橋本エコヒルズ「紀ノ光台Sゾーン」へ進出決定",
+          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQMTdsSXNuMWg5RXBZTGgyanlrRk1JTjJRNGJMZlkzc1QtUHNMWkhUSHJrWUI1ZEgtdHdLVHh5ak5JakJja2RiX0hKWFRLNGZvMFFQbUhsMmFWblZPTUJYWWxiemg1QVY0OURJMVFwdkZMUzhfbDZoNk9yZmlWYnJ3RFB0cHd5WTlPUS15ejZZYUluVTcxNG9qUWE0aGswVUlIdlRsODBIZW1pc2tOM1VKWVRzbHpqemZTOEVFM0xvNA?oc=5",
+          "source": "city.hashimoto.lg.jp",
+          "pub": "2018-02-13T17:00:00+09:00",
+          "query": "東研サーモテック 熱処理",
+          "clients": []
+        },
+        {
+          "title": "中木田町で建設されていた東研サーモテックの事務所が完成してる!",
+          "link": "https://news.google.com/rss/articles/CBMickFVX3lxTFBzclZidEEzN3RObG4wYjlBTmFGV2JtY3dEVXVlcUlHR2hiUVFhd0w0MnQtTVhkZW9GNG15cmNDalZZbUJ4djhWRy1FdHlUbHBYTHE5OEx6U1hxbjBReTg5M2Q1TWRqZGw0M0tvUnp2ZVRJQQ?oc=5",
+          "source": "寝屋川つーしん",
+          "pub": "2019-12-22T17:00:00+09:00",
+          "query": "東研サーモテック 熱処理",
+          "clients": []
+        },
+        {
+          "title": "さあ出番/東研サーモテック社長・川嵜隆司氏「熱処理のプロ集団に」",
+          "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9NWXhfX00yTGQ3TnRqejZCUVFOeEw2ZXNNc0VSWXpSajRINk5nY3dvUXZVdHg0enNDTnJfYUp2MXdnYU1sRjNCYXZZY19HTnBzclg1RE1EUVM?oc=5",
+          "source": "日刊工業新聞",
+          "pub": "2020-03-23T21:07:54+09:00",
+          "query": "東研サーモテック 熱処理",
+          "clients": []
+        },
+        {
+          "title": "東研サーモテック、タイで熱処理新棟−車部品の需要増対応",
+          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFAtakcyYTZRRGFMSk9mbExZd0pjWm4weF9TelBqZE92M3ZpSEZZdV91bHh3azhaYzhwZXNnSGM2NXU0RUlhc0E3bm9NZUl4NmRrUnlBbWx5a0std00?oc=5",
+          "source": "日刊工業新聞",
+          "pub": "2016-10-05T14:42:43+09:00",
+          "query": "東研サーモテック 熱処理",
+          "clients": []
+        }
+      ],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://tohkenthermo.co.jp/",
+          "fetched_at": "2026-08-10T18:31:27+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://tohkenthermo.co.jp/heat-treatment/heat-treatment-machines-and-equipment/",
+          "fetched_at": "2026-08-10T18:31:28+09:00"
+        }
+      ],
       "errors": []
     }
   ]

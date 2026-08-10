@@ -309,6 +309,8 @@ function showCompetitor(id) {
     <h3 class="text-base font-bold text-slate-900">${esc(prof.official_name || c.name)}</h3>
     <p class="text-xs text-slate-500 mt-1">${esc(c.area || '')}</p>
     ${intel.scale_summary ? `<p class="text-xs font-semibold text-indigo-900 mt-2">${esc(intel.scale_summary)}</p>` : ''}
+    ${intel.scope === 'company_wide' || (intel.profile && intel.profile.equipment_note) ? `
+    <p class="text-[11px] text-rose-700 mt-1 font-semibold">${esc((intel.profile && intel.profile.equipment_note) || '設備数は全社合計。この拠点単体ではない可能性あり。')}</p>` : ''}
 
     ${equipment.length ? `
     <div class="mt-3">

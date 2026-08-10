@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>戦略と戦術</title>
+  <link rel="manifest" href="../manifest.json" />
+  <meta name="theme-color" content="#0f766e" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic UI', sans-serif; }
+    #map { height: 420px; width: 100%; border-radius: 1rem; }
+    .leaflet-container { font: inherit; }
+    .pin-legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .dot { width: 10px; height: 10px; border-radius: 999px; display: inline-block; }
+    .fade-in { animation: fadeIn .35s ease; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(6px);} to { opacity:1; transform:none;} }
+  </style>
+</head>
+<body class="bg-slate-50 min-h-screen">
+
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-30">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <a href="../index.html" class="text-slate-400 hover:text-slate-600 text-sm">← ツール一覧</a>
+        <span class="text-slate-300">|</span>
+        <div>
+          <h1 class="text-lg font-bold text-slate-800">戦略と戦術</h1>
+          <p class="text-xs text-slate-400">テリトリー見える化・攻略マップ</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <span id="updated" class="text-xs text-slate-400"></span>
+        <a href="../news/index.html" class="text-xs font-semibold text-teal-700 bg-teal-50 hover:bg-teal-100 px-3 py-1.5 rounded-lg">業界ボード →</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-5 space-y-5">
+
+    <p id="disclaimer" class="text-xs text-slate-500 bg-amber-50 border border-amber-100 rounded-xl px-3 py-2">
+      聞き取り・推測ベース。訪問判断は人が行う。
+    </p>
+
+    <!-- 地図 -->
+    <section class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 md:p-5 fade-in">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+        <h2 class="font-bold text-slate-800">攻略マップ</h2>
+        <div class="pin-legend flex flex-wrap gap-3 text-xs text-slate-600">
+          <span><i class="dot" style="background:#ea580c"></i>攻めどころ</span>
+          <span><i class="dot" style="background:#7c3aed"></i>競合隣接</span>
+          <span><i class="dot" style="background:#2563eb"></i>ターゲット</span>
+          <span><i class="dot" style="background:#94a3b8"></i>未進出</span>
+        </div>
+      </div>
+      <div id="map" class="border border-slate-200"></div>
+      <p class="text-xs text-slate-400 mt-2">ピンをクリックすると内容が出ます。位置は市区町村の概ねの中心です。</p>
+    </section>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+      <!-- 戦略 -->
+      <section class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 fade-in">
+        <h2 id="strategy-title" class="font-bold text-slate-800 mb-3">戦略</h2>
+        <ul id="strategy-points" class="space-y-2 text-sm text-slate-700 list-disc pl-5"></ul>
+        <div class="mt-4 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <p class="text-xs font-bold text-slate-500 mb-1">活動圏</p>
+          <p id="coverage-summary" class="text-sm text-slate-800"></p>
+        </div>
+      </section>
+
+      <!-- 戦術 -->
+      <section class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 fade-in">
+        <h2 id="tactics-title" class="font-bold text-slate-800 mb-3">戦術</h2>
+        <ul id="tactics-points" class="space-y-2 text-sm text-slate-700 list-disc pl-5"></ul>
+      </section>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+      <section class="bg-white rounded-2xl border border-orange-100 shadow-sm p-5">
+        <h2 class="font-bold text-orange-800 mb-3">攻めどころ（困りごと聞き取り）</h2>
+        <div id="hotspot-list" class="space-y-2"></div>
+      </section>
+      <section class="bg-white rounded-2xl border border-indigo-100 shadow-sm p-5">
+        <h2 class="font-bold text-indigo-800 mb-3">競合隣接・ターゲット</h2>
+        <div id="target-list" class="space-y-2"></div>
+      </section>
+    </div>
+
+    <!-- 戦術インテリジェンス：新聞の種 -->
+    <section class="bg-white rounded-2xl border border-rose-100 shadow-sm p-5">
+      <div class="flex items-center justify-between gap-2 mb-3">
+        <h2 class="font-bold text-rose-800">戦術インテリジェンス（新聞の種）</h2>
+        <span id="seeds-meta" class="text-xs text-slate-400"></span>
+      </div>
+      <div id="seeds-list" class="space-y-2">
+        <p class="text-sm text-slate-400">読み込み中...</p>
+      </div>
+    </section>
+
+    <div class="flex flex-wrap gap-2 pb-8">
+      <button type="button" onclick="copyBrief()"
+        class="text-sm font-semibold bg-teal-700 hover:bg-teal-800 text-white px-4 py-2 rounded-xl">
+        要約をコピー
+      </button>
+      <a href="../news/index.html"
+        class="text-sm font-semibold border border-slate-200 hover:bg-slate-50 text-slate-700 px-4 py-2 rounded-xl">
+        業界・探知ボードを開く
+      </a>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+const COLORS = {
+  attack: '#ea580c',
+  competitor: '#7c3aed',
+  target: '#2563eb',
+  not_yet: '#94a3b8',
+};
+
+let territory = null;
+let map = null;
+let briefText = '';
+
+function esc(s) {
+  return String(s || '')
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;');
+}
+
+function circleIcon(color) {
+  return L.divIcon({
+    className: '',
+    html: `<div style="width:16px;height:16px;border-radius:999px;background:${color};border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.35)"></div>`,
+    iconSize: [16, 16],
+    iconAnchor: [8, 8],
+  });
+}
+
+function renderLists(data) {
+  document.getElementById('disclaimer').textContent = data.disclaimer || '';
+  document.getElementById('updated').textContent = data.updated ? `更新: ${data.updated}` : '';
+  document.getElementById('strategy-title').textContent = data.strategy?.title || '戦略';
+  document.getElementById('tactics-title').textContent = data.tactics?.title || '戦術';
+  document.getElementById('strategy-points').innerHTML =
+    (data.strategy?.points || []).map(p => `<li>${esc(p)}</li>`).join('') || '<li class="text-slate-400">—</li>';
+  document.getElementById('tactics-points').innerHTML =
+    (data.tactics?.points || []).map(p => `<li>${esc(p)}</li>`).join('') || '<li class="text-slate-400">—</li>';
+  document.getElementById('coverage-summary').textContent = data.coverage?.summary || '';
+
+  document.getElementById('hotspot-list').innerHTML =
+    (data.pain_hotspots || []).map(h => `
+      <button type="button" onclick="focusPin(${h.lat},${h.lng})"
+        class="w-full text-left rounded-xl border border-orange-100 bg-orange-50/60 hover:bg-orange-50 p-3 transition">
+        <p class="text-sm font-bold text-slate-800">${esc(h.area)}</p>
+        <p class="text-xs text-slate-600 mt-1">${esc(h.pain || '')}</p>
+        ${(h.sources||[]).length ? `<p class="text-xs text-slate-400 mt-1">情報源: ${esc(h.sources.join(' / '))}</p>` : ''}
+      </button>`).join('');
+
+  document.getElementById('target-list').innerHTML =
+    (data.competitor_adjacent_targets || []).map(c => `
+      <button type="button" onclick="focusPin(${c.lat},${c.lng})"
+        class="w-full text-left rounded-xl border border-indigo-100 bg-indigo-50/50 hover:bg-indigo-50 p-3 transition">
+        <p class="text-sm font-bold text-slate-800">${esc(c.name)}</p>
+        <p class="text-xs text-slate-600 mt-0.5">${esc(c.area || '')}</p>
+        ${c.note ? `<p class="text-xs text-slate-400 mt-1">${esc(c.note)}</p>` : ''}
+      </button>`).join('');
+}
+
+function buildMap(data) {
+  const center = data.map?.center || [35, 136.5];
+  const zoom = data.map?.zoom || 7;
+  map = L.map('map', { scrollWheelZoom: false }).setView(center, zoom);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '&copy; OpenStreetMap',
+  }).addTo(map);
+
+  const bounds = [];
+
+  (data.pain_hotspots || []).forEach(h => {
+    if (h.lat == null || h.lng == null) return;
+    bounds.push([h.lat, h.lng]);
+    L.marker([h.lat, h.lng], { icon: circleIcon(COLORS.attack) })
+      .addTo(map)
+      .bindPopup(`<strong>${esc(h.area)}</strong><br>${esc(h.pain || '')}<br><span style="color:#64748b;font-size:12px">攻めどころ</span>`);
+  });
+
+  (data.competitor_adjacent_targets || []).forEach(c => {
+    if (c.lat == null || c.lng == null) return;
+    bounds.push([c.lat, c.lng]);
+    const color = c.marker === 'competitor' ? COLORS.competitor : COLORS.target;
+    const label = c.marker === 'competitor' ? '競合隣接' : 'ターゲット';
+    L.marker([c.lat, c.lng], { icon: circleIcon(color) })
+      .addTo(map)
+      .bindPopup(`<strong>${esc(c.name)}</strong><br>${esc(c.note || c.area || '')}<br><span style="color:#64748b;font-size:12px">${label}</span>`);
+  });
+
+  (data.coverage?.not_yet || []).forEach(n => {
+    if (n.lat == null || n.lng == null) return;
+    bounds.push([n.lat, n.lng]);
+    L.marker([n.lat, n.lng], { icon: circleIcon(COLORS.not_yet) })
+      .addTo(map)
+      .bindPopup(`<strong>${esc(n.area)}</strong><br>${esc(n.note || '未進出')}`);
+  });
+
+  if (bounds.length >= 2) {
+    map.fitBounds(bounds, { padding: [28, 28] });
+  }
+  setTimeout(() => map.invalidateSize(), 100);
+}
+
+function focusPin(lat, lng) {
+  if (!map || lat == null || lng == null) return;
+  map.setView([lat, lng], 11, { animate: true });
+}
+
+function buildBrief(data, seeds) {
+  const lines = [];
+  lines.push(`【戦略と戦術】${data.updated || ''}`);
+  lines.push(data.coverage?.summary || '');
+  lines.push('');
+  lines.push('■戦略');
+  (data.strategy?.points || []).forEach(p => lines.push(`・${p}`));
+  lines.push('');
+  lines.push('■戦術');
+  (data.tactics?.points || []).forEach(p => lines.push(`・${p}`));
+  lines.push('');
+  lines.push('■攻めどころ');
+  (data.pain_hotspots || []).forEach(h => lines.push(`・${h.area}: ${h.pain || ''}`));
+  lines.push('');
+  lines.push('■競合隣接・ターゲット');
+  (data.competitor_adjacent_targets || []).forEach(c => lines.push(`・${c.name}: ${c.note || c.area || ''}`));
+  if (seeds?.length) {
+    lines.push('');
+    lines.push('■新聞の種（上位）');
+    seeds.slice(0, 5).forEach(s => {
+      const maj = (s.majors || []).join('、') || '—';
+      lines.push(`・[${s.score}] ${maj} — ${s.title}`);
+    });
+  }
+  briefText = lines.join('\n');
+}
+
+async function copyBrief() {
+  try {
+    await navigator.clipboard.writeText(briefText || '');
+    alert('要約をコピーしました');
+  } catch {
+    prompt('コピーできませんでした。手動で選択してください', briefText);
+  }
+}
+
+async function loadSeeds() {
+  const el = document.getElementById('seeds-list');
+  try {
+    const res = await fetch('../news/heat_treatment_seeds.json?v=' + Date.now());
+    if (!res.ok) throw new Error('no seeds');
+    const payload = await res.json();
+    const seeds = payload.seeds || [];
+    document.getElementById('seeds-meta').textContent = payload.collected_at
+      ? `収集: ${String(payload.collected_at).slice(0, 16).replace('T', ' ')}`
+      : '';
+    if (!seeds.length) {
+      el.innerHTML = '<p class="text-sm text-slate-400">種がありません。業界ボードの探知、または heat_treatment_radar.py を実行してください。</p>';
+      return seeds;
+    }
+    el.innerHTML = seeds.slice(0, 8).map(s => {
+      const star = s.worth_pursuit ? '★' : '・';
+      const majors = (s.majors || []).join('、') || '—';
+      return `
+        <a href="${esc(s.link || '#')}" target="_blank" rel="noopener"
+          class="block rounded-xl border border-rose-100 bg-rose-50/40 hover:bg-rose-50 p-3 transition">
+          <p class="text-sm font-semibold text-slate-800">${star}[${s.score}] ${esc(s.title)}</p>
+          <p class="text-xs text-rose-700 mt-1">${esc(majors)} / ${esc((s.signals||[]).slice(0,4).join('、'))}</p>
+        </a>`;
+    }).join('');
+    return seeds;
+  } catch {
+    el.innerHTML = '<p class="text-sm text-slate-400">種ファイルを読めませんでした（未収集の可能性）</p>';
+    return [];
+  }
+}
+
+async function main() {
+  const res = await fetch('../news/territory_strategy.json?v=' + Date.now());
+  if (!res.ok) throw new Error('territory load failed');
+  territory = await res.json();
+  renderLists(territory);
+  buildMap(territory);
+  const seeds = await loadSeeds();
+  buildBrief(territory, seeds);
+}
+
+main().catch(err => {
+  document.getElementById('disclaimer').textContent = 'データの読み込みに失敗しました: ' + err.message;
+});
+  </script>
+</body>
+</html>

@@ -153,6 +153,7 @@
 // ツールカード
 // ============================================================
 const DEFAULT_TOOLS = [
+  { id:'strategy', name:'戦略と戦術',  url:'strategy/index.html', bg:'bg-teal-100',   icon:'map',    group:'primary' },
   { id:'news',     name:'業界トピックス',url:'news/index.html',     bg:'bg-red-100',    icon:'news',   group:'primary' },
   { id:'email',    name:'メール作成',    url:'email/index.html',    bg:'bg-blue-100',   icon:'mail',   group:'legacy' },
   { id:'files',    name:'ファイル整理',  url:'files/index.html',    bg:'bg-orange-100', icon:'folder', group:'legacy' },
@@ -166,6 +167,7 @@ const DEFAULT_TOOLS = [
 const LEGACY_IDS = new Set(
   DEFAULT_TOOLS.filter(t => t.group === 'legacy').map(t => t.id)
 );
+const PRIMARY_DEFAULT_IDS = DEFAULT_TOOLS.filter(t => t.group === 'primary').map(t => t.id);
 
 const ICONS = {
   mail:     '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>',
@@ -177,6 +179,7 @@ const ICONS = {
   chart:    '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>',
   link:     '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>',
   study:    '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>',
+  map:      '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>',
 };
 
 function catalogById() {
@@ -188,31 +191,46 @@ function catalogById() {
 function loadTools() {
   const catalog = catalogById();
   const saved = localStorage.getItem('bt_tools_order_v2');
+  let list = [];
   if (saved) {
     try {
       const order = JSON.parse(saved);
       order.forEach(t => { if (!catalog[t.id]) catalog[t.id] = t; });
-      return order.map(o => {
+      list = order.map(o => {
         const base = catalog[o.id];
         if (!base) return null;
-        return { ...base, ...o, group: LEGACY_IDS.has(o.id) ? 'legacy' : (o.group || base.group || 'primary') };
+        return { ...base, ...o, group: LEGACY_IDS.has(o.id) ? 'legacy' : (base.group === 'primary' || o.group === 'primary' ? 'primary' : (LEGACY_IDS.has(o.id) ? 'legacy' : (o.group || base.group || 'primary'))) };
       }).filter(Boolean);
     } catch {}
   }
-  // 旧localStorage（v1）があればカスタムだけ引き継ぎ
-  const legacySaved = localStorage.getItem('bt_tools_order');
-  let customs = [];
-  if (legacySaved) {
-    try {
-      const order = JSON.parse(legacySaved);
-      customs = order.filter(t => t.id && !catalog[t.id] && String(t.id).startsWith('custom_'));
-    } catch {}
+  if (!list.length) {
+    const legacySaved = localStorage.getItem('bt_tools_order');
+    let customs = [];
+    if (legacySaved) {
+      try {
+        const order = JSON.parse(legacySaved);
+        customs = order.filter(t => t.id && !catalog[t.id] && String(t.id).startsWith('custom_'));
+      } catch {}
+    }
+    list = [
+      ...DEFAULT_TOOLS.filter(t => t.group === 'primary'),
+      ...customs.map(t => ({ ...t, group: 'primary', bg: t.bg || 'bg-gray-100', icon: t.icon || 'link' })),
+      ...DEFAULT_TOOLS.filter(t => t.group === 'legacy'),
+    ];
   }
-  return [
-    ...DEFAULT_TOOLS.filter(t => t.group === 'primary'),
-    ...customs.map(t => ({ ...t, group: 'primary', bg: t.bg || 'bg-gray-100', icon: t.icon || 'link' })),
-    ...DEFAULT_TOOLS.filter(t => t.group === 'legacy'),
-  ];
+  // 新しく増えた常用ツールが保存済み並びから欠けていれば先頭側に補完
+  PRIMARY_DEFAULT_IDS.forEach(id => {
+    if (!list.find(t => t.id === id)) {
+      const def = catalog[id];
+      if (def) list.unshift({ ...def });
+    }
+  });
+  // 常用は group を強制
+  list = list.map(t => ({
+    ...t,
+    group: LEGACY_IDS.has(t.id) ? 'legacy' : (PRIMARY_DEFAULT_IDS.includes(t.id) || String(t.id).startsWith('custom_') ? 'primary' : (t.group || 'legacy')),
+  }));
+  return list;
 }
 function saveTools(list) {
   localStorage.setItem('bt_tools_order_v2', JSON.stringify(list));

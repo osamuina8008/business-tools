@@ -131,6 +131,10 @@
           <p class="text-xs font-bold text-slate-500 mb-1">活動圏</p>
           <p id="coverage-summary" class="text-sm text-slate-800"></p>
         </div>
+        <div id="annual-goal-box" class="mt-3 p-3 rounded-xl bg-emerald-50 border border-emerald-100 hidden">
+          <p class="text-xs font-bold text-emerald-800 mb-1">年間目標</p>
+          <p id="annual-goal" class="text-sm text-emerald-950"></p>
+        </div>
       </section>
       <section class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 fade-in">
         <h2 id="tactics-title" class="font-bold text-slate-800 mb-3">戦術</h2>
@@ -258,6 +262,16 @@ function renderLists(data) {
   document.getElementById('tactics-points').innerHTML =
     (data.tactics?.points || []).map(p => `<li>${esc(p)}</li>`).join('') || '<li class="text-slate-400">—</li>';
   document.getElementById('coverage-summary').textContent = data.coverage?.summary || '';
+  const goal = data.annual_goal || '';
+  const goalBox = document.getElementById('annual-goal-box');
+  if (goalBox) {
+    if (goal) {
+      goalBox.classList.remove('hidden');
+      document.getElementById('annual-goal').textContent = goal;
+    } else {
+      goalBox.classList.add('hidden');
+    }
+  }
 
   document.getElementById('hotspot-list').innerHTML =
     [...(data.pain_hotspots || [])].sort((a, b) => (a.id === 'houwa' ? -1 : b.id === 'houwa' ? 1 : 0)).map(h => `
@@ -456,7 +470,7 @@ function renderActions(payload) {
   const tagMap = {
     hotspot: '攻め', attack_anchor: '攻め所', eight: 'Eight',
     news_match: '新聞×社', news_hint: '参考新聞', customer_relation: '取引先ネタ',
-    news: '新聞', tactic: '戦術', competitor: '競合', win_follow: '受注',
+    news: '新聞', tactic: '戦術', competitor: '競合', win_follow: '受注', goal: '目標', pipeline: '刈り取り',
   };
   el.innerHTML = list.map((a, i) => {
     const hasLink = !!(a.link);

@@ -318,6 +318,32 @@
     .hidden { display: none !important; }
     @keyframes fadeUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
     .card, .hero { animation: fadeUp .3s ease both; }
+
+    /* ── 右スワイプで完了して消す ── */
+    .card, .hero { touch-action: pan-y; }
+    .sw-wrap { position: relative; }
+    .sw-behind {
+      position: absolute; inset: 0; border-radius: var(--rad);
+      background: linear-gradient(90deg, #16a34a, #22c55e);
+      display: flex; align-items: center; gap: 8px; padding-left: 22px;
+      color: #fff; font-weight: 800; font-size: 15px; opacity: 0; pointer-events: none;
+    }
+    .sw-wrap > .card, .sw-wrap > .hero { position: relative; z-index: 1; }
+    #undo-bar {
+      position: fixed; left: 50%; transform: translate(-50%, 160%);
+      bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+      width: min(440px, calc(100% - 32px)); z-index: 90;
+      background: #0f172a; color: #fff; border: 1px solid var(--border);
+      border-radius: 14px; padding: 13px 14px; display: flex; align-items: center; gap: 12px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.4); opacity: 0;
+      transition: transform .3s cubic-bezier(.2,.8,.2,1), opacity .3s;
+      font-size: 14px; font-weight: 700;
+    }
+    #undo-bar.show { transform: translate(-50%, 0); opacity: 1; }
+    #undo-text { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    #undo-btn { background: transparent; border: none; color: #fbbf24; font-weight: 800;
+      font-size: 14px; cursor: pointer; flex: 0 0 auto; padding: 4px; }
+    .swipe-hint { font-size: 11.5px; color: var(--dim); font-weight: 600; margin: 2px 0 0; }
   </style>
 </head>
 <body>
@@ -409,6 +435,12 @@
     </div>
   </div>
 
+  <!-- 完了取り消しバー -->
+  <div id="undo-bar">
+    <span id="undo-text"></span>
+    <button id="undo-btn">取り消す</button>
+  </div>
+
 </div>
 
 <script>
@@ -442,6 +474,15 @@ let reshuffle  = 0;
 let history    = [];
 let busy       = false;
 let chatSubject = WEEKLY[new Date().getDay()];
+
+// 右スワイプで完了 → その日フィードから消す（id→完了した日付。端末に保存）
+// ※日付ごとなので、翌日以降に同じ提案が出れば復習のために再表示される
+let DISMISSED = (()=>{ try{ const v=JSON.parse(localStorage.getItem("rf_dismissed")||"{}");
+    return (v && typeof v==="object" && !Array.isArray(v)) ? v : {}; }
+  catch(e){ return {}; } })();
+function saveDismissed(){ localStorage.setItem("rf_dismissed", JSON.stringify(DISMISSED)); }
+function isDismissedToday(id){ return DISMISSED[id] === dayKey(Date.now()); }
+let lastDismissed = null, undoTimer = null;
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
@@ -740,6 +781,7 @@ function renderGreeting(){
 // ════════════════════════════════════════════
 function activeCards(){
   let list = ALL_CARDS.slice();
+  list = list.filter(c => !isDismissedToday(cardId(c)));   // 今日スワイプで完了したものは出さない
   if(subjFilter) list = list.filter(c => c.subject===subjFilter || (c.cat==="read" && !c.subject));
   if(catFilter!=="all") list = list.filter(c => c.cat===catFilter);
   // スコア順 → 同帯はシードシャッフルで毎回違う顔ぶれ
@@ -786,6 +828,68 @@ function cardHTML(c){
   </div>`;
 }
 
+// ════════════════════════════════════════════
+//  右スワイプで完了して消す ＋ 取り消し
+// ════════════════════════════════════════════
+const SW_THRESH = 90;
+function attachSwipe(cardEl, behindEl, c){
+  let sx=0, sy=0, dx=0, dragging=false, moved=false, pid=null;
+  cardEl.addEventListener("pointerdown", e=>{
+    if(e.target.closest("a")) return;          // 🐻メモ・キーワードのリンクは通常タップ
+    dragging=true; pid=e.pointerId; sx=e.clientX; sy=e.clientY; dx=0; moved=false;
+    cardEl.style.animation="none"; cardEl.style.transition="none";
+  });
+  cardEl.addEventListener("pointermove", e=>{
+    if(!dragging) return;
+    dx = e.clientX - sx; const dy = e.clientY - sy;
+    if(!moved){
+      if(Math.abs(dx)>8 && Math.abs(dx) > Math.abs(dy)+2){ moved=true; try{cardEl.setPointerCapture(pid);}catch(_){} }
+      else return;
+    }
+    e.preventDefault();
+    const vx = dx<0 ? dx*0.28 : dx;
+    cardEl.style.transform = `translateX(${vx}px)`;
+    if(behindEl) behindEl.style.opacity = Math.max(0, Math.min(vx/SW_THRESH, 1));
+  });
+  const end = ()=>{
+    if(!dragging) return; dragging=false;
+    cardEl.style.transition = "transform .25s ease";
+    if(dx > SW_THRESH){
+      cardEl.style.transform = "translateX(115%)";
+      if(behindEl) behindEl.style.opacity = 1;
+      setTimeout(()=> completeCard(c), 190);
+    } else {
+      cardEl.style.transform = "";
+      if(behindEl) behindEl.style.opacity = 0;
+    }
+    if(moved){ cardEl._sw = true; setTimeout(()=>{ cardEl._sw=false; }, 350); }
+  };
+  cardEl.addEventListener("pointerup", end);
+  cardEl.addEventListener("pointercancel", end);
+}
+function completeCard(c){
+  recordReview(c);                 // 復習済みとして記録（連続日数・件数に反映）
+  DISMISSED[cardId(c)] = dayKey(Date.now()); saveDismissed();
+  lastDismissed = { id: cardId(c), title: c.title };
+  showUndo(c.title);
+  renderFeed();
+}
+function showUndo(title){
+  const bar = $("undo-bar");
+  const short = title.length>16 ? title.slice(0,16)+"…" : title;
+  $("undo-text").textContent = `「${short}」を完了にしました`;
+  bar.classList.add("show");
+  clearTimeout(undoTimer);
+  undoTimer = setTimeout(()=> bar.classList.remove("show"), 4000);
+}
+$("undo-btn").onclick = ()=>{
+  if(!lastDismissed) return;
+  delete DISMISSED[lastDismissed.id]; saveDismissed();
+  lastDismissed = null;
+  $("undo-bar").classList.remove("show");
+  renderFeed();
+};
+
 function renderFeed(){
   renderGreeting();
   renderCatBar();
@@ -806,25 +910,29 @@ function renderFeed(){
   const rest = list.filter(c=>c!==hero);
   const m = CAT[hero.cat];
   const heroRv = REVIEWED[cardId(hero)];
-  heroSlot.innerHTML = `<div class="hero" id="hero-card">
+  heroSlot.innerHTML = `<div class="sw-wrap"><div class="sw-behind">✅ 完了！</div><div class="hero" id="hero-card">
     <div class="h-label">${m.icon} ${m.label}${hero.subject?" ・ "+esc(hero.subject):""}${heroRv?` &nbsp;<span class="h-done">✓ 復習済み</span>`:""}</div>
     <div class="h-title">${esc(hero.title)}</div>
     <div class="h-why">${esc(hero.why||"")}</div>
     <button class="h-go">${heroRv?"🔁 もう一度復習する":"▶ いますぐ復習する"}</button>
-  </div>`;
-  $("hero-card").onclick = ()=> launch(hero);
+  </div></div>`;
+  const heroEl = $("hero-card");
+  heroEl.onclick = ()=>{ if(heroEl._sw) return; launch(hero); };
+  attachSwipe(heroEl, heroEl.parentElement.querySelector(".sw-behind"), hero);
 
-  cardsEl.innerHTML = rest.map(cardHTML).join("");
-  // カードのクリック割り当て
+  cardsEl.innerHTML = rest.map(c=>`<div class="sw-wrap"><div class="sw-behind">✅ 完了！</div>${cardHTML(c)}</div>`).join("");
+  // カードのクリック割り当て＋スワイプ
   [...cardsEl.querySelectorAll(".card")].forEach((el,i)=>{
     const c = rest[i];
     const go = el.querySelector(".c-go");
+    attachSwipe(el, el.parentElement.querySelector(".sw-behind"), c);
     if(!(c.read && c.url)){
-      el.onclick = ()=> launch(c);
-      if(go && go.tagName==="BUTTON") go.onclick = (e)=>{ e.stopPropagation(); launch(c); };
+      el.onclick = ()=>{ if(el._sw) return; launch(c); };
+      if(go && go.tagName==="BUTTON") go.onclick = (e)=>{ e.stopPropagation(); if(el._sw) return; launch(c); };
     }
   });
-  $("cards-head").textContent = subjFilter ? `✨ ${subjFilter}の提案` : "✨ あなたへの提案";
+  $("cards-head").innerHTML = (subjFilter ? `✨ ${esc(subjFilter)}の提案` : "✨ あなたへの提案")
+    + `<div class="swipe-hint">👉 カードを右にスワイプすると「完了」して消えます</div>`;
   $("more-row").classList.remove("hidden");
 }
 

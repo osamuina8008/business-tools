@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-08-11T06:01:45+09:00",
+  "collected_at": "2026-08-11T06:04:40+09:00",
   "disclaimer": "公式サイト・新聞RSSから自動収集。取引先は公開情報ベースの推定。",
   "count": 63,
   "competitors": [
@@ -585,12 +585,19 @@
       "id": "2f820eff3e7c",
       "name": "株式会社東伸熱工(三重)",
       "area": "三重県・桑名市多度町",
-      "updated": "2026-08-11T05:59:31+09:00",
+      "updated": "2026-08-11T06:04:34+09:00",
       "scope": "plant",
       "profile": {
-        "official_name": "株式会社東伸熱工 三重工場"
+        "official_name": "株式会社東伸熱工 三重工場",
+        "capital": "9,000万円",
+        "employees": "321名(2026年5月1日現在)",
+        "founded": "1943年5月創業",
+        "address": "大阪府八尾市亀井町1丁目1番36号(本社事務所)",
+        "business": "金属製品の熱処理加工(本社・東大阪・小松・三重)",
+        "products": "大手ベアリング・建機・自動車・鉄鋼メーカー各社",
+        "note": "桑名市多度町(雰囲気・連続浸炭主力)"
       },
-      "scale_summary": "桑名市多度町/雰囲気専門・連続浸炭主力",
+      "scale_summary": "資本金9,000万円 / 従業員321名(2026.5) / 創業1943 / 4工場(八尾・東大阪・小松・三重)/桑名市多度町(雰囲気・連続浸炭主力)",
       "equipment": [
         {
           "name": "ローラーハース式連続浸炭焼入焼戻し炉",
@@ -683,7 +690,7 @@
           "spec": ""
         }
       ],
-      "equipment_summary": "連続浸炭14・連続無酸化6・フレームレスバッチ6・焼戻4",
+      "equipment_summary": "連続浸炭14・連続無酸化6・フレームレスバッチ6・焼戻4(公式)",
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
@@ -691,13 +698,13 @@
       "sources": [
         {
           "kind": "company",
-          "url": "https://toshin-nekko.co.jp/business/facility/",
-          "fetched_at": "2026-08-11T05:59:29+09:00"
+          "url": "https://toshin-nekko.co.jp/company/info/",
+          "fetched_at": "2026-08-11T06:04:32+09:00"
         },
         {
           "kind": "equipment",
           "url": "https://toshin-nekko.co.jp/business/facility/",
-          "fetched_at": "2026-08-11T05:59:29+09:00"
+          "fetched_at": "2026-08-11T06:04:33+09:00"
         }
       ],
       "errors": []
@@ -735,12 +742,19 @@
       "id": "29ff99f23971",
       "name": "株式会社東伸熱工(小松)",
       "area": "石川県・小松市工業団地",
-      "updated": "2026-08-11T05:59:36+09:00",
+      "updated": "2026-08-11T06:04:37+09:00",
       "scope": "plant",
       "profile": {
-        "official_name": "株式会社東伸熱工 小松工場"
+        "official_name": "株式会社東伸熱工 小松工場",
+        "capital": "9,000万円",
+        "employees": "321名(2026年5月1日現在)",
+        "founded": "1943年5月創業",
+        "address": "大阪府八尾市亀井町1丁目1番36号(本社事務所)",
+        "business": "金属製品の熱処理加工(本社・東大阪・小松・三重)",
+        "products": "大手ベアリング・建機・自動車・鉄鋼メーカー各社",
+        "note": "小松工業団地(雰囲気+素材調質)"
       },
-      "scale_summary": "小松工業団地/雰囲気+素材調質の2ライン体制",
+      "scale_summary": "資本金9,000万円 / 従業員321名(2026.5) / 創業1943 / 4工場(八尾・東大阪・小松・三重)/小松工業団地(雰囲気+素材調質)",
       "equipment": [
         {
           "name": "バッチ式焼戻し炉",
@@ -825,7 +839,7 @@
         {
           "name": "ピット型雰囲気炉",
           "count": 1,
-          "spec": ""
+          "spec": "φ3350"
         },
         {
           "name": "台車式無酸化焼戻し炉(口2300)",
@@ -848,7 +862,7 @@
           "spec": ""
         }
       ],
-      "equipment_summary": "連続焼入焼戻/浸炭・ピットφ3350・フレームレスバッチ5・焼戻多数",
+      "equipment_summary": "連続焼入焼戻/浸炭・ピットφ3350・フレームレスバッチ5・焼戻多数(公式)",
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
@@ -856,13 +870,13 @@
       "sources": [
         {
           "kind": "company",
-          "url": "https://toshin-nekko.co.jp/business/facility/",
-          "fetched_at": "2026-08-11T05:59:33+09:00"
+          "url": "https://toshin-nekko.co.jp/company/info/",
+          "fetched_at": "2026-08-11T06:04:35+09:00"
         },
         {
           "kind": "equipment",
           "url": "https://toshin-nekko.co.jp/business/facility/",
-          "fetched_at": "2026-08-11T05:59:34+09:00"
+          "fetched_at": "2026-08-11T06:04:36+09:00"
         }
       ],
       "errors": []
@@ -871,19 +885,36 @@
       "id": "60778aef615c",
       "name": "和宏精密株式会社",
       "area": "石川県・白山市",
-      "updated": "2026-08-11T05:59:38+09:00",
+      "updated": "2026-08-11T06:04:26+09:00",
       "scope": "plant",
       "profile": {
         "official_name": "和宏精密株式会社",
         "capital": "5,000万円",
-        "employees": "約30名",
+        "employees": "31名(2025年1月現在)",
         "founded": "1968年",
-        "address": "石川県白山市横江町274",
-        "business": "ガス浸炭・調質・高周波"
+        "address": "石川県白山市横江町274番地",
+        "business": "金属熱処理(ガス浸炭・焼戻し等)",
+        "products": "打江精機,月星製作所,津田駒,松浦機械 他"
       },
-      "scale_summary": "資本金5,000万円 / 従業員約27〜32名 / 設1968 / 白山市横江",
-      "equipment": [],
-      "equipment_summary": "ガス浸炭・素材調質・完品焼入(無酸化)・高周波焼入(コマツ等認定)",
+      "scale_summary": "資本金5,000万円 / 従業員31名(2025.1) / 設1968 / 白山市横江",
+      "equipment": [
+        {
+          "name": "大気焼戻し炉",
+          "count": 6,
+          "spec": "MAX 600×960×660"
+        },
+        {
+          "name": "バッチ式ガス浸炭炉(ガスバーナー)",
+          "count": 5,
+          "spec": "MAX 600×960×610"
+        },
+        {
+          "name": "バッチ式ガス浸炭炉(電気ヒーター)",
+          "count": 4,
+          "spec": "MAX 600×960×660"
+        }
+      ],
+      "equipment_summary": "バッチ式ガス浸炭9基(ガス5・電気4)・大気焼戻6基(公式保有設備)",
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
@@ -891,8 +922,18 @@
       "sources": [
         {
           "kind": "company",
+          "url": "http://www.wakou-seimitsu.co.jp/company.html",
+          "fetched_at": "2026-08-11T06:04:23+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "http://www.wakou-seimitsu.co.jp/facility.html",
+          "fetched_at": "2026-08-11T06:04:24+09:00"
+        },
+        {
+          "kind": "quality",
           "url": "http://www.wakou-seimitsu.co.jp/ecology.html",
-          "fetched_at": "2026-08-11T05:59:36+09:00"
+          "fetched_at": "2026-08-11T06:04:25+09:00"
         }
       ],
       "errors": []
@@ -901,16 +942,19 @@
       "id": "5a28dd1df463",
       "name": "株式会社東伸熱工(本社・八尾)",
       "area": "大阪府・八尾市",
-      "updated": "2026-08-11T05:59:41+09:00",
+      "updated": "2026-08-11T06:04:40+09:00",
       "scope": "plant",
       "profile": {
         "official_name": "株式会社東伸熱工 本社工場",
         "capital": "9,000万円",
-        "employees": "321名",
-        "founded": "1943年",
-        "address": "大阪府八尾市北亀井町1-5-33"
+        "employees": "321名(2026年5月1日現在)",
+        "founded": "1943年5月創業",
+        "address": "大阪府八尾市亀井町1丁目1番36号(本社事務所)",
+        "business": "金属製品の熱処理加工(本社・東大阪・小松・三重)",
+        "products": "大手ベアリング・建機・自動車・鉄鋼メーカー各社",
+        "note": "八尾本社工場(雰囲気専門)"
       },
-      "scale_summary": "資本金9,000万円 / 従業員321名(全社) / 創業1943 / 八尾本社工場",
+      "scale_summary": "資本金9,000万円 / 従業員321名(2026.5) / 創業1943 / 4工場(八尾・東大阪・小松・三重)/八尾本社工場(雰囲気専門)",
       "equipment": [
         {
           "name": "バッチ式焼戻し炉",
@@ -1003,38 +1047,21 @@
           "spec": ""
         }
       ],
-      "equipment_summary": "連続雰囲気焼入焼戻3・連続浸炭5・バッチ雰囲気焼入9・焼戻12",
+      "equipment_summary": "連続雰囲気焼入焼戻3・連続浸炭5・バッチ雰囲気焼入9・焼戻12(公式工場設備)",
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
-      "news": [
-        {
-          "title": "八尾市中小企業地域経済振興功績者顕彰|大阪府八尾市公式ホームページ",
-          "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOcHVZTTNfWFhndjV3blhXdkQ3eHFwdXV0MDEzZjA0ZjFPOEpFZEpkYVd1VlI5NkpiaW1ObF9jR0FoMDJfeWdrZTFmbnhrRmFKaUFRWUNXTC1zdVlGZnUwX2VWUmxjQWR0V05uR096NmgxWXRoRnBnRFUyeDFtTGVlMWdPa1AwNzdmdGVtV245ci0xYzA2YXZxNmdn?oc=5",
-          "source": "city.yao.osaka.jp",
-          "pub": "2026-06-01T16:00:00+09:00",
-          "query": "東伸熱工 八尾",
-          "clients": []
-        },
-        {
-          "title": "南海トラフに備え、工業団地に「車中避難所」三重・桑名市が4企業と協定",
-          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9nNFZZZGxWVW8zTmJtOFlLUUhMUmtFaXZwMFVJVU1sVW1QSG1ES0pSYlF6Q213N2FmZnhHQWhlVFVfNE1LemhESWxwcS10REoxWERmMXhUaDFDejFRaG5WQXRKOXNFUXBQRm9VN1V3SExFSUlYUlE?oc=5",
-          "source": "産経ニュース",
-          "pub": "2024-08-21T16:00:00+09:00",
-          "query": "東伸熱工 八尾",
-          "clients": []
-        }
-      ],
+      "news": [],
       "sources": [
         {
           "kind": "company",
           "url": "https://toshin-nekko.co.jp/company/info/",
-          "fetched_at": "2026-08-11T05:59:38+09:00"
+          "fetched_at": "2026-08-11T06:04:37+09:00"
         },
         {
           "kind": "equipment",
           "url": "https://toshin-nekko.co.jp/business/facility/",
-          "fetched_at": "2026-08-11T05:59:39+09:00"
+          "fetched_at": "2026-08-11T06:04:38+09:00"
         }
       ],
       "errors": []
@@ -1081,18 +1108,35 @@
       "id": "550ca068b7e8",
       "name": "八田工業株式会社",
       "area": "大阪府・堺市中区",
-      "updated": "2026-08-11T05:59:46+09:00",
+      "updated": "2026-08-11T06:04:31+09:00",
       "scope": "plant",
       "profile": {
         "official_name": "八田工業株式会社",
         "capital": "1,000万円",
         "founded": "昭和54年5月21日",
         "address": "〒599-8265 大阪府堺市中区八田西町2丁18番40号",
-        "business": "金属熱処理加工(真空焼入れ、真空熱圧着、真空ろう付等)"
+        "business": "金属熱処理加工(真空焼入れ、真空熱圧着、真空ろう付等)",
+        "products": "日立建機ティエラ浸炭技術A級認定等"
       },
-      "scale_summary": "資本金1,000万円 / 設昭和54年 / 堺市中区・24時間対応",
-      "equipment": [],
-      "equipment_summary": "真空熱処理・イオン窒化・ガス浸炭/浸炭窒化・光輝・サブゼロ・プレステンパー",
+      "scale_summary": "資本金1,000万円 / 設昭和54年5月 / 堺市中区・本社+第2工場 / 24時間稼動・ISO9001/14001",
+      "equipment": [
+        {
+          "name": "真空熱処理炉",
+          "count": 6,
+          "spec": "V-1〜V-8(50〜800kg GROSS)"
+        },
+        {
+          "name": "テンパー炉",
+          "count": 5,
+          "spec": ""
+        },
+        {
+          "name": "ガス浸炭窒化炉",
+          "count": 4,
+          "spec": "C-1ピット・C-6/7/8バッチ"
+        }
+      ],
+      "equipment_summary": "真空熱処理炉6基・イオン窒化2基・ガス浸炭窒化炉4基・テンパー5・サブゼロ3(公式設備)",
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
@@ -1117,13 +1161,23 @@
       "sources": [
         {
           "kind": "company",
-          "url": "https://www.hatta.co.jp/",
-          "fetched_at": "2026-08-11T05:59:43+09:00"
+          "url": "https://www.hatta.co.jp/company/",
+          "fetched_at": "2026-08-11T06:04:27+09:00"
         },
         {
-          "kind": "outline",
-          "url": "https://hatta-kogyo.com/company/outline/",
-          "fetched_at": "2026-08-11T05:59:44+09:00"
+          "kind": "equipment",
+          "url": "https://www.hatta.co.jp/heat/shinku.html",
+          "fetched_at": "2026-08-11T06:04:28+09:00"
+        },
+        {
+          "kind": "equipment_ion",
+          "url": "https://www.hatta.co.jp/heat/ion.html",
+          "fetched_at": "2026-08-11T06:04:29+09:00"
+        },
+        {
+          "kind": "equipment_other",
+          "url": "https://www.hatta.co.jp/heat/other.html",
+          "fetched_at": "2026-08-11T06:04:30+09:00"
         }
       ],
       "errors": []

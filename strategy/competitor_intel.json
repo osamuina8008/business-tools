@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-08-10T21:08:15+09:00",
+  "collected_at": "2026-08-10T21:09:32+09:00",
   "disclaimer": "公式サイト・新聞RSSから自動収集。取引先は公開情報ベースの推定。",
   "count": 24,
   "competitors": [
@@ -706,7 +706,7 @@
       "id": "ecbfa24fc88c",
       "name": "TONEZ(高砂・加西)",
       "area": "兵庫県・高砂・加西",
-      "updated": "2026-08-10T21:07:00+09:00",
+      "updated": "2026-08-10T21:08:40+09:00",
       "scope": "plant",
       "profile": {
         "official_name": "株式会社TONEZ",
@@ -752,7 +752,32 @@
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://tonez.co.jp/",
+          "fetched_at": "2026-08-10T21:08:38+09:00",
+          "error": "HTTPSConnectionPool(host='tonez.co.jp', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SS"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.tonez.co.jp/equipments/kasai",
+          "fetched_at": "2026-08-10T21:08:38+09:00",
+          "error": "HTTPSConnectionPool(host='www.tonez.co.jp', port=443): Max retries exceeded with url: /equipments/kasai (Caused by SSLEr"
+        },
+        {
+          "kind": "equipment_takasago1",
+          "url": "https://www.tonez.co.jp/equipments/takasago-1",
+          "fetched_at": "2026-08-10T21:08:38+09:00",
+          "error": "HTTPSConnectionPool(host='www.tonez.co.jp', port=443): Max retries exceeded with url: /equipments/takasago-1 (Caused by "
+        },
+        {
+          "kind": "equipment_takasago2",
+          "url": "https://www.tonez.co.jp/equipments/takasago-2",
+          "fetched_at": "2026-08-10T21:08:38+09:00",
+          "error": "HTTPSConnectionPool(host='www.tonez.co.jp', port=443): Max retries exceeded with url: /equipments/takasago-2 (Caused by "
+        }
+      ],
       "errors": [
         "company:HTTPSConnectionPool(host='tonez.co.jp', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:1081)')))",
         "equipment:HTTPSConnectionPool(host='www.tonez.co.jp', port=443): Max retries exceeded with url: /equipments/kasai (Caused by SSLError(SSLError(1, '[SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:1081)')))",
@@ -1086,7 +1111,7 @@
       "id": "100165a92540",
       "name": "協伸熱処理(富山)",
       "area": "富山県・富山市",
-      "updated": "2026-08-10T21:08:09+09:00",
+      "updated": "2026-08-10T21:09:32+09:00",
       "scope": "plant",
       "profile": {
         "official_name": "協伸熱処理工業株式会社",
@@ -1139,7 +1164,20 @@
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "http://ww2.ctt.ne.jp/~kyoshin/company.html",
+          "fetched_at": "2026-08-10T21:09:05+09:00",
+          "error": "HTTPConnectionPool(host='ww2.ctt.ne.jp', port=80): Read timed out. (read timeout=25)"
+        },
+        {
+          "kind": "equipment",
+          "url": "http://ww2.ctt.ne.jp/~kyoshin/facility.html",
+          "fetched_at": "2026-08-10T21:09:30+09:00",
+          "error": "HTTPConnectionPool(host='ww2.ctt.ne.jp', port=80): Read timed out. (read timeout=25)"
+        }
+      ],
       "errors": [
         "company:HTTPConnectionPool(host='ww2.ctt.ne.jp', port=80): Read timed out. (read timeout=25)",
         "equipment:HTTPConnectionPool(host='ww2.ctt.ne.jp', port=80): Read timed out. (read timeout=25)"

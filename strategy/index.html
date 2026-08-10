@@ -10,12 +10,13 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic UI', sans-serif; }
-    #map { height: 420px; width: 100%; border-radius: 1rem; }
+    #map { height: 440px; width: 100%; border-radius: 1rem; }
     .leaflet-container { font: inherit; }
     .pin-legend span { display: inline-flex; align-items: center; gap: 6px; }
     .dot { width: 10px; height: 10px; border-radius: 999px; display: inline-block; }
     .fade-in { animation: fadeIn .35s ease; }
     @keyframes fadeIn { from { opacity:0; transform:translateY(6px);} to { opacity:1; transform:none;} }
+    #detail-panel { max-height: 420px; overflow: auto; }
   </style>
 </head>
 <body class="bg-slate-50 min-h-screen">
@@ -27,7 +28,7 @@
         <span class="text-slate-300">|</span>
         <div>
           <h1 class="text-lg font-bold text-slate-800">戦略と戦術</h1>
-          <p class="text-xs text-slate-400">テリトリー見える化・攻略マップ</p>
+          <p class="text-xs text-slate-400">Excel/CSV管理 → 地図表示（DB化前提）</p>
         </div>
       </div>
       <div class="flex items-center gap-2">
@@ -44,7 +45,12 @@
       聞き取り・推測ベース。訪問判断は人が行う。
     </p>
 
-    <!-- 地図 -->
+    <p class="text-xs text-slate-600 bg-white border border-slate-200 rounded-xl px-3 py-2">
+      正本は <code class="bg-slate-100 px-1 rounded">strategy_master.xlsx</code>（企業・競合・攻めどころ・訪問・Eight名刺）。
+      確認用CSVも同フォルダに出力されます。Eightの名刺CSVはあとから取り込み可能です。
+    </p>
+
+    <!-- 地図 + 詳細 -->
     <section class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 md:p-5 fade-in">
       <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
         <h2 class="font-bold text-slate-800">攻略マップ</h2>
@@ -52,15 +58,38 @@
           <span><i class="dot" style="background:#ea580c"></i>攻めどころ</span>
           <span><i class="dot" style="background:#7c3aed"></i>競合隣接</span>
           <span><i class="dot" style="background:#2563eb"></i>ターゲット</span>
+          <span><i class="dot" style="background:#0d9488"></i>訪問・開拓先</span>
+          <span><i class="dot" style="background:#db2777"></i>Eight名刺</span>
           <span><i class="dot" style="background:#94a3b8"></i>未進出</span>
         </div>
       </div>
-      <div id="map" class="border border-slate-200"></div>
-      <p class="text-xs text-slate-400 mt-2">ピンをクリックすると内容が出ます。位置は市区町村の概ねの中心です。</p>
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-4">
+        <div class="lg:col-span-3">
+          <div id="map" class="border border-slate-200"></div>
+          <p class="text-xs text-slate-400 mt-2">ピンをクリック → 右に過去メモ・提案。座標未確定は県の概位です。</p>
+        </div>
+        <div class="lg:col-span-2">
+          <div id="detail-panel" class="rounded-xl border border-slate-200 bg-slate-50 p-4 min-h-[200px]">
+            <p class="text-sm text-slate-400">地図のピン、または下の一覧を選ぶと詳細が出ます。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 訪問・開拓一覧 -->
+    <section class="bg-white rounded-2xl border border-teal-100 shadow-sm p-5 fade-in">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+        <h2 class="font-bold text-teal-900">訪問・開拓先（Excel由来）</h2>
+        <div class="flex items-center gap-2">
+          <input id="company-filter" type="search" placeholder="会社名・業種で絞り込み"
+            class="text-sm border border-slate-200 rounded-lg px-3 py-1.5 w-48 md:w-64" />
+          <span id="visit-meta" class="text-xs text-slate-400"></span>
+        </div>
+      </div>
+      <div id="company-list" class="grid grid-cols-1 md:grid-cols-2 gap-2 max-h-80 overflow-auto"></div>
     </section>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
-      <!-- 戦略 -->
       <section class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 fade-in">
         <h2 id="strategy-title" class="font-bold text-slate-800 mb-3">戦略</h2>
         <ul id="strategy-points" class="space-y-2 text-sm text-slate-700 list-disc pl-5"></ul>
@@ -69,8 +98,6 @@
           <p id="coverage-summary" class="text-sm text-slate-800"></p>
         </div>
       </section>
-
-      <!-- 戦術 -->
       <section class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 fade-in">
         <h2 id="tactics-title" class="font-bold text-slate-800 mb-3">戦術</h2>
         <ul id="tactics-points" class="space-y-2 text-sm text-slate-700 list-disc pl-5"></ul>
@@ -88,7 +115,6 @@
       </section>
     </div>
 
-    <!-- 戦術インテリジェンス：新聞の種 -->
     <section class="bg-white rounded-2xl border border-rose-100 shadow-sm p-5">
       <div class="flex items-center justify-between gap-2 mb-3">
         <h2 class="font-bold text-rose-800">戦術インテリジェンス（新聞の種）</h2>
@@ -117,12 +143,16 @@ const COLORS = {
   attack: '#ea580c',
   competitor: '#7c3aed',
   target: '#2563eb',
+  visit: '#0d9488',
+  eight: '#db2777',
   not_yet: '#94a3b8',
 };
 
 let territory = null;
+let visits = null;
 let map = null;
 let briefText = '';
+let companyById = {};
 
 function esc(s) {
   return String(s || '')
@@ -141,7 +171,8 @@ function circleIcon(color) {
 
 function renderLists(data) {
   document.getElementById('disclaimer').textContent = data.disclaimer || '';
-  document.getElementById('updated').textContent = data.updated ? `更新: ${data.updated}` : '';
+  const src = data.source ? ` / 正本: ${data.source}` : '';
+  document.getElementById('updated').textContent = data.updated ? `更新: ${data.updated}${src}` : '';
   document.getElementById('strategy-title').textContent = data.strategy?.title || '戦略';
   document.getElementById('tactics-title').textContent = data.tactics?.title || '戦術';
   document.getElementById('strategy-points').innerHTML =
@@ -169,7 +200,55 @@ function renderLists(data) {
       </button>`).join('');
 }
 
-function buildMap(data) {
+function showCompany(id) {
+  const c = companyById[id];
+  const el = document.getElementById('detail-panel');
+  if (!c) {
+    el.innerHTML = '<p class="text-sm text-slate-400">データなし</p>';
+    return;
+  }
+  if (c.lat != null && c.lng != null) focusPin(c.lat, c.lng, 12);
+  const reports = (c.reports || []).slice().reverse();
+  const people = c.eight_people || [];
+  el.innerHTML = `
+    <p class="text-xs font-bold text-teal-700 mb-1">${esc(c.marker === 'eight' ? 'Eight名刺' : '訪問・開拓')}</p>
+    <h3 class="text-base font-bold text-slate-900">${esc(c.name)}</h3>
+    <p class="text-xs text-slate-500 mt-1">${esc([c.prefecture, c.address].filter(Boolean).join(' '))}</p>
+    <p class="text-xs text-slate-500">${esc([c.industry, c.rank, c.heat_vendor].filter(Boolean).join(' · '))}</p>
+    ${c.proposal ? `<div class="mt-3 p-2 rounded-lg bg-amber-50 border border-amber-100 text-xs text-amber-900"><span class="font-bold">提案:</span> ${esc(c.proposal)}</div>` : ''}
+    ${c.note ? `<p class="text-xs text-slate-600 mt-2">メモ: ${esc(c.note)}</p>` : ''}
+    ${people.length ? `<div class="mt-3"><p class="text-xs font-bold text-pink-700 mb-1">名刺接点</p>
+      ${people.map(p => `<p class="text-xs text-slate-700">· ${esc(p.name||'')} ${esc(p.title||'')} ${esc(p.department||'')}</p>`).join('')}
+    </div>` : ''}
+    <div class="mt-3">
+      <p class="text-xs font-bold text-slate-600 mb-1">過去の営業記録 (${reports.length})</p>
+      ${reports.length ? reports.map(r => `
+        <div class="mb-2 p-2 rounded-lg bg-white border border-slate-200">
+          <p class="text-xs font-semibold text-slate-800">${esc(r.date || '日付なし')} · ${esc(r.title || '')}</p>
+          ${r.summary ? `<p class="text-xs text-teal-800 mt-1">${esc(r.summary)}</p>` : ''}
+          <p class="text-xs text-slate-600 mt-1 whitespace-pre-wrap">${esc(r.body || '')}</p>
+        </div>`).join('') : '<p class="text-xs text-slate-400">記録なし（Excelの visits シートに追加可）</p>'}
+    </div>`;
+}
+
+function renderCompanyList(filter = '') {
+  const q = filter.trim().toLowerCase();
+  const list = (visits?.companies || []).filter(c => {
+    if (!q) return true;
+    const hay = [c.name, c.industry, c.address, c.rank, c.proposal].join(' ').toLowerCase();
+    return hay.includes(q);
+  });
+  document.getElementById('visit-meta').textContent = `${list.length} / ${(visits?.companies || []).length}社`;
+  document.getElementById('company-list').innerHTML = list.map(c => `
+    <button type="button" onclick="showCompany('${esc(c.id)}')"
+      class="text-left rounded-xl border border-teal-100 bg-teal-50/40 hover:bg-teal-50 p-3 transition">
+      <p class="text-sm font-bold text-slate-800">${esc(c.name)}</p>
+      <p class="text-xs text-slate-500 mt-0.5">${esc([c.prefecture, c.rank, c.marker].filter(Boolean).join(' · '))}</p>
+      ${c.proposal ? `<p class="text-xs text-amber-800 mt-1 line-clamp-2">${esc(c.proposal)}</p>` : ''}
+    </button>`).join('') || '<p class="text-sm text-slate-400">該当なし。マスターExcelを build してください。</p>';
+}
+
+function buildMap(data, visitData) {
   const center = data.map?.center || [35, 136.5];
   const zoom = data.map?.zoom || 7;
   map = L.map('map', { scrollWheelZoom: false }).setView(center, zoom);
@@ -206,18 +285,27 @@ function buildMap(data) {
       .bindPopup(`<strong>${esc(n.area)}</strong><br>${esc(n.note || '未進出')}`);
   });
 
+  (visitData?.companies || []).forEach(c => {
+    if (c.lat == null || c.lng == null) return;
+    bounds.push([c.lat, c.lng]);
+    const color = c.marker === 'eight' ? COLORS.eight : COLORS.visit;
+    const m = L.marker([c.lat, c.lng], { icon: circleIcon(color) }).addTo(map);
+    m.bindPopup(`<strong>${esc(c.name)}</strong><br>${esc(c.proposal || c.address || '')}<br><button type="button" onclick="showCompany('${esc(c.id)}')" style="margin-top:6px;font-size:12px;color:#0f766e;font-weight:700">詳細を開く</button>`);
+    m.on('click', () => showCompany(c.id));
+  });
+
   if (bounds.length >= 2) {
     map.fitBounds(bounds, { padding: [28, 28] });
   }
   setTimeout(() => map.invalidateSize(), 100);
 }
 
-function focusPin(lat, lng) {
+function focusPin(lat, lng, z = 11) {
   if (!map || lat == null || lng == null) return;
-  map.setView([lat, lng], 11, { animate: true });
+  map.setView([lat, lng], z, { animate: true });
 }
 
-function buildBrief(data, seeds) {
+function buildBrief(data, seeds, visitData) {
   const lines = [];
   lines.push(`【戦略と戦術】${data.updated || ''}`);
   lines.push(data.coverage?.summary || '');
@@ -233,6 +321,12 @@ function buildBrief(data, seeds) {
   lines.push('');
   lines.push('■競合隣接・ターゲット');
   (data.competitor_adjacent_targets || []).forEach(c => lines.push(`・${c.name}: ${c.note || c.area || ''}`));
+  const top = (visitData?.companies || []).filter(c => (c.rank || '').includes('A')).slice(0, 8);
+  if (top.length) {
+    lines.push('');
+    lines.push('■優先開拓（ランクA）');
+    top.forEach(c => lines.push(`・${c.name}: ${c.proposal || ''}`));
+  }
   if (seeds?.length) {
     lines.push('');
     lines.push('■新聞の種（上位）');
@@ -264,7 +358,7 @@ async function loadSeeds() {
       ? `収集: ${String(payload.collected_at).slice(0, 16).replace('T', ' ')}`
       : '';
     if (!seeds.length) {
-      el.innerHTML = '<p class="text-sm text-slate-400">種がありません。業界ボードの探知、または heat_treatment_radar.py を実行してください。</p>';
+      el.innerHTML = '<p class="text-sm text-slate-400">種がありません。</p>';
       return seeds;
     }
     el.innerHTML = seeds.slice(0, 8).map(s => {
@@ -279,19 +373,26 @@ async function loadSeeds() {
     }).join('');
     return seeds;
   } catch {
-    el.innerHTML = '<p class="text-sm text-slate-400">種ファイルを読めませんでした（未収集の可能性）</p>';
+    el.innerHTML = '<p class="text-sm text-slate-400">種ファイルを読めませんでした</p>';
     return [];
   }
 }
 
 async function main() {
-  const res = await fetch('../news/territory_strategy.json?v=' + Date.now());
-  if (!res.ok) throw new Error('territory load failed');
-  territory = await res.json();
+  const [tRes, vRes] = await Promise.all([
+    fetch('../news/territory_strategy.json?v=' + Date.now()),
+    fetch('./visit_reports.json?v=' + Date.now()),
+  ]);
+  if (!tRes.ok) throw new Error('territory load failed');
+  territory = await tRes.json();
+  visits = vRes.ok ? await vRes.json() : { companies: [] };
+  companyById = Object.fromEntries((visits.companies || []).map(c => [c.id, c]));
   renderLists(territory);
-  buildMap(territory);
+  buildMap(territory, visits);
+  renderCompanyList();
+  document.getElementById('company-filter').addEventListener('input', (e) => renderCompanyList(e.target.value));
   const seeds = await loadSeeds();
-  buildBrief(territory, seeds);
+  buildBrief(territory, seeds, visits);
 }
 
 main().catch(err => {

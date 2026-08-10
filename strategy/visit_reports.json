@@ -1,0 +1,2219 @@
+{
+  "version": 2,
+  "updated": "2026-08-10T15:20:31+09:00",
+  "disclaimer": "strategy_master.xlsx 由来。提案は仮説。",
+  "source": "strategy_master.xlsx",
+  "count": 85,
+  "companies": [
+    {
+      "id": "fb42a9a5cca7",
+      "name": "(株)ヒガシヤマ",
+      "address": "金沢市福増町南41-6",
+      "prefecture": "石川県",
+      "lat": 36.6404,
+      "lng": 136.6816,
+      "industry": "建設機械、測定機械、ロボット部品、他",
+      "rank": "ランクA",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "優先度高（ランクA）／現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "ランクA / 業種:建設機械、測定機械、ロボット部品、他 / 取引先:コマツ、スギノマシン、安川電機、他 / 熱処理/規模:42名 / 担当:東山",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "7a0bd1dcd11d",
+      "name": "(株)東振精機",
+      "address": "能美市寺井町ハ18番地",
+      "prefecture": "石川県",
+      "lat": 36.6064,
+      "lng": 136.6256,
+      "industry": "精密ピン、シャフト類",
+      "rank": "ランクA",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "優先度高（ランクA）／現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクA / 業種:精密ピン、シャフト類 / 取引先:国内大手ベアリングメーカー / 担当:桶",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "624d975e05bb",
+      "name": "土肥研磨工業(株)",
+      "address": "白山市横江町1477番地",
+      "prefecture": "石川県",
+      "lat": 36.6604,
+      "lng": 136.5476,
+      "industry": "立体駐車場、搬送機械",
+      "rank": "ランクA",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "優先度高（ランクA）／現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "ランクA / 業種:立体駐車場、搬送機械 / 取引先:ヤンマー建機、キャタビラジャパン、他 / 熱処理/規模:174名 / 担当:山下",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "d65935423c2f",
+      "name": "松本機械工業(株)",
+      "address": "金沢市示野町二80番地",
+      "prefecture": "石川県",
+      "lat": 36.6544,
+      "lng": 136.5916,
+      "industry": "システム、工作機械周辺機器",
+      "rank": "ランクA",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "優先度高（ランクA）／現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクA / 業種:システム、工作機械周辺機器 / 取引先:主要工作機械メーカー各社 / 熱処理/規模:82名 / 担当:桑本",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "715f2ffed73c",
+      "name": "(株)サンエー精機",
+      "address": "かほく市遠塚口27",
+      "prefecture": "石川県",
+      "lat": 36.6104,
+      "lng": 136.7016,
+      "industry": "半導体製造装置部品",
+      "rank": "ランクB",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "優先度中（ランクB）／現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクB / 業種:半導体製造装置部品 / 取引先:阪神動力、牧野フライス、森精機 / 熱処理/規模:44名 / 担当:金子",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "5f062aae5f3f",
+      "name": "(株)ナカシマ鉄工所",
+      "address": "能美市栗生町オ48番地1",
+      "prefecture": "石川県",
+      "lat": 36.6644,
+      "lng": 136.5836,
+      "industry": "産業機械部品",
+      "rank": "ランクB",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "優先度中（ランクB）／現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "ランクB / 業種:産業機械部品 / 取引先:光陽精機、板尾鉄工所、津南油圧 / 熱処理/規模:21名 / 担当:中嶋",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "c3787dc493d1",
+      "name": "(株)中川鉄工所",
+      "address": "白山市倉部町2024番地",
+      "prefecture": "石川県",
+      "lat": 36.6884,
+      "lng": 136.5496,
+      "industry": "大型部品の加工、産業機械、他",
+      "rank": "ランクB",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "優先度中（ランクB）／現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "ランクB / 業種:大型部品の加工、産業機械、他 / 取引先:かもめプロペラ(株)、神戸製鋼所、他 / 熱処理/規模:28名 / 担当:小新",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "37271bb2b4c0",
+      "name": "(株)共和工業",
+      "address": "小松市工業団地1丁目57番地",
+      "prefecture": "石川県",
+      "lat": 36.5184,
+      "lng": 136.6276,
+      "industry": "産業機械ボルト、建設機械用各種ボルト",
+      "rank": "ランクB",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "優先度中（ランクB）／現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "ランクB / 業種:産業機械ボルト、建設機械用各種ボルト / 取引先:古河ロックドリル、住友建機クレーン / 熱処理/規模:275名",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "0f3bf393f436",
+      "name": "(株)北研精機",
+      "address": "小松市本江町乙23",
+      "prefecture": "石川県",
+      "lat": 36.5864,
+      "lng": 136.6276,
+      "industry": "環境関連機械、輸送機械、他",
+      "rank": "ランクB",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "優先度中（ランクB）／現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "ランクB / 業種:環境関連機械、輸送機械、他 / 取引先:高松機械、津田駒工業、明治機械、他 / 熱処理/規模:20名 / 担当:北市",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "383b27f51c7b",
+      "name": "(株)多川製作所",
+      "address": "かほく市横山レ100-1",
+      "prefecture": "石川県",
+      "lat": 36.6184,
+      "lng": 136.5936,
+      "industry": "工作機械部品、半導体製造装置部品",
+      "rank": "ランクB",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "優先度中（ランクB）／現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "ランクB / 業種:工作機械部品、半導体製造装置部品 / 取引先:津田駒工業、ツガミ、ダイハツディーゼル / 熱処理/規模:32名 / 担当:多川",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "2204538f0efc",
+      "name": "(株)大徳鉄工",
+      "address": "河北郡津幡町字旭山21-1",
+      "prefecture": "石川県",
+      "lat": 36.5064,
+      "lng": 136.5496,
+      "industry": "ジェットエンジン部品、鍛圧機械部品",
+      "rank": "ランクB",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "優先度中（ランクB）／現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "ランクB / 業種:ジェットエンジン部品、鍛圧機械部品 / 取引先:東芝、コマツ、鈴木鉄工、大同 / 熱処理/規模:24名 / 担当:林",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "76153a9e06a5",
+      "name": "(株)米沢鉄工所",
+      "address": "白山市横江町1726-7",
+      "prefecture": "石川県",
+      "lat": 36.5424,
+      "lng": 136.6296,
+      "industry": "産業機械部品",
+      "rank": "ランクB",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "優先度中（ランクB）／現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "ランクB / 業種:産業機械部品 / 取引先:渋谷工業(株)、(株)石川製作所 / 熱処理/規模:13名",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "1393bc2a61ee",
+      "name": "(株)近江工業所",
+      "address": "小松市上小松町丙95-1",
+      "prefecture": "石川県",
+      "lat": 36.5124,
+      "lng": 136.5956,
+      "industry": "シャフト、ボルト、ナット、ブロック",
+      "rank": "ランクB",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "優先度中（ランクB）／現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクB / 業種:シャフト、ボルト、ナット、ブロック / 取引先:中村留精密工業、オークマ / 熱処理/規模:20名 / 担当:米田",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "e30d64f8b5cd",
+      "name": "(株)香林鉄工所",
+      "address": "かほく市高松ケ36-3",
+      "prefecture": "石川県",
+      "lat": 36.5444,
+      "lng": 136.5316,
+      "industry": "船舶部品",
+      "rank": "ランクB",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "優先度中（ランクB）／現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクB / 業種:船舶部品 / 取引先:ハウメットジャパン(株) / 熱処理/規模:15名 / 担当:香林千恵美",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "d9f8c7f2a5d5",
+      "name": "カネノ精密工業(株)",
+      "address": "小松市長谷町エ1-1番地",
+      "prefecture": "石川県",
+      "lat": 36.6844,
+      "lng": 136.6876,
+      "industry": "アダプタ、マニホールド、ヨーク",
+      "rank": "ランクB",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "優先度中（ランクB）／現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクB / 業種:アダプタ、マニホールド、ヨーク / 取引先:都築製作所、住友建機、加賀産業 / 熱処理/規模:31名 / 担当:釣川",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "14c7dc0835e7",
+      "name": "コマツキカイ(株)",
+      "address": "小松市向本折町イ135番地 中央工場",
+      "prefecture": "石川県",
+      "lat": 36.5084,
+      "lng": 136.5996,
+      "industry": "輸送機械、産業機械部品",
+      "rank": "ランクB",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "優先度中（ランクB）／現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクB / 業種:輸送機械、産業機械部品 / 取引先:古河機械金属、日立建機、住重機械 / 熱処理/規模:86名 / 担当:岡本",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "a9457edf2cf0",
+      "name": "東邦工業(株)",
+      "address": "河北郡津幡町東荒屋イ41-1",
+      "prefecture": "石川県",
+      "lat": 36.6144,
+      "lng": 136.5616,
+      "industry": "検査装置、搬送装置の製造販売",
+      "rank": "ランクB",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "優先度中（ランクB）／現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクB / 業種:検査装置、搬送装置の製造販売 / 取引先:国内外の自動車部品製造会社 / 熱処理/規模:32名 / 担当:桶",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "a933d2830ced",
+      "name": "(有)出井",
+      "address": "金沢市専光寺町タ33",
+      "prefecture": "石川県",
+      "lat": 36.5344,
+      "lng": 136.6956,
+      "industry": "小物ピン、ワッシャー",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクC / 業種:小物ピン、ワッシャー / 取引先:シメックス工業、医師の製作所 / 熱処理/規模:17名 / 担当:井出",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "464df02ebc51",
+      "name": "(有)平野鉄工所",
+      "address": "金沢市福増町北736番地",
+      "prefecture": "石川県",
+      "lat": 36.5464,
+      "lng": 136.7036,
+      "industry": "ドリルマシン、繊維機械部品、他",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "ランクC / 業種:ドリルマシン、繊維機械部品、他 / 取引先:シブヤマシナリー(株)、(株)島製作所、他 / 熱処理/規模:5名 / 担当:平野",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "99d3fb52b955",
+      "name": "(有)旭鉄工所",
+      "address": "かほく市高松ミ10-4",
+      "prefecture": "石川県",
+      "lat": 36.5764,
+      "lng": 136.5936,
+      "industry": "上下水道関係部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクC / 業種:上下水道関係部品 / 取引先:住友重機械、梶鋳工書 / 熱処理/規模:4名 / 担当:岡田",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "d03369ae728e",
+      "name": "(有)森本精機",
+      "address": "白山市平加町へ81-1",
+      "prefecture": "石川県",
+      "lat": 36.6384,
+      "lng": 136.7096,
+      "industry": "自動車ライン部品、工作機械部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "ランクC / 業種:自動車ライン部品、工作機械部品 / 取引先:オークマ(株)、中村留精密工業(株)、他 / 熱処理/規模:9名",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "8afdbb6577ae",
+      "name": "(有)茶谷鉄工所",
+      "address": "白山市旭岳3-7",
+      "prefecture": "石川県",
+      "lat": 36.5884,
+      "lng": 136.5876,
+      "industry": "特殊カム、ウォーム減速機",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "ランクC / 業種:特殊カム、ウォーム減速機 / 取引先:マテハン機器メーカー / 熱処理/規模:24名 / 担当:茶谷",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "530a49b7217c",
+      "name": "(株)イソヤ",
+      "address": "小松市金平町三笠4番地",
+      "prefecture": "石川県",
+      "lat": 36.5564,
+      "lng": 136.7176,
+      "industry": "産業機械部品、建設機械部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクC / 業種:産業機械部品、建設機械部品 / 取引先:高松機械工業(株)(株)創研 / 熱処理/規模:16名 / 担当:岡田",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "a78195a42403",
+      "name": "(株)カワコー",
+      "address": "小松市工業団地1丁目87番地",
+      "prefecture": "石川県",
+      "lat": 36.4964,
+      "lng": 136.6396,
+      "industry": "建設機械部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクC / 業種:建設機械部品 / 取引先:日本製鋼所、神鋼造機、トクデン(株) / 熱処理/規模:15名 / 担当:当川",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "8751407e0bbe",
+      "name": "(株)ミモト",
+      "address": "白山市旭丘1丁目13番地",
+      "prefecture": "石川県",
+      "lat": 36.6824,
+      "lng": 136.6796,
+      "industry": "農業機械部品、酒造機械部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "ランクC / 業種:農業機械部品、酒造機械部品 / 取引先:ヤンマー(株)、(株)クボタ、渋谷工業(株) / 熱処理/規模:75名",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "352af0bb13ee",
+      "name": "(株)ヨシダセイコー",
+      "address": "河北郡津幡町旭山8番地",
+      "prefecture": "石川県",
+      "lat": 36.6484,
+      "lng": 136.5936,
+      "industry": "農機具部品、紡績部品、油圧、空圧部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "ランクC / 業種:農機具部品、紡績部品、油圧、空圧部品 / 取引先:(株)ミスミ、協同組合ユー・エス・ジー / 熱処理/規模:44名",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "7faedcdcc5ce",
+      "name": "(株)三洋精機",
+      "address": "加賀市黒崎町あ19番地4",
+      "prefecture": "石川県",
+      "lat": 36.6544,
+      "lng": 136.5576,
+      "industry": "油圧機器部品、産業機械部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクC / 業種:油圧機器部品、産業機械部品 / 取引先:半導体製造装置、産業機械メーカー / 熱処理/規模:28名 / 担当:彦野",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "87d8dcc64da9",
+      "name": "(株)丸開鉄工",
+      "address": "小松市工業団地1丁目86",
+      "prefecture": "石川県",
+      "lat": 36.5084,
+      "lng": 136.5256,
+      "industry": "油圧部品、産業機械部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "ランクC / 業種:油圧部品、産業機械部品 / 取引先:コマツ関連企業 / 熱処理/規模:15名 / 担当:丸開",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "a3a05b6dd0c2",
+      "name": "(株)二羽歯切",
+      "address": "金沢市長田本町チ16番地",
+      "prefecture": "石川県",
+      "lat": 36.5504,
+      "lng": 136.7236,
+      "industry": "フォーム、インターナルギヤ、特殊歯車",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "ランクC / 業種:フォーム、インターナルギヤ、特殊歯車 / 取引先:ティッセンクルップローテエルデジャパン(株) / 熱処理/規模:8名 / 担当:二羽",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "207475a15755",
+      "name": "(株)北島金属",
+      "address": "小松市島田町リ34",
+      "prefecture": "石川県",
+      "lat": 36.6244,
+      "lng": 136.5576,
+      "industry": "減速機械部品、耐火耐焔鋼の素材",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "ランクC / 業種:減速機械部品、耐火耐焔鋼の素材 / 取引先:(株)富士精工 / 熱処理/規模:7名",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "5461e2d91f49",
+      "name": "(株)千代製作所",
+      "address": "能美市寺井町ハ78",
+      "prefecture": "石川県",
+      "lat": 36.6344,
+      "lng": 136.6616,
+      "industry": "建設機械部品、工作機械部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "ランクC / 業種:建設機械部品、工作機械部品 / 取引先:オリエンタルチェン、日立金属 / 熱処理/規模:6名 / 担当:千代",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "59fef9eb42e9",
+      "name": "(株)大和鋳造所",
+      "address": "かほく市横山井27-5",
+      "prefecture": "石川県",
+      "lat": 36.5924,
+      "lng": 136.5336,
+      "industry": "減速機部品、権威機械組み立て",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "ランクC / 業種:減速機部品、権威機械組み立て / 取引先:船舶エンジンメーカー、自動車部品メーカー / 熱処理/規模:8名",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "19103bdc4900",
+      "name": "(株)安土鉄工所",
+      "address": "小松市長田町口58番地",
+      "prefecture": "石川県",
+      "lat": 36.6804,
+      "lng": 136.5356,
+      "industry": "建設機械部品(ナット)",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクC / 業種:建設機械部品(ナット) / 取引先:日本精工(株)、他 / 熱処理/規模:43名 / 担当:安土",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "55055a36337f",
+      "name": "(株)安江鉄工",
+      "address": "白山市横江町1726-18",
+      "prefecture": "石川県",
+      "lat": 36.6864,
+      "lng": 136.5616,
+      "industry": "工作機械部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "ランクC / 業種:工作機械部品 / 取引先:松本機械工業(株)、中村留精密工業 / 熱処理/規模:16名",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "ee03bb478b31",
+      "name": "(株)宮本鉄工",
+      "address": "金沢市示野町り85番地2",
+      "prefecture": "石川県",
+      "lat": 36.5204,
+      "lng": 136.6896,
+      "industry": "産業機械部品、農業機械部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "ランクC / 業種:産業機械部品、農業機械部品 / 取引先:渋谷工業(株)、YKK(株)、(株)西の製作所 / 熱処理/規模:16名",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "353c6e84dd00",
+      "name": "(株)小幡製作所",
+      "address": "金沢市寺中町イ89-3",
+      "prefecture": "石川県",
+      "lat": 36.5364,
+      "lng": 136.6556,
+      "industry": "油圧機器部品、遊戯機器部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクC / 業種:油圧機器部品、遊戯機器部品 / 取引先:油圧機器、産業機械部品メーカー / 熱処理/規模:9名 / 担当:小幡",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "8c1df4d2d8f7",
+      "name": "(株)曽田製作所",
+      "address": "小松市高堂町ロ75番地",
+      "prefecture": "石川県",
+      "lat": 36.5284,
+      "lng": 136.6296,
+      "industry": "油圧シリンダー、産業機械",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "ランクC / 業種:油圧シリンダー、産業機械 / 取引先:(株)加藤製作所 / 熱処理/規模:84名 / 担当:神田",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "45bf65978e0a",
+      "name": "(株)木村精工",
+      "address": "金沢市示野町西64番地",
+      "prefecture": "石川県",
+      "lat": 36.6664,
+      "lng": 136.6496,
+      "industry": "産業機械、工作機械、食品輸送機械",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクC / 業種:産業機械、工作機械、食品輸送機械 / 取引先:食品機械メーカー / 熱処理/規模:10名 / 担当:木村",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "0985c2eede13",
+      "name": "(株)林鍛造所",
+      "address": "かほく市宇気い5番地",
+      "prefecture": "石川県",
+      "lat": 36.5084,
+      "lng": 136.5476,
+      "industry": "一般機械部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "ランクC / 業種:一般機械部品 / 取引先:産業機械メーカー、自動二輪メーカー / 熱処理/規模:91名",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "ce0470202a85",
+      "name": "(株)梶鋳工所",
+      "address": "かほく市高松ラ15番地",
+      "prefecture": "石川県",
+      "lat": 36.6024,
+      "lng": 136.5836,
+      "industry": "ディーゼルエンジン部品、トラクター部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "ランクC / 業種:ディーゼルエンジン部品、トラクター部品 / 取引先:津田駒工業(株)、ヤンマー(株) / 熱処理/規模:40名",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "0092a568ed04",
+      "name": "(株)森テック",
+      "address": "金沢市専光寺町ハ37-4",
+      "prefecture": "石川県",
+      "lat": 36.5664,
+      "lng": 136.6456,
+      "industry": "食品プラント部品、工作機械部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "ランクC / 業種:食品プラント部品、工作機械部品 / 取引先:OBARA(株)、TMTマシナリー(株) / 熱処理/規模:12名",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "0e31b2ebacf5",
+      "name": "(株)津田精工",
+      "address": "白山市旭丘1丁目4番地",
+      "prefecture": "石川県",
+      "lat": 36.5064,
+      "lng": 136.5476,
+      "industry": "電気機器部品、建設機械部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "ランクC / 業種:電気機器部品、建設機械部品 / 取引先:渋谷工業(株)関連会社 / 熱処理/規模:17名 / 担当:津田",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "82c0124520bb",
+      "name": "(株)炭澤鉄工",
+      "address": "金沢市畝田中2丁目7番値",
+      "prefecture": "石川県",
+      "lat": 36.5784,
+      "lng": 136.6156,
+      "industry": "食品機械、産業機械",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "ランクC / 業種:食品機械、産業機械 / 取引先:食品機械、農業機械メーカー / 熱処理/規模:20名 / 担当:炭澤",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "8028e34be8e3",
+      "name": "(株)炭鉄工所",
+      "address": "金沢市東蚊爪1丁目27-5",
+      "prefecture": "石川県",
+      "lat": 36.6164,
+      "lng": 136.6316,
+      "industry": "各種産業機械部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "ランクC / 業種:各種産業機械部品 / 取引先:クマリフト(株)、 / 熱処理/規模:10名 / 担当:炭",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "c987cde916e1",
+      "name": "(株)真田製作所",
+      "address": "羽咋市土橋町へ4-1",
+      "prefecture": "石川県",
+      "lat": 36.6704,
+      "lng": 136.5936,
+      "industry": "工作機械、建設機械、部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクC / 業種:工作機械、建設機械、部品 / 取引先:油圧機器メーカー、産業機器メーカー / 熱処理/規模:14名 / 担当:真田進",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "63d4a11db8f8",
+      "name": "(株)竹内歯車製作所",
+      "address": "金沢市港1丁目71番地",
+      "prefecture": "石川県",
+      "lat": 36.5264,
+      "lng": 136.5376,
+      "industry": "農業機械部品、繊維機械部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "ランクC / 業種:農業機械部品、繊維機械部品 / 取引先:島製作所、高千穂工業、石川製作所 / 熱処理/規模:6名 / 担当:竹内",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "5b1e3e7f4f00",
+      "name": "(株)竹田栄鉄工",
+      "address": "金沢市松村3丁目545番地1",
+      "prefecture": "石川県",
+      "lat": 36.5864,
+      "lng": 136.5376,
+      "industry": "繊維機械部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "ランクC / 業種:繊維機械部品 / 取引先:不二精機(株)、オリエンタルチェイン / 熱処理/規模:8名 / 担当:竹田",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "e4fc81ec8f30",
+      "name": "(株)西研精機製作所",
+      "address": "金沢市無量寺町ニ61番地3",
+      "prefecture": "石川県",
+      "lat": 36.6764,
+      "lng": 136.5336,
+      "industry": "建設機械、油圧機器、産業機械部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "ランクC / 業種:建設機械、油圧機器、産業機械部品 / 取引先:日本ニューマチック、ジェイテクト、他 / 熱処理/規模:22名 / 担当:西野",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "dc81891b07bb",
+      "name": "(株)金崎鋲螺製作所",
+      "address": "金沢市金石西1丁目4-50",
+      "prefecture": "石川県",
+      "lat": 36.5924,
+      "lng": 136.6036,
+      "industry": "輸送機械、工作機械、建設機械",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクC / 業種:輸送機械、工作機械、建設機械 / 取引先:各分野の関連企業 / 熱処理/規模:5名 / 担当:金崎",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "72f8fb39b982",
+      "name": "(株)飯田",
+      "address": "加賀市田尻町190番地1",
+      "prefecture": "石川県",
+      "lat": 36.5964,
+      "lng": 136.5736,
+      "industry": "電動工具部品、建設機械部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクC / 業種:電動工具部品、建設機械部品 / 取引先:福井鋲螺、東振精機、村田機械 / 熱処理/規模:42名 / 担当:飯田",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "9c33cca410bd",
+      "name": "イズイ工業(株)",
+      "address": "金沢市村松1丁目227",
+      "prefecture": "石川県",
+      "lat": 36.5764,
+      "lng": 136.5336,
+      "industry": "繊維機器、油圧機器",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクC / 業種:繊維機器、油圧機器 / 取引先:防衛機器メーカー、繊維機器メーカー / 熱処理/規模:8名 / 担当:出井",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "b520fa87a6f3",
+      "name": "カワラ金属(株)",
+      "address": "七尾市国分町ロ部1番地",
+      "prefecture": "石川県",
+      "lat": 36.5584,
+      "lng": 136.6016,
+      "industry": "ポンプ関連部品、灯油タンク部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "ランクC / 業種:ポンプ関連部品、灯油タンク部品 / 取引先:高桑金庫(株)、日本電産(株)、フタバ産業 / 熱処理/規模:26名",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "09a514a7215f",
+      "name": "サンテック(株)",
+      "address": "輪島市三井町三州穂ろ部1-20",
+      "prefecture": "石川県",
+      "lat": 36.5084,
+      "lng": 136.5256,
+      "industry": "自動車エンジン部品、ロボット部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクC / 業種:自動車エンジン部品、ロボット部品 / 取引先:三菱化工機、黒田精工、ホンダ / 熱処理/規模:29名 / 担当:獨古",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "bdd56045806c",
+      "name": "加賀精機(株)",
+      "address": "本社、東京都大田区蒲田4-21-7",
+      "prefecture": "石川県",
+      "lat": 36.5544,
+      "lng": 136.7156,
+      "industry": "コンピューター周辺機器",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクC / 業種:コンピューター周辺機器 / 取引先:ナブテスコ、ボッシュレクロス / 熱処理/規模:40名       東京 / 担当:深瀬",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "0762b56b6c1f",
+      "name": "北川鉄工(株)",
+      "address": "白山市末正町イ115",
+      "prefecture": "石川県",
+      "lat": 36.5864,
+      "lng": 136.5476,
+      "industry": "建設機械、ポンプ用部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクC / 業種:建設機械、ポンプ用部品 / 取引先:大進製作所 / 熱処理/規模:26名 / 担当:北川",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "68161503a5de",
+      "name": "北陸精鍛(株)",
+      "address": "かほく市宇気い3番地",
+      "prefecture": "石川県",
+      "lat": 36.6044,
+      "lng": 136.7096,
+      "industry": "エンジン燃料噴射装置部品、",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "ランクC / 業種:エンジン燃料噴射装置部品、 / 取引先:(株)新巧社、オリエンタルチェン(株) / 熱処理/規模:17名",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "8198b75df002",
+      "name": "米林機械工業(株)",
+      "address": "金沢市専光寺町カ8番地",
+      "prefecture": "石川県",
+      "lat": 36.6744,
+      "lng": 136.6656,
+      "industry": "ロボット部品、油圧機器部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "ランクC / 業種:ロボット部品、油圧機器部品 / 取引先:(株)西野製作所 / 熱処理/規模:32名",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "9d9adae115d8",
+      "name": "請田鉄工(株)",
+      "address": "能美市浜町ヨ61-2",
+      "prefecture": "石川県",
+      "lat": 36.6204,
+      "lng": 136.6896,
+      "industry": "ベヤリング用リング、ディーゼルエンジン",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "ランクC / 業種:ベヤリング用リング、ディーゼルエンジン / 取引先:(株)椿本チェイン、(株)東振精機 / 熱処理/規模:24名",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "86a93e5fa004",
+      "name": "黒川工業(株)",
+      "address": "金沢市二ツ寺町ハ30番地8",
+      "prefecture": "石川県",
+      "lat": 36.6804,
+      "lng": 136.5356,
+      "industry": "梱包機械",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクC / 業種:梱包機械 / 取引先:村田機械、日立建機 / 熱処理/規模:11名 / 担当:黒川",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "0d6e2383718e",
+      "name": "(有)ミナト鉄工所",
+      "address": "金沢市東蚊爪町1丁目29-6",
+      "prefecture": "石川県",
+      "lat": 36.5904,
+      "lng": 136.5856,
+      "industry": "工作機械部品、食品関連機械部品",
+      "rank": "ランクD",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "ランクD / 業種:工作機械部品、食品関連機械部品 / 取引先:工作機械メーカー / 熱処理/規模:4名 / 担当:森嶋",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "4905b4742f37",
+      "name": "(有)越田鉄工",
+      "address": "金沢市港2丁目2-1",
+      "prefecture": "石川県",
+      "lat": 36.5564,
+      "lng": 136.6736,
+      "industry": "繊維機械、部品",
+      "rank": "ランクD",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクD / 業種:繊維機械、部品 / 取引先:産業機械メーカー、農業機械メーカー / 熱処理/規模:5名 / 担当:越田高章",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "93196941314d",
+      "name": "(株)原田鉄工所",
+      "address": "能美市浜町巳170-2",
+      "prefecture": "石川県",
+      "lat": 36.6584,
+      "lng": 136.5556,
+      "industry": "エアーツール部品、食品機器部品、他",
+      "rank": "ランクD",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "ランクD / 業種:エアーツール部品、食品機器部品、他 / 取引先:産業機械メーカー、繊維機器メーカー / 熱処理/規模:10名 / 担当:原田",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "4a256cfa708c",
+      "name": "(株)山鐵",
+      "address": "金沢市内木町東1306",
+      "prefecture": "石川県",
+      "lat": 36.6084,
+      "lng": 136.6956,
+      "industry": "大型、長尺旋盤加工",
+      "rank": "ランクD",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "ランクD / 業種:大型、長尺旋盤加工 / 取引先:TANIDA(株)、松本機械工業(株) / 熱処理/規模:6名",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "5f050d689018",
+      "name": "オリエンタルチエン工業(株)",
+      "address": "白山市宮永市街485",
+      "prefecture": "石川県",
+      "lat": 36.5784,
+      "lng": 136.6016,
+      "industry": "各種搬送用チェ-ン",
+      "rank": "ランクD",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクD / 業種:各種搬送用チェ-ン / 取引先:三菱重工、ジェイテクト / 熱処理/規模:168名 / 担当:米澤",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "eb32b81fb1ff",
+      "name": "マエダ精工(株)",
+      "address": "金沢市示野町西101",
+      "prefecture": "石川県",
+      "lat": 36.6484,
+      "lng": 136.5796,
+      "industry": "物流機器部品、チェーン部品",
+      "rank": "ランクD",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "ランクD / 業種:物流機器部品、チェーン部品 / 取引先:シシクアドクライス(株)、オリエンタルチェン / 熱処理/規模:20名 / 担当:前田",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "f8a9ead6e765",
+      "name": "中田技研",
+      "address": "能美郡川北町橘新74",
+      "prefecture": "石川県",
+      "lat": 36.6084,
+      "lng": 136.5536,
+      "industry": "シャフト、超鋼ドリルのホーニング",
+      "rank": "ランクD",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "ランクD / 業種:シャフト、超鋼ドリルのホーニング / 取引先:ナノテック(株)、グリーンツール(株) / 熱処理/規模:2名 / 担当:中田",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "6b5ae97a115e",
+      "name": "岡田研磨(株)",
+      "address": "河北郡津幡町太田ア7",
+      "prefecture": "石川県",
+      "lat": 36.5884,
+      "lng": 136.6516,
+      "industry": "工作機械部品、自動車部品",
+      "rank": "ランクD",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "ランクD / 業種:工作機械部品、自動車部品 / 取引先:ヤンマー建機、日立建機 / 熱処理/規模:70名 / 担当:岡田",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "fdb81cc5d2cd",
+      "name": "岩本精密工業(株)",
+      "address": "加賀市三木町ヌ93",
+      "prefecture": "石川県",
+      "lat": 36.6284,
+      "lng": 136.7196,
+      "industry": "各種治具・部品",
+      "rank": "ランクD",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "ランクD / 業種:各種治具・部品 / 取引先:冷間圧造メーカー各社 / 熱処理/規模:5名",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "f0275bf04f31",
+      "name": "日機工業(株)",
+      "address": "羽咋郡志賀町若葉台63-1",
+      "prefecture": "石川県",
+      "lat": 36.6144,
+      "lng": 136.6056,
+      "industry": "電子機器部品、精密部品、他",
+      "rank": "ランクD",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "ランクD / 業種:電子機器部品、精密部品、他 / 取引先:東京航空計器(株)、(株)久世ベローズ工業所 / 熱処理/規模:26名 / 担当:田中",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "97ca6f79a892",
+      "name": "(株)ネツレン小松",
+      "address": "小松市工業団地1-37-3",
+      "prefecture": "石川県",
+      "lat": 36.5324,
+      "lng": 136.5596,
+      "industry": "",
+      "rank": "",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "熱処理/規模:50名",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "778ef934bac2",
+      "name": "(株)中野製作所",
+      "address": "能美郡川北町田子島は42",
+      "prefecture": "石川県",
+      "lat": 36.6084,
+      "lng": 136.5376,
+      "industry": "工作機械、産業機械",
+      "rank": "",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "接点はある。コマツの認定次第。 / 業種:工作機械、産業機械 / 取引先:南鉄工所、二見屋工業、高林製作所、他 / 熱処理/規模:31名 / 担当:中野",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "8c13193630dd",
+      "name": "(株)二水",
+      "address": "白山市横江町1726-16",
+      "prefecture": "石川県",
+      "lat": 36.6004,
+      "lng": 136.6316,
+      "industry": "典三ウォーム、ヘリカルギヤ、歯研ギヤ",
+      "rank": "",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "取引開始 / 業種:典三ウォーム、ヘリカルギヤ、歯研ギヤ / 取引先:イシダ、TMTマシナリー、巴バルブ、他 / 熱処理/規模:30名 / 担当:豊岡",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "059b298b83dc",
+      "name": "(株)吉本歯切",
+      "address": "河北郡津幡町浅田甲181",
+      "prefecture": "石川県",
+      "lat": 36.6284,
+      "lng": 136.6616,
+      "industry": "産業機械部品、鍛圧機械部品",
+      "rank": "",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "コンタクトあり。 コマツ認定次第 / 業種:産業機械部品、鍛圧機械部品 / 取引先:工作機械メーカー、減速機械メーカー / 熱処理/規模:14名",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "58a1afc63575",
+      "name": "(株)島製作所",
+      "address": "河北郡津幡町富田191番地15",
+      "prefecture": "石川県",
+      "lat": 36.5044,
+      "lng": 136.6816,
+      "industry": "遊星減速機、油圧機械関係",
+      "rank": "",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "現行取引中 / 業種:遊星減速機、油圧機械関係 / 取引先:車両機器メーカー、押出機メーカー / 熱処理/規模:50名 / 担当:酒井",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "d13e7cca070f",
+      "name": "(株)東振",
+      "address": "小松市国府台5-1-1",
+      "prefecture": "石川県",
+      "lat": 36.5664,
+      "lng": 136.5596,
+      "industry": "同上",
+      "rank": "",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "上記東振精機同様 / 業種:同上 / 取引先:同上 / 熱処理/規模:532名 / 担当:桶貴博",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "1b052850b257",
+      "name": "(株)柴田製作所",
+      "address": "能美市寺井町ト12番地",
+      "prefecture": "石川県",
+      "lat": 36.5824,
+      "lng": 136.6056,
+      "industry": "工作機械部品",
+      "rank": "",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "接点あり。 / 業種:工作機械部品 / 取引先:神鋼造機(株)、(株)梶製作所、他 / 熱処理/規模:39名",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "4425026e79e9",
+      "name": "カネマツ鋼材(株)",
+      "address": "白山市福留町222番地    加工部",
+      "prefecture": "石川県",
+      "lat": 36.5764,
+      "lng": 136.6116,
+      "industry": "長尺難削シャフト加工",
+      "rank": "",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.1)",
+          "body": "x / 業種:長尺難削シャフト加工 / 取引先:金属製造関係各社 / 熱処理/規模:80名 / 担当:加工部山内",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "0ce5359df955",
+      "name": "コンペチター",
+      "address": "",
+      "prefecture": "石川県",
+      "lat": 36.5464,
+      "lng": 136.6716,
+      "industry": "",
+      "rank": "",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "3c80647f766a",
+      "name": "フジタ技研(株)",
+      "address": "能美市栗生町西702番地",
+      "prefecture": "石川県",
+      "lat": 36.6144,
+      "lng": 136.7156,
+      "industry": "",
+      "rank": "",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "熱処理/規模:197名",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "88e61bd47545",
+      "name": "和宏精密(株)",
+      "address": "白山市横江町274",
+      "prefecture": "石川県",
+      "lat": 36.6504,
+      "lng": 136.5716,
+      "industry": "",
+      "rank": "",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "熱処理/規模:35名",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "a2753f078a86",
+      "name": "富士精機(株)",
+      "address": "金沢市いなほ一丁目11番地",
+      "prefecture": "石川県",
+      "lat": 36.5484,
+      "lng": 136.5816,
+      "industry": "動力伝達装置、作業関係機能部品、他",
+      "rank": "",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "現行取引有 / 業種:動力伝達装置、作業関係機能部品、他 / 取引先:宇部興産、東洋機械金属、芝浦機械、他 / 熱処理/規模:63名 / 担当:前川",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "18606aea93b6",
+      "name": "東神熱工(株)小松工場",
+      "address": "小松市工業団地1丁目69番地",
+      "prefecture": "石川県",
+      "lat": 36.5384,
+      "lng": 136.5776,
+      "industry": "",
+      "rank": "",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "熱処理/規模:58名",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "49e587c43cd2",
+      "name": "栗田HT(株)",
+      "address": "羽咋市三ツ屋町ニ66番地1",
+      "prefecture": "石川県",
+      "lat": 36.5044,
+      "lng": 136.6876,
+      "industry": "",
+      "rank": "",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "熱処理/規模:19名",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "dabced62dd7d",
+      "name": "深田熱処理工業(株)",
+      "address": "金沢市矢田野町55-229-1",
+      "prefecture": "石川県",
+      "lat": 36.6424,
+      "lng": 136.5616,
+      "industry": "",
+      "rank": "",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.3)",
+          "body": "熱処理/規模:73名",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    },
+    {
+      "id": "3f06818672db",
+      "name": "高千穂工業(株)",
+      "address": "金沢市駅西本町5丁目3番32号",
+      "prefecture": "石川県",
+      "lat": 36.5964,
+      "lng": 136.5456,
+      "industry": "ロボット、医療機器",
+      "rank": "",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録1件",
+      "note": "",
+      "reports": [
+        {
+          "date": "",
+          "title": "新規開拓メモ(NO.2)",
+          "body": "現行、コンタクト中 / 業種:ロボット、医療機器 / 取引先:アトムメディカル、松山、ショーシン / 熱処理/規模:35名 / 担当:古川",
+          "summary": "",
+          "source_file": "新規開拓 - コピー.xlsx"
+        }
+      ],
+      "eight_people": []
+    }
+  ]
+}

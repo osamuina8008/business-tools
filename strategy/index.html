@@ -707,13 +707,27 @@ function renderCompanyList(filter = '') {
   document.getElementById('company-list').innerHTML = list.map(c => {
     const intel = companyIntelById[c.id] || {};
     const hasIntel = !!(intel.scale_summary || (intel.customers||[]).length);
+    const st = c.status || '';
+    const stBadge = st === 'no_prospect'
+      ? '<span class="text-[10px] font-bold text-slate-600 bg-slate-200 px-1.5 py-0.5 rounded">見込みなし</span>'
+      : st === 'low'
+      ? '<span class="text-[10px] font-bold text-amber-800 bg-amber-100 px-1.5 py-0.5 rounded">低優先</span>'
+      : st === 'visited'
+      ? '<span class="text-[10px] font-bold text-teal-800 bg-teal-100 px-1.5 py-0.5 rounded">訪問済</span>'
+      : '';
+    const dim = (st === 'no_prospect' || st === 'low') ? 'opacity-70' : '';
+    const border = st === 'no_prospect'
+      ? 'border-slate-200 bg-slate-50'
+      : st === 'low'
+      ? 'border-amber-200 bg-amber-50/50'
+      : (c.news_hits||[]).length ? 'border-rose-200 bg-rose-50/50' : hasIntel ? 'border-teal-200 bg-teal-50/60' : 'border-teal-100 bg-teal-50/40';
     return `
     <button type="button" onclick="showCompany('${esc(c.id)}')"
-      class="text-left rounded-xl border ${(c.news_hits||[]).length ? 'border-rose-200 bg-rose-50/50' : hasIntel ? 'border-teal-200 bg-teal-50/60' : 'border-teal-100 bg-teal-50/40'} hover:bg-teal-50 p-3 transition">
-      <p class="text-sm font-bold text-slate-800">${esc(c.name)} ${(c.news_hits||[]).length ? `<span class="text-[10px] text-rose-700 font-bold">新聞${c.news_hits.length}</span>` : ''}</p>
-      <p class="text-xs text-slate-500 mt-0.5">${esc([c.prefecture, c.rank, c.marker].filter(Boolean).join(' · '))}</p>
+      class="text-left rounded-xl border ${border} hover:bg-teal-50 p-3 transition ${dim}">
+      <p class="text-sm font-bold text-slate-800">${esc(c.name)} ${stBadge} ${(c.news_hits||[]).length ? `<span class="text-[10px] text-rose-700 font-bold">新聞${c.news_hits.length}</span>` : ''}</p>
+      <p class="text-xs text-slate-500 mt-0.5">${esc([c.prefecture, c.rank, c.marker, c.heat_vendor].filter(Boolean).join(' · '))}</p>
       ${intel.scale_summary ? `<p class="text-xs text-teal-800 mt-1 line-clamp-2">${esc(intel.scale_summary)}</p>` : ''}
-      ${!intel.scale_summary && c.proposal ? `<p class="text-xs text-amber-800 mt-1 line-clamp-2">${esc(c.proposal)}</p>` : ''}
+      ${c.proposal ? `<p class="text-xs text-amber-800 mt-1 line-clamp-2">${esc(c.proposal)}</p>` : ''}
     </button>`;
   }).join('') || '<p class="text-sm text-slate-400">該当なし。マスターExcelを build してください。</p>';
 }
@@ -943,7 +957,12 @@ function buildClientActions(data, visitData) {
       lat: h.lat, lng: h.lng,
     });
   });
-  (visitData.companies || []).filter(c => (c.rank || '').includes('A')).slice(0, 10).forEach(c => {
+  (visitData.companies || []).filter(c => {
+    if (!(c.rank || '').includes('A')) return false;
+    if (['no_prospect','low','closed','won'].includes(c.status || '')) return false;
+    if ((c.prefecture || '').includes('石川')) return false;
+    return true;
+  }).slice(0, 10).forEach(c => {
     actions.push({
       priority: 1, kind: 'visit_priority', title: `【優先訪問】${c.name}`,
       instruction: c.proposal || '熱処理先・困りごとを確認',

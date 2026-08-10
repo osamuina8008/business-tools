@@ -1,9 +1,9 @@
 {
   "version": 3,
-  "updated": "2026-08-11T07:37:12+09:00",
+  "updated": "2026-08-11T07:37:49+09:00",
   "disclaimer": "strategy_master.xlsx 由来。営業報告書CSV優先。新聞一致は news_hits に集約。",
   "source": "strategy_master.xlsx",
-  "count": 90,
+  "count": 86,
   "news_matched_companies": 0,
   "companies": [
     {
@@ -35,13 +35,28 @@
       "lng": 136.5527,
       "industry": "精密ピン、シャフト類",
       "rank": "ランクA",
-      "heat_vendor": "",
+      "heat_vendor": "社内炉",
       "marker": "visit",
-      "status": "prospect",
+      "status": "no_prospect",
       "source": "shinkaitaku",
-      "proposal": "優先度高（ランクA）／現行熱処理先は未把握→まず利用有無と外注先を確認",
-      "note": "取引先:国内大手ベアリングメーカー",
-      "reports": [],
+      "proposal": "訪問済・見込みなし（再訪不要）",
+      "note": "取引先:国内大手ベアリングメーカー / 取引先:同上",
+      "reports": [
+        {
+          "date": "",
+          "title": "訪問済",
+          "body": "社内炉あり。見込みなし。",
+          "summary": "",
+          "source_file": "cmd_20260811_073706_212918.csv"
+        },
+        {
+          "date": "",
+          "title": "熱処理先更新",
+          "body": "熱処理先:社内炉",
+          "summary": "",
+          "source_file": "cmd_20260811_073706_256315.csv"
+        }
+      ],
       "eight_people": [],
       "news_hits": [],
       "news_hints": []
@@ -55,13 +70,28 @@
       "lng": 136.57225,
       "industry": "立体駐車場、搬送機械",
       "rank": "ランクA",
-      "heat_vendor": "",
+      "heat_vendor": "高周波",
       "marker": "visit",
-      "status": "prospect",
+      "status": "no_prospect",
       "source": "shinkaitaku",
-      "proposal": "優先度高（ランクA）／現行熱処理先は未把握→まず利用有無と外注先を確認",
+      "proposal": "訪問済・見込みなし（再訪不要）",
       "note": "取引先:ヤンマー建機、キャタビラジャパン、他",
-      "reports": [],
+      "reports": [
+        {
+          "date": "",
+          "title": "訪問済",
+          "body": "高周波。見込みなし。",
+          "summary": "",
+          "source_file": "cmd_20260811_073706_132592.csv"
+        },
+        {
+          "date": "",
+          "title": "熱処理先更新",
+          "body": "熱処理先:高周波",
+          "summary": "",
+          "source_file": "cmd_20260811_073706_172006.csv"
+        }
+      ],
       "eight_people": [],
       "news_hits": [],
       "news_hints": []
@@ -97,11 +127,19 @@
       "rank": "ランクB",
       "heat_vendor": "",
       "marker": "visit",
-      "status": "prospect",
+      "status": "low",
       "source": "shinkaitaku",
-      "proposal": "優先度中（ランクB）／現行熱処理先は未把握→まず利用有無と外注先を確認",
+      "proposal": "訪問済・低優先（石川など便の悪い案件は増やさない）",
       "note": "取引先:阪神動力、牧野フライス、森精機",
-      "reports": [],
+      "reports": [
+        {
+          "date": "",
+          "title": "訪問済",
+          "body": "可能性はあるが、石川で便が悪いお客様がこれ以上増えても仕方ない。新規探検は少ない・低優先。",
+          "summary": "",
+          "source_file": "cmd_20260811_073706_300655.csv"
+        }
+      ],
       "eight_people": [],
       "news_hits": [],
       "news_hints": []
@@ -1487,26 +1525,6 @@
       "news_hints": []
     },
     {
-      "id": "d13e7cca070f",
-      "name": "(株)東振",
-      "address": "小松市国府台5-1-1",
-      "prefecture": "石川県",
-      "lat": 36.407,
-      "lng": 136.44345,
-      "industry": "同上",
-      "rank": "",
-      "heat_vendor": "",
-      "marker": "visit",
-      "status": "prospect",
-      "source": "shinkaitaku",
-      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認",
-      "note": "取引先:同上",
-      "reports": [],
-      "eight_people": [],
-      "news_hits": [],
-      "news_hints": []
-    },
-    {
       "id": "1b052850b257",
       "name": "(株)柴田製作所",
       "address": "能美市寺井町ト12番地",
@@ -1562,34 +1580,6 @@
       "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認",
       "note": "",
       "reports": [],
-      "eight_people": [],
-      "news_hits": [],
-      "news_hints": []
-    },
-    {
-      "id": "5f464fffdf05",
-      "name": "サンエー精機",
-      "address": "",
-      "prefecture": "",
-      "lat": null,
-      "lng": null,
-      "industry": "",
-      "rank": "",
-      "heat_vendor": "",
-      "marker": "visit",
-      "status": "low",
-      "source": "visit_report",
-      "proposal": "訪問済・低優先（石川など便の悪い案件は増やさない）",
-      "note": "",
-      "reports": [
-        {
-          "date": "",
-          "title": "訪問済",
-          "body": "可能性はあるが、石川で便が悪いお客様がこれ以上増えても仕方ない。新規探検は少ない・低優先。",
-          "summary": "",
-          "source_file": "cmd_20260811_073706_300655.csv"
-        }
-      ],
       "eight_people": [],
       "news_hits": [],
       "news_hints": []
@@ -1663,41 +1653,6 @@
       "news_hints": []
     },
     {
-      "id": "65eb32d71ddf",
-      "name": "土肥研磨",
-      "address": "",
-      "prefecture": "",
-      "lat": null,
-      "lng": null,
-      "industry": "",
-      "rank": "",
-      "heat_vendor": "高周波",
-      "marker": "visit",
-      "status": "no_prospect",
-      "source": "visit_report",
-      "proposal": "訪問済・見込みなし（再訪不要）",
-      "note": "",
-      "reports": [
-        {
-          "date": "",
-          "title": "訪問済",
-          "body": "高周波。見込みなし。",
-          "summary": "",
-          "source_file": "cmd_20260811_073706_132592.csv"
-        },
-        {
-          "date": "",
-          "title": "熱処理先更新",
-          "body": "熱処理先:高周波",
-          "summary": "",
-          "source_file": "cmd_20260811_073706_172006.csv"
-        }
-      ],
-      "eight_people": [],
-      "news_hits": [],
-      "news_hints": []
-    },
-    {
       "id": "a2753f078a86",
       "name": "富士精機(株)",
       "address": "金沢市いなほ一丁目11番地",
@@ -1713,41 +1668,6 @@
       "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認",
       "note": "取引先:宇部興産、東洋機械金属、芝浦機械、他",
       "reports": [],
-      "eight_people": [],
-      "news_hits": [],
-      "news_hints": []
-    },
-    {
-      "id": "bdb5bc8297f4",
-      "name": "東振精機",
-      "address": "",
-      "prefecture": "",
-      "lat": null,
-      "lng": null,
-      "industry": "",
-      "rank": "",
-      "heat_vendor": "社内炉",
-      "marker": "visit",
-      "status": "no_prospect",
-      "source": "visit_report",
-      "proposal": "訪問済・見込みなし（再訪不要）",
-      "note": "",
-      "reports": [
-        {
-          "date": "",
-          "title": "訪問済",
-          "body": "社内炉あり。見込みなし。",
-          "summary": "",
-          "source_file": "cmd_20260811_073706_212918.csv"
-        },
-        {
-          "date": "",
-          "title": "熱処理先更新",
-          "body": "熱処理先:社内炉",
-          "summary": "",
-          "source_file": "cmd_20260811_073706_256315.csv"
-        }
-      ],
       "eight_people": [],
       "news_hits": [],
       "news_hints": []

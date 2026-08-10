@@ -1,9 +1,9 @@
 {
   "version": 3,
-  "updated": "2026-08-11T07:37:49+09:00",
+  "updated": "2026-08-11T08:59:25+09:00",
   "disclaimer": "strategy_master.xlsx 由来。営業報告書CSV優先。新聞一致は news_hits に集約。",
   "source": "strategy_master.xlsx",
-  "count": 86,
+  "count": 87,
   "news_matched_companies": 0,
   "companies": [
     {
@@ -1648,6 +1648,41 @@
       "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認",
       "note": "",
       "reports": [],
+      "eight_people": [],
+      "news_hits": [],
+      "news_hints": []
+    },
+    {
+      "id": "763332551a84",
+      "name": "大川歯車",
+      "address": "",
+      "prefecture": "",
+      "lat": null,
+      "lng": null,
+      "industry": "",
+      "rank": "",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "visit_report",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録2件",
+      "note": "パイプライン:コンタクト済。近々訪問予定。種まき刈り取り候補(豊中)。",
+      "reports": [
+        {
+          "date": "",
+          "title": "コンタクト済・近々訪問",
+          "body": "受注前で一度やる気をなくし訪問が止まっていた。近々再訪問予定。豊中の精密歯車。熱処理は協力会社。",
+          "summary": "",
+          "source_file": "cmd_20260811_085922_728131.csv"
+        },
+        {
+          "date": "",
+          "title": "メモ",
+          "body": "パイプライン:コンタクト済。近々訪問予定。種まき刈り取り候補(豊中)。",
+          "summary": "",
+          "source_file": "cmd_20260811_085922_764512.csv"
+        }
+      ],
       "eight_people": [],
       "news_hits": [],
       "news_hints": []

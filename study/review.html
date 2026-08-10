@@ -485,7 +485,20 @@ function isDismissedToday(id){ return DISMISSED[id] === dayKey(Date.now()); }
 let lastDismissed = null, undoTimer = null;
 
 const $ = id => document.getElementById(id);
-const esc = s => String(s ?? "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+// 文字列以外（オブジェクト等）や Obsidian ウィキリンクの残骸・角括弧を除去する共通サニタイザ
+const clean = v => {
+  if(v == null) return "";
+  let s = (typeof v === "object")
+    ? (v.article || v.name || v.title || v.text || v.label || v.keyword || "")
+    : String(v);
+  return s
+    .replace(/\[object Object\]/gi, "")   // オブジェクト誤変換の残骸
+    .replace(/\[\[|\]\]/g, "")             // Obsidianウィキリンク [[ ]]
+    .replace(/[\[\]]/g, "")                // 余った角括弧
+    .replace(/\*\*/g, "")                  // Markdown強調
+    .trim();
+};
+const esc = s => clean(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 const bear = t => `bear://x-callback-url/search?term=${encodeURIComponent(t)}`;
 
 // ════════════════════════════════════════════
@@ -591,8 +604,8 @@ const daysAgoLabel = ds => {
 // ════════════════════════════════════════════
 function buildCards(ctx){
   const cards = [];
-  const cleanKw = k => String(k).replace(/\*\*/g,"").replace(/^[\s・\-]+/,"").trim();
-  const JUNK = ["能力不足","判断迷い","判断ミス","読解エラー","理解不十分","未整理","エラー","得点喪失","知識不足","レベル"];
+  const cleanKw = k => clean(k).replace(/^[\s・\-#>|]+/,"").replace(/[\s|]+$/,"").trim();
+  const JUNK = ["能力不足","判断迷い","判断ミス","読解エラー","理解不十分","未整理","エラー","得点喪失","知識不足","レベル","object Object"];
   const ok = t => t && t.length>=2 && !JUNK.some(j=>t.includes(j));
 
   // ① スペーシング復習（最優先）
@@ -613,13 +626,14 @@ function buildCards(ctx){
 
   // ② 繰り返し苦手
   (ctx?.persistent_weak||[]).forEach(p=>{
-    if(!ok(p.keyword)) return;
+    const kw = cleanKw(p.keyword);
+    if(!ok(kw)) return;
     cards.push({
       cat:"weak", subject:p.subject||"",
-      title:`何度も間違えてる「${p.keyword}」、今日こそ`,
+      title:`何度も間違えてる「${kw}」、今日こそ`,
       why:`これまで${p.count||"複数"}回つまずいた論点。ここを潰すと一気に伸びます。`,
-      when:`${p.count||""}回`, kws:[p.keyword], bearTerm:p.keyword,
-      chat:`${p.subject?p.subject+"の":""}「${p.keyword}」が苦手です。基礎から押さえるべき論点キーワードを5〜7個、やさしく簡潔に挙げてください。`,
+      when:`${p.count||""}回`, kws:[kw], bearTerm:kw,
+      chat:`${p.subject?p.subject+"の":""}「${kw}」が苦手です。基礎から押さえるべき論点キーワードを5〜7個、やさしく簡潔に挙げてください。`,
       score: 96,
     });
   });
@@ -723,8 +737,7 @@ function buildCards(ctx){
       score: 30,
     });
   });
-  (ctx?.articles||[]).slice(0,4).forEach(a=>{
-    if(!a) return;
+  (ctx?.articles||[]).map(cleanKw).filter(ok).slice(0,4).forEach(a=>{
     cards.push({
       cat:"read", subject:ctx?.subject||"", read:false,
       title:`重要条文：${a}`,

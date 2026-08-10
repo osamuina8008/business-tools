@@ -1,7 +1,7 @@
 {
-  "collected_at": "2026-08-10T18:21:50+09:00",
+  "collected_at": "2026-08-10T18:30:44+09:00",
   "disclaimer": "新聞記事からの推測・種収集。断定ではなく訪問判断の材料。",
-  "count": 11,
+  "count": 5,
   "seeds": [
     {
       "title": "アンモニア専焼で熱処理、実製品と同水準の品質実現/Daigasエナジー×豊田自動織機",
@@ -25,26 +25,6 @@
       "worth_pursuit": true
     },
     {
-      "title": "トヨタから受注、自動車製造を脱炭素化する「熱処理炉向け水素バーナー」の実力",
-      "link": "https://news.google.com/rss/articles/CBMiQkFVX3lxTE9BQ2JUbkVyLWNhb0gxUXVyVXV3RWwtMkJlamxvX2ZLWnlNSFBaZEZFWUhUTHZMMlFYanVvZ1hzeHlEdw?oc=5",
-      "source": "ニュースイッチ by 日刊工業新聞社",
-      "pub": "2023-05-27T16:00:00+09:00",
-      "query_id": "pain_bontan",
-      "query_label": "防炭・浸炭",
-      "score": 7,
-      "majors": [
-        "トヨタ"
-      ],
-      "tiers": [
-        "A"
-      ],
-      "signals": [
-        "熱処理"
-      ],
-      "why": "言及: トヨタ / シグナル: 熱処理",
-      "worth_pursuit": true
-    },
-    {
       "title": "豊田自動織機とDaigasグループ、アンモニア専焼による金属熱処理に成功",
       "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFB4WjJoZldPUmJQODZzZ2lCUm9pSHZKaWdDRGl5cWpUZDRPeER2ZDFxNk41N25NVURFSEw5bkNTQWY1N29kRlBJb09IUnhyV3ltWW9fVGRUdVJUUEpYZXlIR2hra1RIQQ?oc=5",
       "source": "toyota-shokki.co.jp",
@@ -63,46 +43,6 @@
       ],
       "why": "言及: 豊田自動織機 / シグナル: 熱処理",
       "worth_pursuit": true
-    },
-    {
-      "title": "ジェイテクト、新素材と熱処理により耐久性の高い「長寿命軸受」を開発",
-      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5lMzRnc1FTNHh2cklSTzlwakFtOTNYNHdVYmM4WU8yUjFhQ1dWZFIyX0pHeE04RlZ2cnNMVzhacEZORWE2UjZxR0JHZy10WWFhSDFRVWdUNEVDaTNBLU04WFVYLWw?oc=5",
-      "source": "Car Watch",
-      "pub": "2020-05-25T16:00:00+09:00",
-      "query_id": "auto_gear",
-      "query_label": "自動車・歯車・シャフト",
-      "score": 6,
-      "majors": [
-        "ジェイテクト"
-      ],
-      "tiers": [
-        "A"
-      ],
-      "signals": [
-        "熱処理"
-      ],
-      "why": "言及: ジェイテクト / シグナル: 熱処理",
-      "worth_pursuit": false
-    },
-    {
-      "title": "NTN、独自開発した特殊熱処理技術「HA-C」を深溝玉軸受に適用した「HA-C軸受」の提案を自動車市場などに向けて開始",
-      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5WbmtuTEtvNlY5RU9aS3hCVWJyUkp1NWZ6V3gxS3cyWTd1Q3c3cnNOanFyU0I3b2pEWEJKTy1nOTM5Vk5QTmZlbE8xRGtIbFlBVmFPbmxoam5EdXlodTdWSkhmOFRhRjMzMWVVTw?oc=5",
-      "source": "日本経済新聞",
-      "pub": "2025-05-15T16:00:00+09:00",
-      "query_id": "auto_gear",
-      "query_label": "自動車・歯車・シャフト",
-      "score": 6,
-      "majors": [
-        "NTN"
-      ],
-      "tiers": [
-        "A"
-      ],
-      "signals": [
-        "熱処理"
-      ],
-      "why": "言及: NTN / シグナル: 熱処理",
-      "worth_pursuit": false
     },
     {
       "title": "熱処理工程にアンモニア 豊田自動織機、脱炭素化へ国内初実証：ニュース",
@@ -142,57 +82,6 @@
         "熱処理"
       ],
       "why": "言及: 豊田自動織機 / シグナル: 熱処理",
-      "worth_pursuit": false
-    },
-    {
-      "title": "福島の伸線業「シーエイエス東日本」が自己破産申請し倒産へ 国内倒産",
-      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1GaUxhT1JmMnlJNU9sWW9aT0k2VTJHZEdMVzZBTzl0Wmp4ZlpJcGJ3cDNEcEtKZUtfYUtXRnJzd0FUZkdlRmF2bGU3WDIzUVFQQlNIZ1F6RUs1Y0ZJYTNCT2pqQXg?oc=5",
-      "source": "不景気.com",
-      "pub": "2011-06-01T16:00:00+09:00",
-      "query_id": "competitor_space",
-      "query_label": "競合・業界再編",
-      "score": 5,
-      "majors": [],
-      "tiers": [],
-      "signals": [
-        "倒産"
-      ],
-      "why": "シグナル: 倒産",
-      "worth_pursuit": false
-    },
-    {
-      "title": "伊藤熱処理、仙台の新工場で自動車関連増産 航空向けも",
-      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9ubG9ERTBMRy13NlJyUm14WXNuUDB4bjBTdGRfU1laUXdsQXNRSlU2bDktV3JScnlSa21Vd2dfc3B6NVVIRTJRQWtNWE1lQmZIMms1bEh3OVVwVE1zank5UktjT0RLdVFlX1RtYQ?oc=5",
-      "source": "日本経済新聞",
-      "pub": "2023-04-26T16:00:00+09:00",
-      "query_id": "capex_furnace",
-      "query_label": "炉・設備投資",
-      "score": 5,
-      "majors": [],
-      "tiers": [],
-      "signals": [
-        "増産",
-        "新工場",
-        "熱処理"
-      ],
-      "why": "シグナル: 増産、新工場、熱処理",
-      "worth_pursuit": false
-    },
-    {
-      "title": "ミスミG、切削加工の熱処理サービス 納期最短9日に",
-      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1SV0NfQVpDWHNVOWZ4bWtnM3hWY0NDMGREd2NFVDhFckxOR2RjeXhZNk9BZjQ1MENKZkhLcFdkU1dOUXNnaFdfQmp0bnRZa1JySXNxMGtWMUdfelFwYjhCLWhjWks1MWl5MXVQZg?oc=5",
-      "source": "日本経済新聞",
-      "pub": "2025-05-13T16:00:00+09:00",
-      "query_id": "pain_outsource",
-      "query_label": "外注・納期・品質",
-      "score": 5,
-      "majors": [],
-      "tiers": [],
-      "signals": [
-        "納期",
-        "熱処理"
-      ],
-      "why": "シグナル: 納期、熱処理",
       "worth_pursuit": false
     },
     {

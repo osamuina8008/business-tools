@@ -1,81 +1,11 @@
 {
   "version": 3,
-  "updated": "2026-08-10T18:23:28+09:00",
+  "updated": "2026-08-10T18:30:44+09:00",
   "disclaimer": "strategy_master.xlsx 由来。営業報告書CSV優先。新聞一致は news_hits に集約。",
   "source": "strategy_master.xlsx",
   "count": 85,
-  "news_matched_companies": 2,
+  "news_matched_companies": 0,
   "companies": [
-    {
-      "id": "e4fc81ec8f30",
-      "name": "(株)西研精機製作所",
-      "address": "金沢市無量寺町ニ61番地3",
-      "prefecture": "石川県",
-      "lat": 36.55795,
-      "lng": 136.6537,
-      "industry": "建設機械、油圧機器、産業機械部品",
-      "rank": "ランクC",
-      "heat_vendor": "",
-      "marker": "visit",
-      "status": "prospect",
-      "source": "shinkaitaku",
-      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認",
-      "note": "取引先:日本ニューマチック、ジェイテクト、他",
-      "reports": [],
-      "eight_people": [],
-      "news_hits": [
-        {
-          "title": "ジェイテクト、新素材と熱処理により耐久性の高い「長寿命軸受」を開発",
-          "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5lMzRnc1FTNHh2cklSTzlwakFtOTNYNHdVYmM4WU8yUjFhQ1dWZFIyX0pHeE04RlZ2cnNMVzhacEZORWE2UjZxR0JHZy10WWFhSDFRVWdUNEVDaTNBLU04WFVYLWw?oc=5",
-          "score": 6,
-          "majors": [
-            "ジェイテクト"
-          ],
-          "signals": [
-            "熱処理"
-          ],
-          "match_reasons": [
-            "取引先×記事: ジェイテクト"
-          ],
-          "pub": "2020-05-25T16:00:00+09:00"
-        }
-      ]
-    },
-    {
-      "id": "5f050d689018",
-      "name": "オリエンタルチエン工業(株)",
-      "address": "白山市宮永市街485",
-      "prefecture": "石川県",
-      "lat": 36.5081,
-      "lng": 136.5712,
-      "industry": "各種搬送用チェ-ン",
-      "rank": "ランクD",
-      "heat_vendor": "",
-      "marker": "visit",
-      "status": "prospect",
-      "source": "shinkaitaku",
-      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認",
-      "note": "取引先:三菱重工、ジェイテクト",
-      "reports": [],
-      "eight_people": [],
-      "news_hits": [
-        {
-          "title": "ジェイテクト、新素材と熱処理により耐久性の高い「長寿命軸受」を開発",
-          "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5lMzRnc1FTNHh2cklSTzlwakFtOTNYNHdVYmM4WU8yUjFhQ1dWZFIyX0pHeE04RlZ2cnNMVzhacEZORWE2UjZxR0JHZy10WWFhSDFRVWdUNEVDaTNBLU04WFVYLWw?oc=5",
-          "score": 6,
-          "majors": [
-            "ジェイテクト"
-          ],
-          "signals": [
-            "熱処理"
-          ],
-          "match_reasons": [
-            "取引先×記事: ジェイテクト"
-          ],
-          "pub": "2020-05-25T16:00:00+09:00"
-        }
-      ]
-    },
     {
       "id": "fb42a9a5cca7",
       "name": "(株)ヒガシヤマ",
@@ -970,6 +900,25 @@
       "news_hits": []
     },
     {
+      "id": "e4fc81ec8f30",
+      "name": "(株)西研精機製作所",
+      "address": "金沢市無量寺町ニ61番地3",
+      "prefecture": "石川県",
+      "lat": 36.55795,
+      "lng": 136.6537,
+      "industry": "建設機械、油圧機器、産業機械部品",
+      "rank": "ランクC",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認",
+      "note": "取引先:日本ニューマチック、ジェイテクト、他",
+      "reports": [],
+      "eight_people": [],
+      "news_hits": []
+    },
+    {
       "id": "dc81891b07bb",
       "name": "(株)金崎鋲螺製作所",
       "address": "金沢市金石西1丁目4-50",
@@ -1250,6 +1199,25 @@
       "source": "shinkaitaku",
       "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認",
       "note": "取引先:TANIDA(株)、松本機械工業(株)",
+      "reports": [],
+      "eight_people": [],
+      "news_hits": []
+    },
+    {
+      "id": "5f050d689018",
+      "name": "オリエンタルチエン工業(株)",
+      "address": "白山市宮永市街485",
+      "prefecture": "石川県",
+      "lat": 36.5081,
+      "lng": 136.5712,
+      "industry": "各種搬送用チェ-ン",
+      "rank": "ランクD",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "shinkaitaku",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認",
+      "note": "取引先:三菱重工、ジェイテクト",
       "reports": [],
       "eight_people": [],
       "news_hits": []

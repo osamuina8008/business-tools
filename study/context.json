@@ -1,33 +1,15 @@
 {
-  "subject": "憲法",
-  "date": "2026-08-10",
-  "keywords": [
-    "表現の自由の制約",
-    "憲法21条",
-    "知る権利"
-  ],
-  "wrong_qs": [
-    "問題数・手応えが未記載",
-    "商法Q257まで2周目1.5時間・20問",
-    "直近ログ(08-09)の閲覧請求権・定款自治",
-    "商法は手応え「普通」が続いている"
-  ],
-  "wrong_topics": [
-    "08-09"
-  ],
-  "today_logs": [
-    {
-      "type": "短答",
-      "questions_count": 20,
-      "understanding": "普通",
-      "topic": ""
-    }
-  ],
+  "subject": "民法",
+  "date": "2026-08-11",
+  "keywords": [],
+  "wrong_qs": [],
+  "wrong_topics": [],
+  "today_logs": [],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-08-03",
-      "subject": "憲法",
+      "date": "2026-08-10",
+      "subject": "商法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -35,8 +17,28 @@
     },
     {
       "interval_label": "",
-      "date": "2026-07-20",
-      "subject": "憲法",
+      "date": "2026-08-08",
+      "subject": "刑事訴訟法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-08-04",
+      "subject": "民法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "条文番号と文言の紐付け"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-21",
+      "subject": "民法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -233,25 +235,25 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": true,
-  "updated_at": "2026-08-10T13:36:51.160407",
+  "has_data": false,
+  "updated_at": "2026-08-11T07:00:22.985848",
   "today_tasks": [
     {
       "subject": "憲法",
       "status": "遅れ",
       "action": "短答3問｜論点：違憲審査基準（LRA・比較衡量）・表現の自由・平等原則",
       "theme": "短答2周目開始・論文構成（骨組みのみ）",
-      "situation": "今週0/15問。あと15問（7日ぶり）",
+      "situation": "今週0/15問。あと15問（8日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
     },
     {
       "subject": "民法",
-      "status": "今週",
-      "action": "6日前に学習済。今週の目標：短答2周目・頻出論点の論文骨組み",
+      "status": "遅れ",
+      "action": "短答3問｜論点：物権変動（対抗要件・善意取得）・抵当権の効力範囲",
       "theme": "短答2周目・頻出論点の論文骨組み",
-      "situation": "今週0/15問。あと15問（6日ぶり）",
+      "situation": "今週0/15問。あと15問（7日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -259,9 +261,9 @@
     {
       "subject": "刑法",
       "status": "今週",
-      "action": "5日前に学習済。今週の目標：短答2周目・論文構成入門",
+      "action": "6日前に学習済。今週の目標：短答2周目・論文構成入門",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週0/15問。あと15問（5日ぶり）",
+      "situation": "今週0/15問。あと15問（6日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -269,9 +271,9 @@
     {
       "subject": "行政法",
       "status": "今週",
-      "action": "4日前に学習済。今週の目標：短答2周目・条文ベース定着",
+      "action": "5日前に学習済。今週の目標：短答2周目・条文ベース定着",
       "theme": "短答2周目・条文ベース定着",
-      "situation": "今週0/15問。あと15問（4日ぶり）",
+      "situation": "今週0/15問。あと15問（5日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -281,7 +283,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：訴訟要件（当事者適格・訴えの利益）・既判力の範囲",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（9日ぶり）",
+      "situation": "今週0/15問。あと15問（10日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -289,9 +291,9 @@
     {
       "subject": "刑事訴訟法",
       "status": "今週",
-      "action": "2日前に学習済。今週の目標：短答2周目",
+      "action": "3日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（2日ぶり）",
+      "situation": "今週0/15問。あと15問（3日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -301,7 +303,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（48日ぶり）",
+      "situation": "今週0/10問。あと10問（49日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false

@@ -1,0 +1,357 @@
+{
+  "updated": "2026-08-11T06:34:10+09:00",
+  "disclaimer": "公開Web・既存開拓リストからの推定。訪問判断は人が行う。",
+  "search_queries": [
+    "愛知 歯車 SCM415 OR SCM435 浸炭",
+    "大阪 歯車製作 熱処理 外注",
+    "兵庫 金属加工 SCM 調質",
+    "ジェイテクト 歯車 熱処理",
+    "豊和工業 外注 機械加工 浸炭"
+  ],
+  "count": 18,
+  "targets": [
+    {
+      "id": "daiwa-gear",
+      "name": "大和歯車製作株式会社",
+      "category": "歯車製造",
+      "area": "大阪府東大阪市／和歌山県日高川町",
+      "prefecture": "大阪府",
+      "materials": [
+        "SCM系",
+        "合金鋼"
+      ],
+      "heat_relation": "焼入工程あり（協力熱処理10社＋自社設備）",
+      "reason": "精密歯車一貫。取引先にヤマザキマザック等。焼入を外部協力＋自社で実施→熱処理ニーズ明確。",
+      "source_url": "https://daiwa-gear.jp/process.html",
+      "linked_majors": [
+        "ヤマザキマザック",
+        "川崎重工業",
+        "三菱重工業"
+      ],
+      "priority": 0,
+      "lat": 34.6794,
+      "lng": 135.6009
+    },
+    {
+      "id": "jtekt-gear",
+      "name": "株式会社ジェイテクトギヤシステム",
+      "category": "歯車製造（大手系列）",
+      "area": "愛知県瀬戸市・日進市／岐阜県御嵩町",
+      "prefecture": "愛知県",
+      "materials": [
+        "自動車・産業機械歯車（SCM系多用）"
+      ],
+      "heat_relation": "デフギヤ等は浸炭・調質が標準。グループに熱処理あり。周辺外注余地も要確認",
+      "reason": "刈谷ジェイテクト界隈の歯車拠点。攻めどころ刈谷と直結。系列外の困りごと聞き取り候補。",
+      "source_url": "https://www.gear.jtekt.co.jp/company/factory/",
+      "linked_majors": [
+        "ジェイテクト"
+      ],
+      "priority": 0,
+      "lat": 35.223,
+      "lng": 137.084
+    },
+    {
+      "id": "kg-gear",
+      "name": "協育歯車工業株式会社",
+      "category": "規格歯車",
+      "area": "名古屋支店（熱田）／大阪サテライト",
+      "prefecture": "愛知県",
+      "materials": [
+        "SCM435",
+        "SCM440",
+        "S45C"
+      ],
+      "heat_relation": "製品検索でSCM＋高周波等を選択可能",
+      "reason": "名古屋支店あり。SCM規格歯車で熱処理オプション公開。東海探索の入口。",
+      "source_url": "https://www.kggear.co.jp/company/",
+      "linked_majors": [],
+      "priority": 1,
+      "lat": 35.13,
+      "lng": 136.9
+    },
+    {
+      "id": "toufuku-tankou",
+      "name": "東福鍛工株式会社",
+      "category": "鍛造・歯車素材",
+      "area": "大阪府",
+      "prefecture": "大阪府",
+      "materials": [
+        "SC",
+        "SCM",
+        "SNCM",
+        "SUS"
+      ],
+      "heat_relation": "素材〜鍛造〜熱処理〜加工の一貫。ギア等でSCM明示",
+      "reason": "SCM材ギア・フランジギア等を鍛造。熱処理を工程に含むため外注/内製確認の価値が高い。",
+      "source_url": "https://ja.nc-net.or.jp/company/93919/product/detail/225971/",
+      "linked_majors": [],
+      "priority": 1,
+      "lat": 34.7,
+      "lng": 135.48
+    },
+    {
+      "id": "sakanishi",
+      "name": "坂西精機株式会社",
+      "category": "精密歯車・減速機",
+      "area": "東京都",
+      "prefecture": "東京都",
+      "materials": [
+        "SCM415",
+        "SCM435",
+        "S45C"
+      ],
+      "heat_relation": "公式でSCM415浸炭、SCM435高周波・浸炭窒化を明示",
+      "reason": "公開カタログでSCM＋熱処理の組み合わせが明確。",
+      "source_url": "https://www.sakanishi.co.jp/products/products_1.html",
+      "linked_majors": [],
+      "priority": 2,
+      "lat": 35.68,
+      "lng": 139.65
+    },
+    {
+      "id": "md-tokai",
+      "name": "株式会社MD（東海市）",
+      "category": "金属加工",
+      "area": "愛知県東海市",
+      "prefecture": "愛知県",
+      "materials": [
+        "SCM415",
+        "SCM420",
+        "SCM435"
+      ],
+      "heat_relation": "SCMの浸炭・調質を前提にした加工解説",
+      "reason": "愛知でSCM材選定・加工の公開知見。熱処理前提の部品加工先候補。",
+      "source_url": "https://mdfujimaki.com/archives/5111",
+      "linked_majors": [],
+      "priority": 2,
+      "lat": 35.02,
+      "lng": 136.9
+    },
+    {
+      "id": "kikui-gear",
+      "name": "株式会社菊伊歯車",
+      "category": "精密歯車",
+      "area": "神奈川県",
+      "prefecture": "神奈川県",
+      "materials": [
+        "S45C",
+        "SCM415"
+      ],
+      "heat_relation": "熱処理は協力業者へ依頼と明記",
+      "reason": "SCM415等を扱い熱処理外注。外注先争い・困りごと聞き取り余地。",
+      "source_url": "https://kikui-gear.com/",
+      "linked_majors": [],
+      "priority": 2,
+      "lat": 35.51,
+      "lng": 139.62
+    },
+    {
+      "id": "howa-forging",
+      "name": "豊和鍛工株式会社",
+      "category": "鍛造",
+      "area": "愛知県",
+      "prefecture": "愛知県",
+      "materials": [
+        "構造用鋼・SCM系想定"
+      ],
+      "heat_relation": "公式工程に鍛造→熱処理→仕上",
+      "reason": "※豊和工業（工作機械）とは別。鍛造後熱処理が工程に入る鉄系部品メーカー。",
+      "source_url": "https://howa-forging.co.jp/introduction/",
+      "linked_majors": [],
+      "priority": 2,
+      "lat": 35.1,
+      "lng": 137.05
+    },
+    {
+      "id": "visit-8afdbb6577ae",
+      "name": "(有)茶谷鉄工所",
+      "category": "既存開拓（歯車・軸・鍛造等）",
+      "area": "石川県 白山市旭岳3-7",
+      "prefecture": "石川県",
+      "materials": [
+        "要確認（鉄系機械部品）"
+      ],
+      "heat_relation": "熱処理先未把握",
+      "reason": "既存開拓リスト。業種「特殊カム、ウォーム減速機」。石川のため優先度低。SCM/熱処理利用は未確認→外注先確認。",
+      "source_url": "",
+      "linked_majors": [],
+      "priority": 3,
+      "lat": 36.51685,
+      "lng": 136.5684,
+      "from_visit_list": true,
+      "rank": "ランクC"
+    },
+    {
+      "id": "visit-8c13193630dd",
+      "name": "(株)二水",
+      "category": "既存開拓（歯車・軸・鍛造等）",
+      "area": "石川県 白山市横江町1726-16",
+      "prefecture": "石川県",
+      "materials": [
+        "要確認（鉄系機械部品）"
+      ],
+      "heat_relation": "熱処理先未把握",
+      "reason": "既存開拓リスト。業種「典三ウォーム、ヘリカルギヤ、歯研ギヤ」。石川のため優先度低。SCM/熱処理利用は未確認→外注先確認。",
+      "source_url": "",
+      "linked_majors": [],
+      "priority": 3,
+      "lat": 36.51895,
+      "lng": 136.57015,
+      "from_visit_list": true,
+      "rank": ""
+    },
+    {
+      "id": "visit-a3a05b6dd0c2",
+      "name": "(株)二羽歯切",
+      "category": "既存開拓（歯車・軸・鍛造等）",
+      "area": "石川県 金沢市長田本町チ16番地",
+      "prefecture": "石川県",
+      "materials": [
+        "要確認（鉄系機械部品）"
+      ],
+      "heat_relation": "熱処理先未把握",
+      "reason": "既存開拓リスト。業種「フォーム、インターナルギヤ、特殊歯車」。石川のため優先度低。SCM/熱処理利用は未確認→外注先確認。",
+      "source_url": "",
+      "linked_majors": [],
+      "priority": 3,
+      "lat": 36.5569,
+      "lng": 136.6523,
+      "from_visit_list": true,
+      "rank": "ランクC"
+    },
+    {
+      "id": "visit-059b298b83dc",
+      "name": "(株)吉本歯切",
+      "category": "既存開拓（歯車・軸・鍛造等）",
+      "area": "石川県 河北郡津幡町浅田甲181",
+      "prefecture": "石川県",
+      "materials": [
+        "要確認（鉄系機械部品）"
+      ],
+      "heat_relation": "熱処理先未把握",
+      "reason": "既存開拓リスト。業種「産業機械部品、鍛圧機械部品」。石川のため優先度低。SCM/熱処理利用は未確認→外注先確認。",
+      "source_url": "",
+      "linked_majors": [],
+      "priority": 3,
+      "lat": 36.67135,
+      "lng": 136.73215,
+      "from_visit_list": true,
+      "rank": ""
+    },
+    {
+      "id": "visit-7a0bd1dcd11d",
+      "name": "(株)東振精機",
+      "category": "既存開拓（歯車・軸・鍛造等）",
+      "area": "石川県 能美市寺井町ハ18番地",
+      "prefecture": "石川県",
+      "materials": [
+        "要確認（鉄系機械部品）"
+      ],
+      "heat_relation": "熱処理先未把握",
+      "reason": "既存開拓リスト。業種「精密ピン、シャフト類」。石川のため優先度低。SCM/熱処理利用は未確認→外注先確認。",
+      "source_url": "",
+      "linked_majors": [],
+      "priority": 3,
+      "lat": 36.4456,
+      "lng": 136.5527,
+      "from_visit_list": true,
+      "rank": "ランクA"
+    },
+    {
+      "id": "visit-0985c2eede13",
+      "name": "(株)林鍛造所",
+      "category": "既存開拓（歯車・軸・鍛造等）",
+      "area": "石川県 かほく市宇気い5番地",
+      "prefecture": "石川県",
+      "materials": [
+        "要確認（鉄系機械部品）"
+      ],
+      "heat_relation": "熱処理先未把握",
+      "reason": "既存開拓リスト。業種「一般機械部品」。石川のため優先度低。SCM/熱処理利用は未確認→外注先確認。",
+      "source_url": "",
+      "linked_majors": [],
+      "priority": 3,
+      "lat": 36.72245,
+      "lng": 136.70945,
+      "from_visit_list": true,
+      "rank": "ランクC"
+    },
+    {
+      "id": "visit-63d4a11db8f8",
+      "name": "(株)竹内歯車製作所",
+      "category": "既存開拓（歯車・軸・鍛造等）",
+      "area": "石川県 金沢市港1丁目71番地",
+      "prefecture": "石川県",
+      "materials": [
+        "要確認（鉄系機械部品）"
+      ],
+      "heat_relation": "熱処理先未把握",
+      "reason": "既存開拓リスト。業種「農業機械部品、繊維機械部品」。石川のため優先度低。SCM/熱処理利用は未確認→外注先確認。",
+      "source_url": "",
+      "linked_majors": [],
+      "priority": 3,
+      "lat": 36.5597,
+      "lng": 136.65125,
+      "from_visit_list": true,
+      "rank": "ランクC"
+    },
+    {
+      "id": "visit-1393bc2a61ee",
+      "name": "(株)近江工業所",
+      "category": "既存開拓（歯車・軸・鍛造等）",
+      "area": "石川県 小松市上小松町丙95-1",
+      "prefecture": "石川県",
+      "materials": [
+        "要確認（鉄系機械部品）"
+      ],
+      "heat_relation": "熱処理先未把握",
+      "reason": "既存開拓リスト。業種「シャフト、ボルト、ナット、ブロック」。石川のため優先度低。SCM/熱処理利用は未確認→外注先確認。",
+      "source_url": "",
+      "linked_majors": [],
+      "priority": 3,
+      "lat": 36.41155,
+      "lng": 136.44835,
+      "from_visit_list": true,
+      "rank": "ランクB"
+    },
+    {
+      "id": "visit-4425026e79e9",
+      "name": "カネマツ鋼材(株)",
+      "category": "既存開拓（歯車・軸・鍛造等）",
+      "area": "石川県 白山市福留町222番地    加工部",
+      "prefecture": "石川県",
+      "materials": [
+        "要確認（鉄系機械部品）"
+      ],
+      "heat_relation": "熱処理先未把握",
+      "reason": "既存開拓リスト。業種「長尺難削シャフト加工」。石川のため優先度低。SCM/熱処理利用は未確認→外注先確認。",
+      "source_url": "",
+      "linked_majors": [],
+      "priority": 3,
+      "lat": 36.51475,
+      "lng": 136.5649,
+      "from_visit_list": true,
+      "rank": ""
+    },
+    {
+      "id": "visit-f8a9ead6e765",
+      "name": "中田技研",
+      "category": "既存開拓（歯車・軸・鍛造等）",
+      "area": "石川県 能美郡川北町橘新74",
+      "prefecture": "石川県",
+      "materials": [
+        "要確認（鉄系機械部品）"
+      ],
+      "heat_relation": "熱処理先未把握",
+      "reason": "既存開拓リスト。業種「シャフト、超鋼ドリルのホーニング」。石川のため優先度低。SCM/熱処理利用は未確認→外注先確認。",
+      "source_url": "",
+      "linked_majors": [],
+      "priority": 3,
+      "lat": 36.47395,
+      "lng": 136.5501,
+      "from_visit_list": true,
+      "rank": "ランクD"
+    }
+  ]
+}

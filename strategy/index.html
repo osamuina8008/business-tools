@@ -61,15 +61,17 @@
     <section class="bg-white rounded-2xl border border-amber-200 shadow-sm p-4 md:p-5 fade-in">
       <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
         <h2 class="font-bold text-amber-900">今日の提案・指示</h2>
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 flex-wrap">
           <span id="actions-meta" class="text-xs text-slate-400"></span>
+          <button type="button" onclick="clearDismissedActions()"
+            class="text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg">済を戻す</button>
           <a href="./consult.html"
             class="text-xs font-semibold text-indigo-800 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-lg">考え方を書く・AI相談</a>
           <button type="button" onclick="copyActions()"
             class="text-xs font-semibold text-amber-900 bg-amber-100 hover:bg-amber-200 px-3 py-1.5 rounded-lg">指示をコピー</button>
         </div>
       </div>
-      <p class="text-xs text-slate-500 mb-3">戦略・戦術・攻めどころ・ランク・Eight・<strong>新聞×社名一致</strong>から自動生成。反応や改訂は「考え方を書く・AI相談」へ。</p>
+      <p class="text-xs text-slate-500 mb-3">タップで地図へ。右の<strong>済</strong>で消える（この端末に保存）。受注済みは攻めボードから自動で外れます。</p>
       <div id="actions-list" class="space-y-2 max-h-96 overflow-auto">
         <p class="text-sm text-slate-400">読み込み中...</p>
       </div>
@@ -77,8 +79,11 @@
 
     <!-- 最重要攻め所 -->
     <section class="bg-white rounded-2xl border-2 border-orange-300 shadow-sm p-4 md:p-5 fade-in">
-      <h2 class="font-bold text-orange-900 mb-2">最重要攻め所</h2>
-      <p class="text-xs text-slate-500 mb-3">石川の開拓先ピンとは別レイヤー。地図はここを中心に表示します。</p>
+      <div class="flex flex-wrap items-end justify-between gap-2 mb-2">
+        <h2 class="font-bold text-orange-900">いまの攻め所（次を展開）</h2>
+        <p id="won-archive-note" class="text-xs text-emerald-700"></p>
+      </div>
+      <p class="text-xs text-slate-500 mb-3">受注済みはここに出しません。次の新規に集中します。</p>
       <div id="anchor-list" class="grid grid-cols-1 md:grid-cols-3 gap-2"></div>
     </section>
 
@@ -218,37 +223,82 @@ function circleIcon(color, size = 16) {
 function showAnchor(a) {
   const el = document.getElementById('detail-panel');
   if (a.lat != null && a.lng != null) focusPin(a.lat, a.lng, 11);
-  const won = a.status === 'won';
+  const won = a.status === 'won' || a.archived;
   el.innerHTML = `
-    <p class="text-xs font-bold ${won ? 'text-emerald-800' : 'text-orange-800'} mb-1">${won ? '受注済み・フォロー' : '最重要攻め所'}</p>
+    <p class="text-xs font-bold ${won ? 'text-emerald-800' : 'text-orange-800'} mb-1">${won ? '受注済み（アーカイブ）' : 'いまの攻め所'}</p>
     <h3 class="text-base font-bold text-slate-900">${esc(a.name)}${won ? ' <span class="text-[10px] bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded font-bold">受注</span>' : ''}</h3>
     <p class="text-xs text-slate-500 mt-1">${esc([a.prefecture, a.area, a.address].filter(Boolean).join(' '))}</p>
     <div class="mt-3 p-2 rounded-lg ${won ? 'bg-emerald-50 border border-emerald-200 text-xs text-emerald-900' : 'bg-orange-50 border border-orange-200 text-xs text-orange-900'}">
       <span class="font-bold">${won ? '状況:' : '困りごと:'}</span> ${esc(a.pain || '')}
     </div>
     ${(a.sources||[]).length ? `<p class="text-xs text-slate-500 mt-2">関連: ${esc((a.sources||[]).join(' / '))}</p>` : ''}
-    <p class="text-xs text-slate-500 mt-2">${won ? '追加案件・納品・紹介を継続。新規開拓対象からは外す。' : 'ここ自体は競合・大手。攻めるのは周辺の部品メーカー外注先。'}</p>`;
+    <p class="text-xs text-slate-500 mt-2">${won ? '攻めボードからは外しています。次の新規へ進んでください。' : 'ここ自体は競合・大手。攻めるのは周辺の部品メーカー外注先。'}</p>`;
+}
+
+function activeAnchors(data) {
+  return (data.attack_anchors || []).filter(a => a.status !== 'won' && !a.archived);
+}
+
+function wonAnchors(data) {
+  return (data.attack_anchors || []).filter(a => a.status === 'won' || a.archived);
+}
+
+function renderAnchors(data) {
+  const active = activeAnchors(data);
+  const won = wonAnchors(data);
+  const el = document.getElementById('anchor-list');
+  const note = document.getElementById('won-archive-note');
+  if (note) {
+    note.textContent = won.length
+      ? `受注済み ${won.map(a => a.name).join('・')} は非表示`
+      : '';
+  }
+  if (!active.length) {
+    el.innerHTML = '<p class="text-sm text-slate-400">攻め所がありません。次の候補をCMDかExcelで追加してください。</p>';
+    return;
+  }
+  el.innerHTML = active.map(a => `
+    <button type="button" onclick="showAnchorById('${esc(a.id)}')"
+      class="text-left rounded-xl border-2 ${a.id === 'howa' ? 'border-orange-400 bg-orange-50' : 'border-orange-200 bg-orange-50/60'} hover:bg-orange-50 p-3 transition">
+      <p class="text-sm font-bold text-orange-900">${a.id === 'howa' ? '★ ' : ''}${esc(a.name)}</p>
+      <p class="text-xs text-slate-600 mt-1">${esc(a.area || '')}</p>
+      <p class="text-xs text-orange-800 mt-1">${esc(a.pain || '')}</p>
+    </button>`).join('');
+}
+
+const DONE_KEY = 'strategy_dismissed_actions_v1';
+
+function loadDismissed() {
+  try { return new Set(JSON.parse(localStorage.getItem(DONE_KEY) || '[]')); }
+  catch { return new Set(); }
+}
+
+function saveDismissed(set) {
+  localStorage.setItem(DONE_KEY, JSON.stringify([...set]));
+}
+
+function actionKey(a) {
+  return `${a.kind || ''}|${a.title || ''}`;
+}
+
+function dismissAction(i, ev) {
+  if (ev) { ev.preventDefault(); ev.stopPropagation(); }
+  const a = (actionsData?.actions || [])[i];
+  if (!a) return;
+  const set = loadDismissed();
+  set.add(actionKey(a));
+  saveDismissed(set);
+  renderActions(actionsData);
+}
+
+function clearDismissedActions() {
+  localStorage.removeItem(DONE_KEY);
+  renderActions(actionsData);
 }
 
 function showAnchorById(id) {
   const a = (territory?.attack_anchors || []).find(x => x.id === id);
   if (a) showAnchor(a);
-}
-
-function renderAnchors(data) {
-  const anchors = data.attack_anchors || [];
-  const el = document.getElementById('anchor-list');
-  if (!anchors.length) {
-    el.innerHTML = '<p class="text-sm text-slate-400">—</p>';
-    return;
-  }
-  el.innerHTML = anchors.map(a => `
-    <button type="button" onclick="showAnchorById('${esc(a.id)}')"
-      class="text-left rounded-xl border-2 ${a.status === 'won' ? 'border-emerald-400 bg-emerald-50' : a.id === 'howa' ? 'border-orange-400 bg-orange-50' : 'border-orange-200 bg-orange-50/60'} hover:bg-orange-50 p-3 transition">
-      <p class="text-sm font-bold ${a.status === 'won' ? 'text-emerald-900' : 'text-orange-900'}">${a.status === 'won' ? '受注 ' : a.id === 'howa' ? '★ ' : ''}${esc(a.name)}</p>
-      <p class="text-xs text-slate-600 mt-1">${esc(a.area || '')}</p>
-      <p class="text-xs ${a.status === 'won' ? 'text-emerald-800' : 'text-orange-800'} mt-1">${esc(a.pain || '')}</p>
-    </button>`).join('');
 }
 
 function renderLists(data) {
@@ -457,14 +507,20 @@ function openActionByIndex(i) {
 
 function renderActions(payload) {
   actionsData = payload || { actions: [] };
-  const list = actionsData.actions || [];
+  const dismissed = loadDismissed();
+  const all = actionsData.actions || [];
+  const list = all.filter(a => !dismissed.has(actionKey(a)));
+  const hidden = all.length - list.length;
   document.getElementById('actions-meta').textContent = actionsData.updated
-    ? `${list.length}件 · ${String(actionsData.updated).slice(0, 16).replace('T', ' ')}`
-    : `${list.length}件`;
-  actionsText = actionsData.summary || list.map(a => `P${a.priority} ${a.title}\n  → ${a.instruction}`).join('\n\n');
+    ? `${list.length}件${hidden ? `（済${hidden}）` : ''} · ${String(actionsData.updated).slice(0, 16).replace('T', ' ')}`
+    : `${list.length}件${hidden ? `（済${hidden}）` : ''}`;
+  actionsText = list.map(a => `P${a.priority} ${a.title}\n  → ${a.instruction}`).join('\n\n')
+    || actionsData.summary || '';
   const el = document.getElementById('actions-list');
   if (!list.length) {
-    el.innerHTML = '<p class="text-sm text-slate-400">提案がまだありません。投入箱にデータを入れるか build を実行してください。</p>';
+    el.innerHTML = hidden
+      ? '<p class="text-sm text-slate-400">表示中の提案はありません。「済を戻す」で再表示できます。</p>'
+      : '<p class="text-sm text-slate-400">提案がまだありません。投入箱にデータを入れるか build を実行してください。</p>';
     return;
   }
   const tagMap = {
@@ -472,7 +528,8 @@ function renderActions(payload) {
     news_match: '新聞×社', news_hint: '参考新聞', customer_relation: '取引先ネタ',
     news: '新聞', tactic: '戦術', competitor: '競合', win_follow: '受注', goal: '目標', pipeline: '刈り取り',
   };
-  el.innerHTML = list.map((a, i) => {
+  el.innerHTML = list.map((a) => {
+    const i = all.indexOf(a);
     const hasLink = !!(a.link);
     const clickable = hasLink || a.company_id || (a.lat != null && a.lng != null);
     const tag = tagMap[a.kind] || '訪問';
@@ -481,21 +538,26 @@ function renderActions(payload) {
       : '';
     const pubLine = a.pub ? `<span class="text-[10px] text-slate-400">${esc(a.pub)}</span>` : '';
     return `
-      <button type="button" ${clickable ? `onclick="openActionByIndex(${i})"` : ''}
-        class="w-full text-left rounded-xl border ${hasLink ? 'border-rose-200 bg-rose-50/40 hover:bg-rose-50' : 'border-amber-100 bg-amber-50/50 hover:bg-amber-50'} p-3 transition ${clickable ? 'cursor-pointer' : 'cursor-default'}">
-        <div class="flex items-start gap-2">
-          <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-200 text-amber-900 shrink-0">P${a.priority}</span>
-          <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-white border border-amber-100 text-slate-600 shrink-0">${esc(tag)}</span>
-          <div class="min-w-0 flex-1">
-            <p class="text-sm font-bold text-slate-800">${esc(a.title)}</p>
-            <p class="text-xs text-slate-600 mt-1">${esc(a.instruction)}</p>
-            <div class="flex flex-wrap items-center gap-2 mt-1.5">
-              ${pubLine}
-              ${linkHint ? `<span class="text-[10px] font-bold text-rose-700">${linkHint}</span>` : ''}
+      <div class="rounded-xl border ${hasLink ? 'border-rose-200 bg-rose-50/40' : 'border-amber-100 bg-amber-50/50'} p-3 flex gap-2 items-start">
+        <button type="button" ${clickable ? `onclick="openActionByIndex(${i})"` : ''}
+          class="min-w-0 flex-1 text-left ${clickable ? 'cursor-pointer hover:opacity-90' : 'cursor-default'}">
+          <div class="flex items-start gap-2">
+            <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-200 text-amber-900 shrink-0">P${a.priority}</span>
+            <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-white border border-amber-100 text-slate-600 shrink-0">${esc(tag)}</span>
+            <div class="min-w-0 flex-1">
+              <p class="text-sm font-bold text-slate-800">${esc(a.title)}</p>
+              <p class="text-xs text-slate-600 mt-1">${esc(a.instruction)}</p>
+              <div class="flex flex-wrap items-center gap-2 mt-1.5">
+                ${pubLine}
+                ${linkHint ? `<span class="text-[10px] font-bold text-rose-700">${linkHint}</span>` : ''}
+              </div>
             </div>
           </div>
-        </div>
-      </button>`;
+        </button>
+        <button type="button" onclick="dismissAction(${i}, event)"
+          class="shrink-0 text-xs font-bold text-slate-600 bg-white border border-slate-200 hover:bg-emerald-50 hover:border-emerald-300 hover:text-emerald-800 px-2.5 py-1.5 rounded-lg"
+          title="済にして一覧から外す">済</button>
+      </div>`;
   }).join('');
 }
 
@@ -544,6 +606,7 @@ function buildMap(data, visitData) {
 
   (data.attack_anchors || []).forEach(a => {
     if (a.lat == null || a.lng == null) return;
+    if (a.status === 'won' || a.archived) return;
     bounds.push([a.lat, a.lng]);
     const size = a.id === 'howa' ? 22 : 18;
     L.marker([a.lat, a.lng], { icon: circleIcon('#c2410c', size), zIndexOffset: 1000 })
@@ -606,9 +669,10 @@ function buildMap(data, visitData) {
 
   if (bounds.length >= 2) {
     map.fitBounds(bounds, { padding: [28, 28] });
-  } else if ((data.attack_anchors || []).length) {
-    const h = data.attack_anchors.find(a => a.id === 'howa') || data.attack_anchors[0];
-    map.setView([h.lat, h.lng], 9);
+  } else {
+    const act = activeAnchors(data);
+    const h = act.find(a => a.id === 'howa') || act[0];
+    if (h?.lat != null) map.setView([h.lat, h.lng], 9);
   }
   setTimeout(() => map.invalidateSize(), 100);
 }
@@ -730,6 +794,8 @@ async function main() {
   renderAnchors(territory);
   renderLists(territory);
   buildMap(territory, visits);
+  const next = activeAnchors(territory);
+  if (next.length) showAnchor(next.find(a => a.id === 'howa') || next[0]);
   renderCompanyList();
   document.getElementById('company-filter').addEventListener('input', (e) => renderCompanyList(e.target.value));
   if (aRes.ok) {

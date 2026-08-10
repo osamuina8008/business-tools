@@ -388,7 +388,9 @@ function renderScmRadar(data) {
         : 'border-orange-200 bg-white';
       const tag = t.is_placeholder
         ? '<span class="text-[10px] font-bold text-amber-800 bg-amber-100 px-1.5 py-0.5 rounded">探索枠</span>'
-        : `P${t.priority ?? '—'}`;
+        : (t.pipeline_status === 'contacted_revisit'
+          ? '<span class="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-1.5 py-0.5 rounded">近々訪問</span>'
+          : `P${t.priority ?? '—'}`);
       return `
       <div ${focus} class="rounded-xl border ${ph} p-3 ${focus ? 'cursor-pointer hover:bg-orange-50' : ''}">
         <div class="flex items-start justify-between gap-2">

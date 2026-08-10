@@ -1,8 +1,8 @@
 {
-  "updated": "2026-08-11T08:58:36+09:00",
+  "updated": "2026-08-11T08:59:49+09:00",
   "disclaimer": "攻めどころ界隈の公開情報・聞き取りベース。既存顧客・コマツ筋・高周波メイン等は除外済み。",
   "how_to_use": "各界隈の社名一覧を見て訪問先を決める。探索枠は現地で社名を確定して埋める。",
-  "count": 23,
+  "count": 24,
   "group_count": 8,
   "groups": [
     {
@@ -147,7 +147,7 @@
       "pain": "防炭処理をしてくれない → 周辺部品メーカーの外注先を刈る",
       "lat": 35.1986,
       "lng": 136.848,
-      "count": 6,
+      "count": 7,
       "companies": [
         {
           "name": "水谷精機工作所",
@@ -311,6 +311,29 @@
           "employees": null,
           "scale_source": "",
           "scale_summary": "公開規模未確認"
+        },
+        {
+          "id": "visit-763332551a84",
+          "name": "大川歯車",
+          "category": "既存開拓リスト",
+          "area": "",
+          "materials": [
+            "要確認"
+          ],
+          "heat_relation": "熱処理先未把握",
+          "reason": "開拓リスト。業種「—」。熱処理利用を確認。",
+          "source_url": "",
+          "linked_majors": [],
+          "priority": 2,
+          "lat": null,
+          "lng": null,
+          "hotspot_id": "houwa",
+          "hotspot_area": "愛知・豊和工業（清須本社）界隈",
+          "from_visit_list": true,
+          "capital_man_yen": 1000,
+          "employees": 20,
+          "scale_source": "公式",
+          "scale_summary": "資本金1,000万円 / 従業員20名"
         }
       ]
     },
@@ -512,12 +535,14 @@
             "金属歯車各種"
           ],
           "heat_relation": "焼入は協力会社へ依頼と公式工程に明記",
-          "reason": "豊中ど真ん中の精密歯車。熱処理外注先・困りごと再ヒアリング本命。",
+          "reason": "コンタクト済。受注前で一度足が止まっていたが、近々再訪問予定。豊中種まき刈り取りの本命。",
           "source_url": "http://www.ohgk.co.jp/company/index.html",
           "linked_majors": [],
           "priority": 0,
           "lat": 34.781,
           "lng": 135.47,
+          "pipeline_status": "contacted_revisit",
+          "pipeline_note": "コンタクト済・近々訪問予定",
           "id": "toyonaka-大川歯車製作所",
           "hotspot_id": "toyonaka",
           "hotspot_area": "大阪・豊中市界隈",
@@ -1130,12 +1155,14 @@
         "金属歯車各種"
       ],
       "heat_relation": "焼入は協力会社へ依頼と公式工程に明記",
-      "reason": "豊中ど真ん中の精密歯車。熱処理外注先・困りごと再ヒアリング本命。",
+      "reason": "コンタクト済。受注前で一度足が止まっていたが、近々再訪問予定。豊中種まき刈り取りの本命。",
       "source_url": "http://www.ohgk.co.jp/company/index.html",
       "linked_majors": [],
       "priority": 0,
       "lat": 34.781,
       "lng": 135.47,
+      "pipeline_status": "contacted_revisit",
+      "pipeline_note": "コンタクト済・近々訪問予定",
       "id": "toyonaka-大川歯車製作所",
       "hotspot_id": "toyonaka",
       "hotspot_area": "大阪・豊中市界隈",
@@ -1389,6 +1416,29 @@
       "scale_summary": "資本金1億円 / 従業員80名"
     },
     {
+      "id": "visit-763332551a84",
+      "name": "大川歯車",
+      "category": "既存開拓リスト",
+      "area": "",
+      "materials": [
+        "要確認"
+      ],
+      "heat_relation": "熱処理先未把握",
+      "reason": "開拓リスト。業種「—」。熱処理利用を確認。",
+      "source_url": "",
+      "linked_majors": [],
+      "priority": 2,
+      "lat": null,
+      "lng": null,
+      "hotspot_id": "houwa",
+      "hotspot_area": "愛知・豊和工業（清須本社）界隈",
+      "from_visit_list": true,
+      "capital_man_yen": 1000,
+      "employees": 20,
+      "scale_source": "公式",
+      "scale_summary": "資本金1,000万円 / 従業員20名"
+    },
+    {
       "name": "株式会社MD（東海市）",
       "category": "金属加工",
       "area": "愛知県東海市",
@@ -1555,6 +1605,14 @@
       "employees": 22,
       "scale_summary": "資本金1,000万円 / 従業員22名",
       "priority": 0
+    },
+    {
+      "name": "大川歯車",
+      "hotspot_area": "愛知・豊和工業（清須本社）界隈",
+      "capital_man_yen": 1000,
+      "employees": 20,
+      "scale_summary": "資本金1,000万円 / 従業員20名",
+      "priority": 2
     },
     {
       "name": "株式会社大川歯車製作所",

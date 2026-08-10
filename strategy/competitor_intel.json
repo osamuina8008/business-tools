@@ -1,13 +1,13 @@
 {
-  "collected_at": "2026-08-10T21:09:32+09:00",
+  "collected_at": "2026-08-11T06:01:45+09:00",
   "disclaimer": "公式サイト・新聞RSSから自動収集。取引先は公開情報ベースの推定。",
-  "count": 24,
+  "count": 63,
   "competitors": [
     {
       "id": "48667cd1fe79",
-      "name": "中部熱処理",
-      "area": "岐阜県・岐阜",
-      "updated": "2026-08-10T21:06:28+09:00",
+      "name": "株式会社中部熱処理",
+      "area": "岐阜県・岐阜市",
+      "updated": "2026-08-11T05:59:08+09:00",
       "scope": "plant",
       "profile": {
         "official_name": "株式会社中部熱処理",
@@ -76,7 +76,7 @@
         {
           "title": "中東情勢相談窓口に30件の相談 中部経産局長、定例会見で明かす:ニュース",
           "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1PYnhGdDZEajdkYy15Tk0wQnJGVVVHX0V3U3NlUnF2RnpwQ2t2X0FESzVhbTM0RnVTWmZzejZLX19aN0hEekRteXpKTDhCNEtOR1hJMk8wekF5UUFjNWtuY1k1TlI?oc=5",
-          "source": "biz.chunichi.co.jp",
+          "source": "中日BIZナビ",
           "pub": "2026-04-18T13:38:32+09:00",
           "query": "中部熱処理 熱処理",
           "clients": []
@@ -108,7 +108,7 @@
         {
           "title": "鉄製のインテリア雑貨が知名度向上に一役 東海熱処理【玄関参観】:ニュース",
           "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5oTHA3dEZzb3E3dHZFdDZrOVJoUTV2blAtTzJubW5MTkxKT3lkTzltVC1RMlZyVGZ2T0ZPODNhS055bkhkRkhGYnM2VE95VlhtQmVrSmVxTVF2N0F2NXIw?oc=5",
-          "source": "biz.chunichi.co.jp",
+          "source": "中日BIZナビ",
           "pub": "2025-05-19T16:00:00+09:00",
           "query": "中部熱処理 熱処理",
           "clients": []
@@ -126,21 +126,21 @@
         {
           "kind": "company",
           "url": "https://netsu123.com/company/",
-          "fetched_at": "2026-08-10T21:06:24+09:00"
+          "fetched_at": "2026-08-11T05:59:06+09:00"
         },
         {
           "kind": "equipment",
           "url": "https://netsu123.com/facility/",
-          "fetched_at": "2026-08-10T21:06:25+09:00"
+          "fetched_at": "2026-08-11T05:59:07+09:00"
         }
       ],
       "errors": []
     },
     {
       "id": "8f864ae51d2d",
-      "name": "栗山熱処理",
+      "name": "株式会社栗山熱処理",
       "area": "岐阜県・岐阜市",
-      "updated": "2026-08-10T21:06:34+09:00",
+      "updated": "2026-08-11T05:59:14+09:00",
       "scope": "plant",
       "profile": {
         "official_name": "株式会社栗山熱処理"
@@ -191,38 +191,106 @@
         {
           "kind": "company",
           "url": "https://kuriyamanetusyori.com/",
-          "fetched_at": "2026-08-10T21:06:30+09:00"
+          "fetched_at": "2026-08-11T05:59:10+09:00"
         },
         {
           "kind": "equipment",
           "url": "https://kuriyamanetusyori.com/plant/",
-          "fetched_at": "2026-08-10T21:06:32+09:00"
+          "fetched_at": "2026-08-11T05:59:12+09:00"
         }
       ],
       "errors": []
     },
     {
       "id": "3f23b7805371",
-      "name": "日本熱処理",
+      "name": "日本熱処理株式会社",
       "area": "岐阜県・関市",
-      "updated": "2026-08-10T21:06:36+09:00",
+      "updated": "2026-08-11T05:59:18+09:00",
       "scope": "plant",
       "profile": {
-        "official_name": "日本熱処理"
+        "official_name": "日本熱処理株式会社",
+        "capital": "1,000万円",
+        "employees": "29名",
+        "founded": "昭和38年11月",
+        "address": "岐阜県関市肥田瀬585-14"
       },
-      "scale_summary": "",
-      "equipment": [],
-      "equipment_summary": "",
+      "scale_summary": "資本金1,000万円 / 従業員約29名 / 設昭和38年 / 関市肥田瀬",
+      "equipment": [
+        {
+          "name": "時効炉",
+          "count": 4,
+          "spec": ""
+        },
+        {
+          "name": "・連続窒素雰囲気炉",
+          "count": 2,
+          "spec": ""
+        },
+        {
+          "name": "溶体化炉",
+          "count": 2,
+          "spec": ""
+        },
+        {
+          "name": "連続焼戻炉",
+          "count": 2,
+          "spec": ""
+        },
+        {
+          "name": "連続窒素雰囲気炉",
+          "count": 2,
+          "spec": ""
+        },
+        {
+          "name": "・連続ガス浸炭焼入焼戻炉",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "・連続ガス雰囲気炉",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "・連続ガス雰囲気焼入焼戻炉",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "連続ガス浸炭焼入焼戻炉",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "連続ガス雰囲気炉",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "連続ガス雰囲気焼入焼戻炉",
+          "count": 1,
+          "spec": ""
+        }
+      ],
+      "equipment_summary": "連続窒素雰囲気2・連続浸炭1・連続雰囲気焼入焼戻等・溶体化2・時効4",
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [
         {
+          "title": "会長にフェザー安全剃刀の岸田社長 中濃労働基準協会が総会:ニュース",
+          "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE92NUJ2VTBNNVBFM2xsb3hsZ0RPM1BqeWtEU1FMUHpYSU5hZ2F3NXJsMEJpaHZwaUtDaGdaTU5CRDdCUkFmRUNUV09NNU1XbW1TWjFGNXBKTkQ4VF83ZktZ?oc=5",
+          "source": "中日BIZナビ",
+          "pub": "2025-06-06T16:00:00+09:00",
+          "query": "日本熱処理 関市",
+          "clients": []
+        },
+        {
           "title": "ドイツの製鋼技術×日本の匠の技が超融合!ツヴィリング「MIYABI」20周年モデル「MIYABI 粋-IKI-」は、ツヴィリング関工場の“こころ粋”なのである!",
           "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE81MnJ1RTVIbVctTk1zVDltRHJzTkJxWkxpY0NZSGREb1VUTDdGdWhYNl81ZGdnODNQOWFUWGFOZVd4bGM0cGw5OHI5TVJhYXhpY2Y1M2h3?oc=5",
           "source": "GoodsPress Web",
           "pub": "2025-06-15T16:00:00+09:00",
-          "query": "日本熱処理 関市 熱処理",
+          "query": "日本熱処理 関市",
           "clients": []
         },
         {
@@ -230,34 +298,29 @@
           "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE96VFZuWWxfYm1oVkwxTktCUEpoNUpfaHJRcnBpMVNpanRRMXZobHhRT1FPSVhHc0w5OFJKMTAtdWMzclJCelNfV09JY0ktakhnb3JV?oc=5",
           "source": "中日新聞Web",
           "pub": "2022-06-04T16:00:00+09:00",
-          "query": "日本熱処理 関市 熱処理",
-          "clients": []
-        },
-        {
-          "title": "科学が紐解く、日本刀の強さの秘密:「曲がらず」の解明 - クラウドファンディング",
-          "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1hOXFLcEZtclBhOVR2azhkQVJhSU9RQlh3RFBqOG4yTEwzcTdESXVKTFBJUVUzUG9PcGdjZG13bWVrNWtpT09DRTkwOA?oc=5",
-          "source": "READYFOR",
-          "pub": "2023-12-05T17:00:00+09:00",
-          "query": "日本熱処理 岐阜",
-          "clients": []
-        },
-        {
-          "title": "日本古来のたたら製鉄を検証しようと岐阜県関市の技術者の指導で三条で小だたら操業の実習-(2006.9.19)",
-          "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE51eVo1d3VCTEI2UmE0bXRfWkJmQkwyTktpb3RxT3owMVlGZ0NfQnVZNk9OV2NmOUVYRm0tbXd2OTQ4V25SQzU4Nll4eDU5RGtjLU1N?oc=5",
-          "source": "ケンオー・ドットコム",
-          "pub": "2006-09-19T16:00:00+09:00",
-          "query": "日本熱処理 岐阜",
+          "query": "日本熱処理 関市",
           "clients": []
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.nichinetsu.net/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/",
+          "fetched_at": "2026-08-11T05:59:15+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.nichinetsu.net/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/",
+          "fetched_at": "2026-08-11T05:59:16+09:00"
+        }
+      ],
       "errors": []
     },
     {
       "id": "4ed272f373d1",
-      "name": "メタルヒート",
-      "area": "愛知県・愛知(真空熱処理)",
-      "updated": "2026-08-10T21:06:41+09:00",
+      "name": "株式会社メタルヒート",
+      "area": "愛知県・安城市",
+      "updated": "2026-08-11T05:59:21+09:00",
       "scope": "plant",
       "profile": {
         "official_name": "株式会社メタルヒート",
@@ -357,14 +420,6 @@
           "clients": []
         },
         {
-          "title": "インタビュー/メタルヒート社長・原敏城氏 下請け体質脱却へ中核社員育成",
-          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5abGZIUXZDUG5FT2JaenA0TmdoN3VieDcxaEJOVmpOb19VdVBDWld0VDNVbE40U21lYUdUV0ZhVEdUT3lDdWxJZ2l0Q0diRTdEZUc2V3draEhXZFU?oc=5",
-          "source": "日刊工業新聞",
-          "pub": "2025-01-08T12:03:39+09:00",
-          "query": "メタルヒート 真空熱処理",
-          "clients": []
-        },
-        {
           "title": "メタルヒート/能登工場の熱処理能力増強/雰囲気連続焼鈍炉を新設",
           "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9Gck5rejg1bkp4Qm42YUM4a0VjZUg3bXU3YUN5T0tvd25ycW1WZFRFRWphbmUtUjZ6OHlMdGdWOERadUdEQmpNZVh6N25zT09uVng0d3NXdkZTclR0Tmc?oc=5",
           "source": "日刊鉄鋼新聞 Japan Metal Daily",
@@ -379,80 +434,107 @@
           "pub": "2023-04-26T16:00:00+09:00",
           "query": "メタルヒート 真空熱処理",
           "clients": []
-        },
-        {
-          "title": "安城で産業フェア 市内の企業や団体が最先端技術紹介:ニュース",
-          "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1YLW0zeC1Uc1VNN01RcmFaYlQySzl4akF2c1A1SENWR3YzY2MxRG54RFZod1lqdGQ3MXF5Y0x3RWFuV2F0Rm5LTFdMSmNfSmtzY19hRWpQd21kQ1RrZF9QSTdxaw?oc=5",
-          "source": "biz.chunichi.co.jp",
-          "pub": "2024-03-17T16:00:00+09:00",
-          "query": "メタルヒート 安城",
-          "clients": []
         }
       ],
       "sources": [
         {
           "kind": "company",
           "url": "https://metalheat.co.jp/company/",
-          "fetched_at": "2026-08-10T21:06:37+09:00"
+          "fetched_at": "2026-08-11T05:59:18+09:00"
         },
         {
           "kind": "equipment",
           "url": "https://www.metalheat.co.jp/equipment/",
-          "fetched_at": "2026-08-10T21:06:38+09:00"
+          "fetched_at": "2026-08-11T05:59:19+09:00"
         }
       ],
       "errors": []
     },
     {
       "id": "77823fc17ced",
-      "name": "豊臣熱処理工業",
-      "area": "愛知県・愛知",
-      "updated": "2026-08-10T21:06:42+09:00",
+      "name": "豊臣熱処理工業株式会社",
+      "area": "愛知県・知立市",
+      "updated": "2026-08-11T05:59:22+09:00",
       "scope": "plant",
       "profile": {
-        "official_name": "豊臣熱処理工業"
+        "official_name": "豊臣熱処理工業株式会社",
+        "capital": "2,100万円",
+        "founded": "昭和34年8月",
+        "employees": "157名(男:109名/女:48名)",
+        "business": "真空炉による熱処理",
+        "address": "愛知県知立市牛田町遠新切21-8"
       },
-      "scale_summary": "",
-      "equipment": [],
-      "equipment_summary": "",
+      "scale_summary": "資本金2,100万円 / 従業員157名 / 設昭和34年 / 知立市",
+      "equipment": [
+        {
+          "name": "アルミ溶体化・時効炉",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "ガス雰囲気炉",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "真空炉",
+          "count": 1,
+          "spec": ""
+        }
+      ],
+      "equipment_summary": "真空炉・ガス雰囲気炉・アルミ溶体化/時効炉(IATF16949)",
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "http://www.toyotomi-ht.co.jp/company/",
+          "fetched_at": "2026-08-11T05:59:21+09:00"
+        }
+      ],
       "errors": []
     },
     {
       "id": "6146f621a8c3",
-      "name": "川村熱錬工業",
-      "area": "愛知県・愛知",
-      "updated": "2026-08-10T21:06:43+09:00",
+      "name": "川村熱錬工業株式会社",
+      "area": "愛知県・大口町",
+      "updated": "2026-08-11T05:59:25+09:00",
       "scope": "plant",
       "profile": {
-        "official_name": "川村熱錬工業"
+        "official_name": "川村熱錬工業株式会社",
+        "address": "愛知県丹羽郡大口町竹田2-109/犬山市寺西25",
+        "business": "鉄鋼・アルミ素材粗形材の一般熱処理"
       },
-      "scale_summary": "",
+      "scale_summary": "愛知・大口本社+犬山工場/自動車・工作機・重機素材調質",
       "equipment": [],
-      "equipment_summary": "",
+      "equipment_summary": "大口:鉄鋼連続/バッチ調質/犬山:アルミT6・T5・T4(±5°C・焼遅れ15秒以内)",
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.kawamuraneturen.com/",
+          "fetched_at": "2026-08-11T05:59:23+09:00"
+        }
+      ],
       "errors": []
     },
     {
       "id": "632b8a7302db",
-      "name": "東研サーモテック(三重)",
-      "area": "三重県・三重工場界隈",
-      "updated": "2026-08-10T21:06:47+09:00",
+      "name": "株式会社東研サーモテック(三重)",
+      "area": "三重県・菰野町(三重工場)",
+      "updated": "2026-08-11T05:59:28+09:00",
       "scope": "plant",
       "profile": {
         "official_name": "株式会社東研サーモテック 三重工場"
       },
-      "scale_summary": "",
+      "scale_summary": "三重工場(菰野)拠点/設備台数は全社エントリ参照",
       "equipment": [],
-      "equipment_summary": "",
+      "equipment_summary": "拠点ピン(設備は株式会社東研サーモテック(全社)を参照)",
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
@@ -484,7 +566,7 @@
         {
           "title": "「タイ進出で日本の受注増」ブーメラン効果の謎 -東研サーモテック",
           "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1MREt5MWRhVVE2c2RmcjdmS05CUEVtMy1QMkpUTVFNU2hfOGRfTW92RE9jOXliaUMwekE1ZTFVRllycjZkSlRkMW1OSG9DUkgyV3ZFd0R3?oc=5",
-          "source": "PRESIDENT Online(プレジデントオンライン)",
+          "source": "president.jp",
           "pub": "2013-02-19T17:00:00+09:00",
           "query": "東研サーモテック 三重",
           "clients": []
@@ -494,133 +576,434 @@
         {
           "kind": "company",
           "url": "https://tohkenthermo.co.jp/global-network/mie-factory/",
-          "fetched_at": "2026-08-10T21:06:45+09:00"
+          "fetched_at": "2026-08-11T05:59:27+09:00"
         }
       ],
       "errors": []
     },
     {
       "id": "2f820eff3e7c",
-      "name": "東伸熱工(三重)",
-      "area": "三重県・三重工場",
-      "updated": "2026-08-10T21:06:49+09:00",
+      "name": "株式会社東伸熱工(三重)",
+      "area": "三重県・桑名市多度町",
+      "updated": "2026-08-11T05:59:31+09:00",
       "scope": "plant",
       "profile": {
-        "official_name": "東伸熱工"
+        "official_name": "株式会社東伸熱工 三重工場"
       },
-      "scale_summary": "",
-      "equipment": [],
-      "equipment_summary": "",
+      "scale_summary": "桑名市多度町/雰囲気専門・連続浸炭主力",
+      "equipment": [
+        {
+          "name": "ローラーハース式連続浸炭焼入焼戻し炉",
+          "count": 14,
+          "spec": ""
+        },
+        {
+          "name": "チャージャーラインバッチ式焼戻し炉(10t・4t)",
+          "count": 6,
+          "spec": ""
+        },
+        {
+          "name": "メッシュベルト式連続無酸化焼入焼戻し炉",
+          "count": 6,
+          "spec": ""
+        },
+        {
+          "name": "チャージャーラインバッチ式焼戻し炉",
+          "count": 4,
+          "spec": ""
+        },
+        {
+          "name": "フレームレス2室バッチ雰囲気焼入炉",
+          "count": 4,
+          "spec": ""
+        },
+        {
+          "name": "バッチ式2室雰囲気焼入炉",
+          "count": 3,
+          "spec": ""
+        },
+        {
+          "name": "バッチ式焼戻し炉",
+          "count": 3,
+          "spec": ""
+        },
+        {
+          "name": "メッシュベルト式連続雰囲気焼入焼戻し炉",
+          "count": 3,
+          "spec": ""
+        },
+        {
+          "name": "アルミ溶体化処理炉",
+          "count": 2,
+          "spec": ""
+        },
+        {
+          "name": "バッチ式雰囲気加熱炉",
+          "count": 2,
+          "spec": ""
+        },
+        {
+          "name": "ローラーハース式連続焼入焼戻し炉",
+          "count": 2,
+          "spec": ""
+        },
+        {
+          "name": "台車型炉",
+          "count": 2,
+          "spec": ""
+        },
+        {
+          "name": "大型フレームレス2室バッチ雰囲気焼入炉",
+          "count": 2,
+          "spec": ""
+        },
+        {
+          "name": "チャージャーラインバッチ式大型雰囲気炉",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "ピット型無酸化焼戻し炉(φ3350)",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "台車式無酸化焼戻し炉(口2300)",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "大型バッチ式焼戻し炉",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "真空焼入炉(加圧ガス焼入れ)",
+          "count": 1,
+          "spec": ""
+        }
+      ],
+      "equipment_summary": "連続浸炭14・連続無酸化6・フレームレスバッチ6・焼戻4",
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
-      "news": [
+      "news": [],
+      "sources": [
         {
-          "title": "八尾市中小企業地域経済振興功績者顕彰|大阪府八尾市公式ホームページ",
-          "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOcHVZTTNfWFhndjV3blhXdkQ3eHFwdXV0MDEzZjA0ZjFPOEpFZEpkYVd1VlI5NkpiaW1ObF9jR0FoMDJfeWdrZTFmbnhrRmFKaUFRWUNXTC1zdVlGZnUwX2VWUmxjQWR0V05uR096NmgxWXRoRnBnRFUyeDFtTGVlMWdPa1AwNzdmdGVtV245ci0xYzA2YXZxNmdn?oc=5",
-          "source": "city.yao.osaka.jp",
-          "pub": "2026-06-01T16:00:00+09:00",
-          "query": "東伸熱工 八尾",
-          "clients": []
+          "kind": "company",
+          "url": "https://toshin-nekko.co.jp/business/facility/",
+          "fetched_at": "2026-08-11T05:59:29+09:00"
         },
         {
-          "title": "南海トラフに備え、工業団地に「車中避難所」三重・桑名市が4企業と協定",
-          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9nNFZZZGxWVW8zTmJtOFlLUUhMUmtFaXZwMFVJVU1sVW1QSG1ES0pSYlF6Q213N2FmZnhHQWhlVFVfNE1LemhESWxwcS10REoxWERmMXhUaDFDejFRaG5WQXRKOXNFUXBQRm9VN1V3SExFSUlYUlE?oc=5",
-          "source": "産経ニュース",
-          "pub": "2024-08-21T16:00:00+09:00",
-          "query": "東伸熱工 八尾",
-          "clients": []
+          "kind": "equipment",
+          "url": "https://toshin-nekko.co.jp/business/facility/",
+          "fetched_at": "2026-08-11T05:59:29+09:00"
         }
       ],
-      "sources": [],
       "errors": []
     },
     {
       "id": "268983eaf1fd",
-      "name": "第一熱処理工業",
-      "area": "三重県・三重",
-      "updated": "2026-08-10T21:06:50+09:00",
+      "name": "第一熱処理工業株式会社(四日市)",
+      "area": "三重県・菰野町",
+      "updated": "2026-08-11T05:59:33+09:00",
       "scope": "plant",
       "profile": {
-        "official_name": "第一熱処理工業"
+        "official_name": "第一熱処理工業株式会社 四日市工場",
+        "capital": "3,000万円",
+        "employees": "連結235名",
+        "founded": "1959年",
+        "address": "三重県三重郡菰野町永井3086-50"
       },
-      "scale_summary": "",
+      "scale_summary": "資本金3,000万円 / 連結従業員235名 / 創立1959 / 菰野・四日市工場",
       "equipment": [],
-      "equipment_summary": "",
+      "equipment_summary": "四日市工場拠点(金属熱処理・機械加工/詳細は公式会社概要)",
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.ichi-netsu.co.jp/company/outline.html",
+          "fetched_at": "2026-08-11T05:59:31+09:00"
+        }
+      ],
       "errors": []
     },
     {
       "id": "29ff99f23971",
-      "name": "東伸熱工(小松)",
-      "area": "石川県・小松工場",
-      "updated": "2026-08-10T21:06:51+09:00",
+      "name": "株式会社東伸熱工(小松)",
+      "area": "石川県・小松市工業団地",
+      "updated": "2026-08-11T05:59:36+09:00",
       "scope": "plant",
       "profile": {
-        "official_name": "東伸熱工"
+        "official_name": "株式会社東伸熱工 小松工場"
       },
-      "scale_summary": "",
-      "equipment": [],
-      "equipment_summary": "",
-      "client_sectors": [],
-      "partners": [],
-      "client_hints": [],
-      "news": [
+      "scale_summary": "小松工業団地/雰囲気+素材調質の2ライン体制",
+      "equipment": [
         {
-          "title": "八尾市中小企業地域経済振興功績者顕彰|大阪府八尾市公式ホームページ",
-          "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOcHVZTTNfWFhndjV3blhXdkQ3eHFwdXV0MDEzZjA0ZjFPOEpFZEpkYVd1VlI5NkpiaW1ObF9jR0FoMDJfeWdrZTFmbnhrRmFKaUFRWUNXTC1zdVlGZnUwX2VWUmxjQWR0V05uR096NmgxWXRoRnBnRFUyeDFtTGVlMWdPa1AwNzdmdGVtV245ci0xYzA2YXZxNmdn?oc=5",
-          "source": "city.yao.osaka.jp",
-          "pub": "2026-06-01T16:00:00+09:00",
-          "query": "東伸熱工 八尾",
-          "clients": []
+          "name": "バッチ式焼戻し炉",
+          "count": 8,
+          "spec": ""
         },
         {
-          "title": "南海トラフに備え、工業団地に「車中避難所」三重・桑名市が4企業と協定",
-          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9nNFZZZGxWVW8zTmJtOFlLUUhMUmtFaXZwMFVJVU1sVW1QSG1ES0pSYlF6Q213N2FmZnhHQWhlVFVfNE1LemhESWxwcS10REoxWERmMXhUaDFDejFRaG5WQXRKOXNFUXBQRm9VN1V3SExFSUlYUlE?oc=5",
-          "source": "産経ニュース",
-          "pub": "2024-08-21T16:00:00+09:00",
-          "query": "東伸熱工 八尾",
-          "clients": []
+          "name": "チャージャーラインバッチ式焼戻し炉(10t・4t)",
+          "count": 6,
+          "spec": ""
+        },
+        {
+          "name": "メッシュベルト式連続無酸化焼入焼戻し炉",
+          "count": 6,
+          "spec": ""
+        },
+        {
+          "name": "フレームレスバッチ式2室雰囲気焼入炉",
+          "count": 5,
+          "spec": ""
+        },
+        {
+          "name": "チャージャーラインバッチ式焼戻し炉",
+          "count": 4,
+          "spec": ""
+        },
+        {
+          "name": "フレームレス2室バッチ雰囲気焼入炉",
+          "count": 4,
+          "spec": ""
+        },
+        {
+          "name": "チャージャーラインバッチ式焼入炉",
+          "count": 3,
+          "spec": ""
+        },
+        {
+          "name": "バッチ式2室雰囲気焼入炉",
+          "count": 3,
+          "spec": ""
+        },
+        {
+          "name": "メッシュベルト式連続雰囲気焼入焼戻し炉",
+          "count": 3,
+          "spec": ""
+        },
+        {
+          "name": "ローラーハース式連続浸炭焼入焼戻し炉",
+          "count": 3,
+          "spec": ""
+        },
+        {
+          "name": "アルミ溶体化処理炉",
+          "count": 2,
+          "spec": ""
+        },
+        {
+          "name": "バッチ式雰囲気加熱炉",
+          "count": 2,
+          "spec": ""
+        },
+        {
+          "name": "ローラーハース式連続焼入焼戻し炉",
+          "count": 2,
+          "spec": ""
+        },
+        {
+          "name": "台車型炉",
+          "count": 2,
+          "spec": ""
+        },
+        {
+          "name": "チャージャーラインバッチ式大型雰囲気炉",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "ピット型無酸化焼戻し炉(φ3350)",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "ピット型雰囲気炉",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "台車式無酸化焼戻し炉(口2300)",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "大型バッチ式焼戻し炉",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "大型バッチ式雰囲気炉",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "真空焼入炉(加圧ガス焼入れ)",
+          "count": 1,
+          "spec": ""
         }
       ],
-      "sources": [],
-      "errors": []
-    },
-    {
-      "id": "60778aef615c",
-      "name": "和宏精密",
-      "area": "石川県・石川",
-      "updated": "2026-08-10T21:06:53+09:00",
-      "scope": "plant",
-      "profile": {
-        "official_name": "和宏精密"
-      },
-      "scale_summary": "",
-      "equipment": [],
-      "equipment_summary": "",
+      "equipment_summary": "連続焼入焼戻/浸炭・ピットφ3350・フレームレスバッチ5・焼戻多数",
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://toshin-nekko.co.jp/business/facility/",
+          "fetched_at": "2026-08-11T05:59:33+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://toshin-nekko.co.jp/business/facility/",
+          "fetched_at": "2026-08-11T05:59:34+09:00"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "60778aef615c",
+      "name": "和宏精密株式会社",
+      "area": "石川県・白山市",
+      "updated": "2026-08-11T05:59:38+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "和宏精密株式会社",
+        "capital": "5,000万円",
+        "employees": "約30名",
+        "founded": "1968年",
+        "address": "石川県白山市横江町274",
+        "business": "ガス浸炭・調質・高周波"
+      },
+      "scale_summary": "資本金5,000万円 / 従業員約27〜32名 / 設1968 / 白山市横江",
+      "equipment": [],
+      "equipment_summary": "ガス浸炭・素材調質・完品焼入(無酸化)・高周波焼入(コマツ等認定)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "http://www.wakou-seimitsu.co.jp/ecology.html",
+          "fetched_at": "2026-08-11T05:59:36+09:00"
+        }
+      ],
       "errors": []
     },
     {
       "id": "5a28dd1df463",
-      "name": "東伸熱工(本社・八尾)",
-      "area": "大阪府・八尾・東大阪",
-      "updated": "2026-08-10T21:06:54+09:00",
+      "name": "株式会社東伸熱工(本社・八尾)",
+      "area": "大阪府・八尾市",
+      "updated": "2026-08-11T05:59:41+09:00",
       "scope": "plant",
       "profile": {
-        "official_name": "東伸熱工"
+        "official_name": "株式会社東伸熱工 本社工場",
+        "capital": "9,000万円",
+        "employees": "321名",
+        "founded": "1943年",
+        "address": "大阪府八尾市北亀井町1-5-33"
       },
-      "scale_summary": "",
-      "equipment": [],
-      "equipment_summary": "",
+      "scale_summary": "資本金9,000万円 / 従業員321名(全社) / 創業1943 / 八尾本社工場",
+      "equipment": [
+        {
+          "name": "バッチ式焼戻し炉",
+          "count": 12,
+          "spec": ""
+        },
+        {
+          "name": "バッチ式2室雰囲気焼入炉",
+          "count": 9,
+          "spec": ""
+        },
+        {
+          "name": "チャージャーラインバッチ式焼戻し炉(10t・4t)",
+          "count": 6,
+          "spec": ""
+        },
+        {
+          "name": "メッシュベルト式連続無酸化焼入焼戻し炉",
+          "count": 6,
+          "spec": ""
+        },
+        {
+          "name": "チャージャーラインバッチ式焼戻し炉",
+          "count": 4,
+          "spec": ""
+        },
+        {
+          "name": "フレームレス2室バッチ雰囲気焼入炉",
+          "count": 4,
+          "spec": ""
+        },
+        {
+          "name": "メッシュベルト式連続雰囲気焼入焼戻し炉",
+          "count": 3,
+          "spec": ""
+        },
+        {
+          "name": "ローラーハース式連続浸炭焼入焼戻し炉",
+          "count": 3,
+          "spec": ""
+        },
+        {
+          "name": "アルミ溶体化処理炉",
+          "count": 2,
+          "spec": ""
+        },
+        {
+          "name": "トレープッシャー式連続浸炭焼入焼戻し炉",
+          "count": 2,
+          "spec": ""
+        },
+        {
+          "name": "バッチ式雰囲気加熱炉",
+          "count": 2,
+          "spec": ""
+        },
+        {
+          "name": "ローラーハース式連続焼入焼戻し炉",
+          "count": 2,
+          "spec": ""
+        },
+        {
+          "name": "台車型炉",
+          "count": 2,
+          "spec": ""
+        },
+        {
+          "name": "チャージャーラインバッチ式大型雰囲気炉",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "ピット型無酸化焼戻し炉(φ3350)",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "台車式無酸化焼戻し炉(口2300)",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "大型バッチ式焼戻し炉",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "真空焼入炉(加圧ガス焼入れ)",
+          "count": 1,
+          "spec": ""
+        }
+      ],
+      "equipment_summary": "連続雰囲気焼入焼戻3・連続浸炭5・バッチ雰囲気焼入9・焼戻12",
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
@@ -642,21 +1025,32 @@
           "clients": []
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://toshin-nekko.co.jp/company/info/",
+          "fetched_at": "2026-08-11T05:59:38+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://toshin-nekko.co.jp/business/facility/",
+          "fetched_at": "2026-08-11T05:59:39+09:00"
+        }
+      ],
       "errors": []
     },
     {
       "id": "6a0f9deedff1",
-      "name": "三和熱錬工業",
+      "name": "三和熱錬工業株式会社",
       "area": "大阪府・東大阪市",
-      "updated": "2026-08-10T21:06:55+09:00",
+      "updated": "2026-08-11T05:59:42+09:00",
       "scope": "plant",
       "profile": {
-        "official_name": "三和熱錬工業"
+        "official_name": "三和熱錬工業株式会社"
       },
-      "scale_summary": "",
+      "scale_summary": "大阪府東大阪市森河内東/浸炭系(工業会会員)",
       "equipment": [],
-      "equipment_summary": "",
+      "equipment_summary": "東大阪拠点(公式設備一覧の公開が限定的・要継続調査)",
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
@@ -666,16 +1060,16 @@
     },
     {
       "id": "1be369562f71",
-      "name": "東亜熱処理",
+      "name": "東亜熱処理株式会社",
       "area": "大阪府・堺市美原区",
-      "updated": "2026-08-10T21:06:56+09:00",
+      "updated": "2026-08-11T05:59:43+09:00",
       "scope": "plant",
       "profile": {
-        "official_name": "東亜熱処理"
+        "official_name": "東亜熱処理株式会社"
       },
-      "scale_summary": "",
+      "scale_summary": "大阪府堺市美原区太井/工業会会員",
       "equipment": [],
-      "equipment_summary": "",
+      "equipment_summary": "美原拠点(公式設備一覧の公開が限定的・要継続調査)",
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
@@ -685,51 +1079,83 @@
     },
     {
       "id": "550ca068b7e8",
-      "name": "八田工業",
-      "area": "大阪府・堺市",
-      "updated": "2026-08-10T21:06:58+09:00",
+      "name": "八田工業株式会社",
+      "area": "大阪府・堺市中区",
+      "updated": "2026-08-11T05:59:46+09:00",
       "scope": "plant",
       "profile": {
-        "official_name": "八田工業"
+        "official_name": "八田工業株式会社",
+        "capital": "1,000万円",
+        "founded": "昭和54年5月21日",
+        "address": "〒599-8265 大阪府堺市中区八田西町2丁18番40号",
+        "business": "金属熱処理加工(真空焼入れ、真空熱圧着、真空ろう付等)"
       },
-      "scale_summary": "",
+      "scale_summary": "資本金1,000万円 / 設昭和54年 / 堺市中区・24時間対応",
       "equipment": [],
-      "equipment_summary": "",
+      "equipment_summary": "真空熱処理・イオン窒化・ガス浸炭/浸炭窒化・光輝・サブゼロ・プレステンパー",
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
-      "news": [],
-      "sources": [],
+      "news": [
+        {
+          "title": "<チャレンジ!万博>市場に出回らない「未利用魚」活用へ、得意な技術持ち寄り町工場がタッグ...東洋水産機械",
+          "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFB4cXFvN2gtR0V6UFhZRDlwR1c0U2p2cWI3bmlZTW1TWTNhYXhraW1VbUpYSnRHRTZSMUF4cHNzOUhLSTFqMDlvMUlhYUtrcDY1WWZ0aW1GTzE1MUhZNkdva1lNeTNpZmxfaEtr?oc=5",
+          "source": "読売新聞",
+          "pub": "2025-10-11T16:00:00+09:00",
+          "query": "八田工業 堺 熱処理",
+          "clients": []
+        },
+        {
+          "title": "サブゼロ処理で音はどう変わる? KS-Remasta製シェルリード線を処理の有無で聴き比べ",
+          "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5RQnl1T0t1MDZrLUJyeVlhcDFYUUpJNEVCb2JsZE11OGFtSTZaS19vYnQ2SjlBOTF3RHhKMzlOTGhjeXFSWE5lM0lFNjNtQW1QRjdLQXVmVmNHOFhUSjdmOXlITGdFSjRfdG9J?oc=5",
+          "source": "PHILE WEB",
+          "pub": "2023-10-03T16:00:00+09:00",
+          "query": "八田工業 堺 熱処理",
+          "clients": []
+        }
+      ],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.hatta.co.jp/",
+          "fetched_at": "2026-08-11T05:59:43+09:00"
+        },
+        {
+          "kind": "outline",
+          "url": "https://hatta-kogyo.com/company/outline/",
+          "fetched_at": "2026-08-11T05:59:44+09:00"
+        }
+      ],
       "errors": []
     },
     {
       "id": "ecbfa24fc88c",
-      "name": "TONEZ(高砂・加西)",
+      "name": "株式会社TONEZ(高砂・加西)",
       "area": "兵庫県・高砂・加西",
-      "updated": "2026-08-10T21:08:40+09:00",
+      "updated": "2026-08-11T05:59:47+09:00",
       "scope": "plant",
       "profile": {
         "official_name": "株式会社TONEZ",
         "founded": "1909年創業",
-        "business": "金属材料・部品の熱処理全般(大型浸炭・丸棒・航空宇宙)",
-        "address": "兵庫県高砂市阿弥陀町魚橋530(高砂第2)/加西市網引町2001-58"
+        "business": "大型浸炭・丸棒・航空宇宙熱処理",
+        "address": "兵庫県高砂・加西"
       },
       "scale_summary": "1909年創業・兵庫高砂/加西拠点/大型浸炭・丸棒・航空宇宙(JISQ9100)",
       "equipment": [
         {
           "name": "フォークチャージ式バッチ炉(高砂第1)",
           "count": 11,
-          "spec": "〜10t素材対応"
+          "spec": ""
         },
         {
           "name": "メッシュベルト式連続炉ライン(加西)",
           "count": 4,
-          "spec": "ショット連動・自動搬入出"
+          "spec": ""
         },
         {
           "name": "ピット型ガス浸炭炉(高砂第2)",
           "count": 2,
-          "spec": "有効径φ4m級・深さ5.5m級"
+          "spec": ""
         },
         {
           "name": "オールケース型ガス浸炭炉(加西)",
@@ -756,25 +1182,25 @@
         {
           "kind": "company",
           "url": "https://tonez.co.jp/",
-          "fetched_at": "2026-08-10T21:08:38+09:00",
+          "fetched_at": "2026-08-11T05:59:47+09:00",
           "error": "HTTPSConnectionPool(host='tonez.co.jp', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SS"
         },
         {
           "kind": "equipment",
           "url": "https://www.tonez.co.jp/equipments/kasai",
-          "fetched_at": "2026-08-10T21:08:38+09:00",
+          "fetched_at": "2026-08-11T05:59:47+09:00",
           "error": "HTTPSConnectionPool(host='www.tonez.co.jp', port=443): Max retries exceeded with url: /equipments/kasai (Caused by SSLEr"
         },
         {
           "kind": "equipment_takasago1",
           "url": "https://www.tonez.co.jp/equipments/takasago-1",
-          "fetched_at": "2026-08-10T21:08:38+09:00",
+          "fetched_at": "2026-08-11T05:59:47+09:00",
           "error": "HTTPSConnectionPool(host='www.tonez.co.jp', port=443): Max retries exceeded with url: /equipments/takasago-1 (Caused by "
         },
         {
           "kind": "equipment_takasago2",
           "url": "https://www.tonez.co.jp/equipments/takasago-2",
-          "fetched_at": "2026-08-10T21:08:38+09:00",
+          "fetched_at": "2026-08-11T05:59:47+09:00",
           "error": "HTTPSConnectionPool(host='www.tonez.co.jp', port=443): Max retries exceeded with url: /equipments/takasago-2 (Caused by "
         }
       ],
@@ -787,35 +1213,50 @@
     },
     {
       "id": "9cdbc2d8f52b",
-      "name": "谷口金属熱処理工業所",
-      "area": "兵庫県・兵庫",
-      "updated": "2026-08-10T21:07:01+09:00",
+      "name": "株式会社谷口金属熱処理工業所",
+      "area": "兵庫県・加西市(兵庫工場)",
+      "updated": "2026-08-11T05:59:50+09:00",
       "scope": "plant",
       "profile": {
-        "official_name": "谷口金属熱処理工業所"
+        "official_name": "株式会社谷口金属熱処理工業所",
+        "address": "〒793-0042 愛媛県西条市喜多川853-36",
+        "capital": "2,000万円",
+        "founded": "1975年",
+        "business": "真空・浸炭・窒化・無酸化・焼鈍・固溶化等"
       },
-      "scale_summary": "",
+      "scale_summary": "資本金2,000万円 / 設1975 / 本社愛媛・大阪堺・兵庫加西",
       "equipment": [],
-      "equipment_summary": "",
+      "equipment_summary": "兵庫工場:100g〜40t対応の大型・長尺・重量物熱処理(固溶化等)",
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.taniguchi-mht.co.jp/html/company/index.html",
+          "fetched_at": "2026-08-11T05:59:48+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.taniguchi-mht.co.jp/html/factory/hyogo.html",
+          "fetched_at": "2026-08-11T05:59:49+09:00"
+        }
+      ],
       "errors": []
     },
     {
       "id": "92fba7eea546",
-      "name": "松山技研(長野方面)",
-      "area": "長野県・長野方面",
-      "updated": "2026-08-10T21:07:02+09:00",
+      "name": "松山技研株式会社",
+      "area": "長野県・上田市",
+      "updated": "2026-08-11T05:59:51+09:00",
       "scope": "plant",
       "profile": {
-        "official_name": "松山技研"
+        "official_name": "松山技研株式会社"
       },
-      "scale_summary": "",
+      "scale_summary": "長野県上田市長瀬/工業会会員",
       "equipment": [],
-      "equipment_summary": "",
+      "equipment_summary": "上田拠点(公式設備の詳細公開は限定的・要継続調査)",
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
@@ -825,45 +1266,36 @@
     },
     {
       "id": "1145195f0541",
-      "name": "長野熱処理(要確認)",
-      "area": "長野県・長野県",
-      "updated": "2026-08-10T21:07:02+09:00",
+      "name": "株式会社ヒーテック",
+      "area": "長野県・須坂市",
+      "updated": "2026-08-11T05:59:52+09:00",
       "scope": "plant",
       "profile": {
-        "official_name": "長野熱処理"
+        "official_name": "株式会社ヒーテック"
       },
-      "scale_summary": "",
+      "scale_summary": "長野県須坂市/工業会会員",
       "equipment": [],
-      "equipment_summary": "",
+      "equipment_summary": "須坂拠点(公式設備の詳細公開は限定的・要継続調査)",
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
-      "news": [
-        {
-          "title": "IoTで炉の稼働状況を遠隔監視「岡谷熱処理工業」",
-          "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1yejFqRzYycWZTWE1CMFk3U1o4YkJGeDZfY1hCbFczV0tiMndudnZPNlBHSkdoWjl6YS1SVk5yR3dWQjk1U19MWFdodVkwOU1HS1Q3U1Y5bTNVSTlfaURTcE16YUJLZkVOdDJr?oc=5",
-          "source": "J-Net21[中小企業ビジネス支援サイト]",
-          "pub": "2019-10-13T02:56:16+09:00",
-          "query": "長野 熱処理 真空",
-          "clients": []
-        }
-      ],
+      "news": [],
       "sources": [],
       "errors": []
     },
     {
       "id": "14c05a4227eb",
-      "name": "三洋金属熱錬(美原・堺)",
+      "name": "三洋金属熱錬工業株式会社(美原)",
       "area": "大阪府・堺市美原区",
-      "updated": "2026-08-10T21:07:08+09:00",
+      "updated": "2026-08-11T05:59:55+09:00",
       "scope": "plant",
       "profile": {
-        "official_name": "三洋金属熱錬工業株式会社 美原工場（本社）",
+        "official_name": "三洋金属熱錬工業株式会社 美原工場",
         "capital": "2,000万円",
         "employees": "115名(美原69名・加西15名・岐阜31名)",
         "address": "〒587-0061",
         "business": "金属熱処理全般",
-        "founded": "昭和36年4月"
+        "founded": "昭和36年"
       },
       "scale_summary": "資本金2,000万円 / 従業員115名(美原69) / 設昭和36年 / 炉計約17基",
       "equipment": [
@@ -944,27 +1376,24 @@
         {
           "kind": "company",
           "url": "https://www.sanyoheat.jp/company/",
-          "fetched_at": "2026-08-10T21:07:03+09:00"
+          "fetched_at": "2026-08-11T05:59:52+09:00"
         },
         {
           "kind": "equipment",
           "url": "https://www.sanyoheat.jp/factory/mihara/",
-          "fetched_at": "2026-08-10T21:07:05+09:00"
+          "fetched_at": "2026-08-11T05:59:54+09:00"
         }
       ],
       "errors": []
     },
     {
       "id": "f56be603227f",
-      "name": "三洋金属熱錬(岐阜・可児)",
+      "name": "三洋金属熱錬工業株式会社(岐阜・可児)",
       "area": "岐阜県・可児市",
-      "updated": "2026-08-10T21:07:13+09:00",
+      "updated": "2026-08-11T05:59:59+09:00",
       "scope": "plant",
       "profile": {
-        "official_name": "三洋金属熱錬工業株式会社 岐阜工場",
-        "address": "岐阜県可児市二野2187-7",
-        "employees": "31名(岐阜工場)",
-        "business": "焼入焼戻・焼ならし・球状化焼鈍・固溶化等"
+        "official_name": "三洋金属熱錬工業株式会社 岐阜工場"
       },
       "scale_summary": "岐阜・可児市二野/従業員31名(全社115名中) / 炉計約11基",
       "equipment": [
@@ -1018,27 +1447,24 @@
         {
           "kind": "company",
           "url": "https://www.sanyoheat.jp/factory/gifu/",
-          "fetched_at": "2026-08-10T21:07:08+09:00"
+          "fetched_at": "2026-08-11T05:59:56+09:00"
         },
         {
           "kind": "equipment",
           "url": "https://www.sanyoheat.jp/factory/gifu/",
-          "fetched_at": "2026-08-10T21:07:10+09:00"
+          "fetched_at": "2026-08-11T05:59:57+09:00"
         }
       ],
       "errors": []
     },
     {
       "id": "f8521d1fac09",
-      "name": "深田熱処理",
+      "name": "深田熱処理工業株式会社",
       "area": "石川県・小松市",
-      "updated": "2026-08-10T21:07:17+09:00",
+      "updated": "2026-08-11T06:00:02+09:00",
       "scope": "plant",
       "profile": {
-        "official_name": "深田熱処理工業株式会社",
-        "founded": "1963年創業/1974年設立",
-        "address": "石川県小松市(本社)・金沢工場",
-        "business": "真空・無酸化・浸炭・高周波・素材調質・アルミ溶体化"
+        "official_name": "深田熱処理工業株式会社"
       },
       "scale_summary": "1963年創業・小松本社+金沢工場/JISQ9100・Nadcap",
       "equipment": [
@@ -1050,7 +1476,7 @@
         {
           "name": "バッチ型大型大気熱処理炉(素材調質)",
           "count": 1,
-          "spec": "〜4t/チャージ"
+          "spec": ""
         },
         {
           "name": "滴注式ガス雰囲気炉(オールケース)",
@@ -1060,7 +1486,7 @@
         {
           "name": "真空炉",
           "count": 1,
-          "spec": "航空宇宙・600×600×1200"
+          "spec": ""
         }
       ],
       "equipment_summary": "真空炉・連続無酸化焼入焼戻3・オールケース浸炭系・高周波8・大型大気調質炉等",
@@ -1083,43 +1509,34 @@
           "pub": "2013-03-15T16:00:00+09:00",
           "query": "深田熱処理 小松",
           "clients": []
-        },
-        {
-          "title": "【5/6(火休)北九州戦】石川県発Tシャツブランド「OJICO」がデザインしたTシャツを先着8,000名様にプレゼント!",
-          "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5mQ3lDWFRmRU5GRVVsanFFZW9UX0doZ001TFpkNGxvZkVDQTFxZW0wSllma1VEenZaaXhFamdnUXRMLTRTeGxCWl8zNlBOZVlqbV9PRWdHdGdYUHpld2FaRkw2M1Z1RjFieHc?oc=5",
-          "source": "PR TIMES",
-          "pub": "2025-04-07T16:00:00+09:00",
-          "query": "深田熱処理工業",
-          "clients": []
         }
       ],
       "sources": [
         {
           "kind": "company",
           "url": "https://www.fukada-net.co.jp/about/company.php",
-          "fetched_at": "2026-08-10T21:07:13+09:00"
+          "fetched_at": "2026-08-11T06:00:00+09:00"
         },
         {
           "kind": "equipment",
           "url": "https://www.fukada-net.co.jp/machine/",
-          "fetched_at": "2026-08-10T21:07:14+09:00"
+          "fetched_at": "2026-08-11T06:00:00+09:00"
         }
       ],
       "errors": []
     },
     {
       "id": "100165a92540",
-      "name": "協伸熱処理(富山)",
+      "name": "協伸熱処理工業株式会社",
       "area": "富山県・富山市",
-      "updated": "2026-08-10T21:09:32+09:00",
+      "updated": "2026-08-11T06:00:54+09:00",
       "scope": "plant",
       "profile": {
         "official_name": "協伸熱処理工業株式会社",
         "capital": "5,000万円",
-        "employees": "25名(2024年12月)",
+        "employees": "25名",
         "founded": "1967年",
-        "address": "富山県富山市三郷12(富山企業団地)",
-        "business": "浸炭・真空・ソルト・高周波・ガス軟窒化・Al T6等"
+        "address": "富山県富山市三郷12"
       },
       "scale_summary": "資本金5,000万円 / 従業員25名 / 設1967年 / 炉計約30基",
       "equipment": [
@@ -1168,26 +1585,26 @@
         {
           "kind": "company",
           "url": "http://ww2.ctt.ne.jp/~kyoshin/company.html",
-          "fetched_at": "2026-08-10T21:09:05+09:00",
-          "error": "HTTPConnectionPool(host='ww2.ctt.ne.jp', port=80): Read timed out. (read timeout=25)"
+          "fetched_at": "2026-08-11T06:00:28+09:00",
+          "error": "HTTPConnectionPool(host='ww2.ctt.ne.jp', port=80): Max retries exceeded with url: /~kyoshin/company.html (Caused by Conn"
         },
         {
           "kind": "equipment",
           "url": "http://ww2.ctt.ne.jp/~kyoshin/facility.html",
-          "fetched_at": "2026-08-10T21:09:30+09:00",
-          "error": "HTTPConnectionPool(host='ww2.ctt.ne.jp', port=80): Read timed out. (read timeout=25)"
+          "fetched_at": "2026-08-11T06:00:53+09:00",
+          "error": "HTTPConnectionPool(host='ww2.ctt.ne.jp', port=80): Max retries exceeded with url: /~kyoshin/facility.html (Caused by Con"
         }
       ],
       "errors": [
-        "company:HTTPConnectionPool(host='ww2.ctt.ne.jp', port=80): Read timed out. (read timeout=25)",
-        "equipment:HTTPConnectionPool(host='ww2.ctt.ne.jp', port=80): Read timed out. (read timeout=25)"
+        "company:HTTPConnectionPool(host='ww2.ctt.ne.jp', port=80): Max retries exceeded with url: /~kyoshin/company.html (Caused by ConnectTimeoutError(<HTTPConnection(host='ww2.ctt.ne.jp', port=80) at 0x10b1d2990>, 'Connection to ww2.ctt.ne.jp timed out. (connect timeout=25)'))",
+        "equipment:HTTPConnectionPool(host='ww2.ctt.ne.jp', port=80): Max retries exceeded with url: /~kyoshin/facility.html (Caused by ConnectTimeoutError(<HTTPConnection(host='ww2.ctt.ne.jp', port=80) at 0x10b169480>, 'Connection to ww2.ctt.ne.jp timed out. (connect timeout=25)'))"
       ]
     },
     {
       "id": "d3281ccf5d5a",
-      "name": "東研サーモテック(全社)",
+      "name": "株式会社東研サーモテック(全社)",
       "area": "全社(本社・大阪府寝屋川市)",
-      "updated": "2026-08-10T21:08:15+09:00",
+      "updated": "2026-08-11T06:00:58+09:00",
       "scope": "company_wide",
       "profile": {
         "official_name": "株式会社東研サーモテック",
@@ -1255,7 +1672,7 @@
         {
           "title": "「タイ進出で日本の受注増」ブーメラン効果の謎 -東研サーモテック",
           "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1MREt5MWRhVVE2c2RmcjdmS05CUEVtMy1QMkpUTVFNU2hfOGRfTW92RE9jOXliaUMwekE1ZTFVRllycjZkSlRkMW1OSG9DUkgyV3ZFd0R3?oc=5",
-          "source": "PRESIDENT Online(プレジデントオンライン)",
+          "source": "president.jp",
           "pub": "2013-02-19T17:00:00+09:00",
           "query": "東研サーモテック 熱処理",
           "clients": []
@@ -1305,14 +1722,1288 @@
         {
           "kind": "company",
           "url": "https://tohkenthermo.co.jp/",
-          "fetched_at": "2026-08-10T21:08:11+09:00"
+          "fetched_at": "2026-08-11T06:00:54+09:00"
         },
         {
           "kind": "equipment",
           "url": "https://tohkenthermo.co.jp/heat-treatment/heat-treatment-machines-and-equipment/",
-          "fetched_at": "2026-08-10T21:08:12+09:00"
+          "fetched_at": "2026-08-11T06:00:56+09:00"
         }
       ],
+      "errors": []
+    },
+    {
+      "id": "7bf1be1274b7",
+      "name": "株式会社共立ヒートテクノ",
+      "area": "大阪府・八尾市",
+      "updated": "2026-08-11T06:01:01+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "株式会社共立ヒートテクノ",
+        "capital": "6,000万円",
+        "founded": "1960年",
+        "address": "大阪府八尾市竹渕西4-28",
+        "business": "浸炭・真空・窒化・アルミ溶体化・調質等"
+      },
+      "scale_summary": "資本金6,000万円 / 創業1960 / 八尾本社+柏原工場",
+      "equipment": [
+        {
+          "name": "産への対応、またその生産量を増やすため、連続バッチ炉ラインは、浸炭焼入炉",
+          "count": 11,
+          "spec": ""
+        },
+        {
+          "name": "自動連続バッチ炉ライン構成設備",
+          "count": 11,
+          "spec": ""
+        },
+        {
+          "name": "バッチ型窒化炉",
+          "count": 4,
+          "spec": ""
+        },
+        {
+          "name": "バッチ型窒化炉4基、ピット型窒化炉1基、真空洗浄機",
+          "count": 2,
+          "spec": ""
+        },
+        {
+          "name": "バッチ型調質炉は調質炉1基、焼戻し炉",
+          "count": 2,
+          "spec": ""
+        },
+        {
+          "name": "大型連続焼入焼戻し炉",
+          "count": 2,
+          "spec": ""
+        },
+        {
+          "name": "自動連続焼入焼戻し炉",
+          "count": 2,
+          "spec": ""
+        },
+        {
+          "name": "バッチ型溶体化炉",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "ピット型窒化炉",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "ピット型雰囲気炉",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "三室型真空炉",
+          "count": 1,
+          "spec": ""
+        },
+        {
+          "name": "大型真空炉",
+          "count": 1,
+          "spec": ""
+        }
+      ],
+      "equipment_summary": "真空・連続焼入焼戻・自動連続バッチ(浸炭系11基構成)・窒化5・溶体化等(八尾・柏原)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [
+        {
+          "title": "山川耕司氏=(株)共立ヒートテクノ",
+          "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE81U3FKa3pDdkJfYzFEZkY2bGtweFM4ei00aTZKSmNDNmdpQTFfTVA1T1g5elpMSWxkTUdWRDBSX3llMmh3bVlSbU1OXzVyQ3NZd3lvRWFfZG9yZE1yS1RZTGJDMG9uOEhvSzFBSkMwOA?oc=5",
+          "source": "ファスニングジャーナル",
+          "pub": "2022-09-25T23:15:35+09:00",
+          "query": "共立ヒートテクノ 八尾",
+          "clients": []
+        },
+        {
+          "title": "路上喫煙マナーの向上を応援するサポーターを募集しています!",
+          "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPMDcxOFl1cm5ic1lxY0R2akpqRXBLNHVua1hFeE80R0h6LXBTd2toelk0RC1kN0YzM0NuNEdLOUJMMG1tSmtibVI5bVU3TzJuRlpWUjl3OWdRbFhWQ2Y2VXNqQXFScWNyZUxmc3ZGX0hjcG5NVXYtVnk5ZEtVNXB5X3Z1S004MTQtMk5yUkVnOTZTRWk0QWtRYVoxM3FSeUxxMUR1cFluNWhzNDJs?oc=5",
+          "source": "city.yao.osaka.jp",
+          "pub": "2025-02-27T14:44:24+09:00",
+          "query": "共立ヒートテクノ 八尾",
+          "clients": []
+        }
+      ],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.kyoritsu-ht.jp/company/outline/",
+          "fetched_at": "2026-08-11T06:00:58+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.kyoritsu-ht.jp/facility/",
+          "fetched_at": "2026-08-11T06:00:59+09:00"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "17a7f3d22000",
+      "name": "國友熱工株式会社(東大阪)",
+      "area": "大阪府・東大阪市",
+      "updated": "2026-08-11T06:01:04+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "國友熱工株式会社",
+        "address": "大阪府東大阪市菱屋東3-8-20/滋賀県蒲生郡竜王町",
+        "business": "精密金属熱処理・表面改質"
+      },
+      "scale_summary": "大阪府東大阪市菱屋東/滋賀県竜王町工場",
+      "equipment": [],
+      "equipment_summary": "精密熱処理・表面改質(FCD-H等)/東大阪本社+滋賀・竜王",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "http://www.kunitomo-nekkou.co.jp/",
+          "fetched_at": "2026-08-11T06:01:01+09:00"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "d10efeb5b3dc",
+      "name": "國友熱工株式会社(滋賀)",
+      "area": "滋賀県・竜王町",
+      "updated": "2026-08-11T06:01:06+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "國友熱工株式会社",
+        "address": "大阪府東大阪市菱屋東3-8-20/滋賀県蒲生郡竜王町",
+        "business": "精密金属熱処理・表面改質"
+      },
+      "scale_summary": "大阪府東大阪市菱屋東/滋賀県竜王町工場",
+      "equipment": [],
+      "equipment_summary": "精密熱処理・表面改質(FCD-H等)/東大阪本社+滋賀・竜王",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "http://www.kunitomo-nekkou.co.jp/",
+          "fetched_at": "2026-08-11T06:01:04+09:00"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "968a85dbf478",
+      "name": "朝日熱処理工業株式会社",
+      "area": "大阪府・寝屋川市",
+      "updated": "2026-08-11T06:01:07+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "朝日熱処理工業株式会社"
+      },
+      "scale_summary": "大阪府寝屋川市/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [
+        {
+          "title": "朝日工業(株)【5456】:株価・株式情報",
+          "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFAxMlFiRm1odDQzZXR5c3RWR0lvN2t6cjVvenkwR010WVhPV0RnVlhHeDdabGtCRTI0YUJmOFRUcUc0UEt1ZEs3THRmLXJPbTZVN1E?oc=5",
+          "source": "Yahoo!ファイナンス",
+          "pub": "2021-03-23T00:54:18+09:00",
+          "query": "朝日熱処理工業株式会社 熱処理",
+          "clients": []
+        },
+        {
+          "title": "地域のものづくり企業の魅力を伝える出張型オープンファクトリー 「不器用FACTORY」開催",
+          "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBBZmVyb2hYa3duc3EtYlJibElUc0ZOclpCS0ZqUWFQSDI2bm1GWFhYRW1uank2S2V6T1laSFVRMWRZcnRzR1g5Wktqa0RqLUk?oc=5",
+          "source": "アットプレス",
+          "pub": "2024-07-31T16:00:00+09:00",
+          "query": "朝日熱処理工業株式会社 熱処理",
+          "clients": []
+        },
+        {
+          "title": "うまい棒ケースの次はミニ四駆大会や!アクテック杯2023のようす【ひらつー広告】",
+          "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBGbElaVXJXeWZ2RTZCMUtZQkJ0QkJNa0dibE9hUlZEUDg0MWdqUVE5SjF0Y0dhV0tJWWgwN01iSEVvTkVCakQyN1dWRW9aR3NmeWlaOUFn?oc=5",
+          "source": "枚方つーしん",
+          "pub": "2023-12-07T17:00:00+09:00",
+          "query": "朝日熱処理工業株式会社 熱処理",
+          "clients": []
+        },
+        {
+          "title": "雪をも溶かす漢(おとこ)たちの熱い冬!ミニ四駆大会〜アクテック杯2024〜のようす【ひらつー広告】",
+          "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9OY1VKY0tPUGFwYUxYZmNJX01ObnEwOWVCX0xUU2l2RnFOWk1SQkJZNkhfR3B6c29wbFBiSGMtNzludUNzaTh5UWRnajZZbUdJNExIY0l3?oc=5",
+          "source": "枚方つーしん",
+          "pub": "2025-01-26T17:00:00+09:00",
+          "query": "朝日熱処理工業株式会社 熱処理",
+          "clients": []
+        },
+        {
+          "title": "テレビでもおなじみの経済評論家もやってくる!! 1/31(土)は「第3回 北大阪 受発注・ビジネス大交流会」。講演も無料で聴講できます☆【ひらつー広告】",
+          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9qRXF6NzNqcHpBU0JBRFE5ZDgwVHF5Z0tYaGFLWW5ySjExbHprbndaai1qT0w0ODhfQkM1YzdPSlZqbXUzV3RkVmJ6MkdMMTJTZWp6QUR4dFVBUQ?oc=5",
+          "source": "枚方つーしん",
+          "pub": "2015-01-08T17:00:00+09:00",
+          "query": "朝日熱処理工業株式会社 熱処理",
+          "clients": []
+        }
+      ],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "b28aabb69a53",
+      "name": "泉北熱錬株式会社",
+      "area": "大阪府・堺市西区",
+      "updated": "2026-08-11T06:01:08+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "泉北熱錬株式会社"
+      },
+      "scale_summary": "大阪府堺市西区/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "50dede68aeff",
+      "name": "株式会社大洋熱処理",
+      "area": "大阪府・羽曳野市",
+      "updated": "2026-08-11T06:01:09+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "株式会社大洋熱処理"
+      },
+      "scale_summary": "大阪府羽曳野市/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "6cdc7d80629d",
+      "name": "株式会社北山熱錬工業所",
+      "area": "大阪府・岸和田市",
+      "updated": "2026-08-11T06:01:10+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "株式会社北山熱錬工業所"
+      },
+      "scale_summary": "大阪府岸和田市/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "8d99514d1167",
+      "name": "株式会社熱研",
+      "area": "大阪府・大東市",
+      "updated": "2026-08-11T06:01:11+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "株式会社熱研"
+      },
+      "scale_summary": "大阪府大東市/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "997927ef55b1",
+      "name": "株式会社ネツレン・ヒラカタ",
+      "area": "大阪府・枚方市",
+      "updated": "2026-08-11T06:01:11+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "株式会社ネツレン・ヒラカタ"
+      },
+      "scale_summary": "大阪府枚方市/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "c142b3014544",
+      "name": "関西電気冶金工業株式会社",
+      "area": "大阪府・大阪市淀川区",
+      "updated": "2026-08-11T06:01:12+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "関西電気冶金工業株式会社"
+      },
+      "scale_summary": "大阪市淀川区(滋賀工場あり)/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "0c26df884612",
+      "name": "大阪冶金興業株式会社",
+      "area": "大阪府・大阪市東淀川区",
+      "updated": "2026-08-11T06:01:13+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "大阪冶金興業株式会社"
+      },
+      "scale_summary": "大阪市東淀川区/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [
+        {
+          "title": "チタン粉から3Dプリンターでつくる人工骨 健康長寿社会を切り拓く大阪冶金興業の技術 万博 私たちが支える",
+          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9QelY1T284ZVl3c2RwQ1FPUHdhVjVyano1dEx1a1FWWDgtMU8yakQ0Vmk2OE1kX2pHNTR4eDlqMzlCaW9LdV95ek9GZzRGeWh2LTN1UzlpRGFJRl9iYTV5dWlDU3hJY0h0bkRsYVdoY0E3bUVjRXc?oc=5",
+          "source": "産経ニュース",
+          "pub": "2025-04-23T16:00:00+09:00",
+          "query": "大阪冶金興業株式会社 熱処理",
+          "clients": []
+        },
+        {
+          "title": "2021年度 第2回研究会",
+          "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE50OHVWbUlXLVk5YlZxVEo2dzZKR3RqcFJ5Vy02WHpmVzRHT2czQ0hIMXFYQ05feFFhTF9MZ0ZHZzlsZzdqRkg0R2hmNUhjcVR0WDY2Rmt3T1BLYlVQaC05cUxULVk?oc=5",
+          "source": "kansai-u.ac.jp",
+          "pub": "2022-01-06T17:58:31+09:00",
+          "query": "大阪冶金興業株式会社 熱処理",
+          "clients": []
+        },
+        {
+          "title": "三次元設計を活用した“デジタルモノづくり”を促進(DfAM:Design for Additive Manufacturingの支援)",
+          "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNbDhsVWg4cV9EQjVyd0p4amVVUy1pME5ObFpENE5vUmNMejVYbXFGU1k4YU96bjRORFoxWWdxNlZBNjdyaFdoQko2N3lDRWZnT014c3BieVBfS1JrSXpXcXRybEVlMmJGMGxwYVpSSVg1NXhNbkM3NGozN0ZPbzFacG1odG56ZnR1MXFZ?oc=5",
+          "source": "kansai.meti.go.jp",
+          "pub": "2021-08-16T16:00:00+09:00",
+          "query": "大阪冶金興業株式会社 熱処理",
+          "clients": []
+        }
+      ],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "bf6000e3fb76",
+      "name": "津田金属熱煉工業株式会社",
+      "area": "兵庫県・尼崎市",
+      "updated": "2026-08-11T06:01:15+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "津田金属熱煉工業株式会社"
+      },
+      "scale_summary": "兵庫県尼崎市/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [
+        {
+          "title": "津田金属熱煉、自転車部品の熱処理1.3倍 本社に自動倉庫設備",
+          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE12ai13WUlOazFpQVFMZVpPaExHaFZvOTZhdVI2M2pkaGZuWm10V2txbG9EUV9pWldVbHNqRXRUUE9fb0pSbnRJTHB5Nlo0bG9RaFNubTFjUVk5UnM?oc=5",
+          "source": "日刊工業新聞",
+          "pub": "2022-06-09T16:00:00+09:00",
+          "query": "津田金属熱煉工業株式会社 熱処理",
+          "clients": []
+        }
+      ],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "fcaedd25c44d",
+      "name": "播磨高周波工業株式会社",
+      "area": "兵庫県・姫路市",
+      "updated": "2026-08-11T06:01:15+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "播磨高周波工業株式会社"
+      },
+      "scale_summary": "兵庫県姫路市/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [
+        {
+          "title": "甲西高周波工業株式会社:ハードとソフトの調和でアジアの部品メーカーを支える活用事例",
+          "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5odTB4cExWT0F1dEZYSDdWd2MwSndlSWxhT29HNnVNLS14amFqcmdFRzhWUGN4Vm94TXdmaXJvSFRLRE1vQzB5alg1Mmh2RnM5bEVKVjZDQVNYcGlYc1dobmRR?oc=5",
+          "source": "jetro.go.jp",
+          "pub": "2015-04-27T16:11:55+09:00",
+          "query": "播磨高周波工業株式会社 熱処理",
+          "clients": []
+        }
+      ],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "5281f2f58b35",
+      "name": "福山熱煉工業株式会社(加西)",
+      "area": "兵庫県・加西市",
+      "updated": "2026-08-11T06:01:17+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "福山熱煉工業株式会社(加西)"
+      },
+      "scale_summary": "兵庫県加西市/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "0751c51b7375",
+      "name": "高周波熱錬株式会社(尼崎)",
+      "area": "兵庫県・尼崎市",
+      "updated": "2026-08-11T06:01:18+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "高周波熱錬株式会社 尼崎工場"
+      },
+      "scale_summary": "兵庫県尼崎市/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [
+        {
+          "title": "ネツレン、IH技術で自動車、土木・建築など各業界に貢献 多数の国内シェアトップ製品を源泉に、安定した成長を実現",
+          "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5tTVRLck5Fb09TSk5aZjFQXzNZUE5DQjZITl9Yay1kVEp1OGZRMFItRHZ3djd4TFJnVFZTTjVEY2hFUURqN3ozbnhhcUFFRjZBSUE?oc=5",
+          "source": "ログミーFinance",
+          "pub": "2024-03-19T16:00:00+09:00",
+          "query": "高周波熱錬株式会社 尼崎工場 熱処理",
+          "clients": []
+        },
+        {
+          "title": "ネツレン(5976)のプロフィール",
+          "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE8yMlM5eEVUdUs1eUpBRHZwclhxTU56WFpYMnMyVnZCMzlkZWdBRUFaam1QQjROdG9ubzFJdVVmRVR6SlR2SElvNVZ2Y0hlMEdEZ3VZcEVkY3hDSzNzZHBMMkpn?oc=5",
+          "source": "四季報オンライン",
+          "pub": "2022-05-01T11:59:13+09:00",
+          "query": "高周波熱錬株式会社 尼崎工場 熱処理",
+          "clients": []
+        },
+        {
+          "title": "ネツレン、多くの製品で国内トップシェアを獲得し安定成長 今期の売上高は過去最高の580億円を見込む",
+          "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9mSWItQ0JndXN0Q3hPUUZfWHpodmJwdW1PWElfS0lTT240Z0hKOXBQRzdoRm1kRXlhVTIxWVlJbnQzRXFndnBSZ2hHVUtVaTZkYkE?oc=5",
+          "source": "ログミーFinance",
+          "pub": "2024-01-16T16:56:00+09:00",
+          "query": "高周波熱錬株式会社 尼崎工場 熱処理",
+          "clients": []
+        },
+        {
+          "title": "ネツレン、売上高は前期比+1.6%の283億円 鋼材価格等コストアップ分の価格転嫁、自動車関連製品の回復、円安が影響",
+          "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9EemQ5UkV2R3hqOUNzVjU1WjI5cVJxSjhVMXBhcFh1UjJ3Qm1hQ0ZwbTFmTHVCQWVmcndPWHV5QkFUeWFJcDNZYVpEOXNWRnoxTHc?oc=5",
+          "source": "ログミーFinance",
+          "pub": "2023-12-13T17:00:00+09:00",
+          "query": "高周波熱錬株式会社 尼崎工場 熱処理",
+          "clients": []
+        }
+      ],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "efc108535ee0",
+      "name": "株式会社アオイヒートテック",
+      "area": "京都府・城陽市",
+      "updated": "2026-08-11T06:01:19+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "株式会社アオイヒートテック"
+      },
+      "scale_summary": "京都府城陽市/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "fc3f4ca101c5",
+      "name": "株式会社KOYO熱錬",
+      "area": "京都府・京都市南区",
+      "updated": "2026-08-11T06:01:20+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "株式会社KOYO熱錬"
+      },
+      "scale_summary": "京都市南区/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [
+        {
+          "title": "京都府京都市のKOYO熱錬 航空機分野参入で熱処理技術磨き世界展開へ挑戦",
+          "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQLWNuZG5teldvck45SjhGbmJmVVNJUkdoWVI0TEl6b0tEWEhjcmRuTExTMFNoLWcyRXRTRlNwT19Yb1ZBS1pwVk9EX25nVjFQNnRQUWVvbU44czEySDMxSndSNTc4YldDTThlRUVGa1MtZlk1am9Ec2hRdnhDZlZRSE1zYlYzQQ?oc=5",
+          "source": "projectdesign.jp",
+          "pub": "2026-05-01T16:00:00+09:00",
+          "query": "株式会社KOYO熱錬 熱処理",
+          "clients": []
+        },
+        {
+          "title": "株式会社KOYO熱錬(京都企業紹介)",
+          "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5KdG9LdmJsTWZja0hkYmI4dHRSU0NPd3pyN2ZiYjFRVS1XSUZMUzZPNHRJS0JoUl9HUHVMUUl0QzJkRXpjUHR1dlJlVUNPeV93LVJlSGluVndEZk1zeFlfdExfb2NyMTZYUkZjQlhQUlA?oc=5",
+          "source": "pref.kyoto.jp",
+          "pub": "2022-09-12T16:00:00+09:00",
+          "query": "株式会社KOYO熱錬 熱処理",
+          "clients": []
+        },
+        {
+          "title": "地元大と連携で活動に幅、学生の柔軟な発想期待...京都航空宇宙産業ネットワークの挑戦",
+          "link": "https://news.google.com/rss/articles/CBMiQkFVX3lxTFAzOWtrWGhxNGx3d2liOFZnYmM1cFBsSFhMSHBKd1lkeEF6Qzg5MEFjaURuRUtLZ0RlQWJKcXl3cU8xZw?oc=5",
+          "source": "ニュースイッチ by 日刊工業新聞社",
+          "pub": "2026-01-04T17:00:00+09:00",
+          "query": "株式会社KOYO熱錬 熱処理",
+          "clients": []
+        },
+        {
+          "title": "航空機関連企業紹介",
+          "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9lb05KaXAtS3prR3Q4QnlKSlZaWklTc2o5SDRCU0R1ZG85dk9DUWQwbE41Yk1xV2cwNV9DOERDTWhmUC1Mak9kbTRURm5DNDI5WVVkNzBmeUR5RURESGpXUQ?oc=5",
+          "source": "pref.kyoto.jp",
+          "pub": "2022-02-16T17:00:00+09:00",
+          "query": "株式会社KOYO熱錬 熱処理",
+          "clients": []
+        }
+      ],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "b902461d2e1e",
+      "name": "株式会社Bright-Anneal",
+      "area": "和歌山県・紀の川市",
+      "updated": "2026-08-11T06:01:21+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "株式会社Bright-Anneal"
+      },
+      "scale_summary": "和歌山県紀の川市/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "d66418908a97",
+      "name": "株式会社松徳",
+      "area": "大阪府・柏原市(奈良方面)",
+      "updated": "2026-08-11T06:01:22+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "株式会社松徳"
+      },
+      "scale_summary": "大阪府柏原市(奈良方面)/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [
+        {
+          "title": "マイスターに聞く(34)金属熱処理−松徳工業所・横尾臣則さん",
+          "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE4tUlRMUTcyTEdsVG41VHNSX013UFZXbnZFT0tUR3pVc3VCTjgzbWZuM00tTktUM2lOQ3VUUk45WE9WWVpzR2ZsLVJEYnRuWDFnV19IbHUzdlpaNXJyR2hueXRCMUs?oc=5",
+          "source": "日刊工業新聞",
+          "pub": "2016-09-27T01:08:34+09:00",
+          "query": "株式会社松徳 熱処理",
+          "clients": []
+        }
+      ],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "3a7e320ef31e",
+      "name": "デンコーテクノヒート株式会社(滋賀)",
+      "area": "滋賀県・甲賀市",
+      "updated": "2026-08-11T06:01:23+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "デンコーテクノヒート株式会社 滋賀工場"
+      },
+      "scale_summary": "滋賀県甲賀市/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [
+        {
+          "title": "電気興業(6706)のプロフィール",
+          "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9uTzRQMWtlRGpFdXhwemlocnV1U08yemhGLXRuQXJqX2s4bUJybnlBZVZFNWV5cGNrOFhScDdjQW5yWGQxdGVhQlhRekxSVUdFSmh2eUtkaXU0dzkxZGFCajNR?oc=5",
+          "source": "四季報オンライン",
+          "pub": "2022-07-17T03:36:32+09:00",
+          "query": "デンコーテクノヒート株式会社 滋賀工場 熱処理",
+          "clients": []
+        }
+      ],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "bb6e87cba905",
+      "name": "第一熱処理工業株式会社(和歌山)",
+      "area": "和歌山県・和歌山市",
+      "updated": "2026-08-11T06:01:25+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "第一熱処理工業株式会社 和歌山工場"
+      },
+      "scale_summary": "和歌山工場拠点/第一熱処理工業グループ",
+      "equipment": [],
+      "equipment_summary": "和歌山工場拠点(設備詳細は公式参照)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [
+        {
+          "title": "安心の職場づくり 県労働安全衛生大会",
+          "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5rNHNaOW9Ia0dMTUFMQ052dlN4UG11bmpNUE9kMHVVeHN2ZVdQMWtKODE3OTYyMVE4OXBDYkFrb0ExSW1yLVIxc1JKUXBib1FfNWQ4RTdwS25LaDRvTlp4RXNTalFYeEk?oc=5",
+          "source": "わかやま新報",
+          "pub": "2017-10-10T16:00:00+09:00",
+          "query": "第一熱処理工業 和歌山",
+          "clients": []
+        }
+      ],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.ichi-netsu.co.jp/company/outline.html",
+          "fetched_at": "2026-08-11T06:01:23+09:00"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "8d55359f7a44",
+      "name": "株式会社東研サーモテック(名張)",
+      "area": "三重県・名張市",
+      "updated": "2026-08-11T06:01:28+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "株式会社東研サーモテック 名張工場"
+      },
+      "scale_summary": "名張工場拠点/設備は全社エントリ参照",
+      "equipment": [],
+      "equipment_summary": "拠点ピン(設備は株式会社東研サーモテック(全社)を参照)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [
+        {
+          "title": "東研サーモ、三重・名張の熱処理加工能力2割増−変速機部品の受託拡大",
+          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE0yMkVEV2JWcHVIdTFzSGR6Skd3UHkySnoxNEIwSjdQNHNTaGdZaVF5M0tycHpacWRRbVc3bDNJMVFoTTRZNW1PRjRFSW8xdzNUYy1iMVZPemoyVE0?oc=5",
+          "source": "日刊工業新聞",
+          "pub": "2017-06-03T03:17:30+09:00",
+          "query": "東研サーモテック 名張",
+          "clients": []
+        },
+        {
+          "title": "株式会社東研サーモテックが紀北橋本エコヒルズ「紀ノ光台Sゾーン」へ進出決定",
+          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQMTdsSXNuMWg5RXBZTGgyanlrRk1JTjJRNGJMZlkzc1QtUHNMWkhUSHJrWUI1ZEgtdHdLVHh5ak5JakJja2RiX0hKWFRLNGZvMFFQbUhsMmFWblZPTUJYWWxiemg1QVY0OURJMVFwdkZMUzhfbDZoNk9yZmlWYnJ3RFB0cHd5WTlPUS15ejZZYUluVTcxNG9qUWE0aGswVUlIdlRsODBIZW1pc2tOM1VKWVRzbHpqemZTOEVFM0xvNA?oc=5",
+          "source": "city.hashimoto.lg.jp",
+          "pub": "2018-02-13T17:00:00+09:00",
+          "query": "東研サーモテック 名張",
+          "clients": []
+        },
+        {
+          "title": "正確さやスピード競う 火災対応の競技会 名張で4年ぶり",
+          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1aV3hyX3BLcFdXcUtDX0hvTlZHaWhNR0M1N3BycUJzRlVSTk9xN0dEVHBIanlvaktLVnA4SFVVNUpzdU5LOGpSUjNtX0Vmbl83MkhxZUtGQldRdw?oc=5",
+          "source": "伊賀タウン情報 YOU",
+          "pub": "2023-09-22T16:00:00+09:00",
+          "query": "東研サーモテック 名張",
+          "clients": []
+        },
+        {
+          "title": "火災対応迅速に 競技会に90人 名張防火協会",
+          "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE15anZvZExGZG9KdlVYOUdRY2F3VWdTcHdSeHNDVXpsS1I4N3UxbkhFbW9sS2stLTFFTXoxM0l2UGVhLTJweW10SlhuNFpnMTJCdkZfdTdYV2Q?oc=5",
+          "source": "伊賀タウン情報 YOU",
+          "pub": "2017-09-26T16:00:00+09:00",
+          "query": "東研サーモテック 名張",
+          "clients": []
+        }
+      ],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://tohkenthermo.co.jp/",
+          "fetched_at": "2026-08-11T06:01:26+09:00"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "07cf95d58bc9",
+      "name": "和晃熱処理有限会社",
+      "area": "三重県・川越町",
+      "updated": "2026-08-11T06:01:29+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "和晃熱処理有限会社"
+      },
+      "scale_summary": "三重県川越町/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "258b49339ba6",
+      "name": "栗田精工株式会社",
+      "area": "三重県・桑名市",
+      "updated": "2026-08-11T06:01:30+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "栗田精工株式会社"
+      },
+      "scale_summary": "三重県桑名市/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "e3ec47633028",
+      "name": "株式会社沼田熱処理工業所",
+      "area": "岐阜県・関市",
+      "updated": "2026-08-11T06:01:31+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "株式会社沼田熱処理工業所"
+      },
+      "scale_summary": "岐阜県関市/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [
+        {
+          "title": "IoTで炉の稼働状況を遠隔監視「岡谷熱処理工業」",
+          "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1yejFqRzYycWZTWE1CMFk3U1o4YkJGeDZfY1hCbFczV0tiMndudnZPNlBHSkdoWjl6YS1SVk5yR3dWQjk1U19MWFdodVkwOU1HS1Q3U1Y5bTNVSTlfaURTcE16YUJLZkVOdDJr?oc=5",
+          "source": "J-Net21[中小企業ビジネス支援サイト]",
+          "pub": "2019-10-13T02:56:16+09:00",
+          "query": "株式会社沼田熱処理工業所 熱処理",
+          "clients": []
+        }
+      ],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "bbf4131cd895",
+      "name": "春日井金属工業株式会社",
+      "area": "岐阜県・海津市",
+      "updated": "2026-08-11T06:01:32+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "春日井金属工業株式会社"
+      },
+      "scale_summary": "岐阜県海津市/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "5b88f76dec31",
+      "name": "株式会社刈谷熱煉工業所",
+      "area": "愛知県・刈谷市",
+      "updated": "2026-08-11T06:01:33+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "株式会社刈谷熱煉工業所"
+      },
+      "scale_summary": "愛知県刈谷市/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "6e9f2d398435",
+      "name": "株式会社共和熱処理",
+      "area": "愛知県・大府市",
+      "updated": "2026-08-11T06:01:34+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "株式会社共和熱処理"
+      },
+      "scale_summary": "愛知県大府市/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [
+        {
+          "title": "【ゲームレポート】10/29(土)天皇杯vs.熊本",
+          "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE95MmljQUc3YmdEdXNFelM4ckhYS2hNbV9MODR1SGhRbmd6ZUNfRjl0UUVXV3JVVFBoSG95X3ctbnBYUkZXRHY0RHVkTEtaaExyVTJXTmhiYw?oc=5",
+          "source": "シーホース三河",
+          "pub": "2022-10-30T16:00:00+09:00",
+          "query": "株式会社共和熱処理 熱処理",
+          "clients": []
+        },
+        {
+          "title": "Bリーグ 2022-23 B1リーグ戦 2022/10/21 川崎 vs 三河",
+          "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPWjFmTVlSb1lXdTlzNzRaMHJEcWFESnJrdUM3X0ZFVTJGeEU1dmVMMFBZOVFhZzdpZmlqTEs5U2dMLWp6aktMbko1M2ZBdHhKMXlQTEJWMWZScXFsMm1rbTduZnFHQXl3Uk5Kdy1FU1dZWVFRTVJUZTVCVG01ZzN4YlBfaXVsalZaMHc?oc=5",
+          "source": "シーホース三河",
+          "pub": "2022-10-21T16:00:00+09:00",
+          "query": "株式会社共和熱処理 熱処理",
+          "clients": []
+        }
+      ],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "355be508f38e",
+      "name": "栄熱処理工業株式会社",
+      "area": "愛知県・刈谷市",
+      "updated": "2026-08-11T06:01:35+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "栄熱処理工業株式会社"
+      },
+      "scale_summary": "愛知県刈谷市/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [
+        {
+          "title": "りそなグループ B.LEAGUE 2025-26 B1リーグ戦 2026/05/03 三河 vs 越谷",
+          "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5YLWhCX215NVNJUnQxSE1fc0NJMXFiNnltcHdSbm15Wm9faTJ3emRtZnlydmVjVkg4TG56WmFHbThlblBySkFDNHZLZ1RBVThUWm1pM1JtWQ?oc=5",
+          "source": "シーホース三河",
+          "pub": "2026-05-03T19:02:10+09:00",
+          "query": "栄熱処理工業株式会社 熱処理",
+          "clients": []
+        },
+        {
+          "title": "りそなグループ B.LEAGUE 2025-26 B1リーグ戦 2026/04/11 三河 vs 名古屋D",
+          "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNbmloN19NNVJxN0l5MnZkWEk0RlhDTUpSWk9pWVJhOEdkNGZ6ZkJEQXdaT2dHN3lrM3gwTE5iY0FmTU8zWDB3SzhBVVV0NzVYdHl3bE5BUDlkcnNfRGxEdS1hZXBTemJGVER0dWZQM3BEblVWYjVTNENmOE13YjdiVzFLbUplNk5hdEE?oc=5",
+          "source": "シーホース三河",
+          "pub": "2026-04-11T16:00:00+09:00",
+          "query": "栄熱処理工業株式会社 熱処理",
+          "clients": []
+        },
+        {
+          "title": "りそなグループ B.LEAGUE 2025-26 B1リーグ戦 2026/03/08 三河 vs 富山",
+          "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQUWllU212NmtrTmJQNHM0U05uUjRGeVdTUlRHZXBSS0xzWnRaVVNSTkJNRnRBUUx0VTl1cG9IYzNHbVQyMl8xc3lsS3RFQlVWMElJUktwZDFLdmlPb1ZqcFlMRmZsUXdkeWZhTXhhNVU1d0hJXzRJM2I1M2g5RXlsMXlOTVNGZmhqQVE?oc=5",
+          "source": "シーホース三河",
+          "pub": "2026-03-08T17:00:00+09:00",
+          "query": "栄熱処理工業株式会社 熱処理",
+          "clients": []
+        },
+        {
+          "title": "りそなグループ B.LEAGUE 2025-26 B1リーグ戦 2026/03/11 琉球 vs 三河",
+          "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNb2pXT2IxRElqanlmSzFONlJ4aDg3bGhVZDM3MHVPRW82Zjl1a3ItZ0E4MF9qZl9jcFYyVWJpS2xPcUp6dWpXdG9HQlBCTVVrVEZabWQxRE1vRU11djFmX1hSOXBjeVBkemxEMk9aWWRQTzFuVmpONy1iT2xpMnlRNFgzNWNVOVpZV3c?oc=5",
+          "source": "シーホース三河",
+          "pub": "2026-03-11T16:00:00+09:00",
+          "query": "栄熱処理工業株式会社 熱処理",
+          "clients": []
+        },
+        {
+          "title": "りそなグループ B.LEAGUE 2025-26 B1リーグ戦 2026/03/29 三河 vs 川崎",
+          "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNcENlMVVSUGZFbHNXcTRoVWdwRmljSEppZ1dJOTNzVktUb2twb0ZlaVdlMmJON0lCWHlSbUc3V3NDd2ZvZ1BGa2lwY1VnMEV4ZGl2c2ZCTEh1ckZkSzlLd1NLTHJFM1VrU2NZMHY0MHp2WWFFR04tNndhNEJ6UHdCb0lIY2F3VHBxMVE?oc=5",
+          "source": "シーホース三河",
+          "pub": "2026-03-29T16:00:00+09:00",
+          "query": "栄熱処理工業株式会社 熱処理",
+          "clients": []
+        },
+        {
+          "title": "りそなグループ B.LEAGUE 2025-26 B1リーグ戦 2026/04/18 京都 vs 三河",
+          "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPNjh1RTNMUnJUSGJwMWZ1RVNnR2JWd2RaZHZ1bjFqbjd1VmRWQklCcHdEeS1IMDJnX0J6STNKN2R4NWRBSEV5NlA1ejNtRHQwVWxXT2p3d0lxQUNWUkdTNENEYURVS0VJRjBEVnlZdnF2OGswYWJTT2lHM0M5SzQtNkJjaGZKWmw3Y0E?oc=5",
+          "source": "シーホース三河",
+          "pub": "2026-04-18T16:00:00+09:00",
+          "query": "栄熱処理工業株式会社 熱処理",
+          "clients": []
+        },
+        {
+          "title": "りそなグループ B.LEAGUE 2025-26 B1リーグ戦 2026/04/12 三河 vs 名古屋D",
+          "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQMm5EeGFreHR5aDNJZnFMOWhfSF93MlhzVTNucThSZFlrWXlRMHBSME43MlBWNmVoV05zenZIUzJnM3V6UnFIUEdLdnRBSThjcEhYbmYtUnhrOW1Rak8yRUNVbEpxeHZsUTF1eVpTellNS2RhWHNGdUVxUXBBcDl6dHVyMjk2M2tmcUE?oc=5",
+          "source": "シーホース三河",
+          "pub": "2026-04-12T16:00:00+09:00",
+          "query": "栄熱処理工業株式会社 熱処理",
+          "clients": []
+        },
+        {
+          "title": "りそなグループ B.LEAGUE 2025-26 B1リーグ戦 2026/03/15 横浜BC vs 三河",
+          "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOX09FMngwSzI5bXB0UUNtY2VHNTFDa2xOdko4dXVYSnA0U0I4Z2doekhYVFZxVkthZ09LeHpfRnR4ZGJvRGE4WktzSW1pOTRnYmVsTW1NWVZ6V1labHEwOWlaOUNWVHpkVEpHRHVnUndDeW9VNVRWMXY1N19FMUJYR0NTTERjNWhNYkE?oc=5",
+          "source": "シーホース三河",
+          "pub": "2026-03-15T16:00:00+09:00",
+          "query": "栄熱処理工業株式会社 熱処理",
+          "clients": []
+        }
+      ],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "5d732a104490",
+      "name": "名南熱処理工業株式会社",
+      "area": "愛知県・知立市",
+      "updated": "2026-08-11T06:01:36+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "名南熱処理工業株式会社"
+      },
+      "scale_summary": "愛知県知立市/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [
+        {
+          "title": "10月1日(土)横浜F・マリノス戦でのクラブ30周年プロジェクト「応援フラッグ」先着プレゼントのお知らせ",
+          "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE4tNzR4NmpJb0xuZGRfb2lDUE1BV3ZmSUxFMXhLQTFqRXpuNFhMNHhzV0VCQ01nTlYzdGFBQl9iTDJPV0NfNm5mWTJCNW9OX2RsUHVWaWNwNTkxRW1oVmI4bVZmdFFBQQ?oc=5",
+          "source": "nagoya-grampus.jp",
+          "pub": "2022-09-20T16:00:00+09:00",
+          "query": "名南熱処理工業株式会社 熱処理",
+          "clients": []
+        }
+      ],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "3bca05cb8693",
+      "name": "株式会社丸十熱処理工業所",
+      "area": "愛知県・豊田市",
+      "updated": "2026-08-11T06:01:36+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "株式会社丸十熱処理工業所"
+      },
+      "scale_summary": "愛知県豊田市/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "b567985fb095",
+      "name": "株式会社メイネツ",
+      "area": "愛知県・刈谷市",
+      "updated": "2026-08-11T06:01:38+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "株式会社メイネツ"
+      },
+      "scale_summary": "愛知県刈谷市/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "fdfcb1f9d829",
+      "name": "アイキン熱処理工業株式会社",
+      "area": "愛知県・名古屋市南区",
+      "updated": "2026-08-11T06:01:39+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "アイキン熱処理工業株式会社"
+      },
+      "scale_summary": "名古屋市南区/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "ee6522cdbc0f",
+      "name": "東邦金属熱錬工業株式会社",
+      "area": "愛知県・名古屋市港区",
+      "updated": "2026-08-11T06:01:40+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "東邦金属熱錬工業株式会社"
+      },
+      "scale_summary": "名古屋市港区/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [
+        {
+          "title": "東邦金属熱錬、岐阜に熱処理新工場棟−バッチ式浸炭炉など整備",
+          "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE41LWtnOTZoeDhZOVdnWVJIcFhYNHNaQTZJLUdoVE5KWkNPYmVtSDBRYTVkZl9DNnVOSXhodk4xNkV6THpfRDUtbFlRNXBfdUw1eUd5UFptVTY?oc=5",
+          "source": "日刊工業新聞",
+          "pub": "2020-03-09T12:46:16+09:00",
+          "query": "東邦金属熱錬工業株式会社 熱処理",
+          "clients": []
+        }
+      ],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "bc96b65455f2",
+      "name": "高周波熱錬株式会社(刈谷)",
+      "area": "愛知県・刈谷市",
+      "updated": "2026-08-11T06:01:40+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "高周波熱錬株式会社 刈谷工場"
+      },
+      "scale_summary": "愛知県刈谷市/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [
+        {
+          "title": "ネツレン、IH技術を中核に、新技術・新商品の投入で着実に成長 第16次中計最終年度は売上700億円を目指す",
+          "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE00UlRZam1FM0N3Y1RVelZnS1RtcnVPVFoyZEQ4UVROMW5saWdhV2FsdkxPR3RuYmZfa3h3dzZ6SU5hYzBiTXVfY2gwYmRWTWo1MkE?oc=5",
+          "source": "ログミーFinance",
+          "pub": "2025-03-11T16:00:00+09:00",
+          "query": "高周波熱錬株式会社 刈谷工場 熱処理",
+          "clients": []
+        },
+        {
+          "title": "ネツレン、愛知県刈谷市の刈谷工場に設備投資",
+          "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBmU3lSblVVZWtKUnNVS2xSa3N1NGp3Z0FSTmQ5aTZBaHVUNjhRV0Zub2ZBY21JYWJ2QzQ2Q2tzeTFWTWQ2ODRnOFJqMlYyQW5zVXA1TU9vRDA?oc=5",
+          "source": "オートメーション新聞WEB",
+          "pub": "2024-09-04T19:12:25+09:00",
+          "query": "高周波熱錬株式会社 刈谷工場 熱処理",
+          "clients": []
+        },
+        {
+          "title": "ネツレン(5976)のプロフィール",
+          "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE8yMlM5eEVUdUs1eUpBRHZwclhxTU56WFpYMnMyVnZCMzlkZWdBRUFaam1QQjROdG9ubzFJdVVmRVR6SlR2SElvNVZ2Y0hlMEdEZ3VZcEVkY3hDSzNzZHBMMkpn?oc=5",
+          "source": "四季報オンライン",
+          "pub": "2022-05-01T11:59:13+09:00",
+          "query": "高周波熱錬株式会社 刈谷工場 熱処理",
+          "clients": []
+        },
+        {
+          "title": "高周波熱錬株式会社(5976)、販価改定と海外販売の拡大で増収増益 2026年度は過去最高の連結売上高640億円を見込む",
+          "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1RcDJZMUFoMHVmbEVMNjdpWlRGTzE3RDRjdk9rU2tsTERHcm5aR2dLeHNoTHFaTHVISl9WUXhuNmlRQUFtOE5aY3lWV0I1dkxqcmc?oc=5",
+          "source": "ログミーFinance",
+          "pub": "2026-06-11T16:00:00+09:00",
+          "query": "高周波熱錬株式会社 刈谷工場 熱処理",
+          "clients": []
+        },
+        {
+          "title": "ネツレン、販売価格改定後の売上が増加し前年同期比23.8%の増益 原価低減効果から更なる増益見込み",
+          "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9EbVE2YlE3bzlKTWNWOU5jT2d4THVBR3hPaHlLZmx1aXE4MlgwU0JUbllKd0ROdy1GcGlYamN6ajFES2dQT1BuVmF1MEp6ejJEX3c?oc=5",
+          "source": "ログミーFinance",
+          "pub": "2024-12-05T17:00:00+09:00",
+          "query": "高周波熱錬株式会社 刈谷工場 熱処理",
+          "clients": []
+        }
+      ],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "b534429aa28d",
+      "name": "デンコーテクノヒート株式会社(刈谷)",
+      "area": "愛知県・刈谷市",
+      "updated": "2026-08-11T06:01:41+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "デンコーテクノヒート株式会社"
+      },
+      "scale_summary": "愛知県刈谷市/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [
+        {
+          "title": "電気興業(6706)のプロフィール",
+          "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9uTzRQMWtlRGpFdXhwemlocnV1U08yemhGLXRuQXJqX2s4bUJybnlBZVZFNWV5cGNrOFhScDdjQW5yWGQxdGVhQlhRekxSVUdFSmh2eUtkaXU0dzkxZGFCajNR?oc=5",
+          "source": "四季報オンライン",
+          "pub": "2022-07-17T03:36:32+09:00",
+          "query": "デンコーテクノヒート株式会社 熱処理",
+          "clients": []
+        }
+      ],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "5838037f1e84",
+      "name": "株式会社ネツレン小松",
+      "area": "石川県・小松市",
+      "updated": "2026-08-11T06:01:42+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "株式会社ネツレン小松"
+      },
+      "scale_summary": "石川県小松市/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [
+        {
+          "title": "ネツレン、IH技術で自動車、土木・建築など各業界に貢献 多数の国内シェアトップ製品を源泉に、安定した成長を実現",
+          "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5tTVRLck5Fb09TSk5aZjFQXzNZUE5DQjZITl9Yay1kVEp1OGZRMFItRHZ3djd4TFJnVFZTTjVEY2hFUURqN3ozbnhhcUFFRjZBSUE?oc=5",
+          "source": "ログミーFinance",
+          "pub": "2024-03-19T16:00:00+09:00",
+          "query": "株式会社ネツレン小松 熱処理",
+          "clients": []
+        }
+      ],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "185c0824cba8",
+      "name": "有限会社南信熱錬工業",
+      "area": "長野県・箕輪町",
+      "updated": "2026-08-11T06:01:44+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "有限会社南信熱錬工業"
+      },
+      "scale_summary": "長野県箕輪町/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [
+        {
+          "title": "箕輪町商工会新会長に向山淳さん|ニュース",
+          "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1hVlRQbXBtWVQwSlpkUnlNRjc4MFczbm51cWlnQXpUQUxMNHBZY2Z2NUd5Y2tuanRVb1g4UElJNVFRcVZiZXNfcFJMY2Z1WXE2TVFUUFdyWQ?oc=5",
+          "source": "伊那谷ねっと",
+          "pub": "2021-05-13T16:00:00+09:00",
+          "query": "有限会社南信熱錬工業 熱処理",
+          "clients": []
+        }
+      ],
+      "sources": [],
+      "errors": []
+    },
+    {
+      "id": "331920ddbf5b",
+      "name": "株式会社丸眞製作所",
+      "area": "長野県・岡谷市",
+      "updated": "2026-08-11T06:01:45+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "株式会社丸眞製作所"
+      },
+      "scale_summary": "長野県岡谷市/日本金属熱処理工業会会員",
+      "equipment": [],
+      "equipment_summary": "工業会会員(公式設備ページの詳細は継続収集)",
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [
+        {
+          "title": "はたらく人と家族にも やさしい職場で働いてみませんか?",
+          "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPRGp0QVBmQmZadnNkd3puSWpYU3NENEJmem0xUkJzamR3OGI0WTFyWmNpaGdfSE12QU5hbWRwUFRNZ1FiR1lKUUZfT1MtcnVxeDB3WmFrNVlkYnFRcHBvVG5wUFBlb05wOUtFZmtHR29DSHdsd19WanFZUGxTUDVpN1hQTDl1QS0zY0I2TXR1d0NvdkJwbjRKdW1mOW9YdXY2MXJQZk5NUVg4dlFzY0lfaFJwOVlLcWVu?oc=5",
+          "source": "city.okaya.lg.jp",
+          "pub": "2026-06-30T16:00:00+09:00",
+          "query": "株式会社丸眞製作所 熱処理",
+          "clients": []
+        },
+        {
+          "title": "ものづくりワールド福岡 第3回機械要素技術展共同出展",
+          "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxNT0lhZElfQlVPTU44dVBMNFZkTnRyOWJzVkc0cUI1OE85cm4xWlJTZEdLUG91dmtKZDdra0lVSWN3TkJ1dk5udk9mMkZ5ZENiOUdBbkMtMEFXZDhOMmlXV1luX1VLdlBLVEt4VUlTRHJJc2ZnVHp4Y0FUNENEMnR1dDFDem9qRk1DeGJJZGZxZVFVSXFwOWhSaVYwaDFoNERNYTlLNkw1b1FnNGRtYU9KeEllckZHV0NSUnMtYW44SlAzRGJoS0djem1ZclRxdGdtY1RjejdGbktSeEl0UGN4UFlZUmxDUm5wdnRhbFpsdVZVdWtudmdlYVZRZTJzQQ?oc=5",
+          "source": "city.okaya.lg.jp",
+          "pub": "2025-12-03T17:00:00+09:00",
+          "query": "株式会社丸眞製作所 熱処理",
+          "clients": []
+        },
+        {
+          "title": "エコドライブ推進事業所に登録しませんか",
+          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOVlhydUlBMXVkeFkwZXlPT2J6RHloaExub1dzNWhxNnF0b25BZkRmeHJxUnRCVlJYWUY0OWVkQ0FKLThFWTJVb2phcmV0S3ZDcmc3N1l5aG5TMUlmNmpYR3JKMGdiN3pRUTNuTEN0Y0R2eVpDQzNPYTZkSTV2eHhlMnJ4RlNhWUVGRWNfVVFfUG42RFdzVHFCNnNOWFhMcms?oc=5",
+          "source": "city.okaya.lg.jp",
+          "pub": "2023-02-01T17:00:00+09:00",
+          "query": "株式会社丸眞製作所 熱処理",
+          "clients": []
+        }
+      ],
+      "sources": [],
       "errors": []
     }
   ]

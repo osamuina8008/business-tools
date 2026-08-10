@@ -8,7 +8,14 @@
   ],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [],
+  "today_logs": [
+    {
+      "type": "短答",
+      "questions_count": 20,
+      "understanding": "普通",
+      "topic": ""
+    }
+  ],
   "spacing_items": [
     {
       "interval_label": "",
@@ -220,7 +227,7 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-08-10T09:26:33.088023",
+  "updated_at": "2026-08-10T12:08:41.204007",
   "today_tasks": [
     {
       "subject": "憲法",
@@ -283,16 +290,6 @@
       "checked": false
     },
     {
-      "subject": "商法",
-      "status": "遅れ",
-      "action": "短答3問｜論点：株主総会決議（種類・要件・瑕疵）・取締役の善管注意義務",
-      "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（8日ぶり）",
-      "actual_q": 0,
-      "target_q": 15,
-      "checked": false
-    },
-    {
       "subject": "実務基礎",
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
@@ -328,76 +325,5 @@
   ],
   "today_review_items": [],
   "today_study_guide": "",
-  "news_feed": [
-    {
-      "title": "予備試験学習サイトを（とりあえず）HTML1枚で自作してみた話",
-      "label": "「受験生・記事ピック」 予備試験学習サイトを（とりあえず）HTML1枚で自作してみた話",
-      "url": "https://qiita.com/inuinu_wanwan/items/34b7bef8d615dc68c161",
-      "source": "Qiita｜「司法試験」タグの新着",
-      "category": "creator"
-    },
-    {
-      "title": "2026年予備試験 短答式試験結果発表をうけて 伊藤塾からの大切なご案内",
-      "label": "「予備校ニュース」 2026年予備試験 短答式試験結果発表をうけて 伊藤塾からの大切なご案内",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/feature/shiken/yobi/index.html",
-      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
-      "category": "prep"
-    },
-    {
-      "title": "2026年司法試験 短答式試験結果発表をうけて 伊藤塾からの大切なご案内",
-      "label": "「予備校ニュース」 2026年司法試験 短答式試験結果発表をうけて 伊藤塾からの大切なご案内",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/feature/shiken/shihou/index.html",
-      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
-      "category": "prep"
-    },
-    {
-      "title": "【予備試験対策】 「基礎・論文マスター選択科目」 倒産法 新収録講義リリース!",
-      "label": "「予備校・イベント・教材」 【予備試験対策】 「基礎・論文マスター選択科目」 倒産法 新収録講義リリース!",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/25A01068.html",
-      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
-      "category": "prep"
-    },
-    {
-      "title": "【予備試験対策】 『予備試験受験生のための要件事実講義/事実認定講義』 論文・口述対策にもイチオシ!",
-      "label": "「予備校・イベント・教材」 【予備試験対策】 『予備試験受験生のための要件事実講義/事実認定講義』 論文・口述対策にもイチオシ!",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/25A33003_0.html",
-      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
-      "category": "prep"
-    },
-    {
-      "title": "【司法試験対策】 2027年合格目標 TKC 司法試験 [短答式]全国実力確認テスト 《本試験会場 新宿のCBTテストセンターで実施!》 受付 8/30(日)まで!",
-      "label": "「予備校・イベント・教材」 【司法試験対策】 2027年合格目標 TKC 司法試験 [短答式]全国実力確認テスト 《本試験会場 新宿のCBTテストセンターで実施!》 受付 8/30(日)まで!",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/27A22001.html",
-      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
-      "category": "prep"
-    },
-    {
-      "title": "司法試験合格〜司法修習",
-      "label": "「予備校ニュース」 司法試験合格〜司法修習",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/about/syuusyuu/index.html",
-      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
-      "category": "prep"
-    },
-    {
-      "title": "法科大学院を中核とする新しい法曹養成制度の充実・発展に向けた取組（法科大学院センター）",
-      "label": "「業界トピック」 法科大学院を中核とする新しい法曹養成制度の充実・発展に向けた取組（法科大学院センター）",
-      "url": "https://www.nichibenren.or.jp/activity/training/law_schools.html",
-      "source": "日弁連｜活動・トピックス",
-      "category": "media"
-    },
-    {
-      "title": "司法試験予備試験に関するＱ＆Ａ",
-      "label": "「まず疑問の整理」 司法試験予備試験に関するＱ＆Ａ",
-      "url": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00210.html",
-      "source": "法務省｜司法試験・予備試験",
-      "category": "official"
-    },
-    {
-      "title": "司法試験予備試験の実施について",
-      "label": "「日程・要項の骨格」 司法試験予備試験の実施について",
-      "url": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00026.html",
-      "source": "法務省｜司法試験・予備試験",
-      "category": "official"
-    }
-  ]
+  "news_feed": []
 }

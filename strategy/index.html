@@ -46,8 +46,10 @@
     </p>
 
     <p class="text-xs text-slate-600 bg-white border border-slate-200 rounded-xl px-3 py-2">
-      <strong>自動反映:</strong> デスクトップの「戦略マップ投入箱」に EightのCSV / Excel / CSV を入れるだけ。
-      約5分以内（または「戦略マップを反映.command」）で地図と公開サイトが更新されます。コマンド入力は不要です。
+      <strong>投入箱:</strong> デスクトップ「<strong>戦略マップ投入箱</strong>」＝
+      <code class="bg-slate-100 px-1 rounded text-[11px]">~/business-tools/strategy_inbox/</code><br>
+      Eight CSV / <strong>営業報告書CSV</strong> を入れるだけ。約5分で反映（または「戦略マップを反映.command」）。
+      報告書CSV投入時は新規開拓のふわふわメモは消え、実記録だけ残ります。
     </p>
 
     <!-- 提案・指示 -->
@@ -60,7 +62,7 @@
             class="text-xs font-semibold text-amber-900 bg-amber-100 hover:bg-amber-200 px-3 py-1.5 rounded-lg">指示をコピー</button>
         </div>
       </div>
-      <p class="text-xs text-slate-500 mb-3">戦略・戦術・攻めどころ・ランク・Eight・新聞の種から自動生成。タップで地図へ。</p>
+      <p class="text-xs text-slate-500 mb-3">戦略・戦術・攻めどころ・ランク・Eight・<strong>新聞×社名一致</strong>から自動生成。</p>
       <div id="actions-list" class="space-y-2 max-h-96 overflow-auto">
         <p class="text-sm text-slate-400">読み込み中...</p>
       </div>
@@ -230,11 +232,20 @@ function showCompany(id) {
   if (c.lat != null && c.lng != null) focusPin(c.lat, c.lng, 12);
   const reports = (c.reports || []).slice().reverse();
   const people = c.eight_people || [];
+  const news = c.news_hits || [];
   el.innerHTML = `
     <p class="text-xs font-bold text-teal-700 mb-1">${esc(c.marker === 'eight' ? 'Eight名刺' : '訪問・開拓')}</p>
     <h3 class="text-base font-bold text-slate-900">${esc(c.name)}</h3>
     <p class="text-xs text-slate-500 mt-1">${esc([c.prefecture, c.address].filter(Boolean).join(' '))}</p>
     <p class="text-xs text-slate-500">${esc([c.industry, c.rank, c.heat_vendor].filter(Boolean).join(' · '))}</p>
+    ${news.length ? `<div class="mt-3 p-2 rounded-lg bg-rose-50 border border-rose-100">
+      <p class="text-xs font-bold text-rose-800 mb-1">新聞一致 (${news.length})</p>
+      ${news.map(n => `
+        <a href="${esc(n.link || '#')}" target="_blank" rel="noopener" class="block mb-2 text-xs text-slate-700 hover:text-rose-800">
+          <span class="font-semibold">[${esc(n.score)}] ${esc(n.title || '')}</span>
+          <span class="block text-rose-700 mt-0.5">${esc((n.match_reasons||[]).join(' / '))}</span>
+        </a>`).join('')}
+    </div>` : ''}
     ${c.proposal ? `<div class="mt-3 p-2 rounded-lg bg-amber-50 border border-amber-100 text-xs text-amber-900"><span class="font-bold">提案:</span> ${esc(c.proposal)}</div>` : ''}
     ${c.note ? `<p class="text-xs text-slate-600 mt-2">メモ: ${esc(c.note)}</p>` : ''}
     ${people.length ? `<div class="mt-3"><p class="text-xs font-bold text-pink-700 mb-1">名刺接点</p>
@@ -247,7 +258,7 @@ function showCompany(id) {
           <p class="text-xs font-semibold text-slate-800">${esc(r.date || '日付なし')} · ${esc(r.title || '')}</p>
           ${r.summary ? `<p class="text-xs text-teal-800 mt-1">${esc(r.summary)}</p>` : ''}
           <p class="text-xs text-slate-600 mt-1 whitespace-pre-wrap">${esc(r.body || '')}</p>
-        </div>`).join('') : '<p class="text-xs text-slate-400">記録なし（Excelの visits シートに追加可）</p>'}
+        </div>`).join('') : '<p class="text-xs text-slate-400">記録なし（投入箱に営業報告書CSVを入れてください）</p>'}
     </div>`;
 }
 
@@ -269,7 +280,7 @@ function renderActions(payload) {
     const click = canCompany
       ? `showCompany('${esc(a.company_id)}')`
       : (canFocus ? `focusPin(${a.lat},${a.lng})` : '');
-    const tag = a.kind === 'hotspot' ? '攻め' : a.kind === 'eight' ? 'Eight' : a.kind === 'news' ? '新聞' : a.kind === 'tactic' ? '戦術' : '訪問';
+    const tag = a.kind === 'hotspot' ? '攻め' : a.kind === 'eight' ? 'Eight' : a.kind === 'news_match' ? '新聞×社' : a.kind === 'news' ? '新聞' : a.kind === 'tactic' ? '戦術' : '訪問';
     return `
       <button type="button" ${click ? `onclick="${click}"` : ''}
         class="w-full text-left rounded-xl border border-amber-100 bg-amber-50/50 hover:bg-amber-50 p-3 transition ${click ? '' : 'cursor-default'}">
@@ -304,8 +315,8 @@ function renderCompanyList(filter = '') {
   document.getElementById('visit-meta').textContent = `${list.length} / ${(visits?.companies || []).length}社`;
   document.getElementById('company-list').innerHTML = list.map(c => `
     <button type="button" onclick="showCompany('${esc(c.id)}')"
-      class="text-left rounded-xl border border-teal-100 bg-teal-50/40 hover:bg-teal-50 p-3 transition">
-      <p class="text-sm font-bold text-slate-800">${esc(c.name)}</p>
+      class="text-left rounded-xl border ${(c.news_hits||[]).length ? 'border-rose-200 bg-rose-50/50' : 'border-teal-100 bg-teal-50/40'} hover:bg-teal-50 p-3 transition">
+      <p class="text-sm font-bold text-slate-800">${esc(c.name)} ${(c.news_hits||[]).length ? `<span class="text-[10px] text-rose-700 font-bold">新聞${c.news_hits.length}</span>` : ''}</p>
       <p class="text-xs text-slate-500 mt-0.5">${esc([c.prefecture, c.rank, c.marker].filter(Boolean).join(' · '))}</p>
       ${c.proposal ? `<p class="text-xs text-amber-800 mt-1 line-clamp-2">${esc(c.proposal)}</p>` : ''}
     </button>`).join('') || '<p class="text-sm text-slate-400">該当なし。マスターExcelを build してください。</p>';

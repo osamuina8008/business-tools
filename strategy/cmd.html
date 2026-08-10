@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>戦略CMD — コマンド入力</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: ui-monospace, 'SF Mono', Menlo, 'Hiragino Sans', monospace; }
+    #log { font-size: 13px; line-height: 1.55; }
+    #log .ok { color: #0f766e; }
+    #log .err { color: #e11d48; }
+    #log .dim { color: #64748b; }
+    #log .hi { color: #0f172a; font-weight: 600; }
+    #cmd-input { font-family: inherit; }
+    .suggest-item.on { background: #ccfbf1; }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col">
+
+  <header class="border-b border-slate-700 bg-slate-800/80 sticky top-0 z-10">
+    <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <a href="./index.html" class="text-slate-400 hover:text-slate-200 text-sm font-sans">← 戦略と戦術</a>
+        <span class="text-slate-600">|</span>
+        <div>
+          <h1 class="text-base font-bold text-teal-300">戦略 CMD</h1>
+          <p class="text-[11px] text-slate-400 font-sans">訪問・熱処理先・取引先をコマンド1行で</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 font-sans">
+        <span id="queue-badge" class="text-xs text-slate-400">待ち 0</span>
+        <button type="button" onclick="exportCsv()"
+          class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-3 py-1.5 rounded-lg">CSV書き出し</button>
+        <button type="button" onclick="clearQueue()"
+          class="text-xs text-slate-400 hover:text-rose-400 px-2 py-1.5">クリア</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-4xl mx-auto w-full px-4 py-4 flex flex-col min-h-0 font-sans">
+    <div class="rounded-xl border border-slate-700 bg-slate-800/50 px-3 py-2 text-[11px] text-slate-400 mb-3">
+      <strong class="text-slate-300">書き出したCSV</strong>をデスクトップ「戦略マップ投入箱」へ入れるか、
+      ターミナルで <code class="text-teal-300">./venv/bin/python3 strategy_cmd.py apply</code>
+    </div>
+
+    <div id="log" class="flex-1 overflow-auto rounded-xl border border-slate-700 bg-slate-950 p-4 mb-3 min-h-[280px] max-h-[50vh]"></div>
+
+    <div id="suggest" class="hidden mb-1 rounded-lg border border-slate-600 bg-slate-800 overflow-hidden"></div>
+
+    <div class="relative">
+      <span class="absolute left-3 top-1/2 -translate-y-1/2 text-teal-500 font-bold select-none">&gt;</span>
+      <input id="cmd-input" type="text" autocomplete="off" spellcheck="false"
+        placeholder="visit オリエンタル 初回 -- 防炭外注先を確認"
+        class="w-full bg-slate-800 border border-slate-600 rounded-xl pl-8 pr-4 py-3 text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500/50" />
+    </div>
+    <p class="text-[10px] text-slate-500 mt-2">
+      Tab/↑↓で会社候補 · Enterで実行 · <kbd class="px-1 rounded bg-slate-700">help</kbd> コマンド一覧
+    </p>
+  </main>
+
+<script>
+const STORAGE = 'bt_strategy_cmd_queue_v1';
+let queue = [];
+let companies = [];
+let logLines = [];
+let suggestIdx = -1;
+let suggestItems = [];
+
+function esc(s) {
+  return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function norm(s) {
+  return String(s || '').replace(/株式会社|\(株\)|（株）/g, '').replace(/\s+/g, '').toLowerCase();
+}
+
+function today() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function loadQueue() {
+  try { queue = JSON.parse(localStorage.getItem(STORAGE) || '[]'); } catch { queue = []; }
+  updateBadge();
+}
+
+function saveQueue() {
+  localStorage.setItem(STORAGE, JSON.stringify(queue));
+  updateBadge();
+}
+
+function updateBadge() {
+  document.getElementById('queue-badge').textContent = `待ち ${queue.length}`;
+}
+
+function appendLog(html) {
+  logLines.push(html);
+  if (logLines.length > 80) logLines = logLines.slice(-80);
+  document.getElementById('log').innerHTML = logLines.join('\n');
+  const el = document.getElementById('log');
+  el.scrollTop = el.scrollHeight;
+}
+
+function findCompany(q) {
+  const n = norm(q);
+  if (!n) return null;
+  let best = null;
+  let bestScore = 0;
+  for (const c of companies) {
+    const cn = norm(c.name);
+    if (cn === n) return c;
+    if (cn.includes(n) || n.includes(cn)) {
+      const score = Math.min(cn.length, n.length);
+      if (score > bestScore) { best = c; bestScore = score; }
+    }
+  }
+  return best;
+}
+
+function searchCompanies(q) {
+  const n = norm(q);
+  if (!n || n.length < 1) return [];
+  return companies.filter(c => norm(c.name).includes(n)).slice(0, 8);
+}
+
+function parseRank(v) {
+  const u = String(v || '').toUpperCase();
+  if (/^ランク[A-D]$/.test(u)) return u;
+  if (/^[A-D]$/.test(u)) return 'ランク' + u;
+  return v;
+}
+
+function parseLine(line) {
+  line = line.trim();
+  if (!line) return null;
+  const m = line.match(/^(\S+)\s+(.*)$/s);
+  if (!m) return { cmd: line.toLowerCase(), args: [] };
+  return { cmd: m[1].toLowerCase(), args: m[2].trim() };
+}
+
+function splitCompanyRest(argsStr) {
+  if (!argsStr) return { company: '', rest: '' };
+  const parts = argsStr.match(/^"([^"]+)"\s*(.*)$/) || argsStr.match(/^'([^']+)'\s*(.*)$/);
+  if (parts) return { company: parts[1], rest: (parts[2] || '').trim() };
+  const sp = argsStr.indexOf(' ');
+  if (sp === -1) return { company: argsStr, rest: '' };
+  return { company: argsStr.slice(0, sp), rest: argsStr.slice(sp + 1).trim() };
+}
+
+function pushRow(row) {
+  queue.push({ ...row, date: row.date || today(), source: 'cmd' });
+  saveQueue();
+}
+
+function execute(line) {
+  const parsed = parseLine(line);
+  if (!parsed) return;
+  const { cmd, args: argsStr } = parsed;
+
+  if (cmd === 'help' || cmd === '?') {
+    appendLog(`<div class="dim">${esc(HELP_TEXT).replace(/\n/g, '<br>')}</div>`);
+    return;
+  }
+  if (cmd === 'queue' || cmd === '待ち') {
+    if (!queue.length) appendLog('<div class="dim">待ち行列は空です</div>');
+    else queue.forEach((r, i) => appendLog(`<div class="dim">${i+1}. ${esc(r.company)} — ${esc(r.title)}</div>`));
+    return;
+  }
+  if (cmd === 'clear' || cmd === 'クリア') {
+    queue = []; saveQueue();
+    appendLog('<div class="ok">待ち行列をクリアしました</div>');
+    return;
+  }
+
+  const { company: rawCo, rest } = splitCompanyRest(argsStr);
+  if (!rawCo && !['help','queue','clear'].includes(cmd)) {
+    appendLog('<div class="err">会社名が必要です</div>');
+    return;
+  }
+
+  const matched = findCompany(rawCo);
+  const company = matched ? matched.name : rawCo;
+  const matchHint = matched && matched.name !== rawCo
+    ? `<span class="dim"> → ${esc(matched.name)}</span>` : '';
+
+  let row = null;
+  if (cmd === 'visit' || cmd === 'v' || cmd === '訪問') {
+    let title = '営業記録', body = rest;
+    if (rest.includes(' -- ')) {
+      [title, body] = rest.split(' -- ', 2).map(s => s.trim());
+    }
+    row = { company, title, body, heat_vendor: '', note: '', rank: '' };
+    appendLog(`<div class="ok">+ visit <span class="hi">${esc(company)}</span>${matchHint}</div><div class="dim">${esc(body.slice(0,120))}</div>`);
+  } else if (cmd === 'heat' || cmd === '熱' || cmd === '熱処理') {
+    row = { company, title: '熱処理先更新', body: `熱処理先:${rest}`, heat_vendor: rest, note: '', rank: '' };
+    appendLog(`<div class="ok">+ heat <span class="hi">${esc(company)}</span>${matchHint} → ${esc(rest)}</div>`);
+  } else if (cmd === 'rank' || cmd === 'ランク') {
+    const r = parseRank(rest);
+    row = { company, title: 'ランク更新', body: `評価:${r}`, heat_vendor: '', note: '', rank: r };
+    appendLog(`<div class="ok">+ rank <span class="hi">${esc(company)}</span>${matchHint} → ${esc(r)}</div>`);
+  } else if (cmd === '取引' || cmd === 'customer' || cmd === 'c') {
+    row = { company, title: '取引先メモ', body: `取引先:${rest}`, heat_vendor: '', note: `取引先:${rest}`, rank: '' };
+    appendLog(`<div class="ok">+ 取引 <span class="hi">${esc(company)}</span>${matchHint} → ${esc(rest)}</div>`);
+  } else if (cmd === 'memo' || cmd === 'm' || cmd === 'メモ') {
+    row = { company, title: 'メモ', body: rest, heat_vendor: '', note: rest, rank: '' };
+    appendLog(`<div class="ok">+ memo <span class="hi">${esc(company)}</span>${matchHint}</div>`);
+  } else if (cmd === 'show' || cmd === 's') {
+    const c = matched || findCompany(rawCo);
+    if (!c) appendLog('<div class="err">会社が見つかりません</div>');
+    else appendLog(`<div class="hi">${esc(c.name)}</div><div class="dim">${esc([c.prefecture,c.rank,c.heat_vendor,c.proposal].filter(Boolean).join(' · '))}</div>`);
+    return;
+  } else {
+    appendLog(`<div class="err">不明: ${esc(cmd)} （help で一覧）</div>`);
+    return;
+  }
+
+  if (row) pushRow(row);
+}
+
+const HELP_TEXT = `コマンド:
+  visit <会社> [タイトル] -- <本文>   訪問メモ
+  v      <会社> <本文>
+  heat   <会社> <熱処理先>
+  rank   <会社> A|B|C|D
+  取引   <会社> <取引先>
+  memo   <会社> <メモ>
+  show   <会社>                  登録情報を表示
+  queue / clear / help`;
+
+function exportCsv() {
+  if (!queue.length) {
+    appendLog('<div class="err">書き出すデータがありません</div>');
+    return;
+  }
+  const headers = ['date','company','address','prefecture','industry','rank','title','body','heat_vendor','note','source'];
+  const escCsv = (v) => {
+    const s = String(v ?? '');
+    if (/[",\n]/.test(s)) return `"${s.replace(/"/g, '""')}"`;
+    return s;
+  };
+  const lines = [headers.join(',')];
+  for (const r of queue) {
+    lines.push(headers.map(h => escCsv(r[h] || '')).join(','));
+  }
+  const blob = new Blob(['\ufeff' + lines.join('\n')], { type: 'text/csv;charset=utf-8' });
+  const a = document.createElement('a');
+  const stamp = new Date().toISOString().replace(/[-:T]/g, '').slice(0, 14);
+  a.href = URL.createObjectURL(blob);
+  a.download = `cmd_${stamp}.csv`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+  appendLog(`<div class="ok">CSV書き出し (${queue.length}件) → 戦略マップ投入箱へ</div>`);
+  queue = [];
+  saveQueue();
+}
+
+function clearQueue() {
+  if (queue.length && !confirm('待ち '+queue.length+' 件を消しますか？')) return;
+  queue = []; saveQueue();
+  appendLog('<div class="dim">待ち行列クリア</div>');
+}
+
+function updateSuggest(input) {
+  const el = document.getElementById('suggest');
+  const parts = input.trim().split(/\s+/);
+  if (parts.length < 2 || ['help','queue','clear','apply'].includes(parts[0].toLowerCase())) {
+    el.classList.add('hidden');
+    suggestItems = [];
+    return;
+  }
+  const cmd = parts[0].toLowerCase();
+  if (!['visit','v','訪問','heat','熱','熱処理','rank','ランク','取引','customer','c','memo','m','メモ','show','s'].includes(cmd)) {
+    el.classList.add('hidden');
+    return;
+  }
+  const q = parts[1].replace(/^["']|["']$/g, '');
+  const hits = searchCompanies(q);
+  if (!hits.length) { el.classList.add('hidden'); return; }
+  suggestItems = hits;
+  suggestIdx = 0;
+  el.classList.remove('hidden');
+  el.innerHTML = hits.map((c, i) =>
+    `<button type="button" data-i="${i}" class="suggest-item block w-full text-left px-3 py-2 text-sm hover:bg-slate-700 ${i===0?'on':''}"
+      onclick="pickSuggest(${i})">${esc(c.name)} <span class="text-slate-400 text-xs">${esc(c.prefecture||'')}</span></button>`
+  ).join('');
+}
+
+function pickSuggest(i) {
+  const c = suggestItems[i];
+  if (!c) return;
+  const input = document.getElementById('cmd-input');
+  const parts = input.value.trim().split(/\s+/);
+  parts[1] = c.name.includes(' ') ? `"${c.name}"` : c.name;
+  input.value = parts.join(' ') + (parts.length > 2 ? ' ' + parts.slice(2).join(' ') : ' ');
+  document.getElementById('suggest').classList.add('hidden');
+  input.focus();
+}
+
+const inputEl = document.getElementById('cmd-input');
+
+inputEl.addEventListener('input', () => updateSuggest(inputEl.value));
+inputEl.addEventListener('keydown', (e) => {
+  const el = document.getElementById('suggest');
+  if (!el.classList.contains('hidden') && suggestItems.length) {
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      suggestIdx = Math.min(suggestIdx + 1, suggestItems.length - 1);
+      el.querySelectorAll('.suggest-item').forEach((n, i) => n.classList.toggle('on', i === suggestIdx));
+      return;
+    }
+    if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      suggestIdx = Math.max(suggestIdx - 1, 0);
+      el.querySelectorAll('.suggest-item').forEach((n, i) => n.classList.toggle('on', i === suggestIdx));
+      return;
+    }
+    if (e.key === 'Tab' && suggestIdx >= 0) {
+      e.preventDefault();
+      pickSuggest(suggestIdx);
+      return;
+    }
+  }
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    el.classList.add('hidden');
+    const line = inputEl.value;
+    inputEl.value = '';
+    appendLog(`<div class="text-teal-400">&gt; ${esc(line)}</div>`);
+    execute(line);
+  }
+});
+
+async function main() {
+  loadQueue();
+  appendLog('<div class="dim">戦略CMD ready — help でコマンド一覧</div>');
+  try {
+    const res = await fetch('./visit_reports.json?v=' + Date.now());
+    if (res.ok) {
+      const data = await res.json();
+      companies = data.companies || [];
+      appendLog(`<div class="dim">${companies.length}社を読み込み（会社名は部分一致で補完）</div>`);
+    }
+  } catch { /* offline */ }
+  inputEl.focus();
+}
+
+main();
+</script>
+</body>
+</html>

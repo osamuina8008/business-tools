@@ -1,8 +1,8 @@
 {
-  "updated": "2026-08-11T08:56:28+09:00",
+  "updated": "2026-08-11T08:58:36+09:00",
   "disclaimer": "攻めどころ界隈の公開情報・聞き取りベース。既存顧客・コマツ筋・高周波メイン等は除外済み。",
   "how_to_use": "各界隈の社名一覧を見て訪問先を決める。探索枠は現地で社名を確定して埋める。",
-  "count": 25,
+  "count": 23,
   "group_count": 8,
   "groups": [
     {
@@ -33,7 +33,11 @@
           "lng": 136.741,
           "id": "willbe_tsushima-Willbe",
           "hotspot_id": "willbe_tsushima",
-          "hotspot_area": "愛知・Willbe（津島）界隈"
+          "hotspot_area": "愛知・Willbe（津島）界隈",
+          "capital_man_yen": 3000,
+          "employees": 319,
+          "scale_source": "公式2026-04",
+          "scale_summary": "資本金3,000万円 / 従業員319名"
         },
         {
           "name": "株式会社名光精機",
@@ -53,7 +57,11 @@
           "lng": 136.74,
           "id": "willbe_tsushima-名光精機",
           "hotspot_id": "willbe_tsushima",
-          "hotspot_area": "愛知・Willbe（津島）界隈"
+          "hotspot_area": "愛知・Willbe（津島）界隈",
+          "capital_man_yen": 10000,
+          "employees": 321,
+          "scale_source": "マイナビ等",
+          "scale_summary": "資本金1億円 / 従業員321名"
         },
         {
           "name": "株式会社葵精工",
@@ -75,7 +83,11 @@
           "lng": 136.73,
           "id": "willbe_tsushima-葵精工",
           "hotspot_id": "willbe_tsushima",
-          "hotspot_area": "愛知・Willbe（津島）界隈"
+          "hotspot_area": "愛知・Willbe（津島）界隈",
+          "capital_man_yen": 3000,
+          "employees": 71,
+          "scale_source": "マイナビ（津島）",
+          "scale_summary": "資本金3,000万円 / 従業員71名"
         },
         {
           "name": "タケウチ興業株式会社",
@@ -97,7 +109,11 @@
           "lng": 136.74,
           "id": "willbe_tsushima-タケウチ興業",
           "hotspot_id": "willbe_tsushima",
-          "hotspot_area": "愛知・Willbe（津島）界隈"
+          "hotspot_area": "愛知・Willbe（津島）界隈",
+          "capital_man_yen": null,
+          "employees": null,
+          "scale_source": "",
+          "scale_summary": "公開規模未確認"
         },
         {
           "name": "津島・愛西・弥富の追加加工（探索枠）",
@@ -118,7 +134,10 @@
           "is_placeholder": true,
           "id": "willbe_tsushima-津島・愛西・弥富の追加加工（探索枠）",
           "hotspot_id": "willbe_tsushima",
-          "hotspot_area": "愛知・Willbe（津島）界隈"
+          "hotspot_area": "愛知・Willbe（津島）界隈",
+          "scale_summary": "規模未確認",
+          "capital_man_yen": null,
+          "employees": null
         }
       ]
     },
@@ -128,7 +147,7 @@
       "pain": "防炭処理をしてくれない → 周辺部品メーカーの外注先を刈る",
       "lat": 35.1986,
       "lng": 136.848,
-      "count": 8,
+      "count": 6,
       "companies": [
         {
           "name": "水谷精機工作所",
@@ -148,45 +167,11 @@
           "lng": 136.6843,
           "id": "houwa-水谷精機工作所",
           "hotspot_id": "houwa",
-          "hotspot_area": "愛知・豊和工業（清須本社）界隈"
-        },
-        {
-          "name": "株式会社ナゴヤギア",
-          "category": "大型歯車",
-          "area": "愛知県名古屋市南区",
-          "materials": [
-            "SCM",
-            "SCM440"
-          ],
-          "heat_relation": "製品例で高周波焼入あり。浸炭案件も要確認",
-          "reason": "SCM歯車の公開実績。現行熱処理先・困りごと確認。",
-          "source_url": "https://ja.nc-net.or.jp/company/46004/",
-          "linked_majors": [],
-          "priority": 1,
-          "lat": 35.1,
-          "lng": 136.93,
-          "id": "houwa-ナゴヤギア",
-          "hotspot_id": "houwa",
-          "hotspot_area": "愛知・豊和工業（清須本社）界隈"
-        },
-        {
-          "name": "株式会社前田鉄工所",
-          "category": "歯車・シャフト・油圧部品",
-          "area": "愛知県名古屋市中川区",
-          "materials": [
-            "SCM系",
-            "歯車鋼"
-          ],
-          "heat_relation": "歯切〜熱処理後研磨まで対応と明記",
-          "reason": "名古屋西寄り。歯車・シャフトで熱処理後工程あり。豊和筋の外注候補探索。",
-          "source_url": "http://maedatekko.co.jp/",
-          "linked_majors": [],
-          "priority": 1,
-          "lat": 35.14,
-          "lng": 136.85,
-          "id": "houwa-前田鉄工所",
-          "hotspot_id": "houwa",
-          "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+          "hotspot_area": "愛知・豊和工業（清須本社）界隈",
+          "capital_man_yen": null,
+          "employees": null,
+          "scale_source": "",
+          "scale_summary": "公開規模未確認"
         },
         {
           "name": "清須・稲沢・一宮の歯切・シャフト（探索枠）",
@@ -207,7 +192,10 @@
           "is_placeholder": true,
           "id": "houwa-清須・稲沢・一宮の歯切・シャフト（探索枠）",
           "hotspot_id": "houwa",
-          "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+          "hotspot_area": "愛知・豊和工業（清須本社）界隈",
+          "scale_summary": "規模未確認",
+          "capital_man_yen": null,
+          "employees": null
         },
         {
           "name": "石田歯車工業株式会社",
@@ -225,7 +213,11 @@
           "lng": 136.97,
           "id": "houwa-石田歯車工業",
           "hotspot_id": "houwa",
-          "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+          "hotspot_area": "愛知・豊和工業（清須本社）界隈",
+          "capital_man_yen": 1000,
+          "employees": 7,
+          "scale_source": "公開情報",
+          "scale_summary": "資本金1,000万円 / 従業員約7名"
         },
         {
           "name": "豊和鍛工株式会社",
@@ -244,7 +236,11 @@
           "lng": 137.05,
           "id": "houwa-豊和鍛工",
           "hotspot_id": "houwa",
-          "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+          "hotspot_area": "愛知・豊和工業（清須本社）界隈",
+          "capital_man_yen": null,
+          "employees": null,
+          "scale_source": "",
+          "scale_summary": "公開規模未確認"
         },
         {
           "name": "協育歯車工業株式会社（名古屋）",
@@ -264,7 +260,11 @@
           "lng": 136.9,
           "id": "houwa-協育歯車工業（名古屋）",
           "hotspot_id": "houwa",
-          "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+          "hotspot_area": "愛知・豊和工業（清須本社）界隈",
+          "capital_man_yen": 10000,
+          "employees": 80,
+          "scale_source": "公式",
+          "scale_summary": "資本金1億円 / 従業員80名"
         },
         {
           "name": "株式会社MD（東海市）",
@@ -284,7 +284,11 @@
           "lng": 136.9,
           "id": "houwa-MD（東海市）",
           "hotspot_id": "houwa",
-          "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+          "hotspot_area": "愛知・豊和工業（清須本社）界隈",
+          "capital_man_yen": null,
+          "employees": null,
+          "scale_source": "",
+          "scale_summary": "規模未確認"
         },
         {
           "name": "株式会社前田精密製作所",
@@ -302,7 +306,11 @@
           "lng": 136.85,
           "id": "houwa-前田精密製作所",
           "hotspot_id": "houwa",
-          "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+          "hotspot_area": "愛知・豊和工業（清須本社）界隈",
+          "capital_man_yen": null,
+          "employees": null,
+          "scale_source": "",
+          "scale_summary": "公開規模未確認"
         }
       ]
     },
@@ -332,7 +340,11 @@
           "lng": 136.99,
           "id": "kariya_jtekt-東光工業",
           "hotspot_id": "kariya_jtekt",
-          "hotspot_area": "刈谷市・ジェイテクト刈谷界隈"
+          "hotspot_area": "刈谷市・ジェイテクト刈谷界隈",
+          "capital_man_yen": 3000,
+          "employees": 126,
+          "scale_source": "公式",
+          "scale_summary": "資本金3,000万円 / 従業員126名"
         },
         {
           "name": "株式会社ジェイテクトギヤシステム",
@@ -352,7 +364,11 @@
           "lng": 137.084,
           "id": "kariya_jtekt-ジェイテクトギヤシステム",
           "hotspot_id": "kariya_jtekt",
-          "hotspot_area": "刈谷市・ジェイテクト刈谷界隈"
+          "hotspot_area": "刈谷市・ジェイテクト刈谷界隈",
+          "capital_man_yen": 200000,
+          "employees": 1106,
+          "scale_source": "公式2025-04",
+          "scale_summary": "資本金20億円 / 従業員1,106名"
         },
         {
           "name": "高浜歯車工業株式会社",
@@ -373,7 +389,11 @@
           "lng": 136.987,
           "id": "kariya_jtekt-高浜歯車工業",
           "hotspot_id": "kariya_jtekt",
-          "hotspot_area": "刈谷市・ジェイテクト刈谷界隈"
+          "hotspot_area": "刈谷市・ジェイテクト刈谷界隈",
+          "capital_man_yen": 1000,
+          "employees": 25,
+          "scale_source": "公式",
+          "scale_summary": "資本金1,000万円 / 従業員25名"
         },
         {
           "name": "刈谷・安城・知立の歯切・シャフト（探索枠）",
@@ -395,7 +415,10 @@
           "is_placeholder": true,
           "id": "kariya_jtekt-刈谷・安城・知立の歯切・シャフト（探索枠）",
           "hotspot_id": "kariya_jtekt",
-          "hotspot_area": "刈谷市・ジェイテクト刈谷界隈"
+          "hotspot_area": "刈谷市・ジェイテクト刈谷界隈",
+          "scale_summary": "規模未確認",
+          "capital_man_yen": null,
+          "employees": null
         },
         {
           "name": "刈谷・知立・高浜の追加歯切（探索枠）",
@@ -416,7 +439,10 @@
           "is_placeholder": true,
           "id": "kariya_jtekt-刈谷・知立・高浜の追加歯切（探索枠）",
           "hotspot_id": "kariya_jtekt",
-          "hotspot_area": "刈谷市・ジェイテクト刈谷界隈"
+          "hotspot_area": "刈谷市・ジェイテクト刈谷界隈",
+          "scale_summary": "規模未確認",
+          "capital_man_yen": null,
+          "employees": null
         },
         {
           "name": "株式会社日下歯車製作所",
@@ -438,7 +464,11 @@
           "lng": 137.12,
           "id": "kariya_jtekt-日下歯車製作所",
           "hotspot_id": "kariya_jtekt",
-          "hotspot_area": "刈谷市・ジェイテクト刈谷界隈"
+          "hotspot_area": "刈谷市・ジェイテクト刈谷界隈",
+          "capital_man_yen": 1000,
+          "employees": 159,
+          "scale_source": "公式",
+          "scale_summary": "資本金1,000万円 / 従業員159名"
         },
         {
           "name": "株式会社都筑製作所",
@@ -458,7 +488,11 @@
           "lng": 137.0,
           "id": "kariya_jtekt-都筑製作所",
           "hotspot_id": "kariya_jtekt",
-          "hotspot_area": "刈谷市・ジェイテクト刈谷界隈"
+          "hotspot_area": "刈谷市・ジェイテクト刈谷界隈",
+          "capital_man_yen": null,
+          "employees": null,
+          "scale_source": "",
+          "scale_summary": "公開規模未確認"
         }
       ]
     },
@@ -486,7 +520,11 @@
           "lng": 135.47,
           "id": "toyonaka-大川歯車製作所",
           "hotspot_id": "toyonaka",
-          "hotspot_area": "大阪・豊中市界隈"
+          "hotspot_area": "大阪・豊中市界隈",
+          "capital_man_yen": 1000,
+          "employees": 20,
+          "scale_source": "公式",
+          "scale_summary": "資本金1,000万円 / 従業員20名"
         },
         {
           "name": "東福鍛工株式会社",
@@ -506,7 +544,11 @@
           "lng": 135.48,
           "id": "toyonaka-東福鍛工",
           "hotspot_id": "toyonaka",
-          "hotspot_area": "大阪・豊中市界隈"
+          "hotspot_area": "大阪・豊中市界隈",
+          "capital_man_yen": null,
+          "employees": null,
+          "scale_source": "",
+          "scale_summary": "公開規模未確認"
         },
         {
           "name": "豊中〜吹田〜池田の追加加工（探索枠）",
@@ -525,7 +567,10 @@
           "is_placeholder": true,
           "id": "toyonaka-豊中〜吹田〜池田の追加加工（探索枠）",
           "hotspot_id": "toyonaka",
-          "hotspot_area": "大阪・豊中市界隈"
+          "hotspot_area": "大阪・豊中市界隈",
+          "scale_summary": "規模未確認",
+          "capital_man_yen": null,
+          "employees": null
         },
         {
           "name": "後藤鉄工所（G-SHAFT・参考）",
@@ -545,7 +590,11 @@
           "lng": 135.45,
           "id": "toyonaka-後藤鉄工所（G-SHAFT・参考）",
           "hotspot_id": "toyonaka",
-          "hotspot_area": "大阪・豊中市界隈"
+          "hotspot_area": "大阪・豊中市界隈",
+          "capital_man_yen": null,
+          "employees": null,
+          "scale_source": "",
+          "scale_summary": "公開規模未確認"
         },
         {
           "name": "豊中〜吹田〜東大阪の歯切（探索枠）",
@@ -564,7 +613,10 @@
           "is_placeholder": true,
           "id": "toyonaka-豊中〜吹田〜東大阪の歯切（探索枠）",
           "hotspot_id": "toyonaka",
-          "hotspot_area": "大阪・豊中市界隈"
+          "hotspot_area": "大阪・豊中市界隈",
+          "scale_summary": "規模未確認",
+          "capital_man_yen": null,
+          "employees": null
         }
       ]
     },
@@ -594,7 +646,11 @@
           "lng": 135.41,
           "id": "amagasaki-阪神歯車",
           "hotspot_id": "amagasaki",
-          "hotspot_area": "兵庫・尼崎界隈"
+          "hotspot_area": "兵庫・尼崎界隈",
+          "capital_man_yen": 300,
+          "employees": null,
+          "scale_source": "公開情報",
+          "scale_summary": "資本金300万円 / 従業員未確認"
         },
         {
           "name": "尼崎臨海・塚口の機械加工・歯切（探索枠）",
@@ -613,7 +669,10 @@
           "is_placeholder": true,
           "id": "amagasaki-尼崎臨海・塚口の機械加工・歯切（探索枠）",
           "hotspot_id": "amagasaki",
-          "hotspot_area": "兵庫・尼崎界隈"
+          "hotspot_area": "兵庫・尼崎界隈",
+          "scale_summary": "規模未確認",
+          "capital_man_yen": null,
+          "employees": null
         },
         {
           "name": "尼崎・西宮・伊丹の鉄系加工（探索枠）",
@@ -632,7 +691,10 @@
           "is_placeholder": true,
           "id": "amagasaki-尼崎・西宮・伊丹の鉄系加工（探索枠）",
           "hotspot_id": "amagasaki",
-          "hotspot_area": "兵庫・尼崎界隈"
+          "hotspot_area": "兵庫・尼崎界隈",
+          "scale_summary": "規模未確認",
+          "capital_man_yen": null,
+          "employees": null
         }
       ]
     },
@@ -660,7 +722,11 @@
           "lng": 134.78,
           "id": "himeji-姫路歯車工業",
           "hotspot_id": "himeji",
-          "hotspot_area": "兵庫・姫路界隈"
+          "hotspot_area": "兵庫・姫路界隈",
+          "capital_man_yen": null,
+          "employees": null,
+          "scale_source": "",
+          "scale_summary": "公開規模未確認"
         },
         {
           "name": "姫路・加古川・高砂の歯車・鍛造・シャフト（探索枠）",
@@ -679,7 +745,10 @@
           "is_placeholder": true,
           "id": "himeji-姫路・加古川・高砂の歯車・鍛造・シャフト（探索枠）",
           "hotspot_id": "himeji",
-          "hotspot_area": "兵庫・姫路界隈"
+          "hotspot_area": "兵庫・姫路界隈",
+          "scale_summary": "規模未確認",
+          "capital_man_yen": null,
+          "employees": null
         },
         {
           "name": "播磨（加古川・たつの）の鍛造・シャフト（探索枠）",
@@ -698,7 +767,10 @@
           "is_placeholder": true,
           "id": "himeji-播磨（加古川・たつの）の鍛造・シャフト（探索枠）",
           "hotspot_id": "himeji",
-          "hotspot_area": "兵庫・姫路界隈"
+          "hotspot_area": "兵庫・姫路界隈",
+          "scale_summary": "規模未確認",
+          "capital_man_yen": null,
+          "employees": null
         }
       ]
     },
@@ -727,7 +799,10 @@
           "is_placeholder": true,
           "id": "wakayama-和歌山市内の機械加工・歯切（探索枠）",
           "hotspot_id": "wakayama",
-          "hotspot_area": "和歌山市界隈"
+          "hotspot_area": "和歌山市界隈",
+          "scale_summary": "規模未確認",
+          "capital_man_yen": null,
+          "employees": null
         },
         {
           "name": "和歌山・日高の歯切・鍛造周辺（探索枠）",
@@ -746,7 +821,10 @@
           "is_placeholder": true,
           "id": "wakayama-和歌山・日高の歯切・鍛造周辺（探索枠）",
           "hotspot_id": "wakayama",
-          "hotspot_area": "和歌山市界隈"
+          "hotspot_area": "和歌山市界隈",
+          "scale_summary": "規模未確認",
+          "capital_man_yen": null,
+          "employees": null
         }
       ]
     },
@@ -774,7 +852,11 @@
           "lng": 136.64,
           "id": "inabe-石垣歯車製作所",
           "hotspot_id": "inabe",
-          "hotspot_area": "三重・いなべ市周辺"
+          "hotspot_area": "三重・いなべ市周辺",
+          "capital_man_yen": 1000,
+          "employees": 22,
+          "scale_source": "公式",
+          "scale_summary": "資本金1,000万円 / 従業員22名"
         },
         {
           "name": "水谷精機工作所（桑名）",
@@ -794,7 +876,11 @@
           "lng": 136.6843,
           "id": "inabe-水谷精機工作所（桑名）",
           "hotspot_id": "inabe",
-          "hotspot_area": "三重・いなべ市周辺"
+          "hotspot_area": "三重・いなべ市周辺",
+          "capital_man_yen": null,
+          "employees": null,
+          "scale_source": "",
+          "scale_summary": "公開規模未確認"
         },
         {
           "name": "シグマ技研周辺の部品メーカー（探索枠）",
@@ -815,7 +901,10 @@
           "is_placeholder": true,
           "id": "inabe-シグマ技研周辺の部品メーカー（探索枠）",
           "hotspot_id": "inabe",
-          "hotspot_area": "三重・いなべ市周辺"
+          "hotspot_area": "三重・いなべ市周辺",
+          "scale_summary": "規模未確認",
+          "capital_man_yen": null,
+          "employees": null
         },
         {
           "name": "金田工業株式会社",
@@ -834,7 +923,11 @@
           "lng": 136.6,
           "id": "inabe-金田工業",
           "hotspot_id": "inabe",
-          "hotspot_area": "三重・いなべ市周辺"
+          "hotspot_area": "三重・いなべ市周辺",
+          "capital_man_yen": null,
+          "employees": null,
+          "scale_source": "",
+          "scale_summary": "公開規模未確認"
         }
       ]
     }
@@ -858,7 +951,11 @@
       "lng": 135.41,
       "id": "amagasaki-阪神歯車",
       "hotspot_id": "amagasaki",
-      "hotspot_area": "兵庫・尼崎界隈"
+      "hotspot_area": "兵庫・尼崎界隈",
+      "capital_man_yen": 300,
+      "employees": null,
+      "scale_source": "公開情報",
+      "scale_summary": "資本金300万円 / 従業員未確認"
     },
     {
       "name": "姫路歯車工業株式会社",
@@ -876,7 +973,11 @@
       "lng": 134.78,
       "id": "himeji-姫路歯車工業",
       "hotspot_id": "himeji",
-      "hotspot_area": "兵庫・姫路界隈"
+      "hotspot_area": "兵庫・姫路界隈",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_source": "",
+      "scale_summary": "公開規模未確認"
     },
     {
       "name": "水谷精機工作所",
@@ -896,7 +997,11 @@
       "lng": 136.6843,
       "id": "houwa-水谷精機工作所",
       "hotspot_id": "houwa",
-      "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+      "hotspot_area": "愛知・豊和工業（清須本社）界隈",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_source": "",
+      "scale_summary": "公開規模未確認"
     },
     {
       "name": "株式会社石垣歯車製作所",
@@ -914,7 +1019,11 @@
       "lng": 136.64,
       "id": "inabe-石垣歯車製作所",
       "hotspot_id": "inabe",
-      "hotspot_area": "三重・いなべ市周辺"
+      "hotspot_area": "三重・いなべ市周辺",
+      "capital_man_yen": 1000,
+      "employees": 22,
+      "scale_source": "公式",
+      "scale_summary": "資本金1,000万円 / 従業員22名"
     },
     {
       "name": "水谷精機工作所（桑名）",
@@ -934,7 +1043,11 @@
       "lng": 136.6843,
       "id": "inabe-水谷精機工作所（桑名）",
       "hotspot_id": "inabe",
-      "hotspot_area": "三重・いなべ市周辺"
+      "hotspot_area": "三重・いなべ市周辺",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_source": "",
+      "scale_summary": "公開規模未確認"
     },
     {
       "name": "東光工業株式会社",
@@ -954,7 +1067,11 @@
       "lng": 136.99,
       "id": "kariya_jtekt-東光工業",
       "hotspot_id": "kariya_jtekt",
-      "hotspot_area": "刈谷市・ジェイテクト刈谷界隈"
+      "hotspot_area": "刈谷市・ジェイテクト刈谷界隈",
+      "capital_man_yen": 3000,
+      "employees": 126,
+      "scale_source": "公式",
+      "scale_summary": "資本金3,000万円 / 従業員126名"
     },
     {
       "name": "株式会社ジェイテクトギヤシステム",
@@ -974,7 +1091,11 @@
       "lng": 137.084,
       "id": "kariya_jtekt-ジェイテクトギヤシステム",
       "hotspot_id": "kariya_jtekt",
-      "hotspot_area": "刈谷市・ジェイテクト刈谷界隈"
+      "hotspot_area": "刈谷市・ジェイテクト刈谷界隈",
+      "capital_man_yen": 200000,
+      "employees": 1106,
+      "scale_source": "公式2025-04",
+      "scale_summary": "資本金20億円 / 従業員1,106名"
     },
     {
       "name": "高浜歯車工業株式会社",
@@ -995,7 +1116,11 @@
       "lng": 136.987,
       "id": "kariya_jtekt-高浜歯車工業",
       "hotspot_id": "kariya_jtekt",
-      "hotspot_area": "刈谷市・ジェイテクト刈谷界隈"
+      "hotspot_area": "刈谷市・ジェイテクト刈谷界隈",
+      "capital_man_yen": 1000,
+      "employees": 25,
+      "scale_source": "公式",
+      "scale_summary": "資本金1,000万円 / 従業員25名"
     },
     {
       "name": "株式会社大川歯車製作所",
@@ -1013,7 +1138,11 @@
       "lng": 135.47,
       "id": "toyonaka-大川歯車製作所",
       "hotspot_id": "toyonaka",
-      "hotspot_area": "大阪・豊中市界隈"
+      "hotspot_area": "大阪・豊中市界隈",
+      "capital_man_yen": 1000,
+      "employees": 20,
+      "scale_source": "公式",
+      "scale_summary": "資本金1,000万円 / 従業員20名"
     },
     {
       "name": "株式会社Willbe",
@@ -1035,7 +1164,11 @@
       "lng": 136.741,
       "id": "willbe_tsushima-Willbe",
       "hotspot_id": "willbe_tsushima",
-      "hotspot_area": "愛知・Willbe（津島）界隈"
+      "hotspot_area": "愛知・Willbe（津島）界隈",
+      "capital_man_yen": 3000,
+      "employees": 319,
+      "scale_source": "公式2026-04",
+      "scale_summary": "資本金3,000万円 / 従業員319名"
     },
     {
       "name": "株式会社名光精機",
@@ -1055,7 +1188,11 @@
       "lng": 136.74,
       "id": "willbe_tsushima-名光精機",
       "hotspot_id": "willbe_tsushima",
-      "hotspot_area": "愛知・Willbe（津島）界隈"
+      "hotspot_area": "愛知・Willbe（津島）界隈",
+      "capital_man_yen": 10000,
+      "employees": 321,
+      "scale_source": "マイナビ等",
+      "scale_summary": "資本金1億円 / 従業員321名"
     },
     {
       "name": "株式会社葵精工",
@@ -1077,45 +1214,11 @@
       "lng": 136.73,
       "id": "willbe_tsushima-葵精工",
       "hotspot_id": "willbe_tsushima",
-      "hotspot_area": "愛知・Willbe（津島）界隈"
-    },
-    {
-      "name": "株式会社ナゴヤギア",
-      "category": "大型歯車",
-      "area": "愛知県名古屋市南区",
-      "materials": [
-        "SCM",
-        "SCM440"
-      ],
-      "heat_relation": "製品例で高周波焼入あり。浸炭案件も要確認",
-      "reason": "SCM歯車の公開実績。現行熱処理先・困りごと確認。",
-      "source_url": "https://ja.nc-net.or.jp/company/46004/",
-      "linked_majors": [],
-      "priority": 1,
-      "lat": 35.1,
-      "lng": 136.93,
-      "id": "houwa-ナゴヤギア",
-      "hotspot_id": "houwa",
-      "hotspot_area": "愛知・豊和工業（清須本社）界隈"
-    },
-    {
-      "name": "株式会社前田鉄工所",
-      "category": "歯車・シャフト・油圧部品",
-      "area": "愛知県名古屋市中川区",
-      "materials": [
-        "SCM系",
-        "歯車鋼"
-      ],
-      "heat_relation": "歯切〜熱処理後研磨まで対応と明記",
-      "reason": "名古屋西寄り。歯車・シャフトで熱処理後工程あり。豊和筋の外注候補探索。",
-      "source_url": "http://maedatekko.co.jp/",
-      "linked_majors": [],
-      "priority": 1,
-      "lat": 35.14,
-      "lng": 136.85,
-      "id": "houwa-前田鉄工所",
-      "hotspot_id": "houwa",
-      "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+      "hotspot_area": "愛知・Willbe（津島）界隈",
+      "capital_man_yen": 3000,
+      "employees": 71,
+      "scale_source": "マイナビ（津島）",
+      "scale_summary": "資本金3,000万円 / 従業員71名"
     },
     {
       "name": "石田歯車工業株式会社",
@@ -1133,7 +1236,11 @@
       "lng": 136.97,
       "id": "houwa-石田歯車工業",
       "hotspot_id": "houwa",
-      "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+      "hotspot_area": "愛知・豊和工業（清須本社）界隈",
+      "capital_man_yen": 1000,
+      "employees": 7,
+      "scale_source": "公開情報",
+      "scale_summary": "資本金1,000万円 / 従業員約7名"
     },
     {
       "name": "豊和鍛工株式会社",
@@ -1152,7 +1259,11 @@
       "lng": 137.05,
       "id": "houwa-豊和鍛工",
       "hotspot_id": "houwa",
-      "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+      "hotspot_area": "愛知・豊和工業（清須本社）界隈",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_source": "",
+      "scale_summary": "公開規模未確認"
     },
     {
       "name": "金田工業株式会社",
@@ -1171,7 +1282,11 @@
       "lng": 136.6,
       "id": "inabe-金田工業",
       "hotspot_id": "inabe",
-      "hotspot_area": "三重・いなべ市周辺"
+      "hotspot_area": "三重・いなべ市周辺",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_source": "",
+      "scale_summary": "公開規模未確認"
     },
     {
       "name": "株式会社日下歯車製作所",
@@ -1193,7 +1308,11 @@
       "lng": 137.12,
       "id": "kariya_jtekt-日下歯車製作所",
       "hotspot_id": "kariya_jtekt",
-      "hotspot_area": "刈谷市・ジェイテクト刈谷界隈"
+      "hotspot_area": "刈谷市・ジェイテクト刈谷界隈",
+      "capital_man_yen": 1000,
+      "employees": 159,
+      "scale_source": "公式",
+      "scale_summary": "資本金1,000万円 / 従業員159名"
     },
     {
       "name": "東福鍛工株式会社",
@@ -1213,7 +1332,11 @@
       "lng": 135.48,
       "id": "toyonaka-東福鍛工",
       "hotspot_id": "toyonaka",
-      "hotspot_area": "大阪・豊中市界隈"
+      "hotspot_area": "大阪・豊中市界隈",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_source": "",
+      "scale_summary": "公開規模未確認"
     },
     {
       "name": "タケウチ興業株式会社",
@@ -1235,7 +1358,11 @@
       "lng": 136.74,
       "id": "willbe_tsushima-タケウチ興業",
       "hotspot_id": "willbe_tsushima",
-      "hotspot_area": "愛知・Willbe（津島）界隈"
+      "hotspot_area": "愛知・Willbe（津島）界隈",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_source": "",
+      "scale_summary": "公開規模未確認"
     },
     {
       "name": "協育歯車工業株式会社（名古屋）",
@@ -1255,7 +1382,11 @@
       "lng": 136.9,
       "id": "houwa-協育歯車工業（名古屋）",
       "hotspot_id": "houwa",
-      "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+      "hotspot_area": "愛知・豊和工業（清須本社）界隈",
+      "capital_man_yen": 10000,
+      "employees": 80,
+      "scale_source": "公式",
+      "scale_summary": "資本金1億円 / 従業員80名"
     },
     {
       "name": "株式会社MD（東海市）",
@@ -1275,7 +1406,11 @@
       "lng": 136.9,
       "id": "houwa-MD（東海市）",
       "hotspot_id": "houwa",
-      "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+      "hotspot_area": "愛知・豊和工業（清須本社）界隈",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_source": "",
+      "scale_summary": "規模未確認"
     },
     {
       "name": "株式会社前田精密製作所",
@@ -1293,7 +1428,11 @@
       "lng": 136.85,
       "id": "houwa-前田精密製作所",
       "hotspot_id": "houwa",
-      "hotspot_area": "愛知・豊和工業（清須本社）界隈"
+      "hotspot_area": "愛知・豊和工業（清須本社）界隈",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_source": "",
+      "scale_summary": "公開規模未確認"
     },
     {
       "name": "株式会社都筑製作所",
@@ -1313,7 +1452,11 @@
       "lng": 137.0,
       "id": "kariya_jtekt-都筑製作所",
       "hotspot_id": "kariya_jtekt",
-      "hotspot_area": "刈谷市・ジェイテクト刈谷界隈"
+      "hotspot_area": "刈谷市・ジェイテクト刈谷界隈",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_source": "",
+      "scale_summary": "公開規模未確認"
     },
     {
       "name": "後藤鉄工所（G-SHAFT・参考）",
@@ -1333,7 +1476,197 @@
       "lng": 135.45,
       "id": "toyonaka-後藤鉄工所（G-SHAFT・参考）",
       "hotspot_id": "toyonaka",
-      "hotspot_area": "大阪・豊中市界隈"
+      "hotspot_area": "大阪・豊中市界隈",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_source": "",
+      "scale_summary": "公開規模未確認"
+    }
+  ],
+  "scale_table": [
+    {
+      "name": "株式会社ジェイテクトギヤシステム",
+      "hotspot_area": "刈谷市・ジェイテクト刈谷界隈",
+      "capital_man_yen": 200000,
+      "employees": 1106,
+      "scale_summary": "資本金20億円 / 従業員1,106名",
+      "priority": 0
+    },
+    {
+      "name": "株式会社名光精機",
+      "hotspot_area": "愛知・Willbe（津島）界隈",
+      "capital_man_yen": 10000,
+      "employees": 321,
+      "scale_summary": "資本金1億円 / 従業員321名",
+      "priority": 0
+    },
+    {
+      "name": "株式会社Willbe",
+      "hotspot_area": "愛知・Willbe（津島）界隈",
+      "capital_man_yen": 3000,
+      "employees": 319,
+      "scale_summary": "資本金3,000万円 / 従業員319名",
+      "priority": 0
+    },
+    {
+      "name": "株式会社日下歯車製作所",
+      "hotspot_area": "刈谷市・ジェイテクト刈谷界隈",
+      "capital_man_yen": 1000,
+      "employees": 159,
+      "scale_summary": "資本金1,000万円 / 従業員159名",
+      "priority": 1
+    },
+    {
+      "name": "東光工業株式会社",
+      "hotspot_area": "刈谷市・ジェイテクト刈谷界隈",
+      "capital_man_yen": 3000,
+      "employees": 126,
+      "scale_summary": "資本金3,000万円 / 従業員126名",
+      "priority": 0
+    },
+    {
+      "name": "協育歯車工業株式会社（名古屋）",
+      "hotspot_area": "愛知・豊和工業（清須本社）界隈",
+      "capital_man_yen": 10000,
+      "employees": 80,
+      "scale_summary": "資本金1億円 / 従業員80名",
+      "priority": 2
+    },
+    {
+      "name": "株式会社葵精工",
+      "hotspot_area": "愛知・Willbe（津島）界隈",
+      "capital_man_yen": 3000,
+      "employees": 71,
+      "scale_summary": "資本金3,000万円 / 従業員71名",
+      "priority": 0
+    },
+    {
+      "name": "高浜歯車工業株式会社",
+      "hotspot_area": "刈谷市・ジェイテクト刈谷界隈",
+      "capital_man_yen": 1000,
+      "employees": 25,
+      "scale_summary": "資本金1,000万円 / 従業員25名",
+      "priority": 0
+    },
+    {
+      "name": "株式会社石垣歯車製作所",
+      "hotspot_area": "三重・いなべ市周辺",
+      "capital_man_yen": 1000,
+      "employees": 22,
+      "scale_summary": "資本金1,000万円 / 従業員22名",
+      "priority": 0
+    },
+    {
+      "name": "株式会社大川歯車製作所",
+      "hotspot_area": "大阪・豊中市界隈",
+      "capital_man_yen": 1000,
+      "employees": 20,
+      "scale_summary": "資本金1,000万円 / 従業員20名",
+      "priority": 0
+    },
+    {
+      "name": "石田歯車工業株式会社",
+      "hotspot_area": "愛知・豊和工業（清須本社）界隈",
+      "capital_man_yen": 1000,
+      "employees": 7,
+      "scale_summary": "資本金1,000万円 / 従業員約7名",
+      "priority": 1
+    },
+    {
+      "name": "阪神歯車",
+      "hotspot_area": "兵庫・尼崎界隈",
+      "capital_man_yen": 300,
+      "employees": null,
+      "scale_summary": "資本金300万円 / 従業員未確認",
+      "priority": 0
+    },
+    {
+      "name": "タケウチ興業株式会社",
+      "hotspot_area": "愛知・Willbe（津島）界隈",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "公開規模未確認",
+      "priority": 1
+    },
+    {
+      "name": "姫路歯車工業株式会社",
+      "hotspot_area": "兵庫・姫路界隈",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "公開規模未確認",
+      "priority": 0
+    },
+    {
+      "name": "後藤鉄工所（G-SHAFT・参考）",
+      "hotspot_area": "大阪・豊中市界隈",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "公開規模未確認",
+      "priority": 2
+    },
+    {
+      "name": "東福鍛工株式会社",
+      "hotspot_area": "大阪・豊中市界隈",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "公開規模未確認",
+      "priority": 1
+    },
+    {
+      "name": "株式会社MD（東海市）",
+      "hotspot_area": "愛知・豊和工業（清須本社）界隈",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "規模未確認",
+      "priority": 2
+    },
+    {
+      "name": "株式会社前田精密製作所",
+      "hotspot_area": "愛知・豊和工業（清須本社）界隈",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "公開規模未確認",
+      "priority": 2
+    },
+    {
+      "name": "株式会社都筑製作所",
+      "hotspot_area": "刈谷市・ジェイテクト刈谷界隈",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "公開規模未確認",
+      "priority": 2
+    },
+    {
+      "name": "水谷精機工作所",
+      "hotspot_area": "愛知・豊和工業（清須本社）界隈",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "公開規模未確認",
+      "priority": 0
+    },
+    {
+      "name": "水谷精機工作所（桑名）",
+      "hotspot_area": "三重・いなべ市周辺",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "公開規模未確認",
+      "priority": 0
+    },
+    {
+      "name": "豊和鍛工株式会社",
+      "hotspot_area": "愛知・豊和工業（清須本社）界隈",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "公開規模未確認",
+      "priority": 1
+    },
+    {
+      "name": "金田工業株式会社",
+      "hotspot_area": "三重・いなべ市周辺",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "公開規模未確認",
+      "priority": 1
     }
   ],
   "excluded_notes": [
@@ -1396,6 +1729,18 @@
     {
       "name": "広島県の業者全般",
       "why": "活動圏外のため一覧に出さない"
+    },
+    {
+      "name": "中西製作所",
+      "why": "既存取引のため攻略一覧から除外"
+    },
+    {
+      "name": "ナゴヤギア",
+      "why": "既存取引のため攻略一覧から除外"
+    },
+    {
+      "name": "前田鉄工所",
+      "why": "既存取引のため攻略一覧から除外"
     }
   ],
   "search_queries": [

@@ -345,7 +345,33 @@ function renderScmRadar(data) {
   ).join('');
 
   const groups = data.groups || [];
-  list.innerHTML = groups.map(g => {
+  const scaleRows = (data.scale_table || data.targets || []).filter(t => !t.is_placeholder);
+  const scaleHtml = scaleRows.length ? `
+    <div class="rounded-xl border border-slate-200 bg-white p-3 mb-2">
+      <p class="text-xs font-bold text-slate-800 mb-2">規模一覧（資本金・従業員／大きい順）</p>
+      <div class="overflow-x-auto">
+        <table class="w-full text-xs text-left">
+          <thead class="text-slate-500 border-b border-slate-100">
+            <tr><th class="py-1 pr-2">会社</th><th class="py-1 pr-2">界隈</th><th class="py-1 pr-2">資本金</th><th class="py-1 pr-2">従業員</th><th class="py-1">摘要</th></tr>
+          </thead>
+          <tbody>
+            ${scaleRows.map(t => {
+              const cap = t.capital_man_yen == null ? '—' : (t.capital_man_yen >= 10000 ? ((t.capital_man_yen/10000).toLocaleString('ja-JP') + '億円') : (Number(t.capital_man_yen).toLocaleString('ja-JP') + '万円'));
+              const emp = t.employees == null ? '—' : (Number(t.employees).toLocaleString('ja-JP') + '名');
+              return `<tr class="border-b border-slate-50 align-top">
+                <td class="py-1 pr-2 font-medium text-slate-800 whitespace-nowrap">${esc(t.name||'')}</td>
+                <td class="py-1 pr-2 text-slate-500 whitespace-nowrap">${esc((t.hotspot_area||'').replace(/^愛知・|^大阪・|^兵庫・|^三重・/,''))}</td>
+                <td class="py-1 pr-2 whitespace-nowrap">${cap}</td>
+                <td class="py-1 pr-2 whitespace-nowrap">${emp}</td>
+                <td class="py-1 text-slate-600">${esc(t.scale_summary||'')}</td>
+              </tr>`;
+            }).join('')}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[10px] text-slate-400 mt-1">公開情報ベース。未確認は—。既存顧客・広島等は除外済み。</p>
+    </div>` : '';
+  list.innerHTML = scaleHtml + groups.map(g => {
     const comps = g.companies || [];
     const cards = comps.map(t => {
       const mats = (t.materials || []).slice(0, 4).join('・');
@@ -371,6 +397,7 @@ function renderScmRadar(data) {
         </div>
         <p class="text-xs text-slate-600 mt-0.5">${esc(t.category || '')} · ${esc(t.area || '')}</p>
         <p class="text-xs text-orange-900 mt-1 font-medium">理由: ${esc(t.reason || '')}</p>
+        <p class="text-xs text-slate-700 mt-1 font-medium">規模: ${esc(t.scale_summary || '規模未確認')}</p>
         <p class="text-xs text-slate-500 mt-0.5">熱処理: ${esc(t.heat_relation || '')}${mats ? ' / 材質: ' + esc(mats) : ''}</p>
         ${majors}
       </div>`;

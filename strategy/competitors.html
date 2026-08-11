@@ -94,6 +94,8 @@
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-teal-200 bg-teal-50 text-teal-900" onclick="applyPreset({tags:['一部協業'], query:'一部協業'})">一部協業</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-teal-200 bg-teal-50 text-teal-900" onclick="applyPreset({tags:['委託先候補'], query:'委託先候補'})">委託先候補</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-sky-200 bg-sky-50 text-sky-900" onclick="applyPreset({tags:['炉メーカー'], query:'炉メーカー'})">炉メーカー</button>
+        <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-orange-200 bg-orange-50 text-orange-900" onclick="applyPreset({tags:['社内炉'], query:'社内炉'})">社内炉メーカー</button>
+        <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-emerald-200 bg-emerald-50 text-emerald-900" onclick="applyPreset({tags:['既存客'], query:'既存客'})">既存客</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-violet-200 bg-violet-50 text-violet-900" onclick="applyPreset({region:'京都・滋賀・奈良', query:'滋賀'})">滋賀</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-violet-200 bg-violet-50 text-violet-900" onclick="applyPreset({region:'京都・滋賀・奈良', query:'京都'})">京都</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-violet-200 bg-violet-50 text-violet-900" onclick="applyPreset({tags:['豊橋地区'], query:'豊橋 東三河'})">豊橋・東三河</button>
@@ -198,6 +200,8 @@ function circleIcon(color, size = 14) {
 
 function pinColor(row) {
   if (row.has_expansion_alert) return '#b91c1c';
+  if (row.relation === 'customer' || (row.tags || []).includes('既存客')) return '#059669';
+  if (row.relation === 'inhouse_ht' || (row.tags || []).includes('社内炉')) return '#ea580c';
   if (row.relation === 'furnace_maker' || (row.tags || []).includes('炉メーカー')) return '#0369a1';
   if (row.relation === 'coop_partial' || (row.tags || []).includes('一部協業') || (row.tags || []).includes('競合兼協力')) return '#0f766e';
   if (row.relation === 'coop_candidate' || (row.tags || []).includes('協力候補')) return '#047857';
@@ -309,6 +313,12 @@ const KEYWORD_SYNONYMS = {
   '刈谷': ['刈谷', 'かりや', '一里山', 'ジェイテクト刈谷'],
   '大同DM': ['大同DM', '大同DMソリューション', '大同ディーエム', 'DAIDO DMS', 'ダイドーディーエムエス'],
   '大同ディーエム': ['大同ディーエム', '大同DM', '大同DMソリューション'],
+  '社内炉': ['社内炉', '社内炉メーカー', '次期ターゲット', '自社炉', '外注化'],
+  'テイサク': ['テイサク', '定作', '帝國鑿岩', 'TEISAKU'],
+  '定作': ['定作', 'テイサク', '帝國鑿岩'],
+  'マザック': ['マザック', 'ヤマザキマザック', 'Yamazaki Mazak'],
+  'ヤンマー': ['ヤンマー', 'YPT', 'ヤンマーパワーテクノロジー', 'ヤンマーPT'],
+  '既存客': ['既存客', '取引先', '受注済'],
   '東三河': ['東三河', '豊橋', '豊川', '蒲郡', '田原'],
   '二川熱処理': ['二川熱処理', '二川'],
   'ガス難実家': ['ガス窒化', '窒化', '窒化処理'], // 誤変換救済
@@ -410,6 +420,8 @@ function matches(row) {
     row.has_expansion_alert ? '増強' : '',
     row.relation === 'coop_candidate' || row.relation === 'coop_partial' ? '協力候補 委託先候補 協力 委託 一部協業 競合兼協力' : '',
     row.relation === 'furnace_maker' || (row.tags || []).includes('炉メーカー') ? '炉メーカー 熱加工装置 真空溶解炉' : '',
+    row.relation === 'inhouse_ht' || (row.tags || []).includes('社内炉') ? '社内炉 社内炉メーカー 自社炉 次期ターゲット 外注化' : '',
+    row.relation === 'customer' || (row.tags || []).includes('既存客') ? '既存客 取引先 受注済' : '',
     row.relation === 'self' || row.operation === 'self' ? '自社 オーネックス' : '',
     (row.client_hints || []).length ? '取引先ヒント' : '',
   ].join(' ').toLowerCase();
@@ -592,6 +604,8 @@ function cardHtml(row) {
         ${broker ? '<span class="text-[10px] font-bold text-amber-800">委託型</span>' : ''}
         ${row.relation==='self' || row.operation==='self' || (row.tags||[]).includes('自社') ? '<span class="text-[10px] font-bold text-blue-700">自社</span>' : ''}
         ${row.relation==='furnace_maker' || (row.tags||[]).includes('炉メーカー') ? '<span class="text-[10px] font-bold text-sky-700">炉メーカー</span>' : ''}
+        ${row.relation==='inhouse_ht' || ((row.tags||[]).includes('社内炉') && row.relation!=='customer') ? '<span class="text-[10px] font-bold text-orange-700">社内炉</span>' : ''}
+        ${row.relation==='customer' || (row.tags||[]).includes('既存客') ? '<span class="text-[10px] font-bold text-emerald-700">既存客</span>' : ''}
         ${row.relation==='coop_partial' || (row.tags||[]).includes('一部協業') ? '<span class="text-[10px] font-bold text-teal-800">一部協業</span>' :
           (row.relation==='coop_candidate' || (row.tags||[]).includes('協力候補') ? '<span class="text-[10px] font-bold text-emerald-700">協力候補</span>' : '')}
         ${row.position ? `<span class="text-[10px] font-bold text-indigo-700">${esc(row.position)}</span>` : ''}
@@ -727,6 +741,16 @@ function showDetail(id) {
       <div class="mt-2 p-2 rounded-lg border border-sky-300 bg-sky-50">
         <p class="text-sm font-bold text-sky-950">炉メーカー／熱加工装置</p>
         <p class="text-[11px] text-sky-900 mt-0.5">受託熱処理専業ではない。真空溶解炉・半導体熱処理炉などの製造／保有。協力網・装置情報の参考。</p>
+      </div>` : ''}
+    ${row.relation === 'inhouse_ht' || ((row.tags || []).includes('社内炉') && row.relation !== 'customer') ? `
+      <div class="mt-2 p-2 rounded-lg border border-orange-300 bg-orange-50">
+        <p class="text-sm font-bold text-orange-950">社内炉メーカー（次期ターゲット）</p>
+        <p class="text-[11px] text-orange-900 mt-0.5">専業熱処理競合ではない。金属加工大手の自社炉。炉更新・仕様変更・社内炉縮小時に外注化する余地を調査する。</p>
+      </div>` : ''}
+    ${row.relation === 'customer' || (row.tags || []).includes('既存客') ? `
+      <div class="mt-2 p-2 rounded-lg border border-emerald-300 bg-emerald-50">
+        <p class="text-sm font-bold text-emerald-950">既存客</p>
+        <p class="text-[11px] text-emerald-900 mt-0.5">${esc(row.note || '既存取引先。追加案件・紹介・社内炉まわりの外注化をフォロー。')}</p>
       </div>` : ''}
     ${row.relation === 'self' || row.operation === 'self' || (row.tags || []).includes('自社') ? `
       <div class="mt-2 p-2 rounded-lg border border-blue-300 bg-blue-50">

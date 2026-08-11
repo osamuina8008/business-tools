@@ -10712,7 +10712,7 @@
       "macro_region": "tokai",
       "scope": "company_wide",
       "operation": "own",
-      "relation": "competitor",
+      "relation": "customer",
       "tags": [
         "豊川",
         "東三河",
@@ -10720,15 +10720,17 @@
         "歯車",
         "熱処理工場",
         "豊橋圏",
-        "豊橋地区"
+        "豊橋地区",
+        "社内炉",
+        "既存客"
       ],
       "aliases": [
         "NAGATA",
         "永田鉄工 豊川"
       ],
-      "blurb": "豊川の精密歯車メーカー。事業目的に金属熱処理加工を明記。2012年新熱処理専門工場。歯車向け浸炭焼入など。",
-      "commentary": "受託もあるが歯車一貫が主。東三河の熱処理キャパとして把握。工業会中部会員。",
-      "note": "競合。客として訪問しない。住所: 愛知県豊川市宿町野川1-12",
+      "blurb": "豊川の精密歯車メーカー（既存客）。自社熱処理専門工場あり。歯車向け浸炭焼入など。外注請けも事業範囲に含む。",
+      "commentary": "既存客。競合ページに出るのは社内炉＋受託余地があるため。専業熱処理屋と同列ではない。",
+      "note": "既存客。歯車一貫製造が本業。熱処理専門工場あり、事業目的に金属熱処理加工あり（受託も可）。客として攻める競合ではない。",
       "scale_summary": "資本金7,625万円／従業員約157名／年商約51億円／敷地約49,000㎡",
       "profile": {
         "official_name": "永田鉄工株式会社",
@@ -11272,6 +11274,199 @@
         "https://daidodms.co.jp/products/heattreatment/",
         "https://daidodms.co.jp/company/network/"
       ]
+    },
+    {
+      "id": "edfba1227ae3",
+      "name": "株式会社テイサク(豊橋)",
+      "area": "愛知県・豊橋市新栄町（豊橋工場）",
+      "region_label": "愛知",
+      "macro_region": "tokai",
+      "scope": "plant",
+      "operation": "own",
+      "relation": "inhouse_ht",
+      "tags": [
+        "社内炉",
+        "次期ターゲット",
+        "豊橋地区",
+        "建設機械",
+        "テイサク"
+      ],
+      "aliases": [
+        "テイサク",
+        "定作",
+        "帝國鑿岩",
+        "TEISAKU"
+      ],
+      "blurb": "土木建設機械メーカー。自社で高度な熱処理を実施（社内炉）。受託専業ではない。次期ターゲット（外注化・能力不足・仕様変更の契機を洗う）。",
+      "commentary": "定作＝テイサク。競合マップに出てこなかったのは「工業会の専業熱処理」基準だったため。社内炉枠で拾う。",
+      "note": "社内炉メーカー（次期調査ターゲット）。専業熱処理競合ではない。客候補として調査。",
+      "lat": 34.755,
+      "lng": 137.385,
+      "profile": {
+        "official_name": "株式会社テイサク(豊橋)",
+        "address": "愛知県豊橋市新栄町字東小向37",
+        "website": "https://www.teisaku.co.jp/",
+        "lat": 34.755,
+        "lng": 137.385
+      },
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.teisaku.co.jp/"
+        }
+      ],
+      "detail_missing": false,
+      "has_expansion_alert": false,
+      "expansion_alerts": [],
+      "news": [],
+      "client_hints": [],
+      "errors": [],
+      "updated": "2026-08-12"
+    },
+    {
+      "id": "01308f83b0c1",
+      "name": "NTN株式会社(桑名・熱処理工場)",
+      "area": "三重県・桑名市東方（桑名製作所熱処理工場）",
+      "region_label": "三重",
+      "macro_region": "tokai",
+      "scope": "plant",
+      "operation": "own",
+      "relation": "inhouse_ht",
+      "tags": [
+        "社内炉",
+        "次期ターゲット",
+        "軸受",
+        "NTN",
+        "桑名"
+      ],
+      "aliases": [
+        "NTN桑名",
+        "NTN熱処理",
+        "エヌティーエヌ桑名"
+      ],
+      "blurb": "軸受メーカー。桑名製作所に熱処理マザー工場あり（小型〜超大型軸受）。社内炉。外注化・ピーク・特殊処理の余地を次期調査。",
+      "commentary": "炉を持っている大手金属加工の典型。専業屋と同列の競合ではない。",
+      "note": "社内炉メーカー（次期調査ターゲット）。専業熱処理競合ではない。客候補として調査。",
+      "lat": 35.072,
+      "lng": 136.683,
+      "profile": {
+        "official_name": "NTN株式会社(桑名・熱処理工場)",
+        "address": "三重県桑名市大字東方字土島2454",
+        "website": "https://www.ntn.co.jp/japan/corporate/domestic_network/map_kuwana.html",
+        "lat": 35.072,
+        "lng": 136.683
+      },
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.ntn.co.jp/japan/corporate/domestic_network/map_kuwana.html"
+        }
+      ],
+      "detail_missing": false,
+      "has_expansion_alert": false,
+      "expansion_alerts": [],
+      "news": [],
+      "client_hints": [],
+      "errors": [],
+      "updated": "2026-08-12"
+    },
+    {
+      "id": "007ca9b05cae",
+      "name": "ヤマザキマザック株式会社",
+      "area": "岐阜県・美濃加茂市（ほか国内工場）",
+      "region_label": "岐阜",
+      "macro_region": "tokai",
+      "scope": "company_wide",
+      "operation": "own",
+      "relation": "customer",
+      "tags": [
+        "社内炉",
+        "次期ターゲット",
+        "既存客",
+        "工作機械",
+        "マザック",
+        "外注化実績"
+      ],
+      "aliases": [
+        "マザック",
+        "Yamazaki Mazak",
+        "ヤマザキマザック"
+      ],
+      "blurb": "工作機械メーカー。社内炉あり。一部炉の変更・仕様変更に伴い外注発注の実績あり（受注済）。社内炉削減／更新時の外注化モデルケース。",
+      "commentary": "社内炉を持つ大手が外注化する典型。豊和界隈とも連動。",
+      "note": "既存客（社内炉メーカー）。炉仕様変更で外注化実績あり。追加・紹介を狙う。",
+      "lat": 35.456,
+      "lng": 137.001,
+      "profile": {
+        "official_name": "ヤマザキマザック株式会社",
+        "address": "岐阜県美濃加茂市",
+        "website": "https://www.mazak.jp/",
+        "lat": 35.456,
+        "lng": 137.001
+      },
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.mazak.jp/"
+        }
+      ],
+      "detail_missing": false,
+      "has_expansion_alert": false,
+      "expansion_alerts": [],
+      "news": [],
+      "client_hints": [],
+      "errors": [],
+      "updated": "2026-08-12"
+    },
+    {
+      "id": "1a8b4d7a2cea",
+      "name": "ヤンマーパワーテクノロジー株式会社(滋賀)",
+      "area": "滋賀県・長浜市川道町（びわ工場ほか）",
+      "region_label": "京都・滋賀・奈良",
+      "macro_region": "kansai",
+      "scope": "plant",
+      "operation": "own",
+      "relation": "customer",
+      "tags": [
+        "社内炉",
+        "次期ターゲット",
+        "既存客",
+        "エンジン",
+        "ヤンマー",
+        "外注化実績",
+        "滋賀"
+      ],
+      "aliases": [
+        "YPT",
+        "ヤンマーPT",
+        "ヤンマーパワーテクノロジー",
+        "ヤンマー滋賀"
+      ],
+      "blurb": "産業用エンジン。滋賀に複数工場。社内炉を段階的に減らす方針で外注化、当社選定の実績あり。社内炉メーカーの外注化モデルケース。",
+      "commentary": "マザックと同様、社内炉を持つメーカーがターゲットになる根拠事例。",
+      "note": "既存客（社内炉メーカー）。社内炉縮小→外注化の実績あり。追加案件・類似メーカー横展開の参考。",
+      "lat": 35.427,
+      "lng": 136.255,
+      "profile": {
+        "official_name": "ヤンマーパワーテクノロジー株式会社(滋賀)",
+        "address": "滋賀県長浜市川道町1009-2",
+        "website": "https://www.yanmar.com/jp/about/company/power_technology/",
+        "lat": 35.427,
+        "lng": 136.255
+      },
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.yanmar.com/jp/about/company/power_technology/"
+        }
+      ],
+      "detail_missing": false,
+      "has_expansion_alert": false,
+      "expansion_alerts": [],
+      "news": [],
+      "client_hints": [],
+      "errors": [],
+      "updated": "2026-08-12"
     }
   ],
   "blurbs_updated": "2026-08-12T07:12:30+09:00",

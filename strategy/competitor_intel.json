@@ -11527,6 +11527,103 @@
       "client_hints": [],
       "errors": [],
       "updated": "2026-08-12"
+    },
+    {
+      "id": "d8487451184f",
+      "name": "栗田HT株式会社",
+      "area": "石川県・羽咋市三ツ屋町",
+      "region_label": "石川・富山",
+      "macro_region": "hokuriku",
+      "scope": "company_wide",
+      "operation": "own",
+      "relation": "competitor",
+      "tags": [
+        "石川",
+        "北陸",
+        "熱処理専業",
+        "大型",
+        "焼鈍",
+        "焼準",
+        "調質",
+        "軸受",
+        "風力",
+        "建機",
+        "西部会員"
+      ],
+      "aliases": [
+        "栗田HT",
+        "クリタHT",
+        "Kurita HT",
+        "栗田ＨＴ"
+      ],
+      "blurb": "羽咋の鍛鋳鋼熱処理専業。風力超大型軸受・新幹線／航空機軸受・産機建機超大型。台車炉16t級・ピット炉φ3.2m級。栗田精工グループ。",
+      "commentary": "主要取引先: ジェイテクト、NTN、不二越、石川可鍛製鉄、平鍛造、昭和鋳工等。建機認定: コマツ／日立建機／コベルコ。",
+      "note": "競合。客として訪問しない。住所: 石川県羽咋市三ツ屋町ニ66番地1。TEL 0767-22-8911。",
+      "lat": 36.897,
+      "lng": 136.782,
+      "equipment_summary": "台車式熱処理炉4基（最大16t級）／トレイプッシャ連続焼準炉1／ピット炉3（φ3.2m・6t級）／焼入油槽φ3.2m／ショット等",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "○",
+        "max_size": "台車16t／ピットφ3200×1000H・6t／大型リング外径φ3200",
+        "lot": "大型・少量〜中"
+      },
+      "position": "超大型型",
+      "profile": {
+        "official_name": "栗田HT株式会社",
+        "address": "石川県羽咋市三ツ屋町ニ66番地1",
+        "tel": "0767-22-8911",
+        "capital": "6,500万円",
+        "employees": "約16名",
+        "website": "https://www.k-ksk.co.jp/kht_profile.html",
+        "lat": 36.897,
+        "lng": 136.782,
+        "customers": [
+          "ジェイテクト",
+          "NTN",
+          "不二越",
+          "石川可鍛製鉄",
+          "平鍛造",
+          "昭和鋳工",
+          "伊藤忠丸紅住商テクノスチール"
+        ]
+      },
+      "customers": [
+        "ジェイテクト",
+        "NTN",
+        "不二越",
+        "石川可鍛製鉄",
+        "平鍛造",
+        "昭和鋳工"
+      ],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.k-ksk.co.jp/kht_profile.html"
+        },
+        {
+          "kind": "company",
+          "url": "http://www.isico.or.jp/virtual/vkogyo/kurita-ht.html"
+        }
+      ],
+      "detail_missing": false,
+      "has_expansion_alert": false,
+      "expansion_alerts": [],
+      "news": [],
+      "client_hints": [
+        "風力軸受",
+        "新幹線軸受",
+        "建機超大型",
+        "ジェイテクト",
+        "NTN",
+        "不二越"
+      ],
+      "errors": [],
+      "updated": "2026-08-12"
     }
   ],
   "blurbs_updated": "2026-08-12T07:12:30+09:00",

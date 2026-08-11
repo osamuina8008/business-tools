@@ -12,9 +12,11 @@
     "島根"
   ],
   "priority_order": [
+    "S",
     "A+",
     "A",
-    "B"
+    "B",
+    "C"
   ],
   "focus_first": [
     "愛知製鋼",
@@ -1192,7 +1194,7 @@
       "source_label": "ISICO 栗田HT",
       "deal_status": "未取引",
       "confirm": "公開情報確認",
-      "note": "Sランク。大型品本命。調査順①。小物会社とは別カテゴリ。",
+      "note": "Sランク競合（熱処理専業）。大型品本命だが、設備深掘り・接触の前に親会社・栗田精工（呼称:栗田工業）で大型案件受注可否を確認する。調査順は「栗田精工確認 → その後①栗田HT設備」。",
       "id": "d8487451184f",
       "list_type": "熱処理専業",
       "aliases": [
@@ -1204,7 +1206,8 @@
       "lat": 36.897,
       "lng": 136.782,
       "hokuriku_rank": "S",
-      "investigation_order": 1
+      "investigation_order": 1,
+      "prerequisite": "栗田精工（栗田工業）で大型案件受注可否を確認"
     },
     {
       "name": "株式会社北熱",
@@ -1599,10 +1602,42 @@
       "status": "priority_research",
       "hokuriku_rank": "A",
       "investigation_order": 4
+    },
+    {
+      "id": "258b49339ba6",
+      "name": "栗田精工株式会社",
+      "short": "栗田精工",
+      "pref": "三重",
+      "city": "桑名／いなべ",
+      "region": "東海",
+      "priority": "A",
+      "focus": true,
+      "focus_agreed": true,
+      "focus_reason": "栗田HT深掘りの前に、親会社で大型案件の受注可否を確認する攻略案件（ユーザー指示）。",
+      "category": "自家熱処理メーカー",
+      "list_type": "inhouse_ht_maker",
+      "business": "軸受・自動車部品の機械加工／いなべ工場で球状化焼鈍・焼準",
+      "furnaces": "いなべ工場：軸受部品の球状化焼鈍及び焼準（鍛造リングから旋削まで一貫）。大型熱処理はグループ会社・栗田HTが担当。",
+      "source_url": "https://www.k-ksk.co.jp/profile.html",
+      "source_label": "栗田精工グループ",
+      "deal_status": "未取引",
+      "confirm": "公開情報確認",
+      "note": "優先度Aの攻略案件。ユーザー呼称「栗田工業」＝栗田精工（水処理の栗田工業とは別）。栗田HT訪問の前に、親会社・栗田精工（桑名・いなべ）へ行き、大型案件を受注できるか確認する。いなべ工場は軸受の球状化焼鈍・焼準と旋削を一貫。グループに栗田HT（羽咋・受託熱処理）あり。",
+      "aliases": [
+        "栗田工業",
+        "クリタ精工",
+        "Kurita Seiko"
+      ],
+      "status": "priority_attack",
+      "attack_case": true,
+      "attack_priority": "A",
+      "attack_before": "栗田HT株式会社",
+      "lat": 35.06,
+      "lng": 136.68
     }
   ],
   "stats": {
-    "total": 67,
+    "total": 68,
     "focus": 15,
     "by_region": {
       "東海": 8,
@@ -1649,5 +1684,20 @@
     "石川熱処理工業",
     "福井熱処理"
   ],
-  "hokuriku_specialty_note": "北陸3県の受託熱処理。小物・ガス軟窒化のみ・アルミT6特化は優先下げ。深掘り順: ①栗田HT→②深田→③水口→④石川熱処理→⑤福井熱処理。"
+  "hokuriku_specialty_note": "北陸3県の受託熱処理。小物・ガス軟窒化のみ・アルミT6特化は優先下げ。深掘り順: ※先に栗田精工（呼称:栗田工業）で大型案件受注可否確認 → ①栗田HT→②深田→③水口→④石川熱処理→⑤福井熱処理。",
+  "attack_cases": [
+    {
+      "name": "栗田精工株式会社",
+      "short": "栗田精工",
+      "aliases": [
+        "栗田工業",
+        "クリタ精工",
+        "Kurita Seiko"
+      ],
+      "priority": "A",
+      "before": "栗田HT",
+      "action": "大型案件を受注できるか確認",
+      "note": "優先度Aの攻略案件。ユーザー呼称「栗田工業」＝栗田精工（水処理の栗田工業とは別）。栗田HT訪問の前に、親会社・栗田精工（桑名・いなべ）へ行き、大型案件を受注できるか確認する。いなべ工場は軸受の球状化焼鈍・焼準と旋削を一貫。グループに栗田HT（羽咋・受託熱処理）あり。"
+    }
+  ]
 }

@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>競合インテリ（熱処理屋）</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <title>競合管理（熱処理屋）</title>
   <link rel="manifest" href="../manifest.json" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -65,8 +66,15 @@
 
   <!-- 中: リスト（地域） -->
   <section class="lg:col-span-5 space-y-3">
-    <div class="bg-white rounded-2xl border border-slate-200 p-3 flex items-center justify-between gap-2">
-      <p id="result-count" class="text-xs text-slate-600"></p>
+    <div class="bg-white rounded-2xl border border-slate-200 p-3 flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-3 flex-wrap">
+        <p id="result-count" class="text-xs text-slate-600"></p>
+        <label class="text-xs text-violet-900 flex items-center gap-1.5 cursor-pointer">
+          <input id="hq-only" type="checkbox" checked class="rounded border-violet-300 text-violet-700"
+            onchange="renderList()" />
+          本社のみ（支店・工場を隠す）
+        </label>
+      </div>
       <select id="sort" class="text-xs border border-slate-200 rounded-lg px-2 py-1" onchange="renderList()">
         <option value="region">地域順</option>
         <option value="name">名前順</option>
@@ -93,6 +101,13 @@ let presets = null;
 let byId = {};
 let activePresetId = null;
 let filter = { query: '', tags: [], region: '', macro: '' };
+const HQ_PLANT_RE = /工場|事業部|営業所|\([^)]+\)/;
+
+function isHqRow(row) {
+  if (row.operation === 'customer' || row.exclude) return false;
+  if (row.scope === 'company_wide' || row.scope === 'hq') return true;
+  return !HQ_PLANT_RE.test(row.name || '');
+}
 
 function esc(s) {
   return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -138,6 +153,9 @@ function matches(row) {
 
 function filtered() {
   let rows = allRows().filter(matches);
+  if (document.getElementById('hq-only')?.checked) {
+    rows = rows.filter(isHqRow);
+  }
   const sort = document.getElementById('sort').value;
   rows.sort((a, b) => {
     if (sort === 'expand') {

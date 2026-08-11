@@ -312,7 +312,13 @@ function queryMatches(blob, rawQuery) {
 
 function isHqRow(row) {
   if (row.operation === 'customer' || row.exclude) return false;
+  // 自社は常に表示
+  if (row.relation === 'self' || row.operation === 'self' || (row.tags || []).includes('自社')) return true;
   if (row.scope === 'company_wide' || row.scope === 'hq') return true;
+  // 地域の工場ピンは「本社のみ」でも残す（三重工場・名張など。本社が他県の会社の拠点）
+  if (row.scope === 'plant') return true;
+  // 営業所だけ隠す
+  if (/営業所/.test(row.name || '')) return false;
   return !HQ_PLANT_RE.test(row.name || '');
 }
 

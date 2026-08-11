@@ -2700,9 +2700,9 @@
     },
     {
       "id": "d3281ccf5d5a",
-      "name": "株式会社東研サーモテック(全社)",
-      "area": "全社(本社・大阪府寝屋川市)",
-      "updated": "2026-08-11T19:01:34+09:00",
+      "name": "株式会社東研サーモテック(本社・寝屋川)",
+      "area": "大阪府・寝屋川市中木田町13-2",
+      "updated": "2026-08-12T08:11:08+09:00",
       "scope": "company_wide",
       "profile": {
         "official_name": "株式会社東研サーモテック",
@@ -2853,10 +2853,10 @@
         }
       ],
       "errors": [],
-      "note": "設備・規模は全社合計。拠点ピン(三重等)とは別。客として訪問しない。",
+      "note": "本社ピン（寝屋川市中木田町）。通称「とうけんサーモティック」。客として訪問しない。",
       "region_label": "大阪",
       "macro_region": "keihanshin",
-      "blurb": "全社でバッチ浸炭39・連続浸炭14など国内最大級クラス。拠点ピンは全社設備を参照。",
+      "blurb": "本社は大阪府寝屋川市。全社でバッチ浸炭39・連続浸炭14など国内最大級クラス。拠点ピンは全社設備を参照。",
       "commentary": "",
       "tags": [
         "真空",
@@ -2865,7 +2865,17 @@
         "バッチ",
         "大規模",
         "全社",
-        "京阪神"
+        "京阪神",
+        "本社",
+        "寝屋川",
+        "とうけんサーモティック"
+      ],
+      "aliases": [
+        "とうけんサーモティック",
+        "東建サーモテック",
+        "トーケン",
+        "東研本社",
+        "東研サーモテック本社"
       ]
     },
     {
@@ -8443,7 +8453,7 @@
       "id": "718b20d6750f",
       "name": "DOWAサーモテック株式会社（本社）",
       "area": "愛知県・名古屋市瑞穂区（本社）",
-      "updated": "2026-08-11T19:03:07+09:00",
+      "updated": "2026-08-12T08:11:08+09:00",
       "scope": "company_wide",
       "profile": {
         "official_name": "DOWAサーモテック株式会社（本社）",
@@ -8535,7 +8545,7 @@
       "note": "競合。工業炉国内トップ＋受託6工場。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "【全社】【本社・グループ】工業炉国内納入3,500基超・浸炭炉国内トップシェア。受託加工は国内6工場(真岡・太田・浜松・浜松北・中京半田・滋賀)。浸炭焼入れ・タフナイト(軟窒化)・… 【全社】資本金10億円 / 従業員1,795名(連結) / 本社・名古屋市瑞穂区 国内工場の集約・設備更新(増強・環境対応) 強み候補: 真空・浸炭・軟窒化",
+      "blurb": "【全社】【本社・グループ】工業炉国内納入3,500基超・浸炭炉国内トップシェア。受託加工は国内6工場(真岡・太田・浜松・浜松北・中京半田・滋賀)。浸炭焼入れ・タフナイト(軟窒化)・… 【全社】資本金10億円 / 従業員1,795名(連結) / 本社・名古屋市瑞穂区 国内工場の集約・設備更新(増強・環境対応) 強み候補: 真空・浸炭・軟窒化 滋賀・湖南に受託加工工場あり（通称誤変換「童話サーモテック」）。",
       "commentary": "国内工場の集約・設備更新(増強・環境対応) / 低CO2次世代炉Z-TKM/V-TKM / 海外進出加速(米国・タイ・中国・インド等)",
       "tags": [
         "真空",
@@ -8543,7 +8553,15 @@
         "軟窒化",
         "窒化",
         "増強",
-        "窒化処理"
+        "窒化処理",
+        "滋賀",
+        "童話サーモテック"
+      ],
+      "aliases": [
+        "童話サーモテック",
+        "ドーワサーモテック",
+        "DOWAサーモテック",
+        "ドーワ"
       ]
     },
     {
@@ -10240,8 +10258,248 @@
       "news": [],
       "client_hints": [],
       "errors": []
+    },
+    {
+      "id": "0fee458f634d",
+      "name": "DOWAサーモテック株式会社(滋賀)",
+      "area": "滋賀県・湖南市下田1848-10",
+      "region_label": "京都・滋賀・奈良",
+      "macro_region": "kinki",
+      "scope": "plant",
+      "operation": "own",
+      "relation": "competitor",
+      "tags": [
+        "滋賀",
+        "浸炭",
+        "軟窒化",
+        "タフナイト",
+        "TD処理",
+        "DOWA",
+        "童話サーモテック",
+        "連続炉",
+        "バッチ"
+      ],
+      "aliases": [
+        "童話サーモテック",
+        "ドーワサーモテック",
+        "DOWA",
+        "DOWAサーモエンジニアリング滋賀"
+      ],
+      "blurb": "DOWA滋賀工場（湖南市）。浸炭・タフナイト（ガス軟窒化）・TD・ショット。関西統括の受託加工拠点。通称誤変換「童話サーモテック」。",
+      "commentary": "製造子会社DOWAサーモエンジニアリングが操業。大型浸炭炉・大型タフナイト炉あり。",
+      "note": "拠点ピン。全社設備・炉シェアはDOWA本社エントリ参照。",
+      "scale_summary": "DOWAサーモエンジニアリング滋賀工場／湖南工業団地",
+      "profile": {
+        "official_name": "DOWAサーモエンジニアリング株式会社 滋賀工場",
+        "address": "滋賀県湖南市下田1848番地10",
+        "parent": "DOWAサーモテック株式会社",
+        "tel": "0748-75-1991"
+      },
+      "equipment": [
+        {
+          "name": "バッチ型浸炭焼入れ炉(TKM-100)",
+          "count": null,
+          "maker": "DOWA",
+          "spec": ""
+        },
+        {
+          "name": "2トレイ浸炭焼入れ炉(TKM-100W)",
+          "count": null,
+          "maker": "DOWA",
+          "spec": ""
+        },
+        {
+          "name": "小型連続浸炭焼入れ炉(S-TKM100)",
+          "count": null,
+          "maker": "DOWA",
+          "spec": ""
+        },
+        {
+          "name": "バッチ型タフナイト炉(THN-100)",
+          "count": null,
+          "maker": "DOWA",
+          "spec": "ガス軟窒化"
+        },
+        {
+          "name": "TD処理炉",
+          "count": null,
+          "maker": "",
+          "spec": ""
+        },
+        {
+          "name": "ショットピーニング機",
+          "count": null,
+          "maker": "",
+          "spec": "インペラー式"
+        }
+      ],
+      "equipment_summary": "浸炭（バッチ／連続）・タフナイト・TD・ショットピーニング。台数非公開。",
+      "equipment_map": {
+        "carburize": "○",
+        "vacuum": "△",
+        "nitride": "○",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "△",
+        "max_size": "不明",
+        "lot": "量産〜中ロット"
+      },
+      "position": "総合型",
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.dowa.co.jp/thermo-tech/about-tht/japan/shiga.html"
+        },
+        {
+          "kind": "company",
+          "url": "https://www.dowa.co.jp/thermo-tech/thermoengineering/"
+        }
+      ],
+      "updated": "2026-08-12T08:11:08+09:00",
+      "detail_missing": false,
+      "has_expansion_alert": false,
+      "expansion_alerts": [],
+      "news": [],
+      "client_hints": [],
+      "errors": []
+    },
+    {
+      "id": "484a29c21145",
+      "name": "リヒト精光株式会社",
+      "area": "京都府・京都市南区上鳥羽中河原町1",
+      "region_label": "京都・滋賀・奈良",
+      "macro_region": "kinki",
+      "scope": "company_wide",
+      "operation": "own",
+      "relation": "competitor",
+      "tags": [
+        "京都",
+        "真空",
+        "窒化",
+        "真空浸炭",
+        "金型",
+        "エジソンハード",
+        "リヒトセイコー",
+        "真空・光輝型"
+      ],
+      "aliases": [
+        "リヒトセイコー",
+        "リヒト精工",
+        "Licht Seiko",
+        "lichtseiko"
+      ],
+      "blurb": "京都・真空熱処理の老舗（1921創業）。真空焼入・真空浸炭・エジソンハード（特許窒化）・ろう付。金型向けに強い。通称「リヒトセイコー」。",
+      "commentary": "久御山工場・厚木工場あり。自社開発真空炉。グループにエジソンハード等。",
+      "note": "競合。客として訪問しない。",
+      "scale_summary": "資本金1,000万円／創業1921年／本社・京都工場＋久御山・厚木",
+      "profile": {
+        "official_name": "リヒト精光株式会社",
+        "address": "京都府京都市南区上鳥羽中河原町1",
+        "capital": "1,000万円",
+        "founded": "1921年（大正10年）",
+        "tel": "075-692-1122",
+        "business": "真空焼入／エジソンハード処理／真空浸炭／真空ろう付／高周波・CVD・PVD等"
+      },
+      "equipment": [
+        {
+          "name": "エンジン駆動式真空熱処理炉 G・EN型",
+          "count": null,
+          "maker": "自社",
+          "spec": "大型ダイカスト金型対応・ガス冷却"
+        },
+        {
+          "name": "高効率ガス冷・油冷真空熱処理炉 G2・OB型",
+          "count": null,
+          "maker": "自社",
+          "spec": "2室型"
+        }
+      ],
+      "equipment_summary": "自社設計真空炉（ガス冷・油冷）。エジソンハード窒化。真空浸炭・ろう付。台数非公開。",
+      "equipment_map": {
+        "carburize": "○",
+        "vacuum": "○",
+        "nitride": "○",
+        "induction": "△",
+        "aluminum": "—",
+        "anneal": "△",
+        "max_size": "大型金型対応（詳細不明）",
+        "lot": "小〜中ロット"
+      },
+      "position": "真空・光輝型",
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://lichtseiko.co.jp/"
+        },
+        {
+          "kind": "company",
+          "url": "https://lichtseiko.co.jp/company/outline/"
+        },
+        {
+          "kind": "company",
+          "url": "https://lichtseiko.co.jp/business/"
+        }
+      ],
+      "updated": "2026-08-12T08:11:08+09:00",
+      "detail_missing": false,
+      "has_expansion_alert": false,
+      "expansion_alerts": [],
+      "news": [],
+      "client_hints": [],
+      "errors": []
+    },
+    {
+      "id": "2aa5fa4d6a2e",
+      "name": "リヒト精光株式会社(久御山)",
+      "area": "京都府・久世郡久御山町森字中内65-1",
+      "region_label": "京都・滋賀・奈良",
+      "macro_region": "kinki",
+      "scope": "plant",
+      "operation": "own",
+      "relation": "competitor",
+      "tags": [
+        "京都",
+        "真空",
+        "リヒトセイコー",
+        "リヒト精光"
+      ],
+      "aliases": [
+        "リヒトセイコー久御山"
+      ],
+      "blurb": "リヒト精光・久御山工場／京都営業所。真空熱処理拠点。",
+      "note": "拠点ピン。設備は本社エントリ参照。",
+      "scale_summary": "リヒト精光 久御山工場",
+      "profile": {
+        "official_name": "リヒト精光株式会社(久御山)",
+        "address": "京都府久世郡久御山町森字中内65番地1",
+        "parent": "リヒト精光株式会社"
+      },
+      "equipment_summary": "真空熱処理（詳細は本社参照）",
+      "equipment_map": {
+        "carburize": "○",
+        "vacuum": "○",
+        "nitride": "○",
+        "induction": "△",
+        "aluminum": "—",
+        "anneal": "△",
+        "max_size": "不明",
+        "lot": "小〜中ロット"
+      },
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://lichtseiko.co.jp/company/outline/"
+        }
+      ],
+      "updated": "2026-08-12T08:11:08+09:00",
+      "detail_missing": false,
+      "has_expansion_alert": false,
+      "expansion_alerts": [],
+      "news": [],
+      "client_hints": [],
+      "errors": []
     }
   ],
   "blurbs_updated": "2026-08-12T07:12:30+09:00",
-  "updated": "2026-08-12T08:08:55+09:00"
+  "updated": "2026-08-12T08:11:08+09:00"
 }

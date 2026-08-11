@@ -94,6 +94,8 @@
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-teal-200 bg-teal-50 text-teal-900" onclick="applyPreset({tags:['一部協業'], query:'一部協業'})">一部協業</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-teal-200 bg-teal-50 text-teal-900" onclick="applyPreset({tags:['委託先候補'], query:'委託先候補'})">委託先候補</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-sky-200 bg-sky-50 text-sky-900" onclick="applyPreset({tags:['炉メーカー'], query:'炉メーカー'})">炉メーカー</button>
+        <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-violet-200 bg-violet-50 text-violet-900" onclick="applyPreset({region:'京都・滋賀・奈良', query:'滋賀'})">滋賀</button>
+        <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-violet-200 bg-violet-50 text-violet-900" onclick="applyPreset({region:'京都・滋賀・奈良', query:'京都'})">京都</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-amber-200 bg-amber-50 text-amber-900" onclick="applyPreset({tags:['委託型']})">委託型</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-rose-200 bg-rose-50 text-rose-800" onclick="applyPreset({tags:['増強']})">増強あり</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-violet-200 bg-violet-50 text-violet-900" onclick="applyPreset({macro:'keihanshin'})">京阪神</button>
@@ -287,6 +289,14 @@ const KEYWORD_SYNONYMS = {
   '炉メーカー': ['炉メーカー', '熱加工装置', '真空溶解炉', 'シンフォニア'],
   'アイコー': ['アイコー', 'AIKO', 'アイコ'],
   'シンフォニア': ['シンフォニア', 'シンフォニアテクノロジー', '神鋼電機', 'Sinfonia'],
+  '童話サーモテック': ['童話サーモテック', 'DOWA', 'ドーワ', 'DOWAサーモテック', 'ドーワサーモテック'],
+  'DOWA': ['DOWA', 'ドーワ', '童話サーモテック', 'DOWAサーモテック'],
+  'リヒトセイコー': ['リヒトセイコー', 'リヒト精光', 'リヒト精工', 'Licht'],
+  'リヒト精光': ['リヒト精光', 'リヒトセイコー', 'リヒト精工', 'Licht'],
+  'とうけんサーモティック': ['とうけんサーモティック', '東研サーモテック', '東建サーモテック', 'トーケン'],
+  '東研サーモテック': ['東研サーモテック', 'とうけんサーモティック', '東建サーモテック', 'トーケン'],
+  '滋賀': ['滋賀', '湖南', '甲賀', '竜王'],
+  '京都': ['京都', '京都市', '城陽', '久御山'],
   'ガス難実家': ['ガス窒化', '窒化', '窒化処理'], // 誤変換救済
   '実家処理': ['窒化処理', '窒化', 'ガス窒化'],
 };

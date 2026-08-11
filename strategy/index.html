@@ -156,7 +156,7 @@
             ← 界隈一覧に戻る
           </button>
         </div>
-        <p id="hotspot-hint" class="text-xs text-slate-500 mb-2">界隈を選ぶと、その周辺の攻略候補（規模・理由つき）を深掘りします。</p>
+        <p id="hotspot-hint" class="text-xs text-slate-500 mb-2">界隈を選ぶと深掘りします。先頭の<strong>大型ギア特化</strong>はピット炉対応検証と大型製品の購入トライ用です。</p>
         <div id="hotspot-list" class="space-y-2"></div>
         <div id="scm-radar-panel" class="hidden mt-3">
           <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
@@ -407,14 +407,21 @@ function renderCompanyCards(comps) {
       : (t.pipeline_status === 'contacted_revisit'
         ? '<span class="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-1.5 py-0.5 rounded">近々訪問</span>'
         : `P${t.priority ?? '—'}`);
+    const pit = t.pit_furnace_fit
+      ? `<p class="text-xs text-rose-800 mt-1 font-semibold">ピット炉適合: ${esc(t.pit_furnace_fit)}${t.size_hint ? ' · サイズ目安: ' + esc(t.size_hint) : ''}</p>`
+      : (t.size_hint ? `<p class="text-xs text-rose-800 mt-1 font-semibold">サイズ目安: ${esc(t.size_hint)}</p>` : '');
+    const lgBadge = t.large_gear
+      ? '<span class="text-[10px] font-bold text-rose-800 bg-rose-100 px-1.5 py-0.5 rounded ml-1">大型ギア</span>'
+      : '';
     return `
     <div ${focus} class="rounded-xl border ${ph} p-3 ${focus ? 'cursor-pointer hover:bg-orange-50' : ''}">
       <div class="flex items-start justify-between gap-2">
-        <p class="text-sm font-bold text-slate-800">${tag} ${companyNameLink(t.name || '', t.source_url || '', 'hover:underline hover:text-orange-800')}</p>
+        <p class="text-sm font-bold text-slate-800">${tag}${lgBadge} ${companyNameLink(t.name || '', t.source_url || '', 'hover:underline hover:text-orange-800')}</p>
         ${src}
       </div>
       <p class="text-xs text-slate-600 mt-0.5">${esc(t.category || '')} · ${esc(t.area || '')}</p>
       <p class="text-xs text-orange-900 mt-1 font-medium">理由: ${esc(t.reason || '')}</p>
+      ${pit}
       <p class="text-xs text-slate-700 mt-1 font-medium">規模: ${esc(t.scale_summary || '規模未確認')}</p>
       <p class="text-xs text-slate-500 mt-0.5">熱処理: ${esc(t.heat_relation || '')}${mats ? ' / 材質: ' + esc(mats) : ''}</p>
       ${majors}
@@ -434,15 +441,18 @@ function renderHotspotDrill(group, data) {
   meta.textContent = `${real.length}社 · 更新 ${esc((data.updated || '').slice(0, 16))}`;
   note.textContent = `${group.pain || ''} ／ ${(data.disclaimer || '')}`;
 
-  const qHints = (data.search_queries || []).filter(q => {
-    const area = group.area || '';
-    return area.includes('豊和') || area.includes('Willbe') ? /Willbe|清須|津島|豊和/.test(q)
-      : area.includes('刈谷') ? /刈谷/.test(q)
-      : area.includes('豊中') ? /豊中/.test(q)
-      : area.includes('尼崎') ? /尼崎/.test(q)
-      : area.includes('姫路') ? /姫路/.test(q)
-      : true;
-  }).slice(0, 3);
+  const focusQs = (data.large_gear_focus && data.large_gear_focus.search_queries) || [];
+  const qHints = (group.hotspot_id === 'large_gear' || (group.area || '').includes('大型ギア') || (group.area || '').includes('ピット炉'))
+    ? (focusQs.length ? focusQs : (data.search_queries || []).filter(q => /ピット炉|大型/.test(q))).slice(0, 6)
+    : (data.search_queries || []).filter(q => {
+      const area = group.area || '';
+      return area.includes('豊和') || area.includes('Willbe') ? /Willbe|清須|津島|豊和/.test(q)
+        : area.includes('刈谷') ? /刈谷/.test(q)
+        : area.includes('豊中') ? /豊中/.test(q)
+        : area.includes('尼崎') ? /尼崎/.test(q)
+        : area.includes('姫路') ? /姫路/.test(q)
+        : true;
+    }).slice(0, 3);
   queries.innerHTML = qHints.map(q =>
     `<a href="${googleSearchUrl(q)}" target="_blank" rel="noopener"
       class="text-[11px] px-2 py-1 rounded-md border border-orange-200 bg-white text-orange-800 hover:bg-orange-50">${esc(q)}</a>`
@@ -455,13 +465,14 @@ function renderHotspotDrill(group, data) {
       <div class="overflow-x-auto">
         <table class="w-full text-xs text-left">
           <thead class="text-slate-500 border-b border-slate-100">
-            <tr><th class="py-1 pr-2">会社</th><th class="py-1 pr-2">資本金</th><th class="py-1 pr-2">従業員</th><th class="py-1">摘要</th></tr>
+            <tr><th class="py-1 pr-2">会社</th><th class="py-1 pr-2">資本金</th><th class="py-1 pr-2">従業員</th>${(group.hotspot_id === 'large_gear') ? '<th class="py-1 pr-2">ピット炉</th><th class="py-1 pr-2">サイズ</th>' : ''}<th class="py-1">摘要</th></tr>
           </thead>
           <tbody>
             ${scaleRows.map(t => `<tr class="border-b border-slate-50">
               <td class="py-1 pr-2 font-medium whitespace-nowrap">${companyNameLink(t.name||'', t.source_url||'', 'hover:underline hover:text-orange-800')}</td>
               <td class="py-1 pr-2 whitespace-nowrap">${formatCapital(t.capital_man_yen)}</td>
               <td class="py-1 pr-2 whitespace-nowrap">${formatEmployees(t.employees)}</td>
+              ${(group.hotspot_id === 'large_gear') ? `<td class="py-1 pr-2 text-rose-800 whitespace-nowrap">${esc(t.pit_furnace_fit||'—')}</td><td class="py-1 pr-2 text-slate-600 whitespace-nowrap">${esc(t.size_hint||'—')}</td>` : ''}
               <td class="py-1 text-slate-600">${esc(t.scale_summary||'')}</td>
             </tr>`).join('')}
           </tbody>
@@ -554,25 +565,42 @@ function renderLists(data) {
   }
 
   const hotspotOrder = (a, b) => {
-    const rank = { willbe_tsushima: -1, houwa: 0, kariya_jtekt: 1, toyonaka: 2, amagasaki: 3, himeji: 4, inabe: 5, wakayama: 6 };
+    const rank = { large_gear: -2, willbe_tsushima: -1, houwa: 0, kariya_jtekt: 1, toyonaka: 2, amagasaki: 3, himeji: 4, inabe: 5, wakayama: 6 };
     return (rank[a.id] ?? 50) - (rank[b.id] ?? 50);
   };
   const baseHotspots = [...(data.pain_hotspots || [])].filter(h => !(h.area || '').includes('石川'));
-  // Willbe を選べる入口を先頭に追加
+  const largeFocus = (scmRadarData && scmRadarData.large_gear_focus) || {};
+  // 大型ギア特化（ピット炉）→ Willbe → その他界隈
   const pickList = [
+    {
+      id: 'large_gear',
+      area: largeFocus.area || '大型ギア特化（ピット炉検証）',
+      pain: largeFocus.pain || 'ピット炉対応の検証と大型製品の購入トライ',
+      sources: ['ピット炉', '大型製品トライ'],
+      lat: largeFocus.lat ?? 34.8,
+      lng: largeFocus.lng ?? 136.5,
+    },
     { id: 'willbe_tsushima', area: '愛知・Willbe（津島）界隈', pain: '旧三菱重工メイキ。本命OEM＋周辺加工', sources: ['Willbe'], lat: 35.177, lng: 136.741 },
     ...baseHotspots,
   ].sort(hotspotOrder);
-  document.getElementById('hotspot-list').innerHTML = pickList.map(h => `
+  document.getElementById('hotspot-list').innerHTML = pickList.map(h => {
+      const featured = h.id === 'large_gear' || h.id === 'houwa' || h.id === 'willbe_tsushima';
+      const star = h.id === 'large_gear' ? '◆ ' : (h.id === 'houwa' || h.id === 'willbe_tsushima' ? '★ ' : '');
+      const border = h.id === 'large_gear'
+        ? 'border-rose-400 bg-rose-50'
+        : (h.id === 'houwa' || h.id === 'willbe_tsushima' ? 'border-orange-300 bg-orange-100/80' : 'border-orange-100 bg-orange-50/60');
+      return `
       <button type="button" data-hotspot-id="${esc(h.id)}"
         onclick="selectHotspotDrill('${esc(h.id)}', ${h.lat ?? 'null'}, ${h.lng ?? 'null'})"
-        class="w-full text-left rounded-xl border ${h.id === 'houwa' || h.id === 'willbe_tsushima' ? 'border-orange-300 bg-orange-100/80' : 'border-orange-100 bg-orange-50/60'} hover:bg-orange-50 p-3 transition">
-        <p class="text-sm font-bold text-slate-800">${h.id === 'houwa' || h.id === 'willbe_tsushima' ? '★ ' : ''}${esc(h.area)}
+        class="w-full text-left rounded-xl border ${border} hover:bg-orange-50 p-3 transition">
+        <p class="text-sm font-bold text-slate-800">${star}${esc(h.area)}
           <span class="text-[10px] font-semibold text-orange-700 bg-orange-50 border border-orange-200 px-1.5 py-0.5 rounded ml-1">選んで深掘り</span>
+          ${h.id === 'large_gear' ? '<span class="text-[10px] font-semibold text-rose-800 bg-rose-100 border border-rose-200 px-1.5 py-0.5 rounded ml-1">集中検索</span>' : ''}
         </p>
         <p class="text-xs text-slate-600 mt-1">${esc(h.pain || '')}</p>
         ${(h.sources||[]).length ? `<p class="text-xs text-slate-400 mt-1">アンカー: ${esc(h.sources.join(' / '))}</p>` : ''}
-      </button>`).join('');
+      </button>`;
+  }).join('');
   backToHotspotList();
 
   document.getElementById('target-list').innerHTML =
@@ -1037,18 +1065,20 @@ async function loadCompanyIntel() {
 }
 
 async function main() {
-  const [tRes, vRes, aRes, intelPayload, ciPayload] = await Promise.all([
+  const [tRes, vRes, aRes, intelPayload, ciPayload, scmPayload] = await Promise.all([
     fetch('../news/territory_strategy.json?v=' + Date.now()),
     fetch('./visit_reports.json?v=' + Date.now()),
     fetch('./strategy_actions.json?v=' + Date.now()),
     loadCompetitorIntel(),
     loadCompanyIntel(),
+    loadScmRadar().catch(() => null),
   ]);
   if (!tRes.ok) throw new Error('territory load failed');
   territory = await tRes.json();
   visits = vRes.ok ? await vRes.json() : { companies: [] };
   competitorIntel = intelPayload;
   companyIntel = ciPayload;
+  if (scmPayload) scmRadarData = scmPayload;
   competitorById = Object.fromEntries((competitorIntel?.competitors || []).map(c => [c.id, c]));
   companyIntelById = Object.fromEntries((companyIntel?.companies || []).map(c => [c.id, c]));
   companyById = Object.fromEntries((visits.companies || []).map(c => [c.id, c]));

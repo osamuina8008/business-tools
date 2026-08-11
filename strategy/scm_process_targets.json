@@ -1,10 +1,173 @@
 {
-  "updated": "2026-08-11T09:22:58+09:00",
+  "updated": "2026-08-11T09:41:53+09:00",
   "disclaimer": "攻めどころ界隈の公開情報・聞き取りベース。既存顧客・コマツ筋・高周波メイン等は除外済み。",
   "how_to_use": "各界隈の社名一覧を見て訪問先を決める。探索枠は現地で社名を確定して埋める。",
-  "count": 19,
-  "group_count": 8,
+  "count": 20,
+  "group_count": 9,
   "groups": [
+    {
+      "hotspot_id": "large_gear",
+      "area": "大型ギア特化（ピット炉検証）",
+      "pain": "ピット炉対応の検証と大型製品の購入トライのため、大型歯車メーカーに集中する。",
+      "lat": 34.8,
+      "lng": 136.5,
+      "count": 5,
+      "companies": [
+        {
+          "name": "石田歯車工業株式会社",
+          "category": "大型・長尺歯切",
+          "area": "愛知県名古屋市緑区",
+          "materials": [
+            "各種歯車鋼"
+          ],
+          "heat_relation": "協力経由で焼入。大型歯切後の熱処理歪みが論点",
+          "reason": "最大径φ2000級・長尺。大型ピース購入とピット炉試験向き。",
+          "source_url": "https://ishida-haguruma-co-jp.secure-web.jp/",
+          "linked_majors": [],
+          "priority": 0,
+          "large_gear": true,
+          "pit_furnace_fit": "高",
+          "size_hint": "〜φ2000 / 長尺歯切",
+          "lat": 35.08,
+          "lng": 136.97,
+          "capital_man_yen": 1000,
+          "employees": 7,
+          "scale_summary": "資本金1,000万円 / 従業員約7名",
+          "id": "large_gear-石田歯車工業",
+          "hotspot_id": "large_gear",
+          "hotspot_area": "大型ギア特化（ピット炉検証）",
+          "scale_source": "公開情報"
+        },
+        {
+          "name": "阪神歯車",
+          "category": "中〜大型歯車・スプロケット",
+          "area": "兵庫県尼崎市",
+          "materials": [
+            "SS",
+            "S35C",
+            "SCM430"
+          ],
+          "heat_relation": "浸炭・高周波・窒化を協力外注。大型はピット炉ニーズが出やすい",
+          "reason": "外径〜φ2500・M〜20。ピット炉検証の試作品購入・外注提案の本命。",
+          "source_url": "https://www.hanshin-gear.co.jp/business.html",
+          "linked_majors": [],
+          "priority": 0,
+          "large_gear": true,
+          "pit_furnace_fit": "高（大型歯切＋熱処理外注）",
+          "size_hint": "φ100〜2500 / M2〜20",
+          "lat": 34.73,
+          "lng": 135.41,
+          "capital_man_yen": 300,
+          "employees": null,
+          "scale_summary": "資本金300万円 / 従業員未確認",
+          "id": "large_gear-阪神歯車",
+          "hotspot_id": "large_gear",
+          "hotspot_area": "大型ギア特化（ピット炉検証）",
+          "scale_source": "公開情報"
+        },
+        {
+          "name": "姫路歯車工業株式会社",
+          "category": "歯車",
+          "area": "兵庫県高砂市",
+          "materials": [
+            "鉄鋼・機械部品"
+          ],
+          "heat_relation": "大型歯車の焼入外注・ピット炉可否を確認",
+          "reason": "姫路界隈の歯車屋。大型可否とピット炉適合をヒアリング。",
+          "source_url": "",
+          "linked_majors": [],
+          "priority": 1,
+          "large_gear": true,
+          "pit_furnace_fit": "要確認",
+          "size_hint": "要ヒアリング",
+          "lat": 34.78,
+          "lng": 134.78,
+          "scale_summary": "公開規模未確認",
+          "id": "large_gear-姫路歯車工業",
+          "hotspot_id": "large_gear",
+          "hotspot_area": "大型ギア特化（ピット炉検証）",
+          "capital_man_yen": null,
+          "employees": null,
+          "scale_source": ""
+        },
+        {
+          "name": "東洋チンローラー株式会社",
+          "category": "ラック・歯切",
+          "area": "愛知県名古屋市",
+          "materials": [
+            "各種"
+          ],
+          "heat_relation": "大型ラックは焼入・歪み取りが絡む",
+          "reason": "大型ラック〜M16。大型製品トライの入口。",
+          "source_url": "https://toyotinroller.meisho-hp.jp/",
+          "linked_majors": [],
+          "priority": 1,
+          "large_gear": true,
+          "pit_furnace_fit": "中〜高（大型ラック）",
+          "size_hint": "ラック M〜16",
+          "lat": 35.15,
+          "lng": 136.9,
+          "scale_summary": "公開規模未確認",
+          "id": "large_gear-東洋チンローラー",
+          "hotspot_id": "large_gear",
+          "hotspot_area": "大型ギア特化（ピット炉検証）",
+          "capital_man_yen": null,
+          "employees": null
+        },
+        {
+          "name": "株式会社ジェイテクトギヤシステム",
+          "category": "大型〜自動車歯車（系列）",
+          "area": "愛知県瀬戸・日進／岐阜御嵩",
+          "materials": [
+            "SCM系"
+          ],
+          "heat_relation": "浸炭・調質標準。系列内製強いが特殊大型・周辺は余地",
+          "reason": "規模大。ピット炉系の系列外ニーズ・周辺サプライ探索の入口。",
+          "source_url": "https://www.gear.jtekt.co.jp/company/profile/",
+          "linked_majors": [
+            "ジェイテクト"
+          ],
+          "priority": 1,
+          "large_gear": true,
+          "pit_furnace_fit": "中（系列内製強い）",
+          "size_hint": "自動車〜産業用",
+          "lat": 35.223,
+          "lng": 137.084,
+          "capital_man_yen": 200000,
+          "employees": 1106,
+          "scale_summary": "資本金20億円 / 従業員1,106名",
+          "id": "large_gear-ジェイテクトギヤシステム",
+          "hotspot_id": "large_gear",
+          "hotspot_area": "大型ギア特化（ピット炉検証）",
+          "scale_source": "公式2025-04"
+        },
+        {
+          "name": "東海・関西の追加大型歯切（探索枠）",
+          "category": "探索メモ",
+          "area": "愛知・大阪・兵庫",
+          "materials": [
+            "SCM系"
+          ],
+          "heat_relation": "大型はピット炉・特殊焼入の外注が多い",
+          "reason": "φ1m超・建機・舶用・風力の歯切屋を社名確定して埋める。",
+          "source_url": "",
+          "linked_majors": [],
+          "priority": 2,
+          "large_gear": true,
+          "pit_furnace_fit": "探索中",
+          "size_hint": "探索",
+          "is_placeholder": true,
+          "lat": 35.0,
+          "lng": 136.5,
+          "scale_summary": "—",
+          "id": "large_gear-東海・関西の追加大型歯切（探索枠）",
+          "hotspot_id": "large_gear",
+          "hotspot_area": "大型ギア特化（ピット炉検証）",
+          "capital_man_yen": null,
+          "employees": null
+        }
+      ]
+    },
     {
       "hotspot_id": "willbe_tsushima",
       "area": "愛知・Willbe（津島）界隈",
@@ -147,7 +310,7 @@
       "pain": "防炭処理をしてくれない → 周辺部品メーカーの外注先を刈る",
       "lat": 35.1986,
       "lng": 136.848,
-      "count": 5,
+      "count": 4,
       "companies": [
         {
           "name": "清須・稲沢・一宮の歯切・シャフト（探索枠）",
@@ -172,28 +335,6 @@
           "scale_summary": "規模未確認",
           "capital_man_yen": null,
           "employees": null
-        },
-        {
-          "name": "石田歯車工業株式会社",
-          "category": "歯車製造",
-          "area": "愛知県名古屋市緑区",
-          "materials": [
-            "各種歯車鋼"
-          ],
-          "heat_relation": "協力企業経由で焼入・歯面研磨まで完成品対応",
-          "reason": "歯切特化＋焼入外注。熱処理困りごとの聞き取り向き。",
-          "source_url": "https://ishida-haguruma-co-jp.secure-web.jp/",
-          "linked_majors": [],
-          "priority": 1,
-          "lat": 35.08,
-          "lng": 136.97,
-          "id": "houwa-石田歯車工業",
-          "hotspot_id": "houwa",
-          "hotspot_area": "愛知・豊和工業（清須本社）界隈",
-          "capital_man_yen": 1000,
-          "employees": 7,
-          "scale_source": "公開情報",
-          "scale_summary": "資本金1,000万円 / 従業員約7名"
         },
         {
           "name": "豊和鍛工株式会社",
@@ -296,7 +437,7 @@
       "pain": "熱処理で困っていると聞いている",
       "lat": 34.9893,
       "lng": 137.0021,
-      "count": 5,
+      "count": 4,
       "companies": [
         {
           "name": "東光工業株式会社",
@@ -321,30 +462,6 @@
           "employees": 126,
           "scale_source": "公式",
           "scale_summary": "資本金3,000万円 / 従業員126名"
-        },
-        {
-          "name": "株式会社ジェイテクトギヤシステム",
-          "category": "歯車（大手系列）",
-          "area": "愛知県瀬戸・日進／岐阜県御嵩",
-          "materials": [
-            "自動車・産業歯車（SCM系）"
-          ],
-          "heat_relation": "デフギヤ等は浸炭・調質が標準。系列外ニーズも要確認",
-          "reason": "刈谷ジェイテクト界隈の歯車拠点。系列外・周辺外注の困りごとを聞き取る。",
-          "source_url": "https://www.gear.jtekt.co.jp/company/factory/",
-          "linked_majors": [
-            "ジェイテクト"
-          ],
-          "priority": 0,
-          "lat": 35.223,
-          "lng": 137.084,
-          "id": "kariya_jtekt-ジェイテクトギヤシステム",
-          "hotspot_id": "kariya_jtekt",
-          "hotspot_area": "刈谷市・ジェイテクト刈谷界隈",
-          "capital_man_yen": 200000,
-          "employees": 1106,
-          "scale_source": "公式2025-04",
-          "scale_summary": "資本金20億円 / 従業員1,106名"
         },
         {
           "name": "高浜歯車工業株式会社",
@@ -580,32 +697,8 @@
       "pain": "処理に困っているところがあると聞いている（種まき刈り取り）",
       "lat": 34.7334,
       "lng": 135.4063,
-      "count": 1,
+      "count": 0,
       "companies": [
-        {
-          "name": "阪神歯車",
-          "category": "歯車・スプロケット",
-          "area": "兵庫県尼崎市",
-          "materials": [
-            "SS",
-            "S35C",
-            "SCM430"
-          ],
-          "heat_relation": "浸炭・高周波・窒化を協力4社と連携と明記",
-          "reason": "尼崎の歯車屋。SCM扱い＋熱処理外注。困りごと再確認の本命。",
-          "source_url": "https://www.hanshin-gear.co.jp/business.html",
-          "linked_majors": [],
-          "priority": 0,
-          "lat": 34.73,
-          "lng": 135.41,
-          "id": "amagasaki-阪神歯車",
-          "hotspot_id": "amagasaki",
-          "hotspot_area": "兵庫・尼崎界隈",
-          "capital_man_yen": 300,
-          "employees": null,
-          "scale_source": "公開情報",
-          "scale_summary": "資本金300万円 / 従業員未確認"
-        },
         {
           "name": "尼崎臨海・塚口の機械加工・歯切（探索枠）",
           "category": "探索メモ",
@@ -658,30 +751,8 @@
       "pain": "処理に困っているところがあると聞いている（種まき刈り取り）",
       "lat": 34.8154,
       "lng": 134.6856,
-      "count": 1,
+      "count": 0,
       "companies": [
-        {
-          "name": "姫路歯車工業株式会社",
-          "category": "歯車",
-          "area": "兵庫県高砂市",
-          "materials": [
-            "鉄鋼・機械部品"
-          ],
-          "heat_relation": "歯車製造→焼入外注の可能性を確認",
-          "reason": "姫路界隈（高砂）の歯車屋。種まき刈り取りの具体社名。",
-          "source_url": "",
-          "linked_majors": [],
-          "priority": 0,
-          "lat": 34.78,
-          "lng": 134.78,
-          "id": "himeji-姫路歯車工業",
-          "hotspot_id": "himeji",
-          "hotspot_area": "兵庫・姫路界隈",
-          "capital_man_yen": null,
-          "employees": null,
-          "scale_source": "",
-          "scale_summary": "公開規模未確認"
-        },
         {
           "name": "姫路・加古川・高砂の歯車・鍛造・シャフト（探索枠）",
           "category": "探索メモ",
@@ -842,52 +913,6 @@
   ],
   "targets": [
     {
-      "name": "阪神歯車",
-      "category": "歯車・スプロケット",
-      "area": "兵庫県尼崎市",
-      "materials": [
-        "SS",
-        "S35C",
-        "SCM430"
-      ],
-      "heat_relation": "浸炭・高周波・窒化を協力4社と連携と明記",
-      "reason": "尼崎の歯車屋。SCM扱い＋熱処理外注。困りごと再確認の本命。",
-      "source_url": "https://www.hanshin-gear.co.jp/business.html",
-      "linked_majors": [],
-      "priority": 0,
-      "lat": 34.73,
-      "lng": 135.41,
-      "id": "amagasaki-阪神歯車",
-      "hotspot_id": "amagasaki",
-      "hotspot_area": "兵庫・尼崎界隈",
-      "capital_man_yen": 300,
-      "employees": null,
-      "scale_source": "公開情報",
-      "scale_summary": "資本金300万円 / 従業員未確認"
-    },
-    {
-      "name": "姫路歯車工業株式会社",
-      "category": "歯車",
-      "area": "兵庫県高砂市",
-      "materials": [
-        "鉄鋼・機械部品"
-      ],
-      "heat_relation": "歯車製造→焼入外注の可能性を確認",
-      "reason": "姫路界隈（高砂）の歯車屋。種まき刈り取りの具体社名。",
-      "source_url": "",
-      "linked_majors": [],
-      "priority": 0,
-      "lat": 34.78,
-      "lng": 134.78,
-      "id": "himeji-姫路歯車工業",
-      "hotspot_id": "himeji",
-      "hotspot_area": "兵庫・姫路界隈",
-      "capital_man_yen": null,
-      "employees": null,
-      "scale_source": "",
-      "scale_summary": "公開規模未確認"
-    },
-    {
       "name": "東光工業株式会社",
       "category": "自動車金属・歯車部品",
       "area": "愛知県高浜市／安城市",
@@ -910,30 +935,6 @@
       "employees": 126,
       "scale_source": "公式",
       "scale_summary": "資本金3,000万円 / 従業員126名"
-    },
-    {
-      "name": "株式会社ジェイテクトギヤシステム",
-      "category": "歯車（大手系列）",
-      "area": "愛知県瀬戸・日進／岐阜県御嵩",
-      "materials": [
-        "自動車・産業歯車（SCM系）"
-      ],
-      "heat_relation": "デフギヤ等は浸炭・調質が標準。系列外ニーズも要確認",
-      "reason": "刈谷ジェイテクト界隈の歯車拠点。系列外・周辺外注の困りごとを聞き取る。",
-      "source_url": "https://www.gear.jtekt.co.jp/company/factory/",
-      "linked_majors": [
-        "ジェイテクト"
-      ],
-      "priority": 0,
-      "lat": 35.223,
-      "lng": 137.084,
-      "id": "kariya_jtekt-ジェイテクトギヤシステム",
-      "hotspot_id": "kariya_jtekt",
-      "hotspot_area": "刈谷市・ジェイテクト刈谷界隈",
-      "capital_man_yen": 200000,
-      "employees": 1106,
-      "scale_source": "公式2025-04",
-      "scale_summary": "資本金20億円 / 従業員1,106名"
     },
     {
       "name": "高浜歯車工業株式会社",
@@ -959,6 +960,58 @@
       "employees": 25,
       "scale_source": "公式",
       "scale_summary": "資本金1,000万円 / 従業員25名"
+    },
+    {
+      "name": "石田歯車工業株式会社",
+      "category": "大型・長尺歯切",
+      "area": "愛知県名古屋市緑区",
+      "materials": [
+        "各種歯車鋼"
+      ],
+      "heat_relation": "協力経由で焼入。大型歯切後の熱処理歪みが論点",
+      "reason": "最大径φ2000級・長尺。大型ピース購入とピット炉試験向き。",
+      "source_url": "https://ishida-haguruma-co-jp.secure-web.jp/",
+      "linked_majors": [],
+      "priority": 0,
+      "large_gear": true,
+      "pit_furnace_fit": "高",
+      "size_hint": "〜φ2000 / 長尺歯切",
+      "lat": 35.08,
+      "lng": 136.97,
+      "capital_man_yen": 1000,
+      "employees": 7,
+      "scale_summary": "資本金1,000万円 / 従業員約7名",
+      "id": "large_gear-石田歯車工業",
+      "hotspot_id": "large_gear",
+      "hotspot_area": "大型ギア特化（ピット炉検証）",
+      "scale_source": "公開情報"
+    },
+    {
+      "name": "阪神歯車",
+      "category": "中〜大型歯車・スプロケット",
+      "area": "兵庫県尼崎市",
+      "materials": [
+        "SS",
+        "S35C",
+        "SCM430"
+      ],
+      "heat_relation": "浸炭・高周波・窒化を協力外注。大型はピット炉ニーズが出やすい",
+      "reason": "外径〜φ2500・M〜20。ピット炉検証の試作品購入・外注提案の本命。",
+      "source_url": "https://www.hanshin-gear.co.jp/business.html",
+      "linked_majors": [],
+      "priority": 0,
+      "large_gear": true,
+      "pit_furnace_fit": "高（大型歯切＋熱処理外注）",
+      "size_hint": "φ100〜2500 / M2〜20",
+      "lat": 34.73,
+      "lng": 135.41,
+      "capital_man_yen": 300,
+      "employees": null,
+      "scale_summary": "資本金300万円 / 従業員未確認",
+      "id": "large_gear-阪神歯車",
+      "hotspot_id": "large_gear",
+      "hotspot_area": "大型ギア特化（ピット炉検証）",
+      "scale_source": "公開情報"
     },
     {
       "name": "株式会社大川歯車製作所",
@@ -1061,28 +1114,6 @@
       "scale_summary": "資本金3,000万円 / 従業員71名"
     },
     {
-      "name": "石田歯車工業株式会社",
-      "category": "歯車製造",
-      "area": "愛知県名古屋市緑区",
-      "materials": [
-        "各種歯車鋼"
-      ],
-      "heat_relation": "協力企業経由で焼入・歯面研磨まで完成品対応",
-      "reason": "歯切特化＋焼入外注。熱処理困りごとの聞き取り向き。",
-      "source_url": "https://ishida-haguruma-co-jp.secure-web.jp/",
-      "linked_majors": [],
-      "priority": 1,
-      "lat": 35.08,
-      "lng": 136.97,
-      "id": "houwa-石田歯車工業",
-      "hotspot_id": "houwa",
-      "hotspot_area": "愛知・豊和工業（清須本社）界隈",
-      "capital_man_yen": 1000,
-      "employees": 7,
-      "scale_source": "公開情報",
-      "scale_summary": "資本金1,000万円 / 従業員約7名"
-    },
-    {
       "name": "豊和鍛工株式会社",
       "category": "鍛造",
       "area": "愛知県",
@@ -1153,6 +1184,82 @@
       "employees": 159,
       "scale_source": "公式",
       "scale_summary": "資本金1,000万円 / 従業員159名"
+    },
+    {
+      "name": "姫路歯車工業株式会社",
+      "category": "歯車",
+      "area": "兵庫県高砂市",
+      "materials": [
+        "鉄鋼・機械部品"
+      ],
+      "heat_relation": "大型歯車の焼入外注・ピット炉可否を確認",
+      "reason": "姫路界隈の歯車屋。大型可否とピット炉適合をヒアリング。",
+      "source_url": "",
+      "linked_majors": [],
+      "priority": 1,
+      "large_gear": true,
+      "pit_furnace_fit": "要確認",
+      "size_hint": "要ヒアリング",
+      "lat": 34.78,
+      "lng": 134.78,
+      "scale_summary": "公開規模未確認",
+      "id": "large_gear-姫路歯車工業",
+      "hotspot_id": "large_gear",
+      "hotspot_area": "大型ギア特化（ピット炉検証）",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_source": ""
+    },
+    {
+      "name": "東洋チンローラー株式会社",
+      "category": "ラック・歯切",
+      "area": "愛知県名古屋市",
+      "materials": [
+        "各種"
+      ],
+      "heat_relation": "大型ラックは焼入・歪み取りが絡む",
+      "reason": "大型ラック〜M16。大型製品トライの入口。",
+      "source_url": "https://toyotinroller.meisho-hp.jp/",
+      "linked_majors": [],
+      "priority": 1,
+      "large_gear": true,
+      "pit_furnace_fit": "中〜高（大型ラック）",
+      "size_hint": "ラック M〜16",
+      "lat": 35.15,
+      "lng": 136.9,
+      "scale_summary": "公開規模未確認",
+      "id": "large_gear-東洋チンローラー",
+      "hotspot_id": "large_gear",
+      "hotspot_area": "大型ギア特化（ピット炉検証）",
+      "capital_man_yen": null,
+      "employees": null
+    },
+    {
+      "name": "株式会社ジェイテクトギヤシステム",
+      "category": "大型〜自動車歯車（系列）",
+      "area": "愛知県瀬戸・日進／岐阜御嵩",
+      "materials": [
+        "SCM系"
+      ],
+      "heat_relation": "浸炭・調質標準。系列内製強いが特殊大型・周辺は余地",
+      "reason": "規模大。ピット炉系の系列外ニーズ・周辺サプライ探索の入口。",
+      "source_url": "https://www.gear.jtekt.co.jp/company/profile/",
+      "linked_majors": [
+        "ジェイテクト"
+      ],
+      "priority": 1,
+      "large_gear": true,
+      "pit_furnace_fit": "中（系列内製強い）",
+      "size_hint": "自動車〜産業用",
+      "lat": 35.223,
+      "lng": 137.084,
+      "capital_man_yen": 200000,
+      "employees": 1106,
+      "scale_summary": "資本金20億円 / 従業員1,106名",
+      "id": "large_gear-ジェイテクトギヤシステム",
+      "hotspot_id": "large_gear",
+      "hotspot_area": "大型ギア特化（ピット炉検証）",
+      "scale_source": "公式2025-04"
     },
     {
       "name": "タケウチ興業株式会社",
@@ -1302,11 +1409,11 @@
   "scale_table": [
     {
       "name": "株式会社ジェイテクトギヤシステム",
-      "hotspot_area": "刈谷市・ジェイテクト刈谷界隈",
+      "hotspot_area": "大型ギア特化（ピット炉検証）",
       "capital_man_yen": 200000,
       "employees": 1106,
       "scale_summary": "資本金20億円 / 従業員1,106名",
-      "priority": 0
+      "priority": 1
     },
     {
       "name": "株式会社名光精機",
@@ -1374,15 +1481,15 @@
     },
     {
       "name": "石田歯車工業株式会社",
-      "hotspot_area": "愛知・豊和工業（清須本社）界隈",
+      "hotspot_area": "大型ギア特化（ピット炉検証）",
       "capital_man_yen": 1000,
       "employees": 7,
       "scale_summary": "資本金1,000万円 / 従業員約7名",
-      "priority": 1
+      "priority": 0
     },
     {
       "name": "阪神歯車",
-      "hotspot_area": "兵庫・尼崎界隈",
+      "hotspot_area": "大型ギア特化（ピット炉検証）",
       "capital_man_yen": 300,
       "employees": null,
       "scale_summary": "資本金300万円 / 従業員未確認",
@@ -1398,11 +1505,11 @@
     },
     {
       "name": "姫路歯車工業株式会社",
-      "hotspot_area": "兵庫・姫路界隈",
+      "hotspot_area": "大型ギア特化（ピット炉検証）",
       "capital_man_yen": null,
       "employees": null,
       "scale_summary": "公開規模未確認",
-      "priority": 0
+      "priority": 1
     },
     {
       "name": "後藤鉄工所（G-SHAFT・参考）",
@@ -1411,6 +1518,14 @@
       "employees": null,
       "scale_summary": "公開規模未確認",
       "priority": 2
+    },
+    {
+      "name": "東洋チンローラー株式会社",
+      "hotspot_area": "大型ギア特化（ピット炉検証）",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "公開規模未確認",
+      "priority": 1
     },
     {
       "name": "株式会社MD（東海市）",
@@ -1539,7 +1654,160 @@
       "why": "既存取引のため攻略一覧から除外"
     }
   ],
+  "large_gear_focus": {
+    "id": "large_gear",
+    "area": "大型ギア特化（ピット炉検証）",
+    "pain": "ピット炉対応の検証と大型製品の購入トライのため、大型歯車メーカーに集中する。",
+    "lat": 34.8,
+    "lng": 136.5,
+    "focus": [
+      "大型歯車",
+      "大モジュール",
+      "φ500以上",
+      "ピット炉",
+      "焼入外注"
+    ],
+    "search_queries": [
+      "大型歯車 製造 愛知 OR 大阪 OR 兵庫 モジュール10 OR モジュール20",
+      "大型ギヤ φ1000 OR φ2000 浸炭 OR ピット炉 外注",
+      "ピット炉 浸炭 大型歯車 東海 OR 関西",
+      "大型スプロケット 歯切 SCM 焼入 兵庫 OR 大阪",
+      "歯車 直径 メートル 熱処理 外注",
+      "大型ラック モジュール16 歯切 愛知"
+    ],
+    "companies": [
+      {
+        "name": "阪神歯車",
+        "category": "中〜大型歯車・スプロケット",
+        "area": "兵庫県尼崎市",
+        "materials": [
+          "SS",
+          "S35C",
+          "SCM430"
+        ],
+        "heat_relation": "浸炭・高周波・窒化を協力外注。大型はピット炉ニーズが出やすい",
+        "reason": "外径〜φ2500・M〜20。ピット炉検証の試作品購入・外注提案の本命。",
+        "source_url": "https://www.hanshin-gear.co.jp/business.html",
+        "linked_majors": [],
+        "priority": 0,
+        "large_gear": true,
+        "pit_furnace_fit": "高（大型歯切＋熱処理外注）",
+        "size_hint": "φ100〜2500 / M2〜20",
+        "lat": 34.73,
+        "lng": 135.41,
+        "capital_man_yen": 300,
+        "employees": null,
+        "scale_summary": "資本金300万円 / 従業員未確認"
+      },
+      {
+        "name": "石田歯車工業株式会社",
+        "category": "大型・長尺歯切",
+        "area": "愛知県名古屋市緑区",
+        "materials": [
+          "各種歯車鋼"
+        ],
+        "heat_relation": "協力経由で焼入。大型歯切後の熱処理歪みが論点",
+        "reason": "最大径φ2000級・長尺。大型ピース購入とピット炉試験向き。",
+        "source_url": "https://ishida-haguruma-co-jp.secure-web.jp/",
+        "linked_majors": [],
+        "priority": 0,
+        "large_gear": true,
+        "pit_furnace_fit": "高",
+        "size_hint": "〜φ2000 / 長尺歯切",
+        "lat": 35.08,
+        "lng": 136.97,
+        "capital_man_yen": 1000,
+        "employees": 7,
+        "scale_summary": "資本金1,000万円 / 従業員約7名"
+      },
+      {
+        "name": "東洋チンローラー株式会社",
+        "category": "ラック・歯切",
+        "area": "愛知県名古屋市",
+        "materials": [
+          "各種"
+        ],
+        "heat_relation": "大型ラックは焼入・歪み取りが絡む",
+        "reason": "大型ラック〜M16。大型製品トライの入口。",
+        "source_url": "https://toyotinroller.meisho-hp.jp/",
+        "linked_majors": [],
+        "priority": 1,
+        "large_gear": true,
+        "pit_furnace_fit": "中〜高（大型ラック）",
+        "size_hint": "ラック M〜16",
+        "lat": 35.15,
+        "lng": 136.9,
+        "scale_summary": "公開規模未確認"
+      },
+      {
+        "name": "姫路歯車工業株式会社",
+        "category": "歯車",
+        "area": "兵庫県高砂市",
+        "materials": [
+          "鉄鋼・機械部品"
+        ],
+        "heat_relation": "大型歯車の焼入外注・ピット炉可否を確認",
+        "reason": "姫路界隈の歯車屋。大型可否とピット炉適合をヒアリング。",
+        "source_url": "",
+        "linked_majors": [],
+        "priority": 1,
+        "large_gear": true,
+        "pit_furnace_fit": "要確認",
+        "size_hint": "要ヒアリング",
+        "lat": 34.78,
+        "lng": 134.78,
+        "scale_summary": "公開規模未確認"
+      },
+      {
+        "name": "株式会社ジェイテクトギヤシステム",
+        "category": "大型〜自動車歯車（系列）",
+        "area": "愛知県瀬戸・日進／岐阜御嵩",
+        "materials": [
+          "SCM系"
+        ],
+        "heat_relation": "浸炭・調質標準。系列内製強いが特殊大型・周辺は余地",
+        "reason": "規模大。ピット炉系の系列外ニーズ・周辺サプライ探索の入口。",
+        "source_url": "https://www.gear.jtekt.co.jp/company/profile/",
+        "linked_majors": [
+          "ジェイテクト"
+        ],
+        "priority": 1,
+        "large_gear": true,
+        "pit_furnace_fit": "中（系列内製強い）",
+        "size_hint": "自動車〜産業用",
+        "lat": 35.223,
+        "lng": 137.084,
+        "capital_man_yen": 200000,
+        "employees": 1106,
+        "scale_summary": "資本金20億円 / 従業員1,106名"
+      },
+      {
+        "name": "東海・関西の追加大型歯切（探索枠）",
+        "category": "探索メモ",
+        "area": "愛知・大阪・兵庫",
+        "materials": [
+          "SCM系"
+        ],
+        "heat_relation": "大型はピット炉・特殊焼入の外注が多い",
+        "reason": "φ1m超・建機・舶用・風力の歯切屋を社名確定して埋める。",
+        "source_url": "",
+        "linked_majors": [],
+        "priority": 2,
+        "large_gear": true,
+        "pit_furnace_fit": "探索中",
+        "size_hint": "探索",
+        "is_placeholder": true,
+        "lat": 35.0,
+        "lng": 136.5,
+        "scale_summary": "—"
+      }
+    ]
+  },
   "search_queries": [
+    "大型歯車 製造 愛知 OR 大阪 OR 兵庫 モジュール10 OR モジュール20",
+    "大型ギヤ φ1000 OR φ2000 浸炭 OR ピット炉 外注",
+    "ピット炉 浸炭 大型歯車 東海 OR 関西",
+    "大型スプロケット 歯切 SCM 焼入 兵庫 OR 大阪",
     "Willbe 津島 外注 歯車 OR シャフト OR 熱処理",
     "清須 OR 津島 歯車 SCM 浸炭",
     "刈谷 歯車 熱処理 外注 -熱煉",

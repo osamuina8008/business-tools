@@ -99,7 +99,7 @@
         </div>
         <label class="text-xs text-slate-600 flex items-center gap-1.5">
           <input id="show-visits-on-map" type="checkbox" class="rounded" />
-          開拓先85社を地図に表示
+          <span id="map-visits-label">アクティブ開拓先を地図に表示</span>
         </label>
       </div>
       <div class="grid grid-cols-1 lg:grid-cols-5 gap-4">
@@ -117,13 +117,21 @@
 
     <!-- 訪問・開拓一覧 -->
     <section class="bg-white rounded-2xl border border-teal-100 shadow-sm p-5 fade-in">
-      <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-        <h2 class="font-bold text-teal-900">訪問・開拓先（Excel由来）</h2>
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+        <h2 class="font-bold text-teal-900">訪問・開拓先（Excel精査済）</h2>
         <div class="flex items-center gap-2">
           <input id="company-filter" type="search" placeholder="会社名・業種で絞り込み"
             class="text-sm border border-slate-200 rounded-lg px-3 py-1.5 w-48 md:w-64" />
           <span id="visit-meta" class="text-xs text-slate-400"></span>
         </div>
+      </div>
+      <p class="text-xs text-slate-500 mb-2">石川コマツ筋を精査済み。既定は<strong>アクティブのみ</strong>（開拓中＋話聞き）。取引先・受注済・終了・競合・低優先は隠す。</p>
+      <div class="flex flex-wrap gap-1.5 mb-3" id="visit-status-filters">
+        <button type="button" data-vfilter="active" class="visit-filter-btn text-[11px] font-semibold px-2.5 py-1 rounded-lg border border-teal-400 bg-teal-100 text-teal-900">アクティブ</button>
+        <button type="button" data-vfilter="listen" class="visit-filter-btn text-[11px] font-semibold px-2.5 py-1 rounded-lg border border-slate-200 bg-white text-slate-600">話聞き（コマツ）</button>
+        <button type="button" data-vfilter="customer" class="visit-filter-btn text-[11px] font-semibold px-2.5 py-1 rounded-lg border border-slate-200 bg-white text-slate-600">取引先・受注</button>
+        <button type="button" data-vfilter="closed" class="visit-filter-btn text-[11px] font-semibold px-2.5 py-1 rounded-lg border border-slate-200 bg-white text-slate-600">終了・対象外</button>
+        <button type="button" data-vfilter="all" class="visit-filter-btn text-[11px] font-semibold px-2.5 py-1 rounded-lg border border-slate-200 bg-white text-slate-600">すべて</button>
       </div>
       <div id="company-list" class="grid grid-cols-1 md:grid-cols-2 gap-2 max-h-80 overflow-auto"></div>
     </section>
@@ -993,38 +1001,71 @@ async function copyActions() {
   }
 }
 
+let visitViewFilter = 'active';
+
+const VISIT_INACTIVE = new Set(['no_prospect', 'closed', 'customer', 'won', 'competitor', 'low']);
+
+function visitMatchesFilter(c, mode) {
+  const st = c.status || 'prospect';
+  if (mode === 'all') return true;
+  if (mode === 'active') return st === 'prospect' || st === 'listen' || st === 'visited';
+  if (mode === 'listen') return st === 'listen';
+  if (mode === 'customer') return st === 'customer' || st === 'won';
+  if (mode === 'closed') return ['closed', 'no_prospect', 'competitor', 'low'].includes(st);
+  return true;
+}
+
+function statusBadgeHtml(st) {
+  const map = {
+    no_prospect: ['見込みなし', 'text-slate-600 bg-slate-200'],
+    closed: ['終了', 'text-slate-600 bg-slate-200'],
+    customer: ['取引先', 'text-emerald-800 bg-emerald-100'],
+    won: ['受注済', 'text-emerald-900 bg-emerald-200'],
+    competitor: ['競合', 'text-violet-800 bg-violet-100'],
+    listen: ['話聞き', 'text-amber-900 bg-amber-100'],
+    low: ['低優先', 'text-amber-800 bg-amber-100'],
+    visited: ['訪問済', 'text-teal-800 bg-teal-100'],
+    prospect: ['開拓中', 'text-teal-900 bg-teal-100'],
+  };
+  const [label, cls] = map[st] || ['', ''];
+  if (!label) return '';
+  return `<span class="text-[10px] font-bold ${cls} px-1.5 py-0.5 rounded">${label}</span>`;
+}
+
 function renderCompanyList(filter = '') {
   const q = filter.trim().toLowerCase();
-  const list = (visits?.companies || []).filter(c => {
+  const all = visits?.companies || [];
+  const list = all.filter(c => {
+    if (!visitMatchesFilter(c, visitViewFilter)) return false;
     if (!q) return true;
-    const hay = [c.name, c.industry, c.address, c.rank, c.proposal].join(' ').toLowerCase();
+    const hay = [c.name, c.industry, c.address, c.rank, c.proposal, c.status, c.note].join(' ').toLowerCase();
     return hay.includes(q);
   });
-  document.getElementById('visit-meta').textContent = `${list.length} / ${(visits?.companies || []).length}社`;
+  const activeN = all.filter(c => visitMatchesFilter(c, 'active')).length;
+  document.getElementById('visit-meta').textContent = `${list.length}件表示 / 全${all.length}社（アクティブ${activeN}）`;
+  const mapLab = document.getElementById('map-visits-label');
+  if (mapLab) mapLab.textContent = `アクティブ開拓先${activeN}社を地図に表示`;
   document.getElementById('company-list').innerHTML = list.map(c => {
     const intel = companyIntelById[c.id] || {};
     const hasIntel = !!(intel.scale_summary || (intel.customers||[]).length);
     const st = c.status || '';
-    const stBadge = st === 'no_prospect'
-      ? '<span class="text-[10px] font-bold text-slate-600 bg-slate-200 px-1.5 py-0.5 rounded">見込みなし</span>'
-      : st === 'low'
-      ? '<span class="text-[10px] font-bold text-amber-800 bg-amber-100 px-1.5 py-0.5 rounded">低優先</span>'
-      : st === 'visited'
-      ? '<span class="text-[10px] font-bold text-teal-800 bg-teal-100 px-1.5 py-0.5 rounded">訪問済</span>'
-      : '';
+    const stBadge = statusBadgeHtml(st);
     const sig = findTargetSignals(c);
     const artN = (sig?.articles || []).length;
     const exN = (sig?.exhibitions || []).length;
     const sigBadge = artN || exN
       ? `<span class="text-[10px] text-sky-800 font-bold bg-sky-100 px-1.5 py-0.5 rounded">記事${artN}${exN ? `·展${exN}` : ''}</span>`
       : '';
-    const dim = (st === 'no_prospect' || st === 'low') ? 'opacity-70' : '';
-    const border = st === 'no_prospect'
-      ? 'border-slate-200 bg-slate-50'
-      : st === 'low'
-      ? 'border-amber-200 bg-amber-50/50'
-      : artN ? 'border-sky-200 bg-sky-50/50'
-      : (c.news_hits||[]).length ? 'border-rose-200 bg-rose-50/50' : hasIntel ? 'border-teal-200 bg-teal-50/60' : 'border-teal-100 bg-teal-50/40';
+    const dim = VISIT_INACTIVE.has(st) && st !== 'listen' ? 'opacity-70' : '';
+    const border = st === 'listen'
+      ? 'border-amber-300 bg-amber-50/70'
+      : st === 'prospect' || st === 'visited'
+      ? (artN ? 'border-sky-200 bg-sky-50/50' : hasIntel ? 'border-teal-200 bg-teal-50/60' : 'border-teal-100 bg-teal-50/40')
+      : st === 'customer' || st === 'won'
+      ? 'border-emerald-200 bg-emerald-50/50'
+      : st === 'competitor'
+      ? 'border-violet-200 bg-violet-50/50'
+      : 'border-slate-200 bg-slate-50';
     return `
     <button type="button" onclick="showCompany('${esc(c.id)}')"
       class="text-left rounded-xl border ${border} hover:bg-teal-50 p-3 transition ${dim}">
@@ -1034,7 +1075,19 @@ function renderCompanyList(filter = '') {
       ${artN && sig.articles[0] ? `<p class="text-xs text-sky-800 mt-1 line-clamp-2">${esc(sig.articles[0].title || '')}</p>` : ''}
       ${c.proposal ? `<p class="text-xs text-amber-800 mt-1 line-clamp-2">${esc(c.proposal)}</p>` : ''}
     </button>`;
-  }).join('') || '<p class="text-sm text-slate-400">該当なし。マスターExcelを build してください。</p>';
+  }).join('') || '<p class="text-sm text-slate-400">この条件では0件。フィルタを切り替えてください。</p>';
+}
+
+function setVisitFilter(mode) {
+  visitViewFilter = mode || 'active';
+  document.querySelectorAll('.visit-filter-btn').forEach(btn => {
+    const on = btn.getAttribute('data-vfilter') === visitViewFilter;
+    btn.className = on
+      ? 'visit-filter-btn text-[11px] font-semibold px-2.5 py-1 rounded-lg border border-teal-400 bg-teal-100 text-teal-900'
+      : 'visit-filter-btn text-[11px] font-semibold px-2.5 py-1 rounded-lg border border-slate-200 bg-white text-slate-600';
+  });
+  const q = document.getElementById('company-filter')?.value || '';
+  renderCompanyList(q);
 }
 
 function buildMap(data, visitData) {
@@ -1090,7 +1143,9 @@ function buildMap(data, visitData) {
 
   (visitData?.companies || []).forEach(c => {
     if (c.lat == null || c.lng == null) return;
-    const color = c.marker === 'eight' ? COLORS.eight : COLORS.visit;
+    // 地図にはアクティブ（開拓中・話聞き・訪問済）だけ
+    if (!visitMatchesFilter(c, 'active')) return;
+    const color = c.status === 'listen' ? '#d97706' : (c.marker === 'eight' ? COLORS.eight : COLORS.visit);
     const m = L.marker([c.lat, c.lng], { icon: circleIcon(color) });
     m.bindPopup(`<strong>${esc(c.name)}</strong><br>${esc(c.proposal || c.address || '')}<br><button type="button" onclick="showCompany('${esc(c.id)}')" style="margin-top:6px;font-size:12px;color:#0f766e;font-weight:700">詳細を開く</button>`);
     m.on('click', () => showCompany(c.id));
@@ -1246,6 +1301,10 @@ async function main() {
   if (next.length) showAnchor(next.find(a => a.id === 'howa') || next[0]);
   renderCompanyList();
   document.getElementById('company-filter').addEventListener('input', (e) => renderCompanyList(e.target.value));
+  document.querySelectorAll('.visit-filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => setVisitFilter(btn.getAttribute('data-vfilter')));
+  });
+  setVisitFilter('active');
   if (aRes.ok) {
     renderActions(await aRes.json());
   } else {

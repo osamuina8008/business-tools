@@ -1,0 +1,164 @@
+{
+  "updated_at": "2026-08-11T10:02:20+09:00",
+  "status_counts": {
+    "low": 60,
+    "won": 3,
+    "competitor": 4,
+    "listen": 4,
+    "customer": 4,
+    "no_prospect": 8,
+    "closed": 3,
+    "prospect": 3
+  },
+  "explicit": [
+    {
+      "name": "(有)茶谷鉄工所",
+      "from": "prospect",
+      "to": "won"
+    },
+    {
+      "name": "(株)サンエー精機",
+      "from": "low",
+      "to": "low"
+    },
+    {
+      "name": "(株)ネツレン小松",
+      "from": "prospect",
+      "to": "competitor"
+    },
+    {
+      "name": "(株)ミモト",
+      "from": "prospect",
+      "to": "listen"
+    },
+    {
+      "name": "(株)中川鉄工所",
+      "from": "prospect",
+      "to": "listen"
+    },
+    {
+      "name": "(株)二水",
+      "from": "prospect",
+      "to": "customer"
+    },
+    {
+      "name": "(株)二羽歯切",
+      "from": "prospect",
+      "to": "no_prospect"
+    },
+    {
+      "name": "(株)共和工業",
+      "from": "prospect",
+      "to": "listen"
+    },
+    {
+      "name": "(株)吉本歯切",
+      "from": "prospect",
+      "to": "low"
+    },
+    {
+      "name": "(株)大徳鉄工",
+      "from": "prospect",
+      "to": "listen"
+    },
+    {
+      "name": "(株)宮本鉄工",
+      "from": "prospect",
+      "to": "won"
+    },
+    {
+      "name": "(株)島製作所",
+      "from": "prospect",
+      "to": "customer"
+    },
+    {
+      "name": "(株)東振精機",
+      "from": "no_prospect",
+      "to": "no_prospect"
+    },
+    {
+      "name": "(株)林鍛造所",
+      "from": "prospect",
+      "to": "closed"
+    },
+    {
+      "name": "(株)柴田製作所",
+      "from": "prospect",
+      "to": "closed"
+    },
+    {
+      "name": "(株)炭澤鉄工",
+      "from": "prospect",
+      "to": "no_prospect"
+    },
+    {
+      "name": "(株)竹内歯車製作所",
+      "from": "prospect",
+      "to": "no_prospect"
+    },
+    {
+      "name": "(株)西研精機製作所",
+      "from": "prospect",
+      "to": "customer"
+    },
+    {
+      "name": "カネマツ鋼材(株)",
+      "from": "prospect",
+      "to": "customer"
+    },
+    {
+      "name": "コマツキカイ(株)",
+      "from": "prospect",
+      "to": "no_prospect"
+    },
+    {
+      "name": "コンペチター",
+      "from": "prospect",
+      "to": "no_prospect"
+    },
+    {
+      "name": "土肥研磨工業(株)",
+      "from": "no_prospect",
+      "to": "no_prospect"
+    },
+    {
+      "name": "富士精機(株)",
+      "from": "prospect",
+      "to": "low"
+    },
+    {
+      "name": "岡田研磨(株)",
+      "from": "prospect",
+      "to": "closed"
+    },
+    {
+      "name": "東神熱工(株)小松工場",
+      "from": "prospect",
+      "to": "competitor"
+    },
+    {
+      "name": "栗田HT(株)",
+      "from": "prospect",
+      "to": "competitor"
+    },
+    {
+      "name": "深田熱処理工業(株)",
+      "from": "prospect",
+      "to": "competitor"
+    }
+  ],
+  "ishikawa_demoted": 57,
+  "active_statuses": [
+    "prospect",
+    "listen",
+    "visited"
+  ],
+  "hidden_by_default": [
+    "no_prospect",
+    "closed",
+    "customer",
+    "won",
+    "competitor",
+    "low"
+  ]
+}

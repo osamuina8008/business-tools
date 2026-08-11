@@ -6,7 +6,9 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <title>競合管理（熱処理屋）</title>
   <link rel="manifest" href="../manifest.json" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <style>
     body { font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic UI', sans-serif; }
     .chip { white-space: nowrap; }
@@ -17,6 +19,8 @@
     .intel-table { width: 100%; border-collapse: collapse; font-size: 11px; }
     .intel-table th, .intel-table td { border: 1px solid #e2e8f0; padding: 4px 6px; text-align: left; }
     .intel-table th { background: #f1f5f9; font-weight: 600; }
+    #comp-map { height: 320px; width: 100%; border-radius: 1rem; }
+    .leaflet-container { font: inherit; z-index: 1; }
   </style>
 </head>
 <body class="bg-slate-50 min-h-screen">
@@ -33,12 +37,41 @@
     </div>
     <div class="flex items-center gap-2 text-xs">
       <span id="stat" class="text-slate-500"></span>
-      <a href="./index.html" class="font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg">地図</a>
+      <span id="crawl-stat" class="text-slate-400"></span>
+      <button type="button" onclick="document.getElementById('map-section').scrollIntoView({behavior:'smooth'})"
+        class="font-semibold text-white bg-violet-700 hover:bg-violet-800 px-3 py-1.5 rounded-lg">地図</button>
+      <a href="./index.html" class="font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg">攻めどころ</a>
     </div>
   </div>
 </header>
 
-<main class="max-w-7xl mx-auto px-4 py-4 grid grid-cols-1 lg:grid-cols-12 gap-4">
+<main class="max-w-7xl mx-auto px-4 py-4 space-y-4">
+
+  <!-- クローリング重要アラート -->
+  <section id="alerts-section" class="hidden bg-rose-50 border border-rose-200 rounded-2xl p-4">
+    <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
+      <div>
+        <h2 class="text-sm font-bold text-rose-900">クローリング重要更新</h2>
+        <p class="text-[10px] text-rose-800/80 mt-0.5">公式HP差分を自動検出。誤検知あり得るので必ず確認。</p>
+      </div>
+      <span id="alerts-meta" class="text-[10px] text-rose-700"></span>
+    </div>
+    <div id="alerts-list" class="space-y-1.5 max-h-40 overflow-auto"></div>
+  </section>
+
+  <!-- この画面上の地図 -->
+  <section id="map-section" class="bg-white rounded-2xl border border-violet-200 p-4 shadow-sm">
+    <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+      <div>
+        <h2 class="text-sm font-bold text-violet-950">競合マップ</h2>
+        <p class="text-[10px] text-slate-500">フィルタ結果を地図表示。ピンクリックで右に詳細。位置は市区町村付近。</p>
+      </div>
+      <span id="map-meta" class="text-[10px] text-slate-500"></span>
+    </div>
+    <div id="comp-map" class="border border-slate-200"></div>
+  </section>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
 
   <!-- 左: 検索 -->
   <aside class="lg:col-span-4 space-y-3">
@@ -114,6 +147,7 @@
       <p class="text-sm text-slate-400">左のカードを選ぶと詳細が出ます</p>
     </div>
   </section>
+  </div>
 </main>
 
 <script>
@@ -122,12 +156,100 @@ let territory = null;
 let intel = null;
 let presets = null;
 let equipMap = null;
+let crawlAlerts = null;
 let byId = {};
 let mapByName = {};
 let activePresetId = null;
 let filter = { query: '', tags: [], region: '', macro: '', position: '' };
 let viewMode = 'list'; // list | map
+let leafletMap = null;
+let markerLayer = null;
 const HQ_PLANT_RE = /工場|事業部|営業所|\([^)]+\)/;
+
+function circleIcon(color, size = 14) {
+  return L.divIcon({
+    className: '',
+    html: `<div style="width:${size}px;height:${size}px;border-radius:999px;background:${color};border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.35)"></div>`,
+    iconSize: [size, size],
+    iconAnchor: [size / 2, size / 2],
+  });
+}
+
+function pinColor(row) {
+  if (row.has_expansion_alert) return '#b91c1c';
+  if (row.relation === 'coop_candidate' || (row.tags || []).includes('協力候補')) return '#047857';
+  if (row.detail_missing) return '#94a3b8';
+  return '#6d28d9';
+}
+
+function ensureMap() {
+  if (leafletMap) return;
+  leafletMap = L.map('comp-map', { scrollWheelZoom: false }).setView([35.0, 136.5], 7);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '&copy; OpenStreetMap',
+  }).addTo(leafletMap);
+  markerLayer = L.layerGroup().addTo(leafletMap);
+  setTimeout(() => leafletMap.invalidateSize(), 80);
+}
+
+function renderMap() {
+  ensureMap();
+  markerLayer.clearLayers();
+  const rows = filtered().filter(r => Number.isFinite(r.lat) && Number.isFinite(r.lng));
+  const bounds = [];
+  rows.forEach(r => {
+    const m = L.marker([r.lat, r.lng], { icon: circleIcon(pinColor(r), r.has_expansion_alert ? 16 : 14) });
+    m.bindPopup(`<strong>${esc(r.name)}</strong><br>${esc(r.area || '')}<br>${esc((r.blurb || '').slice(0, 80))}`);
+    m.on('click', () => showDetail(r.id));
+    markerLayer.addLayer(m);
+    bounds.push([r.lat, r.lng]);
+  });
+  document.getElementById('map-meta').textContent =
+    `表示 ${rows.length}社（座標あり） / フィルタ ${filtered().length}社`;
+  if (bounds.length >= 2) {
+    leafletMap.fitBounds(bounds, { padding: [28, 28], maxZoom: 10 });
+  } else if (bounds.length === 1) {
+    leafletMap.setView(bounds[0], 10);
+  }
+  setTimeout(() => leafletMap.invalidateSize(), 50);
+}
+
+function renderAlerts() {
+  const box = document.getElementById('alerts-section');
+  const list = document.getElementById('alerts-list');
+  if (!crawlAlerts || !(crawlAlerts.alerts || []).length) {
+    box.classList.add('hidden');
+    document.getElementById('crawl-stat').textContent = crawlAlerts?.updated
+      ? `最終クロール ${String(crawlAlerts.updated).slice(0, 16).replace('T', ' ')}`
+      : '';
+    return;
+  }
+  const important = (crawlAlerts.alerts || []).filter(a =>
+    a.severity === 'critical' || a.severity === 'high' || a.severity === 'medium'
+  ).slice(0, 12);
+  if (!important.length) {
+    box.classList.add('hidden');
+    return;
+  }
+  box.classList.remove('hidden');
+  document.getElementById('alerts-meta').textContent =
+    `重要 ${crawlAlerts.important_count || important.length} · 更新 ${String(crawlAlerts.updated || '').slice(0, 16).replace('T', ' ')}`;
+  document.getElementById('crawl-stat').textContent =
+    `アラート ${important.length}`;
+  const sevCls = { critical: 'bg-rose-700 text-white', high: 'bg-rose-600 text-white', medium: 'bg-amber-500 text-white' };
+  list.innerHTML = important.map(a => {
+    const url = (a.urls && (a.urls.company || a.urls.equipment)) || '#';
+    return `<div class="flex flex-wrap items-start gap-2 text-xs bg-white/80 border border-rose-100 rounded-lg px-2.5 py-1.5">
+      <span class="text-[10px] font-bold px-1.5 py-0.5 rounded ${sevCls[a.severity] || 'bg-slate-500 text-white'}">${esc(a.severity)}</span>
+      <div class="min-w-0 flex-1">
+        <p class="font-semibold text-rose-950">${esc(a.title || a.name)}</p>
+        <p class="text-slate-600 mt-0.5">${esc(a.snippet || '')}</p>
+      </div>
+      <a href="${esc(url)}" target="_blank" rel="noopener" class="text-indigo-700 font-semibold whitespace-nowrap">HP ↗</a>
+    </div>`;
+  }).join('');
+}
 
 /** 検索同義語・誤変換ゆるめ（例: ガス窒化 / 窒化処理） */
 const KEYWORD_SYNONYMS = {
@@ -373,6 +495,7 @@ function cardHtml(row) {
 function renderList() {
   if (viewMode === 'map') {
     renderEquipMap();
+    renderMap();
     return;
   }
   const rows = filtered();
@@ -394,6 +517,7 @@ function renderList() {
       <div class="space-y-2">${groups.get(region).map(cardHtml).join('')}</div>
     </div>
   `).join('') || '<p class="text-sm text-slate-400 p-4">該当なし。条件を緩めてください。</p>';
+  renderMap();
 }
 
 function showEquipMap() {
@@ -530,16 +654,18 @@ function showDetail(id) {
 }
 
 async function boot() {
-  const [tRes, iRes, pRes, mRes] = await Promise.all([
+  const [tRes, iRes, pRes, mRes, aRes] = await Promise.all([
     fetch('./territory_strategy.json?v=' + Date.now()),
     fetch('./competitor_intel.json?v=' + Date.now()),
     fetch('./competitor_search_presets.json?v=' + Date.now()),
     fetch('./competitor_equipment_map.json?v=' + Date.now()),
+    fetch('./competitor_crawl_alerts.json?v=' + Date.now()),
   ]);
   territory = await tRes.json();
   intel = await iRes.json();
   presets = await pRes.json();
   equipMap = await mRes.json().catch(() => null);
+  crawlAlerts = await aRes.json().catch(() => null);
   byId = Object.fromEntries((intel.competitors || []).map(c => [c.id, c]));
   mapByName = {};
   for (const r of (equipMap?.rows || [])) {
@@ -550,8 +676,10 @@ async function boot() {
     const t2 = await fetch('../news/territory_strategy.json?v=' + Date.now()).then(r => r.json()).catch(() => null);
     if (t2) territory = t2;
   }
+  const withGeo = (territory.competitor_adjacent_targets || []).filter(c => c.lat && c.lng).length;
   document.getElementById('stat').textContent =
-    `${(territory.competitor_adjacent_targets || []).length}社 · マップ ${(equipMap?.rows || []).length}社`;
+    `${(territory.competitor_adjacent_targets || []).length}社 · 地図ピン ${withGeo}社 · 設備表 ${(equipMap?.rows || []).length}社`;
+  renderAlerts();
   renderPresets();
   renderList();
 }

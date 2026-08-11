@@ -5,6 +5,7 @@
   "regions_order": [
     "東海",
     "中部（東海除く）",
+    "北陸",
     "近畿",
     "岡山",
     "鳥取",
@@ -32,7 +33,7 @@
     "ヤンマーキャステクノ",
     "エンドー島根工場"
   ],
-  "next_step": "エリアを100～200社まで拡張し、会社名／県／本業／炉種類／台数／能力／設備メーカー／設備URL／営業優先度のDBにする。",
+  "next_step": "中部金属熱処理協同組合＋丹後機械工業協同組合の企業群を母集団に、北陸・北近畿の自社炉保有企業を30～50社まで掘る。",
   "companies": [
     {
       "name": "愛知製鋼株式会社",
@@ -54,7 +55,8 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
-      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "旭鉄工株式会社",
@@ -76,7 +78,8 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
-      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "旭電気製鋼株式会社",
@@ -97,7 +100,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "マイクロフィルター株式会社",
@@ -118,7 +122,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "東宏工業株式会社",
@@ -139,7 +144,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "神岡部品工業株式会社",
@@ -161,7 +167,8 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
-      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "株式会社長倉製作所",
@@ -183,7 +190,8 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
-      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "小松工業株式会社",
@@ -204,7 +212,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "北陸工業株式会社",
@@ -226,7 +235,8 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
-      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "アイチテクノメタルフカウミ株式会社",
@@ -247,7 +257,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "有限会社ファインフォーミング",
@@ -268,7 +279,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "東新精工株式会社",
@@ -289,7 +301,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "株式会社松栄製作所",
@@ -310,7 +323,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "越川工業株式会社",
@@ -331,7 +345,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "株式会社ダイヤ精工",
@@ -353,7 +368,8 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
-      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "オカダ合金株式会社",
@@ -374,7 +390,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "近江鍛工株式会社",
@@ -396,7 +413,8 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
-      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "日伸工業株式会社",
@@ -418,7 +436,8 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
-      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "株式会社大阪合金工業所",
@@ -439,7 +458,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "和伸工業株式会社",
@@ -461,7 +481,8 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
-      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "三陽金属株式会社",
@@ -482,7 +503,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "近畿丸製ナット株式会社",
@@ -503,7 +525,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "株式会社ハクロフォージング",
@@ -524,7 +547,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "関西鋼業株式会社",
@@ -545,7 +569,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "株式会社OTS",
@@ -567,7 +592,8 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
-      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "オカネツ工業株式会社",
@@ -589,7 +615,8 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
-      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "株式会社吉延精機工業",
@@ -610,7 +637,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "光軽金属工業株式会社",
@@ -631,7 +659,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "サクライ軽金属株式会社",
@@ -652,7 +681,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "TPRアルテック株式会社",
@@ -673,7 +703,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "株式会社岡島パイプ製作所",
@@ -694,7 +725,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "株式会社明治製作所",
@@ -716,7 +748,8 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
-      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "株式会社菊水フォージング",
@@ -737,7 +770,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "米子製鋼株式会社",
@@ -759,7 +793,8 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
-      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "株式会社ミヨシ",
@@ -780,7 +815,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "安田精工株式会社",
@@ -801,7 +837,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "株式会社ササヤマ",
@@ -822,7 +859,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "聖和精機株式会社",
@@ -843,7 +881,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "ヤンマーキャステクノ株式会社(松江事業部)",
@@ -868,7 +907,8 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
-      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "株式会社エンドー(島根工場)",
@@ -890,7 +930,8 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
-      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "株式会社渡部製鋼所",
@@ -911,7 +952,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "オーエム金属工業株式会社",
@@ -932,7 +974,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "島根自動機株式会社",
@@ -953,7 +996,8 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
     },
     {
       "name": "株式会社アイシン福井",
@@ -977,11 +1021,516 @@
       "furnace_maker": "",
       "capacity": "",
       "list_type": "inhouse_ht_maker",
-      "focus_agreed": false
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー"
+    },
+    {
+      "name": "田中精密工業株式会社",
+      "short": "田中精密工業",
+      "pref": "富山",
+      "city": "",
+      "region": "北陸",
+      "priority": "A+",
+      "focus": true,
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー",
+      "business": "自動車・エンジン部品",
+      "furnaces": "バッチ型熱処理炉、連続熱処理炉。焼入・焼戻・浸炭焼入・窒化を製造工程として実施。",
+      "source_url": "https://www.tanasei.co.jp/products/technology/",
+      "source_label": "タナセイ 技術情報",
+      "deal_status": "未取引",
+      "confirm": "公開情報確認",
+      "note": "北陸重点候補。製造＋熱処理が一体化。",
+      "aliases": [
+        "タナセイ"
+      ],
+      "id": "420a0686cd41",
+      "list_type": "inhouse_ht_maker",
+      "status": "prospect"
+    },
+    {
+      "name": "株式会社林鍛造所",
+      "short": "林鍛造所",
+      "pref": "石川",
+      "city": "",
+      "region": "北陸",
+      "priority": "A+",
+      "focus": true,
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー",
+      "business": "熱間・冷間鍛造",
+      "furnaces": "連続式無酸化焼入焼戻炉 500kg/h×2基。熱処理搬入ロボットも保有。",
+      "source_url": "https://www.isico.or.jp/virtual/vkogyo/hayashi.html",
+      "source_label": "ISICO 林鍛造所",
+      "deal_status": "未取引",
+      "confirm": "コンタクト済",
+      "note": "ユーザー確認: 既にコンタクト済み。製造＋熱処理がはっきり一体化。",
+      "aliases": [
+        "林鍛造",
+        "林丹蔵"
+      ],
+      "id": "19752204bd70",
+      "list_type": "inhouse_ht_maker",
+      "status": "prospect"
+    },
+    {
+      "name": "株式会社明石合銅",
+      "short": "明石合銅",
+      "pref": "石川",
+      "city": "",
+      "region": "北陸",
+      "priority": "B",
+      "focus": false,
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー",
+      "business": "銅合金・焼結・機械加工",
+      "furnaces": "連続焼結炉1台、ガス軟窒化熱処理炉1台等。",
+      "source_url": "https://akashigo.com/equipment/",
+      "source_label": "明石合銅 設備",
+      "deal_status": "未取引",
+      "confirm": "対応不可",
+      "note": "ユーザー確認: ガス軟窒化熱処理炉は当社対応不可。営業対象から外す／参考記録。",
+      "aliases": [
+        "明石合同"
+      ],
+      "id": "a2e927fc707f",
+      "list_type": "inhouse_ht_maker",
+      "status": "prospect"
+    },
+    {
+      "name": "武生特殊鋼材株式会社",
+      "short": "武生特殊鋼材",
+      "pref": "福井",
+      "city": "",
+      "region": "北陸",
+      "priority": "B",
+      "focus": false,
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー",
+      "business": "特殊鋼・クラッド材・金属加工",
+      "furnaces": "ソルトバス炉、ローラーハース式連続炉、ベル型焼鈍炉、メッシュベルト式連続炉、真空・雰囲気電気炉。",
+      "source_url": "https://e-tokko.com/equipment.php",
+      "source_label": "E-Tokko 設備",
+      "deal_status": "未取引",
+      "confirm": "分野外",
+      "note": "ユーザー確認: ソルトバス／ローラーハース／ベル型焼鈍／メッシュベルト／真空雰囲気はあまり関係ない分野。低優先・分野外。",
+      "aliases": [
+        "タケフ特殊鋼材",
+        "武生特殊鋼"
+      ],
+      "id": "3898b33485b2",
+      "list_type": "inhouse_ht_maker",
+      "status": "prospect"
+    },
+    {
+      "name": "福井鋲螺株式会社",
+      "short": "福井鋲螺",
+      "pref": "福井",
+      "city": "",
+      "region": "北陸",
+      "priority": "A+",
+      "focus": true,
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー",
+      "business": "冷間鍛造・圧造部品",
+      "furnaces": "社内真空炉ほか熱処理設備。焼入・焼戻・焼鈍・焼ならし等。",
+      "source_url": "https://byora.co.jp/technology/tech4-materials.html",
+      "source_label": "福井鋲螺 材料・熱処理",
+      "deal_status": "既存客",
+      "confirm": "既存客",
+      "note": "ユーザー確認: 現行お客様（福井ビューラ＝福井鋲螺）。",
+      "aliases": [
+        "福井ビューラ",
+        "ビューラ",
+        "BYORA"
+      ],
+      "id": "a6107c7628cb",
+      "list_type": "inhouse_ht_maker",
+      "status": "prospect"
+    },
+    {
+      "name": "深田熱処理工業株式会社",
+      "short": "深田熱処理",
+      "pref": "石川",
+      "city": "",
+      "region": "北陸",
+      "priority": "A+",
+      "focus": false,
+      "focus_agreed": false,
+      "category": "熱処理専業",
+      "business": "金属熱処理",
+      "furnaces": "真空炉650kg、連続無酸化焼入焼戻炉3系列、1,000kgバッチ炉、高周波多数、大型4,000kg炉等。",
+      "source_url": "https://www.fukada-net.co.jp/machine/",
+      "source_label": "深田熱処理 設備",
+      "deal_status": "未取引",
+      "confirm": "公開情報確認",
+      "note": "専業。炉設備営業先としても重要。",
+      "id": "b8b4af3f2c5a",
+      "list_type": "熱処理専業",
+      "aliases": [],
+      "status": "prospect"
+    },
+    {
+      "name": "栗田HT株式会社",
+      "short": "栗田HT",
+      "pref": "石川",
+      "city": "",
+      "region": "北陸",
+      "priority": "A+",
+      "focus": false,
+      "focus_agreed": false,
+      "category": "熱処理専業",
+      "business": "金属熱処理",
+      "furnaces": "台車式炉16t級×複数、ピット炉、連続焼準炉、大型焼入油槽等。",
+      "source_url": "https://www.isico.or.jp/virtual/vkogyo/kurita-ht.html",
+      "source_label": "ISICO 栗田HT",
+      "deal_status": "未取引",
+      "confirm": "公開情報確認",
+      "note": "専業。大型炉。",
+      "id": "d8487451184f",
+      "list_type": "熱処理専業",
+      "aliases": [],
+      "status": "prospect"
+    },
+    {
+      "name": "株式会社北熱",
+      "short": "北熱",
+      "pref": "富山",
+      "city": "",
+      "region": "北陸",
+      "priority": "A",
+      "focus": false,
+      "focus_agreed": false,
+      "category": "熱処理専業",
+      "business": "金属熱処理",
+      "furnaces": "真空熱処理炉4台、焼戻炉9台、真空焼戻炉等。",
+      "source_url": "https://www.hokunetsu.com/products/002/",
+      "source_label": "北熱 真空熱処理",
+      "deal_status": "未取引",
+      "confirm": "公開情報確認",
+      "note": "専業。",
+      "id": "ea3c4e0e9928",
+      "list_type": "熱処理専業",
+      "aliases": [],
+      "status": "prospect"
+    },
+    {
+      "name": "北陸テクノ株式会社",
+      "short": "北陸テクノ",
+      "pref": "富山",
+      "city": "",
+      "region": "北陸",
+      "priority": "A",
+      "focus": false,
+      "focus_agreed": false,
+      "category": "熱処理専業",
+      "business": "熱処理受託・炉関連",
+      "furnaces": "アルミT6熱処理炉2基（500kg／1,000kgバスケット）。",
+      "source_url": "https://www.h-techno.com/heat-treatment/",
+      "source_label": "北陸テクノ 熱処理",
+      "deal_status": "未取引",
+      "confirm": "公開情報確認",
+      "note": "専業寄り。",
+      "id": "7b6ea5d938b7",
+      "list_type": "熱処理専業",
+      "aliases": [],
+      "status": "prospect"
+    },
+    {
+      "name": "株式会社水口熱処理",
+      "short": "水口熱処理",
+      "pref": "富山",
+      "city": "",
+      "region": "北陸",
+      "priority": "A",
+      "focus": false,
+      "focus_agreed": false,
+      "category": "熱処理専業",
+      "business": "金属熱処理",
+      "furnaces": "富山県内3工場で熱処理事業。",
+      "source_url": "https://mizuguchi-netsusyori.co.jp/company/",
+      "source_label": "水口熱処理",
+      "deal_status": "未取引",
+      "confirm": "公開情報確認",
+      "note": "専業。",
+      "id": "bc45f485a736",
+      "list_type": "熱処理専業",
+      "aliases": [],
+      "status": "prospect"
+    },
+    {
+      "name": "有限会社中谷熱処理技研",
+      "short": "中谷熱処理技研",
+      "pref": "富山",
+      "city": "",
+      "region": "北陸",
+      "priority": "A",
+      "focus": false,
+      "focus_agreed": false,
+      "category": "熱処理専業",
+      "business": "金属熱処理",
+      "furnaces": "真空炉等を保有する熱処理専門会社。",
+      "source_url": "https://nakaya-heat-treatment.com/",
+      "source_label": "中谷熱処理技研",
+      "deal_status": "未取引",
+      "confirm": "公開情報確認",
+      "note": "専業。",
+      "id": "378fa79f37a5",
+      "list_type": "熱処理専業",
+      "aliases": [],
+      "status": "prospect"
+    },
+    {
+      "name": "株式会社福井熱処理",
+      "short": "福井熱処理",
+      "pref": "福井",
+      "city": "鯖江",
+      "region": "北陸",
+      "priority": "A+",
+      "focus": false,
+      "focus_agreed": false,
+      "category": "熱処理専業",
+      "business": "金属熱処理",
+      "furnaces": "真空炉多数、ピット型ガス窒化炉、真空油焼入炉、焼戻炉7基等。",
+      "source_url": "https://www.fns-grp.jp/contents/heat/index.html",
+      "source_label": "FNS 福井熱処理",
+      "deal_status": "未取引",
+      "confirm": "公開情報確認",
+      "note": "専業。既存リストにいる場合は重複注意。",
+      "id": "74bd29c2b1e4",
+      "list_type": "熱処理専業",
+      "aliases": [],
+      "status": "prospect"
+    },
+    {
+      "name": "株式会社大宮日進",
+      "short": "大宮日進",
+      "pref": "京都",
+      "city": "京丹後",
+      "region": "近畿",
+      "priority": "A+",
+      "focus": true,
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー",
+      "business": "精密熱間鍛造（日進PREVO系）",
+      "furnaces": "全鍛造ラインに自熱焼準炉を完備。",
+      "source_url": "https://ohmiyanissin.co.jp/",
+      "source_label": "大宮日進",
+      "deal_status": "未取引",
+      "confirm": "公開情報確認",
+      "note": "北近畿重要。熱処理が鍛造ラインの生産能力・品質を左右。",
+      "aliases": [
+        "日進PREVO",
+        "大宮日進"
+      ],
+      "id": "8f3d8acff89e",
+      "list_type": "inhouse_ht_maker",
+      "status": "prospect"
+    },
+    {
+      "name": "株式会社笠谷スプリング工場",
+      "short": "笠谷スプリング",
+      "pref": "兵庫",
+      "city": "朝来",
+      "region": "近畿",
+      "priority": "A+",
+      "focus": true,
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー",
+      "business": "バネ・プレス部品",
+      "furnaces": "メッシュベルト式オーステンパー炉、連続焼入焼戻炉（東京瓦斯電炉製）。",
+      "source_url": "https://kasatani-spring.wixsite.com/-site/%E9%87%91%E5%B1%9E%E7%86%B1%E5%87%A6%E7%90%86",
+      "source_label": "笠谷スプリング 熱処理",
+      "deal_status": "未取引",
+      "confirm": "公開情報確認",
+      "note": "朝来。炉メーカー情報あり。",
+      "id": "13f9da87a74c",
+      "list_type": "inhouse_ht_maker",
+      "aliases": [],
+      "status": "prospect"
+    },
+    {
+      "name": "和田山精機株式会社",
+      "short": "和田山精機",
+      "pref": "兵庫",
+      "city": "朝来",
+      "region": "近畿",
+      "priority": "A+",
+      "focus": true,
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー",
+      "business": "冷間鍛造金型・金型加工",
+      "furnaces": "真空熱処理装置を保有し、真空熱処理事業も実施。",
+      "source_url": "https://www.city.asago.hyogo.jp/apic/%E5%92%8C%E7%94%B0%E5%B1%B1%E7%B2%BE%E6%A9%9F%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/",
+      "source_label": "朝来市 和田山精機",
+      "deal_status": "未取引",
+      "confirm": "公開情報確認",
+      "note": "金型＋真空熱処理事業。",
+      "id": "d47dec1672fa",
+      "list_type": "inhouse_ht_maker",
+      "aliases": [],
+      "status": "prospect"
+    },
+    {
+      "name": "株式会社メガサス",
+      "short": "メガサス",
+      "pref": "兵庫",
+      "city": "朝来",
+      "region": "近畿",
+      "priority": "B",
+      "focus": false,
+      "focus_agreed": false,
+      "category": "自家熱処理メーカー",
+      "business": "ステンレス鋼線・棒鋼",
+      "furnaces": "自社業務として熱処理業務を確認。炉種類・台数は追加調査必要。",
+      "source_url": "https://www.city.asago.hyogo.jp/apic/jobsapo/companies/view/71",
+      "source_label": "ジョブサポあさご",
+      "deal_status": "未取引",
+      "confirm": "要精査",
+      "note": "炉種類・台数は要精査。",
+      "id": "b14f20b00edd",
+      "list_type": "inhouse_ht_maker",
+      "aliases": [],
+      "status": "prospect"
+    },
+    {
+      "name": "中部金属熱処理協同組合",
+      "short": "中部金属熱処理協同組合",
+      "pref": "愛知",
+      "city": "名古屋",
+      "region": "東海",
+      "priority": "A+",
+      "focus": true,
+      "focus_agreed": false,
+      "category": "協同組合・業界団体",
+      "business": "熱処理協同組合（富山・石川・福井＋東海）",
+      "furnaces": "団体。会員企業の逆引き母集団。",
+      "source_url": "https://www.chubu.or.jp/gaiyou.htm",
+      "source_label": "中部金属熱処理協同組合",
+      "deal_status": "未取引",
+      "confirm": "公開情報確認",
+      "note": "S級ソース。北陸3県をエリアに含む。",
+      "association": "中部金属熱処理協同組合",
+      "id": "36013c731cb5",
+      "list_type": "協同組合・業界団体",
+      "aliases": [],
+      "status": "prospect"
+    },
+    {
+      "name": "丹後機械工業協同組合（TANKI）",
+      "short": "TANKI",
+      "pref": "京都",
+      "city": "京丹後",
+      "region": "近畿",
+      "priority": "A+",
+      "focus": true,
+      "focus_agreed": false,
+      "category": "協同組合・業界団体",
+      "business": "機械工業協同組合（組合員106社）",
+      "furnaces": "関連施設に丹後熱処理センター。",
+      "source_url": "https://tango-tc.jp/cooperative/",
+      "source_label": "TANKI 組合概要",
+      "deal_status": "未取引",
+      "confirm": "公開情報確認",
+      "note": "S級。宮津・京丹後・与謝106社。丹後熱処理センター経由で周辺顧客を逆引き。",
+      "association": "TANKI",
+      "id": "890152adf678",
+      "list_type": "協同組合・業界団体",
+      "aliases": [],
+      "status": "prospect"
+    },
+    {
+      "name": "協業組合丹後熱処理センター",
+      "short": "丹後熱処理センター",
+      "pref": "京都",
+      "city": "",
+      "region": "近畿",
+      "priority": "A+",
+      "focus": true,
+      "focus_agreed": false,
+      "category": "熱処理専業",
+      "business": "北近畿唯一の熱処理専門（丹後企業出資）",
+      "furnaces": "高周波熱処理装置2基、イオン窒化装置、イオンプレーティング装置等。商圏: 豊岡・福知山・綾部・舞鶴。",
+      "source_url": "https://tango-tc.jp/company/662/",
+      "source_label": "丹後熱処理センター",
+      "deal_status": "未取引",
+      "confirm": "公開情報確認",
+      "note": "出資企業・周辺顧客→自社炉保有の探索ルート。",
+      "association": "TANKI",
+      "id": "fc63c7f248d4",
+      "list_type": "熱処理専業",
+      "aliases": [],
+      "status": "prospect"
+    },
+    {
+      "name": "京都府熱処理事業協同組合",
+      "short": "京都府熱処理協同組合",
+      "pref": "京都",
+      "city": "",
+      "region": "近畿",
+      "priority": "A",
+      "focus": false,
+      "focus_agreed": false,
+      "category": "協同組合・業界団体",
+      "business": "京都府内熱処理専門組合",
+      "furnaces": "共同加工場で連続炉等の熱処理を実施。",
+      "source_url": "https://kyonetsu.jp/aboutus/",
+      "source_label": "京都府熱処理事業協同組合",
+      "deal_status": "未取引",
+      "confirm": "公開情報確認",
+      "note": "京都府内探索母集団。",
+      "id": "2afc7d1d7f68",
+      "list_type": "協同組合・業界団体",
+      "aliases": [],
+      "status": "prospect"
+    },
+    {
+      "name": "西部金属熱処理工業協同組合",
+      "short": "西部金属熱処理工業協同組合",
+      "pref": "大阪",
+      "city": "",
+      "region": "近畿",
+      "priority": "A",
+      "focus": false,
+      "focus_agreed": false,
+      "category": "協同組合・業界団体",
+      "business": "近畿以西の熱処理組合（組合員48・賛助55／2026年4月）",
+      "furnaces": "団体。",
+      "source_url": "https://seibu.or.jp/union/",
+      "source_label": "西部金属熱処理工業協同組合",
+      "deal_status": "未取引",
+      "confirm": "公開情報確認",
+      "note": "近畿熱処理会社探索の母集団。",
+      "id": "bc2074135346",
+      "list_type": "協同組合・業界団体",
+      "aliases": [],
+      "status": "prospect"
+    },
+    {
+      "name": "日本金属熱処理工業会",
+      "short": "日本金属熱処理工業会",
+      "pref": "東京",
+      "city": "",
+      "region": "その他",
+      "priority": "A",
+      "focus": false,
+      "focus_agreed": false,
+      "category": "協同組合・業界団体",
+      "business": "全国団体（東部・中部・西部）",
+      "furnaces": "団体。地域別企業検索に使用。",
+      "source_url": "https://www.netsushori.jp/comp/nyukai.php",
+      "source_label": "日本金属熱処理工業会",
+      "deal_status": "未取引",
+      "confirm": "公開情報確認",
+      "note": "全国の逆引き入口。",
+      "id": "7e6ade728523",
+      "list_type": "協同組合・業界団体",
+      "aliases": [],
+      "status": "prospect"
     }
   ],
   "stats": {
-    "total": 44,
+    "total": 66,
     "focus": 15,
     "by_region": {
       "東海": 8,
@@ -996,7 +1545,12 @@
       "B": 5,
       "A+": 8
     },
-    "focus_agreed": 15
+    "focus_agreed": 15,
+    "by_category": {
+      "自家熱処理メーカー": 53,
+      "熱処理専業": 8,
+      "協同組合・業界団体": 5
+    }
   },
   "focus_agreed_at": "2026-08-12",
   "focus_agreed_by": "user",
@@ -1010,5 +1564,10 @@
     "ボルト・ナット",
     "農機・建機部品"
   ],
-  "expansion_note": "上記切り口で各県を掘ると社内炉保有企業をさらに増やせる。目標100～200社。"
+  "expansion_note": "上記切り口で各県を掘ると社内炉保有企業をさらに増やせる。目標100～200社。",
+  "exploration_routes": [
+    "中部金属熱処理協同組合の会員を逆引き",
+    "丹後機械工業協同組合106社＋丹後熱処理センター周辺顧客（豊岡・福知山・綾部・舞鶴）",
+    "自動車部品／鍛造／アルミ鋳造／鋳鋼／ベアリング／ボルト・ナット／農機・建機部品"
+  ]
 }

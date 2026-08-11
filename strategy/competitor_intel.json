@@ -7099,19 +7099,46 @@
     {
       "id": "88956f8fdfb3",
       "name": "アイコー株式会社",
-      "area": "愛知県・名古屋市港区高木町",
-      "updated": "2026-08-12T07:12:30+09:00",
+      "area": "愛知県・名古屋市港区高木町4-2-5（本社）",
+      "updated": "2026-08-12T08:08:55+09:00",
       "scope": "company_wide",
       "profile": {
         "official_name": "アイコー株式会社",
         "address": "愛知県名古屋市港区高木町4-2-5",
-        "founded": "昭和34年",
-        "business": "金属熱処理 、 各種表面処理 、 熱処理設備、制御システム および電気機械設備の設計 製作、メンテナンス",
-        "employees": "約250名"
+        "founded": "1959年（昭和34年）",
+        "capital": "2,750万円",
+        "employees": "約250名（グループ）",
+        "business": "金属熱処理・表面処理・熱処理設備／制御システム設計製作メンテナンス",
+        "plants": [
+          "桑名工場",
+          "白鷺工場",
+          "松永工場",
+          "多度工場",
+          "宮崎工場"
+        ]
       },
-      "scale_summary": "従業員約250名",
-      "equipment": [],
-      "equipment_summary": "金属熱処理(真空炉・ガス浸透炉・オーステンパー炉等)。グループ従業員約250名・名古屋港区本社(採用サイト)",
+      "scale_summary": "資本金2,750万円／グループ従業員約250名／設立1959年",
+      "equipment": [
+        {
+          "name": "真空炉",
+          "count": null,
+          "maker": "",
+          "spec": "台数非公開"
+        },
+        {
+          "name": "ガス浸炭炉",
+          "count": null,
+          "maker": "",
+          "spec": "台数非公開"
+        },
+        {
+          "name": "オーステンパ炉",
+          "count": null,
+          "maker": "",
+          "spec": "ADI対応"
+        }
+      ],
+      "equipment_summary": "真空炉・ガス浸炭炉・オーステンパ炉など。台数は非公開（採用情報ベース）。",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
@@ -7128,38 +7155,45 @@
       "sources": [
         {
           "kind": "company",
-          "url": "https://recruit.aiko-1959.com/",
-          "fetched_at": "2026-08-12T07:03:13+09:00"
+          "url": "https://recruit.aiko-1959.com/"
         },
         {
-          "kind": "equipment",
-          "url": "https://recruit.aiko-1959.com/strength/",
-          "fetched_at": "2026-08-12T07:03:13+09:00"
+          "kind": "company",
+          "url": "https://recruit.aiko-1959.com/strength/"
         }
       ],
       "errors": [],
-      "note": "競合。日本金属熱処理工業会(中部)会員。愛知県 名古屋市港区高木町4−2−5。客として訪問しない。",
+      "note": "競合。客として訪問しない。三重工場ピンも別途登録。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "金属熱処理(真空炉・ガス浸透炉・オーステンパー炉等)。グループ従業員約250名・名古屋港区本社(採用サイト) 強み候補: 真空・採用強化・ADI",
+      "blurb": "金属熱処理専業。真空炉・ガス浸炭炉・オーステンパ炉。本社名古屋、主力は三重・桑名圏（桑名／白鷺／松永／多度）＋宮崎。グループ約250名。設備設計・ICTも自社。",
       "tags": [
         "真空",
-        "採用強化",
+        "浸炭",
+        "オーステンパ",
+        "三重",
+        "桑名",
         "ADI",
-        "西部会員",
-        "小～中ロット型"
+        "小～中ロット型",
+        "中部会員"
       ],
       "position": "小～中ロット型",
       "equipment_map": {
-        "carburize": "—",
+        "carburize": "○",
         "vacuum": "○",
         "nitride": "—",
         "induction": "—",
         "aluminum": "—",
-        "anneal": "—",
+        "anneal": "△",
         "max_size": "不明",
-        "lot": "不明"
-      }
+        "lot": "量産〜中ロット"
+      },
+      "relation": "competitor",
+      "commentary": "工業会中部会員。三重に複数工場があり、桑名周辺の競合地図では重要。",
+      "aliases": [
+        "AIKO",
+        "アイコ"
+      ]
     },
     {
       "id": "aa2e0e4c9c78",
@@ -9895,8 +9929,319 @@
       "ignore_for_watch": false,
       "delegate_to": "",
       "updated": "2026-08-12T08:02:43+09:00"
+    },
+    {
+      "id": "3d1194d8bece",
+      "name": "アイコー株式会社(桑名)",
+      "area": "三重県・桑名市和泉（桑名工場）",
+      "region_label": "三重",
+      "macro_region": "tokai",
+      "scope": "plant",
+      "operation": "own",
+      "relation": "competitor",
+      "tags": [
+        "三重",
+        "真空",
+        "浸炭",
+        "オーステンパ",
+        "アイコー"
+      ],
+      "blurb": "アイコー桑名工場。自動車・工作機部品の熱処理。真空／浸炭／オーステンパ。",
+      "note": "拠点ピン。設備詳細はアイコー全社エントリ参照。住所: 三重県桑名市大字和泉字ニノ割466-1",
+      "scale_summary": "アイコーグループ工場／設備台数は全社参照",
+      "profile": {
+        "official_name": "アイコー株式会社(桑名)",
+        "address": "三重県桑名市大字和泉字ニノ割466-1",
+        "parent": "アイコー株式会社"
+      },
+      "equipment_summary": "真空炉・ガス浸炭炉・オーステンパ炉（全社）。台数非公開。",
+      "equipment_map": {
+        "carburize": "○",
+        "vacuum": "○",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "△",
+        "max_size": "不明",
+        "lot": "量産〜中ロット"
+      },
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://recruit.aiko-1959.com/"
+        }
+      ],
+      "updated": "2026-08-12T08:08:55+09:00",
+      "detail_missing": false,
+      "has_expansion_alert": false,
+      "expansion_alerts": [],
+      "news": [],
+      "client_hints": [],
+      "errors": []
+    },
+    {
+      "id": "33ccf5edfb19",
+      "name": "アイコー株式会社(多度)",
+      "area": "三重県・桑名市多度町御衣野（多度工場）",
+      "region_label": "三重",
+      "macro_region": "tokai",
+      "scope": "plant",
+      "operation": "own",
+      "relation": "competitor",
+      "tags": [
+        "三重",
+        "真空",
+        "浸炭",
+        "オーステンパ",
+        "アイコー"
+      ],
+      "blurb": "アイコー多度工場。東伸熱工三重工場と同エリア（御衣野）。",
+      "note": "拠点ピン。設備詳細はアイコー全社エントリ参照。住所: 三重県桑名市多度町御衣野3441",
+      "scale_summary": "アイコーグループ工場／設備台数は全社参照",
+      "profile": {
+        "official_name": "アイコー株式会社(多度)",
+        "address": "三重県桑名市多度町御衣野3441",
+        "parent": "アイコー株式会社"
+      },
+      "equipment_summary": "真空炉・ガス浸炭炉・オーステンパ炉（全社）。台数非公開。",
+      "equipment_map": {
+        "carburize": "○",
+        "vacuum": "○",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "△",
+        "max_size": "不明",
+        "lot": "量産〜中ロット"
+      },
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://recruit.aiko-1959.com/"
+        }
+      ],
+      "updated": "2026-08-12T08:08:55+09:00",
+      "detail_missing": false,
+      "has_expansion_alert": false,
+      "expansion_alerts": [],
+      "news": [],
+      "client_hints": [],
+      "errors": []
+    },
+    {
+      "id": "bb25f493b49c",
+      "name": "アイコー株式会社(木曽岬・白鷺)",
+      "area": "三重県・木曽岬町白鷺（白鷺工場）",
+      "region_label": "三重",
+      "macro_region": "tokai",
+      "scope": "plant",
+      "operation": "own",
+      "relation": "competitor",
+      "tags": [
+        "三重",
+        "真空",
+        "浸炭",
+        "オーステンパ",
+        "アイコー"
+      ],
+      "blurb": "アイコー白鷺工場（木曽岬）。松永工場も同町内。",
+      "note": "拠点ピン。設備詳細はアイコー全社エントリ参照。住所: 三重県桑名郡木曽岬町大字白鷺字白鷺川601-10",
+      "scale_summary": "アイコーグループ工場／設備台数は全社参照",
+      "profile": {
+        "official_name": "アイコー株式会社(木曽岬・白鷺)",
+        "address": "三重県桑名郡木曽岬町大字白鷺字白鷺川601-10",
+        "parent": "アイコー株式会社"
+      },
+      "equipment_summary": "真空炉・ガス浸炭炉・オーステンパ炉（全社）。台数非公開。",
+      "equipment_map": {
+        "carburize": "○",
+        "vacuum": "○",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "△",
+        "max_size": "不明",
+        "lot": "量産〜中ロット"
+      },
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://recruit.aiko-1959.com/"
+        }
+      ],
+      "updated": "2026-08-12T08:08:55+09:00",
+      "detail_missing": false,
+      "has_expansion_alert": false,
+      "expansion_alerts": [],
+      "news": [],
+      "client_hints": [],
+      "errors": []
+    },
+    {
+      "id": "86a17a58bd2e",
+      "name": "シンフォニアテクノロジー株式会社(豊橋)",
+      "area": "愛知県・豊橋市三弥町（豊橋製作所）",
+      "region_label": "愛知",
+      "macro_region": "tokai",
+      "scope": "plant",
+      "operation": "equipment",
+      "relation": "furnace_maker",
+      "tags": [
+        "炉メーカー",
+        "真空溶解炉",
+        "熱加工装置",
+        "半導体熱処理炉",
+        "愛知",
+        "シンフォニア"
+      ],
+      "blurb": "炉メーカー寄り。金属熱加工装置・真空溶解炉などを設計製造。半導体向け縦型熱処理炉（CVD）の実績も。受託熱処理専業ではない。",
+      "commentary": "シンフォニア商事（伊勢）はめっき／熱処理の部品加工仲介あり。本体は電機・半導体装置メーカー。",
+      "note": "住所: 愛知県豊橋市三弥町字元屋敷150。競合の受託熱処理屋ではない。",
+      "scale_summary": "上場／連結従業員約3,700名規模（会社全体）",
+      "profile": {
+        "official_name": "シンフォニアテクノロジー株式会社",
+        "address": "愛知県豊橋市三弥町字元屋敷150",
+        "capital": "101億5,696万円",
+        "employees": "連結約3,700名",
+        "business": "半導体搬送・航空宇宙・自動車機器・産業電機・金属熱加工装置など",
+        "url": "https://www.sinfo-t.jp/"
+      },
+      "equipment_summary": "真空溶解炉・誘導加熱／金属熱加工装置を製造。半導体縦型熱処理炉（CVD）納入実績。社内受託熱処理の公開情報は限定的。",
+      "equipment": [
+        {
+          "name": "真空溶解炉",
+          "count": null,
+          "maker": "自社",
+          "spec": "製品／製造"
+        },
+        {
+          "name": "半導体縦型熱処理炉(CVD)",
+          "count": null,
+          "maker": "自社",
+          "spec": "製造装置として納入実績"
+        }
+      ],
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "△",
+        "nitride": "—",
+        "induction": "△",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      },
+      "position": "情報不足",
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.sinfo-t.jp/"
+        },
+        {
+          "kind": "company",
+          "url": "https://www.sinfo-t.jp/industrial-infra/vacuum/"
+        },
+        {
+          "kind": "company",
+          "url": "https://www.sinfo-t.jp/company/business-base/"
+        }
+      ],
+      "aliases": [
+        "神鋼電機",
+        "Sinfonia",
+        "シンフォニア"
+      ],
+      "updated": "2026-08-12T08:08:55+09:00",
+      "detail_missing": false,
+      "has_expansion_alert": false,
+      "expansion_alerts": [],
+      "news": [],
+      "client_hints": [],
+      "errors": []
+    },
+    {
+      "id": "d60c46c681af",
+      "name": "シンフォニアテクノロジー株式会社(伊勢)",
+      "area": "三重県・伊勢市竹ヶ鼻町（伊勢製作所）",
+      "region_label": "三重",
+      "macro_region": "tokai",
+      "scope": "plant",
+      "operation": "equipment",
+      "relation": "furnace_maker",
+      "tags": [
+        "炉メーカー",
+        "真空溶解炉",
+        "熱加工装置",
+        "半導体熱処理炉",
+        "三重",
+        "シンフォニア"
+      ],
+      "blurb": "シンフォニア伊勢製作所。電磁クラッチ等の製造拠点。グループ商事が熱処理の仲介も。受託熱処理専業ではないが炉・熱加工装置を保有／製造。",
+      "commentary": "シンフォニア商事（伊勢）はめっき／熱処理の部品加工仲介あり。本体は電機・半導体装置メーカー。",
+      "note": "住所: 三重県伊勢市竹ヶ鼻町100。競合の受託熱処理屋ではない。",
+      "scale_summary": "上場／連結従業員約3,700名規模（会社全体）",
+      "profile": {
+        "official_name": "シンフォニアテクノロジー株式会社",
+        "address": "三重県伊勢市竹ヶ鼻町100",
+        "capital": "101億5,696万円",
+        "employees": "連結約3,700名",
+        "business": "半導体搬送・航空宇宙・自動車機器・産業電機・金属熱加工装置など",
+        "url": "https://www.sinfo-t.jp/"
+      },
+      "equipment_summary": "真空溶解炉・誘導加熱／金属熱加工装置を製造。半導体縦型熱処理炉（CVD）納入実績。社内受託熱処理の公開情報は限定的。",
+      "equipment": [
+        {
+          "name": "真空溶解炉",
+          "count": null,
+          "maker": "自社",
+          "spec": "製品／製造"
+        },
+        {
+          "name": "半導体縦型熱処理炉(CVD)",
+          "count": null,
+          "maker": "自社",
+          "spec": "製造装置として納入実績"
+        }
+      ],
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "△",
+        "nitride": "—",
+        "induction": "△",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      },
+      "position": "情報不足",
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.sinfo-t.jp/"
+        },
+        {
+          "kind": "company",
+          "url": "https://www.sinfo-t.jp/industrial-infra/vacuum/"
+        },
+        {
+          "kind": "company",
+          "url": "https://www.sinfo-t.jp/company/business-base/"
+        }
+      ],
+      "aliases": [
+        "神鋼電機",
+        "Sinfonia",
+        "シンフォニア"
+      ],
+      "updated": "2026-08-12T08:08:55+09:00",
+      "detail_missing": false,
+      "has_expansion_alert": false,
+      "expansion_alerts": [],
+      "news": [],
+      "client_hints": [],
+      "errors": []
     }
   ],
   "blurbs_updated": "2026-08-12T07:12:30+09:00",
-  "updated": "2026-08-12T08:02:43+09:00"
+  "updated": "2026-08-12T08:08:55+09:00"
 }

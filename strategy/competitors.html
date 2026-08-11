@@ -82,7 +82,8 @@
         oninput="onSearch()" />
       <p class="mt-1 text-[10px] text-slate-400">処理名・設備名・社名で検索可。同義語（ガス窒化⇄窒化処理など）も拾います</p>
       <div class="mt-2 flex flex-wrap gap-1.5">
-        <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-slate-200 bg-slate-50" onclick="clearAll()">クリア</button>
+        <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-violet-300 bg-violet-100 text-violet-900 font-semibold"
+          onclick="clearKeywordAndTopics()" title="キーワード検索と探すトピックを解除">キーワード・探す解除</button>
         <button type="button" class="kwchip text-[11px] px-2 py-1 rounded-lg border border-emerald-200 bg-emerald-50 text-emerald-900" onclick="applyKeyword('ガス窒化')">ガス窒化</button>
         <button type="button" class="kwchip text-[11px] px-2 py-1 rounded-lg border border-emerald-200 bg-emerald-50 text-emerald-900" onclick="applyKeyword('窒化処理')">窒化処理</button>
         <button type="button" class="kwchip text-[11px] px-2 py-1 rounded-lg border border-emerald-200 bg-emerald-50 text-emerald-900" onclick="applyKeyword('軟窒化')">軟窒化</button>
@@ -113,11 +114,20 @@
     </section>
 
     <section class="bg-white rounded-2xl border border-slate-200 p-4">
-      <div class="flex items-center justify-between mb-2">
+      <div class="flex items-center justify-between mb-2 gap-2">
         <h2 class="text-sm font-bold text-slate-800">探す（約50問）</h2>
-        <span id="preset-count" class="text-[10px] text-slate-400"></span>
+        <div class="flex items-center gap-2">
+          <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-violet-300 bg-violet-100 text-violet-900 font-semibold whitespace-nowrap"
+            onclick="clearKeywordAndTopics()" title="キーワード検索と探すトピックを解除">解除</button>
+          <span id="preset-count" class="text-[10px] text-slate-400"></span>
+        </div>
       </div>
-      <div id="presets" class="flex flex-wrap gap-1.5 max-h-[52vh] overflow-auto pr-1"></div>
+      <label class="block text-[10px] font-bold text-slate-600 mb-1">トピックを絞る</label>
+      <input id="preset-q" type="search" placeholder="例: ピット　真空　愛知　協力（空白でAND）"
+        class="w-full border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-violet-300"
+        oninput="onPresetSearch()" />
+      <p class="mt-1 text-[10px] text-slate-400">質問文・キーワード・タグから探すトピックだけを絞り込みます</p>
+      <div id="presets" class="mt-2 flex flex-wrap gap-1.5 max-h-[48vh] overflow-auto pr-1"></div>
     </section>
   </aside>
 
@@ -126,6 +136,9 @@
     <div class="bg-white rounded-2xl border border-slate-200 p-3 flex flex-wrap items-center justify-between gap-2">
       <div class="flex items-center gap-3 flex-wrap">
         <p id="result-count" class="text-xs text-slate-600"></p>
+        <button type="button" id="clear-topics-btn"
+          class="hidden text-[11px] px-2 py-1 rounded-lg border border-violet-300 bg-violet-100 text-violet-900 font-semibold"
+          onclick="clearKeywordAndTopics()">キーワード・探す解除</button>
         <label class="text-xs text-violet-900 flex items-center gap-1.5 cursor-pointer">
           <input id="hq-only" type="checkbox" checked class="rounded border-violet-300 text-violet-700"
             onchange="renderList()" />
@@ -401,6 +414,7 @@ function onSearch() {
   filter.query = document.getElementById('q').value || '';
   activePresetId = null;
   highlightPresets();
+  updateClearBtn();
   renderList();
 }
 
@@ -410,6 +424,7 @@ function applyKeyword(kw) {
   document.getElementById('q').value = kw;
   activePresetId = null;
   highlightPresets();
+  updateClearBtn();
   renderList();
 }
 
@@ -419,16 +434,58 @@ function applyPosition(pos) {
   document.getElementById('q').value = pos;
   activePresetId = null;
   highlightPresets();
+  updateClearBtn();
   renderList();
 }
 
 function clearAll() {
+  clearKeywordAndTopics();
+}
+
+function clearKeywordAndTopics() {
   viewMode = 'list';
   filter = { query: '', tags: [], region: '', macro: '', position: '' };
   document.getElementById('q').value = '';
+  const pq = document.getElementById('preset-q');
+  if (pq) pq.value = '';
   activePresetId = null;
+  renderPresets();
   highlightPresets();
+  updateClearBtn();
   renderList();
+}
+
+function hasActiveSearch() {
+  return !!(
+    (filter.query || '').trim() ||
+    (filter.tags || []).length ||
+    filter.region ||
+    filter.macro ||
+    filter.position ||
+    activePresetId ||
+    (document.getElementById('preset-q')?.value || '').trim()
+  );
+}
+
+function updateClearBtn() {
+  const btn = document.getElementById('clear-topics-btn');
+  if (btn) btn.classList.toggle('hidden', !hasActiveSearch());
+}
+
+function onPresetSearch() {
+  renderPresets();
+  updateClearBtn();
+}
+
+function presetMatchesTopicFilter(p, raw) {
+  const q = (raw || '').trim().toLowerCase();
+  if (!q) return true;
+  const blob = [
+    p.q, p.query, p.region, p.macro, p.position,
+    (p.tags || []).join(' '),
+  ].join(' ').toLowerCase();
+  const parts = q.split(/[\s　,、]+/).filter(Boolean);
+  return parts.every(part => blob.includes(part) || tokenMatches(blob, part));
 }
 
 function applyPreset(p, id) {
@@ -443,23 +500,33 @@ function applyPreset(p, id) {
   document.getElementById('q').value = filter.query;
   activePresetId = id || null;
   highlightPresets();
+  updateClearBtn();
   renderList();
+}
+
+function renderPresets() {
+  const qs = presets?.questions || [];
+  const topicQ = document.getElementById('preset-q')?.value || '';
+  const shown = [];
+  qs.forEach((p, idx) => {
+    if (presetMatchesTopicFilter(p, topicQ)) shown.push({ p, idx });
+  });
+  document.getElementById('preset-count').textContent =
+    topicQ.trim() ? `${shown.length} / ${qs.length}問` : `${qs.length}問`;
+  document.getElementById('presets').innerHTML = shown.length
+    ? shown.map(({ p, idx }) => `
+    <button type="button" data-id="${esc(p.id)}" data-idx="${idx}"
+      class="chip text-[11px] px-2.5 py-1 rounded-full border border-violet-200 bg-violet-50 text-violet-900 hover:bg-violet-100"
+      onclick="applyPresetByIdx(${idx})">${esc(p.q)}</button>
+  `).join('')
+    : '<p class="text-[11px] text-slate-400 py-1">該当トピックなし。キーワードを緩めてください。</p>';
+  highlightPresets();
 }
 
 function highlightPresets() {
   document.querySelectorAll('#presets .chip').forEach(el => {
     el.classList.toggle('active', el.dataset.id === activePresetId);
   });
-}
-
-function renderPresets() {
-  const qs = presets?.questions || [];
-  document.getElementById('preset-count').textContent = `${qs.length}問`;
-  document.getElementById('presets').innerHTML = qs.map((p, idx) => `
-    <button type="button" data-id="${esc(p.id)}" data-idx="${idx}"
-      class="chip text-[11px] px-2.5 py-1 rounded-full border border-violet-200 bg-violet-50 text-violet-900 hover:bg-violet-100"
-      onclick="applyPresetByIdx(${idx})">${esc(p.q)}</button>
-  `).join('');
 }
 
 function applyPresetByIdx(idx) {
@@ -498,6 +565,7 @@ function cardHtml(row) {
 }
 
 function renderList() {
+  updateClearBtn();
   if (viewMode === 'map') {
     renderEquipMap();
     renderMap();

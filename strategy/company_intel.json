@@ -170,42 +170,48 @@
       "name": "(株)中川鉄工所",
       "prefecture": "石川県",
       "rank": "ランクB",
-      "industry": "大型部品の加工、産業機械、他",
+      "industry": "長尺・大型・難削材の機械加工",
       "updated": "2026-08-10T18:43:15+09:00",
-      "homepage": "https://nakagawa-industry.co.jp/",
-      "source_url": "https://nakagawa-industry.co.jp/company/",
+      "homepage": "https://www.nakagawa-t.com/",
+      "source_url": "https://www.nakagawa-t.com/company/about/",
       "profile": {
-        "address": "石川県小松市白江町リ-72",
-        "products": "鋳造業",
-        "employees": "30名"
+        "address": "石川県白山市倉部町2024番地",
+        "capital": "3,000万円",
+        "employees": "22名",
+        "business": "大物・長尺部品加工（最長14m）"
       },
-      "customers": [],
-      "scale_summary": "従30名 / 鋳造業",
+      "customers": [
+        "かもめプロペラ(株)",
+        "(株)神戸製鋼所",
+        "ナカシマプロペラ(株)",
+        "(株)酉島製作所",
+        "(株)日立ビルシステム",
+        "(株)小松製作所"
+      ],
+      "scale_summary": "資本金3,000万円 / 従22名 / 長尺大型加工",
       "errors": []
     },
     {
       "id": "37271bb2b4c0",
-      "name": "(株)共和工業",
+      "name": "(株)共和工業所",
       "prefecture": "石川県",
       "rank": "ランクB",
-      "industry": "産業機械ボルト、建設機械用各種ボルト",
+      "industry": "高強度ボルト・圧造部品・建設機械用ギア",
       "updated": "2026-08-10T18:43:19+09:00",
-      "homepage": "https://kyowakogyosyo.co.jp/info/outline.html",
+      "homepage": "https://www.kyowakogyosyo.co.jp/",
       "source_url": "https://kyowakogyosyo.co.jp/info/outline.html",
       "profile": {
-        "representative": "代表取締役社長 山口 真輝",
-        "business": "建設機械用ボルト、建設機械用ギア、産業機械用ボルト、船舶内燃機関用ボルト、、JIS六角ボルト、JIS穴付きボルト、その他冷間・熱間鍛造部品の製造並びに販売",
-        "address": "〒923-8620 石川県小松市工業団地1丁目57番地〔MAP〕 、 電話:0761-21-0531(代表)",
-        "employees": "289名 (連結 2026年4月現在)",
-        "capital": "5億92百万円"
+        "business": "建設機械用ボルト、建設機械用ギア、産業機械用ボルトほか",
+        "address": "石川県小松市工業団地1丁目57番地",
+        "capital": "5億92百万円",
+        "employees": "289名(連結)"
       },
       "customers": [
         "株式会社小松製作所",
         "日立建機株式会社",
-        "コベルコ建機株式会社",
-        "(順不同)"
+        "コベルコ建機株式会社"
       ],
-      "scale_summary": "5億92百万円 / 従289名 (連結 2026年4月現在) / 建設機械用ボルト、建設機械用ギア、産業機械用ボル… / 取引先4社",
+      "scale_summary": "資本金5.92億 / 従約289名 / ボルト主業（上場5971）",
       "errors": []
     },
     {
@@ -250,17 +256,25 @@
       "name": "(株)大徳鉄工",
       "prefecture": "石川県",
       "rank": "ランクB",
-      "industry": "ジェットエンジン部品、鍛圧機械部品",
+      "industry": "原動機・重電・航空エンジン等の大型旋盤加工",
       "updated": "2026-08-10T19:16:17+09:00",
       "homepage": "https://www.daitokutekko.jp/",
       "source_url": "https://www.daitokutekko.jp/company/",
       "profile": {
-        "representative": "林 範隆",
-        "capital": "10,000千円",
-        "employees": "男:20名 女:5名 計25名(平均年齢:37歳)"
+        "address": "石川県河北郡津幡町字旭山21-1",
+        "capital": "1,000万円",
+        "business": "大型旋盤・難削材加工"
       },
-      "customers": [],
-      "scale_summary": "10,000千円 / 従男:20名 女:5名 計25名(平均年齢:37歳)",
+      "customers": [
+        "(株)東芝",
+        "三菱重工",
+        "(株)日立製作所",
+        "IHI",
+        "(株)クボタ",
+        "コマツ産機",
+        "大同特殊鋼"
+      ],
+      "scale_summary": "大型旋盤・航空／重電部品 / 多業種",
       "errors": []
     },
     {
@@ -509,13 +523,23 @@
       "name": "(株)ミモト",
       "prefecture": "石川県",
       "rank": "ランクC",
-      "industry": "農業機械部品、酒造機械部品",
+      "industry": "ディーゼルエンジン部品の精密加工",
       "updated": "2026-08-10T19:16:58+09:00",
-      "homepage": "",
-      "source_url": "",
-      "profile": {},
-      "customers": [],
-      "scale_summary": "",
+      "homepage": "https://www.mimoto.co.jp/",
+      "source_url": "https://www.mimoto.co.jp/company/",
+      "profile": {
+        "address": "石川県白山市旭丘1丁目13番地",
+        "capital": "4,000万円",
+        "products": "陸用・舶用ディーゼルエンジン部品、農業機械部品、GHP空調機械部品"
+      },
+      "customers": [
+        "ヤンマー(株)",
+        "ヤンマーエネルギーシステム(株)",
+        "ヤンマーアグリ(株)",
+        "澁谷工業(株)",
+        "(株)クボタ"
+      ],
+      "scale_summary": "資本金4,000万円 / ヤンマー品質管理認定工場",
       "errors": []
     },
     {

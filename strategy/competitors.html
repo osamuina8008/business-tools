@@ -94,7 +94,7 @@
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-teal-200 bg-teal-50 text-teal-900" onclick="applyPreset({tags:['一部協業'], query:'一部協業'})">一部協業</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-teal-200 bg-teal-50 text-teal-900" onclick="applyPreset({tags:['委託先候補'], query:'委託先候補'})">委託先候補</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-sky-200 bg-sky-50 text-sky-900" onclick="applyPreset({tags:['炉メーカー'], query:'炉メーカー'})">炉メーカー</button>
-        <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-orange-200 bg-orange-50 text-orange-900" onclick="applyPreset({tags:['社内炉'], query:'社内炉 未取引'})">社内炉・未取引</button>
+        <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-orange-200 bg-orange-50 text-orange-900" onclick="applyPreset({tags:['社内炉'], query:'社内炉 未取引'})">未取引・社内炉あり</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-emerald-200 bg-emerald-50 text-emerald-900" onclick="applyPreset({tags:['受注済'], query:'受注済'})">受注済</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-slate-300 bg-slate-50 text-slate-700" onclick="applyPreset({tags:['過去客'], query:'過去客'})">過去客</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-violet-200 bg-violet-50 text-violet-900" onclick="applyPreset({region:'京都・滋賀・奈良', query:'滋賀'})">滋賀</button>
@@ -752,7 +752,7 @@ function showDetail(id) {
       </div>` : ''}
     ${row.relation === 'inhouse_ht' || ((row.tags || []).includes('社内炉') && !['customer','past_customer'].includes(row.relation)) ? `
       <div class="mt-2 p-2 rounded-lg border border-orange-300 bg-orange-50">
-        <p class="text-sm font-bold text-orange-950">社内炉メーカー（次期ターゲット・未取引）</p>
+        <p class="text-sm font-bold text-orange-950">未取引の会社、社内炉あり（次期ターゲット）</p>
         <p class="text-[11px] text-orange-900 mt-0.5">${esc(row.furnace_note ? `自社炉: ${row.furnace_note}。` : '')}専業熱処理競合ではない。外注化・能力不足の契機を調査する。</p>
       </div>` : ''}
     ${row.relation === 'customer' || (row.tags || []).includes('既存客') || (row.tags || []).includes('受注済') ? `

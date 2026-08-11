@@ -1,9 +1,9 @@
 {
-  "updated": "2026-08-11T10:22:44+09:00",
+  "updated": "2026-08-11T10:32:01+09:00",
   "disclaimer": "攻めどころ界隈の公開情報・聞き取りベース。既存顧客・コマツ筋・高周波メイン等は除外済み。",
   "how_to_use": "各界隈の社名一覧を見て訪問先を決める。探索枠は現地で社名を確定して埋める。",
-  "count": 27,
-  "group_count": 10,
+  "count": 39,
+  "group_count": 11,
   "groups": [
     {
       "hotspot_id": "large_gear",
@@ -436,6 +436,416 @@
         {
           "name": "株式会社大阪減速機製作所",
           "note": "アンケート候補等に名前が出る既知接点の可能性。取引ステータスを確認しつつ減速機製造本命として追う。"
+        }
+      ]
+    },
+    {
+      "hotspot_id": "daido_nagoya",
+      "area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+      "pain": "未開拓。大同自体は特殊鋼メーカー（素材）でギア専業ではない。協力工場・周辺の歯車／チェーン／大型加工、鋼材ユーザーを洗う。大同プラント・近隣熱処理屋は競合扱い。",
+      "lat": 35.09,
+      "lng": 136.9,
+      "count": 12,
+      "companies": [
+        {
+          "name": "大同マシナリー株式会社",
+          "category": "グループ・大型機械加工／設備",
+          "area": "愛知県名古屋市南区滝春町",
+          "materials": [
+            "大型部品",
+            "ロール"
+          ],
+          "heat_relation": "大型部品・ロール加工。焼入・歪み対策の外注有無を確認",
+          "reason": "大型部品受託加工あり。ピット炉級サイズが出る可能性。グループ内だが未開拓ならヒアリング価値あり。",
+          "source_url": "https://dmdaido.xbiz.jp/profile/",
+          "linked_majors": [
+            "大同特殊鋼"
+          ],
+          "priority": 0,
+          "role": "group_service",
+          "investigation": "大型部品の熱処理ルート、外径・重量上限、外注余地",
+          "pit_furnace_fit": "中（大型部品なら）",
+          "size_hint": "大型部品・ロール",
+          "lat": 35.09,
+          "lng": 136.9,
+          "capital_man_yen": 31000,
+          "employees": 350,
+          "scale_summary": "資本金3.1億円 / 従業員約350名",
+          "id": "daido_nagoya-大同マシナリー",
+          "hotspot_id": "daido_nagoya",
+          "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）"
+        },
+        {
+          "name": "大同特殊鋼株式会社（星崎工場）",
+          "category": "アンカー（特殊鋼・素材）",
+          "area": "愛知県名古屋市南区大同町",
+          "materials": [
+            "特殊鋼",
+            "歯車鋼",
+            "高合金"
+          ],
+          "heat_relation": "自社炉あり。OTCへの外注顧客ではない。歯車鋼ユーザー・二次加工先の入口",
+          "reason": "未開拓の中核拠点。素材メーカーとしてギア鋼供給網の起点。焼入営業の直接先ではなく調査アンカー。",
+          "source_url": "https://www.daido.co.jp/about/facilities/index.html",
+          "linked_majors": [
+            "大同特殊鋼"
+          ],
+          "priority": 0,
+          "role": "anchor",
+          "not_gear_maker": true,
+          "investigation": "歯車鋼・構造用鋼の主な二次加工・歯切・鍛造先の社名を聞き出す",
+          "pit_furnace_fit": "直接は低（入口）",
+          "size_hint": "棒鋼・高合金圧延等",
+          "lat": 35.09,
+          "lng": 136.9,
+          "scale_summary": "大同特殊鋼・星崎",
+          "id": "daido_nagoya-大同特殊鋼（星崎工場）",
+          "hotspot_id": "daido_nagoya",
+          "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+          "capital_man_yen": null,
+          "employees": null
+        },
+        {
+          "name": "大同特殊鋼株式会社（知多工場／知多第2）",
+          "category": "アンカー（特殊鋼一貫）",
+          "area": "愛知県東海市・知多市",
+          "materials": [
+            "特殊鋼",
+            "ステンレス",
+            "高合金",
+            "チタン"
+          ],
+          "heat_relation": "一貫製鋼。周辺の型鍛造・二次加工ネットワーク調査",
+          "reason": "知多〜東海の特殊鋼拠点。型鍛造工場も同地区。周辺加工屋の入口。",
+          "source_url": "https://www.daido.co.jp/about/facilities/index.html",
+          "linked_majors": [
+            "大同特殊鋼"
+          ],
+          "priority": 0,
+          "role": "anchor",
+          "not_gear_maker": true,
+          "investigation": "型鍛造・二次加工協力会社、歯車・シャフト向け鋼材ユーザーを確認",
+          "pit_furnace_fit": "直接は低（入口）",
+          "size_hint": "一貫製鋼・高機能材",
+          "lat": 35.0,
+          "lng": 136.88,
+          "scale_summary": "知多エリア拠点",
+          "id": "daido_nagoya-大同特殊鋼（知多工場／知多第2）",
+          "hotspot_id": "daido_nagoya",
+          "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+          "capital_man_yen": null,
+          "employees": null
+        },
+        {
+          "name": "大同興業株式会社",
+          "category": "グループ商社（鋼材流通）",
+          "area": "愛知県名古屋市東区（本社ビル）",
+          "materials": [
+            "特殊鋼鋼材",
+            "機械設備"
+          ],
+          "heat_relation": "鋼材・設備の販売。歯車・シャフトユーザー紹介の情報源",
+          "reason": "大同グループ中核商社。誰が歯車鋼を買っているかを洗う本命の情報接点。",
+          "source_url": "https://www.daidokogyo.co.jp/profile/",
+          "linked_majors": [
+            "大同特殊鋼"
+          ],
+          "priority": 0,
+          "role": "trading",
+          "investigation": "歯車・減速機・鍛造向け鋼材の得意先リスト／紹介ルートを聞く",
+          "pit_furnace_fit": "情報源",
+          "size_hint": "商社",
+          "lat": 35.17,
+          "lng": 136.91,
+          "scale_summary": "グループ商社",
+          "id": "daido_nagoya-大同興業",
+          "hotspot_id": "daido_nagoya",
+          "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+          "capital_man_yen": null,
+          "employees": null
+        },
+        {
+          "name": "株式会社大光製作所",
+          "category": "協力組合・チェーン製造",
+          "area": "愛知県名古屋市南区",
+          "materials": [
+            "チェーン鋼",
+            "溶接構造"
+          ],
+          "heat_relation": "チェーン製造は熱処理ニーズが出やすい。外注有無を確認",
+          "reason": "大同協力組合・金属加工枠。チェーン＝スプロケット／熱処理隣接の顧客候補。",
+          "source_url": "https://www.aiweb.or.jp/daido/partner2.html",
+          "linked_majors": [
+            "大同特殊鋼協力組合"
+          ],
+          "priority": 0,
+          "role": "coop_candidate",
+          "investigation": "チェーン・関連歯車の焼入ルート、サイズ、外注先",
+          "pit_furnace_fit": "要確認",
+          "size_hint": "チェーン製造",
+          "lat": 35.09,
+          "lng": 136.91,
+          "scale_summary": "協力組合員・規模要確認",
+          "id": "daido_nagoya-大光製作所",
+          "hotspot_id": "daido_nagoya",
+          "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+          "capital_man_yen": null,
+          "employees": null
+        },
+        {
+          "name": "大同テクニカ株式会社",
+          "category": "グループ・特殊鋼プロダクト",
+          "area": "愛知県東海市元浜町（知多工場内）",
+          "materials": [
+            "特殊鋼加工"
+          ],
+          "heat_relation": "大同生産工程の担い手。外販の歯切顧客ではないが協力網の入口",
+          "reason": "協力組合の中核。組合員紹介・周辺加工の地図作りに使う。",
+          "source_url": "https://www.daido-technica.co.jp/",
+          "linked_majors": [
+            "大同特殊鋼"
+          ],
+          "priority": 1,
+          "role": "affiliate",
+          "investigation": "協力組合経由で歯車・チェーン・鍛造系組合員の紹介を取る",
+          "pit_furnace_fit": "低（入口）",
+          "size_hint": "グループ生産支援",
+          "lat": 35.0,
+          "lng": 136.88,
+          "capital_man_yen": 4000,
+          "employees": 643,
+          "scale_summary": "資本金4,000万円 / 従業員約643名",
+          "id": "daido_nagoya-大同テクニカ",
+          "hotspot_id": "daido_nagoya",
+          "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）"
+        },
+        {
+          "name": "株式会社中川精機",
+          "category": "協力組合・機械加工",
+          "area": "愛知県名古屋市中川区",
+          "materials": [
+            "機械部品"
+          ],
+          "heat_relation": "機械加工。焼入外注の有無を確認",
+          "reason": "協力組合・機械加工。中川区でUBE界隈とも地理的に近い。",
+          "source_url": "https://www.aiweb.or.jp/daido/partner1.html",
+          "linked_majors": [
+            "大同特殊鋼協力組合"
+          ],
+          "priority": 1,
+          "role": "coop_candidate",
+          "investigation": "歯車・シャフト加工と熱処理ルート",
+          "pit_furnace_fit": "要確認",
+          "size_hint": "要ヒアリング",
+          "lat": 35.14,
+          "lng": 136.85,
+          "scale_summary": "協力組合員・規模要確認",
+          "id": "daido_nagoya-中川精機",
+          "hotspot_id": "daido_nagoya",
+          "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+          "capital_man_yen": null,
+          "employees": null
+        },
+        {
+          "name": "株式会社中村鉄工所",
+          "category": "協力組合・自由鍛造",
+          "area": "愛知県小牧市",
+          "materials": [
+            "鍛造鋼"
+          ],
+          "heat_relation": "自由鍛造。鍛造後焼準・焼鈍・焼入の外注が出やすい",
+          "reason": "協力組合の自由鍛造。大型鍛造→熱処理の顧客候補。",
+          "source_url": "https://www.aiweb.or.jp/daido/partner2.html",
+          "linked_majors": [
+            "大同特殊鋼協力組合"
+          ],
+          "priority": 1,
+          "role": "coop_candidate",
+          "investigation": "最大鍛造サイズ、熱処理内製／外注、ピット炉ニーズ",
+          "pit_furnace_fit": "中〜高（大型鍛造なら）",
+          "size_hint": "自由鍛造",
+          "lat": 35.3,
+          "lng": 136.95,
+          "scale_summary": "協力組合員・規模要確認",
+          "id": "daido_nagoya-中村鉄工所",
+          "hotspot_id": "daido_nagoya",
+          "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+          "capital_man_yen": null,
+          "employees": null
+        },
+        {
+          "name": "株式会社加福製作所",
+          "category": "協力組合・大型機械加工",
+          "area": "愛知県名古屋市南区",
+          "materials": [
+            "特殊鋼",
+            "ロール材"
+          ],
+          "heat_relation": "深孔・大型機械加工。製鋼ロール等で熱処理・歪み外注が出る可能性",
+          "reason": "南区の大型加工。大同筋の機械加工組合員。ピット炉級の可能性を洗う。",
+          "source_url": "https://www.aiweb.or.jp/daido/partner1.html",
+          "linked_majors": [
+            "大同特殊鋼協力組合"
+          ],
+          "priority": 1,
+          "role": "coop_candidate",
+          "investigation": "最大加工サイズ、熱処理外注の有無、歯車・シャフト加工の有無",
+          "pit_furnace_fit": "要確認（大型なら中〜高）",
+          "size_hint": "深孔・大型加工",
+          "lat": 35.1,
+          "lng": 136.91,
+          "scale_summary": "協力組合員・規模要確認",
+          "id": "daido_nagoya-加福製作所",
+          "hotspot_id": "daido_nagoya",
+          "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+          "capital_man_yen": null,
+          "employees": null
+        },
+        {
+          "name": "株式会社山下製作所",
+          "category": "協力組合・機械器具",
+          "area": "愛知県名古屋市南区",
+          "materials": [
+            "機械部品"
+          ],
+          "heat_relation": "機械器具製造。焼入部品の外注実態を確認",
+          "reason": "南区・協力組合。歯車専用ではないが大同界隈の加工候補。",
+          "source_url": "https://www.aiweb.or.jp/daido/partner1.html",
+          "linked_majors": [
+            "大同特殊鋼協力組合"
+          ],
+          "priority": 1,
+          "role": "coop_candidate",
+          "investigation": "製品に歯車・シャフトがあるか、熱処理外注先",
+          "pit_furnace_fit": "要確認",
+          "size_hint": "要ヒアリング",
+          "lat": 35.095,
+          "lng": 136.905,
+          "scale_summary": "協力組合員・規模要確認",
+          "id": "daido_nagoya-山下製作所",
+          "hotspot_id": "daido_nagoya",
+          "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+          "capital_man_yen": null,
+          "employees": null
+        },
+        {
+          "name": "大同プラント工業株式会社",
+          "category": "競合（工業炉メーカー）",
+          "area": "愛知県名古屋市南区滝春町",
+          "materials": [],
+          "heat_relation": "熱処理炉・工業炉の設計製作。OTCと同業（設備側）",
+          "reason": "大同グループの炉メーカー。顧客ではなく競合・市場情報源。訪問営業の攻め先にしない。",
+          "source_url": "https://www.daido-plant.co.jp/",
+          "linked_majors": [
+            "大同特殊鋼"
+          ],
+          "priority": 2,
+          "role": "competitor",
+          "not_gear_maker": true,
+          "investigation": "市場動向の参考のみ。顧客リストは取らない／攻めない",
+          "pit_furnace_fit": "—（競合）",
+          "size_hint": "工業炉",
+          "lat": 35.09,
+          "lng": 136.9,
+          "capital_man_yen": 3600,
+          "scale_summary": "資本金3,600万円",
+          "id": "daido_nagoya-大同プラント工業",
+          "hotspot_id": "daido_nagoya",
+          "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+          "employees": null
+        },
+        {
+          "name": "大同協力組合・歯車鋼ユーザー（探索枠）",
+          "category": "探索メモ",
+          "area": "名古屋南区・緑区・東海・知多",
+          "materials": [
+            "SCM系",
+            "歯車鋼"
+          ],
+          "heat_relation": "大同材ユーザーの歯切・鍛造は焼入外注が出やすい",
+          "reason": "組合41社＋鋼材ユーザーを洗い、社名確定して埋める。ナゴヤギアは既存取引先のため攻略対象外。",
+          "source_url": "https://www.aiweb.or.jp/daido/",
+          "linked_majors": [
+            "大同特殊鋼"
+          ],
+          "priority": 2,
+          "role": "explore",
+          "is_placeholder": true,
+          "investigation": "組合名簿・大同興業紹介・南区歯切屋から社名を追加",
+          "pit_furnace_fit": "探索中",
+          "size_hint": "探索",
+          "lat": 35.09,
+          "lng": 136.9,
+          "scale_summary": "—",
+          "id": "daido_nagoya-大同協力組合・歯車鋼ユーザー（探索枠）",
+          "hotspot_id": "daido_nagoya",
+          "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+          "capital_man_yen": null,
+          "employees": null
+        },
+        {
+          "name": "桜井興産株式会社",
+          "category": "競合（金属熱処理）",
+          "area": "愛知県名古屋市南区",
+          "materials": [],
+          "heat_relation": "大同協力組合の金属熱処理加工。近隣の熱処理競合",
+          "reason": "戦略どおり熱処理屋は顧客ではない。大同界隈の競合マップ用。訪問攻めしない。",
+          "source_url": "https://www.aiweb.or.jp/daido/partner2.html",
+          "linked_majors": [
+            "大同特殊鋼協力組合"
+          ],
+          "priority": 2,
+          "role": "competitor",
+          "not_gear_maker": true,
+          "investigation": "競合把握のみ（範囲・得意サイズの公開情報）",
+          "pit_furnace_fit": "—（競合）",
+          "size_hint": "熱処理専業",
+          "lat": 35.1,
+          "lng": 136.9,
+          "scale_summary": "協力組合・熱処理",
+          "id": "daido_nagoya-桜井興産",
+          "hotspot_id": "daido_nagoya",
+          "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+          "capital_man_yen": null,
+          "employees": null
+        }
+      ],
+      "investigation_mode": true,
+      "how_to_investigate": [
+        "① アンカー（星崎／知多）は素材入口。歯車鋼・xEVギア鋼の納入先・二次加工先名を聞く（大同本体への焼入営業ではない）",
+        "② 大同興業（商社）で歯車・シャフト・鍛造向け鋼材の得意先マップを取る",
+        "③ 協力工場協同組合（41社）を洗う：歯車・チェーン・大型加工は顧客候補／金属熱処理は競合",
+        "④ 大同マシナリーの大型部品・ロール加工で焼入・歪み外注ニーズを確認",
+        "⑤ ヒットしたらピット炉適合を確認し大型ギア特化へ昇格。熱処理屋・工業炉屋は攻め先にしない"
+      ],
+      "search_queries": [
+        "大同特殊鋼 協力工場 歯車 OR 機械加工 名古屋 OR 東海",
+        "大同特殊鋼協力工場協同組合 組合員 歯車 OR チェーン OR 鍛造",
+        "星崎 OR 滝春町 OR 大同町 歯車 製造 OR 歯切",
+        "大同特殊鋼 歯車鋼 OR xEVギア 納入 OR ユーザー 愛知",
+        "大同興業 特殊鋼 歯車 OR シャフト 顧客",
+        "大同マシナリー 大型部品 熱処理 OR 焼入 外注",
+        "知多 東海市 歯車 OR 鍛造 熱処理 外注 -大同プラント",
+        "名古屋市南区 歯車 製造 SCM OR 浸炭 外注",
+        "大光製作所 OR 加福製作所 OR 山下製作所 大同 歯車 OR チェーン",
+        "桜井興産 熱処理 南区 -訪問顧客"
+      ],
+      "known_network_notes": [
+        {
+          "name": "株式会社ナゴヤギア",
+          "note": "大同協力組合の歯車組合員かつ既存取引先。攻略一覧からは除外。大同界隈の参考接点のみ。"
+        },
+        {
+          "name": "石田歯車工業株式会社",
+          "note": "緑区の大型歯切。大型ギア特化に既掲。大同南区界隈の地理的隣接として突合。"
+        },
+        {
+          "name": "大同プラント工業・桜井興産",
+          "note": "工業炉／熱処理＝競合側。顧客として訪問しない。情報地図用。"
+        },
+        {
+          "name": "大同特殊鋼本体",
+          "note": "特殊鋼メーカー。自社熱処理あり。営業の直接顧客ではなく、歯車鋼ユーザー探索のアンカー。"
         }
       ]
     },
@@ -1216,6 +1626,151 @@
   ],
   "targets": [
     {
+      "name": "大同マシナリー株式会社",
+      "category": "グループ・大型機械加工／設備",
+      "area": "愛知県名古屋市南区滝春町",
+      "materials": [
+        "大型部品",
+        "ロール"
+      ],
+      "heat_relation": "大型部品・ロール加工。焼入・歪み対策の外注有無を確認",
+      "reason": "大型部品受託加工あり。ピット炉級サイズが出る可能性。グループ内だが未開拓ならヒアリング価値あり。",
+      "source_url": "https://dmdaido.xbiz.jp/profile/",
+      "linked_majors": [
+        "大同特殊鋼"
+      ],
+      "priority": 0,
+      "role": "group_service",
+      "investigation": "大型部品の熱処理ルート、外径・重量上限、外注余地",
+      "pit_furnace_fit": "中（大型部品なら）",
+      "size_hint": "大型部品・ロール",
+      "lat": 35.09,
+      "lng": 136.9,
+      "capital_man_yen": 31000,
+      "employees": 350,
+      "scale_summary": "資本金3.1億円 / 従業員約350名",
+      "id": "daido_nagoya-大同マシナリー",
+      "hotspot_id": "daido_nagoya",
+      "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）"
+    },
+    {
+      "name": "大同特殊鋼株式会社（星崎工場）",
+      "category": "アンカー（特殊鋼・素材）",
+      "area": "愛知県名古屋市南区大同町",
+      "materials": [
+        "特殊鋼",
+        "歯車鋼",
+        "高合金"
+      ],
+      "heat_relation": "自社炉あり。OTCへの外注顧客ではない。歯車鋼ユーザー・二次加工先の入口",
+      "reason": "未開拓の中核拠点。素材メーカーとしてギア鋼供給網の起点。焼入営業の直接先ではなく調査アンカー。",
+      "source_url": "https://www.daido.co.jp/about/facilities/index.html",
+      "linked_majors": [
+        "大同特殊鋼"
+      ],
+      "priority": 0,
+      "role": "anchor",
+      "not_gear_maker": true,
+      "investigation": "歯車鋼・構造用鋼の主な二次加工・歯切・鍛造先の社名を聞き出す",
+      "pit_furnace_fit": "直接は低（入口）",
+      "size_hint": "棒鋼・高合金圧延等",
+      "lat": 35.09,
+      "lng": 136.9,
+      "scale_summary": "大同特殊鋼・星崎",
+      "id": "daido_nagoya-大同特殊鋼（星崎工場）",
+      "hotspot_id": "daido_nagoya",
+      "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+      "capital_man_yen": null,
+      "employees": null
+    },
+    {
+      "name": "大同特殊鋼株式会社（知多工場／知多第2）",
+      "category": "アンカー（特殊鋼一貫）",
+      "area": "愛知県東海市・知多市",
+      "materials": [
+        "特殊鋼",
+        "ステンレス",
+        "高合金",
+        "チタン"
+      ],
+      "heat_relation": "一貫製鋼。周辺の型鍛造・二次加工ネットワーク調査",
+      "reason": "知多〜東海の特殊鋼拠点。型鍛造工場も同地区。周辺加工屋の入口。",
+      "source_url": "https://www.daido.co.jp/about/facilities/index.html",
+      "linked_majors": [
+        "大同特殊鋼"
+      ],
+      "priority": 0,
+      "role": "anchor",
+      "not_gear_maker": true,
+      "investigation": "型鍛造・二次加工協力会社、歯車・シャフト向け鋼材ユーザーを確認",
+      "pit_furnace_fit": "直接は低（入口）",
+      "size_hint": "一貫製鋼・高機能材",
+      "lat": 35.0,
+      "lng": 136.88,
+      "scale_summary": "知多エリア拠点",
+      "id": "daido_nagoya-大同特殊鋼（知多工場／知多第2）",
+      "hotspot_id": "daido_nagoya",
+      "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+      "capital_man_yen": null,
+      "employees": null
+    },
+    {
+      "name": "大同興業株式会社",
+      "category": "グループ商社（鋼材流通）",
+      "area": "愛知県名古屋市東区（本社ビル）",
+      "materials": [
+        "特殊鋼鋼材",
+        "機械設備"
+      ],
+      "heat_relation": "鋼材・設備の販売。歯車・シャフトユーザー紹介の情報源",
+      "reason": "大同グループ中核商社。誰が歯車鋼を買っているかを洗う本命の情報接点。",
+      "source_url": "https://www.daidokogyo.co.jp/profile/",
+      "linked_majors": [
+        "大同特殊鋼"
+      ],
+      "priority": 0,
+      "role": "trading",
+      "investigation": "歯車・減速機・鍛造向け鋼材の得意先リスト／紹介ルートを聞く",
+      "pit_furnace_fit": "情報源",
+      "size_hint": "商社",
+      "lat": 35.17,
+      "lng": 136.91,
+      "scale_summary": "グループ商社",
+      "id": "daido_nagoya-大同興業",
+      "hotspot_id": "daido_nagoya",
+      "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+      "capital_man_yen": null,
+      "employees": null
+    },
+    {
+      "name": "株式会社大光製作所",
+      "category": "協力組合・チェーン製造",
+      "area": "愛知県名古屋市南区",
+      "materials": [
+        "チェーン鋼",
+        "溶接構造"
+      ],
+      "heat_relation": "チェーン製造は熱処理ニーズが出やすい。外注有無を確認",
+      "reason": "大同協力組合・金属加工枠。チェーン＝スプロケット／熱処理隣接の顧客候補。",
+      "source_url": "https://www.aiweb.or.jp/daido/partner2.html",
+      "linked_majors": [
+        "大同特殊鋼協力組合"
+      ],
+      "priority": 0,
+      "role": "coop_candidate",
+      "investigation": "チェーン・関連歯車の焼入ルート、サイズ、外注先",
+      "pit_furnace_fit": "要確認",
+      "size_hint": "チェーン製造",
+      "lat": 35.09,
+      "lng": 136.91,
+      "scale_summary": "協力組合員・規模要確認",
+      "id": "daido_nagoya-大光製作所",
+      "hotspot_id": "daido_nagoya",
+      "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+      "capital_man_yen": null,
+      "employees": null
+    },
+    {
       "name": "東光工業株式会社",
       "category": "自動車金属・歯車部品",
       "area": "愛知県高浜市／安城市",
@@ -1521,6 +2076,142 @@
       "scale_summary": "資本金3,000万円 / 従業員71名"
     },
     {
+      "name": "大同テクニカ株式会社",
+      "category": "グループ・特殊鋼プロダクト",
+      "area": "愛知県東海市元浜町（知多工場内）",
+      "materials": [
+        "特殊鋼加工"
+      ],
+      "heat_relation": "大同生産工程の担い手。外販の歯切顧客ではないが協力網の入口",
+      "reason": "協力組合の中核。組合員紹介・周辺加工の地図作りに使う。",
+      "source_url": "https://www.daido-technica.co.jp/",
+      "linked_majors": [
+        "大同特殊鋼"
+      ],
+      "priority": 1,
+      "role": "affiliate",
+      "investigation": "協力組合経由で歯車・チェーン・鍛造系組合員の紹介を取る",
+      "pit_furnace_fit": "低（入口）",
+      "size_hint": "グループ生産支援",
+      "lat": 35.0,
+      "lng": 136.88,
+      "capital_man_yen": 4000,
+      "employees": 643,
+      "scale_summary": "資本金4,000万円 / 従業員約643名",
+      "id": "daido_nagoya-大同テクニカ",
+      "hotspot_id": "daido_nagoya",
+      "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）"
+    },
+    {
+      "name": "株式会社中川精機",
+      "category": "協力組合・機械加工",
+      "area": "愛知県名古屋市中川区",
+      "materials": [
+        "機械部品"
+      ],
+      "heat_relation": "機械加工。焼入外注の有無を確認",
+      "reason": "協力組合・機械加工。中川区でUBE界隈とも地理的に近い。",
+      "source_url": "https://www.aiweb.or.jp/daido/partner1.html",
+      "linked_majors": [
+        "大同特殊鋼協力組合"
+      ],
+      "priority": 1,
+      "role": "coop_candidate",
+      "investigation": "歯車・シャフト加工と熱処理ルート",
+      "pit_furnace_fit": "要確認",
+      "size_hint": "要ヒアリング",
+      "lat": 35.14,
+      "lng": 136.85,
+      "scale_summary": "協力組合員・規模要確認",
+      "id": "daido_nagoya-中川精機",
+      "hotspot_id": "daido_nagoya",
+      "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+      "capital_man_yen": null,
+      "employees": null
+    },
+    {
+      "name": "株式会社中村鉄工所",
+      "category": "協力組合・自由鍛造",
+      "area": "愛知県小牧市",
+      "materials": [
+        "鍛造鋼"
+      ],
+      "heat_relation": "自由鍛造。鍛造後焼準・焼鈍・焼入の外注が出やすい",
+      "reason": "協力組合の自由鍛造。大型鍛造→熱処理の顧客候補。",
+      "source_url": "https://www.aiweb.or.jp/daido/partner2.html",
+      "linked_majors": [
+        "大同特殊鋼協力組合"
+      ],
+      "priority": 1,
+      "role": "coop_candidate",
+      "investigation": "最大鍛造サイズ、熱処理内製／外注、ピット炉ニーズ",
+      "pit_furnace_fit": "中〜高（大型鍛造なら）",
+      "size_hint": "自由鍛造",
+      "lat": 35.3,
+      "lng": 136.95,
+      "scale_summary": "協力組合員・規模要確認",
+      "id": "daido_nagoya-中村鉄工所",
+      "hotspot_id": "daido_nagoya",
+      "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+      "capital_man_yen": null,
+      "employees": null
+    },
+    {
+      "name": "株式会社加福製作所",
+      "category": "協力組合・大型機械加工",
+      "area": "愛知県名古屋市南区",
+      "materials": [
+        "特殊鋼",
+        "ロール材"
+      ],
+      "heat_relation": "深孔・大型機械加工。製鋼ロール等で熱処理・歪み外注が出る可能性",
+      "reason": "南区の大型加工。大同筋の機械加工組合員。ピット炉級の可能性を洗う。",
+      "source_url": "https://www.aiweb.or.jp/daido/partner1.html",
+      "linked_majors": [
+        "大同特殊鋼協力組合"
+      ],
+      "priority": 1,
+      "role": "coop_candidate",
+      "investigation": "最大加工サイズ、熱処理外注の有無、歯車・シャフト加工の有無",
+      "pit_furnace_fit": "要確認（大型なら中〜高）",
+      "size_hint": "深孔・大型加工",
+      "lat": 35.1,
+      "lng": 136.91,
+      "scale_summary": "協力組合員・規模要確認",
+      "id": "daido_nagoya-加福製作所",
+      "hotspot_id": "daido_nagoya",
+      "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+      "capital_man_yen": null,
+      "employees": null
+    },
+    {
+      "name": "株式会社山下製作所",
+      "category": "協力組合・機械器具",
+      "area": "愛知県名古屋市南区",
+      "materials": [
+        "機械部品"
+      ],
+      "heat_relation": "機械器具製造。焼入部品の外注実態を確認",
+      "reason": "南区・協力組合。歯車専用ではないが大同界隈の加工候補。",
+      "source_url": "https://www.aiweb.or.jp/daido/partner1.html",
+      "linked_majors": [
+        "大同特殊鋼協力組合"
+      ],
+      "priority": 1,
+      "role": "coop_candidate",
+      "investigation": "製品に歯車・シャフトがあるか、熱処理外注先",
+      "pit_furnace_fit": "要確認",
+      "size_hint": "要ヒアリング",
+      "lat": 35.095,
+      "lng": 136.905,
+      "scale_summary": "協力組合員・規模要確認",
+      "id": "daido_nagoya-山下製作所",
+      "hotspot_id": "daido_nagoya",
+      "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+      "capital_man_yen": null,
+      "employees": null
+    },
+    {
       "name": "豊和鍛工株式会社",
       "category": "鍛造",
       "area": "愛知県",
@@ -1750,6 +2441,58 @@
       "scale_summary": "公開規模未確認"
     },
     {
+      "name": "大同プラント工業株式会社",
+      "category": "競合（工業炉メーカー）",
+      "area": "愛知県名古屋市南区滝春町",
+      "materials": [],
+      "heat_relation": "熱処理炉・工業炉の設計製作。OTCと同業（設備側）",
+      "reason": "大同グループの炉メーカー。顧客ではなく競合・市場情報源。訪問営業の攻め先にしない。",
+      "source_url": "https://www.daido-plant.co.jp/",
+      "linked_majors": [
+        "大同特殊鋼"
+      ],
+      "priority": 2,
+      "role": "competitor",
+      "not_gear_maker": true,
+      "investigation": "市場動向の参考のみ。顧客リストは取らない／攻めない",
+      "pit_furnace_fit": "—（競合）",
+      "size_hint": "工業炉",
+      "lat": 35.09,
+      "lng": 136.9,
+      "capital_man_yen": 3600,
+      "scale_summary": "資本金3,600万円",
+      "id": "daido_nagoya-大同プラント工業",
+      "hotspot_id": "daido_nagoya",
+      "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+      "employees": null
+    },
+    {
+      "name": "桜井興産株式会社",
+      "category": "競合（金属熱処理）",
+      "area": "愛知県名古屋市南区",
+      "materials": [],
+      "heat_relation": "大同協力組合の金属熱処理加工。近隣の熱処理競合",
+      "reason": "戦略どおり熱処理屋は顧客ではない。大同界隈の競合マップ用。訪問攻めしない。",
+      "source_url": "https://www.aiweb.or.jp/daido/partner2.html",
+      "linked_majors": [
+        "大同特殊鋼協力組合"
+      ],
+      "priority": 2,
+      "role": "competitor",
+      "not_gear_maker": true,
+      "investigation": "競合把握のみ（範囲・得意サイズの公開情報）",
+      "pit_furnace_fit": "—（競合）",
+      "size_hint": "熱処理専業",
+      "lat": 35.1,
+      "lng": 136.9,
+      "scale_summary": "協力組合・熱処理",
+      "id": "daido_nagoya-桜井興産",
+      "hotspot_id": "daido_nagoya",
+      "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+      "capital_man_yen": null,
+      "employees": null
+    },
+    {
       "name": "協育歯車工業株式会社（名古屋）",
       "category": "規格歯車",
       "area": "愛知県名古屋市熱田区（支店）",
@@ -1905,6 +2648,22 @@
       "priority": 1
     },
     {
+      "name": "大同テクニカ株式会社",
+      "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+      "capital_man_yen": 4000,
+      "employees": 643,
+      "scale_summary": "資本金4,000万円 / 従業員約643名",
+      "priority": 1
+    },
+    {
+      "name": "大同マシナリー株式会社",
+      "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+      "capital_man_yen": 31000,
+      "employees": 350,
+      "scale_summary": "資本金3.1億円 / 従業員約350名",
+      "priority": 0
+    },
+    {
       "name": "株式会社名光精機",
       "hotspot_area": "愛知・Willbe（津島）界隈",
       "capital_man_yen": 10000,
@@ -1993,6 +2752,14 @@
       "priority": 0
     },
     {
+      "name": "大同プラント工業株式会社",
+      "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+      "capital_man_yen": 3600,
+      "employees": null,
+      "scale_summary": "資本金3,600万円",
+      "priority": 2
+    },
+    {
       "name": "阪神歯車",
       "hotspot_area": "大型ギア特化（ピット炉検証）",
       "capital_man_yen": 300,
@@ -2007,6 +2774,30 @@
       "employees": null,
       "scale_summary": "公開規模未確認",
       "priority": 1
+    },
+    {
+      "name": "大同特殊鋼株式会社（星崎工場）",
+      "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "大同特殊鋼・星崎",
+      "priority": 0
+    },
+    {
+      "name": "大同特殊鋼株式会社（知多工場／知多第2）",
+      "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "知多エリア拠点",
+      "priority": 0
+    },
+    {
+      "name": "大同興業株式会社",
+      "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "グループ商社",
+      "priority": 0
     },
     {
       "name": "姫路歯車工業株式会社",
@@ -2041,12 +2832,52 @@
       "priority": 0
     },
     {
+      "name": "株式会社中川精機",
+      "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "協力組合員・規模要確認",
+      "priority": 1
+    },
+    {
+      "name": "株式会社中村鉄工所",
+      "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "協力組合員・規模要確認",
+      "priority": 1
+    },
+    {
       "name": "株式会社前田精密製作所",
       "hotspot_area": "愛知・豊和工業（清須本社）界隈",
       "capital_man_yen": null,
       "employees": null,
       "scale_summary": "公開規模未確認",
       "priority": 2
+    },
+    {
+      "name": "株式会社加福製作所",
+      "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "協力組合員・規模要確認",
+      "priority": 1
+    },
+    {
+      "name": "株式会社大光製作所",
+      "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "協力組合員・規模要確認",
+      "priority": 0
+    },
+    {
+      "name": "株式会社山下製作所",
+      "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "協力組合員・規模要確認",
+      "priority": 1
     },
     {
       "name": "株式会社平井減速機製作所",
@@ -2078,6 +2909,14 @@
       "capital_man_yen": null,
       "employees": null,
       "scale_summary": "公開規模未確認",
+      "priority": 2
+    },
+    {
+      "name": "桜井興産株式会社",
+      "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "協力組合・熱処理",
       "priority": 2
     },
     {
@@ -2593,12 +3432,374 @@
       }
     ]
   },
+  "daido_nagoya_focus": {
+    "id": "daido_nagoya",
+    "area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+    "pain": "未開拓。大同自体は特殊鋼メーカー（素材）でギア専業ではない。協力工場・周辺の歯車／チェーン／大型加工、鋼材ユーザーを洗う。大同プラント・近隣熱処理屋は競合扱い。",
+    "lat": 35.09,
+    "lng": 136.9,
+    "investigation_mode": true,
+    "focus": [
+      "大同特殊鋼",
+      "星崎工場",
+      "知多工場",
+      "協力工場協同組合",
+      "歯車鋼ユーザー",
+      "大型機械加工",
+      "ピット炉"
+    ],
+    "how_to_investigate": [
+      "① アンカー（星崎／知多）は素材入口。歯車鋼・xEVギア鋼の納入先・二次加工先名を聞く（大同本体への焼入営業ではない）",
+      "② 大同興業（商社）で歯車・シャフト・鍛造向け鋼材の得意先マップを取る",
+      "③ 協力工場協同組合（41社）を洗う：歯車・チェーン・大型加工は顧客候補／金属熱処理は競合",
+      "④ 大同マシナリーの大型部品・ロール加工で焼入・歪み外注ニーズを確認",
+      "⑤ ヒットしたらピット炉適合を確認し大型ギア特化へ昇格。熱処理屋・工業炉屋は攻め先にしない"
+    ],
+    "search_queries": [
+      "大同特殊鋼 協力工場 歯車 OR 機械加工 名古屋 OR 東海",
+      "大同特殊鋼協力工場協同組合 組合員 歯車 OR チェーン OR 鍛造",
+      "星崎 OR 滝春町 OR 大同町 歯車 製造 OR 歯切",
+      "大同特殊鋼 歯車鋼 OR xEVギア 納入 OR ユーザー 愛知",
+      "大同興業 特殊鋼 歯車 OR シャフト 顧客",
+      "大同マシナリー 大型部品 熱処理 OR 焼入 外注",
+      "知多 東海市 歯車 OR 鍛造 熱処理 外注 -大同プラント",
+      "名古屋市南区 歯車 製造 SCM OR 浸炭 外注",
+      "大光製作所 OR 加福製作所 OR 山下製作所 大同 歯車 OR チェーン",
+      "桜井興産 熱処理 南区 -訪問顧客"
+    ],
+    "companies": [
+      {
+        "name": "大同特殊鋼株式会社（星崎工場）",
+        "category": "アンカー（特殊鋼・素材）",
+        "area": "愛知県名古屋市南区大同町",
+        "materials": [
+          "特殊鋼",
+          "歯車鋼",
+          "高合金"
+        ],
+        "heat_relation": "自社炉あり。OTCへの外注顧客ではない。歯車鋼ユーザー・二次加工先の入口",
+        "reason": "未開拓の中核拠点。素材メーカーとしてギア鋼供給網の起点。焼入営業の直接先ではなく調査アンカー。",
+        "source_url": "https://www.daido.co.jp/about/facilities/index.html",
+        "linked_majors": [
+          "大同特殊鋼"
+        ],
+        "priority": 0,
+        "role": "anchor",
+        "not_gear_maker": true,
+        "investigation": "歯車鋼・構造用鋼の主な二次加工・歯切・鍛造先の社名を聞き出す",
+        "pit_furnace_fit": "直接は低（入口）",
+        "size_hint": "棒鋼・高合金圧延等",
+        "lat": 35.09,
+        "lng": 136.9,
+        "scale_summary": "大同特殊鋼・星崎"
+      },
+      {
+        "name": "大同特殊鋼株式会社（知多工場／知多第2）",
+        "category": "アンカー（特殊鋼一貫）",
+        "area": "愛知県東海市・知多市",
+        "materials": [
+          "特殊鋼",
+          "ステンレス",
+          "高合金",
+          "チタン"
+        ],
+        "heat_relation": "一貫製鋼。周辺の型鍛造・二次加工ネットワーク調査",
+        "reason": "知多〜東海の特殊鋼拠点。型鍛造工場も同地区。周辺加工屋の入口。",
+        "source_url": "https://www.daido.co.jp/about/facilities/index.html",
+        "linked_majors": [
+          "大同特殊鋼"
+        ],
+        "priority": 0,
+        "role": "anchor",
+        "not_gear_maker": true,
+        "investigation": "型鍛造・二次加工協力会社、歯車・シャフト向け鋼材ユーザーを確認",
+        "pit_furnace_fit": "直接は低（入口）",
+        "size_hint": "一貫製鋼・高機能材",
+        "lat": 35.0,
+        "lng": 136.88,
+        "scale_summary": "知多エリア拠点"
+      },
+      {
+        "name": "大同興業株式会社",
+        "category": "グループ商社（鋼材流通）",
+        "area": "愛知県名古屋市東区（本社ビル）",
+        "materials": [
+          "特殊鋼鋼材",
+          "機械設備"
+        ],
+        "heat_relation": "鋼材・設備の販売。歯車・シャフトユーザー紹介の情報源",
+        "reason": "大同グループ中核商社。誰が歯車鋼を買っているかを洗う本命の情報接点。",
+        "source_url": "https://www.daidokogyo.co.jp/profile/",
+        "linked_majors": [
+          "大同特殊鋼"
+        ],
+        "priority": 0,
+        "role": "trading",
+        "investigation": "歯車・減速機・鍛造向け鋼材の得意先リスト／紹介ルートを聞く",
+        "pit_furnace_fit": "情報源",
+        "size_hint": "商社",
+        "lat": 35.17,
+        "lng": 136.91,
+        "scale_summary": "グループ商社"
+      },
+      {
+        "name": "大同マシナリー株式会社",
+        "category": "グループ・大型機械加工／設備",
+        "area": "愛知県名古屋市南区滝春町",
+        "materials": [
+          "大型部品",
+          "ロール"
+        ],
+        "heat_relation": "大型部品・ロール加工。焼入・歪み対策の外注有無を確認",
+        "reason": "大型部品受託加工あり。ピット炉級サイズが出る可能性。グループ内だが未開拓ならヒアリング価値あり。",
+        "source_url": "https://dmdaido.xbiz.jp/profile/",
+        "linked_majors": [
+          "大同特殊鋼"
+        ],
+        "priority": 0,
+        "role": "group_service",
+        "investigation": "大型部品の熱処理ルート、外径・重量上限、外注余地",
+        "pit_furnace_fit": "中（大型部品なら）",
+        "size_hint": "大型部品・ロール",
+        "lat": 35.09,
+        "lng": 136.9,
+        "capital_man_yen": 31000,
+        "employees": 350,
+        "scale_summary": "資本金3.1億円 / 従業員約350名"
+      },
+      {
+        "name": "大同テクニカ株式会社",
+        "category": "グループ・特殊鋼プロダクト",
+        "area": "愛知県東海市元浜町（知多工場内）",
+        "materials": [
+          "特殊鋼加工"
+        ],
+        "heat_relation": "大同生産工程の担い手。外販の歯切顧客ではないが協力網の入口",
+        "reason": "協力組合の中核。組合員紹介・周辺加工の地図作りに使う。",
+        "source_url": "https://www.daido-technica.co.jp/",
+        "linked_majors": [
+          "大同特殊鋼"
+        ],
+        "priority": 1,
+        "role": "affiliate",
+        "investigation": "協力組合経由で歯車・チェーン・鍛造系組合員の紹介を取る",
+        "pit_furnace_fit": "低（入口）",
+        "size_hint": "グループ生産支援",
+        "lat": 35.0,
+        "lng": 136.88,
+        "capital_man_yen": 4000,
+        "employees": 643,
+        "scale_summary": "資本金4,000万円 / 従業員約643名"
+      },
+      {
+        "name": "株式会社大光製作所",
+        "category": "協力組合・チェーン製造",
+        "area": "愛知県名古屋市南区",
+        "materials": [
+          "チェーン鋼",
+          "溶接構造"
+        ],
+        "heat_relation": "チェーン製造は熱処理ニーズが出やすい。外注有無を確認",
+        "reason": "大同協力組合・金属加工枠。チェーン＝スプロケット／熱処理隣接の顧客候補。",
+        "source_url": "https://www.aiweb.or.jp/daido/partner2.html",
+        "linked_majors": [
+          "大同特殊鋼協力組合"
+        ],
+        "priority": 0,
+        "role": "coop_candidate",
+        "investigation": "チェーン・関連歯車の焼入ルート、サイズ、外注先",
+        "pit_furnace_fit": "要確認",
+        "size_hint": "チェーン製造",
+        "lat": 35.09,
+        "lng": 136.91,
+        "scale_summary": "協力組合員・規模要確認"
+      },
+      {
+        "name": "株式会社加福製作所",
+        "category": "協力組合・大型機械加工",
+        "area": "愛知県名古屋市南区",
+        "materials": [
+          "特殊鋼",
+          "ロール材"
+        ],
+        "heat_relation": "深孔・大型機械加工。製鋼ロール等で熱処理・歪み外注が出る可能性",
+        "reason": "南区の大型加工。大同筋の機械加工組合員。ピット炉級の可能性を洗う。",
+        "source_url": "https://www.aiweb.or.jp/daido/partner1.html",
+        "linked_majors": [
+          "大同特殊鋼協力組合"
+        ],
+        "priority": 1,
+        "role": "coop_candidate",
+        "investigation": "最大加工サイズ、熱処理外注の有無、歯車・シャフト加工の有無",
+        "pit_furnace_fit": "要確認（大型なら中〜高）",
+        "size_hint": "深孔・大型加工",
+        "lat": 35.1,
+        "lng": 136.91,
+        "scale_summary": "協力組合員・規模要確認"
+      },
+      {
+        "name": "株式会社山下製作所",
+        "category": "協力組合・機械器具",
+        "area": "愛知県名古屋市南区",
+        "materials": [
+          "機械部品"
+        ],
+        "heat_relation": "機械器具製造。焼入部品の外注実態を確認",
+        "reason": "南区・協力組合。歯車専用ではないが大同界隈の加工候補。",
+        "source_url": "https://www.aiweb.or.jp/daido/partner1.html",
+        "linked_majors": [
+          "大同特殊鋼協力組合"
+        ],
+        "priority": 1,
+        "role": "coop_candidate",
+        "investigation": "製品に歯車・シャフトがあるか、熱処理外注先",
+        "pit_furnace_fit": "要確認",
+        "size_hint": "要ヒアリング",
+        "lat": 35.095,
+        "lng": 136.905,
+        "scale_summary": "協力組合員・規模要確認"
+      },
+      {
+        "name": "株式会社中川精機",
+        "category": "協力組合・機械加工",
+        "area": "愛知県名古屋市中川区",
+        "materials": [
+          "機械部品"
+        ],
+        "heat_relation": "機械加工。焼入外注の有無を確認",
+        "reason": "協力組合・機械加工。中川区でUBE界隈とも地理的に近い。",
+        "source_url": "https://www.aiweb.or.jp/daido/partner1.html",
+        "linked_majors": [
+          "大同特殊鋼協力組合"
+        ],
+        "priority": 1,
+        "role": "coop_candidate",
+        "investigation": "歯車・シャフト加工と熱処理ルート",
+        "pit_furnace_fit": "要確認",
+        "size_hint": "要ヒアリング",
+        "lat": 35.14,
+        "lng": 136.85,
+        "scale_summary": "協力組合員・規模要確認"
+      },
+      {
+        "name": "株式会社中村鉄工所",
+        "category": "協力組合・自由鍛造",
+        "area": "愛知県小牧市",
+        "materials": [
+          "鍛造鋼"
+        ],
+        "heat_relation": "自由鍛造。鍛造後焼準・焼鈍・焼入の外注が出やすい",
+        "reason": "協力組合の自由鍛造。大型鍛造→熱処理の顧客候補。",
+        "source_url": "https://www.aiweb.or.jp/daido/partner2.html",
+        "linked_majors": [
+          "大同特殊鋼協力組合"
+        ],
+        "priority": 1,
+        "role": "coop_candidate",
+        "investigation": "最大鍛造サイズ、熱処理内製／外注、ピット炉ニーズ",
+        "pit_furnace_fit": "中〜高（大型鍛造なら）",
+        "size_hint": "自由鍛造",
+        "lat": 35.3,
+        "lng": 136.95,
+        "scale_summary": "協力組合員・規模要確認"
+      },
+      {
+        "name": "大同プラント工業株式会社",
+        "category": "競合（工業炉メーカー）",
+        "area": "愛知県名古屋市南区滝春町",
+        "materials": [],
+        "heat_relation": "熱処理炉・工業炉の設計製作。OTCと同業（設備側）",
+        "reason": "大同グループの炉メーカー。顧客ではなく競合・市場情報源。訪問営業の攻め先にしない。",
+        "source_url": "https://www.daido-plant.co.jp/",
+        "linked_majors": [
+          "大同特殊鋼"
+        ],
+        "priority": 2,
+        "role": "competitor",
+        "not_gear_maker": true,
+        "investigation": "市場動向の参考のみ。顧客リストは取らない／攻めない",
+        "pit_furnace_fit": "—（競合）",
+        "size_hint": "工業炉",
+        "lat": 35.09,
+        "lng": 136.9,
+        "capital_man_yen": 3600,
+        "scale_summary": "資本金3,600万円"
+      },
+      {
+        "name": "桜井興産株式会社",
+        "category": "競合（金属熱処理）",
+        "area": "愛知県名古屋市南区",
+        "materials": [],
+        "heat_relation": "大同協力組合の金属熱処理加工。近隣の熱処理競合",
+        "reason": "戦略どおり熱処理屋は顧客ではない。大同界隈の競合マップ用。訪問攻めしない。",
+        "source_url": "https://www.aiweb.or.jp/daido/partner2.html",
+        "linked_majors": [
+          "大同特殊鋼協力組合"
+        ],
+        "priority": 2,
+        "role": "competitor",
+        "not_gear_maker": true,
+        "investigation": "競合把握のみ（範囲・得意サイズの公開情報）",
+        "pit_furnace_fit": "—（競合）",
+        "size_hint": "熱処理専業",
+        "lat": 35.1,
+        "lng": 136.9,
+        "scale_summary": "協力組合・熱処理"
+      },
+      {
+        "name": "大同協力組合・歯車鋼ユーザー（探索枠）",
+        "category": "探索メモ",
+        "area": "名古屋南区・緑区・東海・知多",
+        "materials": [
+          "SCM系",
+          "歯車鋼"
+        ],
+        "heat_relation": "大同材ユーザーの歯切・鍛造は焼入外注が出やすい",
+        "reason": "組合41社＋鋼材ユーザーを洗い、社名確定して埋める。ナゴヤギアは既存取引先のため攻略対象外。",
+        "source_url": "https://www.aiweb.or.jp/daido/",
+        "linked_majors": [
+          "大同特殊鋼"
+        ],
+        "priority": 2,
+        "role": "explore",
+        "is_placeholder": true,
+        "investigation": "組合名簿・大同興業紹介・南区歯切屋から社名を追加",
+        "pit_furnace_fit": "探索中",
+        "size_hint": "探索",
+        "lat": 35.09,
+        "lng": 136.9,
+        "scale_summary": "—"
+      }
+    ],
+    "known_network_notes": [
+      {
+        "name": "株式会社ナゴヤギア",
+        "note": "大同協力組合の歯車組合員かつ既存取引先。攻略一覧からは除外。大同界隈の参考接点のみ。"
+      },
+      {
+        "name": "石田歯車工業株式会社",
+        "note": "緑区の大型歯切。大型ギア特化に既掲。大同南区界隈の地理的隣接として突合。"
+      },
+      {
+        "name": "大同プラント工業・桜井興産",
+        "note": "工業炉／熱処理＝競合側。顧客として訪問しない。情報地図用。"
+      },
+      {
+        "name": "大同特殊鋼本体",
+        "note": "特殊鋼メーカー。自社熱処理あり。営業の直接顧客ではなく、歯車鋼ユーザー探索のアンカー。"
+      }
+    ]
+  },
   "search_queries": [
     "減速機 製造 メーカー 愛知 OR 名古屋 OR 大阪 OR 兵庫 -販売店",
     "歯車減速機 製造 愛知 OR 東大阪 OR 尼崎 熱処理 OR 焼入 OR 浸炭",
     "ウォーム減速機 製造 名古屋 OR 愛知 歯車",
     "特殊減速機 OR 一品一様 減速機 製造 大阪 OR 愛知",
     "大型減速機 OR ギヤボックス 歯車 焼入 外注 東海 OR 関西",
+    "大同特殊鋼 協力工場 歯車 OR 機械加工 名古屋 OR 東海",
+    "大同特殊鋼協力工場協同組合 組合員 歯車 OR チェーン OR 鍛造",
+    "星崎 OR 滝春町 OR 大同町 歯車 製造 OR 歯切",
+    "大同特殊鋼 歯車鋼 OR xEVギア 納入 OR ユーザー 愛知",
     "大型歯車 製造 愛知 OR 大阪 OR 兵庫 モジュール10 OR モジュール20",
     "大型ギヤ φ1000 OR φ2000 浸炭 OR ピット炉 外注",
     "ピット炉 浸炭 大型歯車 東海 OR 関西",

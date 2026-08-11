@@ -164,7 +164,7 @@
             ← 界隈一覧に戻る
           </button>
         </div>
-        <p id="hotspot-hint" class="text-xs text-slate-500 mb-2">界隈を選ぶと深掘りします。<strong>大型ギア特化</strong>はピット炉検証、<strong>UBE/減速機製造</strong>は減速機メーカー（重要顧客候補）とUBE関連を強力に洗う調査用です。</p>
+        <p id="hotspot-hint" class="text-xs text-slate-500 mb-2">界隈を選ぶと深掘りします。<strong>大型ギア特化</strong>はピット炉検証、<strong>UBE/減速機</strong>・<strong>大同特殊鋼界隈</strong>は未開拓エコシステム調査用です。</p>
         <div id="hotspot-list" class="space-y-2"></div>
         <div id="scm-radar-panel" class="hidden mt-3">
           <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
@@ -578,6 +578,12 @@ function renderCompanyCards(comps) {
       : '';
     const roleBadge = t.role === 'reducer_maker'
       ? '<span class="text-[10px] font-bold text-emerald-900 bg-emerald-100 px-1.5 py-0.5 rounded ml-1">減速機製造</span>'
+      : t.role === 'competitor'
+      ? '<span class="text-[10px] font-bold text-red-800 bg-red-100 px-1.5 py-0.5 rounded ml-1">競合（攻めない）</span>'
+      : t.role === 'coop_candidate'
+      ? '<span class="text-[10px] font-bold text-teal-900 bg-teal-100 px-1.5 py-0.5 rounded ml-1">協力組合</span>'
+      : t.role === 'trading'
+      ? '<span class="text-[10px] font-bold text-cyan-900 bg-cyan-100 px-1.5 py-0.5 rounded ml-1">商社・情報源</span>'
       : (t.not_gear_maker
       ? '<span class="text-[10px] font-bold text-slate-700 bg-slate-200 px-1.5 py-0.5 rounded ml-1">ギア専業ではない</span>'
       : (t.role === 'anchor' ? '<span class="text-[10px] font-bold text-indigo-800 bg-indigo-100 px-1.5 py-0.5 rounded ml-1">アンカー</span>'
@@ -629,14 +635,19 @@ function renderHotspotDrill(group, data) {
   meta.textContent = `${real.length}社 · 更新 ${esc((data.updated || '').slice(0, 16))}`;
   note.textContent = `${group.pain || ''} ／ ${(data.disclaimer || '')}`;
 
-  const isUbe = group.hotspot_id === 'ube_nagoya' || group.investigation_mode;
+  const isInvest = !!group.investigation_mode || group.hotspot_id === 'ube_nagoya' || group.hotspot_id === 'daido_nagoya';
+  const isDaido = group.hotspot_id === 'daido_nagoya';
+  const isUbe = group.hotspot_id === 'ube_nagoya';
   const ubeFocus = (data.ube_nagoya_focus) || {};
+  const daidoFocus = (data.daido_nagoya_focus) || {};
   const focusQs = (data.large_gear_focus && data.large_gear_focus.search_queries) || [];
-  const ubeQs = (group.search_queries && group.search_queries.length)
+  const investQs = (group.search_queries && group.search_queries.length)
     ? group.search_queries
-    : (ubeFocus.search_queries || []);
-  const qHints = isUbe
-    ? (ubeQs.length ? ubeQs : (data.search_queries || []).filter(q => /減速機|UBE|宇部/.test(q))).slice(0, 10)
+    : (isDaido ? (daidoFocus.search_queries || []) : (ubeFocus.search_queries || []));
+  const qHints = isInvest
+    ? (investQs.length ? investQs : (data.search_queries || []).filter(q =>
+        isDaido ? /大同|星崎|滝春|知多/.test(q) : /減速機|UBE|宇部/.test(q)
+      )).slice(0, 10)
     : (group.hotspot_id === 'large_gear' || (group.area || '').includes('大型ギア') || (group.area || '').includes('ピット炉'))
     ? (focusQs.length ? focusQs : (data.search_queries || []).filter(q => /ピット炉|大型/.test(q))).slice(0, 6)
     : (data.search_queries || []).filter(q => {
@@ -653,26 +664,35 @@ function renderHotspotDrill(group, data) {
       class="text-[11px] px-2 py-1 rounded-md border border-orange-200 bg-white text-orange-800 hover:bg-orange-50">${esc(q)}</a>`
   ).join('');
 
-  const steps = group.how_to_investigate || ubeFocus.how_to_investigate || [];
-  const netNotes = group.known_network_notes || ubeFocus.known_network_notes || [];
-  const invHtml = isUbe && (steps.length || netNotes.length) ? `
+  const steps = group.how_to_investigate
+    || (isDaido ? daidoFocus.how_to_investigate : ubeFocus.how_to_investigate)
+    || [];
+  const netNotes = group.known_network_notes
+    || (isDaido ? daidoFocus.known_network_notes : ubeFocus.known_network_notes)
+    || [];
+  const invTitle = isDaido
+    ? '調査手順（大同＝素材入口 → 協力組合・鋼材ユーザーを洗う／熱処理屋は攻めない）'
+    : isUbe
+    ? '調査手順（減速機製造を最優先 → UBE関連・周辺歯切を洗う）'
+    : '調査手順';
+  const invHtml = isInvest && (steps.length || netNotes.length) ? `
     <div class="rounded-xl border border-indigo-200 bg-indigo-50/70 p-3 mb-2">
-      <p class="text-xs font-bold text-indigo-900 mb-1">調査手順（減速機製造を最優先 → UBE関連・周辺歯切を洗う）</p>
+      <p class="text-xs font-bold text-indigo-900 mb-1">${invTitle}</p>
       ${steps.length ? `<ol class="list-decimal pl-4 space-y-0.5 text-xs text-indigo-950">${steps.map(s => `<li>${esc(s)}</li>`).join('')}</ol>` : ''}
       ${netNotes.length ? `<div class="mt-2 pt-2 border-t border-indigo-100 space-y-1">${netNotes.map(n =>
         `<p class="text-[11px] text-slate-700"><span class="font-semibold">${esc(n.name || '')}</span>：${esc(n.note || '')}</p>`
       ).join('')}</div>` : ''}
     </div>` : '';
 
-  const showPitCols = group.hotspot_id === 'large_gear' || isUbe;
+  const showPitCols = group.hotspot_id === 'large_gear' || isInvest;
   const scaleRows = real.slice().sort((a, b) => (b.employees ?? -1) - (a.employees ?? -1));
   const scaleHtml = scaleRows.some(t => t.capital_man_yen != null || t.employees != null || t.investigation || t.pit_furnace_fit) ? `
     <div class="rounded-xl border border-slate-200 bg-white p-3">
-      <p class="text-xs font-bold text-slate-800 mb-2">この界隈の規模（資本金・従業員）${isUbe ? '・調査メモ' : ''}</p>
+      <p class="text-xs font-bold text-slate-800 mb-2">この界隈の規模（資本金・従業員）${isInvest ? '・調査メモ' : ''}</p>
       <div class="overflow-x-auto">
         <table class="w-full text-xs text-left">
           <thead class="text-slate-500 border-b border-slate-100">
-            <tr><th class="py-1 pr-2">会社</th><th class="py-1 pr-2">資本金</th><th class="py-1 pr-2">従業員</th>${showPitCols ? '<th class="py-1 pr-2">ピット炉</th><th class="py-1 pr-2">サイズ</th>' : ''}${isUbe ? '<th class="py-1 pr-2">調査</th>' : ''}<th class="py-1">摘要</th></tr>
+            <tr><th class="py-1 pr-2">会社</th><th class="py-1 pr-2">資本金</th><th class="py-1 pr-2">従業員</th>${showPitCols ? '<th class="py-1 pr-2">ピット炉</th><th class="py-1 pr-2">サイズ</th>' : ''}${isInvest ? '<th class="py-1 pr-2">調査</th>' : ''}<th class="py-1">摘要</th></tr>
           </thead>
           <tbody>
             ${scaleRows.map(t => `<tr class="border-b border-slate-50">
@@ -680,7 +700,7 @@ function renderHotspotDrill(group, data) {
               <td class="py-1 pr-2 whitespace-nowrap">${formatCapital(t.capital_man_yen)}</td>
               <td class="py-1 pr-2 whitespace-nowrap">${formatEmployees(t.employees)}</td>
               ${showPitCols ? `<td class="py-1 pr-2 text-rose-800 whitespace-nowrap">${esc(t.pit_furnace_fit||'—')}</td><td class="py-1 pr-2 text-slate-600 whitespace-nowrap">${esc(t.size_hint||'—')}</td>` : ''}
-              ${isUbe ? `<td class="py-1 pr-2 text-indigo-800 max-w-[12rem]">${esc(t.investigation||'—')}</td>` : ''}
+              ${isInvest ? `<td class="py-1 pr-2 text-indigo-800 max-w-[12rem]">${esc(t.investigation||'—')}</td>` : ''}
               <td class="py-1 text-slate-600">${esc(t.scale_summary||'')}</td>
             </tr>`).join('')}
           </tbody>
@@ -773,13 +793,14 @@ function renderLists(data) {
   }
 
   const hotspotOrder = (a, b) => {
-    const rank = { large_gear: -3, ube_nagoya: -2, willbe_tsushima: -1, houwa: 0, kariya_jtekt: 1, toyonaka: 2, amagasaki: 3, himeji: 4, inabe: 5, wakayama: 6 };
+    const rank = { large_gear: -4, ube_nagoya: -3, daido_nagoya: -2, willbe_tsushima: -1, houwa: 0, kariya_jtekt: 1, toyonaka: 2, amagasaki: 3, himeji: 4, inabe: 5, wakayama: 6 };
     return (rank[a.id] ?? 50) - (rank[b.id] ?? 50);
   };
   const baseHotspots = [...(data.pain_hotspots || [])].filter(h => !(h.area || '').includes('石川'));
   const largeFocus = (scmRadarData && scmRadarData.large_gear_focus) || {};
   const ubeFocus = (scmRadarData && scmRadarData.ube_nagoya_focus) || {};
-  // 大型ギア特化 → UBE名古屋調査 → Willbe → その他界隈
+  const daidoFocus = (scmRadarData && scmRadarData.daido_nagoya_focus) || {};
+  // 大型ギア特化 → UBE/減速機 → 大同界隈 → Willbe → その他
   const pickList = [
     {
       id: 'large_gear',
@@ -797,16 +818,25 @@ function renderLists(data) {
       lat: ubeFocus.lat ?? 35.08,
       lng: ubeFocus.lng ?? 136.87,
     },
+    {
+      id: 'daido_nagoya',
+      area: daidoFocus.area || '大同特殊鋼界隈調査（星崎・知多・南区）',
+      pain: daidoFocus.pain || '未開拓。素材入口から協力組合・歯車鋼ユーザーを洗う',
+      sources: ['大同星崎', '知多', '協力工場組合', '大同興業'],
+      lat: daidoFocus.lat ?? 35.09,
+      lng: daidoFocus.lng ?? 136.9,
+    },
     { id: 'willbe_tsushima', area: '愛知・Willbe（津島）界隈', pain: '旧三菱重工メイキ。本命OEM＋周辺加工', sources: ['Willbe'], lat: 35.177, lng: 136.741 },
     ...baseHotspots,
   ].sort(hotspotOrder);
   document.getElementById('hotspot-list').innerHTML = pickList.map(h => {
-      const featured = h.id === 'large_gear' || h.id === 'ube_nagoya' || h.id === 'houwa' || h.id === 'willbe_tsushima';
-      const star = h.id === 'large_gear' ? '◆ ' : (h.id === 'ube_nagoya' ? '◇ ' : (h.id === 'houwa' || h.id === 'willbe_tsushima' ? '★ ' : ''));
+      const featured = h.id === 'large_gear' || h.id === 'ube_nagoya' || h.id === 'daido_nagoya' || h.id === 'houwa' || h.id === 'willbe_tsushima';
+      const star = h.id === 'large_gear' ? '◆ ' : (h.id === 'ube_nagoya' || h.id === 'daido_nagoya' ? '◇ ' : (h.id === 'houwa' || h.id === 'willbe_tsushima' ? '★ ' : ''));
       const border = h.id === 'large_gear'
         ? 'border-rose-400 bg-rose-50'
         : (h.id === 'ube_nagoya' ? 'border-indigo-400 bg-indigo-50'
-        : (h.id === 'houwa' || h.id === 'willbe_tsushima' ? 'border-orange-300 bg-orange-100/80' : 'border-orange-100 bg-orange-50/60'));
+        : (h.id === 'daido_nagoya' ? 'border-teal-400 bg-teal-50'
+        : (h.id === 'houwa' || h.id === 'willbe_tsushima' ? 'border-orange-300 bg-orange-100/80' : 'border-orange-100 bg-orange-50/60')));
       return `
       <button type="button" data-hotspot-id="${esc(h.id)}"
         onclick="selectHotspotDrill('${esc(h.id)}', ${h.lat ?? 'null'}, ${h.lng ?? 'null'})"
@@ -815,6 +845,7 @@ function renderLists(data) {
           <span class="text-[10px] font-semibold text-orange-700 bg-orange-50 border border-orange-200 px-1.5 py-0.5 rounded ml-1">選んで深掘り</span>
           ${h.id === 'large_gear' ? '<span class="text-[10px] font-semibold text-rose-800 bg-rose-100 border border-rose-200 px-1.5 py-0.5 rounded ml-1">集中検索</span>' : ''}
           ${h.id === 'ube_nagoya' ? '<span class="text-[10px] font-semibold text-indigo-800 bg-indigo-100 border border-indigo-200 px-1.5 py-0.5 rounded ml-1">調査モード</span><span class="text-[10px] font-semibold text-emerald-900 bg-emerald-100 border border-emerald-200 px-1.5 py-0.5 rounded ml-1">減速機製造</span>' : ''}
+          ${h.id === 'daido_nagoya' ? '<span class="text-[10px] font-semibold text-teal-900 bg-teal-100 border border-teal-200 px-1.5 py-0.5 rounded ml-1">調査モード</span><span class="text-[10px] font-semibold text-slate-700 bg-slate-100 border border-slate-200 px-1.5 py-0.5 rounded ml-1">未開拓</span>' : ''}
         </p>
         <p class="text-xs text-slate-600 mt-1">${esc(h.pain || '')}</p>
         ${(h.sources||[]).length ? `<p class="text-xs text-slate-400 mt-1">アンカー: ${esc(h.sources.join(' / '))}</p>` : ''}

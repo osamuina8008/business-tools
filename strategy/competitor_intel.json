@@ -2099,8 +2099,20 @@
         "窒化",
         "バッチ",
         "焼鈍",
-        "窒化処理"
-      ]
+        "窒化処理",
+        "総合型"
+      ],
+      "position": "総合型",
+      "equipment_map": {
+        "carburize": "○",
+        "vacuum": "○",
+        "nitride": "○",
+        "induction": "—",
+        "aluminum": "△",
+        "anneal": "○",
+        "max_size": "ピット・バッチ級（光輝焼鈍・浸炭窒化・浸硫窒化など）",
+        "lot": "中ロット〜量産"
+      }
     },
     {
       "id": "1145195f0541",
@@ -2167,8 +2179,20 @@
         "ピット炉",
         "真空",
         "窒化",
-        "窒化処理"
-      ]
+        "窒化処理",
+        "小～中ロット型"
+      ],
+      "position": "小～中ロット型",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "○",
+        "nitride": "○",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "600×1350×800mm（ページ記載）",
+        "lot": "不明"
+      }
     },
     {
       "id": "14c05a4227eb",
@@ -3405,8 +3429,20 @@
         "ADI",
         "焼鈍",
         "調質",
-        "京阪神"
-      ]
+        "京阪神",
+        "超大型型"
+      ],
+      "position": "超大型型",
+      "equipment_map": {
+        "carburize": "△",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "△",
+        "anneal": "○",
+        "max_size": "大型調質・ADI（岸和田・公式で大型訴求）",
+        "lot": "小ロット〜中ロット（大物）"
+      }
     },
     {
       "id": "8d99514d1167",
@@ -3628,9 +3664,21 @@
         "窒化",
         "アルミ",
         "窒化処理",
-        "京阪神"
+        "京阪神",
+        "小～中ロット型"
       ],
-      "commentary": "2025年10月 大阪本社工場を閉鎖し滋賀本社工場へ移転・統合"
+      "commentary": "2025年10月 大阪本社工場を閉鎖し滋賀本社工場へ移転・統合",
+      "position": "小～中ロット型",
+      "equipment_map": {
+        "carburize": "○",
+        "vacuum": "—",
+        "nitride": "○",
+        "induction": "—",
+        "aluminum": "○",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "0c26df884612",
@@ -3712,8 +3760,20 @@
       "blurb": "真空熱処理・Hi-NiTo表面改質・MIM/三木工場あり(公式技術紹介。炉台数表は非公開) 資本金1億9300万円 / 従業員140名 強み候補: 真空",
       "tags": [
         "真空",
-        "京阪神"
-      ]
+        "京阪神",
+        "小～中ロット型"
+      ],
+      "position": "小～中ロット型",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "○",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "bf6000e3fb76",
@@ -3775,8 +3835,20 @@
       "tags": [
         "真空",
         "浸炭",
-        "京阪神"
-      ]
+        "京阪神",
+        "小～中ロット型"
+      ],
+      "position": "小～中ロット型",
+      "equipment_map": {
+        "carburize": "○",
+        "vacuum": "○",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "fcaedd25c44d",
@@ -3990,8 +4062,20 @@
         "窒化",
         "アルミ",
         "窒化処理",
-        "京阪神"
-      ]
+        "京阪神",
+        "総合型"
+      ],
+      "position": "総合型",
+      "equipment_map": {
+        "carburize": "○",
+        "vacuum": "○",
+        "nitride": "○",
+        "induction": "—",
+        "aluminum": "○",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "fc3f4ca101c5",
@@ -4090,8 +4174,20 @@
         "軟窒化",
         "窒化",
         "窒化処理",
-        "京阪神"
-      ]
+        "京阪神",
+        "小～中ロット型"
+      ],
+      "position": "小～中ロット型",
+      "equipment_map": {
+        "carburize": "○",
+        "vacuum": "○",
+        "nitride": "○",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "b902461d2e1e",
@@ -4138,8 +4234,20 @@
       "tags": [
         "真空",
         "大型",
-        "焼鈍"
-      ]
+        "焼鈍",
+        "真空・光輝型"
+      ],
+      "position": "真空・光輝型",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "○",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "△",
+        "anneal": "○",
+        "max_size": "真空炉 1300×1600×1300mm級（公式）",
+        "lot": "小ロット〜中ロット（大物）"
+      }
     },
     {
       "id": "d66418908a97",
@@ -4507,7 +4615,20 @@
       "region_label": "三重",
       "macro_region": "tokai",
       "blurb": "佐藤工業所グループ。熱処理設備は親会社サイトのコア技術に掲載(2018年子会社化) 資本金3,900万円",
-      "tags": []
+      "tags": [
+        "情報不足"
+      ],
+      "position": "情報不足",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "258b49339ba6",
@@ -4553,7 +4674,20 @@
       "region_label": "三重",
       "macro_region": "tokai",
       "blurb": "熱処理加工 炉3基 三重県桑名市/日本金属熱処理工業会会員",
-      "tags": []
+      "tags": [
+        "情報不足"
+      ],
+      "position": "情報不足",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "e3ec47633028",
@@ -4721,7 +4855,20 @@
       "region_label": "岐阜",
       "macro_region": "tokai",
       "blurb": "金属部品の熱処理が事業中心(公式)。炉型式・能力一覧は未公開 資本金4,800万円 / 従業員12人",
-      "tags": []
+      "tags": [
+        "情報不足"
+      ],
+      "position": "情報不足",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "5b88f76dec31",
@@ -4974,8 +5121,20 @@
       "blurb": "真空・浸炭・焼入焼戻の主要設備ページあり(公式) 資本金1,000万円 / 従業員35名 (うち男性23名、女性12名) ※2026年4月1日 現在  ※非正規雇用含む 強み候補: 真空・浸炭",
       "tags": [
         "真空",
-        "浸炭"
-      ]
+        "浸炭",
+        "小～中ロット型"
+      ],
+      "position": "小～中ロット型",
+      "equipment_map": {
+        "carburize": "○",
+        "vacuum": "○",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "5d732a104490",
@@ -5036,8 +5195,20 @@
       "macro_region": "tokai",
       "blurb": "生産設備ページあり(焼入・焼戻・焼鈍等)。公式 meinan-ht.jp 資本金3,000万円 / 従業員80人 強み候補: 焼鈍",
       "tags": [
-        "焼鈍"
-      ]
+        "焼鈍",
+        "情報不足"
+      ],
+      "position": "情報不足",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "○",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "3bca05cb8693",
@@ -5078,7 +5249,20 @@
       "region_label": "愛知",
       "macro_region": "tokai",
       "blurb": "公式HP未確認。法人情報のみ(Gビズ)。設備詳細なし 従業員企業規模詳細",
-      "tags": []
+      "tags": [
+        "情報不足"
+      ],
+      "position": "情報不足",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "b567985fb095",
@@ -5681,8 +5865,20 @@
       "tags": [
         "浸炭",
         "連続炉",
-        "アルミ"
-      ]
+        "アルミ",
+        "総合型"
+      ],
+      "position": "総合型",
+      "equipment_map": {
+        "carburize": "○",
+        "vacuum": "△",
+        "nitride": "△",
+        "induction": "—",
+        "aluminum": "○",
+        "anneal": "○",
+        "max_size": "バッチ／連続・アルミ炉あり",
+        "lot": "中ロット〜量産"
+      }
     },
     {
       "id": "331920ddbf5b",
@@ -5807,8 +6003,20 @@
         "軟窒化",
         "窒化",
         "連続炉",
-        "窒化処理"
-      ]
+        "窒化処理",
+        "総合型"
+      ],
+      "position": "総合型",
+      "equipment_map": {
+        "carburize": "○",
+        "vacuum": "○",
+        "nitride": "○",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "○",
+        "max_size": "不明",
+        "lot": "量産寄り（推定）"
+      }
     },
     {
       "id": "b2ce54124d1b",
@@ -5988,8 +6196,20 @@
       "tags": [
         "高周波",
         "京阪神",
-        "西部会員"
-      ]
+        "西部会員",
+        "高周波専門型"
+      ],
+      "position": "高周波専門型",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "○",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "4ffcbc9f3c62",
@@ -6100,8 +6320,20 @@
         "軟窒化",
         "窒化",
         "窒化処理",
-        "西部会員"
-      ]
+        "西部会員",
+        "総合型"
+      ],
+      "position": "総合型",
+      "equipment_map": {
+        "carburize": "○",
+        "vacuum": "○",
+        "nitride": "○",
+        "induction": "○",
+        "aluminum": "○",
+        "anneal": "○",
+        "max_size": "小型平鋼〜中物（NCネットに炉種・能力）",
+        "lot": "小ロット〜中ロット"
+      }
     },
     {
       "id": "5216335f83dd",
@@ -6164,8 +6396,20 @@
         "ソルト",
         "ADI",
         "京阪神",
-        "西部会員"
-      ]
+        "西部会員",
+        "情報不足"
+      ],
+      "position": "情報不足",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "量産寄り（推定）"
+      }
     },
     {
       "id": "46deeafb806a",
@@ -6219,8 +6463,20 @@
       "tags": [
         "高周波",
         "京阪神",
-        "西部会員"
-      ]
+        "西部会員",
+        "高周波専門型"
+      ],
+      "position": "高周波専門型",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "○",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "58996c50d33a",
@@ -6282,8 +6538,20 @@
         "ソルト",
         "サブゼロ",
         "京阪神",
-        "西部会員"
-      ]
+        "西部会員",
+        "小～中ロット型"
+      ],
+      "position": "小～中ロット型",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "○",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "ca37ba0ed618",
@@ -6361,8 +6629,20 @@
         "真空",
         "バッチ",
         "京阪神",
-        "西部会員"
-      ]
+        "西部会員",
+        "小～中ロット型"
+      ],
+      "position": "小～中ロット型",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "○",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "e182172f2765",
@@ -6512,8 +6792,20 @@
         "ピット炉",
         "真空",
         "京阪神",
-        "西部会員"
-      ]
+        "西部会員",
+        "小～中ロット型"
+      ],
+      "position": "小～中ロット型",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "○",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "△",
+        "max_size": "真空炉最大約1220mm級（Ipsen大型更新の記載）",
+        "lot": "小ロット〜中ロット"
+      }
     },
     {
       "id": "63bd1254367a",
@@ -6607,8 +6899,20 @@
       "tags": [
         "高周波",
         "京阪神",
-        "西部会員"
-      ]
+        "西部会員",
+        "高周波専門型"
+      ],
+      "position": "高周波専門型",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "○",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "高周波／レーザ（部分焼・大型部分焼対応の記載あり）",
+        "lot": "小ロット〜中ロット"
+      }
     },
     {
       "id": "7687891e90d9",
@@ -6721,8 +7025,20 @@
         "アルミ",
         "窒化処理",
         "京阪神",
-        "西部会員"
-      ]
+        "西部会員",
+        "小～中ロット型"
+      ],
+      "position": "小～中ロット型",
+      "equipment_map": {
+        "carburize": "○",
+        "vacuum": "○",
+        "nitride": "○",
+        "induction": "—",
+        "aluminum": "○",
+        "anneal": "○",
+        "max_size": "小型〜中型部品（ネジ・自転車部品等の実績）",
+        "lot": "小ロット〜中ロット"
+      }
     },
     {
       "id": "88956f8fdfb3",
@@ -6774,8 +7090,20 @@
         "真空",
         "採用強化",
         "ADI",
-        "西部会員"
-      ]
+        "西部会員",
+        "小～中ロット型"
+      ],
+      "position": "小～中ロット型",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "○",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "aa2e0e4c9c78",
@@ -6833,8 +7161,20 @@
       "macro_region": "tokai",
       "blurb": "中日本炉工業1基 資本金6600万元(日系4社、中国系2社の合弁会社) / 従業員45名",
       "tags": [
-        "西部会員"
-      ]
+        "西部会員",
+        "情報不足"
+      ],
+      "position": "情報不足",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "039473a866c6",
@@ -6901,8 +7241,20 @@
         "窒化",
         "ADI",
         "窒化処理",
-        "西部会員"
-      ]
+        "西部会員",
+        "総合型"
+      ],
+      "position": "総合型",
+      "equipment_map": {
+        "carburize": "○",
+        "vacuum": "○",
+        "nitride": "○",
+        "induction": "○",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "962cff202991",
@@ -6942,8 +7294,20 @@
       "macro_region": "tokai",
       "blurb": "中部金属熱処理協同組合会員として所在確認。設備専用ページ未確認 愛知県・西春日井郡豊山町",
       "tags": [
-        "西部会員"
-      ]
+        "西部会員",
+        "情報不足"
+      ],
+      "position": "情報不足",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "38febd0d7c83",
@@ -6998,8 +7362,20 @@
       "blurb": "2トン用バッチ式高温炉4台・低温炉1基 資本金7,500万円 / 従業員66名 強み候補: バッチ",
       "tags": [
         "バッチ",
-        "西部会員"
-      ]
+        "西部会員",
+        "情報不足"
+      ],
+      "position": "情報不足",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "7f34706a7f3e",
@@ -7077,8 +7453,20 @@
       "blurb": "焼戻し炉10基・真空熱処理炉(ガス冷却)1基・真空熱処理炉(油冷却)1基 資本金2,000万円 / 従業員37名(2026年3月現在) 強み候補: 真空",
       "tags": [
         "真空",
-        "西部会員"
-      ]
+        "西部会員",
+        "小～中ロット型"
+      ],
+      "position": "小～中ロット型",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "○",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "d2f7d85fff96",
@@ -7162,8 +7550,20 @@
       "macro_region": "tokai",
       "blurb": "保有設備ページあり(公式 zuihoe.com)。熱処理設備詳細は当該ページ参照 資本金決算期",
       "tags": [
-        "西部会員"
-      ]
+        "西部会員",
+        "情報不足"
+      ],
+      "position": "情報不足",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "77891456131c",
@@ -7209,8 +7609,20 @@
       "blurb": "対応処理: 高周波・焼入(公式確認: https://www.atengineer.com/pr/seiwadenshi/company) 愛知県・津島市白浜町 強み候補: 高周波",
       "tags": [
         "高周波",
-        "西部会員"
-      ]
+        "西部会員",
+        "高周波専門型"
+      ],
+      "position": "高周波専門型",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "○",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "d2355e0ac391",
@@ -7260,8 +7672,20 @@
         "アルミ",
         "調質",
         "窒化処理",
-        "西部会員"
-      ]
+        "西部会員",
+        "総合型"
+      ],
+      "position": "総合型",
+      "equipment_map": {
+        "carburize": "○",
+        "vacuum": "—",
+        "nitride": "○",
+        "induction": "—",
+        "aluminum": "○",
+        "anneal": "○",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "48f89f8b6d24",
@@ -7341,8 +7765,20 @@
       "blurb": "ターンテーブル 焼入れ機5基・超大物対応_摺動型 高周波焼入れ装置1基・超大物対応_縦型 高周波焼き入装置1基・高周波焼き入装置1基・高周波焼入れ装置1基 資本金1800万円 / 従業員22名(2025年2月現在) 強み候補: 高周波",
       "tags": [
         "高周波",
-        "西部会員"
-      ]
+        "西部会員",
+        "高周波専門型"
+      ],
+      "position": "高周波専門型",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "○",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "7db962d910bc",
@@ -7394,8 +7830,20 @@
       "tags": [
         "大型",
         "焼鈍",
-        "西部会員"
-      ]
+        "西部会員",
+        "超大型型"
+      ],
+      "position": "超大型型",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "○",
+        "max_size": "超大型焼鈍（公式で超大型を訴求）",
+        "lot": "小ロット〜中ロット（大物）"
+      }
     },
     {
       "id": "e991ac1a829a",
@@ -7471,8 +7919,20 @@
       "tags": [
         "真空",
         "ソルト",
-        "西部会員"
-      ]
+        "西部会員",
+        "小～中ロット型"
+      ],
+      "position": "小～中ロット型",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "○",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "6d44a0edb6e7",
@@ -7539,8 +7999,20 @@
       "tags": [
         "高周波",
         "浸炭",
-        "西部会員"
-      ]
+        "西部会員",
+        "高周波専門型"
+      ],
+      "position": "高周波専門型",
+      "equipment_map": {
+        "carburize": "○",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "○",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "0caafd11cfd5",
@@ -7596,8 +8068,20 @@
         "プラズマ窒化",
         "窒化",
         "窒化処理",
-        "西部会員"
-      ]
+        "西部会員",
+        "窒化専門型"
+      ],
+      "position": "窒化専門型",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "—",
+        "nitride": "○",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "窒化専業（ガス／軟／プラズマ）",
+        "lot": "小ロット〜中ロット"
+      }
     },
     {
       "id": "6e2899b821c5",
@@ -7666,8 +8150,20 @@
       "tags": [
         "高周波",
         "増強",
-        "西部会員"
-      ]
+        "西部会員",
+        "高周波専門型"
+      ],
+      "position": "高周波専門型",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "○",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "d90b82c4c333",
@@ -7712,8 +8208,20 @@
       "macro_region": "tokai",
       "blurb": "中部金属熱処理協同組合カタログに炉型式・能力・台数掲載(外部DB)。公式は to-shin-kk.co.jp 愛知県・小牧市",
       "tags": [
-        "西部会員"
-      ]
+        "西部会員",
+        "量産小物型"
+      ],
+      "position": "量産小物型",
+      "equipment_map": {
+        "carburize": "○",
+        "vacuum": "△",
+        "nitride": "△",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "○",
+        "max_size": "小物中心（組合カタログに炉型式・能力あり・要手読）",
+        "lot": "量産"
+      }
     },
     {
       "id": "8b8d68c77923",
@@ -7826,8 +8334,20 @@
       "blurb": "高周波焼入れ設備一覧を公式公開(発振機・焼入機・硬さ試験機)。詳細は公式設備一覧 資本金1340万円 | 強み候補: 高周波",
       "tags": [
         "高周波",
-        "西部会員"
-      ]
+        "西部会員",
+        "高周波専門型"
+      ],
+      "position": "高周波専門型",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "○",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "718b20d6750f",
@@ -7986,8 +8506,20 @@
       "macro_region": "tokai",
       "blurb": "熱風式電気炉(焼戻し炉) ● ●1基 愛知県・高浜市小池町",
       "tags": [
-        "西部会員"
-      ]
+        "西部会員",
+        "情報不足"
+      ],
+      "position": "情報不足",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "25ee2dad420b",
@@ -8148,8 +8680,20 @@
         "連続炉",
         "バッチ",
         "窒化処理",
-        "西部会員"
-      ]
+        "西部会員",
+        "自動車・浸炭型"
+      ],
+      "position": "自動車・浸炭型",
+      "equipment_map": {
+        "carburize": "○",
+        "vacuum": "○",
+        "nitride": "○",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "△",
+        "max_size": "連続メッシュベルト＋バッチ浸炭多数（刈谷）",
+        "lot": "量産"
+      }
     },
     {
       "id": "ca37923e3734",
@@ -8294,8 +8838,20 @@
         "浸炭",
         "連続炉",
         "バッチ",
-        "西部会員"
-      ]
+        "西部会員",
+        "自動車・浸炭型"
+      ],
+      "position": "自動車・浸炭型",
+      "equipment_map": {
+        "carburize": "○",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "量産寄り（推定）"
+      }
     },
     {
       "id": "6f399014cca9",
@@ -8401,8 +8957,20 @@
       "tags": [
         "連続炉",
         "バッチ",
-        "西部会員"
-      ]
+        "西部会員",
+        "情報不足"
+      ],
+      "position": "情報不足",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "量産寄り（推定）"
+      }
     },
     {
       "id": "769f6e36751a",
@@ -8450,8 +9018,20 @@
       "blurb": "刈谷の熱処理。主要設備ブログ(2026公開)あり。ADI等(公式) 資本金2,000万円 強み候補: ADI",
       "tags": [
         "ADI",
-        "西部会員"
-      ]
+        "西部会員",
+        "自動車・浸炭型"
+      ],
+      "position": "自動車・浸炭型",
+      "equipment_map": {
+        "carburize": "○",
+        "vacuum": "△",
+        "nitride": "△",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "△",
+        "max_size": "自動車・工作機械部品級（刈谷）",
+        "lot": "量産寄り"
+      }
     },
     {
       "id": "de06234c7532",
@@ -8544,8 +9124,20 @@
       "tags": [
         "委託型",
         "北陸",
-        "窓口"
-      ]
+        "窓口",
+        "委託窓口型"
+      ],
+      "position": "委託窓口型",
+      "equipment_map": {
+        "carburize": "△",
+        "vacuum": "△",
+        "nitride": "△",
+        "induction": "△",
+        "aluminum": "△",
+        "anneal": "△",
+        "max_size": "自社炉なし（聞き取り）",
+        "lot": "取り次ぎ"
+      }
     },
     {
       "id": "9545a37db4e8",
@@ -8721,8 +9313,20 @@
       "tags": [
         "高周波",
         "小規模",
-        "北陸"
-      ]
+        "北陸",
+        "高周波専門型"
+      ],
+      "position": "高周波専門型",
+      "equipment_map": {
+        "carburize": "—",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "○",
+        "aluminum": "—",
+        "anneal": "—",
+        "max_size": "不明",
+        "lot": "不明"
+      }
     },
     {
       "id": "63ce6e18a5a3",

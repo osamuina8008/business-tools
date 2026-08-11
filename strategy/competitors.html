@@ -98,6 +98,7 @@
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-violet-200 bg-violet-50 text-violet-900" onclick="applyPreset({region:'京都・滋賀・奈良', query:'京都'})">京都</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-violet-200 bg-violet-50 text-violet-900" onclick="applyPreset({tags:['豊橋地区'], query:'豊橋 東三河'})">豊橋・東三河</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-violet-200 bg-violet-50 text-violet-900" onclick="applyPreset({tags:['刈谷'], query:'刈谷'})">刈谷</button>
+        <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-violet-200 bg-violet-50 text-violet-900" onclick="applyPreset({tags:['大同DM'], query:'大同DM'})">大同DM</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-violet-200 bg-violet-50 text-violet-900" onclick="applyPreset({tags:['橋本'], query:'橋本 刀剣サーモ'})">橋本</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-amber-200 bg-amber-50 text-amber-900" onclick="applyPreset({tags:['委託型']})">委託型</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-rose-200 bg-rose-50 text-rose-800" onclick="applyPreset({tags:['増強']})">増強あり</button>
@@ -306,6 +307,8 @@ const KEYWORD_SYNONYMS = {
   '京都': ['京都', '京都市', '城陽', '久御山'],
   '豊橋': ['豊橋', '東三河', '豊川', '二川', '明海'],
   '刈谷': ['刈谷', 'かりや', '一里山', 'ジェイテクト刈谷'],
+  '大同DM': ['大同DM', '大同DMソリューション', '大同ディーエム', 'DAIDO DMS', 'ダイドーディーエムエス'],
+  '大同ディーエム': ['大同ディーエム', '大同DM', '大同DMソリューション'],
   '東三河': ['東三河', '豊橋', '豊川', '蒲郡', '田原'],
   '二川熱処理': ['二川熱処理', '二川'],
   'ガス難実家': ['ガス窒化', '窒化', '窒化処理'], // 誤変換救済

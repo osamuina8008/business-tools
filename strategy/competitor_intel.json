@@ -11066,6 +11066,212 @@
       "blurb": "ジェイテクト系。日本金属熱処理工業会(中部)会員。コーティング／表面処理寄り。",
       "note": "競合隣接。組合会員だが事業はコーティング中心。客として訪問しない。",
       "scope": "plant"
+    },
+    {
+      "name": "大同DMソリューション株式会社",
+      "area": "大阪府・大東市（本社）",
+      "region": "kansai",
+      "lat": 34.712,
+      "lng": 135.64,
+      "tags": [
+        "真空",
+        "塩浴",
+        "光輝",
+        "金型鋼",
+        "工具鋼",
+        "大同DM",
+        "委託型",
+        "表面改質"
+      ],
+      "aliases": [
+        "大同DM",
+        "大同ディーエム",
+        "DAIDO DMS",
+        "ダイドーディーエムエス",
+        "大同DMソリューション"
+      ],
+      "profile": {
+        "official_name": "大同DMソリューション株式会社",
+        "address": "大阪府大東市氷野3-152",
+        "website": "https://daidodms.co.jp/products/heattreatment/",
+        "lat": 34.712,
+        "lng": 135.64
+      },
+      "blurb": "大同特殊鋼グループの金型・工具鋼ソリューション。鋼材販売＋熱処理（真空／雰囲気／光輝／塩浴／e-HIT）＋表面改質。全国5熱処理拠点。公式: https://daidodms.co.jp/products/heattreatment/",
+      "note": "競合（金型・工具鋼熱処理）。自動車浸炭専業ではないが真空・金型領域で競合。客として訪問しない。大同プラント工業（炉メーカー）とは別法人。",
+      "scope": "company_wide",
+      "source_urls": [
+        "https://daidodms.co.jp/products/heattreatment/",
+        "https://daidodms.co.jp/company/network/"
+      ],
+      "equipment_summary": "真空・雰囲気・光輝（相模）・塩浴（大阪）・e-HIT（名古屋・太田）・表面改質／コーティング（コーティングは静岡）"
+    },
+    {
+      "name": "大同DMソリューション株式会社(大阪熱処理)",
+      "area": "大阪府・大東市氷野（大阪熱処理工場）",
+      "region": "kansai",
+      "lat": 34.712,
+      "lng": 135.64,
+      "tags": [
+        "真空",
+        "雰囲気",
+        "塩浴",
+        "金型鋼",
+        "工具鋼",
+        "大同DM",
+        "委託型"
+      ],
+      "aliases": [
+        "大同DM",
+        "大同DMソリューション"
+      ],
+      "profile": {
+        "official_name": "大同DMソリューション株式会社(大阪熱処理)",
+        "address": "大阪府大東市氷野3-152",
+        "website": "https://daidodms.co.jp/products/heattreatment/",
+        "lat": 34.712,
+        "lng": 135.64
+      },
+      "blurb": "大同特殊鋼グループ。工具鋼・金型鋼の熱処理。塩浴は大阪熱処理工場。全国5熱処理拠点の関西拠点。",
+      "note": "競合（金型・工具鋼熱処理）。客として訪問しない。https://daidodms.co.jp/products/heattreatment/",
+      "scope": "plant",
+      "source_urls": [
+        "https://daidodms.co.jp/products/heattreatment/",
+        "https://daidodms.co.jp/company/network/"
+      ]
+    },
+    {
+      "name": "大同DMソリューション株式会社(名古屋)",
+      "area": "愛知県・名古屋市港区竜宮町（名古屋工場）",
+      "region": "tokai",
+      "lat": 35.083,
+      "lng": 136.87,
+      "tags": [
+        "真空",
+        "雰囲気",
+        "金型鋼",
+        "工具鋼",
+        "大同DM",
+        "e-HIT",
+        "委託型"
+      ],
+      "aliases": [
+        "大同DM",
+        "大同DMソリューション"
+      ],
+      "profile": {
+        "official_name": "大同DMソリューション株式会社(名古屋)",
+        "address": "愛知県名古屋市港区竜宮町10",
+        "website": "https://daidodms.co.jp/products/heattreatment/",
+        "lat": 35.083,
+        "lng": 136.87
+      },
+      "blurb": "大同DM名古屋工場。e-HIT法（低歪・高靭性）対応。ダイカスト型など大型金型熱処理。",
+      "note": "競合（金型・工具鋼熱処理）。客として訪問しない。大同界隈の熱処理競合。",
+      "scope": "plant",
+      "source_urls": [
+        "https://daidodms.co.jp/products/heattreatment/",
+        "https://daidodms.co.jp/company/network/"
+      ]
+    },
+    {
+      "name": "大同DMソリューション株式会社(静岡)",
+      "area": "静岡県・周智郡森町（静岡工場）",
+      "region": "tokai",
+      "lat": 34.835,
+      "lng": 137.927,
+      "tags": [
+        "真空",
+        "コーティング",
+        "金型鋼",
+        "工具鋼",
+        "大同DM",
+        "委託型"
+      ],
+      "aliases": [
+        "大同DM",
+        "大同DMソリューション"
+      ],
+      "profile": {
+        "official_name": "大同DMソリューション株式会社(静岡)",
+        "address": "静岡県周智郡森町橘29-1",
+        "website": "https://daidodms.co.jp/products/heattreatment/",
+        "lat": 34.835,
+        "lng": 137.927
+      },
+      "blurb": "大同DM静岡工場。コーティング拠点。雰囲気熱処理は除く（公式）。",
+      "note": "競合（金型・工具鋼熱処理／コーティング）。客として訪問しない。",
+      "scope": "plant",
+      "source_urls": [
+        "https://daidodms.co.jp/products/heattreatment/",
+        "https://daidodms.co.jp/company/network/"
+      ]
+    },
+    {
+      "name": "大同DMソリューション株式会社(相模)",
+      "area": "神奈川県・座間市広野台（相模工場）",
+      "region": "kanto",
+      "lat": 35.505,
+      "lng": 139.407,
+      "tags": [
+        "真空",
+        "光輝",
+        "金型鋼",
+        "工具鋼",
+        "大同DM",
+        "委託型"
+      ],
+      "aliases": [
+        "大同DM",
+        "大同DMソリューション"
+      ],
+      "profile": {
+        "official_name": "大同DMソリューション株式会社(相模)",
+        "address": "神奈川県座間市広野台2-2-5",
+        "website": "https://daidodms.co.jp/products/heattreatment/",
+        "lat": 35.505,
+        "lng": 139.407
+      },
+      "blurb": "大同DM相模工場。光輝熱処理の拠点。",
+      "note": "競合（金型・工具鋼熱処理）。客として訪問しない。",
+      "scope": "plant",
+      "source_urls": [
+        "https://daidodms.co.jp/products/heattreatment/",
+        "https://daidodms.co.jp/company/network/"
+      ]
+    },
+    {
+      "name": "大同DMソリューション株式会社(太田)",
+      "area": "群馬県・太田市新田木崎町（太田工場）",
+      "region": "kanto",
+      "lat": 36.291,
+      "lng": 139.31,
+      "tags": [
+        "真空",
+        "金型鋼",
+        "工具鋼",
+        "大同DM",
+        "e-HIT",
+        "委託型"
+      ],
+      "aliases": [
+        "大同DM",
+        "大同DMソリューション"
+      ],
+      "profile": {
+        "official_name": "大同DMソリューション株式会社(太田)",
+        "address": "群馬県太田市新田木崎町1790",
+        "website": "https://daidodms.co.jp/products/heattreatment/",
+        "lat": 36.291,
+        "lng": 139.31
+      },
+      "blurb": "大同DM太田工場。e-HIT法対応（名古屋と並ぶ）。",
+      "note": "競合（金型・工具鋼熱処理）。客として訪問しない。",
+      "scope": "plant",
+      "source_urls": [
+        "https://daidodms.co.jp/products/heattreatment/",
+        "https://daidodms.co.jp/company/network/"
+      ]
     }
   ],
   "blurbs_updated": "2026-08-12T07:12:30+09:00",

@@ -1,8 +1,8 @@
 {
-  "collected_at": "2026-08-12T06:20:02+09:00",
+  "collected_at": "2026-08-12T07:03:13+09:00",
   "disclaimer": "公式サイト・新聞RSSから自動収集。取引先は公開情報ベースの推定。",
   "count": 109,
-  "detail_missing_count": 63,
+  "detail_missing_count": 13,
   "expansion_alert_count": 6,
   "competitors": [
     {
@@ -1969,71 +1969,179 @@
       "id": "92fba7eea546",
       "name": "松山技研株式会社",
       "area": "長野県・上田市",
-      "updated": "2026-08-12T06:11:31+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "松山技研株式会社"
+        "official_name": "松山技研株式会社",
+        "address": "〒386-0407 長野県上田市長瀬1050",
+        "products": "TEL 0268-35-0767",
+        "founded": "1982年 (昭和57年) 7月26日",
+        "capital": "4,000万円",
+        "representative": "代表取締役社長 川村 道夫",
+        "employees": "130名"
       },
-      "scale_summary": "長野県上田市長瀬/工業会会員",
-      "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "scale_summary": "資本金4,000万円 / 従業員130名",
+      "equipment": [
+        {
+          "name": "バッチ型スペリア式光輝焼鈍炉",
+          "count": 5,
+          "spec": "",
+          "maker": "オリエンタル"
+        },
+        {
+          "name": "スペリア式ユニケース型浸炭窒化炉",
+          "count": 3,
+          "spec": "",
+          "maker": "オリエンタル"
+        },
+        {
+          "name": "ピット型流気式焼戻炉",
+          "count": 3,
+          "spec": "",
+          "maker": "オリエンタル"
+        },
+        {
+          "name": "ピット型Mマルチナイトプロセスガス浸硫窒化炉",
+          "count": 2,
+          "spec": "",
+          "maker": "オリエンタル"
+        },
+        {
+          "name": "ピット型ガス浸炭炉",
+          "count": 2,
+          "spec": "",
+          "maker": "オリエンタル"
+        },
+        {
+          "name": "スペリア式ガス軟窒化炉",
+          "count": 1,
+          "spec": "",
+          "maker": "オリエンタル"
+        },
+        {
+          "name": "バッチ型ガス浸炭炉",
+          "count": 1,
+          "spec": "",
+          "maker": "オリエンタル"
+        },
+        {
+          "name": "バッチ型ガス浸硫窒化炉",
+          "count": 1,
+          "spec": "",
+          "maker": "オリエンタル"
+        },
+        {
+          "name": "バッチ型流気式焼戻炉",
+          "count": 1,
+          "spec": "",
+          "maker": "オリエンタル"
+        },
+        {
+          "name": "台車式焼戻炉",
+          "count": 1,
+          "spec": "",
+          "maker": "オリエンタル"
+        },
+        {
+          "name": "滴注型スペリア式自動ガス浸炭炉",
+          "count": 1,
+          "spec": "",
+          "maker": "オリエンタル"
+        },
+        {
+          "name": "焼入機",
+          "count": 1,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "焼入機ストローク300L・φ30 (ターンテーブル式焼入機",
+          "count": 1,
+          "spec": "",
+          "maker": ""
+        }
+      ],
+      "equipment_summary": "バッチ型スペリア式光輝焼鈍炉5基・スペリア式ユニケース型浸炭窒化炉3基・ピット型流気式焼戻炉3基・ピット型Mマルチナイトプロセスガス浸硫窒化炉2基・ピット型ガス浸炭炉2基・スペリア式ガス軟窒化炉1基・他7種",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.matsuyama-giken.co.jp/company/information/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.matsuyama-giken.co.jp/services/heattreatment/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合(上田市長瀬)。客として訪問しない。",
       "region_label": "長野",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 長野県上田市長瀬/工業会会員",
+      "blurb": "バッチ型スペリア式光輝焼鈍炉5基・スペリア式ユニケース型浸炭窒化炉3基・ピット型流気式焼戻炉3基・ピット型Mマルチナイトプロセスガス浸硫窒化炉2基・ピット型ガス浸炭炉2基・スペリア… 資本金4,000万円 / 従業員130名 強み候補: ピット炉・浸炭・窒化",
       "tags": [
-        "詳細不足"
+        "ピット炉",
+        "浸炭",
+        "窒化",
+        "バッチ"
       ]
     },
     {
       "id": "1145195f0541",
       "name": "株式会社ヒーテック",
       "area": "長野県・須坂市",
-      "updated": "2026-08-12T06:11:32+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
         "official_name": "株式会社ヒーテック"
       },
       "scale_summary": "長野県須坂市/工業会会員",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://www.city.suzaka.nagano.jp/soshiki/5030/4153.html",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "http://heattech.co.jp/kigyou.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.city.suzaka.nagano.jp/soshiki/5030/4153.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合(須坂)。旧「長野熱処理」候補を公式確認できるヒーテックに置換。客として訪問しない。",
       "region_label": "長野",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 長野県須坂市/工業会会員",
-      "tags": [
-        "詳細不足"
-      ]
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://www.city.suzaka.nagano.jp/soshiki/5030/4153.html 長野県須坂市/工業会会員",
+      "tags": []
     },
     {
       "id": "14c05a4227eb",
@@ -3217,35 +3325,47 @@
       "id": "6cdc7d80629d",
       "name": "株式会社北山熱錬工業所",
       "area": "大阪府・岸和田市",
-      "updated": "2026-08-12T06:11:34+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "株式会社北山熱錬工業所"
+        "official_name": "株式会社北山熱錬工業所",
+        "representative": "代表取締役社長 大石 達也",
+        "capital": "1,000万円"
       },
-      "scale_summary": "大阪府岸和田市/日本金属熱処理工業会会員",
+      "scale_summary": "資本金1,000万円",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://www.kitayamanetsuren.com/range/index.html",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.kitayamanetsuren.com/profile/index.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.kitayamanetsuren.com/range/index.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。客として訪問しない。",
       "region_label": "大阪",
       "macro_region": "keihanshin",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 大阪府岸和田市/日本金属熱処理工業会会員",
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://www.kitayamanetsuren.com/range/index.html 資本金1,000万円",
       "tags": [
-        "詳細不足",
         "京阪神"
       ]
     },
@@ -3420,35 +3540,47 @@
       "id": "c142b3014544",
       "name": "関西電気冶金工業株式会社",
       "area": "大阪府・大阪市淀川区",
-      "updated": "2026-08-12T06:11:35+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "関西電気冶金工業株式会社"
+        "official_name": "関西電気冶金工業株式会社",
+        "capital": "●昭和33年 7月",
+        "partners": "['昭和57年 3月']"
       },
-      "scale_summary": "大阪市淀川区(滋賀工場あり)/日本金属熱処理工業会会員",
+      "scale_summary": "資本金●昭和33年 7月",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://kdyk.co.jp/mcn.html",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://kdyk.co.jp/about.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://kdyk.co.jp/mcn.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合(滋賀工場あり)。客として訪問しない。",
       "region_label": "大阪",
       "macro_region": "keihanshin",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 大阪市淀川区(滋賀工場あり)/日本金属熱処理工業会会員",
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://kdyk.co.jp/mcn.html 資本金●昭和33年 7月",
       "tags": [
-        "詳細不足",
         "京阪神"
       ]
     },
@@ -3456,21 +3588,24 @@
       "id": "0c26df884612",
       "name": "大阪冶金興業株式会社",
       "area": "大阪府・大阪市東淀川区",
-      "updated": "2026-08-12T06:11:37+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "大阪冶金興業株式会社"
+        "official_name": "大阪冶金興業株式会社",
+        "representative": "寺内 俊太郎",
+        "capital": "1億9300万円",
+        "employees": "140名"
       },
-      "scale_summary": "大阪市東淀川区/日本金属熱処理工業会会員",
+      "scale_summary": "資本金1億9300万円 / 従業員140名",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://www.osakayakin.co.jp/business/",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
@@ -3505,14 +3640,24 @@
           "is_expansion": false
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.osakayakin.co.jp/company/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.osakayakin.co.jp/business/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合(兵庫拠点あり)。客として訪問しない。",
       "region_label": "大阪",
       "macro_region": "keihanshin",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 大阪市東淀川区/日本金属熱処理工業会会員",
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://www.osakayakin.co.jp/business/ 資本金1億9300万円 / 従業員140名",
       "tags": [
-        "詳細不足",
         "京阪神"
       ]
     },
@@ -3520,21 +3665,63 @@
       "id": "bf6000e3fb76",
       "name": "津田金属熱煉工業株式会社",
       "area": "兵庫県・尼崎市",
-      "updated": "2026-08-12T06:11:38+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "津田金属熱煉工業株式会社"
+        "official_name": "津田金属熱煉工業株式会社",
+        "representative": "取締役社長 鹿島 泰輔",
+        "address": "〒660-0845、 兵庫県尼崎市西高洲町30番地9号、 TEL : 06-6413-3221、 FAX : 06-6413-3264",
+        "capital": "8,640万円",
+        "founded": "創業 1939年(昭和14年)2月、 設立 1954年(昭和29年)5月",
+        "employees": "84名(2026年3月現在)"
       },
-      "scale_summary": "兵庫県尼崎市/日本金属熱処理工業会会員",
-      "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "scale_summary": "資本金8,640万円 / 従業員84名(2026年3月現在)",
+      "equipment": [
+        {
+          "name": "焼戻炉",
+          "count": 920,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "真空洗浄装置",
+          "count": 820,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "真空浸炭焼入炉",
+          "count": 820,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "ガス浸炭焼入炉",
+          "count": 760,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "台車式焼入炉",
+          "count": 700,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "その他、ガス浸炭炉",
+          "count": 16,
+          "spec": "",
+          "maker": ""
+        }
+      ],
+      "equipment_summary": "焼戻炉920基・真空洗浄装置820基・真空浸炭焼入炉820基・ガス浸炭焼入炉760基・台車式焼入炉700基・その他、ガス浸炭炉16基",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
@@ -3551,14 +3738,26 @@
           "is_expansion": false
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "http://www.tsudakin-ht.co.jp/company/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "http://www.tsudakin-ht.co.jp/technology/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。客として訪問しない。",
       "region_label": "兵庫",
       "macro_region": "keihanshin",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 兵庫県尼崎市/日本金属熱処理工業会会員",
+      "blurb": "焼戻炉920基・真空洗浄装置820基・真空浸炭焼入炉820基・ガス浸炭焼入炉760基・台車式焼入炉700基・その他、ガス浸炭炉16基 資本金8,640万円 / 従業員84名(2026年3月現在) 強み候補: 真空・浸炭",
       "tags": [
-        "詳細不足",
+        "真空",
+        "浸炭",
         "京阪神"
       ]
     },
@@ -3729,35 +3928,46 @@
       "id": "efc108535ee0",
       "name": "株式会社アオイヒートテック",
       "area": "京都府・城陽市",
-      "updated": "2026-08-12T06:11:40+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "株式会社アオイヒートテック"
+        "official_name": "株式会社アオイヒートテック",
+        "representative": "代表取締役 稲垣勝也 本社所在地"
       },
       "scale_summary": "京都府城陽市/日本金属熱処理工業会会員",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): http://www.aoiht.co.jp/service.html",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "http://www.aoiht.co.jp/company.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "http://www.aoiht.co.jp/service.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。客として訪問しない。",
       "region_label": "京都・滋賀・奈良",
       "macro_region": "keihanshin",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 京都府城陽市/日本金属熱処理工業会会員",
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): http://www.aoiht.co.jp/service.html 京都府城陽市/日本金属熱処理工業会会員",
       "tags": [
-        "詳細不足",
         "京阪神"
       ]
     },
@@ -3765,21 +3975,24 @@
       "id": "fc3f4ca101c5",
       "name": "株式会社KOYO熱錬",
       "area": "京都府・京都市南区",
-      "updated": "2026-08-12T06:11:41+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "株式会社KOYO熱錬"
+        "official_name": "株式会社KOYO熱錬",
+        "representative": "代表取締役 杉本 卓也 |",
+        "capital": "|",
+        "employees": "|"
       },
-      "scale_summary": "京都市南区/日本金属熱処理工業会会員",
+      "scale_summary": "資本金| / 従業員|",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://koyo-kinzoku.com/gijyutsu/tech_equip.html",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
@@ -3832,14 +4045,24 @@
           "is_expansion": false
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://koyo-kinzoku.com/koyo/index2.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://koyo-kinzoku.com/gijyutsu/tech_equip.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。客として訪問しない。",
       "region_label": "京都・滋賀・奈良",
       "macro_region": "keihanshin",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 京都市南区/日本金属熱処理工業会会員",
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://koyo-kinzoku.com/gijyutsu/tech_equip.html 資本金| / 従業員|",
       "tags": [
-        "詳細不足",
         "京阪神"
       ]
     },
@@ -3847,36 +4070,45 @@
       "id": "b902461d2e1e",
       "name": "株式会社Bright-Anneal",
       "area": "和歌山県・紀の川市",
-      "updated": "2026-08-11T19:02:00+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
         "official_name": "株式会社Bright-Anneal"
       },
       "scale_summary": "和歌山県紀の川市/日本金属熱処理工業会会員",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://bright-anneal.co.jp/vacuum-heat-treatment/",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://bright-anneal.co.jp/company/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://bright-anneal.co.jp/vacuum-heat-treatment/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。客として訪問しない。",
       "region_label": "和歌山",
       "macro_region": "kinki_south",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 和歌山県紀の川市/日本金属熱処理工業会会員",
-      "tags": [
-        "詳細不足"
-      ]
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://bright-anneal.co.jp/vacuum-heat-treatment/ 和歌山県紀の川市/日本金属熱処理工業会会員",
+      "tags": []
     },
     {
       "id": "d66418908a97",
@@ -4202,71 +4434,95 @@
       "id": "07cf95d58bc9",
       "name": "和晃熱処理有限会社",
       "area": "三重県・川越町",
-      "updated": "2026-08-11T19:02:12+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "和晃熱処理有限会社"
+        "official_name": "和晃熱処理有限会社",
+        "address": "〒511-0834 三重県桑名市大福宮東339番 地、 TEL.0594-21-2456、 FAX.0594-21-9409",
+        "representative": "代表取締役 佐藤 秀二",
+        "business": "金属精密切削加工、表面処理加工、 熱処理加工、その他製造・加工",
+        "capital": "3,900万円"
       },
-      "scale_summary": "三重県川越町/日本金属熱処理工業会会員",
+      "scale_summary": "資本金3,900万円",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://www.st-k.jp/skill/",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.st-k.jp/company/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.st-k.jp/skill/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。客として訪問しない。",
       "region_label": "三重",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 三重県川越町/日本金属熱処理工業会会員",
-      "tags": [
-        "詳細不足"
-      ]
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://www.st-k.jp/skill/ 資本金3,900万円",
+      "tags": []
     },
     {
       "id": "258b49339ba6",
       "name": "栗田精工株式会社",
       "area": "三重県・桑名市",
-      "updated": "2026-08-11T19:02:13+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
         "official_name": "栗田精工株式会社"
       },
       "scale_summary": "三重県桑名市/日本金属熱処理工業会会員",
-      "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment": [
+        {
+          "name": "熱処理加工 炉",
+          "count": 3,
+          "spec": "",
+          "maker": "大物"
+        }
+      ],
+      "equipment_summary": "熱処理加工 炉3基",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.k-ksk.co.jp/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。客として訪問しない。",
       "region_label": "三重",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 三重県桑名市/日本金属熱処理工業会会員",
-      "tags": [
-        "詳細不足"
-      ]
+      "blurb": "熱処理加工 炉3基 三重県桑名市/日本金属熱処理工業会会員",
+      "tags": []
     },
     {
       "id": "e3ec47633028",
@@ -4395,36 +4651,44 @@
       "id": "bbf4131cd895",
       "name": "春日井金属工業株式会社",
       "area": "岐阜県・海津市",
-      "updated": "2026-08-11T19:02:19+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "春日井金属工業株式会社"
+        "official_name": "春日井金属工業株式会社",
+        "representative": "代表取締役 加藤 大地",
+        "address": "〒503-0618 、岐阜県海津市海津町 草場223-11",
+        "employees": "12人",
+        "capital": "4,800万円"
       },
-      "scale_summary": "岐阜県海津市/日本金属熱処理工業会会員",
+      "scale_summary": "資本金4,800万円 / 従業員12人",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://htec-kasugai.co.jp/",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://htec-kasugai.co.jp/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。客として訪問しない。",
       "region_label": "岐阜",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 岐阜県海津市/日本金属熱処理工業会会員",
-      "tags": [
-        "詳細不足"
-      ]
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://htec-kasugai.co.jp/ 資本金4,800万円 / 従業員12人",
+      "tags": []
     },
     {
       "id": "5b88f76dec31",
@@ -4559,21 +4823,26 @@
       "id": "355be508f38e",
       "name": "栄熱処理工業株式会社",
       "area": "愛知県・刈谷市",
-      "updated": "2026-08-11T19:02:21+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "栄熱処理工業株式会社"
+        "official_name": "栄熱処理工業株式会社",
+        "capital": "1,000万円",
+        "founded": "昭和35年6月8日(1960年6月8日)",
+        "employees": "35名 (うち男性23名、女性12名) ※2026年4月1日 現在  ※非正規雇用含む",
+        "address": "〒448-0033 愛知県刈谷市丸田町2丁目28番地",
+        "business": "・ガス浸炭焼入焼戻し加工"
       },
-      "scale_summary": "愛知県刈谷市/日本金属熱処理工業会会員",
+      "scale_summary": "資本金1,000万円 / 従業員35名 (うち男性23名、女性12名) ※2026年4月1日 現在  ※非正規雇用含む",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://sakae-netsu.jp/equipment/",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
@@ -4653,35 +4922,50 @@
           "is_expansion": false
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://sakae-netsu.jp/company/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://sakae-netsu.jp/equipment/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県刈谷市/日本金属熱処理工業会会員",
-      "tags": [
-        "詳細不足"
-      ]
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://sakae-netsu.jp/equipment/ 資本金1,000万円 / 従業員35名 (うち男性23名、女性12名) ※2026年4月1日 現在  ※非正規雇用含む",
+      "tags": []
     },
     {
       "id": "5d732a104490",
       "name": "名南熱処理工業株式会社",
       "area": "愛知県・知立市",
-      "updated": "2026-08-11T19:02:22+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "名南熱処理工業株式会社"
+        "official_name": "名南熱処理工業株式会社",
+        "address": "〒472-0022 愛知県知立市山屋敷町山屋敷25-21",
+        "representative": "代表取締役社長 山﨑資太",
+        "founded": "1961年05月01日",
+        "capital": "3,000万円",
+        "employees": "80人",
+        "business": "名南の強み"
       },
-      "scale_summary": "愛知県知立市/日本金属熱処理工業会会員",
+      "scale_summary": "資本金3,000万円 / 従業員80人",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://meinan-ht.jp/%E4%BA%8B%E6%A5%AD%E5%86%85%E5%AE%B9/%E7%94%9F%E7%94%A3%E8%A8%AD%E5%82%99/",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
@@ -4698,50 +4982,65 @@
           "is_expansion": false
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://meinan-ht.jp/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://meinan-ht.jp/%E4%BA%8B%E6%A5%AD%E5%86%85%E5%AE%B9/%E7%94%9F%E7%94%A3%E8%A8%AD%E5%82%99/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県知立市/日本金属熱処理工業会会員",
-      "tags": [
-        "詳細不足"
-      ]
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://meinan-ht.jp/%E4%BA%8B%E6%A5%AD%E5%86%85%E5%AE%B9/%E7%94%9F%… 資本金3,000万円 / 従業員80人",
+      "tags": []
     },
     {
       "id": "3bca05cb8693",
       "name": "株式会社丸十熱処理工業所",
       "area": "愛知県・豊田市",
-      "updated": "2026-08-11T19:02:23+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "株式会社丸十熱処理工業所"
+        "official_name": "株式会社丸十熱処理工業所",
+        "products": "事業所所在地",
+        "employees": "企業規模詳細"
       },
-      "scale_summary": "愛知県豊田市/日本金属熱処理工業会会員",
+      "scale_summary": "従業員企業規模詳細",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://info.gbiz.go.jp/hojin/ichiran?hojinBango=4180301019338",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://info.gbiz.go.jp/hojin/ichiran?hojinBango=4180301019338",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県豊田市/日本金属熱処理工業会会員",
-      "tags": [
-        "詳細不足"
-      ]
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://info.gbiz.go.jp/hojin/ichiran?hojinBango=4180301019338 従業員企業規模詳細",
+      "tags": []
     },
     {
       "id": "b567985fb095",
@@ -5224,21 +5523,43 @@
       "id": "185c0824cba8",
       "name": "有限会社南信熱錬工業",
       "area": "長野県・箕輪町",
-      "updated": "2026-08-11T19:02:30+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "有限会社南信熱錬工業"
+        "official_name": "有限会社南信熱錬工業",
+        "address": "〒399-4601 長野県上伊那郡箕輪町大字中箕輪8688",
+        "capital": "8,500,000円",
+        "employees": "43名+パート他35名"
       },
-      "scale_summary": "長野県箕輪町/日本金属熱処理工業会会員",
-      "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "scale_summary": "資本金8,500,000円 / 従業員43名+パート他35名",
+      "equipment": [
+        {
+          "name": "中日本炉工業",
+          "count": 2,
+          "spec": "",
+          "maker": "自社"
+        },
+        {
+          "name": "ガス焚きバッチ炉",
+          "count": 1,
+          "spec": "",
+          "maker": "自社"
+        },
+        {
+          "name": "ガス電炉",
+          "count": 1,
+          "spec": "",
+          "maker": ""
+        }
+      ],
+      "equipment_summary": "中日本炉工業2基・ガス焚きバッチ炉1基・ガス電炉1基",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
@@ -5255,35 +5576,48 @@
           "is_expansion": false
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://nannetsu.co.jp/company/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://nannetsu.co.jp/equipment/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。客として訪問しない。",
       "region_label": "長野",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 長野県箕輪町/日本金属熱処理工業会会員",
+      "blurb": "中日本炉工業2基・ガス焚きバッチ炉1基・ガス電炉1基 資本金8,500,000円 / 従業員43名+パート他35名 強み候補: バッチ",
       "tags": [
-        "詳細不足"
+        "バッチ"
       ]
     },
     {
       "id": "331920ddbf5b",
       "name": "株式会社丸眞製作所",
       "area": "長野県・岡谷市",
-      "updated": "2026-08-11T19:02:31+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "株式会社丸眞製作所"
+        "official_name": "株式会社丸眞製作所",
+        "representative": "代表取締役 高木 克彦",
+        "address": "長野県岡谷市10016-471 エコ・ファクトリーパーク湯殿山-1"
       },
       "scale_summary": "長野県岡谷市/日本金属熱処理工業会会員",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://t-reach.nice-o.or.jp/company/178/equipments",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
@@ -5318,15 +5652,19 @@
           "is_expansion": false
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://t-reach.nice-o.or.jp/company/178/equipments",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。客として訪問しない。",
       "region_label": "長野",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 長野県岡谷市/日本金属熱処理工業会会員",
-      "tags": [
-        "詳細不足"
-      ]
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://t-reach.nice-o.or.jp/company/178/equipments 長野県岡谷市/日本金属熱処理工業会会員",
+      "tags": []
     },
     {
       "id": "b2ce54124d1b",
@@ -5449,21 +5787,26 @@
       "id": "eb860bbf2e53",
       "name": "木本電子工業株式会社",
       "area": "大阪府・東大阪市中石切町",
-      "updated": "2026-08-11T19:02:37+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "木本電子工業株式会社"
+        "official_name": "木本電子工業株式会社",
+        "address": "1381.76m2",
+        "representative": "代表取締役 木本 竜太",
+        "capital": "1,000万円",
+        "employees": "40名",
+        "business": "L/M加工・高周波焼入加工・歪矯正・研磨加工"
       },
-      "scale_summary": "大阪府・東大阪市中石切町",
+      "scale_summary": "資本金1,000万円 / 従業員40名",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://www.kimoto-denshi.co.jp/equipment/",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
@@ -5480,14 +5823,24 @@
           "is_expansion": false
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.kimoto-denshi.co.jp/company/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.kimoto-denshi.co.jp/equipment/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(西部)会員。大阪府 東大阪市中石切町6−1−13。客として訪問しない。",
       "region_label": "大阪",
       "macro_region": "keihanshin",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 大阪府・東大阪市中石切町",
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://www.kimoto-denshi.co.jp/equipment/ 資本金1,000万円 / 従業員40名",
       "tags": [
-        "詳細不足",
         "京阪神",
         "西部会員"
       ]
@@ -5496,35 +5849,114 @@
       "id": "4ffcbc9f3c62",
       "name": "光陽産業株式会社",
       "area": "岡山県・笠岡市",
-      "updated": "2026-08-11T19:02:38+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
         "official_name": "光陽産業株式会社"
       },
       "scale_summary": "岡山県・笠岡市",
-      "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment": [
+        {
+          "name": "・ガス燃焼式熱処理炉",
+          "count": 7,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "・電気焼戻炉",
+          "count": 7,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "・ケース型ガス軟窒化炉",
+          "count": 2,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "・ピット型ガス窒化炉",
+          "count": 2,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "・時効炉",
+          "count": 2,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "・溶体化炉",
+          "count": 2,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "・真空熱処理炉",
+          "count": 2,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "・台車式電気炉",
+          "count": 1,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "・最新鋭の加熱炉",
+          "count": 1,
+          "spec": "",
+          "maker": "完全内"
+        },
+        {
+          "name": "・重油式熱処理炉",
+          "count": 1,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "・高周波焼入機",
+          "count": 1,
+          "spec": "",
+          "maker": ""
+        }
+      ],
+      "equipment_summary": "・ガス燃焼式熱処理炉7基・・電気焼戻炉7基・・ケース型ガス軟窒化炉2基・・ピット型ガス窒化炉2基・・時効炉2基・・溶体化炉2基・他5種",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "http://www.koyosangyo.com",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://ja.nc-net.or.jp/company/73980/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(西部)会員。岡山県 笠岡市新賀777。客として訪問しない。",
       "region_label": "岡山など",
       "macro_region": "other",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 岡山県・笠岡市",
+      "blurb": "・ガス燃焼式熱処理炉7基・・電気焼戻炉7基・・ケース型ガス軟窒化炉2基・・ピット型ガス窒化炉2基・・時効炉2基・・溶体化炉2基・他5種 岡山県・笠岡市 強み候補: ピット炉・窒化",
       "tags": [
-        "詳細不足",
+        "ピット炉",
+        "窒化",
         "西部会員"
       ]
     },
@@ -5532,21 +5964,21 @@
       "id": "5216335f83dd",
       "name": "有限会社三恵熱錬",
       "area": "大阪府・柏原市国分市",
-      "updated": "2026-08-11T19:02:39+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
         "official_name": "有限会社三恵熱錬"
       },
       "scale_summary": "大阪府・柏原市国分市",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): http://www.sankei-heattreatment.com/",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
@@ -5572,14 +6004,19 @@
           "is_expansion": false
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "http://www.sankei-heattreatment.com/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(西部)会員。大阪府 柏原市国分市場1丁目10−46。客として訪問しない。",
       "region_label": "大阪",
       "macro_region": "keihanshin",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 大阪府・柏原市国分市",
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): http://www.sankei-heattreatment.com/ 大阪府・柏原市国分市",
       "tags": [
-        "詳細不足",
         "京阪神",
         "西部会員"
       ]
@@ -5588,36 +6025,59 @@
       "id": "46deeafb806a",
       "name": "有限会社新興高周波工業所",
       "area": "大阪府・東大阪市",
-      "updated": "2026-08-11T19:02:40+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "有限会社新興高周波工業所"
+        "official_name": "有限会社新興高周波工業所",
+        "products": "保有数",
+        "address": "東大阪市高井田西1-6-3",
+        "representative": "森田 悠太 (モリタ ユウタ)",
+        "employees": "9人",
+        "capital": "300万円"
       },
-      "scale_summary": "大阪府・東大阪市",
-      "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "scale_summary": "資本金300万円 / 従業員9人",
+      "equipment": [
+        {
+          "name": "高周波誘導加熱装置(20KW(450KHZ))",
+          "count": 1,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "高周波誘導加熱装置(60KW(120KHZ))",
+          "count": 1,
+          "spec": "",
+          "maker": ""
+        }
+      ],
+      "equipment_summary": "高周波誘導加熱装置(20KW(450KHZ))1基・高周波誘導加熱装置(60KW(120KHZ))1基",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.techplaza.city.higashiosaka.osaka.jp/search/company/446",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(西部)会員。大阪府 東大阪市高井田西1-6-3。客として訪問しない。",
       "region_label": "大阪",
       "macro_region": "keihanshin",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 大阪府・東大阪市 強み候補: 高周波",
+      "blurb": "高周波誘導加熱装置(20KW(450KHZ))1基・高周波誘導加熱装置(60KW(120KHZ))1基 資本金300万円 / 従業員9人 強み候補: 高周波",
       "tags": [
         "高周波",
-        "詳細不足",
         "京阪神",
         "西部会員"
       ]
@@ -5626,21 +6086,24 @@
       "id": "58996c50d33a",
       "name": "第一鋼業株式会社",
       "area": "大阪府・大阪市西成区",
-      "updated": "2026-08-11T19:02:41+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "第一鋼業株式会社"
+        "official_name": "第一鋼業株式会社",
+        "address": "〒557-0063 大阪府大阪市西成区南津守6丁目3番22号",
+        "capital": "3060万円",
+        "business": "機械刃物製造販売 金属熱処理加工 各種工具、機械部品の設計・製作"
       },
-      "scale_summary": "大阪府・大阪市西成区",
+      "scale_summary": "資本金3060万円",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://daiichis.com/business/",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
@@ -5657,14 +6120,24 @@
           "is_expansion": false
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://daiichis.com/company/profile.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://daiichis.com/business/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(西部)会員。大阪府 大阪市西成区南津守6−3−22。客として訪問しない。",
       "region_label": "大阪",
       "macro_region": "keihanshin",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 大阪府・大阪市西成区",
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://daiichis.com/business/ 資本金3060万円",
       "tags": [
-        "詳細不足",
         "京阪神",
         "西部会員"
       ]
@@ -5673,35 +6146,49 @@
       "id": "ca37ba0ed618",
       "name": "東洋冶金工業株式会社",
       "area": "大阪府・大阪市西淀川区",
-      "updated": "2026-08-11T19:02:42+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "東洋冶金工業株式会社"
+        "official_name": "東洋冶金工業株式会社",
+        "capital": "1,000万円",
+        "founded": "1930年/昭和5年",
+        "address": "大阪府大阪市西淀川区御幣島2丁目6番2号",
+        "business": "金属熱処理加工(材料・加工品)、付随加工全般"
       },
-      "scale_summary": "大阪府・大阪市西淀川区",
+      "scale_summary": "資本金1,000万円",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): http://www.toyoyakin.com/page3",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "http://www.toyoyakin.com/page4",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "http://www.toyoyakin.com/page3",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(西部)会員。大阪府 大阪市西淀川区御幣島2丁目6番2号。客として訪問しない。",
       "region_label": "大阪",
       "macro_region": "keihanshin",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 大阪府・大阪市西淀川区",
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): http://www.toyoyakin.com/page3 資本金1,000万円",
       "tags": [
-        "詳細不足",
         "京阪神",
         "西部会員"
       ]
@@ -5747,21 +6234,42 @@
       "id": "c2c369504aea",
       "name": "株式会社ファインテック",
       "area": "大阪府・大東市新田北町",
-      "updated": "2026-08-11T19:02:44+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "株式会社ファインテック"
+        "official_name": "株式会社ファインテック",
+        "capital": "3000万円 |",
+        "business": "金属熱処理加工"
       },
-      "scale_summary": "大阪府・大東市新田北町",
-      "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "scale_summary": "資本金3000万円 |",
+      "equipment": [
+        {
+          "name": "焼戻炉",
+          "count": 9,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "真空炉",
+          "count": 5,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "真空洗浄機",
+          "count": 1,
+          "spec": "",
+          "maker": ""
+        }
+      ],
+      "equipment_summary": "焼戻炉9基・真空炉5基・真空洗浄機1基",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
@@ -5806,14 +6314,25 @@
           "is_expansion": false
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://finetech-jp.com/aboutus/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://finetech-jp.com/machine/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(西部)会員。大阪府 大東市新田北町1−5。客として訪問しない。",
       "region_label": "大阪",
       "macro_region": "keihanshin",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 大阪府・大東市新田北町",
+      "blurb": "焼戻炉9基・真空炉5基・真空洗浄機1基 資本金3000万円 | 強み候補: 真空",
       "tags": [
-        "詳細不足",
+        "真空",
         "京阪神",
         "西部会員"
       ]
@@ -5822,21 +6341,26 @@
       "id": "63bd1254367a",
       "name": "富士高周波工業株式会社",
       "area": "大阪府・堺市堺区遠里小野町",
-      "updated": "2026-08-11T19:02:45+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "富士高周波工業株式会社"
+        "official_name": "富士高周波工業株式会社",
+        "address": "【本社工場(高周波工場)】 、 〒590-0001 大阪府堺市堺区遠里小野町2丁3番15号、 電話 (072)229-0230、 FAX (072)233-7583、 、 【第一工場(レーザ工場)】 、 〒590-0002 大阪府堺市堺区砂",
+        "founded": "昭和33年11月17日",
+        "capital": "18,000,000円",
+        "representative": "後藤 光宏",
+        "products": "高周波熱処理加工、 レーザ熱処理加工、 レーザクラッディング加工、 金属3Dプリンティング"
       },
-      "scale_summary": "大阪府・堺市堺区遠里小野町",
+      "scale_summary": "資本金18,000,000円",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://www.fuji-koushuha.co.jp/technology",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
@@ -5880,15 +6404,25 @@
           "is_expansion": false
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.fuji-koushuha.co.jp/company",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.fuji-koushuha.co.jp/technology",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(西部)会員。大阪府 堺市堺区遠里小野町2−3−15。客として訪問しない。",
       "region_label": "大阪",
       "macro_region": "keihanshin",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 大阪府・堺市堺区遠里小野町 強み候補: 高周波",
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://www.fuji-koushuha.co.jp/technology 資本金18,000,000円 強み候補: 高周波",
       "tags": [
         "高周波",
-        "詳細不足",
         "京阪神",
         "西部会員"
       ]
@@ -5897,21 +6431,26 @@
       "id": "7687891e90d9",
       "name": "理化工業株式会社",
       "area": "大阪府・八尾市",
-      "updated": "2026-08-11T19:02:46+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "理化工業株式会社"
+        "official_name": "理化工業株式会社",
+        "address": "●本社・熱処理工場、 大阪府八尾市西弓削2-6、 [ 総務部 ] TEL 072-920-3044 / FAX 072-948-1044、 [ 熱処理 ] TEL 072-948-0006 / FAX 072-948-0474 ●塗装、 大",
+        "capital": "1500万円",
+        "founded": "1981年",
+        "employees": "76名(うち非正規雇用15名)",
+        "business": "・各種金属製品の熱処理加工、 ・浸炭焼入れ 焼戻し、 ・浸炭窒化焼入れ 焼戻し、 ・無酸化焼入れ 焼戻し、 ・焼きなまし、 ・アルミ溶体化時効処理、 ・ショットブラスト、 ・真空脱脂洗浄 ・ネジ、ボルト類の頭部塗装、 ・ナット、ワッシャーな"
       },
-      "scale_summary": "大阪府・八尾市",
+      "scale_summary": "資本金1500万円 / 従業員76名(うち非正規雇用15名)",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://www.rk-k.jp/heat/index.html",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
@@ -5974,14 +6513,24 @@
           "is_expansion": false
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.rk-k.jp/company/index.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.rk-k.jp/heat/index.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(西部)会員。大阪府 八尾市西弓削2−6。客として訪問しない。",
       "region_label": "大阪",
       "macro_region": "keihanshin",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 大阪府・八尾市",
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://www.rk-k.jp/heat/index.html 資本金1500万円 / 従業員76名(うち非正規雇用15名)",
       "tags": [
-        "詳細不足",
         "京阪神",
         "西部会員"
       ]
@@ -5990,35 +6539,49 @@
       "id": "88956f8fdfb3",
       "name": "アイコー株式会社",
       "area": "愛知県・名古屋市港区高木町",
-      "updated": "2026-08-11T19:02:47+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "アイコー株式会社"
+        "official_name": "アイコー株式会社",
+        "address": "愛知県名古屋市港区高木町4-2-5",
+        "founded": "昭和34年",
+        "business": "金属熱処理 、 各種表面処理 、 熱処理設備、制御システム および電気機械設備の設計 製作、メンテナンス",
+        "employees": "約250名"
       },
-      "scale_summary": "愛知県・名古屋市港区高木町",
+      "scale_summary": "従業員約250名",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://recruit.aiko-1959.com/strength/",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://recruit.aiko-1959.com/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://recruit.aiko-1959.com/strength/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(中部)会員。愛知県 名古屋市港区高木町4−2−5。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県・名古屋市港区高木町",
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://recruit.aiko-1959.com/strength/ 従業員約250名",
       "tags": [
-        "詳細不足",
         "西部会員"
       ]
     },
@@ -6026,35 +6589,58 @@
       "id": "aa2e0e4c9c78",
       "name": "アイテック株式会社",
       "area": "岐阜県・美濃加茂市",
-      "updated": "2026-08-11T19:02:48+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "アイテック株式会社"
+        "official_name": "アイテック株式会社",
+        "founded": "2011年",
+        "representative": "藤田 理",
+        "capital": "6600万元(日系4社、中国系2社の合弁会社)",
+        "employees": "45名",
+        "business": "金属熱処理事業全般",
+        "address": "湖南省株洲市天元区栗雨工業園五十五区"
       },
-      "scale_summary": "岐阜県・美濃加茂市",
-      "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "scale_summary": "資本金6600万元(日系4社、中国系2社の合弁会社) / 従業員45名",
+      "equipment": [
+        {
+          "name": "中日本炉工業",
+          "count": 1,
+          "spec": "",
+          "maker": "島津"
+        }
+      ],
+      "equipment_summary": "中日本炉工業1基",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.aitech-inc.co.jp/company.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.aitech-inc.co.jp/works_facility.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(中部)会員。岐阜県 美濃加茂市蜂屋台1丁目5−14。客として訪問しない。",
       "region_label": "岐阜",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 岐阜県・美濃加茂市",
+      "blurb": "中日本炉工業1基 資本金6600万元(日系4社、中国系2社の合弁会社) / 従業員45名",
       "tags": [
-        "詳細不足",
         "西部会員"
       ]
     },
@@ -6062,21 +6648,26 @@
       "id": "039473a866c6",
       "name": "旭千代田工業株式会社",
       "area": "愛知県・尾張旭市東栄町",
-      "updated": "2026-08-11T19:02:49+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "旭千代田工業株式会社"
+        "official_name": "旭千代田工業株式会社",
+        "founded": "昭和19年11月10日",
+        "capital": "9,500万円",
+        "employees": "279名",
+        "address": "愛知県尾張旭市東栄町4-8-1",
+        "business": "会社案内"
       },
-      "scale_summary": "愛知県・尾張旭市東栄町",
+      "scale_summary": "資本金9,500万円 / 従業員279名",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://www.a-chiyoda.co.jp/processing/index.html",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
@@ -6093,14 +6684,24 @@
           "is_expansion": false
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.a-chiyoda.co.jp/profile/overview.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.a-chiyoda.co.jp/processing/index.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(中部)会員。愛知県 尾張旭市東栄町4−8−1。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県・尾張旭市東栄町",
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://www.a-chiyoda.co.jp/processing/index.html 資本金9,500万円 / 従業員279名",
       "tags": [
-        "詳細不足",
         "西部会員"
       ]
     },
@@ -6108,35 +6709,40 @@
       "id": "962cff202991",
       "name": "有限会社河合熱処理工業所",
       "area": "愛知県・西春日井郡豊山町",
-      "updated": "2026-08-11T19:02:50+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
         "official_name": "有限会社河合熱処理工業所"
       },
       "scale_summary": "愛知県・西春日井郡豊山町",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://www.netsushori.jp/user_chubu/search/index.php?TYPE=A",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.netsushori.jp/user_chubu/search/index.php?TYPE=A",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(中部)会員。愛知県 西春日井郡豊山町豊場字大山61。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県・西春日井郡豊山町",
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://www.netsushori.jp/user_chubu/search/index.php?TYPE=A 愛知県・西春日井郡豊山町",
       "tags": [
-        "詳細不足",
         "西部会員"
       ]
     },
@@ -6144,35 +6750,55 @@
       "id": "38febd0d7c83",
       "name": "桜井興産株式会社",
       "area": "愛知県・名古屋市南区",
-      "updated": "2026-08-11T19:02:51+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "桜井興産株式会社"
+        "official_name": "桜井興産株式会社",
+        "capital": "7,500万円",
+        "employees": "66名"
       },
-      "scale_summary": "愛知県・名古屋市南区",
-      "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "scale_summary": "資本金7,500万円 / 従業員66名",
+      "equipment": [
+        {
+          "name": "2トン用バッチ式高温炉4台・低温炉",
+          "count": 1,
+          "spec": "",
+          "maker": ""
+        }
+      ],
+      "equipment_summary": "2トン用バッチ式高温炉4台・低温炉1基",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.sakuraikosan.co.jp/pages/profile_outline.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.sakuraikosan.co.jp/pages/jigyou_sozai.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(中部)会員。愛知県 名古屋市南区鶴見通3丁目3番地。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県・名古屋市南区",
+      "blurb": "2トン用バッチ式高温炉4台・低温炉1基 資本金7,500万円 / 従業員66名 強み候補: バッチ",
       "tags": [
-        "詳細不足",
+        "バッチ",
         "西部会員"
       ]
     },
@@ -6180,21 +6806,24 @@
       "id": "7f34706a7f3e",
       "name": "三洋電子株式会社",
       "area": "愛知県・小牧市",
-      "updated": "2026-08-11T19:02:52+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "三洋電子株式会社"
+        "official_name": "三洋電子株式会社",
+        "capital": "2,000万円",
+        "founded": "1976年7月",
+        "employees": "37名(2026年3月現在)"
       },
-      "scale_summary": "愛知県・小牧市",
+      "scale_summary": "資本金2,000万円 / 従業員37名(2026年3月現在)",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://www.sanyodenshi.com/setsubi.html",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
@@ -6211,14 +6840,24 @@
           "is_expansion": false
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.sanyodenshi.com/information.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.sanyodenshi.com/setsubi.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(中部)会員。愛知県 小牧市大字東田中字東島2080−1。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県・小牧市",
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://www.sanyodenshi.com/setsubi.html 資本金2,000万円 / 従業員37名(2026年3月現在)",
       "tags": [
-        "詳細不足",
         "西部会員"
       ]
     },
@@ -6263,35 +6902,46 @@
       "id": "dbec18cb0ba4",
       "name": "瑞芳産業株式会社",
       "area": "愛知県・一宮市今伊勢町",
-      "updated": "2026-08-11T19:02:53+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "瑞芳産業株式会社"
+        "official_name": "瑞芳産業株式会社",
+        "capital": "決算期"
       },
-      "scale_summary": "愛知県・一宮市今伊勢町",
+      "scale_summary": "資本金決算期",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://www.zuihoe.com/%E4%BF%9D%E6%9C%89%E8%A8%AD%E5%82%99",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.zuihoe.com/about",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.zuihoe.com/%E4%BF%9D%E6%9C%89%E8%A8%AD%E5%82%99",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(中部)会員。愛知県 一宮市今伊勢町宮後字郷東15。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県・一宮市今伊勢町",
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://www.zuihoe.com/%E4%BF%9D%E6%9C%89%E8%A8%AD%E5%82%99 資本金決算期",
       "tags": [
-        "詳細不足",
         "西部会員"
       ]
     },
@@ -6299,35 +6949,45 @@
       "id": "77891456131c",
       "name": "成和電子工業株式会社",
       "area": "愛知県・津島市白浜町",
-      "updated": "2026-08-11T19:02:54+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
         "official_name": "成和電子工業株式会社"
       },
       "scale_summary": "愛知県・津島市白浜町",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://www.atengineer.com/pr/seiwadenshi/company",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "http://www.seiwadenshi.co.jp/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.atengineer.com/pr/seiwadenshi/company",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(中部)会員。愛知県 津島市白浜町字平堤77−2。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県・津島市白浜町",
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://www.atengineer.com/pr/seiwadenshi/company 愛知県・津島市白浜町",
       "tags": [
-        "詳細不足",
         "西部会員"
       ]
     },
@@ -6335,35 +6995,45 @@
       "id": "d2355e0ac391",
       "name": "株式会社セム",
       "area": "愛知県・名古屋市瑞穂区浮島町",
-      "updated": "2026-08-11T19:02:55+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "株式会社セム"
+        "official_name": "株式会社セム",
+        "founded": "1922年(大正11年)10月",
+        "capital": "5,500万円",
+        "business": "鉄鋼熱処理加工(ガス浸炭・無酸化焼入・各種窒化・他)、軽合金熱処理加工(アルミ合金調質各種・T2・T4・T5・T6・T7他)、コーティング処理(イオンプレーティングWDコート®・クロムドッペN ・DLC)、その他、熱処理加工全般",
+        "address": "愛知県名古屋市瑞穂区浮島町19番1号",
+        "employees": "約114人(2026年4月現在) ※非正規従業員を含む"
       },
-      "scale_summary": "愛知県・名古屋市瑞穂区浮島町",
+      "scale_summary": "資本金5,500万円 / 約114人(2026年4月現在) ※非正規従業員を含む",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://www.cemm.jp/company/profile/",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.cemm.jp/company/profile/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(中部)会員。愛知県 名古屋市瑞穂区浮島町19番1号。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県・名古屋市瑞穂区浮島町",
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://www.cemm.jp/company/profile/ 資本金5,500万円 / 約114人(2026年4月現在) ※非正規従業員を含む",
       "tags": [
-        "詳細不足",
         "西部会員"
       ]
     },
@@ -6371,35 +7041,62 @@
       "id": "48f89f8b6d24",
       "name": "株式会社田神工作所",
       "area": "愛知県・一宮市今伊勢町",
-      "updated": "2026-08-11T19:02:56+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "株式会社田神工作所"
+        "official_name": "株式会社田神工作所",
+        "representative": "代表取締役社長 田神 知之",
+        "capital": "1800万円",
+        "employees": "22名(2025年2月現在)"
       },
-      "scale_summary": "愛知県・一宮市今伊勢町",
-      "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "scale_summary": "資本金1800万円 / 従業員22名(2025年2月現在)",
+      "equipment": [
+        {
+          "name": "高周波焼き入装置",
+          "count": 1,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "高周波焼入れ装置",
+          "count": 1,
+          "spec": "",
+          "maker": ""
+        }
+      ],
+      "equipment_summary": "高周波焼き入装置1基・高周波焼入れ装置1基",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.tagamikousaku.co.jp/company.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.tagamikousaku.co.jp/service.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(中部)会員。愛知県 一宮市今伊勢町馬寄字吉田前11−1。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県・一宮市今伊勢町",
+      "blurb": "高周波焼き入装置1基・高周波焼入れ装置1基 資本金1800万円 / 従業員22名(2025年2月現在) 強み候補: 高周波",
       "tags": [
-        "詳細不足",
+        "高周波",
         "西部会員"
       ]
     },
@@ -6407,35 +7104,50 @@
       "id": "7db962d910bc",
       "name": "武山工業株式会社",
       "area": "愛知県・名古屋市中川区玉川町",
-      "updated": "2026-08-11T19:02:57+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "武山工業株式会社"
+        "official_name": "武山工業株式会社",
+        "address": "愛知県名古屋市中川区玉川町3丁目1番",
+        "capital": "2,000万円",
+        "founded": "昭和39年6月30日",
+        "representative": "代表取締役 武山直丈",
+        "business": "金属製品の熱処理、表面処理、塗装及び各種溶接品の製造・各種鋳造品の製造・各種機械加工"
       },
-      "scale_summary": "愛知県・名古屋市中川区玉川町",
+      "scale_summary": "資本金2,000万円",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://takeyama-kogyo.jp/technology/",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://takeyama-kogyo.jp/company/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://takeyama-kogyo.jp/technology/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(中部)会員。愛知県 名古屋市中川区玉川町3−1。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県・名古屋市中川区玉川町",
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://takeyama-kogyo.jp/technology/ 資本金2,000万円",
       "tags": [
-        "詳細不足",
         "西部会員"
       ]
     },
@@ -6443,35 +7155,70 @@
       "id": "e991ac1a829a",
       "name": "大和精工株式会社",
       "area": "愛知県・清須市",
-      "updated": "2026-08-11T19:02:58+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "大和精工株式会社"
+        "official_name": "大和精工株式会社",
+        "address": "〒452-0914 愛知県清須市土器野707番地、TEL 052-400-1261 (代) FAX 052-400-8740、(熱処理専用) TEL 052-400-2791 FAX 052-400-9883",
+        "founded": "昭和19年4月",
+        "capital": "3,000万円"
       },
-      "scale_summary": "愛知県・清須市",
-      "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "scale_summary": "資本金3,000万円",
+      "equipment": [
+        {
+          "name": "ソルトバス炉",
+          "count": 15,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "電気炉",
+          "count": 6,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "流動層炉",
+          "count": 4,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "真空熱処理炉",
+          "count": 3,
+          "spec": "",
+          "maker": ""
+        }
+      ],
+      "equipment_summary": "ソルトバス炉15基・電気炉6基・流動層炉4基・真空熱処理炉3基",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.daiwaseikou.co.jp/info.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(中部)会員。愛知県 清須市土器野707。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県・清須市",
+      "blurb": "ソルトバス炉15基・電気炉6基・流動層炉4基・真空熱処理炉3基 資本金3,000万円 強み候補: 真空・ソルト",
       "tags": [
-        "詳細不足",
+        "真空",
+        "ソルト",
         "西部会員"
       ]
     },
@@ -6479,21 +7226,22 @@
       "id": "6d44a0edb6e7",
       "name": "中部高周波工業株式会社",
       "area": "愛知県・知多郡武豊町",
-      "updated": "2026-08-11T19:02:59+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "中部高周波工業株式会社"
+        "official_name": "中部高周波工業株式会社",
+        "employees": "|"
       },
-      "scale_summary": "愛知県・知多郡武豊町",
+      "scale_summary": "従業員|",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://www.chubu-kk.co.jp/bumon.html",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
@@ -6519,15 +7267,25 @@
           "is_expansion": false
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.chubu-kk.co.jp/philosophy.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.chubu-kk.co.jp/bumon.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(中部)会員。愛知県 知多郡武豊町大字富貴字中田6−11。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県・知多郡武豊町 強み候補: 高周波",
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://www.chubu-kk.co.jp/bumon.html 従業員| 強み候補: 高周波",
       "tags": [
         "高周波",
-        "詳細不足",
         "西部会員"
       ]
     },
@@ -6535,35 +7293,51 @@
       "id": "0caafd11cfd5",
       "name": "東海イオン株式会社",
       "area": "愛知県・名古屋市中川区若山町",
-      "updated": "2026-08-11T19:03:00+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "東海イオン株式会社"
+        "official_name": "東海イオン株式会社",
+        "address": "本社、〒454-0876 愛知県名古屋市中川区若山町3丁目40番地、第二工場、〒454-0876 愛知県名古屋市中川区若山町4-9、第三工場、〒454-0852 愛知県名古屋市中川区昭和橋通6-7",
+        "founded": "昭和52年8月",
+        "capital": "1,000万円",
+        "employees": "6人",
+        "products": "T5-1800-0102-0198",
+        "business": "窒化処理をはじめとした金属の表面処理加工、、ウルトラプラズマ窒化、ハードプラズマ窒化、プラズマ窒化(イオン窒化)、HART処理、ミック処理(MIC処理)(特殊ガス浸硫窒化)、ガス軟窒化、ガス窒化、の受託加工、BN窒化"
       },
-      "scale_summary": "愛知県・名古屋市中川区若山町",
+      "scale_summary": "資本金1,000万円 / 従業員6人",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://www.tokai-ion.co.jp/equipment/",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.tokai-ion.co.jp/company/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.tokai-ion.co.jp/equipment/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(中部)会員。愛知県 名古屋市中川区若山町3−40。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県・名古屋市中川区若山町",
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://www.tokai-ion.co.jp/equipment/ 資本金1,000万円 / 従業員6人",
       "tags": [
-        "詳細不足",
         "西部会員"
       ]
     },
@@ -6571,21 +7345,57 @@
       "id": "6e2899b821c5",
       "name": "東海高周波株式会社",
       "area": "愛知県・名古屋市中川区松ノ木町",
-      "updated": "2026-08-11T19:03:01+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "東海高周波株式会社"
+        "official_name": "東海高周波株式会社",
+        "representative": "代表取締役 廣瀬 雅弘",
+        "address": "〒454-0848 愛知県名古屋市中川区松ノ木町1-46",
+        "founded": "昭和38年9月",
+        "capital": "2,040万円",
+        "business": "高周波焼入れの受託加工、 工作機械部品、ベアリング部品、一般産業機械部品、治工具類 鋼材の販売、 シャフト用鋼材の販売"
       },
-      "scale_summary": "愛知県・名古屋市中川区松ノ木町",
-      "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "scale_summary": "資本金2,040万円",
+      "equipment": [
+        {
+          "name": "焼戻炉1",
+          "count": 1,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "焼戻炉2",
+          "count": 1,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "焼戻炉3",
+          "count": 1,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "焼戻炉4",
+          "count": 1,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "焼戻炉5",
+          "count": 1,
+          "spec": "",
+          "maker": ""
+        }
+      ],
+      "equipment_summary": "焼戻炉11基・焼戻炉21基・焼戻炉31基・焼戻炉41基・焼戻炉51基",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": true,
       "expansion_alerts": [
         {
@@ -6609,16 +7419,26 @@
           "is_expansion": true
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.t-koshuha.co.jp/company.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.t-koshuha.co.jp/equipment.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(中部)会員。愛知県 名古屋市中川区松ノ木町1−46。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県・名古屋市中川区松ノ木町 ⚠増強: 東海熱処理研究センター 稼働開始 強み候補: 高周波・増強",
+      "blurb": "焼戻炉11基・焼戻炉21基・焼戻炉31基・焼戻炉41基・焼戻炉51基 資本金2,040万円 ⚠増強: 東海熱処理研究センター 稼働開始 強み候補: 高周波・増強",
       "tags": [
         "高周波",
         "増強",
-        "詳細不足",
         "西部会員"
       ]
     },
@@ -6626,35 +7446,45 @@
       "id": "d90b82c4c333",
       "name": "東伸工業株式会社",
       "area": "愛知県・小牧市",
-      "updated": "2026-08-11T19:03:02+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
         "official_name": "東伸工業株式会社"
       },
       "scale_summary": "愛知県・小牧市",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://www.chubu.or.jp/book/pageindices/index78.html",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "http://www.to-shin-kk.co.jp/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.chubu.or.jp/book/pageindices/index78.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(中部)会員。愛知県 小牧市大字南外山898−1。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県・小牧市",
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://www.chubu.or.jp/book/pageindices/index78.html 愛知県・小牧市",
       "tags": [
-        "詳細不足",
         "西部会員"
       ]
     },
@@ -6662,21 +7492,24 @@
       "id": "8b8d68c77923",
       "name": "東洋高周波工業株式会社",
       "area": "愛知県・名古屋市南区天白町",
-      "updated": "2026-08-11T19:03:03+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "東洋高周波工業株式会社"
+        "official_name": "東洋高周波工業株式会社",
+        "business": "高周波誘導加熱加工、その他熱処理、研削(研磨)  |",
+        "capital": "1340万円 |",
+        "representative": "代表取締役社長  垣内 弘"
       },
-      "scale_summary": "愛知県・名古屋市南区天白町",
+      "scale_summary": "資本金1340万円 |",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://toyokoshuha.co.jp/about-us/equipment",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
@@ -6747,15 +7580,25 @@
           "is_expansion": false
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://toyokoshuha.co.jp/about-us/gaiyou",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://toyokoshuha.co.jp/about-us/equipment",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(中部)会員。愛知県 名古屋市南区天白町5−28。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県・名古屋市南区天白町 強み候補: 高周波",
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://toyokoshuha.co.jp/about-us/equipment 資本金1340万円 | 強み候補: 高周波",
       "tags": [
         "高周波",
-        "詳細不足",
         "西部会員"
       ]
     },
@@ -6868,35 +7711,45 @@
       "id": "6419652ffac8",
       "name": "内藤誘機工業株式会社",
       "area": "愛知県・高浜市小池町",
-      "updated": "2026-08-11T19:03:08+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
         "official_name": "内藤誘機工業株式会社"
       },
       "scale_summary": "愛知県・高浜市小池町",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): http://www.naitouyuuki.jp/products/seisan.html",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "http://www.naitouyuuki.jp/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "http://www.naitouyuuki.jp/products/seisan.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(中部)会員。愛知県 高浜市小池町6−5−31。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県・高浜市小池町",
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): http://www.naitouyuuki.jp/products/seisan.html 愛知県・高浜市小池町",
       "tags": [
-        "詳細不足",
         "西部会員"
       ]
     },
@@ -6976,35 +7829,51 @@
       "id": "5c6ef9a0ee5a",
       "name": "日高工業株式会社",
       "area": "愛知県・刈谷市一里山町",
-      "updated": "2026-08-11T19:03:12+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "日高工業株式会社"
+        "official_name": "日高工業株式会社",
+        "representative": ":",
+        "address": ":",
+        "founded": ":",
+        "capital": ":",
+        "employees": ":",
+        "business": ":"
       },
-      "scale_summary": "愛知県・刈谷市一里山町",
+      "scale_summary": "資本金: / 従業員:",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://www.hidaka-kk.jp/facility/",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.hidaka-kk.jp/company/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.hidaka-kk.jp/facility/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(中部)会員。愛知県 刈谷市一里山町柳原7−1。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県・刈谷市一里山町",
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://www.hidaka-kk.jp/facility/ 資本金: / 従業員:",
       "tags": [
-        "詳細不足",
         "西部会員"
       ]
     },
@@ -7012,21 +7881,51 @@
       "id": "ca37923e3734",
       "name": "不二精工株式会社",
       "area": "愛知県・名古屋市港区新船町",
-      "updated": "2026-08-11T19:03:12+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "不二精工株式会社"
+        "official_name": "不二精工株式会社",
+        "address": "〒550-0015、 大阪市西区南堀江1丁目11番9号 SONO四ツ橋ビル407号",
+        "employees": "69名",
+        "founded": "1937年12月(昭和12年)",
+        "business": "産業機械設計製作・紡績機械部品・熱処理委託加工 第三種 医療機器製造販売業許可証 取得、 医療機器製造業許可証 取得",
+        "capital": "5,000万円"
       },
-      "scale_summary": "愛知県・名古屋市港区新船町",
-      "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "scale_summary": "資本金5,000万円 / 従業員69名",
+      "equipment": [
+        {
+          "name": "電気焼戻炉",
+          "count": 3,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "回転式連続光輝焼入炉",
+          "count": 2,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "バッチ式ガス浸炭炉(セミホット油)960L 500W 450H 挿入量250kg",
+          "count": 1,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "真空脱脂洗浄装置",
+          "count": 1,
+          "spec": "",
+          "maker": ""
+        }
+      ],
+      "equipment_summary": "電気焼戻炉3基・回転式連続光輝焼入炉2基・バッチ式ガス浸炭炉(セミホット油)960L 500W 450H 挿入量250kg1基・真空脱脂洗浄装置1基",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
@@ -7106,14 +8005,28 @@
           "is_expansion": false
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.fuji-seiko.net/company/profile",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.fuji-seiko.net/service/equipment",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(中部)会員。愛知県 名古屋市港区新船町2−1。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県・名古屋市港区新船町",
+      "blurb": "電気焼戻炉3基・回転式連続光輝焼入炉2基・バッチ式ガス浸炭炉(セミホット油)960L 500W 450H 挿入量250kg1基・真空脱脂洗浄装置1基 資本金5,000万円 / 従業員69名 強み候補: 真空・浸炭・連続炉",
       "tags": [
-        "詳細不足",
+        "真空",
+        "浸炭",
+        "連続炉",
+        "バッチ",
         "西部会員"
       ]
     },
@@ -7121,35 +8034,83 @@
       "id": "6f399014cca9",
       "name": "株式会社丸上製作所",
       "area": "愛知県・豊川市御津町",
-      "updated": "2026-08-11T19:03:14+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "株式会社丸上製作所"
+        "official_name": "株式会社丸上製作所",
+        "address": "〒441-0393、 愛知県豊川市御津町佐脇浜二号地1番19",
+        "founded": "明治39年",
+        "capital": "3,000万円",
+        "employees": "92名"
       },
-      "scale_summary": "愛知県・豊川市御津町",
-      "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "scale_summary": "資本金3,000万円 / 従業員92名",
+      "equipment": [
+        {
+          "name": "・加熱炉(電気・自動温度調節機付/バッチ式)",
+          "count": 3,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "・焼戻炉(ガス・自動温度調節機付/連続式)",
+          "count": 3,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "・成形加熱炉(ガス・自動温度調節機付/連続式)",
+          "count": 2,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "・焼入加熱炉(ガス・自動温度調節機付/バッチ式)",
+          "count": 2,
+          "spec": "",
+          "maker": ""
+        },
+        {
+          "name": "・成形加熱炉(高周波誘導加熱式)",
+          "count": 1,
+          "spec": "",
+          "maker": ""
+        }
+      ],
+      "equipment_summary": "・加熱炉(電気・自動温度調節機付/バッチ式)3基・・焼戻炉(ガス・自動温度調節機付/連続式)3基・・成形加熱炉(ガス・自動温度調節機付/連続式)2基・・焼入加熱炉(ガス・自動温度調節機付/バッチ式)2基・・成形加熱炉(高周波誘導加熱式)1基",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "http://www.marujyou.co.jp/company/index.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "http://www.marujyou.co.jp/product/manufacturing.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(中部)会員。愛知県 豊川市御津町佐脇浜二号地1−19。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県・豊川市御津町",
+      "blurb": "・加熱炉(電気・自動温度調節機付/バッチ式)3基・・焼戻炉(ガス・自動温度調節機付/連続式)3基・・成形加熱炉(ガス・自動温度調節機付/連続式)2基・・焼入加熱炉(ガス・自動温度調… 資本金3,000万円 / 従業員92名 強み候補: 高周波・連続炉・バッチ",
       "tags": [
-        "詳細不足",
+        "高周波",
+        "連続炉",
+        "バッチ",
         "西部会員"
       ]
     },
@@ -7157,35 +8118,47 @@
       "id": "769f6e36751a",
       "name": "株式会社マルテック",
       "area": "愛知県・刈谷市一里山町",
-      "updated": "2026-08-11T19:03:15+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "株式会社マルテック"
+        "official_name": "株式会社マルテック",
+        "business": "金属熱処理業(浸炭焼入、浸炭窒化、真空焼入、焼入れ・焼戻しなど)",
+        "capital": "2,000万円"
       },
-      "scale_summary": "愛知県・刈谷市一里山町",
+      "scale_summary": "資本金2,000万円",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://malutech-ht.com/blog/equipment/",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://malutech-ht.com/about/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://malutech-ht.com/blog/equipment/",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。日本金属熱処理工業会(中部)会員。愛知県 刈谷市一里山町東吹戸1−5。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県・刈谷市一里山町",
+      "blurb": "設備ページ確認済(台数表の自動抽出不可): https://malutech-ht.com/blog/equipment/ 資本金2,000万円",
       "tags": [
-        "詳細不足",
         "西部会員"
       ]
     },
@@ -7193,21 +8166,25 @@
       "id": "de06234c7532",
       "name": "石川熱処理工業株式会社",
       "area": "石川県・小松市",
-      "updated": "2026-08-11T19:03:16+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "石川熱処理工業株式会社"
+        "official_name": "石川熱処理工業株式会社",
+        "founded": "平成4年6月1日",
+        "capital": "3,000万円",
+        "representative": "酒井久裕",
+        "business": "浸炭、無酸化、高周波、ガス軟窒化、真空、アルミ溶体化、調質、焼鈍、焼準、ショットブラスト"
       },
-      "scale_summary": "石川県・小松市",
+      "scale_summary": "資本金3,000万円",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://www.tekkokiden.jp/members/category/246/cacacaaeaeaac.php",
       "strategy_notes": [],
       "operation": "broker",
       "delegate_to": "京浜熱処理（聞き取り・正式社名要確認）",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
@@ -7260,7 +8237,13 @@
           "is_expansion": false
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.tekkokiden.jp/members/category/246/cacacaaeaeaac.php",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "【委託型】聞き取り: 自社では熱処理せず京浜熱処理へ委託。窓口・紹介競合として把握。客として訪問しない。",
       "region_label": "石川・富山",
@@ -7269,7 +8252,6 @@
       "commentary": "鉄工機電協会では設備メニューを掲げているが、営業聞き取りは委託型。相手にするなら委託先の把握が先。",
       "tags": [
         "委託型",
-        "詳細不足",
         "北陸",
         "窓口"
       ]
@@ -7403,28 +8385,40 @@
       "id": "ef721fd3ea5f",
       "name": "浅地高周波株式会社",
       "area": "石川県・金沢市",
-      "updated": "2026-08-11T19:03:19+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T07:03:13+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "浅地高周波株式会社"
+        "official_name": "浅地高周波株式会社",
+        "address": "石川県金沢市御影町26番7号 地図で見る pin_drop",
+        "founded": "-",
+        "capital": "-",
+        "employees": "-",
+        "representative": "ログインして全ての情報を見る",
+        "business": "-"
       },
-      "scale_summary": "石川県・金沢市",
+      "scale_summary": "資本金- / 従業員-",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "設備ページ確認済(台数表の自動抽出不可): https://cnavi.g-search.or.jp/detail/7220001010449.html",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "ok",
+      "detail_missing": false,
+      "detail_note": "",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://cnavi.g-search.or.jp/detail/7220001010449.html",
+          "fetched_at": "2026-08-12T07:03:13+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。金沢の高周波焼入。客として訪問しない。",
       "region_label": "石川・富山",
@@ -7433,7 +8427,6 @@
       "commentary": "",
       "tags": [
         "高周波",
-        "詳細不足",
         "小規模",
         "北陸"
       ]
@@ -7847,5 +8840,5 @@
       ]
     }
   ],
-  "blurbs_updated": "2026-08-12T06:20:02+09:00"
+  "blurbs_updated": "2026-08-12T07:03:13+09:00"
 }

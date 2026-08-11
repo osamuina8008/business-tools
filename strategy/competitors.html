@@ -241,6 +241,7 @@ function cardHtml(row) {
       <div class="flex gap-1 shrink-0">
         ${expand ? '<span class="text-[10px] font-bold text-rose-700">増強</span>' : ''}
         ${broker ? '<span class="text-[10px] font-bold text-amber-800">委託型</span>' : ''}
+        ${row.relation==='coop_candidate' || (row.tags||[]).includes('協力候補') ? '<span class="text-[10px] font-bold text-emerald-700">協力候補</span>' : ''}
         ${missing ? '<span class="text-[10px] font-bold text-rose-600">詳細なし</span>' : ''}
       </div>
     </div>

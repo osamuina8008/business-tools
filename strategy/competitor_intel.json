@@ -1,8 +1,8 @@
 {
-  "collected_at": "2026-08-12T05:48:50+09:00",
+  "collected_at": "2026-08-12T06:20:02+09:00",
   "disclaimer": "公式サイト・新聞RSSから自動収集。取引先は公開情報ベースの推定。",
   "count": 109,
-  "detail_missing_count": 70,
+  "detail_missing_count": 63,
   "expansion_alert_count": 6,
   "competitors": [
     {
@@ -1969,7 +1969,7 @@
       "id": "92fba7eea546",
       "name": "松山技研株式会社",
       "area": "長野県・上田市",
-      "updated": "2026-08-11T19:00:27+09:00",
+      "updated": "2026-08-12T06:11:31+09:00",
       "scope": "plant",
       "profile": {
         "official_name": "松山技研株式会社"
@@ -2004,7 +2004,7 @@
       "id": "1145195f0541",
       "name": "株式会社ヒーテック",
       "area": "長野県・須坂市",
-      "updated": "2026-08-11T19:00:28+09:00",
+      "updated": "2026-08-12T06:11:32+09:00",
       "scope": "plant",
       "profile": {
         "official_name": "株式会社ヒーテック"
@@ -2925,21 +2925,25 @@
       "id": "968a85dbf478",
       "name": "朝日熱処理工業株式会社",
       "area": "大阪府・寝屋川市",
-      "updated": "2026-08-11T19:01:43+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T06:19:43+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "朝日熱処理工業株式会社"
+        "official_name": "朝日熱処理工業株式会社",
+        "equipment_note": "公式設備一覧は全社合計。拠点別台数は別エントリ。"
       },
-      "scale_summary": "大阪府寝屋川市/日本金属熱処理工業会会員",
+      "scale_summary": "【全社】大阪府・寝屋川市",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
-      "strategy_notes": [],
+      "equipment_summary": "【全社】設備ページ確認済(台数表の自動抽出不可): https://www.asahi-nets.com/equipment",
+      "strategy_notes": [
+        "通常の真空炉では出せない表面活性度と金属光沢を保持した表面仕上がり",
+        "※V-TECH炉は、設計の段階から宇宙空間での熱処理を目標に装置メーカーと共同開発したものです。"
+      ],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "partial",
+      "detail_missing": false,
+      "detail_note": "設備概要あり／台数・メーカーの詳細は追加調査",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
@@ -2947,19 +2951,19 @@
       "client_hints": [],
       "news": [
         {
-          "title": "朝日工業(株)【5456】:株価・株式情報",
-          "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFAxMlFiRm1odDQzZXR5c3RWR0lvN2t6cjVvenkwR010WVhPV0RnVlhHeDdabGtCRTI0YUJmOFRUcUc0UEt1ZEs3THRmLXJPbTZVN1E?oc=5",
-          "source": "Yahoo!ファイナンス",
-          "pub": "2021-03-23T00:54:18+09:00",
+          "title": "地域のものづくり企業の魅力を伝える出張型オープンファクトリー 「不器用FACTORY」開催",
+          "link": "https://news.google.com/rss/articles/CBMiR0FVX3lxTFBpUkRaTEM0V1N3MjRDaXhQREtadUc1YnVnSGtvalk4ZENZTXhIS2tvVW50VU1EdVhOVUhUVnBsV0RxRkZ1X09z?oc=5",
+          "source": "newscast.jp",
+          "pub": "2024-07-31T16:00:00+09:00",
           "query": "朝日熱処理工業株式会社 熱処理",
           "clients": [],
           "is_expansion": false
         },
         {
-          "title": "地域のものづくり企業の魅力を伝える出張型オープンファクトリー 「不器用FACTORY」開催",
-          "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBBZmVyb2hYa3duc3EtYlJibElUc0ZOclpCS0ZqUWFQSDI2bm1GWFhYRW1uank2S2V6T1laSFVRMWRZcnRzR1g5Wktqa0RqLUk?oc=5",
-          "source": "atpress.ne.jp",
-          "pub": "2024-07-31T16:00:00+09:00",
+          "title": "朝日工業(株)【5456】:株価・株式情報",
+          "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFAxMlFiRm1odDQzZXR5c3RWR0lvN2t6cjVvenkwR010WVhPV0RnVlhHeDdabGtCRTI0YUJmOFRUcUc0UEt1ZEs3THRmLXJPbTZVN1E?oc=5",
+          "source": "Yahoo!ファイナンス",
+          "pub": "2021-03-23T00:54:18+09:00",
           "query": "朝日熱処理工業株式会社 熱処理",
           "clients": [],
           "is_expansion": false
@@ -2992,14 +2996,26 @@
           "is_expansion": false
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.asahi-nets.com/company",
+          "fetched_at": "2026-08-12T06:19:40+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.asahi-nets.com/equipment",
+          "fetched_at": "2026-08-12T06:19:41+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。客として訪問しない。",
       "region_label": "大阪",
       "macro_region": "keihanshin",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 大阪府寝屋川市/日本金属熱処理工業会会員",
+      "blurb": "【全社】設備ページ確認済(台数表の自動抽出不可): https://www.asahi-nets.com/equipment 【全社】大阪府・寝屋川市 通常の真空炉では出せない表面活性度と金属光沢を保持した表面仕上がり 強み候補: 真空",
+      "commentary": "通常の真空炉では出せない表面活性度と金属光沢を保持した表面仕上がり / ※V-TECH炉は、設計の段階から宇宙空間での熱処理を目標に装置メーカーと共同開発したものです。",
       "tags": [
-        "詳細不足",
+        "真空",
         "京阪神"
       ]
     },
@@ -3201,7 +3217,7 @@
       "id": "6cdc7d80629d",
       "name": "株式会社北山熱錬工業所",
       "area": "大阪府・岸和田市",
-      "updated": "2026-08-11T19:01:49+09:00",
+      "updated": "2026-08-12T06:11:34+09:00",
       "scope": "plant",
       "profile": {
         "official_name": "株式会社北山熱錬工業所"
@@ -3404,7 +3420,7 @@
       "id": "c142b3014544",
       "name": "関西電気冶金工業株式会社",
       "area": "大阪府・大阪市淀川区",
-      "updated": "2026-08-11T19:01:52+09:00",
+      "updated": "2026-08-12T06:11:35+09:00",
       "scope": "plant",
       "profile": {
         "official_name": "関西電気冶金工業株式会社"
@@ -3440,7 +3456,7 @@
       "id": "0c26df884612",
       "name": "大阪冶金興業株式会社",
       "area": "大阪府・大阪市東淀川区",
-      "updated": "2026-08-11T19:01:53+09:00",
+      "updated": "2026-08-12T06:11:37+09:00",
       "scope": "plant",
       "profile": {
         "official_name": "大阪冶金興業株式会社"
@@ -3504,7 +3520,7 @@
       "id": "bf6000e3fb76",
       "name": "津田金属熱煉工業株式会社",
       "area": "兵庫県・尼崎市",
-      "updated": "2026-08-11T19:01:54+09:00",
+      "updated": "2026-08-12T06:11:38+09:00",
       "scope": "plant",
       "profile": {
         "official_name": "津田金属熱煉工業株式会社"
@@ -3550,21 +3566,22 @@
       "id": "fcaedd25c44d",
       "name": "播磨高周波工業株式会社",
       "area": "兵庫県・姫路市",
-      "updated": "2026-08-11T19:01:55+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T06:19:46+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "播磨高周波工業株式会社"
+        "official_name": "播磨高周波工業株式会社",
+        "equipment_note": "公式設備一覧は全社合計。拠点別台数は別エントリ。"
       },
-      "scale_summary": "兵庫県姫路市/日本金属熱処理工業会会員",
+      "scale_summary": "【全社】兵庫県・姫路市",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "【全社】HP確認済・設備紹介ページ未発見(要手動): https://www.harima-kosyuha.co.jp/",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "partial",
+      "detail_missing": false,
+      "detail_note": "設備概要あり／台数・メーカーの詳細は追加調査",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
@@ -3581,15 +3598,20 @@
           "is_expansion": false
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.harima-kosyuha.co.jp/",
+          "fetched_at": "2026-08-12T06:19:45+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合(高周波)。客として訪問しない。",
       "region_label": "兵庫",
       "macro_region": "keihanshin",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 兵庫県姫路市/日本金属熱処理工業会会員 強み候補: 高周波",
+      "blurb": "【全社】HP確認済・設備紹介ページ未発見(要手動): https://www.harima-kosyuha.co.jp/ 【全社】兵庫県・姫路市 強み候補: 高周波",
       "tags": [
         "高周波",
-        "詳細不足",
         "京阪神"
       ]
     },
@@ -3707,7 +3729,7 @@
       "id": "efc108535ee0",
       "name": "株式会社アオイヒートテック",
       "area": "京都府・城陽市",
-      "updated": "2026-08-11T19:01:58+09:00",
+      "updated": "2026-08-12T06:11:40+09:00",
       "scope": "plant",
       "profile": {
         "official_name": "株式会社アオイヒートテック"
@@ -3743,7 +3765,7 @@
       "id": "fc3f4ca101c5",
       "name": "株式会社KOYO熱錬",
       "area": "京都府・京都市南区",
-      "updated": "2026-08-11T19:01:59+09:00",
+      "updated": "2026-08-12T06:11:41+09:00",
       "scope": "plant",
       "profile": {
         "official_name": "株式会社KOYO熱錬"
@@ -3778,6 +3800,15 @@
           "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5KdG9LdmJsTWZja0hkYmI4dHRSU0NPd3pyN2ZiYjFRVS1XSUZMUzZPNHRJS0JoUl9HUHVMUUl0QzJkRXpjUHR1dlJlVUNPeV93LVJlSGluVndEZk1zeFlfdExfb2NyMTZYUkZjQlhQUlA?oc=5",
           "source": "pref.kyoto.jp",
           "pub": "2022-09-12T16:00:00+09:00",
+          "query": "株式会社KOYO熱錬 熱処理",
+          "clients": [],
+          "is_expansion": false
+        },
+        {
+          "title": "京都航空宇宙産業ネットワーク、地元大学と連携 活動に幅 人脈生かし中小活動",
+          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE55NXQzRHFsSDBOeUtsc3kyS2xLZ3ZyX19xSm4xdVJmdm9pTm1YQmlnc3ZNT05wdnAwU1ZBTDk4M08yZW9KdmMxZzNYN01xMGVxTWV3d0xSMVNFTWs?oc=5",
+          "source": "日刊工業新聞",
+          "pub": "2025-12-26T17:00:00+09:00",
           "query": "株式会社KOYO熱錬 熱処理",
           "clients": [],
           "is_expansion": false
@@ -4399,56 +4430,83 @@
       "id": "5b88f76dec31",
       "name": "株式会社刈谷熱煉工業所",
       "area": "愛知県・刈谷市",
-      "updated": "2026-08-11T19:02:20+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T06:19:49+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "株式会社刈谷熱煉工業所"
+        "official_name": "株式会社刈谷熱煉工業所",
+        "capital": "1,000万円",
+        "employees": "77名(役員除く)",
+        "address": "〒448-0022 刈谷市一色町3丁目6番地8",
+        "business": "・ガス浸炭焼入焼戻し、ガス浸炭浸窒焼入焼戻しによる自動車部品等の",
+        "equipment_note": "公式設備一覧は全社合計。拠点別台数は別エントリ。"
       },
-      "scale_summary": "愛知県刈谷市/日本金属熱処理工業会会員",
+      "scale_summary": "【全社】愛知県・刈谷市",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
+      "equipment_summary": "【全社】設備ページ確認済(台数表の自動抽出不可): https://karinetu.co.jp/pdf/1-1.pdf",
       "strategy_notes": [],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "partial",
+      "detail_missing": false,
+      "detail_note": "設備概要あり／台数・メーカーの詳細は追加調査",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://karinetu.co.jp/",
+          "fetched_at": "2026-08-12T06:19:46+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://karinetu.co.jp/pdf/1-1.pdf",
+          "fetched_at": "2026-08-12T06:19:47+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県刈谷市/日本金属熱処理工業会会員",
-      "tags": [
-        "詳細不足"
-      ]
+      "blurb": "【全社】設備ページ確認済(台数表の自動抽出不可): https://karinetu.co.jp/pdf/1-1.pdf 【全社】愛知県・刈谷市",
+      "tags": []
     },
     {
       "id": "6e9f2d398435",
       "name": "株式会社共和熱処理",
       "area": "愛知県・大府市",
-      "updated": "2026-08-11T19:02:20+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T06:19:52+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "株式会社共和熱処理"
+        "official_name": "株式会社共和熱処理",
+        "capital": "資本金 300万円",
+        "founded": "1996年12月",
+        "employees": "20名",
+        "address": "本社工場",
+        "equipment_note": "公式設備一覧は全社合計。拠点別台数は別エントリ。"
       },
-      "scale_summary": "愛知県大府市/日本金属熱処理工業会会員",
+      "scale_summary": "【全社】資本金 300万円 / 従業員20名 / 愛知県・大府市",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
-      "strategy_notes": [],
+      "equipment_summary": "【全社】設備ページ確認済(台数表の自動抽出不可): https://kyo-netsu.jp/equipment/",
+      "strategy_notes": [
+        "バッチ型加熱炉の6号炉を新設 |",
+        "メッシュ式連続焼もどし炉を新設 |",
+        "バッチ型加熱炉の0号炉を新設 |",
+        "バッチ型加熱炉の7号炉を新設 |",
+        "バッチ型加熱炉の8号炉を新設 |",
+        "連続メッシュベルト式焼入れ焼もどし炉を新設 |",
+        "第二工場を新設しました!"
+      ],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "partial",
+      "detail_missing": false,
+      "detail_note": "設備概要あり／台数・メーカーの詳細は追加調査",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
@@ -4474,14 +4532,27 @@
           "is_expansion": false
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://kyo-netsu.jp/company/",
+          "fetched_at": "2026-08-12T06:19:49+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://kyo-netsu.jp/equipment/",
+          "fetched_at": "2026-08-12T06:19:50+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県大府市/日本金属熱処理工業会会員",
+      "blurb": "【全社】設備ページ確認済(台数表の自動抽出不可): https://kyo-netsu.jp/equipment/ 【全社】資本金 300万円 / 従業員20名 / 愛知県・大府市 バッチ型加熱炉の6号炉を新設 | 強み候補: 連続炉・バッチ",
+      "commentary": "バッチ型加熱炉の6号炉を新設 | / メッシュ式連続焼もどし炉を新設 | / バッチ型加熱炉の0号炉を新設 |",
       "tags": [
-        "詳細不足"
+        "連続炉",
+        "バッチ"
       ]
     },
     {
@@ -4676,35 +4747,53 @@
       "id": "b567985fb095",
       "name": "株式会社メイネツ",
       "area": "愛知県・刈谷市",
-      "updated": "2026-08-11T19:02:24+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T06:19:56+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "株式会社メイネツ"
+        "official_name": "株式会社メイネツ",
+        "capital": "1,536万円",
+        "founded": "1952年6月",
+        "employees": "32名",
+        "address": "〒448-0008  愛知県刈谷市今岡町西吹戸5-7",
+        "equipment_note": "公式設備一覧は全社合計。拠点別台数は別エントリ。"
       },
-      "scale_summary": "愛知県刈谷市/日本金属熱処理工業会会員",
+      "scale_summary": "【全社】資本金1,536万円 / 従業員32名 / 愛知県・刈谷市",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
-      "strategy_notes": [],
+      "equipment_summary": "【全社】HP確認済・設備紹介ページ未発見(要手動): https://meinetsu.co.jp/",
+      "strategy_notes": [
+        "IPSEN製大型真空熱処理炉導入",
+        "PIT型ガス酸軟窒化炉を1基増設し、量産体制を整える"
+      ],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "partial",
+      "detail_missing": false,
+      "detail_note": "設備概要あり／台数・メーカーの詳細は追加調査",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
       "news": [],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://meinetsu.co.jp/company",
+          "fetched_at": "2026-08-12T06:19:54+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 愛知県刈谷市/日本金属熱処理工業会会員",
+      "blurb": "【全社】HP確認済・設備紹介ページ未発見(要手動): https://meinetsu.co.jp/ 【全社】資本金1,536万円 / 従業員32名 / 愛知県・刈谷市 IPSEN製大型真空熱処理炉導入 強み候補: 真空・窒化・大型",
+      "commentary": "IPSEN製大型真空熱処理炉導入 / PIT型ガス酸軟窒化炉を1基増設し、量産体制を整える",
       "tags": [
-        "詳細不足"
+        "真空",
+        "窒化",
+        "大型",
+        "増強"
       ]
     },
     {
@@ -4812,21 +4901,25 @@
       "id": "ee6522cdbc0f",
       "name": "東邦金属熱錬工業株式会社",
       "area": "愛知県・名古屋市港区",
-      "updated": "2026-08-11T19:02:27+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T06:19:59+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "東邦金属熱錬工業株式会社"
+        "official_name": "東邦金属熱錬工業株式会社",
+        "equipment_note": "公式設備一覧は全社合計。拠点別台数は別エントリ。"
       },
-      "scale_summary": "名古屋市港区/日本金属熱処理工業会会員",
+      "scale_summary": "【全社】愛知県・名古屋市港区",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
-      "strategy_notes": [],
+      "equipment_summary": "【全社】設備ページ確認済(台数表の自動抽出不可): https://www.to-netsu.jp/service.html",
+      "strategy_notes": [
+        "カーボンニュートラルガスの導入開始",
+        "光輝焼鈍炉(ピット炉) |"
+      ],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "partial",
+      "detail_missing": false,
+      "detail_note": "設備概要あり／台数・メーカーの詳細は追加調査",
+      "ignore_for_watch": false,
       "has_expansion_alert": true,
       "expansion_alerts": [
         {
@@ -4850,15 +4943,27 @@
           "is_expansion": true
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.to-netsu.jp/",
+          "fetched_at": "2026-08-12T06:19:56+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.to-netsu.jp/service.html",
+          "fetched_at": "2026-08-12T06:19:57+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合(岐阜拠点あり)。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 名古屋市港区/日本金属熱処理工業会会員 ⚠増強: 東邦金属熱錬、岐阜に熱処理新工場棟−バッチ式浸炭炉など整備 強み候補: 増強",
+      "blurb": "【全社】設備ページ確認済(台数表の自動抽出不可): https://www.to-netsu.jp/service.html 【全社】愛知県・名古屋市港区 カーボンニュートラルガスの導入開始 ⚠増強: 東邦金属熱錬、岐阜に熱処理新工場棟−バッチ式浸炭炉など整備 強み候補: ピット炉・増強",
+      "commentary": "カーボンニュートラルガスの導入開始 / 光輝焼鈍炉(ピット炉) |",
       "tags": [
-        "増強",
-        "詳細不足"
+        "ピット炉",
+        "増強"
       ]
     },
     {
@@ -5052,21 +5157,27 @@
       "id": "5838037f1e84",
       "name": "株式会社ネツレン小松",
       "area": "石川県・小松市",
-      "updated": "2026-08-11T19:02:29+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12T06:20:02+09:00",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "株式会社ネツレン小松"
+        "official_name": "株式会社ネツレン小松",
+        "equipment_note": "公式設備一覧は全社合計。拠点別台数は別エントリ。"
       },
-      "scale_summary": "石川県小松市/日本金属熱処理工業会会員",
+      "scale_summary": "【全社】石川県・小松市",
       "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
-      "strategy_notes": [],
+      "equipment_summary": "【全社】設備ページ確認済(台数表の自動抽出不可): https://www.k-neturen.co.jp/ja/products/ihsystem.html",
+      "strategy_notes": [
+        "設備投資に関するお知らせ",
+        "大型建設機械・産業機械用部品などの超大型設備製作も可能です",
+        "大型シャフト焼入装置(ワーク径差段替レス仕様)",
+        "ピストンロッド焼入焼戻装置(長尺品対応型)"
+      ],
       "operation": "own",
       "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
+      "detail_status": "partial",
+      "detail_missing": false,
+      "detail_note": "設備概要あり／台数・メーカーの詳細は追加調査",
+      "ignore_for_watch": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "client_sectors": [],
@@ -5083,7 +5194,18 @@
           "is_expansion": false
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.k-neturen.co.jp/",
+          "fetched_at": "2026-08-12T06:19:59+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.k-neturen.co.jp/ja/products/ihsystem.html",
+          "fetched_at": "2026-08-12T06:20:00+09:00"
+        }
+      ],
       "errors": [],
       "note": "競合。客として訪問しない。",
       "region_label": "石川・富山",
@@ -5091,7 +5213,8 @@
       "blurb": "高周波熱錬グループ。北陸最大級の高周波焼入拠点。",
       "commentary": "",
       "tags": [
-        "詳細不足",
+        "大型",
+        "長尺",
         "高周波",
         "ネツレングループ",
         "北陸"
@@ -7379,7 +7502,7 @@
       "id": "bac61a90ba93",
       "name": "株式会社ジェイテクトサープレット",
       "area": "大阪府・八尾市",
-      "updated": "2026-08-12T05:48:50+09:00",
+      "updated": "2026-08-12T06:08:16+09:00",
       "scope": "company_wide",
       "profile": {
         "official_name": "株式会社ジェイテクトサープレット",
@@ -7449,9 +7572,9 @@
       ],
       "equipment_summary": "【全社】炉計52基(大型バッチ16・中型8・連続光輝14・サイジング4ほか/八尾・亀山・奈良公式)",
       "strategy_notes": [
-        "ジェイテクトグループの熱処理受託",
-        "薄肉サイジング・低ひずみが強み",
-        "旋削・研磨との一貫"
+        "【調査対象】現行ジェイテクトと取引あり。競合だが協力関係を築ける可能性あり",
+        "ジェイテクトグループ(旧光洋熱処理+ヤマト精工)。グループ外拡販も明示",
+        "薄肉サイジング・低ひずみ・連続光輝が強み。外注分担・相互紹介の余地を確認"
       ],
       "operation": "own",
       "delegate_to": "",
@@ -7507,24 +7630,28 @@
         {
           "kind": "company",
           "url": "https://surpret.jtekt.co.jp/company-profile/",
-          "fetched_at": "2026-08-12T05:48:47+09:00"
+          "fetched_at": "2026-08-12T06:08:14+09:00"
         },
         {
           "kind": "equipment",
           "url": "https://surpret.jtekt.co.jp/heat-treatment/",
-          "fetched_at": "2026-08-12T05:48:48+09:00"
+          "fetched_at": "2026-08-12T06:08:15+09:00"
         }
       ],
       "errors": [],
       "note": "西部工業会会員(京阪神・八尾)。表面処理/コーティング寄り。熱処理受託とは別枠で把握。客として訪問しない。",
       "region_label": "大阪",
       "macro_region": "keihanshin",
-      "blurb": "【全社】炉計52基(大型バッチ16・中型8・連続光輝14・サイジング4ほか/八尾・亀山・奈良公式) 【全社】資本金6,000万円 / 従業員270名 / 売上46億円 / 八尾・奈良・亀山 ジェイテクトグループの熱処理受託 強み候補: 連続炉・バッチ・大型",
-      "commentary": "ジェイテクトグループの熱処理受託 / 薄肉サイジング・低ひずみが強み / 旋削・研磨との一貫",
+      "blurb": "競合＋協力候補。ジェイテクトグループ熱処理子会社（炉52基）。現行ジェイテクト取引を活かし役割分担・相互紹介を調査中。",
+      "commentary": "旧光洋熱処理＋ヤマト精工。資本金6,000万円・270名・売上46億。八尾・奈良・亀山。薄肉サイジング・低ひずみが強み。グループ外拡販も明示→協業余地あり。",
       "tags": [
         "連続炉",
         "バッチ",
         "大型",
+        "協力候補",
+        "調査中",
+        "ジェイテクト",
+        "浸炭",
         "京阪神",
         "西部会員"
       ]
@@ -7720,5 +7847,5 @@
       ]
     }
   ],
-  "blurbs_updated": "2026-08-12T05:48:50+09:00"
+  "blurbs_updated": "2026-08-12T06:20:02+09:00"
 }

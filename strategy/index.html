@@ -379,6 +379,14 @@ let targetSignalsData = null;
 let targetSignalsById = {};
 let targetSignalsByName = {};
 
+async function loadScmRadar() {
+  if (scmRadarData) return scmRadarData;
+  const res = await fetch('scm_process_targets.json?t=' + Date.now());
+  if (!res.ok) throw new Error('scm_process_targets.json を読めません');
+  scmRadarData = await res.json();
+  return scmRadarData;
+}
+
 function findTargetSignals(company) {
   if (!company) return null;
   const id = company.id || '';

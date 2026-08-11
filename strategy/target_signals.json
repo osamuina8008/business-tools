@@ -1,0 +1,2063 @@
+{
+  "updated": "2026-08-11T09:58:28+09:00",
+  "disclaimer": "Googleニュース等の公開情報＋公式確認種。小さな地方記事も含む。展示会は出展言及・公式告知ベース（名簿の全件照合ではない）。",
+  "how_to_use": "会社詳細で記事一覧を確認。展示会ヒットは訪問・名刺交換のタイミングに使う。未ヒットでも『展示会検索』リンクで公式出展者検索を補完。",
+  "count": 43,
+  "with_articles": 12,
+  "with_exhibitions": 3,
+  "exhibitions_calendar": [
+    {
+      "id": "mtech_tokyo_2026",
+      "name": "機械要素技術展［東京］（ものづくりワールド）",
+      "city": "東京",
+      "venue": "東京ビッグサイト",
+      "dates": "2026-07-01〜07-03",
+      "url": "https://www.manufacturing-world.jp/tokyo/ja-jp/about/mtech.html",
+      "keywords": [
+        "機械要素技術展",
+        "ものづくりワールド",
+        "M-Tech",
+        "MTECH"
+      ]
+    },
+    {
+      "id": "mtech_osaka_2026",
+      "name": "機械要素技術展［大阪］（ものづくりワールド）",
+      "city": "大阪",
+      "venue": "インテックス大阪",
+      "dates": "2026-10-07〜10-09",
+      "url": "https://www.manufacturing-world.jp/osaka/ja-jp.html",
+      "keywords": [
+        "機械要素技術展",
+        "ものづくりワールド大阪",
+        "大阪展"
+      ]
+    },
+    {
+      "id": "mtech_fukuoka_2026",
+      "name": "機械要素技術展［福岡］（ものづくりワールド）",
+      "city": "福岡",
+      "venue": "マリンメッセ福岡",
+      "dates": "2026-12-02〜12-04",
+      "url": "https://www.manufacturing-world.jp/fukuoka/ja-jp.html",
+      "keywords": [
+        "機械要素技術展",
+        "ものづくりワールド福岡",
+        "福岡展"
+      ]
+    },
+    {
+      "id": "mtech_nagoya_2027",
+      "name": "機械要素技術展［名古屋］（ものづくりワールド）",
+      "city": "名古屋",
+      "venue": "ポートメッセなごや",
+      "dates": "2027-04-07〜04-09",
+      "url": "https://www.manufacturing-world.jp/nagoya/ja-jp.html",
+      "keywords": [
+        "機械要素技術展",
+        "ものづくりワールド名古屋",
+        "名古屋展"
+      ]
+    },
+    {
+      "id": "mect_2025",
+      "name": "MECT（メカット）名古屋",
+      "city": "名古屋",
+      "venue": "ポートメッセなごや",
+      "dates": "隔年・次回要確認",
+      "url": "https://www.mect-japan.com/",
+      "keywords": [
+        "MECT",
+        "メカット",
+        "メカトロテックジャパン"
+      ]
+    },
+    {
+      "id": "jimtof_2026",
+      "name": "JIMTOF（日本国際工作機械見本市）",
+      "city": "東京",
+      "venue": "東京ビッグサイト",
+      "dates": "2026（開催年要確認）",
+      "url": "https://www.jimtof.org/",
+      "keywords": [
+        "JIMTOF",
+        "工作機械見本市"
+      ]
+    },
+    {
+      "id": "intermold_2026",
+      "name": "INTERMOLD / 金型展",
+      "city": "東京・大阪",
+      "venue": "東京ビッグサイト / インテックス大阪",
+      "dates": "年次・都市交互",
+      "url": "https://www.intermold.jp/",
+      "keywords": [
+        "INTERMOLD",
+        "インターモールド",
+        "金型展"
+      ]
+    },
+    {
+      "id": "tool_japan",
+      "name": "TOOL JAPAN",
+      "city": "千葉（幕張／東京圏）",
+      "venue": "幕張メッセ",
+      "dates": "年次",
+      "url": "https://www.tooljapan.jp/",
+      "keywords": [
+        "TOOL JAPAN",
+        "ツールジャパン"
+      ]
+    },
+    {
+      "id": "leisure_outdoor_tokyo",
+      "name": "レジャー＆アウトドアジャパン",
+      "city": "東京",
+      "venue": "東京ビッグサイト",
+      "dates": "年次",
+      "url": "https://www.leisure-japan.jp/",
+      "keywords": [
+        "レジャー＆アウトドア",
+        "レジャー&アウトドア"
+      ]
+    }
+  ],
+  "companies": [
+    {
+      "id": "large_gear-姫路歯車工業",
+      "name": "姫路歯車工業株式会社",
+      "prefecture": "兵庫県高砂市",
+      "rank": "P1",
+      "industry": "歯車",
+      "source": "scm",
+      "tags": [
+        "large_gear",
+        "pit_furnace",
+        "scm"
+      ],
+      "priority": 1,
+      "large_gear": true,
+      "updated": "2026-08-11T09:46:05+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E5%A7%AB%E8%B7%AF%E6%AD%AF%E8%BB%8A%E5%B7%A5%E6%A5%AD&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E5%A7%AB%E8%B7%AF%E6%AD%AF%E8%BB%8A%E5%B7%A5%E6%A5%AD%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "large_gear-東洋チンローラー",
+      "name": "東洋チンローラー株式会社",
+      "prefecture": "愛知県名古屋市",
+      "rank": "P1",
+      "industry": "ラック・歯切",
+      "source": "scm",
+      "tags": [
+        "large_gear",
+        "pit_furnace",
+        "scm"
+      ],
+      "priority": 1,
+      "large_gear": true,
+      "updated": "2026-08-11T09:46:09+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E6%9D%B1%E6%B4%8B%E3%83%81%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%A9%E3%83%BC&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E6%9D%B1%E6%B4%8B%E3%83%81%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%A9%E3%83%BC%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "large_gear-ジェイテクトギヤシステム",
+      "name": "株式会社ジェイテクトギヤシステム",
+      "prefecture": "愛知県瀬戸・日進／岐阜御嵩",
+      "rank": "P1",
+      "industry": "大型〜自動車歯車（系列）",
+      "source": "scm",
+      "tags": [
+        "large_gear",
+        "pit_furnace",
+        "scm"
+      ],
+      "priority": 1,
+      "large_gear": true,
+      "updated": "2026-08-11T09:46:13+09:00",
+      "articles": [
+        {
+          "title": "自動車部品のジェイテクトギヤシステム、クラウドERPを導入して個別最適な業務から脱却へ",
+          "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBjZWdnMzl3aEctQzZtNG5TbTFIb1ZBVk9BaHBLQ1hORUI1VWl1ckpQZTRDQmVlWjFfeGlUY2lTODdHbng1N3pOaFpReVZzV0NiRENV?oc=5",
+          "source": "IT Leaders",
+          "pub": "2025-06-12T16:00:00+09:00",
+          "query": "\"ジェイテクトギヤシステム\"",
+          "mentions_name": true
+        },
+        {
+          "title": "ジェイテクトギヤシステム、「SAP S/4HANA Cloud」で全社DXを加速",
+          "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBEMVQ3WUdycEtCRUZZZUxKcnZzOGdwUV95N3J4MkYxLWJTZnA5cFhOVUhpZW8wajE4TFdRQkZKTlFkZHI1MHhkdDlpNUM4azlkaUow?oc=5",
+          "source": "ZDNET Japan",
+          "pub": "2025-06-11T16:00:00+09:00",
+          "query": "\"ジェイテクトギヤシステム\"",
+          "mentions_name": true
+        },
+        {
+          "title": "自動車部品メーカーのジェイテクトギヤシステムがSAP S/4HANA® Cloudを採用",
+          "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNWHNENmFMZDlWRE91OE9nU2NzSHljZWdFMjVHQjE1aXI1TFRhM040dnBPRUkzUjRkYWRDS2lySGJpVFZQMG94YmlVSmNPRTRPbGQ3dFhGRHRLS1Z2ai01TGFYZm1kb2JPV2RzOHU3c05USlJZbnAxWWktMVF5cnFqSVVXdnJiNnZhNl9F?oc=5",
+          "source": "news.sap.com",
+          "pub": "2025-06-11T13:16:54+09:00",
+          "query": "\"ジェイテクトギヤシステム\"",
+          "mentions_name": true
+        }
+      ],
+      "exhibitions": [
+        {
+          "id": "seed",
+          "name": "人とくるまのテクノロジー展2026 YOKOHAMA",
+          "city": "横浜（東京圏）",
+          "dates": "2026",
+          "url": "https://news.google.com/search?q=%E3%82%B8%E3%82%A7%E3%82%A4%E3%83%86%E3%82%AF%E3%83%88%20%E4%BA%BA%E3%81%A8%E3%81%8F%E3%82%8B%E3%81%BE%E3%81%AE%E3%83%86%E3%82%AF%E3%83%8E%E3%83%AD%E3%82%B8%E3%83%BC%E5%B1%95&hl=ja&gl=JP&ceid=JP:ja",
+          "title": "ジェイテクト、人とくるまのテクノロジー展2026 YOKOHAMAに出展",
+          "link": "https://news.google.com/search?q=%E3%82%B8%E3%82%A7%E3%82%A4%E3%83%86%E3%82%AF%E3%83%88%20%E4%BA%BA%E3%81%A8%E3%81%8F%E3%82%8B%E3%81%BE&hl=ja&gl=JP&ceid=JP:ja",
+          "pub": "2026-01-01",
+          "evidence": "グループ出展（親会社ジェイテクト）。ギヤシステム接点確認用",
+          "from_seed": true
+        }
+      ],
+      "summary": "記事3件 / 展示会言及1件",
+      "google_news_url": "https://news.google.com/search?q=%E3%82%B8%E3%82%A7%E3%82%A4%E3%83%86%E3%82%AF%E3%83%88%E3%82%AE%E3%83%A4%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E3%82%B8%E3%82%A7%E3%82%A4%E3%83%86%E3%82%AF%E3%83%88%E3%82%AE%E3%83%A4%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "large_gear-石田歯車工業",
+      "name": "石田歯車工業株式会社",
+      "prefecture": "愛知県名古屋市緑区",
+      "rank": "P0",
+      "industry": "大型・長尺歯切",
+      "source": "scm",
+      "tags": [
+        "large_gear",
+        "pit_furnace",
+        "scm"
+      ],
+      "priority": 2,
+      "large_gear": true,
+      "updated": "2026-08-11T09:48:55+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E7%9F%B3%E7%94%B0%E6%AD%AF%E8%BB%8A%E5%B7%A5%E6%A5%AD&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E7%9F%B3%E7%94%B0%E6%AD%AF%E8%BB%8A%E5%B7%A5%E6%A5%AD%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "large_gear-阪神歯車",
+      "name": "阪神歯車",
+      "prefecture": "兵庫県尼崎市",
+      "rank": "P0",
+      "industry": "中〜大型歯車・スプロケット",
+      "source": "scm",
+      "tags": [
+        "large_gear",
+        "pit_furnace",
+        "scm"
+      ],
+      "priority": 2,
+      "large_gear": true,
+      "updated": "2026-08-11T09:48:59+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E9%98%AA%E7%A5%9E%E6%AD%AF%E8%BB%8A&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E9%98%AA%E7%A5%9E%E6%AD%AF%E8%BB%8A%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "fb42a9a5cca7",
+      "name": "(株)ヒガシヤマ",
+      "prefecture": "石川県",
+      "rank": "ランクA",
+      "industry": "建設機械、測定機械、ロボット部品、他",
+      "source": "visit",
+      "tags": [
+        "visit"
+      ],
+      "priority": 0,
+      "updated": "2026-08-11T09:46:25+09:00",
+      "articles": [
+        {
+          "title": "部品加工のヒガシヤマ、金沢に新工場 半導体装置好調で",
+          "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBSSTdOWTVGMjRqRi1rQk8tT3FPTGpyeWlLX0ZFRHI5QjVoSmQxOU12d3RXOHhwUTlBSGtka2Q0eW1fRnRMeXBWSE15VGpERnA0cGRHYUw0MDFpcS14bC1qLVBEUE1xckVsUHFNWg?oc=5",
+          "source": "日本経済新聞",
+          "pub": "2023-04-17T16:00:00+09:00",
+          "query": "\"ヒガシヤマ\"",
+          "mentions_name": true
+        }
+      ],
+      "exhibitions": [],
+      "summary": "記事1件",
+      "google_news_url": "https://news.google.com/search?q=%E3%83%92%E3%82%AC%E3%82%B7%E3%83%A4%E3%83%9E&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E3%83%92%E3%82%AC%E3%82%B7%E3%83%A4%E3%83%9E%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "d65935423c2f",
+      "name": "松本機械工業(株)",
+      "prefecture": "石川県",
+      "rank": "ランクA",
+      "industry": "システム、工作機械周辺機器",
+      "source": "visit",
+      "tags": [
+        "visit"
+      ],
+      "priority": 0,
+      "updated": "2026-08-11T09:46:29+09:00",
+      "articles": [
+        {
+          "title": "金沢の松本機械工業、工作機械の無人稼働支援装置 生産4倍増へ新工場",
+          "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE0yNUozbW5vaDNhSFRHb0VrQkpDVGxWVE9fX3czOFhCdExvdkpldWlHbzBKc29za2xGZWh2UzZmeElnWTlhQ2daUUdmOHk1YjFyQlZ2WFlWTnQyZ1g0UGtadUQ1aFczYTZtQksyZg?oc=5",
+          "source": "日本経済新聞",
+          "pub": "2026-04-21T16:00:00+09:00",
+          "query": "\"松本機械工業\"",
+          "mentions_name": true
+        },
+        {
+          "title": "さあ出番/松本機械工業社長・松本晶久氏 自動化システム提案意欲",
+          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5JLW5XSkJvT0ZGenBGeHdLdmZweW1BVEJ1bEE4MU9hdkt0RDdqcTFfcWZNZFRHemY3WjM0S0JNSHdwUVlkVjNlajBHZ0pudnZieHFwY1l3SjNxWWc?oc=5",
+          "source": "日刊工業新聞",
+          "pub": "2026-01-26T17:00:00+09:00",
+          "query": "\"松本機械工業\"",
+          "mentions_name": true
+        },
+        {
+          "title": "かけはし/新入会員/松本機械工業専務/松本晶久氏",
+          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBYVWZ2d3ZJUEd4b2J5ei1Vd2xyWG5JTlp1cGdZUWhTYXE3VU5QY3pzMGVaUVREbzh3cnp5aGVpR0g0bk5ZV3lubDBLeUZJVUtXMlNQMTdTSUg5dE0?oc=5",
+          "source": "日刊工業新聞",
+          "pub": "2025-01-07T15:24:28+09:00",
+          "query": "\"松本機械工業\"",
+          "mentions_name": true
+        },
+        {
+          "title": "「松本機械工業株式会社」様 新規パートナー決定のお知らせ",
+          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE16dWNYOVkyYzY1ZG5jVDV1Um1PN2Q2eDUwd05lbkZJUUdRN1A1dmduU2ljck5fTk84blJNVFc5NWVHVjJ3YUJaZWk5SkMwRWhPaUhUdWMxMVk3QQ?oc=5",
+          "source": "zweigen-kanazawa.jp",
+          "pub": "2024-02-15T17:00:00+09:00",
+          "query": "\"松本機械工業\"",
+          "mentions_name": true
+        },
+        {
+          "title": "旋盤の段取り支援 金沢の松本機械工業、新システム",
+          "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9VcldOUTJpSmY5RXEweUg5WERuZERqUmYzY202STNObzVvWjZHTHFmRWFpbmJfd1Rad1V3M1JYSG5seDdHeV9aeWZJOS1fRUNDQjRNTENJdmlPaDFuREZKNFQ5NGUyNXE1SkNDOA?oc=5",
+          "source": "日本経済新聞",
+          "pub": "2023-02-20T17:00:00+09:00",
+          "query": "\"松本機械工業\"",
+          "mentions_name": true
+        },
+        {
+          "title": "[注目製品PickUp! vol.43]ワークも爪もこれ1台、導入しやすいパッケージ/松本機械工業「Smart Terrace」",
+          "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBtVXUweWpPa1BNNnFZRXoxSngzOXJ3LWVnVFU0NndzOHVmMlIwZW9uQTRXQ3NEQnQ5TS13WWozZkotTmVJN282QjYxRHBrWHZuYVJYdjhrbWdvSGdqNTNrS0NSU0w0VGdHbE0w?oc=5",
+          "source": "robot digest",
+          "pub": "2022-06-23T16:00:00+09:00",
+          "query": "\"松本機械工業\"",
+          "mentions_name": true
+        },
+        {
+          "title": "ものづくりに性別や年齢の差はない。松本機械工業を支える「多様な人材」",
+          "link": "https://news.google.com/rss/articles/CBMiQkFVX3lxTE5EbUx6QllHZnBnZUtFajlDWi1oWjVYd2d0TWVNYk1kM0FrdEotZ3JhX1A5RzQ1c3ZIeEFHQ3hSbVJrUQ?oc=5",
+          "source": "ニュースイッチ by 日刊工業新聞社",
+          "pub": "2020-04-14T16:00:00+09:00",
+          "query": "\"松本機械工業\"",
+          "mentions_name": true
+        },
+        {
+          "title": "チャックの爪の交換はロボットに【後編】/松本機械工業",
+          "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFAweHRfaHItWWZ3bFBORWZzSXB0WUZONlRzTDc5RFBVT3FmMW02anhWTmJ4ZXkxYW5iQW44NVhzR3Yyc1Vna2t0c2FSdkY1emxOUDYtVkk3NzBRbndLQ2t6T1RqY1d4Q1BKVjFr?oc=5",
+          "source": "robot digest",
+          "pub": "2019-03-23T22:49:56+09:00",
+          "query": "\"松本機械工業\"",
+          "mentions_name": true
+        }
+      ],
+      "exhibitions": [],
+      "summary": "記事8件",
+      "google_news_url": "https://news.google.com/search?q=%E6%9D%BE%E6%9C%AC%E6%A9%9F%E6%A2%B0%E5%B7%A5%E6%A5%AD&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E6%9D%BE%E6%9C%AC%E6%A9%9F%E6%A2%B0%E5%B7%A5%E6%A5%AD%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "willbe_tsushima-タケウチ興業",
+      "name": "タケウチ興業株式会社",
+      "prefecture": "愛知県津島市",
+      "rank": "P1",
+      "industry": "シャフト・精密機械部品",
+      "source": "scm",
+      "tags": [
+        "scm",
+        "willbe_tsushima"
+      ],
+      "priority": 1,
+      "large_gear": false,
+      "updated": "2026-08-11T09:46:33+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E3%82%BF%E3%82%B1%E3%82%A6%E3%83%81%E8%88%88%E6%A5%AD&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E3%82%BF%E3%82%B1%E3%82%A6%E3%83%81%E8%88%88%E6%A5%AD%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "kariya_jtekt-日下歯車製作所",
+      "name": "株式会社日下歯車製作所",
+      "prefecture": "愛知県豊田市（刈谷創業）",
+      "rank": "P1",
+      "industry": "輸送機器歯車",
+      "source": "scm",
+      "tags": [
+        "scm",
+        "kariya_jtekt"
+      ],
+      "priority": 1,
+      "large_gear": false,
+      "updated": "2026-08-11T09:46:37+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E6%97%A5%E4%B8%8B%E6%AD%AF%E8%BB%8A%E8%A3%BD%E4%BD%9C%E6%89%80&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E6%97%A5%E4%B8%8B%E6%AD%AF%E8%BB%8A%E8%A3%BD%E4%BD%9C%E6%89%80%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "houwa-豊和鍛工",
+      "name": "豊和鍛工株式会社",
+      "prefecture": "愛知県",
+      "rank": "P1",
+      "industry": "鍛造",
+      "source": "scm",
+      "tags": [
+        "scm",
+        "houwa"
+      ],
+      "priority": 1,
+      "large_gear": false,
+      "updated": "2026-08-11T09:46:41+09:00",
+      "articles": [
+        {
+          "title": "未来けん引するNEXTカンパニー(57)豊和鍛工 ハンマー鍛造、品質に強み",
+          "link": "https://news.google.com/search?q=%E8%B1%8A%E5%92%8C%E9%8D%9B%E5%B7%A5%20NEXT%E3%82%AB%E3%83%B3%E3%83%91%E3%83%8B%E3%83%BC&hl=ja&gl=JP&ceid=JP:ja",
+          "source": "日刊工業新聞",
+          "pub": "2026-08-01",
+          "query": "seed",
+          "mentions_name": true,
+          "from_seed": true
+        },
+        {
+          "title": "未来けん引するNEXTカンパニー(57)豊和鍛工 ハンマー鍛造、品質に強み",
+          "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFB6OTBCMjdYWGNobkpaWnBwY3dLMTR4MUl0UTVhOTExOXZkQTBpbHNqdy12N0RDTnR2c2V3TEN5QjhMZkVSeTRscFpwTjY3M0N4RDlnOFRnUmxCMnczZVBvM094M3JLalRLc1Q4Tk14Rm4yRjdI?oc=5",
+          "source": "日刊工業新聞",
+          "pub": "2026-07-31T05:00:00+09:00",
+          "query": "\"豊和鍛工\"",
+          "mentions_name": true
+        }
+      ],
+      "exhibitions": [],
+      "summary": "記事2件",
+      "google_news_url": "https://news.google.com/search?q=%E8%B1%8A%E5%92%8C%E9%8D%9B%E5%B7%A5&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E8%B1%8A%E5%92%8C%E9%8D%9B%E5%B7%A5%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "inabe-金田工業",
+      "name": "金田工業株式会社",
+      "prefecture": "三重（要確認）",
+      "rank": "P1",
+      "industry": "冷間鍛造・シャフト",
+      "source": "scm",
+      "tags": [
+        "scm",
+        "inabe"
+      ],
+      "priority": 1,
+      "large_gear": false,
+      "updated": "2026-08-11T09:46:45+09:00",
+      "articles": [
+        {
+          "title": "風量アップ!改良型「空調頭巾」発売 ~溶接作業や野外活動などの熱中症・猛暑対策グッズ~ | 株式会社金田工業",
+          "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9hY2J4NnBuMFBpWWxkeGdUNXI1N2pLVDY2Nk13cVpXMjBfVUUtc2cyamlwanh2VzRQMmNldTcwNXQwb2lPSi1jNzJMWkxCdw?oc=5",
+          "source": "アットプレス",
+          "pub": "2022-06-17T16:00:00+09:00",
+          "query": "\"金田工業\"",
+          "mentions_name": true
+        }
+      ],
+      "exhibitions": [],
+      "summary": "記事1件",
+      "google_news_url": "https://news.google.com/search?q=%E9%87%91%E7%94%B0%E5%B7%A5%E6%A5%AD&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E9%87%91%E7%94%B0%E5%B7%A5%E6%A5%AD%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "715f2ffed73c",
+      "name": "(株)サンエー精機",
+      "prefecture": "石川県",
+      "rank": "ランクB",
+      "industry": "半導体製造装置部品",
+      "source": "visit",
+      "tags": [
+        "visit"
+      ],
+      "priority": 1,
+      "updated": "2026-08-11T09:46:48+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E3%82%B5%E3%83%B3%E3%82%A8%E3%83%BC%E7%B2%BE%E6%A9%9F&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E3%82%B5%E3%83%B3%E3%82%A8%E3%83%BC%E7%B2%BE%E6%A9%9F%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "5f062aae5f3f",
+      "name": "(株)ナカシマ鉄工所",
+      "prefecture": "石川県",
+      "rank": "ランクB",
+      "industry": "産業機械部品",
+      "source": "visit",
+      "tags": [
+        "visit"
+      ],
+      "priority": 1,
+      "updated": "2026-08-11T09:46:52+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E3%83%8A%E3%82%AB%E3%82%B7%E3%83%9E%E9%89%84%E5%B7%A5%E6%89%80&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E3%83%8A%E3%82%AB%E3%82%B7%E3%83%9E%E9%89%84%E5%B7%A5%E6%89%80%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "c3787dc493d1",
+      "name": "(株)中川鉄工所",
+      "prefecture": "石川県",
+      "rank": "ランクB",
+      "industry": "大型部品の加工、産業機械、他",
+      "source": "visit",
+      "tags": [
+        "visit"
+      ],
+      "priority": 1,
+      "updated": "2026-08-11T09:46:56+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E4%B8%AD%E5%B7%9D%E9%89%84%E5%B7%A5%E6%89%80&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E4%B8%AD%E5%B7%9D%E9%89%84%E5%B7%A5%E6%89%80%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "37271bb2b4c0",
+      "name": "(株)共和工業",
+      "prefecture": "石川県",
+      "rank": "ランクB",
+      "industry": "産業機械ボルト、建設機械用各種ボルト",
+      "source": "visit",
+      "tags": [
+        "visit"
+      ],
+      "priority": 1,
+      "updated": "2026-08-11T09:47:00+09:00",
+      "articles": [
+        {
+          "title": "三井化学、複合材料と共和工業の金型技術で新市場開拓",
+          "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9zYjJrSFR2ZVFKTWFyUzl1Q2tkMXlrQTNfbUdlUkNmUlN0clFIMUlwRTFmb3Q2YURHb3lXWGd4bVNCMktWdEMza1VWOE0tRmM?oc=5",
+          "source": "ゴム報知新聞NEXT",
+          "pub": "2026-07-25T08:22:34+09:00",
+          "query": "\"共和工業\"",
+          "mentions_name": true
+        },
+        {
+          "title": "共和工業、今期経常は29%減益へ",
+          "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE52MFNuWGk4OXkxbV9iNlQ3WlplZmEzeFBWUmRDUVJyV0xnVlA3M0ZRVjBQbmhXTXVadzY5dm1LWUdrU0hGN3M2Z0RJaVNiQzFDYVE?oc=5",
+          "source": "株探",
+          "pub": "2026-06-15T16:00:00+09:00",
+          "query": "\"共和工業\"",
+          "mentions_name": true
+        }
+      ],
+      "exhibitions": [],
+      "summary": "記事2件",
+      "google_news_url": "https://news.google.com/search?q=%E5%85%B1%E5%92%8C%E5%B7%A5%E6%A5%AD&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E5%85%B1%E5%92%8C%E5%B7%A5%E6%A5%AD%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "0f3bf393f436",
+      "name": "(株)北研精機",
+      "prefecture": "石川県",
+      "rank": "ランクB",
+      "industry": "環境関連機械、輸送機械、他",
+      "source": "visit",
+      "tags": [
+        "visit"
+      ],
+      "priority": 1,
+      "updated": "2026-08-11T09:47:04+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E5%8C%97%E7%A0%94%E7%B2%BE%E6%A9%9F&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E5%8C%97%E7%A0%94%E7%B2%BE%E6%A9%9F%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "383b27f51c7b",
+      "name": "(株)多川製作所",
+      "prefecture": "石川県",
+      "rank": "ランクB",
+      "industry": "工作機械部品、半導体製造装置部品",
+      "source": "visit",
+      "tags": [
+        "visit"
+      ],
+      "priority": 1,
+      "updated": "2026-08-11T09:47:08+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E5%A4%9A%E5%B7%9D%E8%A3%BD%E4%BD%9C%E6%89%80&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E5%A4%9A%E5%B7%9D%E8%A3%BD%E4%BD%9C%E6%89%80%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "2204538f0efc",
+      "name": "(株)大徳鉄工",
+      "prefecture": "石川県",
+      "rank": "ランクB",
+      "industry": "ジェットエンジン部品、鍛圧機械部品",
+      "source": "visit",
+      "tags": [
+        "visit"
+      ],
+      "priority": 1,
+      "updated": "2026-08-11T09:47:11+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E5%A4%A7%E5%BE%B3%E9%89%84%E5%B7%A5&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E5%A4%A7%E5%BE%B3%E9%89%84%E5%B7%A5%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "76153a9e06a5",
+      "name": "(株)米沢鉄工所",
+      "prefecture": "石川県",
+      "rank": "ランクB",
+      "industry": "産業機械部品",
+      "source": "visit",
+      "tags": [
+        "visit"
+      ],
+      "priority": 1,
+      "updated": "2026-08-11T09:47:15+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E7%B1%B3%E6%B2%A2%E9%89%84%E5%B7%A5%E6%89%80&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E7%B1%B3%E6%B2%A2%E9%89%84%E5%B7%A5%E6%89%80%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "1393bc2a61ee",
+      "name": "(株)近江工業所",
+      "prefecture": "石川県",
+      "rank": "ランクB",
+      "industry": "シャフト、ボルト、ナット、ブロック",
+      "source": "visit",
+      "tags": [
+        "visit"
+      ],
+      "priority": 1,
+      "updated": "2026-08-11T09:47:19+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E8%BF%91%E6%B1%9F%E5%B7%A5%E6%A5%AD%E6%89%80&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E8%BF%91%E6%B1%9F%E5%B7%A5%E6%A5%AD%E6%89%80%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "e30d64f8b5cd",
+      "name": "(株)香林鉄工所",
+      "prefecture": "石川県",
+      "rank": "ランクB",
+      "industry": "船舶部品",
+      "source": "visit",
+      "tags": [
+        "visit"
+      ],
+      "priority": 1,
+      "updated": "2026-08-11T09:47:23+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E9%A6%99%E6%9E%97%E9%89%84%E5%B7%A5%E6%89%80&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E9%A6%99%E6%9E%97%E9%89%84%E5%B7%A5%E6%89%80%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "d9f8c7f2a5d5",
+      "name": "カネノ精密工業(株)",
+      "prefecture": "石川県",
+      "rank": "ランクB",
+      "industry": "アダプタ、マニホールド、ヨーク",
+      "source": "visit",
+      "tags": [
+        "visit"
+      ],
+      "priority": 1,
+      "updated": "2026-08-11T09:47:27+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E3%82%AB%E3%83%8D%E3%83%8E%E7%B2%BE%E5%AF%86%E5%B7%A5%E6%A5%AD&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E3%82%AB%E3%83%8D%E3%83%8E%E7%B2%BE%E5%AF%86%E5%B7%A5%E6%A5%AD%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "14c7dc0835e7",
+      "name": "コマツキカイ(株)",
+      "prefecture": "石川県",
+      "rank": "ランクB",
+      "industry": "輸送機械、産業機械部品",
+      "source": "visit",
+      "tags": [
+        "visit"
+      ],
+      "priority": 1,
+      "updated": "2026-08-11T09:47:31+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E3%82%B3%E3%83%9E%E3%83%84%E3%82%AD%E3%82%AB%E3%82%A4&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E3%82%B3%E3%83%9E%E3%83%84%E3%82%AD%E3%82%AB%E3%82%A4%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "a9457edf2cf0",
+      "name": "東邦工業(株)",
+      "prefecture": "石川県",
+      "rank": "ランクB",
+      "industry": "検査装置、搬送装置の製造販売",
+      "source": "visit",
+      "tags": [
+        "visit"
+      ],
+      "priority": 1,
+      "updated": "2026-08-11T09:47:35+09:00",
+      "articles": [
+        {
+          "title": "【導入事例】東邦工業株式会社 | 法人向け",
+          "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBkNjhzNFdZV2k2dDJ2YWdfNEdzNFFZanhzYjFSMEpoS2tDdEZEVU9ZbkRjLXZiWHBXRXdIV2U2Z2xJN3RONU9HX1pIT1dzZlE2?oc=5",
+          "source": "KDDI Biz Edge株式会社",
+          "pub": "2026-04-03T03:48:58+09:00",
+          "query": "\"東邦工業\"",
+          "mentions_name": true
+        },
+        {
+          "title": "経営ひと言/東邦工業・丸山洋彦社長「地道に信頼築く」",
+          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBOdTQ0TUJIU3hPTkJvLVNHVUF5OUM5N29oaWtCV195NFJtbWlKWFQ2M3ZqOENROWNEdXhiYlpIdzZOcndUY0c2cjBHRHlHekNmMkExYW02a1ctSzQ?oc=5",
+          "source": "日刊工業新聞",
+          "pub": "2025-01-31T17:00:00+09:00",
+          "query": "\"東邦工業\"",
+          "mentions_name": true
+        },
+        {
+          "title": "山善が傘下の東邦工業とロボットシステムを共同開発",
+          "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE4ybFNvczhzWG96NTF5RlFDRnJxRG5TTi1VMUgteS00RlRQLVRaNEtDVlJ5aXBWdXBLNEthM2ZuUHJBTWxkSFotbF9XTFduRWE1M0lOOXdRUExNMkVZMU1WbHNndkIwcTVBTE5V?oc=5",
+          "source": "robot digest",
+          "pub": "2024-12-26T17:00:00+09:00",
+          "query": "\"東邦工業\"",
+          "mentions_name": true
+        },
+        {
+          "title": "3社をM&A、業界活性化へ 東邦工業(群馬・安中市)《SDGsカンパニー》",
+          "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE41TkZzRDdnVmNEOENrejM2M2FzZzA4T2lkZGx6ZTNteC0wS3RVellSVHRPRnBUUTBzVzc2ajVyaElvbm11NTZHU25NYXozSWdTVjVSMGF1cjc?oc=5",
+          "source": "上毛新聞電子版",
+          "pub": "2024-11-15T17:00:00+09:00",
+          "query": "\"東邦工業\"",
+          "mentions_name": true
+        },
+        {
+          "title": "M&Aニュース 山善、東邦工業を株式交換で完全子会社化",
+          "link": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE9KT19SNXJsTW04RkotbDV3TExuU1hYZFRGNjdPSnlDdHZBTC11dEVnci1oVng4YUZCbjRqSkN6OEhLbzM3a1Br?oc=5",
+          "source": "M&Aキャピタルパートナーズ",
+          "pub": "2017-03-09T17:00:00+09:00",
+          "query": "\"東邦工業\"",
+          "mentions_name": true
+        }
+      ],
+      "exhibitions": [],
+      "summary": "記事5件",
+      "google_news_url": "https://news.google.com/search?q=%E6%9D%B1%E9%82%A6%E5%B7%A5%E6%A5%AD&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E6%9D%B1%E9%82%A6%E5%B7%A5%E6%A5%AD%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "houwa-協育歯車工業（名古屋）",
+      "name": "協育歯車工業株式会社（名古屋）",
+      "prefecture": "愛知県名古屋市熱田区（支店）",
+      "rank": "P2",
+      "industry": "規格歯車",
+      "source": "scm",
+      "tags": [
+        "scm",
+        "houwa"
+      ],
+      "priority": 2,
+      "large_gear": false,
+      "updated": "2026-08-11T09:47:39+09:00",
+      "articles": [],
+      "exhibitions": [
+        {
+          "id": "seed",
+          "name": "名古屋 機械要素技術展",
+          "city": "名古屋",
+          "dates": "過去出展実績あり",
+          "url": "https://www.kggear.co.jp/category/exhibition/",
+          "title": "【展示会出展情報】第8回 名古屋 機械要素技術展",
+          "link": "https://www.kggear.co.jp/category/exhibition/",
+          "pub": "2023-03-03",
+          "evidence": "公式・過去出展",
+          "from_seed": true
+        },
+        {
+          "id": "seed",
+          "name": "ものづくりワールド［東京］第37回",
+          "city": "東京",
+          "dates": "2025",
+          "url": "https://www.kggear.co.jp/category/exhibition/",
+          "title": "【展示会出展情報】第３７回ものづくり ワールド[東京]",
+          "link": "https://www.kggear.co.jp/category/exhibition/",
+          "pub": "2025-06-11",
+          "evidence": "公式展示会アーカイブ",
+          "from_seed": true
+        },
+        {
+          "id": "seed",
+          "name": "JIMTOF2026（日本国際工作機械見本市）",
+          "city": "東京",
+          "dates": "2026（公式告知あり）",
+          "url": "https://www.kggear.co.jp/category/exhibition/",
+          "title": "【展示会情報】ＪＩMＴＯＦ２０２６",
+          "link": "https://www.kggear.co.jp/category/exhibition/",
+          "pub": "2026-07-28",
+          "evidence": "公式展示会アーカイブ",
+          "from_seed": true
+        }
+      ],
+      "summary": "展示会言及3件",
+      "google_news_url": "https://news.google.com/search?q=%E5%8D%94%E8%82%B2%E6%AD%AF%E8%BB%8A%E5%B7%A5%E6%A5%AD%28%E5%90%8D%E5%8F%A4%E5%B1%8B%29&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E5%8D%94%E8%82%B2%E6%AD%AF%E8%BB%8A%E5%B7%A5%E6%A5%AD%28%E5%90%8D%E5%8F%A4%E5%B1%8B%29%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "toyonaka-後藤鉄工所（G-SHAFT・参考）",
+      "name": "後藤鉄工所（G-SHAFT・参考）",
+      "prefecture": "近畿（拠点要確認）",
+      "rank": "P2",
+      "industry": "シャフト",
+      "source": "scm",
+      "tags": [
+        "scm",
+        "toyonaka"
+      ],
+      "priority": 2,
+      "large_gear": false,
+      "updated": "2026-08-11T09:47:44+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E5%BE%8C%E8%97%A4%E9%89%84%E5%B7%A5%E6%89%80%28G-SHAFT%E3%83%BB%E5%8F%82%E8%80%83%29&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E5%BE%8C%E8%97%A4%E9%89%84%E5%B7%A5%E6%89%80%28G-SHAFT%E3%83%BB%E5%8F%82%E8%80%83%29%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "kariya_jtekt-東光工業",
+      "name": "東光工業株式会社",
+      "prefecture": "愛知県高浜市／安城市",
+      "rank": "P0",
+      "industry": "自動車金属・歯車部品",
+      "source": "scm",
+      "tags": [
+        "scm",
+        "kariya_jtekt"
+      ],
+      "priority": 2,
+      "large_gear": false,
+      "updated": "2026-08-11T09:47:48+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E6%9D%B1%E5%85%89%E5%B7%A5%E6%A5%AD&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E6%9D%B1%E5%85%89%E5%B7%A5%E6%A5%AD%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "houwa-MD（東海市）",
+      "name": "株式会社MD（東海市）",
+      "prefecture": "愛知県東海市",
+      "rank": "P2",
+      "industry": "金属加工",
+      "source": "scm",
+      "tags": [
+        "scm",
+        "houwa"
+      ],
+      "priority": 2,
+      "large_gear": false,
+      "updated": "2026-08-11T09:47:53+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=MD%28%E6%9D%B1%E6%B5%B7%E5%B8%82%29&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=MD%28%E6%9D%B1%E6%B5%B7%E5%B8%82%29%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "willbe_tsushima-Willbe",
+      "name": "株式会社Willbe",
+      "prefecture": "愛知県津島市",
+      "rank": "P0",
+      "industry": "汎用エンジン・発電機（大手OEM）",
+      "source": "scm",
+      "tags": [
+        "scm",
+        "willbe_tsushima"
+      ],
+      "priority": 2,
+      "large_gear": false,
+      "updated": "2026-08-11T09:49:03+09:00",
+      "articles": [
+        {
+          "title": "さあ出番/Willbe社長に就任した上野山和之氏",
+          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBDclNHNjNtTzZJenBuRU5GZEo1Y0FTd29GQ1lsNldERUhnY3VDLTB4VTlENkNNb2p5dERWTW1mWnNJc3VIdVJKWGR0R3R3NGZNR0VSM3BraEVPeTg?oc=5",
+          "source": "日刊工業新聞",
+          "pub": "2026-06-16T05:01:54+09:00",
+          "query": "\"Willbe\"",
+          "mentions_name": true
+        },
+        {
+          "title": "【Earth POWER】ポータブル電源「ELシリーズ」フルモデルチェンジ | 株式会社Willbeのプレスリリース",
+          "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9NZlk1eEtiYy1NMnRxeWlOdEJsempCSUpYbGI4RmljOUdYRGhLaVN0bUpEMWZ4NU9EdmVkdkgxUnB4X1czNW5SVlRqTFZYMXZnU1k3N05MNk9MRGVNNURpOGxud2llUFJLX2c?oc=5",
+          "source": "PR TIMES",
+          "pub": "2026-02-04T17:00:00+09:00",
+          "query": "\"Willbe\"",
+          "mentions_name": true
+        },
+        {
+          "title": "青い除雪機先行販売 数量限定で3機種を展開 Willbe│",
+          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9pZUE5WDRRYUNrWWF2TC1QTTRWaVh2VWcxdWRvYzJTUk1sdS1QTVoxSmVjTlJjdmRyMXhXSmJNd19ZQm5HSVN0aDFEeHlWUHBJWHJWb3hkcmljLUU?oc=5",
+          "source": "nouson-n.com",
+          "pub": "2025-12-16T17:00:00+09:00",
+          "query": "\"Willbe\"",
+          "mentions_name": true
+        },
+        {
+          "title": "【国産発電機】インバータ方式のポータブル発電機2種追加販売! | 株式会社Willbeのプレスリリース",
+          "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1oZms0Nmk2UlYyMUI0VzdyVl9zTm5XdVpFRk1aQnc1cUpzWGpTcVB0Rm4yM3ZXTzFhcHh6eS1aVHZsNkJsdGpGeFdjZEtuX0NNdVZaYzE5UkJSM0xXTHY4d3dnekd1QU9tTXc?oc=5",
+          "source": "PR TIMES",
+          "pub": "2025-11-14T17:00:00+09:00",
+          "query": "Willbe 愛知",
+          "mentions_name": true
+        },
+        {
+          "title": "【国産除雪機】Earth POWERブランド除雪機 先行販売開始! | 株式会社Willbeのプレスリリース",
+          "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9mWGlVS0p5LUxhaktPNGdMa0JDZ3dkcGg0a3M2ZURQdU5kLTFNbE4tS2Q3OXRydHJ5UzBjV2JhdzV6RThnZjdmTG8yVXBqeVJ2Tl9SaWFPMDdObGZZQkh3eElVNDF6dnpXVEE?oc=5",
+          "source": "PR TIMES",
+          "pub": "2025-11-04T17:00:00+09:00",
+          "query": "Willbe 愛知",
+          "mentions_name": true
+        },
+        {
+          "title": "【国産発電機】インバータ方式のポータブル発電機3種追加販売! | 株式会社Willbeのプレスリリース",
+          "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBGTW84dnpCZzAtd1c0ZHMxU2NpN0NXOURNRk9hbFhUZ2FvZzlZazF0cEJLcW4yMDdWYzEtaU5LUThhWi1JQlJjWnU2b3FjOVhndjBYM1FybkVNY2IzbzlIYUFObkJsOHUwVnc?oc=5",
+          "source": "PR TIMES",
+          "pub": "2025-09-25T16:00:00+09:00",
+          "query": "Willbe 愛知",
+          "mentions_name": true
+        },
+        {
+          "title": "Willbe 新体制の発足式開催│",
+          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE52SnpEdUhraXJrblc2YW00eWhBV25rcGdQMnhfTEk2ZVZRSEozZjlGNXNQRWRsQTgyTVA1eUVVQjFBTG9KV0FCSFdSZ0ZyWllyZUo1T0s5N1Nfdw?oc=5",
+          "source": "nouson-n.com",
+          "pub": "2024-08-06T16:00:00+09:00",
+          "query": "Willbe 愛知",
+          "mentions_name": true
+        }
+      ],
+      "exhibitions": [
+        {
+          "id": "seed",
+          "name": "AGRI EXPO 新潟2026",
+          "city": "新潟（参考・廊外）",
+          "dates": "2026-02-25〜02-27",
+          "url": "https://willbe-corp.com/about/news/20260128_2/",
+          "title": "AGRI EXPO 新潟2026 に出展します！",
+          "link": "https://willbe-corp.com/about/news/20260128_2/",
+          "pub": "2026-01-28",
+          "evidence": "公式ニュース",
+          "from_seed": true
+        },
+        {
+          "id": "seed",
+          "name": "レジャー＆アウトドアジャパン2025",
+          "city": "東京",
+          "dates": "2025-11-26〜11-28",
+          "url": "https://willbe-corp.com/about/news/20251121/",
+          "title": "レジャー＆アウトドアジャパン2025 に出展します！",
+          "link": "https://willbe-corp.com/about/news/20251121/",
+          "pub": "2025-11-21",
+          "evidence": "公式ニュース（東京ビッグサイト）",
+          "from_seed": true
+        },
+        {
+          "id": "seed",
+          "name": "TOOL JAPAN 2025",
+          "city": "千葉（幕張／東京圏）",
+          "dates": "2025-10-01〜10-03",
+          "url": "https://willbe-corp.com/about/news/20250822/",
+          "title": "TOOL JAPAN 2025 に出展します！",
+          "link": "https://willbe-corp.com/about/news/20250822/",
+          "pub": "2025-08-22",
+          "evidence": "公式ニュース",
+          "from_seed": true
+        }
+      ],
+      "summary": "記事7件 / 展示会言及3件",
+      "google_news_url": "https://news.google.com/search?q=Willbe&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=Willbe%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "houwa-前田精密製作所",
+      "name": "株式会社前田精密製作所",
+      "prefecture": "広域／東海案件",
+      "rank": "P2",
+      "industry": "精密歯車",
+      "source": "scm",
+      "tags": [
+        "scm",
+        "houwa"
+      ],
+      "priority": 2,
+      "large_gear": false,
+      "updated": "2026-08-11T09:48:00+09:00",
+      "articles": [
+        {
+          "title": "産業用ロボット部品など増産へ、姫路の工場増強 前田精密製作所",
+          "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBwZ0R5aVlKZmZXenh2X19ERzd2SUJUX1JBWVc2STRTOFNoa1FTckgzc2RoVElTT3c2WHJOeGQ0ZTdjUTUydHhtN082RjBCaEF5Y3JlUE9Hb3BULUU4SW8yTTludjc4bE1nM2s3R0xB?oc=5",
+          "source": "神戸新聞",
+          "pub": "2022-03-19T16:00:00+09:00",
+          "query": "\"前田精密製作所\"",
+          "mentions_name": true
+        },
+        {
+          "title": "わが社のマイスター(10)前田精密製作所 5S意識付け、まず自ら実践",
+          "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFAtTnBUWDBCSEI1R0RhZ0gycXl5OUQ5a0tWQ21jSG9qX1BDTHdtaFhpV0xYdkRaNmxpSENsNmRDb1BfUlBST3lOSW1MV2pQdW4ydmZmTy15OWg?oc=5",
+          "source": "日刊工業新聞",
+          "pub": "2020-07-29T16:00:00+09:00",
+          "query": "\"前田精密製作所\"",
+          "mentions_name": true
+        }
+      ],
+      "exhibitions": [],
+      "summary": "記事2件",
+      "google_news_url": "https://news.google.com/search?q=%E5%89%8D%E7%94%B0%E7%B2%BE%E5%AF%86%E8%A3%BD%E4%BD%9C%E6%89%80&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E5%89%8D%E7%94%B0%E7%B2%BE%E5%AF%86%E8%A3%BD%E4%BD%9C%E6%89%80%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "willbe_tsushima-名光精機",
+      "name": "株式会社名光精機",
+      "prefecture": "愛知県津島市",
+      "rank": "P0",
+      "industry": "精密部品・Willbe親会社",
+      "source": "scm",
+      "tags": [
+        "scm",
+        "willbe_tsushima"
+      ],
+      "priority": 2,
+      "large_gear": false,
+      "updated": "2026-08-11T09:49:06+09:00",
+      "articles": [
+        {
+          "title": "汎用eなど譲渡検討 YMPCの一部事業名光精機子会社に ヤマハ発動機│",
+          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1XRmZ1SVVFOEJqckx1Vmx5dlUwcC1UVzQ0RGZDNldIU1dXNElZQUYtZGFWdU9ONXljVkpLa3dfbEpidlMtS0MwV29kdkV4UVBBLXExRDkxS0ZjZw?oc=5",
+          "source": "nouson-n.com",
+          "pub": "2023-03-21T16:00:00+09:00",
+          "query": "名光精機 愛知",
+          "mentions_name": true
+        },
+        {
+          "title": "ヤマハ発動機、汎用エンジン事業など名光精機に譲渡へ",
+          "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5KbGUzODlNQW1XdEtTaUlnSEhYVFhzZk1NLVVWbjl2SU1UZExtTmtUNTNlT2trek9ZZ29MOGJGNDRpbkNrckFDU1dKbUdwNW1VVWxuTkpENGJwWlRxQ3FPeVZtcWVYMGF4TE85Rg?oc=5",
+          "source": "日本経済新聞",
+          "pub": "2023-03-10T17:00:00+09:00",
+          "query": "\"名光精機\"",
+          "mentions_name": true
+        },
+        {
+          "title": "汎用エンジン事業を津島の名光精機に譲渡 三菱重工業:ニュース",
+          "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5Gck9vNUhOUjFCa0d0N2lScUltTW85T2NQOXFzWG9iaHZLQnBsV0t5U3Q0ZXB1ZjdLLUFjMURhbEJHLUtsZ3A1VFpIYVUwQ0Foa0RJZ0VhaEd0eTA2MEE?oc=5",
+          "source": "中日BIZナビ",
+          "pub": "2023-03-01T17:00:00+09:00",
+          "query": "\"名光精機\"",
+          "mentions_name": true
+        },
+        {
+          "title": "<IT経営の真髄 ITCの支援で企業はこう変わる!>52.名光精機(上) カイゼンの力を強みに",
+          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE15U1lBUW40NHp6OUFtM0xNNFE4MnlBdkNURXNXbUxCaXk5dXFWYllXdS1jZS04RDVJVXAtd19YWUdtcHlqSER0Mld2MFN6UW9tMlJyX3loOUxMdWFLa2hqV0htS2pNV3VvZjdra0JuQWJvb2JzYmc?oc=5",
+          "source": "週刊BCN+",
+          "pub": "2011-11-10T17:00:00+09:00",
+          "query": "\"名光精機\"",
+          "mentions_name": true
+        },
+        {
+          "title": "加工法開発で急成長,ダイカスト鋳造設備も配備〔名光精機〕",
+          "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9neWRvQkJzdFJBazR0MExpQjJCU01URjRuOHF2V2ZZQTJpUjRoZmNZOGY2WmdPQkFTWFozWmRwNDJ4NERoQi1aYWdfNGtYWVJLb2pla0ktWlpycEVZU0l0Rm5QdE5SNzNoVW5v?oc=5",
+          "source": "日経クロステック",
+          "pub": "2010-03-02T17:00:00+09:00",
+          "query": "名光精機 (歯車 OR 熱処理 OR 浸炭 OR 機械加工 OR 設備投資)",
+          "mentions_name": true
+        }
+      ],
+      "exhibitions": [],
+      "summary": "記事5件",
+      "google_news_url": "https://news.google.com/search?q=%E5%90%8D%E5%85%89%E7%B2%BE%E6%A9%9F&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E5%90%8D%E5%85%89%E7%B2%BE%E6%A9%9F%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "toyonaka-大川歯車製作所",
+      "name": "株式会社大川歯車製作所",
+      "prefecture": "大阪府豊中市",
+      "rank": "P0",
+      "industry": "精密歯車",
+      "source": "scm",
+      "tags": [
+        "scm",
+        "toyonaka"
+      ],
+      "priority": 2,
+      "large_gear": false,
+      "updated": "2026-08-11T09:49:09+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E5%A4%A7%E5%B7%9D%E6%AD%AF%E8%BB%8A%E8%A3%BD%E4%BD%9C%E6%89%80&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E5%A4%A7%E5%B7%9D%E6%AD%AF%E8%BB%8A%E8%A3%BD%E4%BD%9C%E6%89%80%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "willbe_tsushima-葵精工",
+      "name": "株式会社葵精工",
+      "prefecture": "愛知県津島市",
+      "rank": "P0",
+      "industry": "機械加工（一貫）",
+      "source": "scm",
+      "tags": [
+        "scm",
+        "willbe_tsushima"
+      ],
+      "priority": 2,
+      "large_gear": false,
+      "updated": "2026-08-11T09:49:12+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E8%91%B5%E7%B2%BE%E5%B7%A5&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E8%91%B5%E7%B2%BE%E5%B7%A5%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "kariya_jtekt-都筑製作所",
+      "name": "株式会社都筑製作所",
+      "prefecture": "東海（拠点要確認）",
+      "rank": "P2",
+      "industry": "シャフト・軸物",
+      "source": "scm",
+      "tags": [
+        "scm",
+        "kariya_jtekt"
+      ],
+      "priority": 2,
+      "large_gear": false,
+      "updated": "2026-08-11T09:48:17+09:00",
+      "articles": [
+        {
+          "title": "都筑製作所、バックアップデータを磁気テープでオフライン保管、ランサムウェア対策を強化",
+          "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1mRlZQNHRVdFVpUUx4QVBNYkVtRUR2elVibzJUMUxOTnJhbVFBcjhYalI2enJpM0xsejdZSngxbUNocm4xam53T3pkSmlrS1YyY3k0?oc=5",
+          "source": "IT Leaders",
+          "pub": "2026-05-22T16:00:00+09:00",
+          "query": "\"都筑製作所\"",
+          "mentions_name": true
+        },
+        {
+          "title": "連載「ものづくりの現場から」(156)都筑製作所 丸子工場(長野県上田市)",
+          "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9fa0FKLVU5VW9KYkxnOGhqMzAwczc1a2tJbThvS1YwQ3oxV1BLRzBRN0xWalNHUVcydFU1dFdWOUh5dVIzYVVnUVRGOG5kcUE2V0E?oc=5",
+          "source": "netdenjd.com",
+          "pub": "2025-11-19T06:26:23+09:00",
+          "query": "\"都筑製作所\"",
+          "mentions_name": true
+        },
+        {
+          "title": "超小型EV「クロスケ」お披露目 都筑製作所など4社が開発 商品化へ新会社に出資",
+          "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE42bnc2WTZvNUxpVXh1d2ZLQzNKdzBFVndtNWZSdTRidmU1TnYyTGNCU1lub285MU5SZXQ2QWtKMk1ORUowV2FrVkVOMm5KOGVMYmQyUG4zVFh0RnY2NUpGMy1DNENRalU?oc=5",
+          "source": "信濃毎日新聞デジタル",
+          "pub": "2024-12-13T17:00:00+09:00",
+          "query": "\"都筑製作所\"",
+          "mentions_name": true
+        },
+        {
+          "title": "坂城町の都筑製作所が上田市へ「防災用の発電機3台」を寄贈! ★「創業80年」を迎えたことから。",
+          "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5TdlRxR25zWVB6NjZ6QXFoX2hDaXZHVHQwamU4c1h0MzFRZURaeV9HUTJzSHhxeWtaRm9ubmtITlFMelJ0WTdNMU9xRER1YUtXUjVDSGtpSQ?oc=5",
+          "source": "東信ジャーナル",
+          "pub": "2024-11-24T17:00:00+09:00",
+          "query": "\"都筑製作所\"",
+          "mentions_name": true
+        },
+        {
+          "title": "都筑製作所、ミニトマト収穫ロボ開発 中小農家向け",
+          "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFB4MFA3azZuZXhqTkJYVWVlREVvMVhhWFBTUURacEg2NW5BbHQzczVTLXFiYkN4OVVzb1BLaWNtQnE0eUJPZEdET1Y0YlkxQm5Jb2QzbmNtSlRhNURDSEE5SHhKT1Fzc1lHZWlZUw?oc=5",
+          "source": "日本経済新聞",
+          "pub": "2022-11-16T17:00:00+09:00",
+          "query": "\"都筑製作所\"",
+          "mentions_name": true
+        },
+        {
+          "title": "長野の都筑製作所、軽量モーターシャフト量産",
+          "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFA3N2U2b2pwc2JKdGFJbG5la1E1OEEtWUtFdkJtaFNZZmJyaGE4MU9MUUtUTzBBVkR2OUtwZW5VVHZMZmtyM3dlN2RHNXpZcVdLdnppVGQ3cHp4ZklsQUdMZHpVZkhtODRaNnY1UQ?oc=5",
+          "source": "日本経済新聞",
+          "pub": "2019-11-18T17:00:00+09:00",
+          "query": "\"都筑製作所\"",
+          "mentions_name": true
+        }
+      ],
+      "exhibitions": [],
+      "summary": "記事6件",
+      "google_news_url": "https://news.google.com/search?q=%E9%83%BD%E7%AD%91%E8%A3%BD%E4%BD%9C%E6%89%80&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E9%83%BD%E7%AD%91%E8%A3%BD%E4%BD%9C%E6%89%80%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "kariya_jtekt-高浜歯車工業",
+      "name": "高浜歯車工業株式会社",
+      "prefecture": "愛知県高浜市",
+      "rank": "P0",
+      "industry": "歯車加工専門",
+      "source": "scm",
+      "tags": [
+        "scm",
+        "kariya_jtekt"
+      ],
+      "priority": 2,
+      "large_gear": false,
+      "updated": "2026-08-11T09:49:15+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E9%AB%98%E6%B5%9C%E6%AD%AF%E8%BB%8A%E5%B7%A5%E6%A5%AD&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E9%AB%98%E6%B5%9C%E6%AD%AF%E8%BB%8A%E5%B7%A5%E6%A5%AD%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "a933d2830ced",
+      "name": "(有)出井",
+      "prefecture": "石川県",
+      "rank": "ランクC",
+      "industry": "小物ピン、ワッシャー",
+      "source": "visit",
+      "tags": [
+        "visit"
+      ],
+      "priority": 2,
+      "updated": "2026-08-11T09:48:25+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E5%87%BA%E4%BA%95&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E5%87%BA%E4%BA%95%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "464df02ebc51",
+      "name": "(有)平野鉄工所",
+      "prefecture": "石川県",
+      "rank": "ランクC",
+      "industry": "ドリルマシン、繊維機械部品、他",
+      "source": "visit",
+      "tags": [
+        "visit"
+      ],
+      "priority": 2,
+      "updated": "2026-08-11T09:48:29+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E5%B9%B3%E9%87%8E%E9%89%84%E5%B7%A5%E6%89%80&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E5%B9%B3%E9%87%8E%E9%89%84%E5%B7%A5%E6%89%80%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "99d3fb52b955",
+      "name": "(有)旭鉄工所",
+      "prefecture": "石川県",
+      "rank": "ランクC",
+      "industry": "上下水道関係部品",
+      "source": "visit",
+      "tags": [
+        "visit"
+      ],
+      "priority": 2,
+      "updated": "2026-08-11T09:48:34+09:00",
+      "articles": [
+        {
+          "title": "【石川】100分の1ミリの技術で逸品 かほくの旭鉄工所 社長業の傍ら",
+          "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1ObExNUFVqcnp2NnZ5Nko0Z0lwcG9jMFg0bTlZdkZnWExQcUFlSmFUdUhkaXpLamkyQi00U21qeUZZd19ES2VsV0JSZHA0SVZYNGdR?oc=5",
+          "source": "中日新聞Web",
+          "pub": "2024-10-04T16:00:00+09:00",
+          "query": "\"旭鉄工所\"",
+          "mentions_name": true
+        },
+        {
+          "title": "M&Aニュース 尾張精機(7249)旭鉄工所を子会社化",
+          "link": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE4yREQ3LUdJU0Jwa0tUU0RjaHNKazV4dUhXRW1xbHM2N3BoMzJ0bDc4andtUUgyTVROcHRpR0V4VmltaHZ3VmJR?oc=5",
+          "source": "M&Aキャピタルパートナーズ",
+          "pub": "2009-09-01T16:00:00+09:00",
+          "query": "\"旭鉄工所\"",
+          "mentions_name": true
+        }
+      ],
+      "exhibitions": [],
+      "summary": "記事2件",
+      "google_news_url": "https://news.google.com/search?q=%E6%97%AD%E9%89%84%E5%B7%A5%E6%89%80&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E6%97%AD%E9%89%84%E5%B7%A5%E6%89%80%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "d03369ae728e",
+      "name": "(有)森本精機",
+      "prefecture": "石川県",
+      "rank": "ランクC",
+      "industry": "自動車ライン部品、工作機械部品",
+      "source": "visit",
+      "tags": [
+        "visit"
+      ],
+      "priority": 2,
+      "updated": "2026-08-11T09:48:38+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E6%A3%AE%E6%9C%AC%E7%B2%BE%E6%A9%9F&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E6%A3%AE%E6%9C%AC%E7%B2%BE%E6%A9%9F%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "8afdbb6577ae",
+      "name": "(有)茶谷鉄工所",
+      "prefecture": "石川県",
+      "rank": "ランクC",
+      "industry": "特殊カム、ウォーム減速機",
+      "source": "visit",
+      "tags": [
+        "visit"
+      ],
+      "priority": 2,
+      "updated": "2026-08-11T09:48:43+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E8%8C%B6%E8%B0%B7%E9%89%84%E5%B7%A5%E6%89%80&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E8%8C%B6%E8%B0%B7%E9%89%84%E5%B7%A5%E6%89%80%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "63d4a11db8f8",
+      "name": "(株)竹内歯車製作所",
+      "prefecture": "石川県",
+      "rank": "ランクC",
+      "industry": "農業機械部品、繊維機械部品",
+      "source": "visit",
+      "tags": [
+        "visit"
+      ],
+      "priority": 2,
+      "updated": "2026-08-11T09:49:20+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E7%AB%B9%E5%86%85%E6%AD%AF%E8%BB%8A%E8%A3%BD%E4%BD%9C%E6%89%80&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E7%AB%B9%E5%86%85%E6%AD%AF%E8%BB%8A%E8%A3%BD%E4%BD%9C%E6%89%80%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "763332551a84",
+      "name": "大川歯車",
+      "prefecture": "",
+      "rank": "",
+      "industry": "",
+      "source": "visit",
+      "tags": [
+        "visit"
+      ],
+      "priority": 9,
+      "updated": "2026-08-11T09:49:24+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E5%A4%A7%E5%B7%9D%E6%AD%AF%E8%BB%8A&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E5%A4%A7%E5%B7%9D%E6%AD%AF%E8%BB%8A%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    },
+    {
+      "id": "d4088483f0a4",
+      "name": "石垣歯車",
+      "prefecture": "",
+      "rank": "",
+      "industry": "",
+      "source": "visit",
+      "tags": [
+        "visit"
+      ],
+      "priority": 9,
+      "updated": "2026-08-11T09:49:28+09:00",
+      "articles": [],
+      "exhibitions": [],
+      "summary": "公開記事なし（検索ゼロ）",
+      "google_news_url": "https://news.google.com/search?q=%E7%9F%B3%E5%9E%A3%E6%AD%AF%E8%BB%8A&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibit_search_url": "https://www.google.com/search?q=%E7%9F%B3%E5%9E%A3%E6%AD%AF%E8%BB%8A%20%E5%87%BA%E5%B1%95%20%E5%B1%95%E7%A4%BA%E4%BC%9A%20OR%20%E3%83%96%E3%83%BC%E3%82%B9%20OR%20%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20OR%20%E6%A9%9F%E6%A2%B0%E8%A6%81%E7%B4%A0"
+    }
+  ],
+  "feed": [
+    {
+      "kind": "article",
+      "company_id": "houwa-豊和鍛工",
+      "company": "豊和鍛工株式会社",
+      "title": "未来けん引するNEXTカンパニー(57)豊和鍛工 ハンマー鍛造、品質に強み",
+      "link": "https://news.google.com/search?q=%E8%B1%8A%E5%92%8C%E9%8D%9B%E5%B7%A5%20NEXT%E3%82%AB%E3%83%B3%E3%83%91%E3%83%8B%E3%83%BC&hl=ja&gl=JP&ceid=JP:ja",
+      "source": "日刊工業新聞",
+      "pub": "2026-08-01",
+      "tags": [
+        "scm",
+        "houwa"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "houwa-豊和鍛工",
+      "company": "豊和鍛工株式会社",
+      "title": "未来けん引するNEXTカンパニー(57)豊和鍛工 ハンマー鍛造、品質に強み",
+      "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFB6OTBCMjdYWGNobkpaWnBwY3dLMTR4MUl0UTVhOTExOXZkQTBpbHNqdy12N0RDTnR2c2V3TEN5QjhMZkVSeTRscFpwTjY3M0N4RDlnOFRnUmxCMnczZVBvM094M3JLalRLc1Q4Tk14Rm4yRjdI?oc=5",
+      "source": "日刊工業新聞",
+      "pub": "2026-07-31T05:00:00+09:00",
+      "tags": [
+        "scm",
+        "houwa"
+      ]
+    },
+    {
+      "kind": "exhibition",
+      "company_id": "houwa-協育歯車工業（名古屋）",
+      "company": "協育歯車工業株式会社（名古屋）",
+      "title": "【展示会情報】ＪＩMＴＯＦ２０２６",
+      "link": "https://www.kggear.co.jp/category/exhibition/",
+      "exhibition": "JIMTOF2026（日本国際工作機械見本市）",
+      "city": "東京",
+      "dates": "2026（公式告知あり）",
+      "pub": "2026-07-28",
+      "tags": [
+        "scm",
+        "houwa"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "37271bb2b4c0",
+      "company": "(株)共和工業",
+      "title": "三井化学、複合材料と共和工業の金型技術で新市場開拓",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9zYjJrSFR2ZVFKTWFyUzl1Q2tkMXlrQTNfbUdlUkNmUlN0clFIMUlwRTFmb3Q2YURHb3lXWGd4bVNCMktWdEMza1VWOE0tRmM?oc=5",
+      "source": "ゴム報知新聞NEXT",
+      "pub": "2026-07-25T08:22:34+09:00",
+      "tags": [
+        "visit"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "willbe_tsushima-Willbe",
+      "company": "株式会社Willbe",
+      "title": "さあ出番/Willbe社長に就任した上野山和之氏",
+      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBDclNHNjNtTzZJenBuRU5GZEo1Y0FTd29GQ1lsNldERUhnY3VDLTB4VTlENkNNb2p5dERWTW1mWnNJc3VIdVJKWGR0R3R3NGZNR0VSM3BraEVPeTg?oc=5",
+      "source": "日刊工業新聞",
+      "pub": "2026-06-16T05:01:54+09:00",
+      "tags": [
+        "scm",
+        "willbe_tsushima"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "37271bb2b4c0",
+      "company": "(株)共和工業",
+      "title": "共和工業、今期経常は29%減益へ",
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE52MFNuWGk4OXkxbV9iNlQ3WlplZmEzeFBWUmRDUVJyV0xnVlA3M0ZRVjBQbmhXTXVadzY5dm1LWUdrU0hGN3M2Z0RJaVNiQzFDYVE?oc=5",
+      "source": "株探",
+      "pub": "2026-06-15T16:00:00+09:00",
+      "tags": [
+        "visit"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "kariya_jtekt-都筑製作所",
+      "company": "株式会社都筑製作所",
+      "title": "都筑製作所、バックアップデータを磁気テープでオフライン保管、ランサムウェア対策を強化",
+      "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1mRlZQNHRVdFVpUUx4QVBNYkVtRUR2elVibzJUMUxOTnJhbVFBcjhYalI2enJpM0xsejdZSngxbUNocm4xam53T3pkSmlrS1YyY3k0?oc=5",
+      "source": "IT Leaders",
+      "pub": "2026-05-22T16:00:00+09:00",
+      "tags": [
+        "scm",
+        "kariya_jtekt"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "d65935423c2f",
+      "company": "松本機械工業(株)",
+      "title": "金沢の松本機械工業、工作機械の無人稼働支援装置 生産4倍増へ新工場",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE0yNUozbW5vaDNhSFRHb0VrQkpDVGxWVE9fX3czOFhCdExvdkpldWlHbzBKc29za2xGZWh2UzZmeElnWTlhQ2daUUdmOHk1YjFyQlZ2WFlWTnQyZ1g0UGtadUQ1aFczYTZtQksyZg?oc=5",
+      "source": "日本経済新聞",
+      "pub": "2026-04-21T16:00:00+09:00",
+      "tags": [
+        "visit"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "a9457edf2cf0",
+      "company": "東邦工業(株)",
+      "title": "【導入事例】東邦工業株式会社 | 法人向け",
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBkNjhzNFdZV2k2dDJ2YWdfNEdzNFFZanhzYjFSMEpoS2tDdEZEVU9ZbkRjLXZiWHBXRXdIV2U2Z2xJN3RONU9HX1pIT1dzZlE2?oc=5",
+      "source": "KDDI Biz Edge株式会社",
+      "pub": "2026-04-03T03:48:58+09:00",
+      "tags": [
+        "visit"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "willbe_tsushima-Willbe",
+      "company": "株式会社Willbe",
+      "title": "【Earth POWER】ポータブル電源「ELシリーズ」フルモデルチェンジ | 株式会社Willbeのプレスリリース",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9NZlk1eEtiYy1NMnRxeWlOdEJsempCSUpYbGI4RmljOUdYRGhLaVN0bUpEMWZ4NU9EdmVkdkgxUnB4X1czNW5SVlRqTFZYMXZnU1k3N05MNk9MRGVNNURpOGxud2llUFJLX2c?oc=5",
+      "source": "PR TIMES",
+      "pub": "2026-02-04T17:00:00+09:00",
+      "tags": [
+        "scm",
+        "willbe_tsushima"
+      ]
+    },
+    {
+      "kind": "exhibition",
+      "company_id": "willbe_tsushima-Willbe",
+      "company": "株式会社Willbe",
+      "title": "AGRI EXPO 新潟2026 に出展します！",
+      "link": "https://willbe-corp.com/about/news/20260128_2/",
+      "exhibition": "AGRI EXPO 新潟2026",
+      "city": "新潟（参考・廊外）",
+      "dates": "2026-02-25〜02-27",
+      "pub": "2026-01-28",
+      "tags": [
+        "scm",
+        "willbe_tsushima"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "d65935423c2f",
+      "company": "松本機械工業(株)",
+      "title": "さあ出番/松本機械工業社長・松本晶久氏 自動化システム提案意欲",
+      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5JLW5XSkJvT0ZGenBGeHdLdmZweW1BVEJ1bEE4MU9hdkt0RDdqcTFfcWZNZFRHemY3WjM0S0JNSHdwUVlkVjNlajBHZ0pudnZieHFwY1l3SjNxWWc?oc=5",
+      "source": "日刊工業新聞",
+      "pub": "2026-01-26T17:00:00+09:00",
+      "tags": [
+        "visit"
+      ]
+    },
+    {
+      "kind": "exhibition",
+      "company_id": "large_gear-ジェイテクトギヤシステム",
+      "company": "株式会社ジェイテクトギヤシステム",
+      "title": "ジェイテクト、人とくるまのテクノロジー展2026 YOKOHAMAに出展",
+      "link": "https://news.google.com/search?q=%E3%82%B8%E3%82%A7%E3%82%A4%E3%83%86%E3%82%AF%E3%83%88%20%E4%BA%BA%E3%81%A8%E3%81%8F%E3%82%8B%E3%81%BE&hl=ja&gl=JP&ceid=JP:ja",
+      "exhibition": "人とくるまのテクノロジー展2026 YOKOHAMA",
+      "city": "横浜（東京圏）",
+      "dates": "2026",
+      "pub": "2026-01-01",
+      "tags": [
+        "large_gear",
+        "pit_furnace",
+        "scm"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "willbe_tsushima-Willbe",
+      "company": "株式会社Willbe",
+      "title": "青い除雪機先行販売 数量限定で3機種を展開 Willbe│",
+      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9pZUE5WDRRYUNrWWF2TC1QTTRWaVh2VWcxdWRvYzJTUk1sdS1QTVoxSmVjTlJjdmRyMXhXSmJNd19ZQm5HSVN0aDFEeHlWUHBJWHJWb3hkcmljLUU?oc=5",
+      "source": "nouson-n.com",
+      "pub": "2025-12-16T17:00:00+09:00",
+      "tags": [
+        "scm",
+        "willbe_tsushima"
+      ]
+    },
+    {
+      "kind": "exhibition",
+      "company_id": "willbe_tsushima-Willbe",
+      "company": "株式会社Willbe",
+      "title": "レジャー＆アウトドアジャパン2025 に出展します！",
+      "link": "https://willbe-corp.com/about/news/20251121/",
+      "exhibition": "レジャー＆アウトドアジャパン2025",
+      "city": "東京",
+      "dates": "2025-11-26〜11-28",
+      "pub": "2025-11-21",
+      "tags": [
+        "scm",
+        "willbe_tsushima"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "kariya_jtekt-都筑製作所",
+      "company": "株式会社都筑製作所",
+      "title": "連載「ものづくりの現場から」(156)都筑製作所 丸子工場(長野県上田市)",
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9fa0FKLVU5VW9KYkxnOGhqMzAwczc1a2tJbThvS1YwQ3oxV1BLRzBRN0xWalNHUVcydFU1dFdWOUh5dVIzYVVnUVRGOG5kcUE2V0E?oc=5",
+      "source": "netdenjd.com",
+      "pub": "2025-11-19T06:26:23+09:00",
+      "tags": [
+        "scm",
+        "kariya_jtekt"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "willbe_tsushima-Willbe",
+      "company": "株式会社Willbe",
+      "title": "【国産発電機】インバータ方式のポータブル発電機2種追加販売! | 株式会社Willbeのプレスリリース",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1oZms0Nmk2UlYyMUI0VzdyVl9zTm5XdVpFRk1aQnc1cUpzWGpTcVB0Rm4yM3ZXTzFhcHh6eS1aVHZsNkJsdGpGeFdjZEtuX0NNdVZaYzE5UkJSM0xXTHY4d3dnekd1QU9tTXc?oc=5",
+      "source": "PR TIMES",
+      "pub": "2025-11-14T17:00:00+09:00",
+      "tags": [
+        "scm",
+        "willbe_tsushima"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "willbe_tsushima-Willbe",
+      "company": "株式会社Willbe",
+      "title": "【国産除雪機】Earth POWERブランド除雪機 先行販売開始! | 株式会社Willbeのプレスリリース",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9mWGlVS0p5LUxhaktPNGdMa0JDZ3dkcGg0a3M2ZURQdU5kLTFNbE4tS2Q3OXRydHJ5UzBjV2JhdzV6RThnZjdmTG8yVXBqeVJ2Tl9SaWFPMDdObGZZQkh3eElVNDF6dnpXVEE?oc=5",
+      "source": "PR TIMES",
+      "pub": "2025-11-04T17:00:00+09:00",
+      "tags": [
+        "scm",
+        "willbe_tsushima"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "willbe_tsushima-Willbe",
+      "company": "株式会社Willbe",
+      "title": "【国産発電機】インバータ方式のポータブル発電機3種追加販売! | 株式会社Willbeのプレスリリース",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBGTW84dnpCZzAtd1c0ZHMxU2NpN0NXOURNRk9hbFhUZ2FvZzlZazF0cEJLcW4yMDdWYzEtaU5LUThhWi1JQlJjWnU2b3FjOVhndjBYM1FybkVNY2IzbzlIYUFObkJsOHUwVnc?oc=5",
+      "source": "PR TIMES",
+      "pub": "2025-09-25T16:00:00+09:00",
+      "tags": [
+        "scm",
+        "willbe_tsushima"
+      ]
+    },
+    {
+      "kind": "exhibition",
+      "company_id": "willbe_tsushima-Willbe",
+      "company": "株式会社Willbe",
+      "title": "TOOL JAPAN 2025 に出展します！",
+      "link": "https://willbe-corp.com/about/news/20250822/",
+      "exhibition": "TOOL JAPAN 2025",
+      "city": "千葉（幕張／東京圏）",
+      "dates": "2025-10-01〜10-03",
+      "pub": "2025-08-22",
+      "tags": [
+        "scm",
+        "willbe_tsushima"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "large_gear-ジェイテクトギヤシステム",
+      "company": "株式会社ジェイテクトギヤシステム",
+      "title": "自動車部品のジェイテクトギヤシステム、クラウドERPを導入して個別最適な業務から脱却へ",
+      "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBjZWdnMzl3aEctQzZtNG5TbTFIb1ZBVk9BaHBLQ1hORUI1VWl1ckpQZTRDQmVlWjFfeGlUY2lTODdHbng1N3pOaFpReVZzV0NiRENV?oc=5",
+      "source": "IT Leaders",
+      "pub": "2025-06-12T16:00:00+09:00",
+      "tags": [
+        "large_gear",
+        "pit_furnace",
+        "scm"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "large_gear-ジェイテクトギヤシステム",
+      "company": "株式会社ジェイテクトギヤシステム",
+      "title": "ジェイテクトギヤシステム、「SAP S/4HANA Cloud」で全社DXを加速",
+      "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBEMVQ3WUdycEtCRUZZZUxKcnZzOGdwUV95N3J4MkYxLWJTZnA5cFhOVUhpZW8wajE4TFdRQkZKTlFkZHI1MHhkdDlpNUM4azlkaUow?oc=5",
+      "source": "ZDNET Japan",
+      "pub": "2025-06-11T16:00:00+09:00",
+      "tags": [
+        "large_gear",
+        "pit_furnace",
+        "scm"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "large_gear-ジェイテクトギヤシステム",
+      "company": "株式会社ジェイテクトギヤシステム",
+      "title": "自動車部品メーカーのジェイテクトギヤシステムがSAP S/4HANA® Cloudを採用",
+      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNWHNENmFMZDlWRE91OE9nU2NzSHljZWdFMjVHQjE1aXI1TFRhM040dnBPRUkzUjRkYWRDS2lySGJpVFZQMG94YmlVSmNPRTRPbGQ3dFhGRHRLS1Z2ai01TGFYZm1kb2JPV2RzOHU3c05USlJZbnAxWWktMVF5cnFqSVVXdnJiNnZhNl9F?oc=5",
+      "source": "news.sap.com",
+      "pub": "2025-06-11T13:16:54+09:00",
+      "tags": [
+        "large_gear",
+        "pit_furnace",
+        "scm"
+      ]
+    },
+    {
+      "kind": "exhibition",
+      "company_id": "houwa-協育歯車工業（名古屋）",
+      "company": "協育歯車工業株式会社（名古屋）",
+      "title": "【展示会出展情報】第３７回ものづくり ワールド[東京]",
+      "link": "https://www.kggear.co.jp/category/exhibition/",
+      "exhibition": "ものづくりワールド［東京］第37回",
+      "city": "東京",
+      "dates": "2025",
+      "pub": "2025-06-11",
+      "tags": [
+        "scm",
+        "houwa"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "a9457edf2cf0",
+      "company": "東邦工業(株)",
+      "title": "経営ひと言/東邦工業・丸山洋彦社長「地道に信頼築く」",
+      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBOdTQ0TUJIU3hPTkJvLVNHVUF5OUM5N29oaWtCV195NFJtbWlKWFQ2M3ZqOENROWNEdXhiYlpIdzZOcndUY0c2cjBHRHlHekNmMkExYW02a1ctSzQ?oc=5",
+      "source": "日刊工業新聞",
+      "pub": "2025-01-31T17:00:00+09:00",
+      "tags": [
+        "visit"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "d65935423c2f",
+      "company": "松本機械工業(株)",
+      "title": "かけはし/新入会員/松本機械工業専務/松本晶久氏",
+      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBYVWZ2d3ZJUEd4b2J5ei1Vd2xyWG5JTlp1cGdZUWhTYXE3VU5QY3pzMGVaUVREbzh3cnp5aGVpR0g0bk5ZV3lubDBLeUZJVUtXMlNQMTdTSUg5dE0?oc=5",
+      "source": "日刊工業新聞",
+      "pub": "2025-01-07T15:24:28+09:00",
+      "tags": [
+        "visit"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "a9457edf2cf0",
+      "company": "東邦工業(株)",
+      "title": "山善が傘下の東邦工業とロボットシステムを共同開発",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE4ybFNvczhzWG96NTF5RlFDRnJxRG5TTi1VMUgteS00RlRQLVRaNEtDVlJ5aXBWdXBLNEthM2ZuUHJBTWxkSFotbF9XTFduRWE1M0lOOXdRUExNMkVZMU1WbHNndkIwcTVBTE5V?oc=5",
+      "source": "robot digest",
+      "pub": "2024-12-26T17:00:00+09:00",
+      "tags": [
+        "visit"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "kariya_jtekt-都筑製作所",
+      "company": "株式会社都筑製作所",
+      "title": "超小型EV「クロスケ」お披露目 都筑製作所など4社が開発 商品化へ新会社に出資",
+      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE42bnc2WTZvNUxpVXh1d2ZLQzNKdzBFVndtNWZSdTRidmU1TnYyTGNCU1lub285MU5SZXQ2QWtKMk1ORUowV2FrVkVOMm5KOGVMYmQyUG4zVFh0RnY2NUpGMy1DNENRalU?oc=5",
+      "source": "信濃毎日新聞デジタル",
+      "pub": "2024-12-13T17:00:00+09:00",
+      "tags": [
+        "scm",
+        "kariya_jtekt"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "kariya_jtekt-都筑製作所",
+      "company": "株式会社都筑製作所",
+      "title": "坂城町の都筑製作所が上田市へ「防災用の発電機3台」を寄贈! ★「創業80年」を迎えたことから。",
+      "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5TdlRxR25zWVB6NjZ6QXFoX2hDaXZHVHQwamU4c1h0MzFRZURaeV9HUTJzSHhxeWtaRm9ubmtITlFMelJ0WTdNMU9xRER1YUtXUjVDSGtpSQ?oc=5",
+      "source": "東信ジャーナル",
+      "pub": "2024-11-24T17:00:00+09:00",
+      "tags": [
+        "scm",
+        "kariya_jtekt"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "a9457edf2cf0",
+      "company": "東邦工業(株)",
+      "title": "3社をM&A、業界活性化へ 東邦工業(群馬・安中市)《SDGsカンパニー》",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE41TkZzRDdnVmNEOENrejM2M2FzZzA4T2lkZGx6ZTNteC0wS3RVellSVHRPRnBUUTBzVzc2ajVyaElvbm11NTZHU25NYXozSWdTVjVSMGF1cjc?oc=5",
+      "source": "上毛新聞電子版",
+      "pub": "2024-11-15T17:00:00+09:00",
+      "tags": [
+        "visit"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "99d3fb52b955",
+      "company": "(有)旭鉄工所",
+      "title": "【石川】100分の1ミリの技術で逸品 かほくの旭鉄工所 社長業の傍ら",
+      "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1ObExNUFVqcnp2NnZ5Nko0Z0lwcG9jMFg0bTlZdkZnWExQcUFlSmFUdUhkaXpLamkyQi00U21qeUZZd19ES2VsV0JSZHA0SVZYNGdR?oc=5",
+      "source": "中日新聞Web",
+      "pub": "2024-10-04T16:00:00+09:00",
+      "tags": [
+        "visit"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "willbe_tsushima-Willbe",
+      "company": "株式会社Willbe",
+      "title": "Willbe 新体制の発足式開催│",
+      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE52SnpEdUhraXJrblc2YW00eWhBV25rcGdQMnhfTEk2ZVZRSEozZjlGNXNQRWRsQTgyTVA1eUVVQjFBTG9KV0FCSFdSZ0ZyWllyZUo1T0s5N1Nfdw?oc=5",
+      "source": "nouson-n.com",
+      "pub": "2024-08-06T16:00:00+09:00",
+      "tags": [
+        "scm",
+        "willbe_tsushima"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "d65935423c2f",
+      "company": "松本機械工業(株)",
+      "title": "「松本機械工業株式会社」様 新規パートナー決定のお知らせ",
+      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE16dWNYOVkyYzY1ZG5jVDV1Um1PN2Q2eDUwd05lbkZJUUdRN1A1dmduU2ljck5fTk84blJNVFc5NWVHVjJ3YUJaZWk5SkMwRWhPaUhUdWMxMVk3QQ?oc=5",
+      "source": "zweigen-kanazawa.jp",
+      "pub": "2024-02-15T17:00:00+09:00",
+      "tags": [
+        "visit"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "fb42a9a5cca7",
+      "company": "(株)ヒガシヤマ",
+      "title": "部品加工のヒガシヤマ、金沢に新工場 半導体装置好調で",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBSSTdOWTVGMjRqRi1rQk8tT3FPTGpyeWlLX0ZFRHI5QjVoSmQxOU12d3RXOHhwUTlBSGtka2Q0eW1fRnRMeXBWSE15VGpERnA0cGRHYUw0MDFpcS14bC1qLVBEUE1xckVsUHFNWg?oc=5",
+      "source": "日本経済新聞",
+      "pub": "2023-04-17T16:00:00+09:00",
+      "tags": [
+        "visit"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "willbe_tsushima-名光精機",
+      "company": "株式会社名光精機",
+      "title": "汎用eなど譲渡検討 YMPCの一部事業名光精機子会社に ヤマハ発動機│",
+      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1XRmZ1SVVFOEJqckx1Vmx5dlUwcC1UVzQ0RGZDNldIU1dXNElZQUYtZGFWdU9ONXljVkpLa3dfbEpidlMtS0MwV29kdkV4UVBBLXExRDkxS0ZjZw?oc=5",
+      "source": "nouson-n.com",
+      "pub": "2023-03-21T16:00:00+09:00",
+      "tags": [
+        "scm",
+        "willbe_tsushima"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "willbe_tsushima-名光精機",
+      "company": "株式会社名光精機",
+      "title": "ヤマハ発動機、汎用エンジン事業など名光精機に譲渡へ",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5KbGUzODlNQW1XdEtTaUlnSEhYVFhzZk1NLVVWbjl2SU1UZExtTmtUNTNlT2trek9ZZ29MOGJGNDRpbkNrckFDU1dKbUdwNW1VVWxuTkpENGJwWlRxQ3FPeVZtcWVYMGF4TE85Rg?oc=5",
+      "source": "日本経済新聞",
+      "pub": "2023-03-10T17:00:00+09:00",
+      "tags": [
+        "scm",
+        "willbe_tsushima"
+      ]
+    },
+    {
+      "kind": "exhibition",
+      "company_id": "houwa-協育歯車工業（名古屋）",
+      "company": "協育歯車工業株式会社（名古屋）",
+      "title": "【展示会出展情報】第8回 名古屋 機械要素技術展",
+      "link": "https://www.kggear.co.jp/category/exhibition/",
+      "exhibition": "名古屋 機械要素技術展",
+      "city": "名古屋",
+      "dates": "過去出展実績あり",
+      "pub": "2023-03-03",
+      "tags": [
+        "scm",
+        "houwa"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "willbe_tsushima-名光精機",
+      "company": "株式会社名光精機",
+      "title": "汎用エンジン事業を津島の名光精機に譲渡 三菱重工業:ニュース",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5Gck9vNUhOUjFCa0d0N2lScUltTW85T2NQOXFzWG9iaHZLQnBsV0t5U3Q0ZXB1ZjdLLUFjMURhbEJHLUtsZ3A1VFpIYVUwQ0Foa0RJZ0VhaEd0eTA2MEE?oc=5",
+      "source": "中日BIZナビ",
+      "pub": "2023-03-01T17:00:00+09:00",
+      "tags": [
+        "scm",
+        "willbe_tsushima"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "d65935423c2f",
+      "company": "松本機械工業(株)",
+      "title": "旋盤の段取り支援 金沢の松本機械工業、新システム",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9VcldOUTJpSmY5RXEweUg5WERuZERqUmYzY202STNObzVvWjZHTHFmRWFpbmJfd1Rad1V3M1JYSG5seDdHeV9aeWZJOS1fRUNDQjRNTENJdmlPaDFuREZKNFQ5NGUyNXE1SkNDOA?oc=5",
+      "source": "日本経済新聞",
+      "pub": "2023-02-20T17:00:00+09:00",
+      "tags": [
+        "visit"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "kariya_jtekt-都筑製作所",
+      "company": "株式会社都筑製作所",
+      "title": "都筑製作所、ミニトマト収穫ロボ開発 中小農家向け",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFB4MFA3azZuZXhqTkJYVWVlREVvMVhhWFBTUURacEg2NW5BbHQzczVTLXFiYkN4OVVzb1BLaWNtQnE0eUJPZEdET1Y0YlkxQm5Jb2QzbmNtSlRhNURDSEE5SHhKT1Fzc1lHZWlZUw?oc=5",
+      "source": "日本経済新聞",
+      "pub": "2022-11-16T17:00:00+09:00",
+      "tags": [
+        "scm",
+        "kariya_jtekt"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "d65935423c2f",
+      "company": "松本機械工業(株)",
+      "title": "[注目製品PickUp! vol.43]ワークも爪もこれ1台、導入しやすいパッケージ/松本機械工業「Smart Terrace」",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBtVXUweWpPa1BNNnFZRXoxSngzOXJ3LWVnVFU0NndzOHVmMlIwZW9uQTRXQ3NEQnQ5TS13WWozZkotTmVJN282QjYxRHBrWHZuYVJYdjhrbWdvSGdqNTNrS0NSU0w0VGdHbE0w?oc=5",
+      "source": "robot digest",
+      "pub": "2022-06-23T16:00:00+09:00",
+      "tags": [
+        "visit"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "inabe-金田工業",
+      "company": "金田工業株式会社",
+      "title": "風量アップ!改良型「空調頭巾」発売 ~溶接作業や野外活動などの熱中症・猛暑対策グッズ~ | 株式会社金田工業",
+      "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9hY2J4NnBuMFBpWWxkeGdUNXI1N2pLVDY2Nk13cVpXMjBfVUUtc2cyamlwanh2VzRQMmNldTcwNXQwb2lPSi1jNzJMWkxCdw?oc=5",
+      "source": "アットプレス",
+      "pub": "2022-06-17T16:00:00+09:00",
+      "tags": [
+        "scm",
+        "inabe"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "houwa-前田精密製作所",
+      "company": "株式会社前田精密製作所",
+      "title": "産業用ロボット部品など増産へ、姫路の工場増強 前田精密製作所",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBwZ0R5aVlKZmZXenh2X19ERzd2SUJUX1JBWVc2STRTOFNoa1FTckgzc2RoVElTT3c2WHJOeGQ0ZTdjUTUydHhtN082RjBCaEF5Y3JlUE9Hb3BULUU4SW8yTTludjc4bE1nM2s3R0xB?oc=5",
+      "source": "神戸新聞",
+      "pub": "2022-03-19T16:00:00+09:00",
+      "tags": [
+        "scm",
+        "houwa"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "houwa-前田精密製作所",
+      "company": "株式会社前田精密製作所",
+      "title": "わが社のマイスター(10)前田精密製作所 5S意識付け、まず自ら実践",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFAtTnBUWDBCSEI1R0RhZ0gycXl5OUQ5a0tWQ21jSG9qX1BDTHdtaFhpV0xYdkRaNmxpSENsNmRDb1BfUlBST3lOSW1MV2pQdW4ydmZmTy15OWg?oc=5",
+      "source": "日刊工業新聞",
+      "pub": "2020-07-29T16:00:00+09:00",
+      "tags": [
+        "scm",
+        "houwa"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "d65935423c2f",
+      "company": "松本機械工業(株)",
+      "title": "ものづくりに性別や年齢の差はない。松本機械工業を支える「多様な人材」",
+      "link": "https://news.google.com/rss/articles/CBMiQkFVX3lxTE5EbUx6QllHZnBnZUtFajlDWi1oWjVYd2d0TWVNYk1kM0FrdEotZ3JhX1A5RzQ1c3ZIeEFHQ3hSbVJrUQ?oc=5",
+      "source": "ニュースイッチ by 日刊工業新聞社",
+      "pub": "2020-04-14T16:00:00+09:00",
+      "tags": [
+        "visit"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "kariya_jtekt-都筑製作所",
+      "company": "株式会社都筑製作所",
+      "title": "長野の都筑製作所、軽量モーターシャフト量産",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFA3N2U2b2pwc2JKdGFJbG5la1E1OEEtWUtFdkJtaFNZZmJyaGE4MU9MUUtUTzBBVkR2OUtwZW5VVHZMZmtyM3dlN2RHNXpZcVdLdnppVGQ3cHp4ZklsQUdMZHpVZkhtODRaNnY1UQ?oc=5",
+      "source": "日本経済新聞",
+      "pub": "2019-11-18T17:00:00+09:00",
+      "tags": [
+        "scm",
+        "kariya_jtekt"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "d65935423c2f",
+      "company": "松本機械工業(株)",
+      "title": "チャックの爪の交換はロボットに【後編】/松本機械工業",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFAweHRfaHItWWZ3bFBORWZzSXB0WUZONlRzTDc5RFBVT3FmMW02anhWTmJ4ZXkxYW5iQW44NVhzR3Yyc1Vna2t0c2FSdkY1emxOUDYtVkk3NzBRbndLQ2t6T1RqY1d4Q1BKVjFr?oc=5",
+      "source": "robot digest",
+      "pub": "2019-03-23T22:49:56+09:00",
+      "tags": [
+        "visit"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "a9457edf2cf0",
+      "company": "東邦工業(株)",
+      "title": "M&Aニュース 山善、東邦工業を株式交換で完全子会社化",
+      "link": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE9KT19SNXJsTW04RkotbDV3TExuU1hYZFRGNjdPSnlDdHZBTC11dEVnci1oVng4YUZCbjRqSkN6OEhLbzM3a1Br?oc=5",
+      "source": "M&Aキャピタルパートナーズ",
+      "pub": "2017-03-09T17:00:00+09:00",
+      "tags": [
+        "visit"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "willbe_tsushima-名光精機",
+      "company": "株式会社名光精機",
+      "title": "<IT経営の真髄 ITCの支援で企業はこう変わる!>52.名光精機(上) カイゼンの力を強みに",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE15U1lBUW40NHp6OUFtM0xNNFE4MnlBdkNURXNXbUxCaXk5dXFWYllXdS1jZS04RDVJVXAtd19YWUdtcHlqSER0Mld2MFN6UW9tMlJyX3loOUxMdWFLa2hqV0htS2pNV3VvZjdra0JuQWJvb2JzYmc?oc=5",
+      "source": "週刊BCN+",
+      "pub": "2011-11-10T17:00:00+09:00",
+      "tags": [
+        "scm",
+        "willbe_tsushima"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "willbe_tsushima-名光精機",
+      "company": "株式会社名光精機",
+      "title": "加工法開発で急成長,ダイカスト鋳造設備も配備〔名光精機〕",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9neWRvQkJzdFJBazR0MExpQjJCU01URjRuOHF2V2ZZQTJpUjRoZmNZOGY2WmdPQkFTWFozWmRwNDJ4NERoQi1aYWdfNGtYWVJLb2pla0ktWlpycEVZU0l0Rm5QdE5SNzNoVW5v?oc=5",
+      "source": "日経クロステック",
+      "pub": "2010-03-02T17:00:00+09:00",
+      "tags": [
+        "scm",
+        "willbe_tsushima"
+      ]
+    },
+    {
+      "kind": "article",
+      "company_id": "99d3fb52b955",
+      "company": "(有)旭鉄工所",
+      "title": "M&Aニュース 尾張精機(7249)旭鉄工所を子会社化",
+      "link": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE4yREQ3LUdJU0Jwa0tUU0RjaHNKazV4dUhXRW1xbHM2N3BoMzJ0bDc4andtUUgyTVROcHRpR0V4VmltaHZ3VmJR?oc=5",
+      "source": "M&Aキャピタルパートナーズ",
+      "pub": "2009-09-01T16:00:00+09:00",
+      "tags": [
+        "visit"
+      ]
+    }
+  ]
+}

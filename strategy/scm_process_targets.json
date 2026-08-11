@@ -1,8 +1,8 @@
 {
-  "updated": "2026-08-11T08:59:49+09:00",
+  "updated": "2026-08-11T09:00:40+09:00",
   "disclaimer": "攻めどころ界隈の公開情報・聞き取りベース。既存顧客・コマツ筋・高周波メイン等は除外済み。",
   "how_to_use": "各界隈の社名一覧を見て訪問先を決める。探索枠は現地で社名を確定して埋める。",
-  "count": 24,
+  "count": 22,
   "group_count": 8,
   "groups": [
     {
@@ -147,7 +147,7 @@
       "pain": "防炭処理をしてくれない → 周辺部品メーカーの外注先を刈る",
       "lat": 35.1986,
       "lng": 136.848,
-      "count": 7,
+      "count": 6,
       "companies": [
         {
           "name": "水谷精機工作所",
@@ -311,29 +311,6 @@
           "employees": null,
           "scale_source": "",
           "scale_summary": "公開規模未確認"
-        },
-        {
-          "id": "visit-763332551a84",
-          "name": "大川歯車",
-          "category": "既存開拓リスト",
-          "area": "",
-          "materials": [
-            "要確認"
-          ],
-          "heat_relation": "熱処理先未把握",
-          "reason": "開拓リスト。業種「—」。熱処理利用を確認。",
-          "source_url": "",
-          "linked_majors": [],
-          "priority": 2,
-          "lat": null,
-          "lng": null,
-          "hotspot_id": "houwa",
-          "hotspot_area": "愛知・豊和工業（清須本社）界隈",
-          "from_visit_list": true,
-          "capital_man_yen": 1000,
-          "employees": 20,
-          "scale_source": "公式",
-          "scale_summary": "資本金1,000万円 / 従業員20名"
         }
       ]
     },
@@ -859,7 +836,7 @@
       "pain": "中部熱処理・栗山熱処理の評判が悪い → 周辺顧客を刈る",
       "lat": 35.0744,
       "lng": 136.5614,
-      "count": 3,
+      "count": 2,
       "companies": [
         {
           "name": "株式会社石垣歯車製作所",
@@ -882,30 +859,6 @@
           "employees": 22,
           "scale_source": "公式",
           "scale_summary": "資本金1,000万円 / 従業員22名"
-        },
-        {
-          "name": "水谷精機工作所（桑名）",
-          "category": "精密部品",
-          "area": "三重県桑名市",
-          "materials": [
-            "鉄系"
-          ],
-          "heat_relation": "豊和筋＋いなべ近傍",
-          "reason": "いなべ〜桑名ルートで再訪・周辺紹介。",
-          "source_url": "",
-          "linked_majors": [
-            "豊和工業"
-          ],
-          "priority": 0,
-          "lat": 35.0666,
-          "lng": 136.6843,
-          "id": "inabe-水谷精機工作所（桑名）",
-          "hotspot_id": "inabe",
-          "hotspot_area": "三重・いなべ市周辺",
-          "capital_man_yen": null,
-          "employees": null,
-          "scale_source": "",
-          "scale_summary": "公開規模未確認"
         },
         {
           "name": "シグマ技研周辺の部品メーカー（探索枠）",
@@ -1049,30 +1002,6 @@
       "employees": 22,
       "scale_source": "公式",
       "scale_summary": "資本金1,000万円 / 従業員22名"
-    },
-    {
-      "name": "水谷精機工作所（桑名）",
-      "category": "精密部品",
-      "area": "三重県桑名市",
-      "materials": [
-        "鉄系"
-      ],
-      "heat_relation": "豊和筋＋いなべ近傍",
-      "reason": "いなべ〜桑名ルートで再訪・周辺紹介。",
-      "source_url": "",
-      "linked_majors": [
-        "豊和工業"
-      ],
-      "priority": 0,
-      "lat": 35.0666,
-      "lng": 136.6843,
-      "id": "inabe-水谷精機工作所（桑名）",
-      "hotspot_id": "inabe",
-      "hotspot_area": "三重・いなべ市周辺",
-      "capital_man_yen": null,
-      "employees": null,
-      "scale_source": "",
-      "scale_summary": "公開規模未確認"
     },
     {
       "name": "東光工業株式会社",
@@ -1416,29 +1345,6 @@
       "scale_summary": "資本金1億円 / 従業員80名"
     },
     {
-      "id": "visit-763332551a84",
-      "name": "大川歯車",
-      "category": "既存開拓リスト",
-      "area": "",
-      "materials": [
-        "要確認"
-      ],
-      "heat_relation": "熱処理先未把握",
-      "reason": "開拓リスト。業種「—」。熱処理利用を確認。",
-      "source_url": "",
-      "linked_majors": [],
-      "priority": 2,
-      "lat": null,
-      "lng": null,
-      "hotspot_id": "houwa",
-      "hotspot_area": "愛知・豊和工業（清須本社）界隈",
-      "from_visit_list": true,
-      "capital_man_yen": 1000,
-      "employees": 20,
-      "scale_source": "公式",
-      "scale_summary": "資本金1,000万円 / 従業員20名"
-    },
-    {
       "name": "株式会社MD（東海市）",
       "category": "金属加工",
       "area": "愛知県東海市",
@@ -1607,14 +1513,6 @@
       "priority": 0
     },
     {
-      "name": "大川歯車",
-      "hotspot_area": "愛知・豊和工業（清須本社）界隈",
-      "capital_man_yen": 1000,
-      "employees": 20,
-      "scale_summary": "資本金1,000万円 / 従業員20名",
-      "priority": 2
-    },
-    {
       "name": "株式会社大川歯車製作所",
       "hotspot_area": "大阪・豊中市界隈",
       "capital_man_yen": 1000,
@@ -1697,14 +1595,6 @@
     {
       "name": "水谷精機工作所",
       "hotspot_area": "愛知・豊和工業（清須本社）界隈",
-      "capital_man_yen": null,
-      "employees": null,
-      "scale_summary": "公開規模未確認",
-      "priority": 0
-    },
-    {
-      "name": "水谷精機工作所（桑名）",
-      "hotspot_area": "三重・いなべ市周辺",
       "capital_man_yen": null,
       "employees": null,
       "scale_summary": "公開規模未確認",

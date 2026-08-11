@@ -1,8 +1,8 @@
 {
-  "updated": "2026-08-11T09:00:40+09:00",
+  "updated": "2026-08-11T09:21:32+09:00",
   "disclaimer": "攻めどころ界隈の公開情報・聞き取りベース。既存顧客・コマツ筋・高周波メイン等は除外済み。",
   "how_to_use": "各界隈の社名一覧を見て訪問先を決める。探索枠は現地で社名を確定して埋める。",
-  "count": 22,
+  "count": 19,
   "group_count": 8,
   "groups": [
     {
@@ -147,32 +147,8 @@
       "pain": "防炭処理をしてくれない → 周辺部品メーカーの外注先を刈る",
       "lat": 35.1986,
       "lng": 136.848,
-      "count": 6,
+      "count": 5,
       "companies": [
-        {
-          "name": "水谷精機工作所",
-          "category": "精密部品・工作機械関連",
-          "area": "三重県桑名市",
-          "materials": [
-            "鉄系精密部品"
-          ],
-          "heat_relation": "豊和筋・防炭困りごとの聞き取り起点",
-          "reason": "攻め所アンカー。防炭対応の困りごと深掘り→周辺紹介を取る。",
-          "source_url": "",
-          "linked_majors": [
-            "豊和工業"
-          ],
-          "priority": 0,
-          "lat": 35.0666,
-          "lng": 136.6843,
-          "id": "houwa-水谷精機工作所",
-          "hotspot_id": "houwa",
-          "hotspot_area": "愛知・豊和工業（清須本社）界隈",
-          "capital_man_yen": null,
-          "employees": null,
-          "scale_source": "",
-          "scale_summary": "公開規模未確認"
-        },
         {
           "name": "清須・稲沢・一宮の歯切・シャフト（探索枠）",
           "category": "探索メモ",
@@ -502,7 +478,7 @@
       "pain": "処理に困っているところがあると聞いている（種まき刈り取り）",
       "lat": 34.7814,
       "lng": 135.4697,
-      "count": 3,
+      "count": 2,
       "companies": [
         {
           "name": "株式会社大川歯車製作所",
@@ -527,30 +503,6 @@
           "employees": 20,
           "scale_source": "公式",
           "scale_summary": "資本金1,000万円 / 従業員20名"
-        },
-        {
-          "name": "東福鍛工株式会社",
-          "category": "鍛造・歯車素材",
-          "area": "大阪府",
-          "materials": [
-            "SC",
-            "SCM",
-            "SNCM"
-          ],
-          "heat_relation": "鍛造〜熱処理〜加工の一貫。SCMギア明示",
-          "reason": "大阪のSCM鍛造ギア。豊中ルートの拡張候補。",
-          "source_url": "https://ja.nc-net.or.jp/company/93919/",
-          "linked_majors": [],
-          "priority": 1,
-          "lat": 34.7,
-          "lng": 135.48,
-          "id": "toyonaka-東福鍛工",
-          "hotspot_id": "toyonaka",
-          "hotspot_area": "大阪・豊中市界隈",
-          "capital_man_yen": null,
-          "employees": null,
-          "scale_source": "",
-          "scale_summary": "公開規模未確認"
         },
         {
           "name": "豊中〜吹田〜池田の追加加工（探索枠）",
@@ -836,30 +788,8 @@
       "pain": "中部熱処理・栗山熱処理の評判が悪い → 周辺顧客を刈る",
       "lat": 35.0744,
       "lng": 136.5614,
-      "count": 2,
+      "count": 1,
       "companies": [
-        {
-          "name": "株式会社石垣歯車製作所",
-          "category": "歯車・シャフト",
-          "area": "三重県四日市市",
-          "materials": [
-            "各種歯車鋼"
-          ],
-          "heat_relation": "歯切・シャフト。焼入外注の可能性",
-          "reason": "いなべ近傍（四日市）。競合評判悪化エリアの歯切候補。",
-          "source_url": "https://www.is-gear.com/",
-          "linked_majors": [],
-          "priority": 0,
-          "lat": 34.97,
-          "lng": 136.64,
-          "id": "inabe-石垣歯車製作所",
-          "hotspot_id": "inabe",
-          "hotspot_area": "三重・いなべ市周辺",
-          "capital_man_yen": 1000,
-          "employees": 22,
-          "scale_source": "公式",
-          "scale_summary": "資本金1,000万円 / 従業員22名"
-        },
         {
           "name": "シグマ技研周辺の部品メーカー（探索枠）",
           "category": "探索メモ",
@@ -956,52 +886,6 @@
       "employees": null,
       "scale_source": "",
       "scale_summary": "公開規模未確認"
-    },
-    {
-      "name": "水谷精機工作所",
-      "category": "精密部品・工作機械関連",
-      "area": "三重県桑名市",
-      "materials": [
-        "鉄系精密部品"
-      ],
-      "heat_relation": "豊和筋・防炭困りごとの聞き取り起点",
-      "reason": "攻め所アンカー。防炭対応の困りごと深掘り→周辺紹介を取る。",
-      "source_url": "",
-      "linked_majors": [
-        "豊和工業"
-      ],
-      "priority": 0,
-      "lat": 35.0666,
-      "lng": 136.6843,
-      "id": "houwa-水谷精機工作所",
-      "hotspot_id": "houwa",
-      "hotspot_area": "愛知・豊和工業（清須本社）界隈",
-      "capital_man_yen": null,
-      "employees": null,
-      "scale_source": "",
-      "scale_summary": "公開規模未確認"
-    },
-    {
-      "name": "株式会社石垣歯車製作所",
-      "category": "歯車・シャフト",
-      "area": "三重県四日市市",
-      "materials": [
-        "各種歯車鋼"
-      ],
-      "heat_relation": "歯切・シャフト。焼入外注の可能性",
-      "reason": "いなべ近傍（四日市）。競合評判悪化エリアの歯切候補。",
-      "source_url": "https://www.is-gear.com/",
-      "linked_majors": [],
-      "priority": 0,
-      "lat": 34.97,
-      "lng": 136.64,
-      "id": "inabe-石垣歯車製作所",
-      "hotspot_id": "inabe",
-      "hotspot_area": "三重・いなべ市周辺",
-      "capital_man_yen": 1000,
-      "employees": 22,
-      "scale_source": "公式",
-      "scale_summary": "資本金1,000万円 / 従業員22名"
     },
     {
       "name": "東光工業株式会社",
@@ -1271,30 +1155,6 @@
       "scale_summary": "資本金1,000万円 / 従業員159名"
     },
     {
-      "name": "東福鍛工株式会社",
-      "category": "鍛造・歯車素材",
-      "area": "大阪府",
-      "materials": [
-        "SC",
-        "SCM",
-        "SNCM"
-      ],
-      "heat_relation": "鍛造〜熱処理〜加工の一貫。SCMギア明示",
-      "reason": "大阪のSCM鍛造ギア。豊中ルートの拡張候補。",
-      "source_url": "https://ja.nc-net.or.jp/company/93919/",
-      "linked_majors": [],
-      "priority": 1,
-      "lat": 34.7,
-      "lng": 135.48,
-      "id": "toyonaka-東福鍛工",
-      "hotspot_id": "toyonaka",
-      "hotspot_area": "大阪・豊中市界隈",
-      "capital_man_yen": null,
-      "employees": null,
-      "scale_source": "",
-      "scale_summary": "公開規模未確認"
-    },
-    {
       "name": "タケウチ興業株式会社",
       "category": "シャフト・精密機械部品",
       "area": "愛知県津島市",
@@ -1505,14 +1365,6 @@
       "priority": 0
     },
     {
-      "name": "株式会社石垣歯車製作所",
-      "hotspot_area": "三重・いなべ市周辺",
-      "capital_man_yen": 1000,
-      "employees": 22,
-      "scale_summary": "資本金1,000万円 / 従業員22名",
-      "priority": 0
-    },
-    {
       "name": "株式会社大川歯車製作所",
       "hotspot_area": "大阪・豊中市界隈",
       "capital_man_yen": 1000,
@@ -1561,14 +1413,6 @@
       "priority": 2
     },
     {
-      "name": "東福鍛工株式会社",
-      "hotspot_area": "大阪・豊中市界隈",
-      "capital_man_yen": null,
-      "employees": null,
-      "scale_summary": "公開規模未確認",
-      "priority": 1
-    },
-    {
       "name": "株式会社MD（東海市）",
       "hotspot_area": "愛知・豊和工業（清須本社）界隈",
       "capital_man_yen": null,
@@ -1591,14 +1435,6 @@
       "employees": null,
       "scale_summary": "公開規模未確認",
       "priority": 2
-    },
-    {
-      "name": "水谷精機工作所",
-      "hotspot_area": "愛知・豊和工業（清須本社）界隈",
-      "capital_man_yen": null,
-      "employees": null,
-      "scale_summary": "公開規模未確認",
-      "priority": 0
     },
     {
       "name": "豊和鍛工株式会社",
@@ -1677,6 +1513,14 @@
     {
       "name": "広島県の業者全般",
       "why": "活動圏外のため一覧に出さない"
+    },
+    {
+      "name": "石垣歯車製作所",
+      "why": "既存取引先"
+    },
+    {
+      "name": "東福鍛工",
+      "why": "訪問済・単価が合わず見送り"
     },
     {
       "name": "中西製作所",

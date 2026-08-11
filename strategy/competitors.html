@@ -28,7 +28,7 @@
       <span class="text-slate-300">|</span>
       <div>
         <h1 class="text-lg font-bold text-violet-900">競合管理</h1>
-        <p class="text-xs text-slate-500">攻めどころとは別画面。地域別にまとめて、設備・増強・委託型を確認</p>
+        <p class="text-xs text-slate-500">キーワードで設備・処理を検索。協力候補へ委託できる相手もここから</p>
       </div>
     </div>
     <div class="flex items-center gap-2 text-xs">
@@ -43,12 +43,21 @@
   <!-- 左: 検索 -->
   <aside class="lg:col-span-4 space-y-3">
     <section class="bg-white rounded-2xl border border-violet-200 p-4">
-      <label class="block text-xs font-bold text-violet-900 mb-1">フリー検索</label>
-      <input id="q" type="search" placeholder="社名・設備・地域・ピット炉・増強…"
+      <label class="block text-xs font-bold text-violet-900 mb-1">キーワード検索</label>
+      <input id="q" type="search" placeholder="例: ガス窒化　窒化処理　真空　浸炭（空白でAND）"
         class="w-full border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-violet-300"
         oninput="onSearch()" />
+      <p class="mt-1 text-[10px] text-slate-400">処理名・設備名・社名で検索可。同義語（ガス窒化⇄窒化処理など）も拾います</p>
       <div class="mt-2 flex flex-wrap gap-1.5">
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-slate-200 bg-slate-50" onclick="clearAll()">クリア</button>
+        <button type="button" class="kwchip text-[11px] px-2 py-1 rounded-lg border border-emerald-200 bg-emerald-50 text-emerald-900" onclick="applyKeyword('ガス窒化')">ガス窒化</button>
+        <button type="button" class="kwchip text-[11px] px-2 py-1 rounded-lg border border-emerald-200 bg-emerald-50 text-emerald-900" onclick="applyKeyword('窒化処理')">窒化処理</button>
+        <button type="button" class="kwchip text-[11px] px-2 py-1 rounded-lg border border-emerald-200 bg-emerald-50 text-emerald-900" onclick="applyKeyword('軟窒化')">軟窒化</button>
+        <button type="button" class="kwchip text-[11px] px-2 py-1 rounded-lg border border-sky-200 bg-sky-50 text-sky-900" onclick="applyKeyword('真空')">真空</button>
+        <button type="button" class="kwchip text-[11px] px-2 py-1 rounded-lg border border-sky-200 bg-sky-50 text-sky-900" onclick="applyKeyword('浸炭')">浸炭</button>
+        <button type="button" class="kwchip text-[11px] px-2 py-1 rounded-lg border border-sky-200 bg-sky-50 text-sky-900" onclick="applyKeyword('高周波')">高周波</button>
+        <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-teal-200 bg-teal-50 text-teal-900" onclick="applyPreset({tags:['協力候補'], query:'協力候補'})">協力候補</button>
+        <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-teal-200 bg-teal-50 text-teal-900" onclick="applyPreset({tags:['委託先候補'], query:'委託先候補'})">委託先候補</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-amber-200 bg-amber-50 text-amber-900" onclick="applyPreset({tags:['委託型']})">委託型</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-rose-200 bg-rose-50 text-rose-800" onclick="applyPreset({tags:['増強']})">増強あり</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-violet-200 bg-violet-50 text-violet-900" onclick="applyPreset({macro:'keihanshin'})">京阪神</button>
@@ -103,6 +112,48 @@ let activePresetId = null;
 let filter = { query: '', tags: [], region: '', macro: '' };
 const HQ_PLANT_RE = /工場|事業部|営業所|\([^)]+\)/;
 
+/** 検索同義語・誤変換ゆるめ（例: ガス窒化 / 窒化処理） */
+const KEYWORD_SYNONYMS = {
+  'ガス窒化': ['ガス窒化', '窒化', '窒化処理', '軟窒化'],
+  '窒化処理': ['窒化処理', '窒化', 'ガス窒化', '軟窒化', 'イオン窒化', 'プラズマ窒化'],
+  '窒化': ['窒化', '窒化処理', 'ガス窒化', '軟窒化', 'イオン窒化', 'プラズマ窒化', '浸炭窒化'],
+  '軟窒化': ['軟窒化', 'ガス軟窒化', '窒化', '窒化処理'],
+  'イオン窒化': ['イオン窒化', 'プラズマ窒化', '窒化'],
+  'プラズマ窒化': ['プラズマ窒化', 'イオン窒化', '窒化'],
+  '浸炭': ['浸炭', 'ガス浸炭', '浸炭窒化'],
+  '真空': ['真空', '真空炉', '真空熱処理'],
+  '高周波': ['高周波', '誘導加熱', '高周波焼入'],
+  '協力候補': ['協力候補', '委託先候補', '協力', '相互紹介'],
+  '委託先候補': ['委託先候補', '協力候補', '委託'],
+  'ガス難実家': ['ガス窒化', '窒化', '窒化処理'], // 誤変換救済
+  '実家処理': ['窒化処理', '窒化', 'ガス窒化'],
+};
+
+function expandToken(token) {
+  const t = token.trim().toLowerCase();
+  if (!t) return [];
+  for (const [k, syns] of Object.entries(KEYWORD_SYNONYMS)) {
+    if (k.toLowerCase() === t || syns.some(s => s.toLowerCase() === t)) {
+      return syns.map(s => s.toLowerCase());
+    }
+  }
+  return [t];
+}
+
+function tokenMatches(blob, token) {
+  const alts = expandToken(token);
+  return alts.some(a => blob.includes(a));
+}
+
+function queryMatches(blob, rawQuery) {
+  const q = (rawQuery || '').trim().toLowerCase();
+  if (!q) return true;
+  // 空白区切りは AND（すべて一致）
+  const parts = q.split(/[\s　,、]+/).filter(Boolean);
+  if (parts.length <= 1) return tokenMatches(blob, q);
+  return parts.every(p => tokenMatches(blob, p));
+}
+
 function isHqRow(row) {
   if (row.operation === 'customer' || row.exclude) return false;
   if (row.scope === 'company_wide' || row.scope === 'hq') return true;
@@ -128,16 +179,16 @@ function allRows() {
 }
 
 function matches(row) {
-  const q = (filter.query || '').trim().toLowerCase();
   const blob = [
     row.name, row.area, row.note, row.blurb, row.commentary,
     row.equipment_summary, row.scale_summary,
     (row.tags || []).join(' '),
     (row.strategy_notes || []).join(' '),
     (row.equipment || []).map(e => `${e.name} ${e.maker || ''} ${e.spec || ''}`).join(' '),
-    row.region_label, row.macro_region, row.operation, row.delegate_to,
+    row.region_label, row.macro_region, row.operation, row.delegate_to, row.relation,
     row.detail_missing ? '詳細情報がない 相手にしない' : '',
     row.has_expansion_alert ? '増強' : '',
+    row.relation === 'coop_candidate' ? '協力候補 委託先候補 協力 委託' : '',
     (row.client_hints || []).length ? '取引先ヒント' : '',
   ].join(' ').toLowerCase();
 
@@ -145,9 +196,9 @@ function matches(row) {
   if (filter.macro && row.macro_region !== filter.macro) return false;
   if ((filter.tags || []).length) {
     const tags = new Set(row.tags || []);
-    if (!filter.tags.every(t => tags.has(t) || blob.includes(t.toLowerCase()))) return false;
+    if (!filter.tags.every(t => tags.has(t) || tokenMatches(blob, t))) return false;
   }
-  if (q && !blob.includes(q)) return false;
+  if (!queryMatches(blob, filter.query)) return false;
   return true;
 }
 
@@ -177,6 +228,14 @@ function filtered() {
 
 function onSearch() {
   filter.query = document.getElementById('q').value || '';
+  activePresetId = null;
+  highlightPresets();
+  renderList();
+}
+
+function applyKeyword(kw) {
+  filter = { query: kw, tags: [], region: '', macro: '' };
+  document.getElementById('q').value = kw;
   activePresetId = null;
   highlightPresets();
   renderList();
@@ -291,6 +350,11 @@ function showDetail(id) {
     ${home ? `<a class="inline-block mt-1 text-xs text-indigo-700 font-semibold hover:underline" href="${esc(home)}" target="_blank" rel="noopener">公式HP ↗</a>` : ''}
     ${row.has_expansion_alert ? '<p class="text-sm comp-alert-expand mt-2">⚠ 増強情報あり</p>' : ''}
     ${row.operation === 'broker' ? `<p class="text-sm font-bold text-amber-800 mt-2">委託型</p><p class="text-xs text-amber-900">委託先: ${esc(row.delegate_to || '要確認')}</p>` : ''}
+    ${row.relation === 'coop_candidate' || (row.tags || []).includes('協力候補') ? `
+      <div class="mt-2 p-2 rounded-lg border border-emerald-300 bg-emerald-50">
+        <p class="text-sm font-bold text-emerald-900">協力候補（こちらから委託しうる相手）</p>
+        <p class="text-[11px] text-emerald-900 mt-0.5">競合でも役割分担・相互紹介・外注先になり得る。取引条件・品質・キャパを要確認。</p>
+      </div>` : ''}
     ${row.detail_missing ? '<p class="text-sm comp-alert-missing mt-2">詳細情報がない — 相手にしない</p>' : ''}
 
     <div class="mt-3 p-2 rounded-lg bg-violet-50 border border-violet-100">

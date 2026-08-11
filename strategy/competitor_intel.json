@@ -2486,11 +2486,16 @@
     {
       "id": "f8521d1fac09",
       "name": "深田熱処理工業株式会社",
-      "area": "石川県・小松市",
-      "updated": "2026-08-11T19:00:39+09:00",
-      "scope": "plant",
+      "area": "石川県・小松／金沢",
+      "updated": "2026-08-12",
+      "scope": "company_wide",
       "profile": {
-        "official_name": "深田熱処理工業株式会社"
+        "official_name": "深田熱処理工業株式会社",
+        "address": "石川県小松市",
+        "website": "https://www.fukada-net.co.jp/machine/",
+        "lat": 36.408,
+        "lng": 136.445,
+        "customers": []
       },
       "scale_summary": "1963年創業・小松本社+金沢工場/JISQ9100・Nadcap",
       "equipment": [
@@ -2519,7 +2524,7 @@
           "maker": ""
         }
       ],
-      "equipment_summary": "真空炉・連続無酸化焼入焼戻3・オールケース浸炭系・高周波8・大型大気調質炉等",
+      "equipment_summary": "連続無酸化炉450～600kg/h×3系列、1tバッチ炉、金沢工場大型大気炉1,300H×2,000W×4,000L・4t/チャージ、高周波（長尺12,000mm対応あり）、真空炉。",
       "strategy_notes": [
         "航空宇宙産業部品、自動車・二輪車部品、医療機器部品、工作機械部品、鉄道車両用部品、建設機械部品、農業機械部品、産業機械(ロボット)部品、スポーツ用品",
         "(社)日本航空宇宙工業会",
@@ -2541,56 +2546,35 @@
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
-      "news": [
-        {
-          "title": "石川・小松市はなぜ暑いのか?10日全国トップの暑さとなる最高気温40.0度...",
-          "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5HbDlVRnQ2RkNLVDZGY0IwelBFT09xdHhPNVhtbDVaNm1iajd4N2tDb3dFQUxLS0Zxd2RBaGxGTVpveVVPQl9FQ2R2THEyR1g2SVN6eDlFU01KTmoxZVA3S0E1YjQ1dw?oc=5",
-          "source": "TBS NEWS DIG",
-          "pub": "2023-08-22T16:00:00+09:00",
-          "query": "深田熱処理 小松",
-          "clients": [],
-          "is_expansion": false
-        },
-        {
-          "title": "由良産商 新会社ジャパン・エアロ・ネットワーク設立",
-          "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFB6a0IyekdIZ0pYYmlKc09Wb0E0RFZBZndrc3E4dkpvSmc4eVdwcjFZREJlUGlRc21Ga2NiaXl1X1NPaWJzOFRLdno5d2ZFU3FmZmlSQzBxNUJGYklUYmVRZzl2VTRpQkNXVW15RkR3?oc=5",
-          "source": "ファスニングジャーナル",
-          "pub": "2013-03-15T16:00:00+09:00",
-          "query": "深田熱処理 小松",
-          "clients": [],
-          "is_expansion": false
-        }
-      ],
+      "news": [],
       "sources": [
         {
           "kind": "company",
-          "url": "https://www.fukada-net.co.jp/about/company.php",
-          "fetched_at": "2026-08-11T19:00:36+09:00"
-        },
-        {
-          "kind": "equipment",
-          "url": "https://www.fukada-net.co.jp/machine/",
-          "fetched_at": "2026-08-11T19:00:37+09:00"
+          "url": "https://www.fukada-net.co.jp/machine/"
         }
       ],
       "errors": [],
-      "note": "競合(北陸・石川)。真空/浸炭/Nadcap等。小松・金沢工場。客として訪問しない。",
+      "note": "競合。優先S。客として訪問しない。",
       "region_label": "石川・富山",
       "macro_region": "hokuriku",
-      "blurb": "小松・金沢。建機・航空（Nadcap）まで。北陸の実力派総合熱処理。",
-      "commentary": "",
+      "blurb": "連続無酸化炉450～600kg/h×3系列、1tバッチ炉、金沢工場大型大気炉1,300H×2,000W×4,000L・4t/チャージ、高周波（長尺12,000mm対応あり）、真空炉。",
+      "commentary": "Sランク。大型＋設備種類豊富。調査順②。",
       "tags": [
-        "高周波",
-        "真空",
-        "浸炭",
-        "連続炉",
-        "バッチ",
-        "大型",
-        "航空宇宙",
-        "アルミ",
-        "調質",
-        "北陸"
-      ]
+        "北陸",
+        "石川",
+        "熱処理専業",
+        "優先S",
+        "超大型型"
+      ],
+      "relation": "competitor",
+      "aliases": [
+        "深田熱処理"
+      ],
+      "lat": 36.408,
+      "lng": 136.445,
+      "position": "超大型型",
+      "customers": [],
+      "hokuriku_rank": "S"
     },
     {
       "id": "100165a92540",
@@ -3243,17 +3227,17 @@
     },
     {
       "id": "b28aabb69a53",
-      "name": "泉北熱錬株式会社",
-      "area": "大阪府・堺市西区",
-      "updated": "2026-08-12T05:48:07+09:00",
+      "name": "株式会社北熱",
+      "area": "富山県・富山市",
+      "updated": "2026-08-12",
       "scope": "company_wide",
       "profile": {
-        "official_name": "泉北熱錬株式会社",
-        "capital": "4,000万円",
-        "founded": "昭和43年(1968年)12月1日",
-        "address": "〒593-8315 大阪府堺市西区菱木1丁2370番地 TEL 072-271-1441 FAX 072-271-1443",
-        "business": "(1)重量物焼鈍・焼準 (2)長尺物焼鈍・焼準 (3)ステンレス固溶化処理 (4)鋳鋼焼入・焼戻 (5)そり直し焼鈍 (6)その他熱処理全般",
-        "equipment_note": "公式設備一覧は全社合計。拠点別台数は別エントリ。"
+        "official_name": "株式会社北熱",
+        "address": "富山県富山市",
+        "website": "https://www.hokunetsu.com/products/002/",
+        "lat": 36.696,
+        "lng": 137.213,
+        "customers": []
       },
       "scale_summary": "【全社】資本金4,000万円 / 敷地4,000m2・建坪2,500m2 / 堺市西区",
       "equipment": [
@@ -3294,7 +3278,7 @@
           "maker": ""
         }
       ],
-      "equipment_summary": "【全社】大型台車炉A/B/C(最大120t・長さ13m級)+定置E+箱型電気炉・500tプレス・クレーン40t(公式工場設備)",
+      "equipment_summary": "真空熱処理、窒化、PVD等。金型・工具系色が強め。",
       "strategy_notes": [
         "円形鋼管熱処理認定工場",
         "大型重量物・長尺焼鈍焼準が看板",
@@ -3320,30 +3304,31 @@
       "sources": [
         {
           "kind": "company",
-          "url": "https://www.senbokuneturen.jp/%e4%bc%9a%e7%a4%be%e6%a6%82%e8%a6%81/",
-          "fetched_at": "2026-08-12T05:48:04+09:00"
-        },
-        {
-          "kind": "equipment",
-          "url": "https://www.senbokuneturen.jp/%e5%b7%a5%e5%a0%b4%e8%a8%ad%e5%82%99/",
-          "fetched_at": "2026-08-12T05:48:05+09:00"
+          "url": "https://www.hokunetsu.com/products/002/"
         }
       ],
       "errors": [],
-      "note": "競合。客として訪問しない。",
-      "region_label": "大阪",
-      "macro_region": "keihanshin",
-      "blurb": "【全社】大型台車炉A/B/C(最大120t・長さ13m級)+定置E+箱型電気炉・500tプレス・クレーン40t(公式工場設備) 【全社】資本金4,000万円 / 敷地4,000m2・建坪2,500m2 / 堺市西区 大型重量物・長尺焼鈍焼準が看板 強み候補: 浸炭・大型・長尺",
-      "commentary": "円形鋼管熱処理認定工場 / 大型重量物・長尺焼鈍焼準が看板 / ±10°C温度制御",
+      "note": "競合。優先B。客として訪問しない。",
+      "region_label": "石川・富山",
+      "macro_region": "hokuriku",
+      "blurb": "真空熱処理、窒化、PVD等。金型・工具系色が強め。",
+      "commentary": "Bランク。今回の本命（大型鍛鋳鋼）より少し外れる。",
       "tags": [
-        "浸炭",
-        "大型",
-        "長尺",
-        "重量物",
-        "焼鈍",
-        "調質",
-        "京阪神"
-      ]
+        "北陸",
+        "富山",
+        "熱処理専業",
+        "優先B",
+        "小～中ロット型"
+      ],
+      "relation": "competitor",
+      "aliases": [
+        "北熱"
+      ],
+      "lat": 36.696,
+      "lng": 137.213,
+      "position": "小～中ロット型",
+      "customers": [],
+      "hokuriku_rank": "B"
     },
     {
       "id": "50dede68aeff",
@@ -9207,20 +9192,21 @@
       "id": "de06234c7532",
       "name": "石川熱処理工業株式会社",
       "area": "石川県・小松市",
-      "updated": "2026-08-12T07:12:30+09:00",
+      "updated": "2026-08-12",
       "scope": "company_wide",
       "profile": {
         "official_name": "石川熱処理工業株式会社",
-        "founded": "平成4年6月1日",
-        "capital": "3,000万円",
-        "representative": "酒井久裕",
-        "business": "浸炭、無酸化、高周波、ガス軟窒化、真空、アルミ溶体化、調質、焼鈍、焼準、ショットブラスト"
+        "address": "石川県小松市",
+        "website": "https://www.tekkokiden.jp/members/category/246/cacacaaeaeaac.php",
+        "lat": 36.408,
+        "lng": 136.45,
+        "customers": []
       },
       "scale_summary": "資本金3,000万円",
       "equipment": [],
-      "equipment_summary": "委託型の聞き取りあり。協会ページに自動化・検査設備導入の記載。型式一覧なし",
+      "equipment_summary": "浸炭、無酸化、高周波、真空、調質、焼鈍、焼準、アルミ溶体化等。ガス軟窒化のみではない。",
       "strategy_notes": [],
-      "operation": "broker",
+      "operation": "own",
       "delegate_to": "京浜熱処理（聞き取り・正式社名要確認）",
       "detail_status": "ok",
       "detail_missing": false,
@@ -9231,73 +9217,27 @@
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
-      "news": [
-        {
-          "title": "IoTで炉の稼働状況を遠隔監視「岡谷熱処理工業」",
-          "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1yejFqRzYycWZTWE1CMFk3U1o4YkJGeDZfY1hCbFczV0tiMndudnZPNlBHSkdoWjl6YS1SVk5yR3dWQjk1U19MWFdodVkwOU1HS1Q3U1Y5bTNVSTlfaURTcE16YUJLZkVOdDJr?oc=5",
-          "source": "J-Net21[中小企業ビジネス支援サイト]",
-          "pub": "2019-10-13T02:56:16+09:00",
-          "query": "石川熱処理工業株式会社 熱処理",
-          "clients": [],
-          "is_expansion": false
-        },
-        {
-          "title": "【5/6(火休)北九州戦】石川県発Tシャツブランド「OJICO」がデザインしたTシャツを先着8,000名様にプレゼント!",
-          "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5mQ3lDWFRmRU5GRVVsanFFZW9UX0doZ001TFpkNGxvZkVDQTFxZW0wSllma1VEenZaaXhFamdnUXRMLTRTeGxCWl8zNlBOZVlqbV9PRWdHdGdYUHpld2FaRkw2M1Z1RjFieHc?oc=5",
-          "source": "PR TIMES",
-          "pub": "2025-04-07T16:00:00+09:00",
-          "query": "石川熱処理工業株式会社 熱処理",
-          "clients": [],
-          "is_expansion": false
-        },
-        {
-          "title": "【ゲームレポート】10/29(土)天皇杯vs.熊本",
-          "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE95MmljQUc3YmdEdXNFelM4ckhYS2hNbV9MODR1SGhRbmd6ZUNfRjl0UUVXV3JVVFBoSG95X3ctbnBYUkZXRHY0RHVkTEtaaExyVTJXTmhiYw?oc=5",
-          "source": "シーホース三河",
-          "pub": "2022-10-30T16:00:00+09:00",
-          "query": "石川熱処理工業株式会社 熱処理",
-          "clients": [],
-          "is_expansion": false
-        },
-        {
-          "title": "由良産商 新会社ジャパン・エアロ・ネットワーク設立",
-          "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFB6a0IyekdIZ0pYYmlKc09Wb0E0RFZBZndrc3E4dkpvSmc4eVdwcjFZREJlUGlRc21Ga2NiaXl1X1NPaWJzOFRLdno5d2ZFU3FmZmlSQzBxNUJGYklUYmVRZzl2VTRpQkNXVW15RkR3?oc=5",
-          "source": "ファスニングジャーナル",
-          "pub": "2013-03-15T16:00:00+09:00",
-          "query": "石川熱処理工業株式会社 熱処理",
-          "clients": [],
-          "is_expansion": false
-        },
-        {
-          "title": "Bリーグ 2022-23 B1リーグ戦 2022/10/21 川崎 vs 三河",
-          "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPWjFmTVlSb1lXdTlzNzRaMHJEcWFESnJrdUM3X0ZFVTJGeEU1dmVMMFBZOVFhZzdpZmlqTEs5U2dMLWp6aktMbko1M2ZBdHhKMXlQTEJWMWZScXFsMm1rbTduZnFHQXl3Uk5Kdy1FU1dZWVFRTVJUZTVCVG01ZzN4YlBfaXVsalZaMHc?oc=5",
-          "source": "シーホース三河",
-          "pub": "2022-10-21T16:00:00+09:00",
-          "query": "石川熱処理工業株式会社 熱処理",
-          "clients": [],
-          "is_expansion": false
-        }
-      ],
+      "news": [],
       "sources": [
         {
           "kind": "company",
-          "url": "https://www.tekkokiden.jp/members/category/246/cacacaaeaeaac.php",
-          "fetched_at": "2026-08-12T07:03:13+09:00"
+          "url": "https://www.tekkokiden.jp/members/category/246/cacacaaeaeaac.php"
         }
       ],
       "errors": [],
-      "note": "【委託型】聞き取り: 自社では熱処理せず京浜熱処理へ委託。窓口・紹介競合として把握。客として訪問しない。",
+      "note": "競合。優先A。客として訪問しない。",
       "region_label": "石川・富山",
       "macro_region": "hokuriku",
-      "blurb": "【委託型】聞き取りでは自社炉なし。京浜熱処理へ委託する窓口。実炉競合ではない。",
-      "commentary": "鉄工機電協会では設備メニューを掲げているが、営業聞き取りは委託型。相手にするなら委託先の把握が先。",
+      "blurb": "浸炭、無酸化、高周波、真空、調質、焼鈍、焼準、アルミ溶体化等。ガス軟窒化のみではない。",
+      "commentary": "Aランク。総合型。ガス軟窒化だけではないので調査価値あり。調査順④。明石合銅（窒化のみ／対応不可）とは別扱い。",
       "tags": [
-        "委託型",
         "北陸",
-        "窓口",
-        "委託窓口型"
+        "石川",
+        "熱処理専業",
+        "優先A",
+        "総合型"
       ],
-      "position": "委託窓口型",
+      "position": "総合型",
       "equipment_map": {
         "carburize": "△",
         "vacuum": "△",
@@ -9307,19 +9247,29 @@
         "anneal": "△",
         "max_size": "自社炉なし（聞き取り）",
         "lot": "取り次ぎ"
-      }
+      },
+      "relation": "competitor",
+      "aliases": [
+        "石川熱処理"
+      ],
+      "lat": 36.408,
+      "lng": 136.45,
+      "customers": [],
+      "hokuriku_rank": "A"
     },
     {
       "id": "9545a37db4e8",
       "name": "株式会社福井熱処理",
       "area": "福井県・鯖江市",
-      "updated": "2026-08-11T19:03:18+09:00",
-      "scope": "plant",
+      "updated": "2026-08-12",
+      "scope": "company_wide",
       "profile": {
         "official_name": "株式会社福井熱処理",
-        "capital": "2,000万円",
-        "employees": "14名",
-        "address": "■本社:熱処理事業部"
+        "address": "福井県鯖江市杉本町38字5",
+        "website": "https://www.fns-grp.jp/contents/heat/index.html",
+        "lat": 35.956,
+        "lng": 136.187,
+        "customers": []
       },
       "scale_summary": "福井県・鯖江市",
       "equipment": [
@@ -9348,7 +9298,7 @@
           "maker": ""
         }
       ],
-      "equipment_summary": "・焼戻し炉7基・・1室型真空炉(100kg)2基・・1室型オールメタル加圧…1基・・ピット型ガス窒化炉(直…1基",
+      "equipment_summary": "真空炉100～500kg、真空油焼入150kg、焼戻炉7基、ガス窒化炉等。中小型中心。",
       "strategy_notes": [
         "・3室型連続真空炉(400kg) |",
         "・1室型真空炉(100kg) |",
@@ -9357,7 +9307,7 @@
         "3室型連続真空炉(400kg) |",
         "1室型オールメタル加圧式真空炉(400kg) |"
       ],
-      "operation": "broker",
+      "operation": "own",
       "delegate_to": "要確認",
       "detail_status": "complete",
       "detail_missing": false,
@@ -9368,73 +9318,36 @@
       "client_sectors": [],
       "partners": [],
       "client_hints": [],
-      "news": [
-        {
-          "title": "日本製鉄と三菱造船、低圧液化CO2タンクの新規鋼材と熱処理(PWHT)省略技術を開発",
-          "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFB5TDdkenUtMGF6a2kwV1RpWnRnYXdDOUFQQk90NHl2SHdGZTE5N0NxUllvNFhabGctWGFub29yUlZwcmFsdXludHpBN0RhY051VFptMGpqMTlZaTVBdW1tbnJ4eUhUOUlNQTRGMA?oc=5",
-          "source": "nikkei.com",
-          "pub": "2025-12-05T17:00:00+09:00",
-          "query": "株式会社福井熱処理 熱処理",
-          "clients": [],
-          "is_expansion": false
-        },
-        {
-          "title": "作業情報のデジタル化を推進し、柔軟で迅速な熱処理・塗装加工を実現【理化工業株式会社】(大阪府八尾市)",
-          "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFAtdDF1Z2VrTVhiMmJCalRnZ3FqTGRhdHh3eTQtUWRBM3pIX190d2xMSHk4Y1FkbzZfSG02Mk9pS1J2TGdBckg1d1ZnVGxHdk01NFBXdXRGMG1sRWJKTnZGRUw0ZVpXb1dIdHViU2JJOA?oc=5",
-          "source": "J-Net21[中小企業ビジネス支援サイト]",
-          "pub": "2022-06-27T16:00:00+09:00",
-          "query": "株式会社福井熱処理 熱処理",
-          "clients": [],
-          "is_expansion": false
-        },
-        {
-          "title": "IoTで炉の稼働状況を遠隔監視「岡谷熱処理工業」",
-          "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1yejFqRzYycWZTWE1CMFk3U1o4YkJGeDZfY1hCbFczV0tiMndudnZPNlBHSkdoWjl6YS1SVk5yR3dWQjk1U19MWFdodVkwOU1HS1Q3U1Y5bTNVSTlfaURTcE16YUJLZkVOdDJr?oc=5",
-          "source": "J-Net21[中小企業ビジネス支援サイト]",
-          "pub": "2019-10-13T02:56:16+09:00",
-          "query": "株式会社福井熱処理 熱処理",
-          "clients": [],
-          "is_expansion": false
-        },
-        {
-          "title": "大阪の金属熱処理加工「要工業」に破産決定、負債16億円 国内倒産",
-          "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBpMzB5SHRSUkJLWUdEcm8za1QwSVcxXzIyVjQwLTNRb0ZGeXFJbGI3Q185Z1dRRHNCUVFQcFhoRFZyTXk5SWtZWkpMOFB6OEZjVldQam9CcnAwakFvUWc?oc=5",
-          "source": "fukeiki.com",
-          "pub": "2024-02-23T17:00:00+09:00",
-          "query": "株式会社福井熱処理 熱処理",
-          "clients": [],
-          "is_expansion": false
-        }
-      ],
+      "news": [],
       "sources": [
         {
           "kind": "company",
-          "url": "http://www.fns-grp.jp/contents/company/index.html",
-          "fetched_at": "2026-08-11T19:03:16+09:00"
-        },
-        {
-          "kind": "equipment",
-          "url": "http://www.fns-grp.jp/contents/heat/index.html",
-          "fetched_at": "2026-08-11T19:03:17+09:00"
+          "url": "https://www.fns-grp.jp/contents/heat/index.html"
         }
       ],
       "errors": [],
-      "note": "【委託型の可能性】聞き取り: 石川熱処理と同様に委託窓口の話あり。公式は真空等を掲示→実態確認。客として訪問しない。",
+      "note": "競合。優先B。客として訪問しない。",
       "region_label": "福井",
       "macro_region": "hokuriku",
-      "blurb": "【委託型の可能性】公式は真空等を掲示。聞き取りでは委託窓口の話あり→実態確認。",
-      "commentary": "",
+      "blurb": "真空炉100～500kg、真空油焼入150kg、焼戻炉7基、ガス窒化炉等。中小型中心。",
+      "commentary": "Bランク。真空関係は確認価値。大型狙いでは栗田・深田より下。調査順⑤。",
       "tags": [
-        "ピット炉",
-        "真空",
-        "ガス窒化",
-        "窒化",
-        "連続炉",
-        "委託型",
-        "窒化処理",
         "北陸",
-        "要確認"
-      ]
+        "福井",
+        "熱処理専業",
+        "優先B",
+        "小～中ロット型"
+      ],
+      "relation": "competitor",
+      "aliases": [
+        "福井熱処理",
+        "FNS"
+      ],
+      "lat": 35.956,
+      "lng": 136.187,
+      "position": "小～中ロット型",
+      "customers": [],
+      "hokuriku_rank": "B"
     },
     {
       "id": "ef721fd3ea5f",
@@ -11531,37 +11444,30 @@
     {
       "id": "d8487451184f",
       "name": "栗田HT株式会社",
-      "area": "石川県・羽咋市三ツ屋町",
+      "area": "石川県・羽咋市",
       "region_label": "石川・富山",
       "macro_region": "hokuriku",
       "scope": "company_wide",
       "operation": "own",
       "relation": "competitor",
       "tags": [
-        "石川",
         "北陸",
+        "石川",
         "熱処理専業",
-        "大型",
-        "焼鈍",
-        "焼準",
-        "調質",
-        "軸受",
-        "風力",
-        "建機",
-        "西部会員"
+        "優先S",
+        "超大型型"
       ],
       "aliases": [
         "栗田HT",
         "クリタHT",
-        "Kurita HT",
-        "栗田ＨＴ"
+        "Kurita HT"
       ],
-      "blurb": "羽咋の鍛鋳鋼熱処理専業。風力超大型軸受・新幹線／航空機軸受・産機建機超大型。台車炉16t級・ピット炉φ3.2m級。栗田精工グループ。",
-      "commentary": "主要取引先: ジェイテクト、NTN、不二越、石川可鍛製鉄、平鍛造、昭和鋳工等。建機認定: コマツ／日立建機／コベルコ。",
-      "note": "競合。客として訪問しない。住所: 石川県羽咋市三ツ屋町ニ66番地1。TEL 0767-22-8911。",
+      "blurb": "台車式炉最大16t、ピット炉最大6t（φ3,200）、焼入油槽φ3,200、焼準等。風力・新幹線・航空機軸受、建機・産機超大型。",
+      "commentary": "Sランク。大型品本命。調査順①。小物会社とは別カテゴリ。",
+      "note": "競合。優先S。客として訪問しない。",
       "lat": 36.897,
       "lng": 136.782,
-      "equipment_summary": "台車式熱処理炉4基（最大16t級）／トレイプッシャ連続焼準炉1／ピット炉3（φ3.2m・6t級）／焼入油槽φ3.2m／ショット等",
+      "equipment_summary": "台車式炉最大16t、ピット炉最大6t（φ3,200）、焼入油槽φ3,200、焼準等。風力・新幹線・航空機軸受、建機・産機超大型。",
       "equipment_map": {
         "carburize": "—",
         "vacuum": "—",
@@ -11576,9 +11482,6 @@
       "profile": {
         "official_name": "栗田HT株式会社",
         "address": "石川県羽咋市三ツ屋町ニ66番地1",
-        "tel": "0767-22-8911",
-        "capital": "6,500万円",
-        "employees": "約16名",
         "website": "https://www.k-ksk.co.jp/kht_profile.html",
         "lat": 36.897,
         "lng": 136.782,
@@ -11588,8 +11491,7 @@
           "不二越",
           "石川可鍛製鉄",
           "平鍛造",
-          "昭和鋳工",
-          "伊藤忠丸紅住商テクノスチール"
+          "昭和鋳工"
         ]
       },
       "customers": [
@@ -11604,24 +11506,64 @@
         {
           "kind": "company",
           "url": "https://www.k-ksk.co.jp/kht_profile.html"
-        },
-        {
-          "kind": "company",
-          "url": "http://www.isico.or.jp/virtual/vkogyo/kurita-ht.html"
         }
       ],
       "detail_missing": false,
       "has_expansion_alert": false,
       "expansion_alerts": [],
       "news": [],
-      "client_hints": [
-        "風力軸受",
-        "新幹線軸受",
-        "建機超大型",
-        "ジェイテクト",
-        "NTN",
-        "不二越"
+      "client_hints": [],
+      "errors": [],
+      "updated": "2026-08-12",
+      "hokuriku_rank": "S"
+    },
+    {
+      "id": "bc45f485a736",
+      "name": "株式会社水口熱処理",
+      "area": "富山県・滑川市",
+      "region_label": "石川・富山",
+      "macro_region": "hokuriku",
+      "scope": "company_wide",
+      "operation": "own",
+      "relation": "competitor",
+      "tags": [
+        "北陸",
+        "富山",
+        "熱処理専業",
+        "優先A",
+        "総合型"
       ],
+      "aliases": [
+        "水口熱処理"
+      ],
+      "blurb": "浸炭、無酸化、真空、高周波、ソルトバス、窒化等。滑川に3工場。従業員約35名・技能士31名（2025年6月公式）。",
+      "commentary": "Aランク。総合型。炉サイズ詳細は追加調査。調査順③。",
+      "note": "競合。優先A。客として訪問しない。",
+      "lat": 36.766,
+      "lng": 137.39,
+      "equipment_summary": "浸炭、無酸化、真空、高周波、ソルトバス、窒化等。滑川に3工場。従業員約35名・技能士31名（2025年6月公式）。",
+      "position": "総合型",
+      "profile": {
+        "official_name": "株式会社水口熱処理",
+        "address": "富山県滑川市",
+        "website": "https://mizuguchi-netsusyori.co.jp/company/",
+        "lat": 36.766,
+        "lng": 137.39,
+        "customers": []
+      },
+      "customers": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://mizuguchi-netsusyori.co.jp/company/"
+        }
+      ],
+      "hokuriku_rank": "A",
+      "detail_missing": false,
+      "has_expansion_alert": false,
+      "expansion_alerts": [],
+      "news": [],
+      "client_hints": [],
       "errors": [],
       "updated": "2026-08-12"
     }

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <title>社内炉メーカー（未取引調査）</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic UI', sans-serif; }
+    .chip.active { background: #9a3412; color: #fff; border-color: #9a3412; }
+  </style>
+</head>
+<body class="bg-slate-50 min-h-screen">
+
+<header class="bg-white border-b border-slate-200 sticky top-0 z-30">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+    <div class="flex items-center gap-3">
+      <a href="./index.html" class="text-slate-400 hover:text-slate-600 text-sm">← 戦略と戦術</a>
+      <span class="text-slate-300">|</span>
+      <div>
+        <h1 class="text-lg font-bold text-orange-900">社内炉メーカー</h1>
+        <p class="text-xs text-slate-500">本業は鍛造・鋳造・加工。専業熱処理リストとは別。未取引の会社、社内炉あり</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-2 text-xs">
+      <span id="stat" class="text-slate-500"></span>
+      <a href="./competitors.html" class="font-semibold text-violet-800 bg-violet-50 hover:bg-violet-100 border border-violet-200 px-3 py-1.5 rounded-lg">熱処理専業へ</a>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-4 py-4 space-y-4">
+  <section class="bg-orange-50 border border-orange-200 rounded-2xl p-4">
+    <p class="text-sm text-orange-950 font-semibold">このリストは「熱処理専業」ではありません。</p>
+    <p class="text-xs text-orange-900/90 mt-1 leading-relaxed">
+      鍛造・鋳造・機械加工・部品製造が本業で、公開情報で社内工程に熱処理炉を確認できた会社です。
+      マザック／ヤンマー型の「社内炉あり → 外注化・能力不足の契機」を洗うための調査台帳です。
+    </p>
+    <p id="focus-hint" class="text-[11px] text-orange-800 mt-2"></p>
+  </section>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+    <aside class="lg:col-span-4 space-y-3">
+      <section class="bg-white rounded-2xl border border-orange-200 p-4">
+        <label class="block text-xs font-bold text-orange-900 mb-1">キーワード</label>
+        <input id="q" type="search" placeholder="例: 岡山　鍛造　浸炭　明治"
+          class="w-full border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-300" />
+        <div class="flex flex-wrap gap-1.5 mt-3">
+          <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-rose-300 bg-rose-50 text-rose-900" onclick="setFilter({focus:true})">重点15社</button>
+          <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-orange-200 bg-orange-50 text-orange-900" onclick="setFilter({priority:'A+'})">A+</button>
+          <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-orange-200 bg-orange-50 text-orange-900" onclick="setFilter({priority:'A'})">A</button>
+          <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-slate-200 bg-slate-50 text-slate-700" onclick="setFilter({priority:'B'})">B</button>
+          <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-slate-200" onclick="setFilter({})">クリア</button>
+        </div>
+        <p class="text-[10px] font-bold text-orange-900 mt-3 mb-1.5">地域</p>
+        <div id="region-chips" class="flex flex-wrap gap-1.5"></div>
+      </section>
+    </aside>
+
+    <section class="lg:col-span-5">
+      <div class="flex items-center justify-between mb-2">
+        <h2 class="text-sm font-bold text-slate-800">一覧</h2>
+        <span id="result-count" class="text-xs text-slate-500"></span>
+      </div>
+      <div id="list" class="space-y-4"></div>
+    </section>
+
+    <section class="lg:col-span-3">
+      <div id="detail" class="bg-white rounded-2xl border border-orange-200 p-4 sticky top-20 max-h-[80vh] overflow-auto">
+        <p class="text-sm text-slate-400">左のカードを選ぶと詳細が出ます</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script>
+let data = null;
+let filter = { query: '', region: '', priority: '', focus: false };
+
+function esc(s) {
+  return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function setFilter(patch) {
+  filter = { query: filter.query, region: '', priority: '', focus: false, ...patch };
+  if (patch.query !== undefined) filter.query = patch.query;
+  document.getElementById('q').value = filter.query || '';
+  render();
+}
+
+function matches(c) {
+  if (filter.focus && !c.focus) return false;
+  if (filter.region && c.region !== filter.region) return false;
+  if (filter.priority && c.priority !== filter.priority) return false;
+  const q = (filter.query || '').trim().toLowerCase();
+  if (!q) return true;
+  const blob = [c.name, c.short, c.pref, c.region, c.business, c.furnaces, c.note, ...(c.aliases||[])].join(' ').toLowerCase();
+  return q.split(/[\s　]+/).filter(Boolean).every(p => blob.includes(p));
+}
+
+function priBadge(p) {
+  if (p === 'A+') return '<span class="text-[10px] font-bold text-rose-700 bg-rose-100 px-1.5 py-0.5 rounded">A+</span>';
+  if (p === 'A') return '<span class="text-[10px] font-bold text-orange-800 bg-orange-100 px-1.5 py-0.5 rounded">A</span>';
+  return '<span class="text-[10px] font-bold text-slate-600 bg-slate-100 px-1.5 py-0.5 rounded">B</span>';
+}
+
+function card(c) {
+  return `
+  <button type="button" onclick="showDetail('${esc(c.id)}')"
+    class="w-full text-left rounded-xl border p-3 transition hover:bg-orange-50/60
+      ${c.focus ? 'border-orange-300 bg-orange-50/40' : 'border-slate-200 bg-white'}">
+    <div class="flex items-start justify-between gap-2">
+      <p class="text-sm font-bold text-slate-900">${esc(c.short || c.name)}</p>
+      <div class="flex gap-1 shrink-0">
+        ${priBadge(c.priority)}
+        ${c.focus ? '<span class="text-[10px] font-bold text-rose-700">重点</span>' : ''}
+      </div>
+    </div>
+    <p class="text-[11px] text-slate-500 mt-0.5">${esc(c.pref)} · ${esc(c.business || '')}</p>
+    <p class="text-xs text-slate-800 mt-1.5 leading-relaxed">${esc((c.furnaces || '').slice(0, 90))}${(c.furnaces||'').length>90?'…':''}</p>
+  </button>`;
+}
+
+function showDetail(id) {
+  const c = (data.companies || []).find(x => x.id === id);
+  if (!c) return;
+  document.getElementById('detail').innerHTML = `
+    <p class="text-[10px] font-bold text-orange-800 mb-1">未取引の会社、社内炉あり</p>
+    <h3 class="text-base font-bold text-slate-900">${esc(c.name)}</h3>
+    <p class="text-xs text-slate-500 mt-0.5">${esc(c.pref)} / ${esc(c.region)}</p>
+    <div class="flex gap-1 mt-2">${priBadge(c.priority)}${c.focus ? '<span class="text-[10px] font-bold text-rose-700 bg-rose-50 px-1.5 py-0.5 rounded">重点調査</span>' : ''}</div>
+    <p class="text-xs font-semibold text-slate-800 mt-3">本業</p>
+    <p class="text-sm text-slate-800">${esc(c.business || '—')}</p>
+    <p class="text-xs font-semibold text-slate-800 mt-3">確認できた社内炉</p>
+    <p class="text-sm text-slate-800 leading-relaxed">${esc(c.furnaces || '—')}</p>
+    ${c.note ? `<p class="text-[11px] text-orange-900 mt-2 bg-orange-50 border border-orange-100 rounded-lg p-2">${esc(c.note)}</p>` : ''}
+    ${c.source_url ? `<a class="inline-block mt-3 text-xs font-semibold text-indigo-700 hover:underline" href="${esc(c.source_url)}" target="_blank" rel="noopener">設備・出典 ${esc(c.source_label || '')} ↗</a>` : ''}
+    <p class="text-[10px] text-slate-400 mt-4">取引: ${esc(c.deal_status || '未取引')} ／ 専業熱処理ではない</p>
+  `;
+}
+
+function render() {
+  const rows = (data.companies || []).filter(matches);
+  const orderPri = data.priority_order || ['A+','A','B'];
+  const orderReg = data.regions_order || [];
+  rows.sort((a,b) => {
+    const fa = a.focus ? 0 : 1, fb = b.focus ? 0 : 1;
+    if (fa !== fb) return fa - fb;
+    const pa = orderPri.indexOf(a.priority), pb = orderPri.indexOf(b.priority);
+    if (pa !== pb) return (pa<0?9:pa) - (pb<0?9:pb);
+    const ra = orderReg.indexOf(a.region), rb = orderReg.indexOf(b.region);
+    return (ra<0?9:ra) - (rb<0?9:rb);
+  });
+  document.getElementById('result-count').textContent = `${rows.length} / ${(data.companies||[]).length} 社`;
+  document.getElementById('stat').textContent = `全${data.stats?.total || 0}社 · 重点${data.stats?.focus || 0}`;
+
+  const groups = new Map();
+  for (const r of rows) {
+    const k = r.region || 'その他';
+    if (!groups.has(k)) groups.set(k, []);
+    groups.get(k).push(r);
+  }
+  const ordered = [...groups.keys()].sort((a,b) => {
+    const ia = orderReg.indexOf(a), ib = orderReg.indexOf(b);
+    return (ia<0?99:ia) - (ib<0?99:ib);
+  });
+  document.getElementById('list').innerHTML = ordered.map(region => `
+    <div>
+      <h3 class="text-xs font-bold text-orange-900 mb-2 sticky top-16 bg-slate-50/95 py-1 z-10">${esc(region)}
+        <span class="text-slate-400 font-normal">(${groups.get(region).length})</span></h3>
+      <div class="space-y-2">${groups.get(region).map(card).join('')}</div>
+    </div>`).join('') || '<p class="text-sm text-slate-400">該当なし</p>';
+}
+
+async function init() {
+  const v = Date.now();
+  data = await fetch(`./inhouse_ht_makers.json?v=${v}`).then(r => r.json());
+  const regions = data.regions_order || [];
+  document.getElementById('region-chips').innerHTML = regions.map(r =>
+    `<button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-orange-200 bg-orange-50 text-orange-900"
+      onclick="setFilter({region:'${esc(r)}'})">${esc(r)}</button>`
+  ).join('');
+  document.getElementById('focus-hint').textContent =
+    `まず重点調査: ${(data.focus_first || []).join('／')}`;
+  document.getElementById('q').addEventListener('input', e => {
+    filter.query = e.target.value;
+    render();
+  });
+  render();
+}
+init().catch(err => {
+  document.getElementById('list').innerHTML = `<p class="text-sm text-rose-700">読込失敗: ${esc(err.message)}</p>`;
+});
+</script>
+</body>
+</html>

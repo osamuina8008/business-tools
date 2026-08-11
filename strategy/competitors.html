@@ -32,12 +32,13 @@
       <span class="text-slate-300">|</span>
       <div>
         <h1 class="text-lg font-bold text-violet-900">競合管理</h1>
-        <p class="text-xs text-slate-500">キーワードで設備・処理を検索。協力候補へ委託できる相手もここから</p>
+        <p class="text-xs text-slate-500">熱処理専業。社内炉メーカーは別ページ</p>
       </div>
     </div>
     <div class="flex items-center gap-2 text-xs">
       <span id="stat" class="text-slate-500"></span>
       <span id="crawl-stat" class="text-slate-400"></span>
+      <a href="./inhouse_ht.html" class="font-semibold text-orange-900 bg-orange-50 hover:bg-orange-100 border border-orange-200 px-3 py-1.5 rounded-lg">社内炉メーカー</a>
       <button type="button" onclick="document.getElementById('map-section').scrollIntoView({behavior:'smooth'})"
         class="font-semibold text-white bg-violet-700 hover:bg-violet-800 px-3 py-1.5 rounded-lg">地図</button>
       <a href="./index.html" class="font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg">攻めどころ</a>
@@ -94,7 +95,7 @@
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-teal-200 bg-teal-50 text-teal-900" onclick="applyPreset({tags:['一部協業'], query:'一部協業'})">一部協業</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-teal-200 bg-teal-50 text-teal-900" onclick="applyPreset({tags:['委託先候補'], query:'委託先候補'})">委託先候補</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-sky-200 bg-sky-50 text-sky-900" onclick="applyPreset({tags:['炉メーカー'], query:'炉メーカー'})">炉メーカー</button>
-        <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-orange-200 bg-orange-50 text-orange-900" onclick="applyPreset({tags:['社内炉'], query:'社内炉 未取引'})">未取引・社内炉あり</button>
+        <a href="./inhouse_ht.html" class="text-[11px] px-2 py-1 rounded-lg border border-orange-200 bg-orange-50 text-orange-900 font-semibold">未取引・社内炉あり →</a>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-emerald-200 bg-emerald-50 text-emerald-900" onclick="applyPreset({tags:['受注済'], query:'受注済'})">受注済</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-slate-300 bg-slate-50 text-slate-700" onclick="applyPreset({tags:['過去客'], query:'過去客'})">過去客</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-violet-200 bg-violet-50 text-violet-900" onclick="applyPreset({region:'京都・滋賀・奈良', query:'滋賀'})">滋賀</button>

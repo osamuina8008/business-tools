@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updated": "2026-08-11",
+  "updated": "2026-08-12",
   "disclaimer": "聞き取り・推測ベース。訪問判断は人が行う。地図ピンは概ねの位置。",
   "source": "strategy_master.xlsx",
   "map": {
@@ -788,10 +788,13 @@
       "name": "株式会社刈谷熱煉工業所",
       "area": "愛知県・刈谷市",
       "region": "tokai",
-      "lat": 34.989,
-      "lng": 137.002,
+      "lat": 34.993,
+      "lng": 136.998,
       "note": "競合。客として訪問しない。",
-      "marker": "competitor"
+      "marker": "competitor",
+      "tags": [
+        "刈谷"
+      ]
     },
     {
       "id": "6e9f2d398435",
@@ -808,10 +811,13 @@
       "name": "栄熱処理工業株式会社",
       "area": "愛知県・刈谷市",
       "region": "tokai",
-      "lat": 34.99,
-      "lng": 137.0,
+      "lat": 34.996,
+      "lng": 137.01,
       "note": "競合。客として訪問しない。",
-      "marker": "competitor"
+      "marker": "competitor",
+      "tags": [
+        "刈谷"
+      ]
     },
     {
       "id": "5d732a104490",
@@ -838,10 +844,13 @@
       "name": "株式会社メイネツ",
       "area": "愛知県・刈谷市",
       "region": "tokai",
-      "lat": 34.99,
-      "lng": 137.0,
+      "lat": 35.018,
+      "lng": 137.035,
       "note": "競合。客として訪問しない。",
-      "marker": "competitor"
+      "marker": "competitor",
+      "tags": [
+        "刈谷"
+      ]
     },
     {
       "id": "fdfcb1f9d829",
@@ -868,20 +877,26 @@
       "name": "高周波熱錬株式会社(刈谷)",
       "area": "愛知県・刈谷市",
       "region": "tokai",
-      "lat": 35.02,
-      "lng": 137.02,
+      "lat": 35.025,
+      "lng": 137.015,
       "note": "競合(ネツレン刈谷)。客として訪問しない。",
-      "marker": "competitor"
+      "marker": "competitor",
+      "tags": [
+        "刈谷"
+      ]
     },
     {
       "id": "b534429aa28d",
       "name": "デンコーテクノヒート株式会社(刈谷)",
       "area": "愛知県・刈谷市",
       "region": "tokai",
-      "lat": 34.99,
-      "lng": 137.02,
+      "lat": 34.985,
+      "lng": 137.025,
       "note": "競合。客として訪問しない。",
-      "marker": "competitor"
+      "marker": "competitor",
+      "tags": [
+        "刈谷"
+      ]
     },
     {
       "id": "5838037f1e84",
@@ -1258,10 +1273,13 @@
       "name": "日高工業株式会社",
       "area": "愛知県・刈谷市一里山町",
       "region": "tokai",
-      "lat": null,
-      "lng": null,
+      "lat": 35.032,
+      "lng": 137.048,
       "note": "競合。日本金属熱処理工業会(中部)会員。愛知県 刈谷市一里山町柳原7−1。客として訪問しない。",
-      "marker": "competitor"
+      "marker": "competitor",
+      "tags": [
+        "刈谷"
+      ]
     },
     {
       "id": "ca37923e3734",
@@ -1288,10 +1306,13 @@
       "name": "株式会社マルテック",
       "area": "愛知県・刈谷市一里山町",
       "region": "tokai",
-      "lat": null,
-      "lng": null,
+      "lat": 35.03,
+      "lng": 137.052,
       "note": "競合。日本金属熱処理工業会(中部)会員。愛知県 刈谷市一里山町東吹戸1−5。客として訪問しない。",
-      "marker": "competitor"
+      "marker": "competitor",
+      "tags": [
+        "刈谷"
+      ]
     },
     {
       "id": "de06234c7532",
@@ -1542,6 +1563,21 @@
       "lng": 135.595,
       "note": "競合（東研・大阪府・富田林市若松町東（富田林工場））。通称「刀剣サーモ」誤変換あり。客として訪問しない。",
       "marker": "competitor"
+    },
+    {
+      "id": "b0ac6b9279a8",
+      "name": "株式会社ジェイテクトコーティング",
+      "area": "愛知県・刈谷市",
+      "region": "tokai",
+      "lat": 34.99,
+      "lng": 137.02,
+      "note": "競合隣接（ジェイテクト系・表面処理/コーティング）。熱処理専業ではないが組合会員。客として訪問しない。",
+      "marker": "competitor",
+      "tags": [
+        "刈谷",
+        "コーティング",
+        "表面処理"
+      ]
     }
   ],
   "news_keywords": [

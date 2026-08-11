@@ -4,7 +4,14 @@
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [],
+  "today_logs": [
+    {
+      "type": "短答",
+      "questions_count": 15,
+      "understanding": "普通",
+      "topic": ""
+    }
+  ],
   "spacing_items": [
     {
       "interval_label": "",
@@ -235,8 +242,8 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": false,
-  "updated_at": "2026-08-11T07:00:22.985848",
+  "has_data": true,
+  "updated_at": "2026-08-11T15:33:23.415266",
   "today_tasks": [
     {
       "subject": "憲法",
@@ -244,16 +251,6 @@
       "action": "短答3問｜論点：違憲審査基準（LRA・比較衡量）・表現の自由・平等原則",
       "theme": "短答2周目開始・論文構成（骨組みのみ）",
       "situation": "今週0/15問。あと15問（8日ぶり）",
-      "actual_q": 0,
-      "target_q": 15,
-      "checked": false
-    },
-    {
-      "subject": "民法",
-      "status": "遅れ",
-      "action": "短答3問｜論点：物権変動（対抗要件・善意取得）・抵当権の効力範囲",
-      "theme": "短答2周目・頻出論点の論文骨組み",
-      "situation": "今週0/15問。あと15問（7日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -309,10 +306,31 @@
       "checked": false
     }
   ],
-  "quiz_question": "",
-  "quiz_answer_hint": "",
-  "articles": [],
-  "freq_rating": "",
+  "quiz_question": "任意代理人がやむを得ない事由で復代理人を選任した場合、復代理人の行為は本人に帰属するか？",
+  "quiz_answer_hint": "民法106条2項：法定・任意を区別せず本人に直接帰属",
+  "articles": [
+    {
+      "gist": "任意代理人の復代理人選任要件",
+      "ref": "民法104条"
+    },
+    {
+      "gist": "復代理人は本人に直接効果帰属",
+      "ref": "民法106条2項"
+    },
+    {
+      "gist": "代理権濫用：相手方悪意有過失で無権代理扱い",
+      "ref": "民法107条"
+    },
+    {
+      "gist": "無権代理の追認は行為時に遡及",
+      "ref": "民法116条"
+    },
+    {
+      "gist": "無権代理人責任：相手方が履行・損賠を選択",
+      "ref": "民法117条1項"
+    }
+  ],
+  "freq_rating": "★★★",
   "weak_points_text": "",
   "next_focus": "",
   "persistent_weak": [

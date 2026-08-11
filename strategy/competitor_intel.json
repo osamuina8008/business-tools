@@ -7280,7 +7280,7 @@
       "id": "039473a866c6",
       "name": "旭千代田工業株式会社",
       "area": "愛知県・尾張旭市東栄町",
-      "updated": "2026-08-12T07:12:30+09:00",
+      "updated": "2026-08-12T08:15:24+09:00",
       "scope": "company_wide",
       "profile": {
         "official_name": "旭千代田工業株式会社",
@@ -7332,7 +7332,7 @@
       "note": "競合。日本金属熱処理工業会(中部)会員。愛知県 尾張旭市東栄町4−8−1。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "真空・浸炭・窒化・高周波・軟窒化・オーステンパ等の処理メニュー(公式処理案内) 資本金9,500万円 / 従業員279名 強み候補: 高周波・真空・浸炭",
+      "blurb": "真空・浸炭・窒化・高周波・軟窒化・オーステンパ等の処理メニュー(公式処理案内) 資本金9,500万円 / 従業員279名 強み候補: 高周波・真空・浸炭 豊橋・明海に工場あり。",
       "tags": [
         "高周波",
         "真空",
@@ -7342,7 +7342,9 @@
         "ADI",
         "窒化処理",
         "西部会員",
-        "総合型"
+        "総合型",
+        "豊橋工場あり",
+        "東三河"
       ],
       "position": "総合型",
       "equipment_map": {
@@ -8965,7 +8967,7 @@
       "id": "6f399014cca9",
       "name": "株式会社丸上製作所",
       "area": "愛知県・豊川市御津町",
-      "updated": "2026-08-12T07:12:30+09:00",
+      "updated": "2026-08-12T08:15:24+09:00",
       "scope": "company_wide",
       "profile": {
         "official_name": "株式会社丸上製作所",
@@ -9061,12 +9063,17 @@
       "note": "競合。日本金属熱処理工業会(中部)会員。愛知県 豊川市御津町佐脇浜二号地1−19。客として訪問しない。",
       "region_label": "愛知",
       "macro_region": "tokai",
-      "blurb": "・加熱炉(電気・自動温度調節機付/バッチ式)3基・・焼戻炉(ガス・自動温度調節機付/連続式)3基・・成形加熱炉(ガス・自動温度調節機付/連続式)2基・・焼入加熱炉(ガス・自動温度調… 資本金3,000万円 / 従業員92名 強み候補: 連続炉・バッチ",
+      "blurb": "豊川・御津のばね専業。加熱炉・焼入炉・焼戻炉など自社熱処理設備あり（工業会会員）。受託専業というより一貫製造寄り。",
       "tags": [
         "連続炉",
         "バッチ",
         "西部会員",
-        "情報不足"
+        "情報不足",
+        "豊川",
+        "東三河",
+        "豊橋地区",
+        "ばね",
+        "自社熱処理"
       ],
       "position": "情報不足",
       "equipment_map": {
@@ -9078,7 +9085,9 @@
         "anneal": "—",
         "max_size": "不明",
         "lot": "量産寄り（推定）"
-      }
+      },
+      "lat": 34.785,
+      "commentary": "東三河マップに座標を付与。熱処理の外注先というよりばね一貫の競合・周辺理解用。"
     },
     {
       "id": "769f6e36751a",
@@ -10498,8 +10507,368 @@
       "news": [],
       "client_hints": [],
       "errors": []
+    },
+    {
+      "id": "7ad3f48c4882",
+      "name": "有限会社二川熱処理工業所",
+      "area": "愛知県・豊橋市大岩町（二川）",
+      "region_label": "愛知",
+      "macro_region": "tokai",
+      "scope": "company_wide",
+      "operation": "own",
+      "relation": "competitor",
+      "tags": [
+        "豊橋",
+        "東三河",
+        "熱処理専業",
+        "二川",
+        "豊橋地区"
+      ],
+      "aliases": [
+        "二川熱処理"
+      ],
+      "blurb": "豊橋・二川の金属熱処理専業。東三河のローカル熱処理屋。公開設備詳細は限定的。",
+      "commentary": "工業団地・幹線沿いの二川地区。豊橋地区の受託熱処理候補。",
+      "note": "競合。客として訪問しない。住所: 愛知県豊橋市大岩町字前荒田68-3",
+      "scale_summary": "公開規模情報少／豊橋市",
+      "profile": {
+        "official_name": "有限会社二川熱処理工業所",
+        "address": "愛知県豊橋市大岩町字前荒田68-3",
+        "tel": "0532-41-1475"
+      },
+      "equipment": [],
+      "equipment_summary": "金属熱処理（詳細非公開）",
+      "equipment_map": {
+        "carburize": "△",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "△",
+        "max_size": "不明",
+        "lot": "不明"
+      },
+      "position": "情報不足",
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://el.e-shops.jp/local/nsh/0296697805.html"
+        }
+      ],
+      "updated": "2026-08-12T08:15:24+09:00",
+      "detail_missing": true,
+      "has_expansion_alert": false,
+      "expansion_alerts": [],
+      "news": [],
+      "client_hints": [],
+      "errors": []
+    },
+    {
+      "id": "3a4dce2475f9",
+      "name": "旭千代田工業株式会社(豊橋)",
+      "area": "愛知県・豊橋市明海町（豊橋工場）",
+      "region_label": "愛知",
+      "macro_region": "tokai",
+      "scope": "plant",
+      "operation": "own",
+      "relation": "competitor",
+      "tags": [
+        "豊橋",
+        "東三河",
+        "浸炭",
+        "真空浸炭",
+        "浸炭窒化",
+        "旭千代田",
+        "豊橋地区"
+      ],
+      "aliases": [
+        "愛知千代田豊橋",
+        "アサヒチヨダ豊橋"
+      ],
+      "blurb": "旭千代田・豊橋工場（明海）。浸炭／真空浸炭／浸炭窒化／焼入焼戻し／防炭・ブラスト。自動車・弱電部品の表面熱処理。",
+      "commentary": "本社は尾張旭。豊橋は明海工業団地の受託熱処理拠点。デンソー・アイシン系取引の情報あり。",
+      "note": "競合。客として訪問しない。住所: 愛知県豊橋市明海町5-35",
+      "scale_summary": "豊橋工場／親会社資本金9,500万円・連結規模",
+      "profile": {
+        "official_name": "旭千代田工業株式会社(豊橋)",
+        "address": "愛知県豊橋市明海町5-35",
+        "tel": "0532-23-4631",
+        "parent": "旭千代田工業株式会社"
+      },
+      "equipment": [
+        {
+          "name": "浸炭焼入",
+          "count": null,
+          "maker": "",
+          "spec": ""
+        },
+        {
+          "name": "真空浸炭焼入",
+          "count": null,
+          "maker": "",
+          "spec": ""
+        },
+        {
+          "name": "浸炭窒化",
+          "count": null,
+          "maker": "",
+          "spec": ""
+        },
+        {
+          "name": "焼入・焼戻し",
+          "count": null,
+          "maker": "",
+          "spec": ""
+        }
+      ],
+      "equipment_summary": "浸炭焼入・真空浸炭焼入・浸炭窒化・焼入焼戻し・防炭・ブラスト（公式生産拠点）",
+      "equipment_map": {
+        "carburize": "○",
+        "vacuum": "○",
+        "nitride": "△",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "△",
+        "max_size": "不明",
+        "lot": "量産〜中ロット"
+      },
+      "position": "自動車・浸炭型",
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.a-chiyoda.co.jp/profile/base.html"
+        },
+        {
+          "kind": "company",
+          "url": "https://www.a-chiyoda.co.jp/"
+        }
+      ],
+      "updated": "2026-08-12T08:15:24+09:00",
+      "detail_missing": false,
+      "has_expansion_alert": false,
+      "expansion_alerts": [],
+      "news": [],
+      "client_hints": [],
+      "errors": []
+    },
+    {
+      "id": "1714517f428b",
+      "name": "永田鉄工株式会社",
+      "area": "愛知県・豊川市宿町（本社・工場）",
+      "region_label": "愛知",
+      "macro_region": "tokai",
+      "scope": "company_wide",
+      "operation": "own",
+      "relation": "competitor",
+      "tags": [
+        "豊川",
+        "東三河",
+        "浸炭",
+        "歯車",
+        "熱処理工場",
+        "豊橋圏",
+        "豊橋地区"
+      ],
+      "aliases": [
+        "NAGATA",
+        "永田鉄工 豊川"
+      ],
+      "blurb": "豊川の精密歯車メーカー。事業目的に金属熱処理加工を明記。2012年新熱処理専門工場。歯車向け浸炭焼入など。",
+      "commentary": "受託もあるが歯車一貫が主。東三河の熱処理キャパとして把握。工業会中部会員。",
+      "note": "競合。客として訪問しない。住所: 愛知県豊川市宿町野川1-12",
+      "scale_summary": "資本金7,625万円／従業員約157名／年商約51億円／敷地約49,000㎡",
+      "profile": {
+        "official_name": "永田鉄工株式会社",
+        "address": "愛知県豊川市宿町野川1-12",
+        "tel": "0533-72-2131",
+        "capital": "7,625万円",
+        "employees": "約157名",
+        "founded": "1946年",
+        "business": "精密歯車製造販売／金属熱処理加工"
+      },
+      "equipment": [],
+      "equipment_summary": "熱処理専門工場あり（浸炭焼入等）。台数非公開。精密歯車製造が本業。",
+      "equipment_map": {
+        "carburize": "○",
+        "vacuum": "△",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "△",
+        "max_size": "不明",
+        "lot": "小〜中ロット"
+      },
+      "position": "自動車・浸炭型",
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://nagatatekko.co.jp/company/overview"
+        },
+        {
+          "kind": "company",
+          "url": "https://nagatatekko.co.jp/about"
+        }
+      ],
+      "updated": "2026-08-12T08:15:24+09:00",
+      "detail_missing": false,
+      "has_expansion_alert": false,
+      "expansion_alerts": [],
+      "news": [],
+      "client_hints": [],
+      "errors": []
+    },
+    {
+      "id": "904ec6c73c6d",
+      "name": "DOWAサーモテック株式会社(浜松)",
+      "area": "静岡県・浜松市中央区葵西（浜松工場）",
+      "region_label": "静岡",
+      "macro_region": "tokai",
+      "scope": "plant",
+      "operation": "own",
+      "relation": "competitor",
+      "tags": [
+        "浜松",
+        "東三河隣接",
+        "浸炭",
+        "軟窒化",
+        "DOWA",
+        "豊橋圏",
+        "豊橋地区"
+      ],
+      "aliases": [
+        "DOWA浜松",
+        "ドーワ浜松"
+      ],
+      "blurb": "DOWA浜松工場。浸炭・タフナイト・ハーデルナイト・ショット。豊橋から東へ隣接の大型受託拠点。",
+      "commentary": "豊橋地区の外注先候補として東三河マップに含める。",
+      "note": "競合。客として訪問しない。住所: 静岡県浜松市中央区葵西2-27-1",
+      "scale_summary": "DOWAサーモエンジニアリング浜松工場",
+      "profile": {
+        "official_name": "DOWAサーモテック株式会社(浜松)",
+        "address": "静岡県浜松市中央区葵西2-27-1",
+        "tel": "053-436-5501",
+        "parent": "DOWAサーモテック株式会社"
+      },
+      "equipment": [
+        {
+          "name": "バッチ型浸炭焼入れ炉(TKM-80)",
+          "count": null,
+          "maker": "DOWA",
+          "spec": ""
+        },
+        {
+          "name": "2トレイ浸炭焼入れ炉(TKM-80W)",
+          "count": null,
+          "maker": "DOWA",
+          "spec": ""
+        },
+        {
+          "name": "小型連続浸炭焼入れ炉(S-TKM80)",
+          "count": null,
+          "maker": "DOWA",
+          "spec": ""
+        },
+        {
+          "name": "バッチ型タフナイト炉(THN-80)",
+          "count": null,
+          "maker": "DOWA",
+          "spec": "ガス軟窒化"
+        },
+        {
+          "name": "ハーデルナイト炉",
+          "count": null,
+          "maker": "DOWA",
+          "spec": "雰囲気制御窒化"
+        }
+      ],
+      "equipment_summary": "バッチ／連続浸炭・タフナイト・ハーデルナイト・ショットピーニング",
+      "equipment_map": {
+        "carburize": "○",
+        "vacuum": "△",
+        "nitride": "○",
+        "induction": "—",
+        "aluminum": "—",
+        "anneal": "△",
+        "max_size": "不明",
+        "lot": "量産〜中ロット"
+      },
+      "position": "総合型",
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.dowa.co.jp/thermo-tech/about-tht/japan/hamamatsu.html"
+        }
+      ],
+      "updated": "2026-08-12T08:15:24+09:00",
+      "detail_missing": false,
+      "has_expansion_alert": false,
+      "expansion_alerts": [],
+      "news": [],
+      "client_hints": [],
+      "errors": []
+    },
+    {
+      "id": "97eb3878eeb4",
+      "name": "ムツミ熱処理株式会社",
+      "area": "静岡県・浜松市中央区小池町",
+      "region_label": "静岡",
+      "macro_region": "tokai",
+      "scope": "company_wide",
+      "operation": "own",
+      "relation": "competitor",
+      "tags": [
+        "浜松",
+        "熱処理専業",
+        "焼鈍",
+        "ショット",
+        "豊橋圏",
+        "アルミ",
+        "豊橋地区"
+      ],
+      "aliases": [
+        "ムツミ熱処理"
+      ],
+      "blurb": "浜松の金属熱処理専業。焼鈍・焼準〜ショット・塗装一貫。鉄鋼／アルミ。豊橋圏の隣接競合。",
+      "commentary": "工業会中部会員。従業員約17名の小規模専業。関連に中遠熱処理技研。",
+      "note": "競合。客として訪問しない。住所: 静岡県浜松市中央区小池町2365-1",
+      "scale_summary": "資本金2,000万円／従業員約17名／敷地面積約4,185㎡",
+      "profile": {
+        "official_name": "ムツミ熱処理株式会社",
+        "address": "静岡県浜松市中央区小池町2365-1",
+        "tel": "053-464-6320"
+      },
+      "equipment": [],
+      "equipment_summary": "熱処理炉複数（最大3t級の記載あり）・ショットブラスト。詳細台数は要確認。",
+      "equipment_map": {
+        "carburize": "△",
+        "vacuum": "—",
+        "nitride": "—",
+        "induction": "—",
+        "aluminum": "○",
+        "anneal": "○",
+        "max_size": "3t級炉の記載",
+        "lot": "小〜中ロット"
+      },
+      "position": "小～中ロット型",
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.mutsumi-ht.jp/"
+        },
+        {
+          "kind": "company",
+          "url": "https://www.mutsumi-ht.jp/info/index.html"
+        }
+      ],
+      "updated": "2026-08-12T08:15:24+09:00",
+      "detail_missing": false,
+      "has_expansion_alert": false,
+      "expansion_alerts": [],
+      "news": [],
+      "client_hints": [],
+      "errors": []
     }
   ],
   "blurbs_updated": "2026-08-12T07:12:30+09:00",
-  "updated": "2026-08-12T08:11:08+09:00"
+  "updated": "2026-08-12T08:15:24+09:00"
 }

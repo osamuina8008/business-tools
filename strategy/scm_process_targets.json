@@ -1,8 +1,8 @@
 {
-  "updated": "2026-08-11T10:32:01+09:00",
+  "updated": "2026-08-11T10:36:42+09:00",
   "disclaimer": "攻めどころ界隈の公開情報・聞き取りベース。既存顧客・コマツ筋・高周波メイン等は除外済み。",
   "how_to_use": "各界隈の社名一覧を見て訪問先を決める。探索枠は現地で社名を確定して埋める。",
-  "count": 39,
+  "count": 40,
   "group_count": 11,
   "groups": [
     {
@@ -154,8 +154,34 @@
       "pain": "UBE名古屋はギア専業ではないが入口。減速機メーカーは歯車焼入・ピット炉需要の本命顧客候補なので、減速機製造を強力に洗う。",
       "lat": 35.08,
       "lng": 136.87,
-      "count": 8,
+      "count": 9,
       "companies": [
+        {
+          "name": "マテックス株式会社",
+          "category": "減速機製造（遊星）",
+          "area": "大阪府八尾市水越",
+          "materials": [
+            "歯車鋼",
+            "樹脂ギア"
+          ],
+          "heat_relation": "遊星減速機・金属加工品も出展。焼入外注有無を確認",
+          "reason": "八尾の遊星減速機メーカー。機械要素展に継続出展→展示会プッシュ本命。",
+          "source_url": "https://www.matex-japan.com/",
+          "linked_majors": [],
+          "priority": 0,
+          "role": "reducer_maker",
+          "investigation": "金属歯車の熱処理ルート、サイズ帯、展示会ブースでキーマン接触",
+          "pit_furnace_fit": "要確認（精密〜中型寄り）",
+          "size_hint": "遊星ユニット〜金属加工",
+          "lat": 34.63,
+          "lng": 135.62,
+          "capital_man_yen": 888,
+          "employees": 60,
+          "scale_summary": "資本金888万円 / 従業員約60名",
+          "id": "ube_nagoya-マテックス",
+          "hotspot_id": "ube_nagoya",
+          "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）"
+        },
         {
           "name": "株式会社ニッセイ",
           "category": "減速機・ギアモータ製造",
@@ -182,32 +208,6 @@
           "employees": null
         },
         {
-          "name": "株式会社大阪減速機製作所",
-          "category": "減速機製造（特殊・一品一様）",
-          "area": "大阪府東大阪市菱江",
-          "materials": [
-            "歯車鋼",
-            "軸材"
-          ],
-          "heat_relation": "公式に「適切な熱処理」を明記。外注か内製かをヒアリング（大型は外注が多い）",
-          "reason": "特殊減速機専業・設計〜歯切一貫。産業機械向け。関西の減速機本命顧客候補。",
-          "source_url": "https://ogsrg.co.jp/",
-          "linked_majors": [],
-          "priority": 0,
-          "role": "reducer_maker",
-          "investigation": "熱処理工程の内製／外注、最大歯車径・モジュール、ピット炉ニーズ",
-          "pit_furnace_fit": "中〜高（特殊大型なら）",
-          "size_hint": "一品一様・産業機械向け",
-          "lat": 34.68,
-          "lng": 135.62,
-          "capital_man_yen": 5000,
-          "employees": 70,
-          "scale_summary": "資本金5,000万円 / 従業員約70名",
-          "id": "ube_nagoya-大阪減速機製作所",
-          "hotspot_id": "ube_nagoya",
-          "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）"
-        },
-        {
           "name": "株式会社平井減速機製作所",
           "category": "減速機製造（ウォーム）",
           "area": "愛知県名古屋市中川区",
@@ -228,6 +228,32 @@
           "lng": 136.82,
           "scale_summary": "公開規模未確認",
           "id": "ube_nagoya-平井減速機製作所",
+          "hotspot_id": "ube_nagoya",
+          "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
+          "capital_man_yen": null,
+          "employees": null
+        },
+        {
+          "name": "阪神動力機械株式会社",
+          "category": "減速機製造（歯車・産業用大型）",
+          "area": "大阪府大阪市此花区四貫島",
+          "materials": [
+            "歯車鋼",
+            "浸炭歯車"
+          ],
+          "heat_relation": "平行軸・直交・ウォーム・遊星。ポンプ駆動用など大型あり。浸炭歯車明記→焼入外注余地を確認",
+          "reason": "関西の歯車減速機メーカー。大型・ポンプ駆動まで。ピット炉級の可能性あり。",
+          "source_url": "https://www.hanshin-pm.co.jp/product/industrial/reduction/",
+          "linked_majors": [],
+          "priority": 0,
+          "role": "reducer_maker",
+          "investigation": "最大サイズ、浸炭／焼入の内製外注、ピット炉ニーズ",
+          "pit_furnace_fit": "中〜高（大型・ポンプ駆動なら）",
+          "size_hint": "産業用〜ポンプ駆動大型",
+          "lat": 34.68,
+          "lng": 135.44,
+          "scale_summary": "公開規模要確認",
+          "id": "ube_nagoya-阪神動力機械",
           "hotspot_id": "ube_nagoya",
           "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
           "capital_man_yen": null,
@@ -398,11 +424,11 @@
       ],
       "investigation_mode": true,
       "how_to_investigate": [
-        "① 減速機メーカー（製造）を最優先で洗う：内製歯切／焼入外注／最大モジュール・外径・ピット炉ニーズ",
-        "② 平井・大阪減速機・ニッセイ等で「熱処理の外注先」「補給歯車の協力会社」を聞き出す",
-        "③ UBE減速機アフター／関連会社から補給部品・OHの外注ルートを確認",
-        "④ 名古屋港区〜南区の歯切屋で減速機筋・UBE筋の納入実績を突合",
-        "⑤ ヒットしたらピット炉適合を確認し、大型ギア特化へ昇格"
+        "① 減速機メーカー（製造）を最優先：内製歯切／焼入外注／最大モジュール・外径・ピット炉",
+        "② 平井・阪神動力・マテックス・ニッセイ等で熱処理外注先と展示会出展予定を確認（出展時は必ずブースへ）",
+        "③ 大阪減速機は既存取引先→攻略ではなく関係維持・展示会で接点強化",
+        "④ UBE減速機アフター／関連から補給部品ルートを確認",
+        "⑤ ヒットしたらピット炉適合を確認し大型ギア特化へ昇格"
       ],
       "search_queries": [
         "減速機 製造 メーカー 愛知 OR 名古屋 OR 大阪 OR 兵庫 -販売店",
@@ -414,7 +440,9 @@
         "UBEマシナリー OR 宇部興産機械 減速機 補給 OR オーバーホール 歯車",
         "UBE 減速機 スパイラルベベル OR プラネタリ 製造 OR 外注",
         "平井減速機 OR 大阪減速機 OR ニッセイ 減速機 歯車 熱処理",
-        "減速機メーカー 協力会社 歯切 OR 浸炭 愛知 OR 大阪"
+        "減速機メーカー 協力会社 歯切 OR 浸炭 愛知 OR 大阪",
+        "阪神動力機械 減速機 歯車 熱処理 OR 浸炭 OR 出展",
+        "マテックス 遊星減速機 八尾 出展 OR 機械要素技術展"
       ],
       "known_network_notes": [
         {
@@ -435,7 +463,7 @@
         },
         {
           "name": "株式会社大阪減速機製作所",
-          "note": "アンケート候補等に名前が出る既知接点の可能性。取引ステータスを確認しつつ減速機製造本命として追う。"
+          "note": "既存取引先のため攻略一覧からは除外。展示会出展時は必ずブース確認（ウォッチ対象）。"
         }
       ]
     },
@@ -1896,6 +1924,32 @@
       "scale_summary": "資本金1,000万円 / 従業員20名"
     },
     {
+      "name": "マテックス株式会社",
+      "category": "減速機製造（遊星）",
+      "area": "大阪府八尾市水越",
+      "materials": [
+        "歯車鋼",
+        "樹脂ギア"
+      ],
+      "heat_relation": "遊星減速機・金属加工品も出展。焼入外注有無を確認",
+      "reason": "八尾の遊星減速機メーカー。機械要素展に継続出展→展示会プッシュ本命。",
+      "source_url": "https://www.matex-japan.com/",
+      "linked_majors": [],
+      "priority": 0,
+      "role": "reducer_maker",
+      "investigation": "金属歯車の熱処理ルート、サイズ帯、展示会ブースでキーマン接触",
+      "pit_furnace_fit": "要確認（精密〜中型寄り）",
+      "size_hint": "遊星ユニット〜金属加工",
+      "lat": 34.63,
+      "lng": 135.62,
+      "capital_man_yen": 888,
+      "employees": 60,
+      "scale_summary": "資本金888万円 / 従業員約60名",
+      "id": "ube_nagoya-マテックス",
+      "hotspot_id": "ube_nagoya",
+      "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）"
+    },
+    {
       "name": "株式会社ニッセイ",
       "category": "減速機・ギアモータ製造",
       "area": "愛知県安城市",
@@ -1921,32 +1975,6 @@
       "employees": null
     },
     {
-      "name": "株式会社大阪減速機製作所",
-      "category": "減速機製造（特殊・一品一様）",
-      "area": "大阪府東大阪市菱江",
-      "materials": [
-        "歯車鋼",
-        "軸材"
-      ],
-      "heat_relation": "公式に「適切な熱処理」を明記。外注か内製かをヒアリング（大型は外注が多い）",
-      "reason": "特殊減速機専業・設計〜歯切一貫。産業機械向け。関西の減速機本命顧客候補。",
-      "source_url": "https://ogsrg.co.jp/",
-      "linked_majors": [],
-      "priority": 0,
-      "role": "reducer_maker",
-      "investigation": "熱処理工程の内製／外注、最大歯車径・モジュール、ピット炉ニーズ",
-      "pit_furnace_fit": "中〜高（特殊大型なら）",
-      "size_hint": "一品一様・産業機械向け",
-      "lat": 34.68,
-      "lng": 135.62,
-      "capital_man_yen": 5000,
-      "employees": 70,
-      "scale_summary": "資本金5,000万円 / 従業員約70名",
-      "id": "ube_nagoya-大阪減速機製作所",
-      "hotspot_id": "ube_nagoya",
-      "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）"
-    },
-    {
       "name": "株式会社平井減速機製作所",
       "category": "減速機製造（ウォーム）",
       "area": "愛知県名古屋市中川区",
@@ -1967,6 +1995,32 @@
       "lng": 136.82,
       "scale_summary": "公開規模未確認",
       "id": "ube_nagoya-平井減速機製作所",
+      "hotspot_id": "ube_nagoya",
+      "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
+      "capital_man_yen": null,
+      "employees": null
+    },
+    {
+      "name": "阪神動力機械株式会社",
+      "category": "減速機製造（歯車・産業用大型）",
+      "area": "大阪府大阪市此花区四貫島",
+      "materials": [
+        "歯車鋼",
+        "浸炭歯車"
+      ],
+      "heat_relation": "平行軸・直交・ウォーム・遊星。ポンプ駆動用など大型あり。浸炭歯車明記→焼入外注余地を確認",
+      "reason": "関西の歯車減速機メーカー。大型・ポンプ駆動まで。ピット炉級の可能性あり。",
+      "source_url": "https://www.hanshin-pm.co.jp/product/industrial/reduction/",
+      "linked_majors": [],
+      "priority": 0,
+      "role": "reducer_maker",
+      "investigation": "最大サイズ、浸炭／焼入の内製外注、ピット炉ニーズ",
+      "pit_furnace_fit": "中〜高（大型・ポンプ駆動なら）",
+      "size_hint": "産業用〜ポンプ駆動大型",
+      "lat": 34.68,
+      "lng": 135.44,
+      "scale_summary": "公開規模要確認",
+      "id": "ube_nagoya-阪神動力機械",
       "hotspot_id": "ube_nagoya",
       "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
       "capital_man_yen": null,
@@ -2720,11 +2774,11 @@
       "priority": 0
     },
     {
-      "name": "株式会社大阪減速機製作所",
+      "name": "マテックス株式会社",
       "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
-      "capital_man_yen": 5000,
-      "employees": 70,
-      "scale_summary": "資本金5,000万円 / 従業員約70名",
+      "capital_man_yen": 888,
+      "employees": 60,
+      "scale_summary": "資本金888万円 / 従業員約60名",
       "priority": 0
     },
     {
@@ -2936,6 +2990,14 @@
       "priority": 1
     },
     {
+      "name": "阪神動力機械株式会社",
+      "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "公開規模要確認",
+      "priority": 0
+    },
+    {
       "name": "ＵＢＥマシナリー株式会社（名古屋事業所）",
       "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
       "capital_man_yen": null,
@@ -3040,6 +3102,10 @@
     {
       "name": "ナゴヤギア",
       "why": "既存取引先。UBE名古屋エコシステム調査の参考接点にはなり得るが攻略一覧からは除外"
+    },
+    {
+      "name": "大阪減速機",
+      "why": "既存取引先のため攻略一覧から除外（展示会ウォッチ対象には残す）"
     }
   ],
   "large_gear_focus": {
@@ -3191,11 +3257,11 @@
       "ピット炉"
     ],
     "how_to_investigate": [
-      "① 減速機メーカー（製造）を最優先で洗う：内製歯切／焼入外注／最大モジュール・外径・ピット炉ニーズ",
-      "② 平井・大阪減速機・ニッセイ等で「熱処理の外注先」「補給歯車の協力会社」を聞き出す",
-      "③ UBE減速機アフター／関連会社から補給部品・OHの外注ルートを確認",
-      "④ 名古屋港区〜南区の歯切屋で減速機筋・UBE筋の納入実績を突合",
-      "⑤ ヒットしたらピット炉適合を確認し、大型ギア特化へ昇格"
+      "① 減速機メーカー（製造）を最優先：内製歯切／焼入外注／最大モジュール・外径・ピット炉",
+      "② 平井・阪神動力・マテックス・ニッセイ等で熱処理外注先と展示会出展予定を確認（出展時は必ずブースへ）",
+      "③ 大阪減速機は既存取引先→攻略ではなく関係維持・展示会で接点強化",
+      "④ UBE減速機アフター／関連から補給部品ルートを確認",
+      "⑤ ヒットしたらピット炉適合を確認し大型ギア特化へ昇格"
     ],
     "search_queries": [
       "減速機 製造 メーカー 愛知 OR 名古屋 OR 大阪 OR 兵庫 -販売店",
@@ -3207,7 +3273,9 @@
       "UBEマシナリー OR 宇部興産機械 減速機 補給 OR オーバーホール 歯車",
       "UBE 減速機 スパイラルベベル OR プラネタリ 製造 OR 外注",
       "平井減速機 OR 大阪減速機 OR ニッセイ 減速機 歯車 熱処理",
-      "減速機メーカー 協力会社 歯切 OR 浸炭 愛知 OR 大阪"
+      "減速機メーカー 協力会社 歯切 OR 浸炭 愛知 OR 大阪",
+      "阪神動力機械 減速機 歯車 熱処理 OR 浸炭 OR 出展",
+      "マテックス 遊星減速機 八尾 出展 OR 機械要素技術展"
     ],
     "companies": [
       {
@@ -3230,29 +3298,6 @@
         "lat": 35.14,
         "lng": 136.82,
         "scale_summary": "公開規模未確認"
-      },
-      {
-        "name": "株式会社大阪減速機製作所",
-        "category": "減速機製造（特殊・一品一様）",
-        "area": "大阪府東大阪市菱江",
-        "materials": [
-          "歯車鋼",
-          "軸材"
-        ],
-        "heat_relation": "公式に「適切な熱処理」を明記。外注か内製かをヒアリング（大型は外注が多い）",
-        "reason": "特殊減速機専業・設計〜歯切一貫。産業機械向け。関西の減速機本命顧客候補。",
-        "source_url": "https://ogsrg.co.jp/",
-        "linked_majors": [],
-        "priority": 0,
-        "role": "reducer_maker",
-        "investigation": "熱処理工程の内製／外注、最大歯車径・モジュール、ピット炉ニーズ",
-        "pit_furnace_fit": "中〜高（特殊大型なら）",
-        "size_hint": "一品一様・産業機械向け",
-        "lat": 34.68,
-        "lng": 135.62,
-        "capital_man_yen": 5000,
-        "employees": 70,
-        "scale_summary": "資本金5,000万円 / 従業員約70名"
       },
       {
         "name": "株式会社ニッセイ",
@@ -3295,6 +3340,50 @@
         "capital_man_yen": 8500,
         "employees": 123,
         "scale_summary": "資本金8,500万円 / グループ約123名"
+      },
+      {
+        "name": "阪神動力機械株式会社",
+        "category": "減速機製造（歯車・産業用大型）",
+        "area": "大阪府大阪市此花区四貫島",
+        "materials": [
+          "歯車鋼",
+          "浸炭歯車"
+        ],
+        "heat_relation": "平行軸・直交・ウォーム・遊星。ポンプ駆動用など大型あり。浸炭歯車明記→焼入外注余地を確認",
+        "reason": "関西の歯車減速機メーカー。大型・ポンプ駆動まで。ピット炉級の可能性あり。",
+        "source_url": "https://www.hanshin-pm.co.jp/product/industrial/reduction/",
+        "linked_majors": [],
+        "priority": 0,
+        "role": "reducer_maker",
+        "investigation": "最大サイズ、浸炭／焼入の内製外注、ピット炉ニーズ",
+        "pit_furnace_fit": "中〜高（大型・ポンプ駆動なら）",
+        "size_hint": "産業用〜ポンプ駆動大型",
+        "lat": 34.68,
+        "lng": 135.44,
+        "scale_summary": "公開規模要確認"
+      },
+      {
+        "name": "マテックス株式会社",
+        "category": "減速機製造（遊星）",
+        "area": "大阪府八尾市水越",
+        "materials": [
+          "歯車鋼",
+          "樹脂ギア"
+        ],
+        "heat_relation": "遊星減速機・金属加工品も出展。焼入外注有無を確認",
+        "reason": "八尾の遊星減速機メーカー。機械要素展に継続出展→展示会プッシュ本命。",
+        "source_url": "https://www.matex-japan.com/",
+        "linked_majors": [],
+        "priority": 0,
+        "role": "reducer_maker",
+        "investigation": "金属歯車の熱処理ルート、サイズ帯、展示会ブースでキーマン接触",
+        "pit_furnace_fit": "要確認（精密〜中型寄り）",
+        "size_hint": "遊星ユニット〜金属加工",
+        "lat": 34.63,
+        "lng": 135.62,
+        "capital_man_yen": 888,
+        "employees": 60,
+        "scale_summary": "資本金888万円 / 従業員約60名"
       },
       {
         "name": "ＵＢＥマシナリー株式会社（名古屋事業所）",
@@ -3428,7 +3517,7 @@
       },
       {
         "name": "株式会社大阪減速機製作所",
-        "note": "アンケート候補等に名前が出る既知接点の可能性。取引ステータスを確認しつつ減速機製造本命として追う。"
+        "note": "既存取引先のため攻略一覧からは除外。展示会出展時は必ずブース確認（ウォッチ対象）。"
       }
     ]
   },

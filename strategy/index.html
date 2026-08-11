@@ -190,7 +190,7 @@
         <h2 class="font-bold text-sky-900">ターゲット記事・展示会シグナル</h2>
         <span id="signals-meta" class="text-xs text-slate-400"></span>
       </div>
-      <p class="text-xs text-slate-500 mb-3">会社名が載った記事（小さなもの含む）と、東京〜福岡の製造業展示会への出展言及を集約。会社カードを開くと個別にも表示。</p>
+      <p class="text-xs text-slate-500 mb-3">記事は事前情報。展示会ヒットは<strong>会場で直接訪問</strong>するための合図——役の有無をその場で見極め、キーマンに会い、的確にフォローする。</p>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <div>
           <p class="text-xs font-bold text-sky-800 mb-2">最近の記事</p>
@@ -199,7 +199,8 @@
           </div>
         </div>
         <div>
-          <p class="text-xs font-bold text-violet-800 mb-2">展示会出展シグナル（東京〜福岡）</p>
+          <p class="text-xs font-bold text-violet-800 mb-2">展示会＝直接訪問リスト（東京〜福岡）</p>
+          <p class="text-[11px] text-violet-700 mb-2">情報収集で終わらせない。ブースで会い、合う／合わないを判断し、名刺交換後のフォローまで設計する。</p>
           <div id="signals-exhibitions" class="space-y-2 max-h-80 overflow-y-auto">
             <p class="text-sm text-slate-400">読み込み中...</p>
           </div>
@@ -411,7 +412,8 @@ function renderSignalsBlock(sig, companyName) {
           <span class="block text-[10px] text-slate-400">${esc([a.source, (a.pub||'').slice(0,10)].filter(Boolean).join(' · '))}</span>
         </a>`).join('') : '<p class="text-xs text-slate-400 mb-1">社名付き記事は見つかりませんでした（小さな地方紙含む検索済み）</p>'}
       ${exs.length ? `
-        <p class="text-xs font-bold text-violet-800 mt-2 mb-1">展示会言及</p>
+        <p class="text-xs font-bold text-violet-800 mt-2 mb-1">展示会 → 直接訪問（キーマン接触）</p>
+        <p class="text-[11px] text-violet-700 mb-1">会場で役の有無を見極め、名刺交換→的確フォロー。</p>
         ${exs.slice(0, 4).map(x => `
           <a href="${esc(x.link || x.url || '#')}" target="_blank" rel="noopener" class="block mb-1.5 text-xs text-slate-700 hover:text-violet-800">
             <span class="font-semibold text-violet-800">${esc(x.name || '')}</span>
@@ -470,11 +472,12 @@ function renderTargetSignalsPanel(data) {
         class="block rounded-lg border border-violet-100 bg-violet-50/50 hover:bg-violet-50 p-2.5">
         <p class="text-[11px] font-bold text-violet-800">${esc(f.company || '')} · ${esc(f.exhibition || f.city || '')}</p>
         <p class="text-xs text-slate-800 mt-0.5">${esc(f.title || '')}</p>
+        <p class="text-[10px] text-violet-700 mt-1 font-semibold">→ 会場で直接訪問（キーマン接触・役の見極め・フォロー設計）</p>
         <p class="text-[10px] text-slate-400 mt-0.5">${esc([f.city, f.dates, (f.pub||'').slice(0,10)].filter(Boolean).join(' · '))}</p>
-      </a>`).join('') : '<p class="text-sm text-slate-400">出展言及はまだありません。下のカレンダーから公式出展者検索を。</p>';
+      </a>`).join('') : '<p class="text-sm text-slate-400">出展言及はまだありません。下のカレンダーから公式出展者を確認し、訪問候補にする。</p>';
   }
   if (calEl) {
-    calEl.innerHTML = `<p class="text-xs font-bold text-slate-700 mb-1">注目展示会カレンダー（東京〜福岡）</p>` +
+    calEl.innerHTML = `<p class="text-xs font-bold text-slate-700 mb-1">訪問候補カレンダー（東京〜福岡）</p>` +
       (data.exhibitions_calendar || []).map(ex => `
         <a href="${esc(ex.url || '#')}" target="_blank" rel="noopener" class="block text-xs text-slate-600 hover:text-violet-800 py-0.5">
           · ${esc(ex.city)} ${esc(ex.name)} <span class="text-slate-400">${esc(ex.dates || '')}</span>

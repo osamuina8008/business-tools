@@ -198,7 +198,7 @@
         <h2 class="font-bold text-sky-900">ターゲット記事・展示会シグナル</h2>
         <span id="signals-meta" class="text-xs text-slate-400"></span>
       </div>
-      <p class="text-xs text-slate-500 mb-3">記事は事前情報。展示会ヒットは<strong>会場で直接訪問</strong>するための合図——役の有無をその場で見極め、キーマンに会い、的確にフォローする。</p>
+      <p class="text-xs text-slate-500 mb-3">記事は事前情報。展示会ヒットは<strong>会場で直接訪問</strong>するための合図。特に<strong>産創館・商工会・産業フェア等の小さな会場</strong>は中小キーマンとつながりやすい——役の有無を見極め、的確にフォローする。</p>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <div>
           <p class="text-xs font-bold text-sky-800 mb-2">最近の記事</p>
@@ -207,8 +207,8 @@
           </div>
         </div>
         <div>
-          <p class="text-xs font-bold text-violet-800 mb-2">展示会＝直接訪問リスト（東京〜福岡）</p>
-          <p class="text-[11px] text-violet-700 mb-2">情報収集で終わらせない。ブースで会い、合う／合わないを判断し、名刺交換後のフォローまで設計する。</p>
+          <p class="text-xs font-bold text-violet-800 mb-2">展示会＝直接訪問（地方小規模を優先）</p>
+          <p class="text-[11px] text-violet-700 mb-2">大阪産業創造館・尼崎／福井など商工会系・産業フェアも含む。小さい会場ほどキーマンに会いやすい。</p>
           <div id="signals-exhibitions" class="space-y-2 max-h-80 overflow-y-auto">
             <p class="text-sm text-slate-400">読み込み中...</p>
           </div>
@@ -475,21 +475,35 @@ function renderTargetSignalsPanel(data) {
       </a>`).join('') : '<p class="text-sm text-slate-400">まだ記事ヒットがありません。</p>';
   }
   if (exEl) {
-    exEl.innerHTML = exhibits.length ? exhibits.map(f => `
+    const localFirst = [...exhibits].sort((a, b) => {
+      const la = a.tier === 'local' ? 0 : 1;
+      const lb = b.tier === 'local' ? 0 : 1;
+      if (la !== lb) return la - lb;
+      return String(b.pub || '').localeCompare(String(a.pub || ''));
+    });
+    exEl.innerHTML = localFirst.length ? localFirst.map(f => `
       <a href="${esc(f.link || '#')}" target="_blank" rel="noopener"
-        class="block rounded-lg border border-violet-100 bg-violet-50/50 hover:bg-violet-50 p-2.5">
-        <p class="text-[11px] font-bold text-violet-800">${esc(f.company || '')} · ${esc(f.exhibition || f.city || '')}</p>
+        class="block rounded-lg border ${f.tier === 'local' ? 'border-fuchsia-200 bg-fuchsia-50/60' : 'border-violet-100 bg-violet-50/50'} hover:bg-violet-50 p-2.5">
+        <p class="text-[11px] font-bold ${f.tier === 'local' ? 'text-fuchsia-900' : 'text-violet-800'}">${f.tier === 'local' ? '◆地方小規模 ' : ''}${esc(f.company || '')} · ${esc(f.exhibition || f.city || '')}</p>
         <p class="text-xs text-slate-800 mt-0.5">${esc(f.title || '')}</p>
-        <p class="text-[10px] text-violet-700 mt-1 font-semibold">→ 会場で直接訪問（キーマン接触・役の見極め・フォロー設計）</p>
+        <p class="text-[10px] ${f.tier === 'local' ? 'text-fuchsia-800' : 'text-violet-700'} mt-1 font-semibold">→ 会場で直接訪問（${f.tier === 'local' ? '中小キーマン接点向き・' : ''}役の見極め・フォロー設計）</p>
         <p class="text-[10px] text-slate-400 mt-0.5">${esc([f.city, f.dates, (f.pub||'').slice(0,10)].filter(Boolean).join(' · '))}</p>
-      </a>`).join('') : '<p class="text-sm text-slate-400">出展言及はまだありません。下のカレンダーから公式出展者を確認し、訪問候補にする。</p>';
+      </a>`).join('') : '<p class="text-sm text-slate-400">出展言及はまだありません。下のカレンダー（産創館・商工会含む）から訪問候補を。</p>';
   }
   if (calEl) {
-    calEl.innerHTML = `<p class="text-xs font-bold text-slate-700 mb-1">訪問候補カレンダー（東京〜福岡）</p>` +
-      (data.exhibitions_calendar || []).map(ex => `
-        <a href="${esc(ex.url || '#')}" target="_blank" rel="noopener" class="block text-xs text-slate-600 hover:text-violet-800 py-0.5">
-          · ${esc(ex.city)} ${esc(ex.name)} <span class="text-slate-400">${esc(ex.dates || '')}</span>
-        </a>`).join('');
+    const cals = data.exhibitions_calendar || [];
+    const local = cals.filter(ex => ex.tier === 'local');
+    const major = cals.filter(ex => ex.tier !== 'local');
+    const row = (ex, localMark) => `
+        <a href="${esc(ex.url || '#')}" target="_blank" rel="noopener" class="block text-xs ${localMark ? 'text-fuchsia-800' : 'text-slate-600'} hover:text-violet-800 py-0.5">
+          · ${localMark ? '◆ ' : ''}${esc(ex.city)} ${esc(ex.name)} <span class="text-slate-400">${esc(ex.dates || '')}</span>
+          ${ex.why ? `<span class="block pl-3 text-[10px] text-slate-500">${esc(ex.why)}</span>` : ''}
+        </a>`;
+    calEl.innerHTML =
+      `<p class="text-xs font-bold text-fuchsia-900 mb-1">地方・小規模（産創館・商工会・産業フェア）※キーマン接点向き</p>` +
+      local.map(ex => row(ex, true)).join('') +
+      `<p class="text-xs font-bold text-slate-700 mt-3 mb-1">大型展（補完）</p>` +
+      major.map(ex => row(ex, false)).join('');
   }
 }
 

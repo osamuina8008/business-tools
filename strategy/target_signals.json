@@ -1,11 +1,160 @@
 {
-  "updated": "2026-08-11T10:00:19+09:00",
-  "disclaimer": "Googleニュース等の公開情報＋公式確認種。小さな地方記事も含む。展示会は出展言及・公式告知ベース（名簿の全件照合ではない）。",
-  "how_to_use": "記事は事前情報。展示会ヒットは会場で直接訪問する合図——役の有無をその場で見極め、キーマンに会い、名刺交換後のフォローまで設計する。情報収集だけで終わらせない。",
+  "updated": "2026-08-11T10:08:37+09:00",
+  "disclaimer": "Googleニュース等の公開情報＋公式確認種。小さな地方記事も含む。展示会は大型だけでなく産創館・商工会・産業フェア等の地方小規模も含む。",
+  "how_to_use": "記事は事前情報。展示会ヒットは会場で直接訪問する合図——特に産創館・商工会・産業フェア等の小さな会場は中小キーマンとつながりやすい。役の有無をその場で見極め、名刺交換後のフォローまで設計する。情報収集だけで終わらせない。",
   "count": 43,
   "with_articles": 12,
   "with_exhibitions": 3,
+  "local_exhibition_count": 9,
   "exhibitions_calendar": [
+    {
+      "id": "osaka_sansokan_metal_2026",
+      "name": "金属加工・金型技術展（大阪産業創造館）",
+      "city": "大阪",
+      "venue": "大阪産業創造館",
+      "dates": "2026-07-10",
+      "url": "https://ebis.obda.or.jp/",
+      "keywords": [
+        "大阪産業創造館",
+        "産業創造館",
+        "金属加工・金型技術展",
+        "産創館"
+      ],
+      "tier": "local",
+      "why": "中小キーマンとブースで直接つながれる地方展"
+    },
+    {
+      "id": "amagasaki_fair_2026",
+      "name": "あまがさき産業フェア",
+      "city": "尼崎",
+      "venue": "ベイコム総合体育館（尼崎）",
+      "dates": "2026-11-19〜11-20",
+      "url": "https://amafair.com/",
+      "keywords": [
+        "あまがさき産業フェア",
+        "尼崎産業フェア",
+        "尼崎商工会議所",
+        "尼崎工業会"
+      ],
+      "tier": "local",
+      "why": "尼崎商工会・工業会系。地元中小のキーマン接触向き"
+    },
+    {
+      "id": "fukui_technofair",
+      "name": "北陸技術交流テクノフェア（福井商工会議所）",
+      "city": "福井",
+      "venue": "福井（テクノフェア）",
+      "dates": "年次（福井商工会議所事務局）",
+      "url": "https://www.technofair.jp/",
+      "keywords": [
+        "テクノフェア",
+        "北陸技術交流",
+        "福井商工会議所",
+        "ふくいビジネス商談会"
+      ],
+      "tier": "local",
+      "why": "福井商工会系。北陸中小とのキーマン接点"
+    },
+    {
+      "id": "fukui_business_meeting_2026",
+      "name": "ふくいビジネス商談会",
+      "city": "福井",
+      "venue": "福井商工会議所ビル",
+      "dates": "2026-10-22〜10-28（会場＋オンライン）",
+      "url": "http://www.fcci.or.jp/shodankai/",
+      "keywords": [
+        "ふくいビジネス商談会",
+        "福井ビジネス商談会",
+        "商談会"
+      ],
+      "tier": "local",
+      "why": "商工会主催の小規模商談。キーマンと話が早い"
+    },
+    {
+      "id": "osaka_sansokan_generic",
+      "name": "大阪産業創造館の展示・商談会（各種）",
+      "city": "大阪",
+      "venue": "大阪産業創造館",
+      "dates": "随時",
+      "url": "https://www.sansokan.jp/",
+      "keywords": [
+        "大阪産業創造館",
+        "産創館",
+        "ものづくりビジネスセンター"
+      ],
+      "tier": "local",
+      "why": "産創館の小規模展示・マッチング全般"
+    },
+    {
+      "id": "chamber_generic",
+      "name": "商工会議所・商工会の産業展／商談会",
+      "city": "各地",
+      "venue": "各地商工会・会議所",
+      "dates": "随時",
+      "url": "https://www.jcci.or.jp/",
+      "keywords": [
+        "商工会議所",
+        "商工会",
+        "産業フェア",
+        "ビジネスマッチング",
+        "ものづくり展",
+        "技術展",
+        "商談会",
+        "マッチングフェア"
+      ],
+      "tier": "local",
+      "why": "地方の小さい展示・商談会すべて。中小キーマン接点の本命"
+    },
+    {
+      "id": "higashi_osaka_monozukuri",
+      "name": "東大阪・八尾などものづくり展",
+      "city": "東大阪・八尾",
+      "venue": "地域産業振興系会場",
+      "dates": "年次・随時",
+      "url": "https://www.city.higashiosaka.lg.jp/",
+      "keywords": [
+        "東大阪",
+        "八尾",
+        "ものづくり展",
+        "技術交流展"
+      ],
+      "tier": "local",
+      "why": "関西中小集積地の地域展"
+    },
+    {
+      "id": "aichi_local_fair",
+      "name": "愛知・名古屋の地域産業展／商工会展",
+      "city": "愛知",
+      "venue": "ポートメッセ周辺・各商工会",
+      "dates": "随時",
+      "url": "https://www.nagoya-cci.or.jp/",
+      "keywords": [
+        "名古屋商工会議所",
+        "愛知県産業",
+        "刈谷",
+        "津島",
+        "清須",
+        "商工会"
+      ],
+      "tier": "local",
+      "why": "主戦場・愛知の地域展"
+    },
+    {
+      "id": "hyogo_local_fair",
+      "name": "兵庫（姫路・神戸）地域産業展",
+      "city": "兵庫",
+      "venue": "姫路・神戸など",
+      "dates": "随時",
+      "url": "https://www.kobe.cci.or.jp/",
+      "keywords": [
+        "姫路商工会議所",
+        "神戸商工会議所",
+        "兵庫ものづくり",
+        "播磨"
+      ],
+      "tier": "local",
+      "why": "兵庫ルートの地域展"
+    },
     {
       "id": "mtech_tokyo_2026",
       "name": "機械要素技術展［東京］（ものづくりワールド）",
@@ -18,7 +167,8 @@
         "ものづくりワールド",
         "M-Tech",
         "MTECH"
-      ]
+      ],
+      "tier": "major"
     },
     {
       "id": "mtech_osaka_2026",
@@ -31,7 +181,8 @@
         "機械要素技術展",
         "ものづくりワールド大阪",
         "大阪展"
-      ]
+      ],
+      "tier": "major"
     },
     {
       "id": "mtech_fukuoka_2026",
@@ -44,7 +195,8 @@
         "機械要素技術展",
         "ものづくりワールド福岡",
         "福岡展"
-      ]
+      ],
+      "tier": "major"
     },
     {
       "id": "mtech_nagoya_2027",
@@ -57,7 +209,8 @@
         "機械要素技術展",
         "ものづくりワールド名古屋",
         "名古屋展"
-      ]
+      ],
+      "tier": "major"
     },
     {
       "id": "mect_2025",
@@ -70,7 +223,8 @@
         "MECT",
         "メカット",
         "メカトロテックジャパン"
-      ]
+      ],
+      "tier": "major"
     },
     {
       "id": "jimtof_2026",
@@ -82,7 +236,8 @@
       "keywords": [
         "JIMTOF",
         "工作機械見本市"
-      ]
+      ],
+      "tier": "major"
     },
     {
       "id": "intermold_2026",
@@ -95,7 +250,8 @@
         "INTERMOLD",
         "インターモールド",
         "金型展"
-      ]
+      ],
+      "tier": "major"
     },
     {
       "id": "tool_japan",
@@ -107,19 +263,8 @@
       "keywords": [
         "TOOL JAPAN",
         "ツールジャパン"
-      ]
-    },
-    {
-      "id": "leisure_outdoor_tokyo",
-      "name": "レジャー＆アウトドアジャパン",
-      "city": "東京",
-      "venue": "東京ビッグサイト",
-      "dates": "年次",
-      "url": "https://www.leisure-japan.jp/",
-      "keywords": [
-        "レジャー＆アウトドア",
-        "レジャー&アウトドア"
-      ]
+      ],
+      "tier": "major"
     }
   ],
   "companies": [
@@ -1432,6 +1577,8 @@
       "city": "東京",
       "dates": "2026（公式告知あり）",
       "pub": "2026-07-28",
+      "tier": "major",
+      "why": "",
       "tags": [
         "scm",
         "houwa"
@@ -1534,6 +1681,8 @@
       "city": "新潟（参考・廊外）",
       "dates": "2026-02-25〜02-27",
       "pub": "2026-01-28",
+      "tier": "major",
+      "why": "",
       "tags": [
         "scm",
         "willbe_tsushima"
@@ -1561,6 +1710,8 @@
       "city": "横浜（東京圏）",
       "dates": "2026",
       "pub": "2026-01-01",
+      "tier": "major",
+      "why": "",
       "tags": [
         "large_gear",
         "pit_furnace",
@@ -1590,6 +1741,8 @@
       "city": "東京",
       "dates": "2025-11-26〜11-28",
       "pub": "2025-11-21",
+      "tier": "major",
+      "why": "",
       "tags": [
         "scm",
         "willbe_tsushima"
@@ -1657,6 +1810,8 @@
       "city": "千葉（幕張／東京圏）",
       "dates": "2025-10-01〜10-03",
       "pub": "2025-08-22",
+      "tier": "major",
+      "why": "",
       "tags": [
         "scm",
         "willbe_tsushima"
@@ -1714,6 +1869,8 @@
       "city": "東京",
       "dates": "2025",
       "pub": "2025-06-11",
+      "tier": "major",
+      "why": "",
       "tags": [
         "scm",
         "houwa"
@@ -1878,6 +2035,8 @@
       "city": "名古屋",
       "dates": "過去出展実績あり",
       "pub": "2023-03-03",
+      "tier": "major",
+      "why": "",
       "tags": [
         "scm",
         "houwa"

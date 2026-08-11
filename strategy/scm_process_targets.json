@@ -1,8 +1,8 @@
 {
-  "updated": "2026-08-11T10:20:09+09:00",
+  "updated": "2026-08-11T10:22:44+09:00",
   "disclaimer": "攻めどころ界隈の公開情報・聞き取りベース。既存顧客・コマツ筋・高周波メイン等は除外済み。",
   "how_to_use": "各界隈の社名一覧を見て訪問先を決める。探索枠は現地で社名を確定して埋める。",
-  "count": 23,
+  "count": 27,
   "group_count": 10,
   "groups": [
     {
@@ -150,38 +150,86 @@
     },
     {
       "hotspot_id": "ube_nagoya",
-      "area": "UBE/宇部系・名古屋エコシステム調査",
-      "pain": "UBEマシナリー名古屋自体は射出成形機・スクリュ等でギア専業ではない。減速機・破砕機・関連会社・協力取引先に大型ギア製造／外注があるはずなので、そこを洗う。",
+      "area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
+      "pain": "UBE名古屋はギア専業ではないが入口。減速機メーカーは歯車焼入・ピット炉需要の本命顧客候補なので、減速機製造を強力に洗う。",
       "lat": 35.08,
       "lng": 136.87,
-      "count": 4,
+      "count": 8,
       "companies": [
         {
-          "name": "ＵＢＥマシナリー株式会社（名古屋事業所）",
-          "category": "アンカー（ギア専業ではない）",
-          "area": "愛知県名古屋市港区大江町",
+          "name": "株式会社ニッセイ",
+          "category": "減速機・ギアモータ製造",
+          "area": "愛知県安城市",
           "materials": [
-            "特殊鋼",
-            "長尺部品"
+            "高精度歯車鋼"
           ],
-          "heat_relation": "名古屋はスクリュ一貫・表面処理。ギア自体はここが本業ではない",
-          "reason": "調査の起点。射出成形機組立・スクリュ製造。ギアは直接ではないが、減速機サービスや大型機械のサプライに大型ギア取引先がある想定。",
-          "source_url": "https://www.ubemachinery.co.jp/product/large-machining/assembly-ngo.html",
-          "linked_majors": [
-            "UBE"
-          ],
+          "heat_relation": "ギアモータ・高剛性減速機・高精度歯車。焼入外注／内製と大型可否を確認",
+          "reason": "愛知の減速機・歯車メーカー。量産〜精密。顧客候補として規模が大きい。",
+          "source_url": "https://www.nissei-gtr.co.jp/",
+          "linked_majors": [],
           "priority": 0,
-          "role": "anchor",
-          "not_gear_maker": true,
-          "investigation": "減速機部品・大型ギアの外注先／協力会社名を聞き出す",
-          "pit_furnace_fit": "直接は低（入口）",
-          "size_hint": "大型成形機・長尺スクリュ",
-          "lat": 35.08,
-          "lng": 136.87,
-          "scale_summary": "UBEマシナリー名古屋拠点",
-          "id": "ube_nagoya-ＵＢＥマシナリー（名古屋事業所）",
+          "role": "reducer_maker",
+          "investigation": "大型・特殊減速機の有無、熱処理ルート、外注余地",
+          "pit_furnace_fit": "要確認（大型製品があれば）",
+          "size_hint": "ギアモータ〜高精度歯車",
+          "lat": 34.96,
+          "lng": 137.08,
+          "scale_summary": "公開規模要確認",
+          "id": "ube_nagoya-ニッセイ",
           "hotspot_id": "ube_nagoya",
-          "hotspot_area": "UBE/宇部系・名古屋エコシステム調査",
+          "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
+          "capital_man_yen": null,
+          "employees": null
+        },
+        {
+          "name": "株式会社大阪減速機製作所",
+          "category": "減速機製造（特殊・一品一様）",
+          "area": "大阪府東大阪市菱江",
+          "materials": [
+            "歯車鋼",
+            "軸材"
+          ],
+          "heat_relation": "公式に「適切な熱処理」を明記。外注か内製かをヒアリング（大型は外注が多い）",
+          "reason": "特殊減速機専業・設計〜歯切一貫。産業機械向け。関西の減速機本命顧客候補。",
+          "source_url": "https://ogsrg.co.jp/",
+          "linked_majors": [],
+          "priority": 0,
+          "role": "reducer_maker",
+          "investigation": "熱処理工程の内製／外注、最大歯車径・モジュール、ピット炉ニーズ",
+          "pit_furnace_fit": "中〜高（特殊大型なら）",
+          "size_hint": "一品一様・産業機械向け",
+          "lat": 34.68,
+          "lng": 135.62,
+          "capital_man_yen": 5000,
+          "employees": 70,
+          "scale_summary": "資本金5,000万円 / 従業員約70名",
+          "id": "ube_nagoya-大阪減速機製作所",
+          "hotspot_id": "ube_nagoya",
+          "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）"
+        },
+        {
+          "name": "株式会社平井減速機製作所",
+          "category": "減速機製造（ウォーム）",
+          "area": "愛知県名古屋市中川区",
+          "materials": [
+            "ウォーム歯車鋼",
+            "各種歯車鋼"
+          ],
+          "heat_relation": "歯車選定〜製造一貫。焼入・浸炭の外注有無とサイズ上限を確認",
+          "reason": "名古屋のウォーム減速機専業。減速機顧客として本命。UBE名古屋近傍。",
+          "source_url": "http://gensokuki.com/",
+          "linked_majors": [],
+          "priority": 0,
+          "role": "reducer_maker",
+          "investigation": "最大サイズ、熱処理外注先、ピット炉が必要な大型の有無",
+          "pit_furnace_fit": "要確認（ウォーム大型なら中〜高）",
+          "size_hint": "ウォーム減速機一貫",
+          "lat": 35.14,
+          "lng": 136.82,
+          "scale_summary": "公開規模未確認",
+          "id": "ube_nagoya-平井減速機製作所",
+          "hotspot_id": "ube_nagoya",
+          "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
           "capital_man_yen": null,
           "employees": null
         },
@@ -193,7 +241,7 @@
             "減速機歯車鋼"
           ],
           "heat_relation": "減速機OH・スパイラルベベル等の補給部品。焼入・歯切の外注実態を確認",
-          "reason": "公式に減速機の部品製造・補給・OHを明示。大型ギア（ベベル／プラネタリ）の実製造・外注ルート調査の本命。",
+          "reason": "公式に減速機の部品製造・補給・OHを明示。大型ギア（ベベル／プラネタリ）ルート調査の本命。",
           "source_url": "https://www.ubemachinery.co.jp/english/service/reducer.html",
           "linked_majors": [
             "UBE"
@@ -208,9 +256,34 @@
           "scale_summary": "グループサービス",
           "id": "ube_nagoya-ＵＢＥマシナリー（減速機アフター）",
           "hotspot_id": "ube_nagoya",
-          "hotspot_area": "UBE/宇部系・名古屋エコシステム調査",
+          "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
           "capital_man_yen": null,
           "employees": null
+        },
+        {
+          "name": "加茂精工株式会社",
+          "category": "精密減速機製造",
+          "area": "愛知県豊田市御作町",
+          "materials": [
+            "特殊鋼"
+          ],
+          "heat_relation": "ボール減速機等（歯車レス機構あり）。通常歯切減速機とは別物だが、周辺加工・熱処理需要の有無を確認",
+          "reason": "愛知ブランド級の精密減速機メーカー。歯車型大型とは別筋だが減速機顧客として洗う。",
+          "source_url": "https://kamo.co.jp/",
+          "linked_majors": [],
+          "priority": 1,
+          "role": "reducer_maker",
+          "investigation": "歯車型製品の有無、外注焼入ニーズ、サイズ帯",
+          "pit_furnace_fit": "低〜要確認（精密寄り）",
+          "size_hint": "ボール減速機・精密",
+          "lat": 35.15,
+          "lng": 137.2,
+          "capital_man_yen": 8500,
+          "employees": 123,
+          "scale_summary": "資本金8,500万円 / グループ約123名",
+          "id": "ube_nagoya-加茂精工",
+          "hotspot_id": "ube_nagoya",
+          "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）"
         },
         {
           "name": "株式会社服部歯車",
@@ -219,13 +292,13 @@
           "materials": [
             "各種歯車鋼"
           ],
-          "heat_relation": "歯車・機械部品。熱処理外注実態とサイズ上限を確認",
-          "reason": "UBE名古屋近傍の歯車屋。UBE筋との取引有無は未確定→エコシステム調査候補。",
+          "heat_relation": "歯車・機械部品。減速機メーカー向け納入と熱処理外注を確認",
+          "reason": "UBE名古屋近傍の歯車屋。減速機筋・UBE筋の納入有無を洗う。",
           "source_url": "https://h-haguruma.co.jp/company/",
           "linked_majors": [],
           "priority": 1,
           "role": "nearby_candidate",
-          "investigation": "UBE/成形機/産業機械向け納入の有無、最大モジュール・外径",
+          "investigation": "減速機メーカー／UBE向け納入の有無、最大モジュール・外径",
           "pit_furnace_fit": "要確認",
           "size_hint": "要ヒアリング",
           "lat": 35.14,
@@ -233,7 +306,65 @@
           "scale_summary": "公開規模未確認",
           "id": "ube_nagoya-服部歯車",
           "hotspot_id": "ube_nagoya",
-          "hotspot_area": "UBE/宇部系・名古屋エコシステム調査",
+          "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
+          "capital_man_yen": null,
+          "employees": null
+        },
+        {
+          "name": "ＵＢＥマシナリー株式会社（名古屋事業所）",
+          "category": "アンカー（ギア専業ではない）",
+          "area": "愛知県名古屋市港区大江町",
+          "materials": [
+            "特殊鋼",
+            "長尺部品"
+          ],
+          "heat_relation": "名古屋はスクリュ一貫・表面処理。ギア自体はここが本業ではない",
+          "reason": "調査の起点。射出成形機組立・スクリュ製造。減速機サービス経由で大型ギア取引先を探す入口。",
+          "source_url": "https://www.ubemachinery.co.jp/product/large-machining/assembly-ngo.html",
+          "linked_majors": [
+            "UBE"
+          ],
+          "priority": 1,
+          "role": "anchor",
+          "not_gear_maker": true,
+          "investigation": "減速機部品・大型ギアの外注先／協力会社名を聞き出す",
+          "pit_furnace_fit": "直接は低（入口）",
+          "size_hint": "大型成形機・長尺スクリュ",
+          "lat": 35.08,
+          "lng": 136.87,
+          "scale_summary": "UBEマシナリー名古屋拠点",
+          "id": "ube_nagoya-ＵＢＥマシナリー（名古屋事業所）",
+          "hotspot_id": "ube_nagoya",
+          "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
+          "capital_man_yen": null,
+          "employees": null
+        },
+        {
+          "name": "東海・関西の減速機製造（探索枠）",
+          "category": "探索メモ",
+          "area": "愛知・大阪・兵庫（減速機製造）",
+          "materials": [
+            "SCM系",
+            "歯車鋼"
+          ],
+          "heat_relation": "減速機歯車は浸炭・焼入・ピット炉外注が出やすい",
+          "reason": "検索・展示会・商工会で減速機メーカー名を確定して埋める。ナゴヤギアは既存取引先のため攻略対象外。",
+          "source_url": "",
+          "linked_majors": [
+            "減速機メーカー"
+          ],
+          "priority": 2,
+          "role": "explore",
+          "is_placeholder": true,
+          "investigation": "「減速機 製造 愛知/大阪」でヒットした社名を追加し、熱処理ルートを確認",
+          "pit_furnace_fit": "探索中",
+          "size_hint": "探索",
+          "lat": 35.09,
+          "lng": 136.88,
+          "scale_summary": "—",
+          "id": "ube_nagoya-東海・関西の減速機製造（探索枠）",
+          "hotspot_id": "ube_nagoya",
+          "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
           "capital_man_yen": null,
           "employees": null
         },
@@ -245,12 +376,12 @@
             "機械部品"
           ],
           "heat_relation": "関連会社の加工範囲に歯切・熱処理外注があるか確認",
-          "reason": "UBEマシナリーの関連会社。ギアそのものかは未確定→調査枠として洗う。",
+          "reason": "UBEマシナリーの関連会社。ギア／減速機部品は未確定→調査枠。",
           "source_url": "https://ubemachinery.co.jp/",
           "linked_majors": [
             "UBEマシナリー"
           ],
-          "priority": 1,
+          "priority": 2,
           "role": "affiliate",
           "investigation": "事業内容・ギア／減速機部品の有無を公式・ヒアリングで確定",
           "pit_furnace_fit": "要調査",
@@ -260,63 +391,51 @@
           "scale_summary": "関連会社・要調査",
           "id": "ube_nagoya-福島製作所",
           "hotspot_id": "ube_nagoya",
-          "hotspot_area": "UBE/宇部系・名古屋エコシステム調査",
-          "capital_man_yen": null,
-          "employees": null
-        },
-        {
-          "name": "UBE名古屋周辺の大型歯切・減速機ギア（探索枠）",
-          "category": "探索メモ",
-          "area": "名古屋港区・南区・中川・天白",
-          "materials": [
-            "SCM系",
-            "歯車鋼"
-          ],
-          "heat_relation": "大型はピット炉・特殊焼入外注が多い",
-          "reason": "アンカー聞き取りで社名を確定して埋める。既存取引先のナゴヤギアは攻略対象外だが、ネットワーク地図の参考にはする。",
-          "source_url": "",
-          "linked_majors": [
-            "UBE"
-          ],
-          "priority": 2,
-          "role": "explore",
-          "is_placeholder": true,
-          "investigation": "港区〜南区の大型歯切／減速機ギア屋を洗い、UBE納入実績を確認",
-          "pit_furnace_fit": "探索中",
-          "size_hint": "探索",
-          "lat": 35.09,
-          "lng": 136.88,
-          "scale_summary": "—",
-          "id": "ube_nagoya-UBE名古屋周辺の大型歯切・減速機ギア（探索枠）",
-          "hotspot_id": "ube_nagoya",
-          "hotspot_area": "UBE/宇部系・名古屋エコシステム調査",
+          "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
           "capital_man_yen": null,
           "employees": null
         }
       ],
       "investigation_mode": true,
       "how_to_investigate": [
-        "① アンカー（UBE名古屋）で減速機・大型機械部品の外注先・協力会社名を聞く",
-        "② グループ（福島製作所等）とサービス拠点の修理・歯車補給ルートを確認",
-        "③ 名古屋港区〜南区の歯切・大型ギア屋でUBE/成形機/破砕機筋の納入実績を突合",
-        "④ ヒットしたらピット炉適合・サイズをヒアリングし大型ギア特化へ昇格"
+        "① 減速機メーカー（製造）を最優先で洗う：内製歯切／焼入外注／最大モジュール・外径・ピット炉ニーズ",
+        "② 平井・大阪減速機・ニッセイ等で「熱処理の外注先」「補給歯車の協力会社」を聞き出す",
+        "③ UBE減速機アフター／関連会社から補給部品・OHの外注ルートを確認",
+        "④ 名古屋港区〜南区の歯切屋で減速機筋・UBE筋の納入実績を突合",
+        "⑤ ヒットしたらピット炉適合を確認し、大型ギア特化へ昇格"
       ],
       "search_queries": [
-        "UBEマシナリー OR 宇部興産機械 名古屋 歯車 OR ギヤ OR 減速機 外注 OR 協力",
-        "UBE 減速機 スパイラルベベル OR プラネタリ 製造 OR 補給",
-        "宇部興産機械 破砕機 OR 竪型ミル 歯車 熱処理",
-        "名古屋港区 OR 南区 大型歯車 製造 UBE OR 成形機 OR 産業機械",
-        "福島製作所 UBE 歯車 OR 機械加工",
-        "UBEマシナリー 協力会社 歯車 愛知"
+        "減速機 製造 メーカー 愛知 OR 名古屋 OR 大阪 OR 兵庫 -販売店",
+        "歯車減速機 製造 愛知 OR 東大阪 OR 尼崎 熱処理 OR 焼入 OR 浸炭",
+        "ウォーム減速機 製造 名古屋 OR 愛知 歯車",
+        "特殊減速機 OR 一品一様 減速機 製造 大阪 OR 愛知",
+        "遊星歯車減速機 製造 大阪 OR 愛知 外注 熱処理",
+        "大型減速機 OR ギヤボックス 歯車 焼入 外注 東海 OR 関西",
+        "UBEマシナリー OR 宇部興産機械 減速機 補給 OR オーバーホール 歯車",
+        "UBE 減速機 スパイラルベベル OR プラネタリ 製造 OR 外注",
+        "平井減速機 OR 大阪減速機 OR ニッセイ 減速機 歯車 熱処理",
+        "減速機メーカー 協力会社 歯切 OR 浸炭 愛知 OR 大阪"
       ],
       "known_network_notes": [
         {
           "name": "株式会社ナゴヤギア",
-          "note": "既存取引先のため攻略一覧からは除外。UBE筋調査の参考接点になり得るが、新規攻略先としては扱わない。"
+          "note": "既存取引先のため攻略一覧からは除外。変減速機向け歯車の参考接点にはなり得るが、新規攻略先としては扱わない。"
         },
         {
           "name": "ＵＢＥマシナリー名古屋事業所",
-          "note": "ギア専業ではない（スクリュ・成形機組立）。関連・取引先の大型ギアを探す入口。"
+          "note": "ギア専業ではない（スクリュ・成形機組立）。関連・取引先の大型ギア／減速機補給を探す入口。"
+        },
+        {
+          "name": "減速機メーカー全般",
+          "note": "重要顧客候補。歯切内製でも焼入・浸炭・ピット炉は外注が多い。サイズと外注先ヒアリングを優先。"
+        },
+        {
+          "name": "加茂精工株式会社",
+          "note": "来社打合せ履歴あり（歪み・硬度テーマ）。既存接点として扱い、新規冷訪ではなく継続ヒアリング向き。"
+        },
+        {
+          "name": "株式会社大阪減速機製作所",
+          "note": "アンケート候補等に名前が出る既知接点の可能性。取引ステータスを確認しつつ減速機製造本命として追う。"
         }
       ]
     },
@@ -1222,31 +1341,79 @@
       "scale_summary": "資本金1,000万円 / 従業員20名"
     },
     {
-      "name": "ＵＢＥマシナリー株式会社（名古屋事業所）",
-      "category": "アンカー（ギア専業ではない）",
-      "area": "愛知県名古屋市港区大江町",
+      "name": "株式会社ニッセイ",
+      "category": "減速機・ギアモータ製造",
+      "area": "愛知県安城市",
       "materials": [
-        "特殊鋼",
-        "長尺部品"
+        "高精度歯車鋼"
       ],
-      "heat_relation": "名古屋はスクリュ一貫・表面処理。ギア自体はここが本業ではない",
-      "reason": "調査の起点。射出成形機組立・スクリュ製造。ギアは直接ではないが、減速機サービスや大型機械のサプライに大型ギア取引先がある想定。",
-      "source_url": "https://www.ubemachinery.co.jp/product/large-machining/assembly-ngo.html",
-      "linked_majors": [
-        "UBE"
-      ],
+      "heat_relation": "ギアモータ・高剛性減速機・高精度歯車。焼入外注／内製と大型可否を確認",
+      "reason": "愛知の減速機・歯車メーカー。量産〜精密。顧客候補として規模が大きい。",
+      "source_url": "https://www.nissei-gtr.co.jp/",
+      "linked_majors": [],
       "priority": 0,
-      "role": "anchor",
-      "not_gear_maker": true,
-      "investigation": "減速機部品・大型ギアの外注先／協力会社名を聞き出す",
-      "pit_furnace_fit": "直接は低（入口）",
-      "size_hint": "大型成形機・長尺スクリュ",
-      "lat": 35.08,
-      "lng": 136.87,
-      "scale_summary": "UBEマシナリー名古屋拠点",
-      "id": "ube_nagoya-ＵＢＥマシナリー（名古屋事業所）",
+      "role": "reducer_maker",
+      "investigation": "大型・特殊減速機の有無、熱処理ルート、外注余地",
+      "pit_furnace_fit": "要確認（大型製品があれば）",
+      "size_hint": "ギアモータ〜高精度歯車",
+      "lat": 34.96,
+      "lng": 137.08,
+      "scale_summary": "公開規模要確認",
+      "id": "ube_nagoya-ニッセイ",
       "hotspot_id": "ube_nagoya",
-      "hotspot_area": "UBE/宇部系・名古屋エコシステム調査",
+      "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
+      "capital_man_yen": null,
+      "employees": null
+    },
+    {
+      "name": "株式会社大阪減速機製作所",
+      "category": "減速機製造（特殊・一品一様）",
+      "area": "大阪府東大阪市菱江",
+      "materials": [
+        "歯車鋼",
+        "軸材"
+      ],
+      "heat_relation": "公式に「適切な熱処理」を明記。外注か内製かをヒアリング（大型は外注が多い）",
+      "reason": "特殊減速機専業・設計〜歯切一貫。産業機械向け。関西の減速機本命顧客候補。",
+      "source_url": "https://ogsrg.co.jp/",
+      "linked_majors": [],
+      "priority": 0,
+      "role": "reducer_maker",
+      "investigation": "熱処理工程の内製／外注、最大歯車径・モジュール、ピット炉ニーズ",
+      "pit_furnace_fit": "中〜高（特殊大型なら）",
+      "size_hint": "一品一様・産業機械向け",
+      "lat": 34.68,
+      "lng": 135.62,
+      "capital_man_yen": 5000,
+      "employees": 70,
+      "scale_summary": "資本金5,000万円 / 従業員約70名",
+      "id": "ube_nagoya-大阪減速機製作所",
+      "hotspot_id": "ube_nagoya",
+      "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）"
+    },
+    {
+      "name": "株式会社平井減速機製作所",
+      "category": "減速機製造（ウォーム）",
+      "area": "愛知県名古屋市中川区",
+      "materials": [
+        "ウォーム歯車鋼",
+        "各種歯車鋼"
+      ],
+      "heat_relation": "歯車選定〜製造一貫。焼入・浸炭の外注有無とサイズ上限を確認",
+      "reason": "名古屋のウォーム減速機専業。減速機顧客として本命。UBE名古屋近傍。",
+      "source_url": "http://gensokuki.com/",
+      "linked_majors": [],
+      "priority": 0,
+      "role": "reducer_maker",
+      "investigation": "最大サイズ、熱処理外注先、ピット炉が必要な大型の有無",
+      "pit_furnace_fit": "要確認（ウォーム大型なら中〜高）",
+      "size_hint": "ウォーム減速機一貫",
+      "lat": 35.14,
+      "lng": 136.82,
+      "scale_summary": "公開規模未確認",
+      "id": "ube_nagoya-平井減速機製作所",
+      "hotspot_id": "ube_nagoya",
+      "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
       "capital_man_yen": null,
       "employees": null
     },
@@ -1258,7 +1425,7 @@
         "減速機歯車鋼"
       ],
       "heat_relation": "減速機OH・スパイラルベベル等の補給部品。焼入・歯切の外注実態を確認",
-      "reason": "公式に減速機の部品製造・補給・OHを明示。大型ギア（ベベル／プラネタリ）の実製造・外注ルート調査の本命。",
+      "reason": "公式に減速機の部品製造・補給・OHを明示。大型ギア（ベベル／プラネタリ）ルート調査の本命。",
       "source_url": "https://www.ubemachinery.co.jp/english/service/reducer.html",
       "linked_majors": [
         "UBE"
@@ -1273,7 +1440,7 @@
       "scale_summary": "グループサービス",
       "id": "ube_nagoya-ＵＢＥマシナリー（減速機アフター）",
       "hotspot_id": "ube_nagoya",
-      "hotspot_area": "UBE/宇部系・名古屋エコシステム調査",
+      "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
       "capital_man_yen": null,
       "employees": null
     },
@@ -1478,19 +1645,44 @@
       "scale_source": "公式2025-04"
     },
     {
+      "name": "加茂精工株式会社",
+      "category": "精密減速機製造",
+      "area": "愛知県豊田市御作町",
+      "materials": [
+        "特殊鋼"
+      ],
+      "heat_relation": "ボール減速機等（歯車レス機構あり）。通常歯切減速機とは別物だが、周辺加工・熱処理需要の有無を確認",
+      "reason": "愛知ブランド級の精密減速機メーカー。歯車型大型とは別筋だが減速機顧客として洗う。",
+      "source_url": "https://kamo.co.jp/",
+      "linked_majors": [],
+      "priority": 1,
+      "role": "reducer_maker",
+      "investigation": "歯車型製品の有無、外注焼入ニーズ、サイズ帯",
+      "pit_furnace_fit": "低〜要確認（精密寄り）",
+      "size_hint": "ボール減速機・精密",
+      "lat": 35.15,
+      "lng": 137.2,
+      "capital_man_yen": 8500,
+      "employees": 123,
+      "scale_summary": "資本金8,500万円 / グループ約123名",
+      "id": "ube_nagoya-加茂精工",
+      "hotspot_id": "ube_nagoya",
+      "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）"
+    },
+    {
       "name": "株式会社服部歯車",
       "category": "名古屋の歯車製造（周辺候補）",
       "area": "愛知県名古屋市中川区",
       "materials": [
         "各種歯車鋼"
       ],
-      "heat_relation": "歯車・機械部品。熱処理外注実態とサイズ上限を確認",
-      "reason": "UBE名古屋近傍の歯車屋。UBE筋との取引有無は未確定→エコシステム調査候補。",
+      "heat_relation": "歯車・機械部品。減速機メーカー向け納入と熱処理外注を確認",
+      "reason": "UBE名古屋近傍の歯車屋。減速機筋・UBE筋の納入有無を洗う。",
       "source_url": "https://h-haguruma.co.jp/company/",
       "linked_majors": [],
       "priority": 1,
       "role": "nearby_candidate",
-      "investigation": "UBE/成形機/産業機械向け納入の有無、最大モジュール・外径",
+      "investigation": "減速機メーカー／UBE向け納入の有無、最大モジュール・外径",
       "pit_furnace_fit": "要確認",
       "size_hint": "要ヒアリング",
       "lat": 35.14,
@@ -1498,34 +1690,36 @@
       "scale_summary": "公開規模未確認",
       "id": "ube_nagoya-服部歯車",
       "hotspot_id": "ube_nagoya",
-      "hotspot_area": "UBE/宇部系・名古屋エコシステム調査",
+      "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
       "capital_man_yen": null,
       "employees": null
     },
     {
-      "name": "株式会社福島製作所",
-      "category": "UBE関連会社",
-      "area": "要確認（UBEマシナリー関連）",
+      "name": "ＵＢＥマシナリー株式会社（名古屋事業所）",
+      "category": "アンカー（ギア専業ではない）",
+      "area": "愛知県名古屋市港区大江町",
       "materials": [
-        "機械部品"
+        "特殊鋼",
+        "長尺部品"
       ],
-      "heat_relation": "関連会社の加工範囲に歯切・熱処理外注があるか確認",
-      "reason": "UBEマシナリーの関連会社。ギアそのものかは未確定→調査枠として洗う。",
-      "source_url": "https://ubemachinery.co.jp/",
+      "heat_relation": "名古屋はスクリュ一貫・表面処理。ギア自体はここが本業ではない",
+      "reason": "調査の起点。射出成形機組立・スクリュ製造。減速機サービス経由で大型ギア取引先を探す入口。",
+      "source_url": "https://www.ubemachinery.co.jp/product/large-machining/assembly-ngo.html",
       "linked_majors": [
-        "UBEマシナリー"
+        "UBE"
       ],
       "priority": 1,
-      "role": "affiliate",
-      "investigation": "事業内容・ギア／減速機部品の有無を公式・ヒアリングで確定",
-      "pit_furnace_fit": "要調査",
-      "size_hint": "要調査",
-      "lat": 35.12,
-      "lng": 136.88,
-      "scale_summary": "関連会社・要調査",
-      "id": "ube_nagoya-福島製作所",
+      "role": "anchor",
+      "not_gear_maker": true,
+      "investigation": "減速機部品・大型ギアの外注先／協力会社名を聞き出す",
+      "pit_furnace_fit": "直接は低（入口）",
+      "size_hint": "大型成形機・長尺スクリュ",
+      "lat": 35.08,
+      "lng": 136.87,
+      "scale_summary": "UBEマシナリー名古屋拠点",
+      "id": "ube_nagoya-ＵＢＥマシナリー（名古屋事業所）",
       "hotspot_id": "ube_nagoya",
-      "hotspot_area": "UBE/宇部系・名古屋エコシステム調査",
+      "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
       "capital_man_yen": null,
       "employees": null
     },
@@ -1672,6 +1866,33 @@
       "employees": null,
       "scale_source": "",
       "scale_summary": "公開規模未確認"
+    },
+    {
+      "name": "株式会社福島製作所",
+      "category": "UBE関連会社",
+      "area": "要確認（UBEマシナリー関連）",
+      "materials": [
+        "機械部品"
+      ],
+      "heat_relation": "関連会社の加工範囲に歯切・熱処理外注があるか確認",
+      "reason": "UBEマシナリーの関連会社。ギア／減速機部品は未確定→調査枠。",
+      "source_url": "https://ubemachinery.co.jp/",
+      "linked_majors": [
+        "UBEマシナリー"
+      ],
+      "priority": 2,
+      "role": "affiliate",
+      "investigation": "事業内容・ギア／減速機部品の有無を公式・ヒアリングで確定",
+      "pit_furnace_fit": "要調査",
+      "size_hint": "要調査",
+      "lat": 35.12,
+      "lng": 136.88,
+      "scale_summary": "関連会社・要調査",
+      "id": "ube_nagoya-福島製作所",
+      "hotspot_id": "ube_nagoya",
+      "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
+      "capital_man_yen": null,
+      "employees": null
     }
   ],
   "scale_table": [
@@ -1716,6 +1937,14 @@
       "priority": 0
     },
     {
+      "name": "加茂精工株式会社",
+      "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
+      "capital_man_yen": 8500,
+      "employees": 123,
+      "scale_summary": "資本金8,500万円 / グループ約123名",
+      "priority": 1
+    },
+    {
       "name": "協育歯車工業株式会社（名古屋）",
       "hotspot_area": "愛知・豊和工業（清須本社）界隈",
       "capital_man_yen": 10000,
@@ -1729,6 +1958,14 @@
       "capital_man_yen": 3000,
       "employees": 71,
       "scale_summary": "資本金3,000万円 / 従業員71名",
+      "priority": 0
+    },
+    {
+      "name": "株式会社大阪減速機製作所",
+      "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
+      "capital_man_yen": 5000,
+      "employees": 70,
+      "scale_summary": "資本金5,000万円 / 従業員約70名",
       "priority": 0
     },
     {
@@ -1796,6 +2033,14 @@
       "priority": 2
     },
     {
+      "name": "株式会社ニッセイ",
+      "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "公開規模要確認",
+      "priority": 0
+    },
+    {
       "name": "株式会社前田精密製作所",
       "hotspot_area": "愛知・豊和工業（清須本社）界隈",
       "capital_man_yen": null,
@@ -1804,8 +2049,16 @@
       "priority": 2
     },
     {
+      "name": "株式会社平井減速機製作所",
+      "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "公開規模未確認",
+      "priority": 0
+    },
+    {
       "name": "株式会社服部歯車",
-      "hotspot_area": "UBE/宇部系・名古屋エコシステム調査",
+      "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
       "capital_man_yen": null,
       "employees": null,
       "scale_summary": "公開規模未確認",
@@ -1813,11 +2066,11 @@
     },
     {
       "name": "株式会社福島製作所",
-      "hotspot_area": "UBE/宇部系・名古屋エコシステム調査",
+      "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
       "capital_man_yen": null,
       "employees": null,
       "scale_summary": "関連会社・要調査",
-      "priority": 1
+      "priority": 2
     },
     {
       "name": "株式会社都筑製作所",
@@ -1845,15 +2098,15 @@
     },
     {
       "name": "ＵＢＥマシナリー株式会社（名古屋事業所）",
-      "hotspot_area": "UBE/宇部系・名古屋エコシステム調査",
+      "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
       "capital_man_yen": null,
       "employees": null,
       "scale_summary": "UBEマシナリー名古屋拠点",
-      "priority": 0
+      "priority": 1
     },
     {
       "name": "ＵＢＥマシナリー株式会社（減速機アフター）",
-      "hotspot_area": "UBE/宇部系・名古屋エコシステム調査",
+      "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
       "capital_man_yen": null,
       "employees": null,
       "scale_summary": "グループサービス",
@@ -2084,34 +2337,126 @@
   },
   "ube_nagoya_focus": {
     "id": "ube_nagoya",
-    "area": "UBE/宇部系・名古屋エコシステム調査",
-    "pain": "UBEマシナリー名古屋自体は射出成形機・スクリュ等でギア専業ではない。減速機・破砕機・関連会社・協力取引先に大型ギア製造／外注があるはずなので、そこを洗う。",
+    "area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
+    "pain": "UBE名古屋はギア専業ではないが入口。減速機メーカーは歯車焼入・ピット炉需要の本命顧客候補なので、減速機製造を強力に洗う。",
     "lat": 35.08,
     "lng": 136.87,
     "investigation_mode": true,
     "focus": [
+      "減速機製造",
+      "歯車減速機",
+      "ウォーム減速機",
+      "遊星減速機",
       "UBEマシナリー",
-      "減速機",
-      "関連会社",
-      "協力会社",
       "大型ギア外注",
       "ピット炉"
     ],
     "how_to_investigate": [
-      "① アンカー（UBE名古屋）で減速機・大型機械部品の外注先・協力会社名を聞く",
-      "② グループ（福島製作所等）とサービス拠点の修理・歯車補給ルートを確認",
-      "③ 名古屋港区〜南区の歯切・大型ギア屋でUBE/成形機/破砕機筋の納入実績を突合",
-      "④ ヒットしたらピット炉適合・サイズをヒアリングし大型ギア特化へ昇格"
+      "① 減速機メーカー（製造）を最優先で洗う：内製歯切／焼入外注／最大モジュール・外径・ピット炉ニーズ",
+      "② 平井・大阪減速機・ニッセイ等で「熱処理の外注先」「補給歯車の協力会社」を聞き出す",
+      "③ UBE減速機アフター／関連会社から補給部品・OHの外注ルートを確認",
+      "④ 名古屋港区〜南区の歯切屋で減速機筋・UBE筋の納入実績を突合",
+      "⑤ ヒットしたらピット炉適合を確認し、大型ギア特化へ昇格"
     ],
     "search_queries": [
-      "UBEマシナリー OR 宇部興産機械 名古屋 歯車 OR ギヤ OR 減速機 外注 OR 協力",
-      "UBE 減速機 スパイラルベベル OR プラネタリ 製造 OR 補給",
-      "宇部興産機械 破砕機 OR 竪型ミル 歯車 熱処理",
-      "名古屋港区 OR 南区 大型歯車 製造 UBE OR 成形機 OR 産業機械",
-      "福島製作所 UBE 歯車 OR 機械加工",
-      "UBEマシナリー 協力会社 歯車 愛知"
+      "減速機 製造 メーカー 愛知 OR 名古屋 OR 大阪 OR 兵庫 -販売店",
+      "歯車減速機 製造 愛知 OR 東大阪 OR 尼崎 熱処理 OR 焼入 OR 浸炭",
+      "ウォーム減速機 製造 名古屋 OR 愛知 歯車",
+      "特殊減速機 OR 一品一様 減速機 製造 大阪 OR 愛知",
+      "遊星歯車減速機 製造 大阪 OR 愛知 外注 熱処理",
+      "大型減速機 OR ギヤボックス 歯車 焼入 外注 東海 OR 関西",
+      "UBEマシナリー OR 宇部興産機械 減速機 補給 OR オーバーホール 歯車",
+      "UBE 減速機 スパイラルベベル OR プラネタリ 製造 OR 外注",
+      "平井減速機 OR 大阪減速機 OR ニッセイ 減速機 歯車 熱処理",
+      "減速機メーカー 協力会社 歯切 OR 浸炭 愛知 OR 大阪"
     ],
     "companies": [
+      {
+        "name": "株式会社平井減速機製作所",
+        "category": "減速機製造（ウォーム）",
+        "area": "愛知県名古屋市中川区",
+        "materials": [
+          "ウォーム歯車鋼",
+          "各種歯車鋼"
+        ],
+        "heat_relation": "歯車選定〜製造一貫。焼入・浸炭の外注有無とサイズ上限を確認",
+        "reason": "名古屋のウォーム減速機専業。減速機顧客として本命。UBE名古屋近傍。",
+        "source_url": "http://gensokuki.com/",
+        "linked_majors": [],
+        "priority": 0,
+        "role": "reducer_maker",
+        "investigation": "最大サイズ、熱処理外注先、ピット炉が必要な大型の有無",
+        "pit_furnace_fit": "要確認（ウォーム大型なら中〜高）",
+        "size_hint": "ウォーム減速機一貫",
+        "lat": 35.14,
+        "lng": 136.82,
+        "scale_summary": "公開規模未確認"
+      },
+      {
+        "name": "株式会社大阪減速機製作所",
+        "category": "減速機製造（特殊・一品一様）",
+        "area": "大阪府東大阪市菱江",
+        "materials": [
+          "歯車鋼",
+          "軸材"
+        ],
+        "heat_relation": "公式に「適切な熱処理」を明記。外注か内製かをヒアリング（大型は外注が多い）",
+        "reason": "特殊減速機専業・設計〜歯切一貫。産業機械向け。関西の減速機本命顧客候補。",
+        "source_url": "https://ogsrg.co.jp/",
+        "linked_majors": [],
+        "priority": 0,
+        "role": "reducer_maker",
+        "investigation": "熱処理工程の内製／外注、最大歯車径・モジュール、ピット炉ニーズ",
+        "pit_furnace_fit": "中〜高（特殊大型なら）",
+        "size_hint": "一品一様・産業機械向け",
+        "lat": 34.68,
+        "lng": 135.62,
+        "capital_man_yen": 5000,
+        "employees": 70,
+        "scale_summary": "資本金5,000万円 / 従業員約70名"
+      },
+      {
+        "name": "株式会社ニッセイ",
+        "category": "減速機・ギアモータ製造",
+        "area": "愛知県安城市",
+        "materials": [
+          "高精度歯車鋼"
+        ],
+        "heat_relation": "ギアモータ・高剛性減速機・高精度歯車。焼入外注／内製と大型可否を確認",
+        "reason": "愛知の減速機・歯車メーカー。量産〜精密。顧客候補として規模が大きい。",
+        "source_url": "https://www.nissei-gtr.co.jp/",
+        "linked_majors": [],
+        "priority": 0,
+        "role": "reducer_maker",
+        "investigation": "大型・特殊減速機の有無、熱処理ルート、外注余地",
+        "pit_furnace_fit": "要確認（大型製品があれば）",
+        "size_hint": "ギアモータ〜高精度歯車",
+        "lat": 34.96,
+        "lng": 137.08,
+        "scale_summary": "公開規模要確認"
+      },
+      {
+        "name": "加茂精工株式会社",
+        "category": "精密減速機製造",
+        "area": "愛知県豊田市御作町",
+        "materials": [
+          "特殊鋼"
+        ],
+        "heat_relation": "ボール減速機等（歯車レス機構あり）。通常歯切減速機とは別物だが、周辺加工・熱処理需要の有無を確認",
+        "reason": "愛知ブランド級の精密減速機メーカー。歯車型大型とは別筋だが減速機顧客として洗う。",
+        "source_url": "https://kamo.co.jp/",
+        "linked_majors": [],
+        "priority": 1,
+        "role": "reducer_maker",
+        "investigation": "歯車型製品の有無、外注焼入ニーズ、サイズ帯",
+        "pit_furnace_fit": "低〜要確認（精密寄り）",
+        "size_hint": "ボール減速機・精密",
+        "lat": 35.15,
+        "lng": 137.2,
+        "capital_man_yen": 8500,
+        "employees": 123,
+        "scale_summary": "資本金8,500万円 / グループ約123名"
+      },
       {
         "name": "ＵＢＥマシナリー株式会社（名古屋事業所）",
         "category": "アンカー（ギア専業ではない）",
@@ -2121,12 +2466,12 @@
           "長尺部品"
         ],
         "heat_relation": "名古屋はスクリュ一貫・表面処理。ギア自体はここが本業ではない",
-        "reason": "調査の起点。射出成形機組立・スクリュ製造。ギアは直接ではないが、減速機サービスや大型機械のサプライに大型ギア取引先がある想定。",
+        "reason": "調査の起点。射出成形機組立・スクリュ製造。減速機サービス経由で大型ギア取引先を探す入口。",
         "source_url": "https://www.ubemachinery.co.jp/product/large-machining/assembly-ngo.html",
         "linked_majors": [
           "UBE"
         ],
-        "priority": 0,
+        "priority": 1,
         "role": "anchor",
         "not_gear_maker": true,
         "investigation": "減速機部品・大型ギアの外注先／協力会社名を聞き出す",
@@ -2144,7 +2489,7 @@
           "減速機歯車鋼"
         ],
         "heat_relation": "減速機OH・スパイラルベベル等の補給部品。焼入・歯切の外注実態を確認",
-        "reason": "公式に減速機の部品製造・補給・OHを明示。大型ギア（ベベル／プラネタリ）の実製造・外注ルート調査の本命。",
+        "reason": "公式に減速機の部品製造・補給・OHを明示。大型ギア（ベベル／プラネタリ）ルート調査の本命。",
         "source_url": "https://www.ubemachinery.co.jp/english/service/reducer.html",
         "linked_majors": [
           "UBE"
@@ -2166,12 +2511,12 @@
           "機械部品"
         ],
         "heat_relation": "関連会社の加工範囲に歯切・熱処理外注があるか確認",
-        "reason": "UBEマシナリーの関連会社。ギアそのものかは未確定→調査枠として洗う。",
+        "reason": "UBEマシナリーの関連会社。ギア／減速機部品は未確定→調査枠。",
         "source_url": "https://ubemachinery.co.jp/",
         "linked_majors": [
           "UBEマシナリー"
         ],
-        "priority": 1,
+        "priority": 2,
         "role": "affiliate",
         "investigation": "事業内容・ギア／減速機部品の有無を公式・ヒアリングで確定",
         "pit_furnace_fit": "要調査",
@@ -2187,13 +2532,13 @@
         "materials": [
           "各種歯車鋼"
         ],
-        "heat_relation": "歯車・機械部品。熱処理外注実態とサイズ上限を確認",
-        "reason": "UBE名古屋近傍の歯車屋。UBE筋との取引有無は未確定→エコシステム調査候補。",
+        "heat_relation": "歯車・機械部品。減速機メーカー向け納入と熱処理外注を確認",
+        "reason": "UBE名古屋近傍の歯車屋。減速機筋・UBE筋の納入有無を洗う。",
         "source_url": "https://h-haguruma.co.jp/company/",
         "linked_majors": [],
         "priority": 1,
         "role": "nearby_candidate",
-        "investigation": "UBE/成形機/産業機械向け納入の有無、最大モジュール・外径",
+        "investigation": "減速機メーカー／UBE向け納入の有無、最大モジュール・外径",
         "pit_furnace_fit": "要確認",
         "size_hint": "要ヒアリング",
         "lat": 35.14,
@@ -2201,23 +2546,23 @@
         "scale_summary": "公開規模未確認"
       },
       {
-        "name": "UBE名古屋周辺の大型歯切・減速機ギア（探索枠）",
+        "name": "東海・関西の減速機製造（探索枠）",
         "category": "探索メモ",
-        "area": "名古屋港区・南区・中川・天白",
+        "area": "愛知・大阪・兵庫（減速機製造）",
         "materials": [
           "SCM系",
           "歯車鋼"
         ],
-        "heat_relation": "大型はピット炉・特殊焼入外注が多い",
-        "reason": "アンカー聞き取りで社名を確定して埋める。既存取引先のナゴヤギアは攻略対象外だが、ネットワーク地図の参考にはする。",
+        "heat_relation": "減速機歯車は浸炭・焼入・ピット炉外注が出やすい",
+        "reason": "検索・展示会・商工会で減速機メーカー名を確定して埋める。ナゴヤギアは既存取引先のため攻略対象外。",
         "source_url": "",
         "linked_majors": [
-          "UBE"
+          "減速機メーカー"
         ],
         "priority": 2,
         "role": "explore",
         "is_placeholder": true,
-        "investigation": "港区〜南区の大型歯切／減速機ギア屋を洗い、UBE納入実績を確認",
+        "investigation": "「減速機 製造 愛知/大阪」でヒットした社名を追加し、熱処理ルートを確認",
         "pit_furnace_fit": "探索中",
         "size_hint": "探索",
         "lat": 35.09,
@@ -2228,15 +2573,32 @@
     "known_network_notes": [
       {
         "name": "株式会社ナゴヤギア",
-        "note": "既存取引先のため攻略一覧からは除外。UBE筋調査の参考接点になり得るが、新規攻略先としては扱わない。"
+        "note": "既存取引先のため攻略一覧からは除外。変減速機向け歯車の参考接点にはなり得るが、新規攻略先としては扱わない。"
       },
       {
         "name": "ＵＢＥマシナリー名古屋事業所",
-        "note": "ギア専業ではない（スクリュ・成形機組立）。関連・取引先の大型ギアを探す入口。"
+        "note": "ギア専業ではない（スクリュ・成形機組立）。関連・取引先の大型ギア／減速機補給を探す入口。"
+      },
+      {
+        "name": "減速機メーカー全般",
+        "note": "重要顧客候補。歯切内製でも焼入・浸炭・ピット炉は外注が多い。サイズと外注先ヒアリングを優先。"
+      },
+      {
+        "name": "加茂精工株式会社",
+        "note": "来社打合せ履歴あり（歪み・硬度テーマ）。既存接点として扱い、新規冷訪ではなく継続ヒアリング向き。"
+      },
+      {
+        "name": "株式会社大阪減速機製作所",
+        "note": "アンケート候補等に名前が出る既知接点の可能性。取引ステータスを確認しつつ減速機製造本命として追う。"
       }
     ]
   },
   "search_queries": [
+    "減速機 製造 メーカー 愛知 OR 名古屋 OR 大阪 OR 兵庫 -販売店",
+    "歯車減速機 製造 愛知 OR 東大阪 OR 尼崎 熱処理 OR 焼入 OR 浸炭",
+    "ウォーム減速機 製造 名古屋 OR 愛知 歯車",
+    "特殊減速機 OR 一品一様 減速機 製造 大阪 OR 愛知",
+    "大型減速機 OR ギヤボックス 歯車 焼入 外注 東海 OR 関西",
     "大型歯車 製造 愛知 OR 大阪 OR 兵庫 モジュール10 OR モジュール20",
     "大型ギヤ φ1000 OR φ2000 浸炭 OR ピット炉 外注",
     "ピット炉 浸炭 大型歯車 東海 OR 関西",

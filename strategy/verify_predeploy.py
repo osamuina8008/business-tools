@@ -33,6 +33,8 @@ def main() -> int:
         "main",
         "selectHotspotDrill",
         "setVisitFilter",
+        "showScmTarget",
+        "renderSignalsBlock",
     ]
     bad: list[str] = []
     for name in need:

@@ -1,17 +1,35 @@
 {
-  "updated": "2026-08-11T10:36:42+09:00",
-  "disclaimer": "攻めどころ界隈の公開情報・聞き取りベース。既存顧客・コマツ筋・高周波メイン等は除外済み。",
-  "how_to_use": "各界隈の社名一覧を見て訪問先を決める。探索枠は現地で社名を確定して埋める。",
-  "count": 40,
+  "updated": "2026-08-11T10:57:59+09:00",
+  "disclaimer": "攻めどころ界隈の公開情報・聞き取りベース。既存顧客・コマツ筋・高周波メイン等は除外済み。開発最優先は大型ギア×ピット炉（適合なら京都・兵庫北部も可）。要: 大型ギア／大型部品／大型減速機メーカーは必ずピックアップ。",
+  "how_to_use": "要ルール: 大型ギア・大型部品・大型減速機は見つけたら必ず載せる。まず大型ギア×ピット炉界隈を見る。適合案件なら京都・兵庫北部も候補。",
+  "must_pickup_rule": {
+    "title": "要・必ずピックアップ",
+    "rule": "大型ギア製造・大型部品製造・大型減速機製造の会社は、見つかったら必ずピックアップする（既存顧客・明確除外のみ外す）。",
+    "types": [
+      {
+        "id": "large_gear",
+        "label": "大型ギア製造"
+      },
+      {
+        "id": "large_parts",
+        "label": "大型部品製造"
+      },
+      {
+        "id": "large_reducer",
+        "label": "大型減速機製造"
+      }
+    ]
+  },
+  "count": 51,
   "group_count": 11,
   "groups": [
     {
       "hotspot_id": "large_gear",
-      "area": "大型ギア特化（ピット炉検証）",
-      "pain": "ピット炉対応の検証と大型製品の購入トライのため、大型歯車メーカーに集中する。",
+      "area": "大型ギア×ピット炉（開発最優先）",
+      "pain": "一番やりたいのは大型ギアをピット炉で処理する仕事。開発・営業の最優先。この案件なら京都府・兵庫北部も検討する。要: 大型ギア／大型部品／大型減速機メーカーは必ずピックアップ。",
       "lat": 34.8,
       "lng": 136.5,
-      "count": 4,
+      "count": 6,
       "companies": [
         {
           "name": "石田歯車工業株式会社",
@@ -35,8 +53,39 @@
           "scale_summary": "資本金1,000万円 / 従業員約7名",
           "id": "large_gear-石田歯車工業",
           "hotspot_id": "large_gear",
-          "hotspot_area": "大型ギア特化（ピット炉検証）",
-          "scale_source": "公開情報"
+          "hotspot_area": "大型ギア×ピット炉（開発最優先）",
+          "scale_source": "公開情報",
+          "must_pickup": true,
+          "must_pickup_type": "large_gear",
+          "must_pickup_label": "大型ギア製造"
+        },
+        {
+          "name": "神戸歯車株式会社",
+          "category": "大型・特殊歯車製造",
+          "area": "兵庫県神戸市",
+          "materials": [
+            "各種歯車鋼",
+            "建機用ギア"
+          ],
+          "heat_relation": "φ3m超の大型・特殊歯車。焼入・浸炭の外注実態を確認（ピット炉本命）",
+          "reason": "公式に直径3m超・建機旋回ギア等。ピット炉級の最有力。兵庫は大型ギアなら全域検討。",
+          "source_url": "http://kobegear.jp/",
+          "linked_majors": [],
+          "priority": 0,
+          "large_gear": true,
+          "pit_furnace_fit": "高（φ3m超）",
+          "size_hint": "〜φ3000超 / 横型シャフト〜4m",
+          "lat": 34.69,
+          "lng": 135.2,
+          "scale_summary": "創業大正8年・大型歯車専業",
+          "id": "large_gear-神戸歯車",
+          "hotspot_id": "large_gear",
+          "hotspot_area": "大型ギア×ピット炉（開発最優先）",
+          "capital_man_yen": null,
+          "employees": null,
+          "must_pickup": true,
+          "must_pickup_type": "large_gear",
+          "must_pickup_label": "大型ギア製造"
         },
         {
           "name": "阪神歯車",
@@ -58,12 +107,15 @@
           "lat": 34.73,
           "lng": 135.41,
           "capital_man_yen": 300,
-          "employees": null,
           "scale_summary": "資本金300万円 / 従業員未確認",
           "id": "large_gear-阪神歯車",
           "hotspot_id": "large_gear",
-          "hotspot_area": "大型ギア特化（ピット炉検証）",
-          "scale_source": "公開情報"
+          "hotspot_area": "大型ギア×ピット炉（開発最優先）",
+          "employees": null,
+          "scale_source": "公開情報",
+          "must_pickup": true,
+          "must_pickup_type": "large_gear",
+          "must_pickup_label": "大型ギア製造"
         },
         {
           "name": "姫路歯車工業株式会社",
@@ -85,10 +137,13 @@
           "scale_summary": "公開規模未確認",
           "id": "large_gear-姫路歯車工業",
           "hotspot_id": "large_gear",
-          "hotspot_area": "大型ギア特化（ピット炉検証）",
+          "hotspot_area": "大型ギア×ピット炉（開発最優先）",
           "capital_man_yen": null,
           "employees": null,
-          "scale_source": ""
+          "scale_source": "",
+          "must_pickup": true,
+          "must_pickup_type": "large_gear",
+          "must_pickup_label": "大型ギア製造"
         },
         {
           "name": "株式会社ジェイテクトギヤシステム",
@@ -114,13 +169,93 @@
           "scale_summary": "資本金20億円 / 従業員1,106名",
           "id": "large_gear-ジェイテクトギヤシステム",
           "hotspot_id": "large_gear",
-          "hotspot_area": "大型ギア特化（ピット炉検証）",
-          "scale_source": "公式2025-04"
+          "hotspot_area": "大型ギア×ピット炉（開発最優先）",
+          "scale_source": "公式2025-04",
+          "must_pickup": true,
+          "must_pickup_type": "large_gear",
+          "must_pickup_label": "大型ギア製造"
+        },
+        {
+          "name": "株式会社竝川歯車製作所",
+          "category": "歯車・スロッター（京都）",
+          "area": "京都府（八幡市周辺・075）",
+          "materials": [
+            "各種歯車鋼"
+          ],
+          "heat_relation": "歯切・スロッター。大型・ピット炉級かどうか要確認（京都は大型ギア案件なら対象）",
+          "reason": "京都の歯車屋。ピット炉級なら距離例外で拾う。サイズ未確認のためヒアリング優先。",
+          "source_url": "https://www.namikawa-gear.jp/",
+          "linked_majors": [],
+          "priority": 1,
+          "large_gear": true,
+          "pit_furnace_fit": "要確認（京都例外）",
+          "size_hint": "要ヒアリング",
+          "lat": 34.86,
+          "lng": 135.71,
+          "scale_summary": "公開サイズ未確認／TEL 075-932-1515",
+          "id": "large_gear-竝川歯車製作所",
+          "hotspot_id": "large_gear",
+          "hotspot_area": "大型ギア×ピット炉（開発最優先）",
+          "capital_man_yen": null,
+          "employees": null,
+          "must_pickup": true,
+          "must_pickup_type": "large_gear",
+          "must_pickup_label": "大型ギア製造"
+        },
+        {
+          "name": "京都・大型歯切（探索枠）",
+          "category": "探索メモ",
+          "area": "京都府（京都市・城陽・八幡・宇治など）",
+          "materials": [
+            "SCM系"
+          ],
+          "heat_relation": "大型はピット炉・特殊焼入の外注が多い",
+          "reason": "ピット炉級の大型ギア案件に限り京都も対象。φ1m超・建機・舶用を社名確定して埋める。",
+          "source_url": "",
+          "linked_majors": [],
+          "priority": 2,
+          "large_gear": true,
+          "pit_furnace_fit": "探索中",
+          "size_hint": "探索（φ1000超優先）",
+          "is_placeholder": true,
+          "lat": 35.01,
+          "lng": 135.77,
+          "scale_summary": "—",
+          "id": "large_gear-京都・大型歯切（探索枠）",
+          "hotspot_id": "large_gear",
+          "hotspot_area": "大型ギア×ピット炉（開発最優先）",
+          "capital_man_yen": null,
+          "employees": null
+        },
+        {
+          "name": "兵庫北部・大型歯切（探索枠）",
+          "category": "探索メモ",
+          "area": "兵庫県北部（豊岡・朝来・養父・丹波・篠山）",
+          "materials": [
+            "SCM系"
+          ],
+          "heat_relation": "大型はピット炉外注が出やすい",
+          "reason": "ピット炉級なら兵庫北部も検討。歯切・鍛造・建機部品の社名を確定して埋める。",
+          "source_url": "",
+          "linked_majors": [],
+          "priority": 2,
+          "large_gear": true,
+          "pit_furnace_fit": "探索中",
+          "size_hint": "探索（φ1000超優先）",
+          "is_placeholder": true,
+          "lat": 35.4,
+          "lng": 134.8,
+          "scale_summary": "—",
+          "id": "large_gear-兵庫北部・大型歯切（探索枠）",
+          "hotspot_id": "large_gear",
+          "hotspot_area": "大型ギア×ピット炉（開発最優先）",
+          "capital_man_yen": null,
+          "employees": null
         },
         {
           "name": "東海・関西の追加大型歯切（探索枠）",
           "category": "探索メモ",
-          "area": "愛知・大阪・兵庫",
+          "area": "愛知・大阪・兵庫南部",
           "materials": [
             "SCM系"
           ],
@@ -138,15 +273,40 @@
           "scale_summary": "—",
           "id": "large_gear-東海・関西の追加大型歯切（探索枠）",
           "hotspot_id": "large_gear",
-          "hotspot_area": "大型ギア特化（ピット炉検証）",
+          "hotspot_area": "大型ギア×ピット炉（開発最優先）",
           "capital_man_yen": null,
           "employees": null
         }
       ],
-      "investigation_mode": false,
-      "how_to_investigate": [],
-      "search_queries": [],
-      "known_network_notes": []
+      "investigation_mode": true,
+      "how_to_investigate": [
+        "①【要】大型ギア／大型部品／大型減速機メーカーは見つけたら必ずピックアップ（既存顧客のみ除外）",
+        "② 外径・モジュール・材質・熱処理仕様を確認し、ピット炉案件かどうかを先に判定する",
+        "③ ピット炉級なら距離より適合優先——京都・兵庫北部も訪問候補に入れる",
+        "④ 自社ピット炉がある先は攻めず、外注先・余力だけ参考にする",
+        "⑤ 試作品購入・共同トライでピット炉実績を積み、大型ギア特化の実績にする",
+        "⑥ 減速機・建機・舶用・風力の大径ギヤ筋から逆引きする"
+      ],
+      "search_queries": [
+        "大型歯車 製造 京都 OR 兵庫 モジュール10 OR モジュール20",
+        "大型ギヤ φ1000 OR φ2000 OR φ3000 浸炭 OR ピット炉 外注",
+        "ピット炉 浸炭 大型歯車 関西 OR 京都 OR 兵庫",
+        "神戸歯車 大型歯車 歯切",
+        "兵庫 豊岡 OR 朝来 OR 丹波 OR 養父 歯車 OR 歯切 大型",
+        "京都 歯車 製造 大型 OR 大モジュール OR φ1000",
+        "大型スプロケット 歯切 SCM 焼入 兵庫 OR 京都 OR 大阪",
+        "建機 OR 舶用 OR 風力 歯車 外注 熱処理 関西"
+      ],
+      "known_network_notes": [],
+      "development_priority": 0,
+      "geo_exception": {
+        "note": "通常の主戦場は愛知・豊中・兵庫南部だが、ピット炉級の大型ギア案件に限り京都・兵庫北部も対象にする",
+        "include": [
+          "京都府",
+          "兵庫県北部（豊岡・朝来・養父・丹波・篠山など）",
+          "兵庫県全般（大型ギア）"
+        ]
+      }
     },
     {
       "hotspot_id": "ube_nagoya",
@@ -154,7 +314,7 @@
       "pain": "UBE名古屋はギア専業ではないが入口。減速機メーカーは歯車焼入・ピット炉需要の本命顧客候補なので、減速機製造を強力に洗う。",
       "lat": 35.08,
       "lng": 136.87,
-      "count": 9,
+      "count": 8,
       "companies": [
         {
           "name": "マテックス株式会社",
@@ -180,7 +340,10 @@
           "scale_summary": "資本金888万円 / 従業員約60名",
           "id": "ube_nagoya-マテックス",
           "hotspot_id": "ube_nagoya",
-          "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）"
+          "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
+          "must_pickup": true,
+          "must_pickup_type": "large_reducer",
+          "must_pickup_label": "大型減速機製造"
         },
         {
           "name": "株式会社ニッセイ",
@@ -205,7 +368,10 @@
           "hotspot_id": "ube_nagoya",
           "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
           "capital_man_yen": null,
-          "employees": null
+          "employees": null,
+          "must_pickup": true,
+          "must_pickup_type": "large_reducer",
+          "must_pickup_label": "大型減速機製造"
         },
         {
           "name": "株式会社平井減速機製作所",
@@ -231,33 +397,10 @@
           "hotspot_id": "ube_nagoya",
           "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
           "capital_man_yen": null,
-          "employees": null
-        },
-        {
-          "name": "阪神動力機械株式会社",
-          "category": "減速機製造（歯車・産業用大型）",
-          "area": "大阪府大阪市此花区四貫島",
-          "materials": [
-            "歯車鋼",
-            "浸炭歯車"
-          ],
-          "heat_relation": "平行軸・直交・ウォーム・遊星。ポンプ駆動用など大型あり。浸炭歯車明記→焼入外注余地を確認",
-          "reason": "関西の歯車減速機メーカー。大型・ポンプ駆動まで。ピット炉級の可能性あり。",
-          "source_url": "https://www.hanshin-pm.co.jp/product/industrial/reduction/",
-          "linked_majors": [],
-          "priority": 0,
-          "role": "reducer_maker",
-          "investigation": "最大サイズ、浸炭／焼入の内製外注、ピット炉ニーズ",
-          "pit_furnace_fit": "中〜高（大型・ポンプ駆動なら）",
-          "size_hint": "産業用〜ポンプ駆動大型",
-          "lat": 34.68,
-          "lng": 135.44,
-          "scale_summary": "公開規模要確認",
-          "id": "ube_nagoya-阪神動力機械",
-          "hotspot_id": "ube_nagoya",
-          "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
-          "capital_man_yen": null,
-          "employees": null
+          "employees": null,
+          "must_pickup": true,
+          "must_pickup_type": "large_reducer",
+          "must_pickup_label": "大型減速機製造"
         },
         {
           "name": "ＵＢＥマシナリー株式会社（減速機アフター）",
@@ -284,7 +427,10 @@
           "hotspot_id": "ube_nagoya",
           "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
           "capital_man_yen": null,
-          "employees": null
+          "employees": null,
+          "must_pickup": true,
+          "must_pickup_type": "large_reducer",
+          "must_pickup_label": "大型減速機製造"
         },
         {
           "name": "加茂精工株式会社",
@@ -309,7 +455,10 @@
           "scale_summary": "資本金8,500万円 / グループ約123名",
           "id": "ube_nagoya-加茂精工",
           "hotspot_id": "ube_nagoya",
-          "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）"
+          "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
+          "must_pickup": true,
+          "must_pickup_type": "large_reducer",
+          "must_pickup_label": "大型減速機製造"
         },
         {
           "name": "株式会社服部歯車",
@@ -334,7 +483,10 @@
           "hotspot_id": "ube_nagoya",
           "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
           "capital_man_yen": null,
-          "employees": null
+          "employees": null,
+          "must_pickup": true,
+          "must_pickup_type": "large_reducer",
+          "must_pickup_label": "大型減速機製造"
         },
         {
           "name": "ＵＢＥマシナリー株式会社（名古屋事業所）",
@@ -363,7 +515,10 @@
           "hotspot_id": "ube_nagoya",
           "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
           "capital_man_yen": null,
-          "employees": null
+          "employees": null,
+          "must_pickup": true,
+          "must_pickup_type": "large_reducer",
+          "must_pickup_label": "大型減速機製造"
         },
         {
           "name": "東海・関西の減速機製造（探索枠）",
@@ -424,11 +579,12 @@
       ],
       "investigation_mode": true,
       "how_to_investigate": [
-        "① 減速機メーカー（製造）を最優先：内製歯切／焼入外注／最大モジュール・外径・ピット炉",
-        "② 平井・阪神動力・マテックス・ニッセイ等で熱処理外注先と展示会出展予定を確認（出展時は必ずブースへ）",
-        "③ 大阪減速機は既存取引先→攻略ではなく関係維持・展示会で接点強化",
-        "④ UBE減速機アフター／関連から補給部品ルートを確認",
-        "⑤ ヒットしたらピット炉適合を確認し大型ギア特化へ昇格"
+        "①【要】大型減速機メーカーは見つけたら必ずピックアップ（大阪減速機・阪神動力は既存顧客→ウォッチのみ）",
+        "② 減速機メーカー（製造）を最優先：内製歯切／焼入外注／最大モジュール・外径・ピット炉",
+        "③ 平井・マテックス・ニッセイ等で熱処理外注先と展示会出展予定を確認（出展時は必ずブースへ）",
+        "④ 大阪減速機・阪神動力機械は既存取引先→攻略ではなく関係維持・展示会で接点強化",
+        "⑤ UBE減速機アフター／関連から補給部品ルートを確認",
+        "⑥ ヒットしたらピット炉適合を確認し大型ギア特化へ昇格"
       ],
       "search_queries": [
         "減速機 製造 メーカー 愛知 OR 名古屋 OR 大阪 OR 兵庫 -販売店",
@@ -464,8 +620,14 @@
         {
           "name": "株式会社大阪減速機製作所",
           "note": "既存取引先のため攻略一覧からは除外。展示会出展時は必ずブース確認（ウォッチ対象）。"
+        },
+        {
+          "name": "阪神動力機械株式会社",
+          "note": "既存取引先のため攻略一覧からは除外。展示会出展時は必ずブース確認（ウォッチ対象）。"
         }
-      ]
+      ],
+      "development_priority": null,
+      "geo_exception": {}
     },
     {
       "hotspot_id": "daido_nagoya",
@@ -501,7 +663,10 @@
           "scale_summary": "資本金3.1億円 / 従業員約350名",
           "id": "daido_nagoya-大同マシナリー",
           "hotspot_id": "daido_nagoya",
-          "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）"
+          "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+          "must_pickup": true,
+          "must_pickup_type": "large_reducer",
+          "must_pickup_label": "大型減速機製造"
         },
         {
           "name": "大同特殊鋼株式会社（星崎工場）",
@@ -699,7 +864,10 @@
           "hotspot_id": "daido_nagoya",
           "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
           "capital_man_yen": null,
-          "employees": null
+          "employees": null,
+          "must_pickup": true,
+          "must_pickup_type": "large_parts",
+          "must_pickup_label": "大型部品製造"
         },
         {
           "name": "株式会社加福製作所",
@@ -727,7 +895,11 @@
           "hotspot_id": "daido_nagoya",
           "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
           "capital_man_yen": null,
-          "employees": null
+          "employees": null,
+          "must_pickup": true,
+          "must_pickup_type": "large_gear",
+          "must_pickup_label": "大型ギア製造",
+          "large_gear": true
         },
         {
           "name": "株式会社山下製作所",
@@ -875,7 +1047,9 @@
           "name": "大同特殊鋼本体",
           "note": "特殊鋼メーカー。自社熱処理あり。営業の直接顧客ではなく、歯車鋼ユーザー探索のアンカー。"
         }
-      ]
+      ],
+      "development_priority": null,
+      "geo_exception": {}
     },
     {
       "hotspot_id": "willbe_tsushima",
@@ -1015,7 +1189,9 @@
       "investigation_mode": false,
       "how_to_investigate": [],
       "search_queries": [],
-      "known_network_notes": []
+      "known_network_notes": [],
+      "development_priority": null,
+      "geo_exception": {}
     },
     {
       "hotspot_id": "houwa",
@@ -1146,7 +1322,9 @@
       "investigation_mode": false,
       "how_to_investigate": [],
       "search_queries": [],
-      "known_network_notes": []
+      "known_network_notes": [],
+      "development_priority": null,
+      "geo_exception": {}
     },
     {
       "hotspot_id": "kariya_jtekt",
@@ -1308,7 +1486,9 @@
       "investigation_mode": false,
       "how_to_investigate": [],
       "search_queries": [],
-      "known_network_notes": []
+      "known_network_notes": [],
+      "development_priority": null,
+      "geo_exception": {}
     },
     {
       "hotspot_id": "toyonaka",
@@ -1414,7 +1594,9 @@
       "investigation_mode": false,
       "how_to_investigate": [],
       "search_queries": [],
-      "known_network_notes": []
+      "known_network_notes": [],
+      "development_priority": null,
+      "geo_exception": {}
     },
     {
       "hotspot_id": "amagasaki",
@@ -1472,7 +1654,9 @@
       "investigation_mode": false,
       "how_to_investigate": [],
       "search_queries": [],
-      "known_network_notes": []
+      "known_network_notes": [],
+      "development_priority": null,
+      "geo_exception": {}
     },
     {
       "hotspot_id": "himeji",
@@ -1530,65 +1714,374 @@
       "investigation_mode": false,
       "how_to_investigate": [],
       "search_queries": [],
-      "known_network_notes": []
+      "known_network_notes": [],
+      "development_priority": null,
+      "geo_exception": {}
     },
     {
       "hotspot_id": "wakayama",
-      "area": "和歌山市界隈",
-      "pain": "処理に困っているところがあると聞いている",
+      "area": "和歌山・金属加工／熱処理需要調査",
+      "pain": "処理に困っているところがあると聞いている。建設・切断屋は除外し、歯車・ポンプ部品・精密シャフトなど熱処理が絡む金属加工を洗う。",
       "lat": 34.2305,
       "lng": 135.1708,
-      "count": 0,
+      "count": 10,
       "companies": [
         {
-          "name": "和歌山市内の機械加工・歯切（探索枠）",
-          "category": "探索メモ",
-          "area": "和歌山市・海南",
+          "name": "伏虎金属工業株式会社（フッコ／FUKKO）",
+          "category": "ポンプ製造＋金属部品加工",
+          "area": "和歌山県和歌山市吹屋町（本社）／紀の川市（粉河工場）",
           "materials": [
-            "鉄系"
+            "特殊鋼",
+            "ステンレス",
+            "油圧部品鋼"
           ],
-          "heat_relation": "焼入外注",
-          "reason": "大和歯車は顧客のため除外。周辺同業・下請けを社名確定する。",
-          "source_url": "",
+          "heat_relation": "ポンプ・油圧／冷凍機・繊維機器部品の機械加工。シャフト・ベーン等で焼入・浸炭外注が出やすい",
+          "reason": "和歌山の本命。公式でポンプ製造に加え冷凍機・空調・繊維・油圧部品加工を明示。複合機・MC多数。",
+          "source_url": "https://www.fukko.com/company/",
+          "linked_majors": [
+            "三菱電機冷熱",
+            "大阪ジャッキ"
+          ],
+          "priority": 0,
+          "role": "anchor",
+          "investigation": "部品焼入／浸炭の内製外注、最大サイズ、ピット炉ニーズ",
+          "pit_furnace_fit": "要確認（大型ポンプ部品なら中）",
+          "size_hint": "ポンプ・油圧部品加工",
+          "lat": 34.235,
+          "lng": 135.175,
+          "capital_man_yen": 1000,
+          "scale_summary": "資本金1,000万円／粉河工場あり",
+          "id": "wakayama-伏虎金属工業（フッコ／FUKKO）",
+          "hotspot_id": "wakayama",
+          "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+          "employees": null,
+          "must_pickup": true,
+          "must_pickup_type": "large_parts",
+          "must_pickup_label": "大型部品製造"
+        },
+        {
+          "name": "有限会社清水歯車工作所",
+          "category": "歯車製造（金属加工）",
+          "area": "和歌山県和歌山市吹屋町1丁目",
+          "materials": [
+            "歯車鋼",
+            "SCM系"
+          ],
+          "heat_relation": "歯車工作所。焼入・浸炭外注が本命論点",
+          "reason": "フッコと同・吹屋町の歯車屋。県機械金属工業協同組合員。熱処理需要の本命候補。",
+          "source_url": "https://wa-kikai.com/list/",
+          "linked_majors": [],
+          "priority": 0,
+          "role": "gear_maker",
+          "investigation": "モジュール・外径上限、熱処理ルート、ピット炉可否",
+          "pit_furnace_fit": "要確認（大型なら高）",
+          "size_hint": "要ヒアリング",
+          "lat": 34.236,
+          "lng": 135.174,
+          "scale_summary": "公開規模未確認／TEL 073-424-1128",
+          "id": "wakayama-清水歯車工作所",
+          "hotspot_id": "wakayama",
+          "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+          "capital_man_yen": null,
+          "employees": null,
+          "must_pickup": true,
+          "must_pickup_type": "large_gear",
+          "must_pickup_label": "大型ギア製造",
+          "large_gear": true
+        },
+        {
+          "name": "株式会社共栄テクシード",
+          "category": "精密部品・歯切（自動車／建機／農機）",
+          "area": "和歌山県紀の川市桃山町（本社工場）／和歌山市",
+          "materials": [
+            "SCM系",
+            "焼入鋼"
+          ],
+          "heat_relation": "歯切ラインあり。NC研削で焼入鋼対応→熱処理後工程前提。自社炉記載なし＝外注の可能性高",
+          "reason": "建設カットではなく、トルコン・トランスミッション・油圧ポンプ部品＋歯車加工。熱処理外注ニーズの本命候補。",
+          "source_url": "http://kyoei-tc.co.jp/corporate/profile/",
+          "linked_majors": [
+            "エクセディ",
+            "川崎重工業",
+            "住友電工焼結合金"
+          ],
+          "priority": 0,
+          "role": "metal_processor",
+          "investigation": "焼入・浸炭の外注先、サイズ上限、ピット炉・大型ギアの有無",
+          "pit_furnace_fit": "要確認（量産小物寄りなら低）",
+          "size_hint": "自動車・建機トランス系精密部品",
+          "lat": 34.28,
+          "lng": 135.35,
+          "capital_man_yen": 1000,
+          "employees": 150,
+          "scale_summary": "資本金1,000万円 / 従約150名 / 歯切ラインあり",
+          "id": "wakayama-共栄テクシード",
+          "hotspot_id": "wakayama",
+          "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+          "must_pickup": true,
+          "must_pickup_type": "large_gear",
+          "must_pickup_label": "大型ギア製造",
+          "large_gear": true
+        },
+        {
+          "name": "カナプレスト株式会社",
+          "category": "スプロケット・歯車製造 ※自社高周波あり",
+          "area": "和歌山県紀の川市北涌",
+          "materials": [
+            "S45C",
+            "普通鋼",
+            "歯車鋼"
+          ],
+          "heat_relation": "公式に高周波焼入れ（120K/150K）＋焼戻し炉を自社保有。歯先硬化まで一貫",
+          "reason": "金属加工で熱処理を使う本命ピックアップ。スプロケット／スパー／直歯かさ歯車。ただし自社高周波あり→浸炭・大型・ピット炉の余りだけ確認。",
+          "source_url": "https://www.kanapresto.com/company/",
+          "linked_majors": [
+            "片山チエン"
+          ],
+          "priority": 1,
+          "role": "gear_maker",
+          "has_inhouse_heat": true,
+          "investigation": "自社高周波上限（公称φ500）超・浸炭・ピット炉需要の有無。OTC余地は限定的",
+          "pit_furnace_fit": "低（自社高周波）",
+          "size_hint": "スプロケット〜φ500級想定",
+          "lat": 34.27,
+          "lng": 135.36,
+          "capital_man_yen": 990,
+          "employees": 30,
+          "scale_summary": "資本金990万円 / 従約30名 / 自社高周波焼入",
+          "id": "wakayama-カナプレスト",
+          "hotspot_id": "wakayama",
+          "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+          "must_pickup": true,
+          "must_pickup_type": "large_gear",
+          "must_pickup_label": "大型ギア製造",
+          "large_gear": true
+        },
+        {
+          "name": "株式会社海南精密",
+          "category": "精密丸物加工（シャフト・ネジ）※自社浸炭あり",
+          "area": "和歌山県海南市岡田",
+          "materials": [
+            "バー材鋼",
+            "特殊ネジ・ピン・シャフト"
+          ],
+          "heat_relation": "公式に真空浸炭炉・焼戻し炉を保有。自社熱処理あり→OTC外注余地は限定的",
+          "reason": "熱処理を使う金属加工としてピックアップ。ただし自社真空浸炭あり。外注・大型・ピット炉の余りだけ確認。",
+          "source_url": "https://www.shimaseiki.co.jp/company/other/kainanseimitsu/",
+          "linked_majors": [
+            "島精機製作所"
+          ],
+          "priority": 1,
+          "role": "metal_processor",
+          "has_inhouse_heat": true,
+          "investigation": "自社炉で足りないサイズ／処理（大型・ピット炉）があるかだけ確認。攻め優先度は低",
+          "pit_furnace_fit": "低（自社真空浸炭）",
+          "size_hint": "φ2〜51 小径丸物",
+          "lat": 34.155,
+          "lng": 135.21,
+          "capital_man_yen": 1000,
+          "employees": 47,
+          "scale_summary": "資本金1,000万円 / 従約47名 / 自社真空浸炭",
+          "id": "wakayama-海南精密",
+          "hotspot_id": "wakayama",
+          "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+          "must_pickup": true,
+          "must_pickup_type": "large_parts",
+          "must_pickup_label": "大型部品製造"
+        },
+        {
+          "name": "桜井鉄工株式会社",
+          "category": "高圧・油圧継手の金属加工",
+          "area": "和歌山県伊都郡かつらぎ町",
+          "materials": [
+            "鍛造材",
+            "棒鋼"
+          ],
+          "heat_relation": "鍛造材からの切削・転造。高圧継手で焼入・調質外注が出る可能性",
+          "reason": "建設カット業ではなく、鍛造材→NC旋盤の継手専業。熱処理の有無を確認して拾う。",
+          "source_url": "https://tsugite.co.jp/",
           "linked_majors": [],
           "priority": 1,
-          "lat": 34.23,
-          "lng": 135.17,
-          "is_placeholder": true,
-          "id": "wakayama-和歌山市内の機械加工・歯切（探索枠）",
+          "role": "metal_processor",
+          "investigation": "継手の熱処理有無、外注先、材質・硬度要求",
+          "pit_furnace_fit": "低〜要確認",
+          "size_hint": "高圧継手・転造",
+          "lat": 34.3,
+          "lng": 135.5,
+          "scale_summary": "公開規模要確認",
+          "id": "wakayama-桜井鉄工",
           "hotspot_id": "wakayama",
-          "hotspot_area": "和歌山市界隈",
-          "scale_summary": "規模未確認",
+          "hotspot_area": "和歌山・金属加工／熱処理需要調査",
           "capital_man_yen": null,
           "employees": null
         },
         {
-          "name": "和歌山・日高の歯切・鍛造周辺（探索枠）",
-          "category": "探索メモ（大和歯車本体は顧客のため除外）",
-          "area": "和歌山市〜日高川",
+          "name": "和歌山・熱処理が絡む金属加工（探索枠）",
+          "category": "探索メモ",
+          "area": "和歌山市・海南・紀の川・日高川",
           "materials": [
-            "SCM系"
+            "SCM系",
+            "歯車鋼",
+            "油圧部品鋼"
           ],
-          "heat_relation": "顧客周辺の同業・下請けを拾う",
-          "reason": "大和歯車は既存顧客のため本体は出さない。周辺同業を社名確定する枠。",
-          "source_url": "",
+          "heat_relation": "歯切・精密シャフト・油圧部品は焼入外注が出やすい。建設・切断・鈑金は除外",
+          "reason": "県機械金属工業協同組合などから、歯車・精密加工・油圧部品屋を追加で埋める。",
+          "source_url": "https://wa-kikai.com/list/",
           "linked_majors": [],
           "priority": 2,
+          "role": "explore",
+          "is_placeholder": true,
+          "investigation": "組合員から歯車・精密丸物・油圧部品を拾い、建設・カット業を除外",
+          "pit_furnace_fit": "探索中",
+          "size_hint": "探索",
           "lat": 34.23,
           "lng": 135.17,
-          "is_placeholder": true,
-          "id": "wakayama-和歌山・日高の歯切・鍛造周辺（探索枠）",
+          "scale_summary": "—",
+          "id": "wakayama-和歌山・熱処理が絡む金属加工（探索枠）",
           "hotspot_id": "wakayama",
-          "hotspot_area": "和歌山市界隈",
-          "scale_summary": "規模未確認",
+          "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+          "capital_man_yen": null,
+          "employees": null
+        },
+        {
+          "name": "Bright・Anneal株式会社",
+          "category": "競合（真空熱処理・光輝焼鈍）",
+          "area": "和歌山県紀の川市北勢田",
+          "materials": [],
+          "heat_relation": "真空熱処理・水素光輝焼鈍（ステンレス等）",
+          "reason": "熱処理専業。顧客にしない。競合マップ用。",
+          "source_url": "https://bright-anneal.co.jp/company/",
+          "linked_majors": [],
+          "priority": 3,
+          "role": "competitor",
+          "not_gear_maker": true,
+          "investigation": "競合把握のみ",
+          "pit_furnace_fit": "—（競合）",
+          "size_hint": "真空・光輝焼鈍",
+          "lat": 34.27,
+          "lng": 135.34,
+          "scale_summary": "競合",
+          "id": "wakayama-Bright・Anneal",
+          "hotspot_id": "wakayama",
+          "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+          "capital_man_yen": null,
+          "employees": null
+        },
+        {
+          "name": "日鉄関西マシニング株式会社（熱処理工場）",
+          "category": "競合（日鉄系熱処理）",
+          "area": "和歌山県和歌山市湊（関西製鉄所和歌山地区内）",
+          "materials": [],
+          "heat_relation": "日鉄グループの熱処理工場",
+          "reason": "熱処理専業／グループ内。顧客にしない。競合マップ用。",
+          "source_url": "https://www.nskm.nipponsteel.com/company/point.html",
+          "linked_majors": [
+            "日本製鉄"
+          ],
+          "priority": 3,
+          "role": "competitor",
+          "not_gear_maker": true,
+          "investigation": "競合把握のみ",
+          "pit_furnace_fit": "—（競合）",
+          "size_hint": "製鉄所内熱処理",
+          "lat": 34.23,
+          "lng": 135.14,
+          "scale_summary": "競合",
+          "id": "wakayama-日鉄関西マシニング（熱処理工場）",
+          "hotspot_id": "wakayama",
+          "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+          "capital_man_yen": null,
+          "employees": null
+        },
+        {
+          "name": "株式会社東研サーモテック（橋本）",
+          "category": "競合（熱処理）",
+          "area": "和歌山県橋本市",
+          "materials": [],
+          "heat_relation": "西部金属熱処理工業協同組合系の熱処理",
+          "reason": "熱処理専業。顧客にしない。競合マップ用。",
+          "source_url": "https://www.netsushori.jp/member/index2.php?div=4",
+          "linked_majors": [],
+          "priority": 3,
+          "role": "competitor",
+          "not_gear_maker": true,
+          "investigation": "競合把握のみ",
+          "pit_furnace_fit": "—（競合）",
+          "size_hint": "熱処理",
+          "lat": 34.31,
+          "lng": 135.61,
+          "scale_summary": "競合",
+          "id": "wakayama-東研サーモテック（橋本）",
+          "hotspot_id": "wakayama",
+          "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+          "capital_man_yen": null,
+          "employees": null
+        },
+        {
+          "name": "第一熱処理工業株式会社（和歌山工場）",
+          "category": "競合（熱処理＋鋼管加工）",
+          "area": "和歌山県和歌山市",
+          "materials": [],
+          "heat_relation": "鋼管連続焼入・焼戻。熱処理専業寄り",
+          "reason": "熱処理屋は顧客にしない。和歌山の競合マップ用。",
+          "source_url": "https://yarukiouendan.or.jp/digitalguide/%E7%AC%AC%E4%B8%80%E7%86%B1%E5%87%A6%E7%90%86%E5%B7%A5%E6%A5%AD-%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE-%E5%92%8C%E6%AD%8C%E5%B1%B1%E5%B7%A5%E5%A0%B4/",
+          "linked_majors": [],
+          "priority": 3,
+          "role": "competitor",
+          "not_gear_maker": true,
+          "investigation": "競合把握のみ（攻めない）",
+          "pit_furnace_fit": "—（競合）",
+          "size_hint": "鋼管連続焼入",
+          "lat": 34.23,
+          "lng": 135.17,
+          "scale_summary": "競合",
+          "id": "wakayama-第一熱処理工業（和歌山工場）",
+          "hotspot_id": "wakayama",
+          "hotspot_area": "和歌山・金属加工／熱処理需要調査",
           "capital_man_yen": null,
           "employees": null
         }
       ],
-      "investigation_mode": false,
-      "how_to_investigate": [],
-      "search_queries": [],
-      "known_network_notes": []
+      "investigation_mode": true,
+      "how_to_investigate": [
+        "① フッコ（伏虎金属）でポンプ・油圧／冷凍機部品の焼入・浸炭ルートと外注先を聞く",
+        "② 吹屋町〜海南〜紀の川の歯車・精密丸物（清水歯車・カナプレスト・海南精密・共栄テクシード）で熱処理ニーズを突合",
+        "③ 建設・鈑金・切断・単なるカット業は捨てる。対象は歯切・鍛造・精密シャフト・油圧部品など",
+        "④ 自社炉がある先（海南精密・カナプレスト等）は外注・大型・ピット炉・浸炭の余りだけ確認。熱処理専業は競合",
+        "⑤ ヒットしたらピット炉適合を確認し大型ギア特化へ昇格"
+      ],
+      "search_queries": [
+        "伏虎金属工業 OR フッコ 和歌山 部品加工 熱処理 OR 焼入",
+        "カナプレスト 紀の川 スプロケット 高周波焼入れ",
+        "共栄テクシード 紀の川 歯車 歯切",
+        "和歌山 歯車 製造 OR 歯切 熱処理 OR 浸炭 -建設",
+        "清水歯車 和歌山 吹屋町",
+        "海南精密 シャフト 真空浸炭 OR 焼入",
+        "和歌山 油圧部品 OR ポンプ部品 機械加工 焼入",
+        "かつらぎ OR 紀の川 高圧継手 OR 鍛造 熱処理",
+        "和歌山県機械金属工業協同組合 歯車 OR 精密",
+        "日高川 歯車 外注 熱処理 -大和歯車"
+      ],
+      "known_network_notes": [
+        {
+          "name": "大和歯車製作株式会社（和歌山工場）",
+          "note": "既存顧客のため攻略一覧から除外。日高川で一貫＋自社熱処理（第3工場）。周辺同業の参考のみ。"
+        },
+        {
+          "name": "除外ルール",
+          "note": "建設業・鈑金・単なる金属カット／シャーリングは対象外。熱処理が絡む歯車・シャフト・油圧・ポンプ部品・鍛造加工を優先。"
+        },
+        {
+          "name": "北川鉄工所 和歌山工場",
+          "note": "県ガイド掲載ありだが和歌山拠点は建設寄り。熱処理・歯車は福山等。今回の金属加工本命から外す。"
+        },
+        {
+          "name": "扶桑精機・寿精密など金型／プレス",
+          "note": "金型・プレス専業は今回の金属加工・熱処理需要の本命から外す（必要なら別枠）。"
+        }
+      ],
+      "development_priority": null,
+      "geo_exception": {}
     },
     {
       "hotspot_id": "inabe",
@@ -1649,7 +2142,9 @@
       "investigation_mode": false,
       "how_to_investigate": [],
       "search_queries": [],
-      "known_network_notes": []
+      "known_network_notes": [],
+      "development_priority": null,
+      "geo_exception": {}
     }
   ],
   "targets": [
@@ -1679,7 +2174,10 @@
       "scale_summary": "資本金3.1億円 / 従業員約350名",
       "id": "daido_nagoya-大同マシナリー",
       "hotspot_id": "daido_nagoya",
-      "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）"
+      "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
+      "must_pickup": true,
+      "must_pickup_type": "large_reducer",
+      "must_pickup_label": "大型減速機製造"
     },
     {
       "name": "大同特殊鋼株式会社（星崎工場）",
@@ -1869,8 +2367,39 @@
       "scale_summary": "資本金1,000万円 / 従業員約7名",
       "id": "large_gear-石田歯車工業",
       "hotspot_id": "large_gear",
-      "hotspot_area": "大型ギア特化（ピット炉検証）",
-      "scale_source": "公開情報"
+      "hotspot_area": "大型ギア×ピット炉（開発最優先）",
+      "scale_source": "公開情報",
+      "must_pickup": true,
+      "must_pickup_type": "large_gear",
+      "must_pickup_label": "大型ギア製造"
+    },
+    {
+      "name": "神戸歯車株式会社",
+      "category": "大型・特殊歯車製造",
+      "area": "兵庫県神戸市",
+      "materials": [
+        "各種歯車鋼",
+        "建機用ギア"
+      ],
+      "heat_relation": "φ3m超の大型・特殊歯車。焼入・浸炭の外注実態を確認（ピット炉本命）",
+      "reason": "公式に直径3m超・建機旋回ギア等。ピット炉級の最有力。兵庫は大型ギアなら全域検討。",
+      "source_url": "http://kobegear.jp/",
+      "linked_majors": [],
+      "priority": 0,
+      "large_gear": true,
+      "pit_furnace_fit": "高（φ3m超）",
+      "size_hint": "〜φ3000超 / 横型シャフト〜4m",
+      "lat": 34.69,
+      "lng": 135.2,
+      "scale_summary": "創業大正8年・大型歯車専業",
+      "id": "large_gear-神戸歯車",
+      "hotspot_id": "large_gear",
+      "hotspot_area": "大型ギア×ピット炉（開発最優先）",
+      "capital_man_yen": null,
+      "employees": null,
+      "must_pickup": true,
+      "must_pickup_type": "large_gear",
+      "must_pickup_label": "大型ギア製造"
     },
     {
       "name": "阪神歯車",
@@ -1892,12 +2421,15 @@
       "lat": 34.73,
       "lng": 135.41,
       "capital_man_yen": 300,
-      "employees": null,
       "scale_summary": "資本金300万円 / 従業員未確認",
       "id": "large_gear-阪神歯車",
       "hotspot_id": "large_gear",
-      "hotspot_area": "大型ギア特化（ピット炉検証）",
-      "scale_source": "公開情報"
+      "hotspot_area": "大型ギア×ピット炉（開発最優先）",
+      "employees": null,
+      "scale_source": "公開情報",
+      "must_pickup": true,
+      "must_pickup_type": "large_gear",
+      "must_pickup_label": "大型ギア製造"
     },
     {
       "name": "株式会社大川歯車製作所",
@@ -1947,7 +2479,10 @@
       "scale_summary": "資本金888万円 / 従業員約60名",
       "id": "ube_nagoya-マテックス",
       "hotspot_id": "ube_nagoya",
-      "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）"
+      "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
+      "must_pickup": true,
+      "must_pickup_type": "large_reducer",
+      "must_pickup_label": "大型減速機製造"
     },
     {
       "name": "株式会社ニッセイ",
@@ -1972,7 +2507,10 @@
       "hotspot_id": "ube_nagoya",
       "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
       "capital_man_yen": null,
-      "employees": null
+      "employees": null,
+      "must_pickup": true,
+      "must_pickup_type": "large_reducer",
+      "must_pickup_label": "大型減速機製造"
     },
     {
       "name": "株式会社平井減速機製作所",
@@ -1998,33 +2536,10 @@
       "hotspot_id": "ube_nagoya",
       "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
       "capital_man_yen": null,
-      "employees": null
-    },
-    {
-      "name": "阪神動力機械株式会社",
-      "category": "減速機製造（歯車・産業用大型）",
-      "area": "大阪府大阪市此花区四貫島",
-      "materials": [
-        "歯車鋼",
-        "浸炭歯車"
-      ],
-      "heat_relation": "平行軸・直交・ウォーム・遊星。ポンプ駆動用など大型あり。浸炭歯車明記→焼入外注余地を確認",
-      "reason": "関西の歯車減速機メーカー。大型・ポンプ駆動まで。ピット炉級の可能性あり。",
-      "source_url": "https://www.hanshin-pm.co.jp/product/industrial/reduction/",
-      "linked_majors": [],
-      "priority": 0,
-      "role": "reducer_maker",
-      "investigation": "最大サイズ、浸炭／焼入の内製外注、ピット炉ニーズ",
-      "pit_furnace_fit": "中〜高（大型・ポンプ駆動なら）",
-      "size_hint": "産業用〜ポンプ駆動大型",
-      "lat": 34.68,
-      "lng": 135.44,
-      "scale_summary": "公開規模要確認",
-      "id": "ube_nagoya-阪神動力機械",
-      "hotspot_id": "ube_nagoya",
-      "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
-      "capital_man_yen": null,
-      "employees": null
+      "employees": null,
+      "must_pickup": true,
+      "must_pickup_type": "large_reducer",
+      "must_pickup_label": "大型減速機製造"
     },
     {
       "name": "ＵＢＥマシナリー株式会社（減速機アフター）",
@@ -2051,7 +2566,107 @@
       "hotspot_id": "ube_nagoya",
       "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
       "capital_man_yen": null,
-      "employees": null
+      "employees": null,
+      "must_pickup": true,
+      "must_pickup_type": "large_reducer",
+      "must_pickup_label": "大型減速機製造"
+    },
+    {
+      "name": "伏虎金属工業株式会社（フッコ／FUKKO）",
+      "category": "ポンプ製造＋金属部品加工",
+      "area": "和歌山県和歌山市吹屋町（本社）／紀の川市（粉河工場）",
+      "materials": [
+        "特殊鋼",
+        "ステンレス",
+        "油圧部品鋼"
+      ],
+      "heat_relation": "ポンプ・油圧／冷凍機・繊維機器部品の機械加工。シャフト・ベーン等で焼入・浸炭外注が出やすい",
+      "reason": "和歌山の本命。公式でポンプ製造に加え冷凍機・空調・繊維・油圧部品加工を明示。複合機・MC多数。",
+      "source_url": "https://www.fukko.com/company/",
+      "linked_majors": [
+        "三菱電機冷熱",
+        "大阪ジャッキ"
+      ],
+      "priority": 0,
+      "role": "anchor",
+      "investigation": "部品焼入／浸炭の内製外注、最大サイズ、ピット炉ニーズ",
+      "pit_furnace_fit": "要確認（大型ポンプ部品なら中）",
+      "size_hint": "ポンプ・油圧部品加工",
+      "lat": 34.235,
+      "lng": 135.175,
+      "capital_man_yen": 1000,
+      "scale_summary": "資本金1,000万円／粉河工場あり",
+      "id": "wakayama-伏虎金属工業（フッコ／FUKKO）",
+      "hotspot_id": "wakayama",
+      "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+      "employees": null,
+      "must_pickup": true,
+      "must_pickup_type": "large_parts",
+      "must_pickup_label": "大型部品製造"
+    },
+    {
+      "name": "有限会社清水歯車工作所",
+      "category": "歯車製造（金属加工）",
+      "area": "和歌山県和歌山市吹屋町1丁目",
+      "materials": [
+        "歯車鋼",
+        "SCM系"
+      ],
+      "heat_relation": "歯車工作所。焼入・浸炭外注が本命論点",
+      "reason": "フッコと同・吹屋町の歯車屋。県機械金属工業協同組合員。熱処理需要の本命候補。",
+      "source_url": "https://wa-kikai.com/list/",
+      "linked_majors": [],
+      "priority": 0,
+      "role": "gear_maker",
+      "investigation": "モジュール・外径上限、熱処理ルート、ピット炉可否",
+      "pit_furnace_fit": "要確認（大型なら高）",
+      "size_hint": "要ヒアリング",
+      "lat": 34.236,
+      "lng": 135.174,
+      "scale_summary": "公開規模未確認／TEL 073-424-1128",
+      "id": "wakayama-清水歯車工作所",
+      "hotspot_id": "wakayama",
+      "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+      "capital_man_yen": null,
+      "employees": null,
+      "must_pickup": true,
+      "must_pickup_type": "large_gear",
+      "must_pickup_label": "大型ギア製造",
+      "large_gear": true
+    },
+    {
+      "name": "株式会社共栄テクシード",
+      "category": "精密部品・歯切（自動車／建機／農機）",
+      "area": "和歌山県紀の川市桃山町（本社工場）／和歌山市",
+      "materials": [
+        "SCM系",
+        "焼入鋼"
+      ],
+      "heat_relation": "歯切ラインあり。NC研削で焼入鋼対応→熱処理後工程前提。自社炉記載なし＝外注の可能性高",
+      "reason": "建設カットではなく、トルコン・トランスミッション・油圧ポンプ部品＋歯車加工。熱処理外注ニーズの本命候補。",
+      "source_url": "http://kyoei-tc.co.jp/corporate/profile/",
+      "linked_majors": [
+        "エクセディ",
+        "川崎重工業",
+        "住友電工焼結合金"
+      ],
+      "priority": 0,
+      "role": "metal_processor",
+      "investigation": "焼入・浸炭の外注先、サイズ上限、ピット炉・大型ギアの有無",
+      "pit_furnace_fit": "要確認（量産小物寄りなら低）",
+      "size_hint": "自動車・建機トランス系精密部品",
+      "lat": 34.28,
+      "lng": 135.35,
+      "capital_man_yen": 1000,
+      "employees": 150,
+      "scale_summary": "資本金1,000万円 / 従約150名 / 歯切ラインあり",
+      "id": "wakayama-共栄テクシード",
+      "hotspot_id": "wakayama",
+      "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+      "must_pickup": true,
+      "must_pickup_type": "large_gear",
+      "must_pickup_label": "大型ギア製造",
+      "large_gear": true
     },
     {
       "name": "株式会社Willbe",
@@ -2208,7 +2823,10 @@
       "hotspot_id": "daido_nagoya",
       "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
       "capital_man_yen": null,
-      "employees": null
+      "employees": null,
+      "must_pickup": true,
+      "must_pickup_type": "large_parts",
+      "must_pickup_label": "大型部品製造"
     },
     {
       "name": "株式会社加福製作所",
@@ -2236,7 +2854,11 @@
       "hotspot_id": "daido_nagoya",
       "hotspot_area": "大同特殊鋼界隈調査（星崎・知多・南区）",
       "capital_man_yen": null,
-      "employees": null
+      "employees": null,
+      "must_pickup": true,
+      "must_pickup_type": "large_gear",
+      "must_pickup_label": "大型ギア製造",
+      "large_gear": true
     },
     {
       "name": "株式会社山下製作所",
@@ -2357,10 +2979,13 @@
       "scale_summary": "公開規模未確認",
       "id": "large_gear-姫路歯車工業",
       "hotspot_id": "large_gear",
-      "hotspot_area": "大型ギア特化（ピット炉検証）",
+      "hotspot_area": "大型ギア×ピット炉（開発最優先）",
       "capital_man_yen": null,
       "employees": null,
-      "scale_source": ""
+      "scale_source": "",
+      "must_pickup": true,
+      "must_pickup_type": "large_gear",
+      "must_pickup_label": "大型ギア製造"
     },
     {
       "name": "株式会社ジェイテクトギヤシステム",
@@ -2386,8 +3011,38 @@
       "scale_summary": "資本金20億円 / 従業員1,106名",
       "id": "large_gear-ジェイテクトギヤシステム",
       "hotspot_id": "large_gear",
-      "hotspot_area": "大型ギア特化（ピット炉検証）",
-      "scale_source": "公式2025-04"
+      "hotspot_area": "大型ギア×ピット炉（開発最優先）",
+      "scale_source": "公式2025-04",
+      "must_pickup": true,
+      "must_pickup_type": "large_gear",
+      "must_pickup_label": "大型ギア製造"
+    },
+    {
+      "name": "株式会社竝川歯車製作所",
+      "category": "歯車・スロッター（京都）",
+      "area": "京都府（八幡市周辺・075）",
+      "materials": [
+        "各種歯車鋼"
+      ],
+      "heat_relation": "歯切・スロッター。大型・ピット炉級かどうか要確認（京都は大型ギア案件なら対象）",
+      "reason": "京都の歯車屋。ピット炉級なら距離例外で拾う。サイズ未確認のためヒアリング優先。",
+      "source_url": "https://www.namikawa-gear.jp/",
+      "linked_majors": [],
+      "priority": 1,
+      "large_gear": true,
+      "pit_furnace_fit": "要確認（京都例外）",
+      "size_hint": "要ヒアリング",
+      "lat": 34.86,
+      "lng": 135.71,
+      "scale_summary": "公開サイズ未確認／TEL 075-932-1515",
+      "id": "large_gear-竝川歯車製作所",
+      "hotspot_id": "large_gear",
+      "hotspot_area": "大型ギア×ピット炉（開発最優先）",
+      "capital_man_yen": null,
+      "employees": null,
+      "must_pickup": true,
+      "must_pickup_type": "large_gear",
+      "must_pickup_label": "大型ギア製造"
     },
     {
       "name": "加茂精工株式会社",
@@ -2412,7 +3067,10 @@
       "scale_summary": "資本金8,500万円 / グループ約123名",
       "id": "ube_nagoya-加茂精工",
       "hotspot_id": "ube_nagoya",
-      "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）"
+      "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
+      "must_pickup": true,
+      "must_pickup_type": "large_reducer",
+      "must_pickup_label": "大型減速機製造"
     },
     {
       "name": "株式会社服部歯車",
@@ -2437,7 +3095,10 @@
       "hotspot_id": "ube_nagoya",
       "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
       "capital_man_yen": null,
-      "employees": null
+      "employees": null,
+      "must_pickup": true,
+      "must_pickup_type": "large_reducer",
+      "must_pickup_label": "大型減速機製造"
     },
     {
       "name": "ＵＢＥマシナリー株式会社（名古屋事業所）",
@@ -2465,6 +3126,101 @@
       "id": "ube_nagoya-ＵＢＥマシナリー（名古屋事業所）",
       "hotspot_id": "ube_nagoya",
       "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
+      "capital_man_yen": null,
+      "employees": null,
+      "must_pickup": true,
+      "must_pickup_type": "large_reducer",
+      "must_pickup_label": "大型減速機製造"
+    },
+    {
+      "name": "カナプレスト株式会社",
+      "category": "スプロケット・歯車製造 ※自社高周波あり",
+      "area": "和歌山県紀の川市北涌",
+      "materials": [
+        "S45C",
+        "普通鋼",
+        "歯車鋼"
+      ],
+      "heat_relation": "公式に高周波焼入れ（120K/150K）＋焼戻し炉を自社保有。歯先硬化まで一貫",
+      "reason": "金属加工で熱処理を使う本命ピックアップ。スプロケット／スパー／直歯かさ歯車。ただし自社高周波あり→浸炭・大型・ピット炉の余りだけ確認。",
+      "source_url": "https://www.kanapresto.com/company/",
+      "linked_majors": [
+        "片山チエン"
+      ],
+      "priority": 1,
+      "role": "gear_maker",
+      "has_inhouse_heat": true,
+      "investigation": "自社高周波上限（公称φ500）超・浸炭・ピット炉需要の有無。OTC余地は限定的",
+      "pit_furnace_fit": "低（自社高周波）",
+      "size_hint": "スプロケット〜φ500級想定",
+      "lat": 34.27,
+      "lng": 135.36,
+      "capital_man_yen": 990,
+      "employees": 30,
+      "scale_summary": "資本金990万円 / 従約30名 / 自社高周波焼入",
+      "id": "wakayama-カナプレスト",
+      "hotspot_id": "wakayama",
+      "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+      "must_pickup": true,
+      "must_pickup_type": "large_gear",
+      "must_pickup_label": "大型ギア製造",
+      "large_gear": true
+    },
+    {
+      "name": "株式会社海南精密",
+      "category": "精密丸物加工（シャフト・ネジ）※自社浸炭あり",
+      "area": "和歌山県海南市岡田",
+      "materials": [
+        "バー材鋼",
+        "特殊ネジ・ピン・シャフト"
+      ],
+      "heat_relation": "公式に真空浸炭炉・焼戻し炉を保有。自社熱処理あり→OTC外注余地は限定的",
+      "reason": "熱処理を使う金属加工としてピックアップ。ただし自社真空浸炭あり。外注・大型・ピット炉の余りだけ確認。",
+      "source_url": "https://www.shimaseiki.co.jp/company/other/kainanseimitsu/",
+      "linked_majors": [
+        "島精機製作所"
+      ],
+      "priority": 1,
+      "role": "metal_processor",
+      "has_inhouse_heat": true,
+      "investigation": "自社炉で足りないサイズ／処理（大型・ピット炉）があるかだけ確認。攻め優先度は低",
+      "pit_furnace_fit": "低（自社真空浸炭）",
+      "size_hint": "φ2〜51 小径丸物",
+      "lat": 34.155,
+      "lng": 135.21,
+      "capital_man_yen": 1000,
+      "employees": 47,
+      "scale_summary": "資本金1,000万円 / 従約47名 / 自社真空浸炭",
+      "id": "wakayama-海南精密",
+      "hotspot_id": "wakayama",
+      "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+      "must_pickup": true,
+      "must_pickup_type": "large_parts",
+      "must_pickup_label": "大型部品製造"
+    },
+    {
+      "name": "桜井鉄工株式会社",
+      "category": "高圧・油圧継手の金属加工",
+      "area": "和歌山県伊都郡かつらぎ町",
+      "materials": [
+        "鍛造材",
+        "棒鋼"
+      ],
+      "heat_relation": "鍛造材からの切削・転造。高圧継手で焼入・調質外注が出る可能性",
+      "reason": "建設カット業ではなく、鍛造材→NC旋盤の継手専業。熱処理の有無を確認して拾う。",
+      "source_url": "https://tsugite.co.jp/",
+      "linked_majors": [],
+      "priority": 1,
+      "role": "metal_processor",
+      "investigation": "継手の熱処理有無、外注先、材質・硬度要求",
+      "pit_furnace_fit": "低〜要確認",
+      "size_hint": "高圧継手・転造",
+      "lat": 34.3,
+      "lng": 135.5,
+      "scale_summary": "公開規模要確認",
+      "id": "wakayama-桜井鉄工",
+      "hotspot_id": "wakayama",
+      "hotspot_area": "和歌山・金属加工／熱処理需要調査",
       "capital_man_yen": null,
       "employees": null
     },
@@ -2690,12 +3446,110 @@
       "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
       "capital_man_yen": null,
       "employees": null
+    },
+    {
+      "name": "Bright・Anneal株式会社",
+      "category": "競合（真空熱処理・光輝焼鈍）",
+      "area": "和歌山県紀の川市北勢田",
+      "materials": [],
+      "heat_relation": "真空熱処理・水素光輝焼鈍（ステンレス等）",
+      "reason": "熱処理専業。顧客にしない。競合マップ用。",
+      "source_url": "https://bright-anneal.co.jp/company/",
+      "linked_majors": [],
+      "priority": 3,
+      "role": "competitor",
+      "not_gear_maker": true,
+      "investigation": "競合把握のみ",
+      "pit_furnace_fit": "—（競合）",
+      "size_hint": "真空・光輝焼鈍",
+      "lat": 34.27,
+      "lng": 135.34,
+      "scale_summary": "競合",
+      "id": "wakayama-Bright・Anneal",
+      "hotspot_id": "wakayama",
+      "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+      "capital_man_yen": null,
+      "employees": null
+    },
+    {
+      "name": "日鉄関西マシニング株式会社（熱処理工場）",
+      "category": "競合（日鉄系熱処理）",
+      "area": "和歌山県和歌山市湊（関西製鉄所和歌山地区内）",
+      "materials": [],
+      "heat_relation": "日鉄グループの熱処理工場",
+      "reason": "熱処理専業／グループ内。顧客にしない。競合マップ用。",
+      "source_url": "https://www.nskm.nipponsteel.com/company/point.html",
+      "linked_majors": [
+        "日本製鉄"
+      ],
+      "priority": 3,
+      "role": "competitor",
+      "not_gear_maker": true,
+      "investigation": "競合把握のみ",
+      "pit_furnace_fit": "—（競合）",
+      "size_hint": "製鉄所内熱処理",
+      "lat": 34.23,
+      "lng": 135.14,
+      "scale_summary": "競合",
+      "id": "wakayama-日鉄関西マシニング（熱処理工場）",
+      "hotspot_id": "wakayama",
+      "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+      "capital_man_yen": null,
+      "employees": null
+    },
+    {
+      "name": "株式会社東研サーモテック（橋本）",
+      "category": "競合（熱処理）",
+      "area": "和歌山県橋本市",
+      "materials": [],
+      "heat_relation": "西部金属熱処理工業協同組合系の熱処理",
+      "reason": "熱処理専業。顧客にしない。競合マップ用。",
+      "source_url": "https://www.netsushori.jp/member/index2.php?div=4",
+      "linked_majors": [],
+      "priority": 3,
+      "role": "competitor",
+      "not_gear_maker": true,
+      "investigation": "競合把握のみ",
+      "pit_furnace_fit": "—（競合）",
+      "size_hint": "熱処理",
+      "lat": 34.31,
+      "lng": 135.61,
+      "scale_summary": "競合",
+      "id": "wakayama-東研サーモテック（橋本）",
+      "hotspot_id": "wakayama",
+      "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+      "capital_man_yen": null,
+      "employees": null
+    },
+    {
+      "name": "第一熱処理工業株式会社（和歌山工場）",
+      "category": "競合（熱処理＋鋼管加工）",
+      "area": "和歌山県和歌山市",
+      "materials": [],
+      "heat_relation": "鋼管連続焼入・焼戻。熱処理専業寄り",
+      "reason": "熱処理屋は顧客にしない。和歌山の競合マップ用。",
+      "source_url": "https://yarukiouendan.or.jp/digitalguide/%E7%AC%AC%E4%B8%80%E7%86%B1%E5%87%A6%E7%90%86%E5%B7%A5%E6%A5%AD-%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE-%E5%92%8C%E6%AD%8C%E5%B1%B1%E5%B7%A5%E5%A0%B4/",
+      "linked_majors": [],
+      "priority": 3,
+      "role": "competitor",
+      "not_gear_maker": true,
+      "investigation": "競合把握のみ（攻めない）",
+      "pit_furnace_fit": "—（競合）",
+      "size_hint": "鋼管連続焼入",
+      "lat": 34.23,
+      "lng": 135.17,
+      "scale_summary": "競合",
+      "id": "wakayama-第一熱処理工業（和歌山工場）",
+      "hotspot_id": "wakayama",
+      "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+      "capital_man_yen": null,
+      "employees": null
     }
   ],
   "scale_table": [
     {
       "name": "株式会社ジェイテクトギヤシステム",
-      "hotspot_area": "大型ギア特化（ピット炉検証）",
+      "hotspot_area": "大型ギア×ピット炉（開発最優先）",
       "capital_man_yen": 200000,
       "employees": 1106,
       "scale_summary": "資本金20億円 / 従業員1,106名",
@@ -2742,6 +3596,14 @@
       "priority": 1
     },
     {
+      "name": "株式会社共栄テクシード",
+      "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+      "capital_man_yen": 1000,
+      "employees": 150,
+      "scale_summary": "資本金1,000万円 / 従約150名 / 歯切ラインあり",
+      "priority": 0
+    },
+    {
       "name": "東光工業株式会社",
       "hotspot_area": "刈谷市・ジェイテクト刈谷界隈",
       "capital_man_yen": 3000,
@@ -2782,6 +3644,22 @@
       "priority": 0
     },
     {
+      "name": "株式会社海南精密",
+      "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+      "capital_man_yen": 1000,
+      "employees": 47,
+      "scale_summary": "資本金1,000万円 / 従約47名 / 自社真空浸炭",
+      "priority": 1
+    },
+    {
+      "name": "カナプレスト株式会社",
+      "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+      "capital_man_yen": 990,
+      "employees": 30,
+      "scale_summary": "資本金990万円 / 従約30名 / 自社高周波焼入",
+      "priority": 1
+    },
+    {
       "name": "高浜歯車工業株式会社",
       "hotspot_area": "刈谷市・ジェイテクト刈谷界隈",
       "capital_man_yen": 1000,
@@ -2799,7 +3677,7 @@
     },
     {
       "name": "石田歯車工業株式会社",
-      "hotspot_area": "大型ギア特化（ピット炉検証）",
+      "hotspot_area": "大型ギア×ピット炉（開発最優先）",
       "capital_man_yen": 1000,
       "employees": 7,
       "scale_summary": "資本金1,000万円 / 従業員約7名",
@@ -2814,12 +3692,28 @@
       "priority": 2
     },
     {
+      "name": "伏虎金属工業株式会社（フッコ／FUKKO）",
+      "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+      "capital_man_yen": 1000,
+      "employees": null,
+      "scale_summary": "資本金1,000万円／粉河工場あり",
+      "priority": 0
+    },
+    {
       "name": "阪神歯車",
-      "hotspot_area": "大型ギア特化（ピット炉検証）",
+      "hotspot_area": "大型ギア×ピット炉（開発最優先）",
       "capital_man_yen": 300,
       "employees": null,
       "scale_summary": "資本金300万円 / 従業員未確認",
       "priority": 0
+    },
+    {
+      "name": "Bright・Anneal株式会社",
+      "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "競合",
+      "priority": 3
     },
     {
       "name": "タケウチ興業株式会社",
@@ -2855,7 +3749,7 @@
     },
     {
       "name": "姫路歯車工業株式会社",
-      "hotspot_area": "大型ギア特化（ピット炉検証）",
+      "hotspot_area": "大型ギア×ピット炉（開発最優先）",
       "capital_man_yen": null,
       "employees": null,
       "scale_summary": "公開規模未確認",
@@ -2868,6 +3762,22 @@
       "employees": null,
       "scale_summary": "公開規模未確認",
       "priority": 2
+    },
+    {
+      "name": "日鉄関西マシニング株式会社（熱処理工場）",
+      "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "競合",
+      "priority": 3
+    },
+    {
+      "name": "有限会社清水歯車工作所",
+      "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "公開規模未確認／TEL 073-424-1128",
+      "priority": 0
     },
     {
       "name": "株式会社MD（東海市）",
@@ -2950,12 +3860,28 @@
       "priority": 1
     },
     {
+      "name": "株式会社東研サーモテック（橋本）",
+      "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "競合",
+      "priority": 3
+    },
+    {
       "name": "株式会社福島製作所",
       "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
       "capital_man_yen": null,
       "employees": null,
       "scale_summary": "関連会社・要調査",
       "priority": 2
+    },
+    {
+      "name": "株式会社竝川歯車製作所",
+      "hotspot_area": "大型ギア×ピット炉（開発最優先）",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "公開サイズ未確認／TEL 075-932-1515",
+      "priority": 1
     },
     {
       "name": "株式会社都筑製作所",
@@ -2974,6 +3900,30 @@
       "priority": 2
     },
     {
+      "name": "桜井鉄工株式会社",
+      "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "公開規模要確認",
+      "priority": 1
+    },
+    {
+      "name": "神戸歯車株式会社",
+      "hotspot_area": "大型ギア×ピット炉（開発最優先）",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "創業大正8年・大型歯車専業",
+      "priority": 0
+    },
+    {
+      "name": "第一熱処理工業株式会社（和歌山工場）",
+      "hotspot_area": "和歌山・金属加工／熱処理需要調査",
+      "capital_man_yen": null,
+      "employees": null,
+      "scale_summary": "競合",
+      "priority": 3
+    },
+    {
       "name": "豊和鍛工株式会社",
       "hotspot_area": "愛知・豊和工業（清須本社）界隈",
       "capital_man_yen": null,
@@ -2988,14 +3938,6 @@
       "employees": null,
       "scale_summary": "公開規模未確認",
       "priority": 1
-    },
-    {
-      "name": "阪神動力機械株式会社",
-      "hotspot_area": "UBE/宇部系・減速機製造調査（名古屋〜東海・関西）",
-      "capital_man_yen": null,
-      "employees": null,
-      "scale_summary": "公開規模要確認",
-      "priority": 0
     },
     {
       "name": "ＵＢＥマシナリー株式会社（名古屋事業所）",
@@ -3106,27 +4048,58 @@
     {
       "name": "大阪減速機",
       "why": "既存取引先のため攻略一覧から除外（展示会ウォッチ対象には残す）"
+    },
+    {
+      "name": "阪神動力機械",
+      "why": "既存取引先のため攻略一覧から除外（展示会ウォッチ対象には残す）"
     }
   ],
   "large_gear_focus": {
     "id": "large_gear",
-    "area": "大型ギア特化（ピット炉検証）",
-    "pain": "ピット炉対応の検証と大型製品の購入トライのため、大型歯車メーカーに集中する。",
+    "area": "大型ギア×ピット炉（開発最優先）",
+    "pain": "一番やりたいのは大型ギアをピット炉で処理する仕事。開発・営業の最優先。この案件なら京都府・兵庫北部も検討する。要: 大型ギア／大型部品／大型減速機メーカーは必ずピックアップ。",
+    "must_pickup": [
+      "大型ギア製造",
+      "大型部品製造",
+      "大型減速機製造"
+    ],
     "lat": 34.8,
     "lng": 136.5,
+    "development_priority": 0,
+    "geo_exception": {
+      "note": "通常の主戦場は愛知・豊中・兵庫南部だが、ピット炉級の大型ギア案件に限り京都・兵庫北部も対象にする",
+      "include": [
+        "京都府",
+        "兵庫県北部（豊岡・朝来・養父・丹波・篠山など）",
+        "兵庫県全般（大型ギア）"
+      ]
+    },
     "focus": [
       "大型歯車",
       "大モジュール",
-      "φ500以上",
+      "φ500以上（本命はφ1000超）",
       "ピット炉",
-      "焼入外注"
+      "焼入・浸炭外注",
+      "京都",
+      "兵庫北部"
+    ],
+    "how_to_investigate": [
+      "①【要】大型ギア／大型部品／大型減速機メーカーは見つけたら必ずピックアップ（既存顧客のみ除外）",
+      "② 外径・モジュール・材質・熱処理仕様を確認し、ピット炉案件かどうかを先に判定する",
+      "③ ピット炉級なら距離より適合優先——京都・兵庫北部も訪問候補に入れる",
+      "④ 自社ピット炉がある先は攻めず、外注先・余力だけ参考にする",
+      "⑤ 試作品購入・共同トライでピット炉実績を積み、大型ギア特化の実績にする",
+      "⑥ 減速機・建機・舶用・風力の大径ギヤ筋から逆引きする"
     ],
     "search_queries": [
-      "大型歯車 製造 愛知 OR 大阪 OR 兵庫 モジュール10 OR モジュール20",
-      "大型ギヤ φ1000 OR φ2000 浸炭 OR ピット炉 外注",
-      "ピット炉 浸炭 大型歯車 東海 OR 関西",
-      "大型スプロケット 歯切 SCM 焼入 兵庫 OR 大阪",
-      "歯車 直径 メートル 熱処理 外注"
+      "大型歯車 製造 京都 OR 兵庫 モジュール10 OR モジュール20",
+      "大型ギヤ φ1000 OR φ2000 OR φ3000 浸炭 OR ピット炉 外注",
+      "ピット炉 浸炭 大型歯車 関西 OR 京都 OR 兵庫",
+      "神戸歯車 大型歯車 歯切",
+      "兵庫 豊岡 OR 朝来 OR 丹波 OR 養父 歯車 OR 歯切 大型",
+      "京都 歯車 製造 大型 OR 大モジュール OR φ1000",
+      "大型スプロケット 歯切 SCM 焼入 兵庫 OR 京都 OR 大阪",
+      "建機 OR 舶用 OR 風力 歯車 外注 熱処理 関西"
     ],
     "companies": [
       {
@@ -3149,8 +4122,27 @@
         "lat": 34.73,
         "lng": 135.41,
         "capital_man_yen": 300,
-        "employees": null,
         "scale_summary": "資本金300万円 / 従業員未確認"
+      },
+      {
+        "name": "神戸歯車株式会社",
+        "category": "大型・特殊歯車製造",
+        "area": "兵庫県神戸市",
+        "materials": [
+          "各種歯車鋼",
+          "建機用ギア"
+        ],
+        "heat_relation": "φ3m超の大型・特殊歯車。焼入・浸炭の外注実態を確認（ピット炉本命）",
+        "reason": "公式に直径3m超・建機旋回ギア等。ピット炉級の最有力。兵庫は大型ギアなら全域検討。",
+        "source_url": "http://kobegear.jp/",
+        "linked_majors": [],
+        "priority": 0,
+        "large_gear": true,
+        "pit_furnace_fit": "高（φ3m超）",
+        "size_hint": "〜φ3000超 / 横型シャフト〜4m",
+        "lat": 34.69,
+        "lng": 135.2,
+        "scale_summary": "創業大正8年・大型歯車専業"
       },
       {
         "name": "石田歯車工業株式会社",
@@ -3216,9 +4208,68 @@
         "scale_summary": "資本金20億円 / 従業員1,106名"
       },
       {
+        "name": "株式会社竝川歯車製作所",
+        "category": "歯車・スロッター（京都）",
+        "area": "京都府（八幡市周辺・075）",
+        "materials": [
+          "各種歯車鋼"
+        ],
+        "heat_relation": "歯切・スロッター。大型・ピット炉級かどうか要確認（京都は大型ギア案件なら対象）",
+        "reason": "京都の歯車屋。ピット炉級なら距離例外で拾う。サイズ未確認のためヒアリング優先。",
+        "source_url": "https://www.namikawa-gear.jp/",
+        "linked_majors": [],
+        "priority": 2,
+        "large_gear": true,
+        "pit_furnace_fit": "要確認（京都例外）",
+        "size_hint": "要ヒアリング",
+        "lat": 34.86,
+        "lng": 135.71,
+        "scale_summary": "公開サイズ未確認／TEL 075-932-1515"
+      },
+      {
+        "name": "京都・大型歯切（探索枠）",
+        "category": "探索メモ",
+        "area": "京都府（京都市・城陽・八幡・宇治など）",
+        "materials": [
+          "SCM系"
+        ],
+        "heat_relation": "大型はピット炉・特殊焼入の外注が多い",
+        "reason": "ピット炉級の大型ギア案件に限り京都も対象。φ1m超・建機・舶用を社名確定して埋める。",
+        "source_url": "",
+        "linked_majors": [],
+        "priority": 2,
+        "large_gear": true,
+        "pit_furnace_fit": "探索中",
+        "size_hint": "探索（φ1000超優先）",
+        "is_placeholder": true,
+        "lat": 35.01,
+        "lng": 135.77,
+        "scale_summary": "—"
+      },
+      {
+        "name": "兵庫北部・大型歯切（探索枠）",
+        "category": "探索メモ",
+        "area": "兵庫県北部（豊岡・朝来・養父・丹波・篠山）",
+        "materials": [
+          "SCM系"
+        ],
+        "heat_relation": "大型はピット炉外注が出やすい",
+        "reason": "ピット炉級なら兵庫北部も検討。歯切・鍛造・建機部品の社名を確定して埋める。",
+        "source_url": "",
+        "linked_majors": [],
+        "priority": 2,
+        "large_gear": true,
+        "pit_furnace_fit": "探索中",
+        "size_hint": "探索（φ1000超優先）",
+        "is_placeholder": true,
+        "lat": 35.4,
+        "lng": 134.8,
+        "scale_summary": "—"
+      },
+      {
         "name": "東海・関西の追加大型歯切（探索枠）",
         "category": "探索メモ",
-        "area": "愛知・大阪・兵庫",
+        "area": "愛知・大阪・兵庫南部",
         "materials": [
           "SCM系"
         ],
@@ -3237,7 +4288,9 @@
       }
     ],
     "excluded_notes": [
-      "東洋チンローラー: 公式は極小〜小型歯車が主。『大型ラックM16・長さ〜2.1m』は長尺ラックであり、ピット炉検証用の大径歯車とは別物のため大型ギア特化から除外。"
+      "東洋チンローラー: 公式は極小〜小型歯車が主。長尺ラックはピット炉検証用の大径歯車とは別物のため除外。",
+      "株式会社エスアイジー（SIG・静岡）: φ2000級だが自社ピット浸炭あり＋静岡は未進出のため除外（競合・圏外）。",
+      "太陽機械工業（京都）: 公開は〜φ300中心。大型ピット炉案件の本命ではない。"
     ]
   },
   "ube_nagoya_focus": {
@@ -3257,11 +4310,12 @@
       "ピット炉"
     ],
     "how_to_investigate": [
-      "① 減速機メーカー（製造）を最優先：内製歯切／焼入外注／最大モジュール・外径・ピット炉",
-      "② 平井・阪神動力・マテックス・ニッセイ等で熱処理外注先と展示会出展予定を確認（出展時は必ずブースへ）",
-      "③ 大阪減速機は既存取引先→攻略ではなく関係維持・展示会で接点強化",
-      "④ UBE減速機アフター／関連から補給部品ルートを確認",
-      "⑤ ヒットしたらピット炉適合を確認し大型ギア特化へ昇格"
+      "①【要】大型減速機メーカーは見つけたら必ずピックアップ（大阪減速機・阪神動力は既存顧客→ウォッチのみ）",
+      "② 減速機メーカー（製造）を最優先：内製歯切／焼入外注／最大モジュール・外径・ピット炉",
+      "③ 平井・マテックス・ニッセイ等で熱処理外注先と展示会出展予定を確認（出展時は必ずブースへ）",
+      "④ 大阪減速機・阪神動力機械は既存取引先→攻略ではなく関係維持・展示会で接点強化",
+      "⑤ UBE減速機アフター／関連から補給部品ルートを確認",
+      "⑥ ヒットしたらピット炉適合を確認し大型ギア特化へ昇格"
     ],
     "search_queries": [
       "減速機 製造 メーカー 愛知 OR 名古屋 OR 大阪 OR 兵庫 -販売店",
@@ -3340,27 +4394,6 @@
         "capital_man_yen": 8500,
         "employees": 123,
         "scale_summary": "資本金8,500万円 / グループ約123名"
-      },
-      {
-        "name": "阪神動力機械株式会社",
-        "category": "減速機製造（歯車・産業用大型）",
-        "area": "大阪府大阪市此花区四貫島",
-        "materials": [
-          "歯車鋼",
-          "浸炭歯車"
-        ],
-        "heat_relation": "平行軸・直交・ウォーム・遊星。ポンプ駆動用など大型あり。浸炭歯車明記→焼入外注余地を確認",
-        "reason": "関西の歯車減速機メーカー。大型・ポンプ駆動まで。ピット炉級の可能性あり。",
-        "source_url": "https://www.hanshin-pm.co.jp/product/industrial/reduction/",
-        "linked_majors": [],
-        "priority": 0,
-        "role": "reducer_maker",
-        "investigation": "最大サイズ、浸炭／焼入の内製外注、ピット炉ニーズ",
-        "pit_furnace_fit": "中〜高（大型・ポンプ駆動なら）",
-        "size_hint": "産業用〜ポンプ駆動大型",
-        "lat": 34.68,
-        "lng": 135.44,
-        "scale_summary": "公開規模要確認"
       },
       {
         "name": "マテックス株式会社",
@@ -3517,6 +4550,10 @@
       },
       {
         "name": "株式会社大阪減速機製作所",
+        "note": "既存取引先のため攻略一覧からは除外。展示会出展時は必ずブース確認（ウォッチ対象）。"
+      },
+      {
+        "name": "阪神動力機械株式会社",
         "note": "既存取引先のため攻略一覧からは除外。展示会出展時は必ずブース確認（ウォッチ対象）。"
       }
     ]
@@ -3879,7 +4916,318 @@
       }
     ]
   },
+  "wakayama_focus": {
+    "id": "wakayama",
+    "area": "和歌山・金属加工／熱処理需要調査",
+    "pain": "処理に困っているところがあると聞いている。建設・切断屋は除外し、歯車・ポンプ部品・精密シャフトなど熱処理が絡む金属加工を洗う。",
+    "lat": 34.2305,
+    "lng": 135.1708,
+    "investigation_mode": true,
+    "focus": [
+      "伏虎金属工業",
+      "カナプレスト",
+      "共栄テクシード",
+      "歯車・スプロケット",
+      "油圧・ポンプ部品",
+      "精密シャフト",
+      "焼入・浸炭・高周波",
+      "ピット炉"
+    ],
+    "how_to_investigate": [
+      "① フッコ（伏虎金属）でポンプ・油圧／冷凍機部品の焼入・浸炭ルートと外注先を聞く",
+      "② 吹屋町〜海南〜紀の川の歯車・精密丸物（清水歯車・カナプレスト・海南精密・共栄テクシード）で熱処理ニーズを突合",
+      "③ 建設・鈑金・切断・単なるカット業は捨てる。対象は歯切・鍛造・精密シャフト・油圧部品など",
+      "④ 自社炉がある先（海南精密・カナプレスト等）は外注・大型・ピット炉・浸炭の余りだけ確認。熱処理専業は競合",
+      "⑤ ヒットしたらピット炉適合を確認し大型ギア特化へ昇格"
+    ],
+    "search_queries": [
+      "伏虎金属工業 OR フッコ 和歌山 部品加工 熱処理 OR 焼入",
+      "カナプレスト 紀の川 スプロケット 高周波焼入れ",
+      "共栄テクシード 紀の川 歯車 歯切",
+      "和歌山 歯車 製造 OR 歯切 熱処理 OR 浸炭 -建設",
+      "清水歯車 和歌山 吹屋町",
+      "海南精密 シャフト 真空浸炭 OR 焼入",
+      "和歌山 油圧部品 OR ポンプ部品 機械加工 焼入",
+      "かつらぎ OR 紀の川 高圧継手 OR 鍛造 熱処理",
+      "和歌山県機械金属工業協同組合 歯車 OR 精密",
+      "日高川 歯車 外注 熱処理 -大和歯車"
+    ],
+    "companies": [
+      {
+        "name": "伏虎金属工業株式会社（フッコ／FUKKO）",
+        "category": "ポンプ製造＋金属部品加工",
+        "area": "和歌山県和歌山市吹屋町（本社）／紀の川市（粉河工場）",
+        "materials": [
+          "特殊鋼",
+          "ステンレス",
+          "油圧部品鋼"
+        ],
+        "heat_relation": "ポンプ・油圧／冷凍機・繊維機器部品の機械加工。シャフト・ベーン等で焼入・浸炭外注が出やすい",
+        "reason": "和歌山の本命。公式でポンプ製造に加え冷凍機・空調・繊維・油圧部品加工を明示。複合機・MC多数。",
+        "source_url": "https://www.fukko.com/company/",
+        "linked_majors": [
+          "三菱電機冷熱",
+          "大阪ジャッキ"
+        ],
+        "priority": 0,
+        "role": "anchor",
+        "investigation": "部品焼入／浸炭の内製外注、最大サイズ、ピット炉ニーズ",
+        "pit_furnace_fit": "要確認（大型ポンプ部品なら中）",
+        "size_hint": "ポンプ・油圧部品加工",
+        "lat": 34.235,
+        "lng": 135.175,
+        "capital_man_yen": 1000,
+        "scale_summary": "資本金1,000万円／粉河工場あり"
+      },
+      {
+        "name": "有限会社清水歯車工作所",
+        "category": "歯車製造（金属加工）",
+        "area": "和歌山県和歌山市吹屋町1丁目",
+        "materials": [
+          "歯車鋼",
+          "SCM系"
+        ],
+        "heat_relation": "歯車工作所。焼入・浸炭外注が本命論点",
+        "reason": "フッコと同・吹屋町の歯車屋。県機械金属工業協同組合員。熱処理需要の本命候補。",
+        "source_url": "https://wa-kikai.com/list/",
+        "linked_majors": [],
+        "priority": 0,
+        "role": "gear_maker",
+        "investigation": "モジュール・外径上限、熱処理ルート、ピット炉可否",
+        "pit_furnace_fit": "要確認（大型なら高）",
+        "size_hint": "要ヒアリング",
+        "lat": 34.236,
+        "lng": 135.174,
+        "scale_summary": "公開規模未確認／TEL 073-424-1128"
+      },
+      {
+        "name": "カナプレスト株式会社",
+        "category": "スプロケット・歯車製造 ※自社高周波あり",
+        "area": "和歌山県紀の川市北涌",
+        "materials": [
+          "S45C",
+          "普通鋼",
+          "歯車鋼"
+        ],
+        "heat_relation": "公式に高周波焼入れ（120K/150K）＋焼戻し炉を自社保有。歯先硬化まで一貫",
+        "reason": "金属加工で熱処理を使う本命ピックアップ。スプロケット／スパー／直歯かさ歯車。ただし自社高周波あり→浸炭・大型・ピット炉の余りだけ確認。",
+        "source_url": "https://www.kanapresto.com/company/",
+        "linked_majors": [
+          "片山チエン"
+        ],
+        "priority": 1,
+        "role": "gear_maker",
+        "has_inhouse_heat": true,
+        "investigation": "自社高周波上限（公称φ500）超・浸炭・ピット炉需要の有無。OTC余地は限定的",
+        "pit_furnace_fit": "低（自社高周波）",
+        "size_hint": "スプロケット〜φ500級想定",
+        "lat": 34.27,
+        "lng": 135.36,
+        "capital_man_yen": 990,
+        "employees": 30,
+        "scale_summary": "資本金990万円 / 従約30名 / 自社高周波焼入"
+      },
+      {
+        "name": "株式会社共栄テクシード",
+        "category": "精密部品・歯切（自動車／建機／農機）",
+        "area": "和歌山県紀の川市桃山町（本社工場）／和歌山市",
+        "materials": [
+          "SCM系",
+          "焼入鋼"
+        ],
+        "heat_relation": "歯切ラインあり。NC研削で焼入鋼対応→熱処理後工程前提。自社炉記載なし＝外注の可能性高",
+        "reason": "建設カットではなく、トルコン・トランスミッション・油圧ポンプ部品＋歯車加工。熱処理外注ニーズの本命候補。",
+        "source_url": "http://kyoei-tc.co.jp/corporate/profile/",
+        "linked_majors": [
+          "エクセディ",
+          "川崎重工業",
+          "住友電工焼結合金"
+        ],
+        "priority": 0,
+        "role": "metal_processor",
+        "investigation": "焼入・浸炭の外注先、サイズ上限、ピット炉・大型ギアの有無",
+        "pit_furnace_fit": "要確認（量産小物寄りなら低）",
+        "size_hint": "自動車・建機トランス系精密部品",
+        "lat": 34.28,
+        "lng": 135.35,
+        "capital_man_yen": 1000,
+        "employees": 150,
+        "scale_summary": "資本金1,000万円 / 従約150名 / 歯切ラインあり"
+      },
+      {
+        "name": "桜井鉄工株式会社",
+        "category": "高圧・油圧継手の金属加工",
+        "area": "和歌山県伊都郡かつらぎ町",
+        "materials": [
+          "鍛造材",
+          "棒鋼"
+        ],
+        "heat_relation": "鍛造材からの切削・転造。高圧継手で焼入・調質外注が出る可能性",
+        "reason": "建設カット業ではなく、鍛造材→NC旋盤の継手専業。熱処理の有無を確認して拾う。",
+        "source_url": "https://tsugite.co.jp/",
+        "linked_majors": [],
+        "priority": 1,
+        "role": "metal_processor",
+        "investigation": "継手の熱処理有無、外注先、材質・硬度要求",
+        "pit_furnace_fit": "低〜要確認",
+        "size_hint": "高圧継手・転造",
+        "lat": 34.3,
+        "lng": 135.5,
+        "scale_summary": "公開規模要確認"
+      },
+      {
+        "name": "株式会社海南精密",
+        "category": "精密丸物加工（シャフト・ネジ）※自社浸炭あり",
+        "area": "和歌山県海南市岡田",
+        "materials": [
+          "バー材鋼",
+          "特殊ネジ・ピン・シャフト"
+        ],
+        "heat_relation": "公式に真空浸炭炉・焼戻し炉を保有。自社熱処理あり→OTC外注余地は限定的",
+        "reason": "熱処理を使う金属加工としてピックアップ。ただし自社真空浸炭あり。外注・大型・ピット炉の余りだけ確認。",
+        "source_url": "https://www.shimaseiki.co.jp/company/other/kainanseimitsu/",
+        "linked_majors": [
+          "島精機製作所"
+        ],
+        "priority": 2,
+        "role": "metal_processor",
+        "has_inhouse_heat": true,
+        "investigation": "自社炉で足りないサイズ／処理（大型・ピット炉）があるかだけ確認。攻め優先度は低",
+        "pit_furnace_fit": "低（自社真空浸炭）",
+        "size_hint": "φ2〜51 小径丸物",
+        "lat": 34.155,
+        "lng": 135.21,
+        "capital_man_yen": 1000,
+        "employees": 47,
+        "scale_summary": "資本金1,000万円 / 従約47名 / 自社真空浸炭"
+      },
+      {
+        "name": "第一熱処理工業株式会社（和歌山工場）",
+        "category": "競合（熱処理＋鋼管加工）",
+        "area": "和歌山県和歌山市",
+        "materials": [],
+        "heat_relation": "鋼管連続焼入・焼戻。熱処理専業寄り",
+        "reason": "熱処理屋は顧客にしない。和歌山の競合マップ用。",
+        "source_url": "https://yarukiouendan.or.jp/digitalguide/%E7%AC%AC%E4%B8%80%E7%86%B1%E5%87%A6%E7%90%86%E5%B7%A5%E6%A5%AD-%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE-%E5%92%8C%E6%AD%8C%E5%B1%B1%E5%B7%A5%E5%A0%B4/",
+        "linked_majors": [],
+        "priority": 3,
+        "role": "competitor",
+        "not_gear_maker": true,
+        "investigation": "競合把握のみ（攻めない）",
+        "pit_furnace_fit": "—（競合）",
+        "size_hint": "鋼管連続焼入",
+        "lat": 34.23,
+        "lng": 135.17,
+        "scale_summary": "競合"
+      },
+      {
+        "name": "Bright・Anneal株式会社",
+        "category": "競合（真空熱処理・光輝焼鈍）",
+        "area": "和歌山県紀の川市北勢田",
+        "materials": [],
+        "heat_relation": "真空熱処理・水素光輝焼鈍（ステンレス等）",
+        "reason": "熱処理専業。顧客にしない。競合マップ用。",
+        "source_url": "https://bright-anneal.co.jp/company/",
+        "linked_majors": [],
+        "priority": 3,
+        "role": "competitor",
+        "not_gear_maker": true,
+        "investigation": "競合把握のみ",
+        "pit_furnace_fit": "—（競合）",
+        "size_hint": "真空・光輝焼鈍",
+        "lat": 34.27,
+        "lng": 135.34,
+        "scale_summary": "競合"
+      },
+      {
+        "name": "日鉄関西マシニング株式会社（熱処理工場）",
+        "category": "競合（日鉄系熱処理）",
+        "area": "和歌山県和歌山市湊（関西製鉄所和歌山地区内）",
+        "materials": [],
+        "heat_relation": "日鉄グループの熱処理工場",
+        "reason": "熱処理専業／グループ内。顧客にしない。競合マップ用。",
+        "source_url": "https://www.nskm.nipponsteel.com/company/point.html",
+        "linked_majors": [
+          "日本製鉄"
+        ],
+        "priority": 3,
+        "role": "competitor",
+        "not_gear_maker": true,
+        "investigation": "競合把握のみ",
+        "pit_furnace_fit": "—（競合）",
+        "size_hint": "製鉄所内熱処理",
+        "lat": 34.23,
+        "lng": 135.14,
+        "scale_summary": "競合"
+      },
+      {
+        "name": "株式会社東研サーモテック（橋本）",
+        "category": "競合（熱処理）",
+        "area": "和歌山県橋本市",
+        "materials": [],
+        "heat_relation": "西部金属熱処理工業協同組合系の熱処理",
+        "reason": "熱処理専業。顧客にしない。競合マップ用。",
+        "source_url": "https://www.netsushori.jp/member/index2.php?div=4",
+        "linked_majors": [],
+        "priority": 3,
+        "role": "competitor",
+        "not_gear_maker": true,
+        "investigation": "競合把握のみ",
+        "pit_furnace_fit": "—（競合）",
+        "size_hint": "熱処理",
+        "lat": 34.31,
+        "lng": 135.61,
+        "scale_summary": "競合"
+      },
+      {
+        "name": "和歌山・熱処理が絡む金属加工（探索枠）",
+        "category": "探索メモ",
+        "area": "和歌山市・海南・紀の川・日高川",
+        "materials": [
+          "SCM系",
+          "歯車鋼",
+          "油圧部品鋼"
+        ],
+        "heat_relation": "歯切・精密シャフト・油圧部品は焼入外注が出やすい。建設・切断・鈑金は除外",
+        "reason": "県機械金属工業協同組合などから、歯車・精密加工・油圧部品屋を追加で埋める。",
+        "source_url": "https://wa-kikai.com/list/",
+        "linked_majors": [],
+        "priority": 2,
+        "role": "explore",
+        "is_placeholder": true,
+        "investigation": "組合員から歯車・精密丸物・油圧部品を拾い、建設・カット業を除外",
+        "pit_furnace_fit": "探索中",
+        "size_hint": "探索",
+        "lat": 34.23,
+        "lng": 135.17,
+        "scale_summary": "—"
+      }
+    ],
+    "known_network_notes": [
+      {
+        "name": "大和歯車製作株式会社（和歌山工場）",
+        "note": "既存顧客のため攻略一覧から除外。日高川で一貫＋自社熱処理（第3工場）。周辺同業の参考のみ。"
+      },
+      {
+        "name": "除外ルール",
+        "note": "建設業・鈑金・単なる金属カット／シャーリングは対象外。熱処理が絡む歯車・シャフト・油圧・ポンプ部品・鍛造加工を優先。"
+      },
+      {
+        "name": "北川鉄工所 和歌山工場",
+        "note": "県ガイド掲載ありだが和歌山拠点は建設寄り。熱処理・歯車は福山等。今回の金属加工本命から外す。"
+      },
+      {
+        "name": "扶桑精機・寿精密など金型／プレス",
+        "note": "金型・プレス専業は今回の金属加工・熱処理需要の本命から外す（必要なら別枠）。"
+      }
+    ]
+  },
   "search_queries": [
+    "大型歯車 製造 京都 OR 兵庫 モジュール10 OR モジュール20",
+    "大型ギヤ φ1000 OR φ2000 OR φ3000 浸炭 OR ピット炉 外注",
+    "ピット炉 浸炭 大型歯車 関西 OR 京都 OR 兵庫",
+    "神戸歯車 大型歯車 歯切",
+    "兵庫 豊岡 OR 朝来 OR 丹波 歯車 OR 歯切 大型",
     "減速機 製造 メーカー 愛知 OR 名古屋 OR 大阪 OR 兵庫 -販売店",
     "歯車減速機 製造 愛知 OR 東大阪 OR 尼崎 熱処理 OR 焼入 OR 浸炭",
     "ウォーム減速機 製造 名古屋 OR 愛知 歯車",
@@ -3889,11 +5237,11 @@
     "大同特殊鋼協力工場協同組合 組合員 歯車 OR チェーン OR 鍛造",
     "星崎 OR 滝春町 OR 大同町 歯車 製造 OR 歯切",
     "大同特殊鋼 歯車鋼 OR xEVギア 納入 OR ユーザー 愛知",
-    "大型歯車 製造 愛知 OR 大阪 OR 兵庫 モジュール10 OR モジュール20",
-    "大型ギヤ φ1000 OR φ2000 浸炭 OR ピット炉 外注",
-    "ピット炉 浸炭 大型歯車 東海 OR 関西",
+    "伏虎金属工業 OR フッコ 和歌山 部品加工 熱処理 OR 焼入",
+    "和歌山 歯車 製造 OR 歯切 熱処理 OR 浸炭 -建設",
     "UBEマシナリー OR 宇部興産機械 名古屋 歯車 OR 減速機 外注 OR 協力",
-    "大型スプロケット 歯切 SCM 焼入 兵庫 OR 大阪",
+    "大型スプロケット 歯切 SCM 焼入 兵庫 OR 京都 OR 大阪",
+    "建機 OR 舶用 OR 風力 歯車 外注 熱処理 関西",
     "Willbe 津島 外注 歯車 OR シャフト OR 熱処理",
     "清須 OR 津島 歯車 SCM 浸炭",
     "刈谷 歯車 熱処理 外注 -熱煉",

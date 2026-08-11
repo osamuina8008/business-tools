@@ -16,10 +16,30 @@
     .dot { width: 10px; height: 10px; border-radius: 999px; display: inline-block; }
     .fade-in { animation: fadeIn .35s ease; }
     @keyframes fadeIn { from { opacity:0; transform:translateY(6px);} to { opacity:1; transform:none;} }
-    #detail-panel { max-height: 420px; overflow: auto; }
+    #detail-panel { max-height: 560px; overflow: auto; scroll-margin-top: 72px; }
     .intel-table { width: 100%; border-collapse: collapse; font-size: 11px; }
     .intel-table th, .intel-table td { border: 1px solid #e2e8f0; padding: 4px 6px; text-align: left; }
     .intel-table th { background: #f1f5f9; font-weight: 600; }
+    .comp-alert-missing { color: #b91c1c; font-weight: 700; }
+    .comp-alert-expand {
+      color: #b91c1c; font-weight: 800;
+      animation: expandPulse 1.2s ease-in-out infinite;
+    }
+    @keyframes expandPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.45; }
+    }
+    @keyframes exhibitPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.45); background-color: #f5f3ff; }
+      50% { box-shadow: 0 0 0 6px rgba(124, 58, 237, 0); background-color: #ede9fe; }
+    }
+    .exhibit-blink {
+      animation: exhibitPulse 1.35s ease-in-out infinite;
+      border-color: #a78bfa !important;
+    }
+    .exhibit-blink-badge {
+      animation: exhibitPulse 1.2s ease-in-out infinite;
+    }
   </style>
 </head>
 <body class="bg-slate-50 min-h-screen">
@@ -36,6 +56,7 @@
       </div>
       <div class="flex items-center gap-2">
         <span id="updated" class="text-xs text-slate-400"></span>
+        <a href="./competitors.html" class="text-xs font-semibold text-white bg-violet-700 hover:bg-violet-800 px-3 py-1.5 rounded-lg">競合インテリ</a>
         <a href="./cmd.html" class="text-xs font-semibold text-white bg-slate-700 hover:bg-slate-800 px-3 py-1.5 rounded-lg font-mono">⌘ CMD</a>
         <a href="./consult.html" class="text-xs font-semibold text-white bg-indigo-700 hover:bg-indigo-800 px-3 py-1.5 rounded-lg">戦略相談</a>
         <a href="./hearing.html" class="text-xs font-semibold text-white bg-teal-700 hover:bg-teal-800 px-3 py-1.5 rounded-lg">知見ヒアリング</a>
@@ -109,7 +130,7 @@
         </div>
         <div class="lg:col-span-2">
           <div id="detail-panel" class="rounded-xl border border-slate-200 bg-slate-50 p-4 min-h-[200px]">
-            <p class="text-sm text-slate-400">地図のピン、または下の一覧を選ぶと詳細が出ます。</p>
+            <p class="text-sm text-slate-400">社名・カードをクリック → 企業情報と出展展示会一覧が出ます。</p>
           </div>
         </div>
       </div>
@@ -164,7 +185,7 @@
             ← 界隈一覧に戻る
           </button>
         </div>
-        <p id="hotspot-hint" class="text-xs text-slate-500 mb-2">界隈を選ぶと深掘りします。<strong>大型ギア特化</strong>はピット炉検証、<strong>UBE/減速機</strong>・<strong>大同特殊鋼界隈</strong>は未開拓エコシステム調査用です。</p>
+        <p id="hotspot-hint" class="text-xs text-slate-500 mb-2">界隈を選ぶと深掘りします。<strong class="text-rose-800">◆大型ギア×ピット炉＝開発最優先</strong>。<strong class="text-rose-800">要: 大型ギア／大型部品／大型減速機は必ずピックアップ</strong>（適合なら京都・兵庫北部も可）。UBE/減速機・大同・和歌山は調査モードです。</p>
         <div id="hotspot-list" class="space-y-2"></div>
         <div id="scm-radar-panel" class="hidden mt-3">
           <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
@@ -176,10 +197,17 @@
           <div id="scm-radar-list" class="space-y-2 max-h-[28rem] overflow-y-auto"></div>
         </div>
       </section>
-      <section class="bg-white rounded-2xl border border-indigo-100 shadow-sm p-5">
-        <h2 class="font-bold text-indigo-800 mb-3">競合（熱処理屋）※客として訪問しない</h2>
-        <p class="text-xs text-slate-500 mb-2">クリックで設備・規模・取引先ヒント（新聞/公式）を表示。攻めるのは周辺の部品メーカー。</p>
-        <div id="target-list" class="space-y-2"></div>
+      <section class="bg-white rounded-2xl border border-violet-200 shadow-sm p-5">
+        <h2 class="font-bold text-violet-900 mb-2">競合（熱処理屋）</h2>
+        <p class="text-xs text-slate-500 mb-3">攻めどころとは別管理。地図上の紫ピンは位置確認用。一覧・地域まとめ・一言コメント・検索は競合画面へ。</p>
+        <a href="./competitors.html"
+          class="flex items-center justify-between gap-3 rounded-xl border border-violet-300 bg-violet-50 hover:bg-violet-100 px-4 py-3 transition">
+          <div>
+            <p class="text-sm font-bold text-violet-950">競合管理を開く →</p>
+            <p id="competitor-summary" class="text-xs text-violet-800 mt-0.5">地域別・増強アラート・委託型</p>
+          </div>
+          <span class="text-violet-700 text-lg font-bold">↗</span>
+        </a>
       </section>
     </div>
 
@@ -266,10 +294,36 @@ function companyInfoUrl(name, preferredUrl) {
   return 'https://www.google.com/search?q=' + encodeURIComponent(q);
 }
 
-function companyNameLink(name, preferredUrl, extraClass = '') {
-  const href = companyInfoUrl(name, preferredUrl);
+function companyNameLink(name, preferredUrl, extraClass = '', detailJs = '') {
   const cls = extraClass || 'text-inherit font-bold hover:underline hover:text-blue-700';
+  if (detailJs) {
+    return `<a href="#detail-panel" class="${cls}" onclick="event.preventDefault();event.stopPropagation();${detailJs}" title="企業情報・出展展示会">${esc(name || '')}</a>`;
+  }
+  const href = companyInfoUrl(name, preferredUrl);
   return `<a href="${esc(href)}" target="_blank" rel="noopener" class="${cls}" onclick="event.stopPropagation()" title="会社ホームページ / 会社情報">${esc(name || '')}</a>`;
+}
+
+function isUpcomingExhibit(x) {
+  const blob = `${x?.dates || ''} ${x?.name || ''} ${x?.title || ''} ${x?.pub || ''}`;
+  if (/過去出展|実績あり|隔年/.test(blob) && !/2026|2027|2028/.test(blob)) return false;
+  if (/2026|2027|2028/.test(blob)) return true;
+  if (/出展予定|開催|ブース/.test(blob) && !/過去/.test(blob)) return true;
+  return !x?.from_seed || /2026|2027/.test(blob);
+}
+
+function scrollDetailPanel() {
+  const el = document.getElementById('detail-panel');
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function findScmTargetById(id) {
+  if (!scmRadarData || !id) return null;
+  for (const g of (scmRadarData.groups || [])) {
+    const hit = (g.companies || []).find(c => c.id === id);
+    if (hit) return { company: hit, group: g };
+  }
+  const flat = (scmRadarData.targets || []).find(c => c.id === id);
+  return flat ? { company: flat, group: null } : null;
 }
 
 function competitorHomeUrl(intel) {
@@ -418,25 +472,84 @@ function renderSignalsBlock(sig, companyName) {
     sig.google_news_url ? `<a href="${esc(sig.google_news_url)}" target="_blank" rel="noopener" class="text-sky-700 font-semibold hover:underline">ニュース一覧 ↗</a>` : '',
     sig.exhibit_search_url ? `<a href="${esc(sig.exhibit_search_url)}" target="_blank" rel="noopener" class="text-violet-700 font-semibold hover:underline">展示会検索 ↗</a>` : '',
   ].filter(Boolean).join(' · ');
+  const upcoming = exs.filter(isUpcomingExhibit);
+  const past = exs.filter(x => !isUpcomingExhibit(x));
+  const ordered = [...upcoming, ...past];
   return `
-    <div class="mt-3 p-2 rounded-lg bg-sky-50 border border-sky-100">
-      <p class="text-xs font-bold text-sky-900 mb-1">記事・展示会シグナル</p>
-      <p class="text-[11px] text-slate-500 mb-2">${esc(sig.summary || '')}${links ? ' · ' + links : ''}</p>
-      ${arts.length ? arts.slice(0, 6).map(a => `
-        <a href="${esc(a.link || '#')}" target="_blank" rel="noopener" class="block mb-1.5 text-xs text-slate-700 hover:text-sky-800">
-          <span class="font-medium">${esc(a.title || '')}</span>
-          <span class="block text-[10px] text-slate-400">${esc([a.source, (a.pub||'').slice(0,10)].filter(Boolean).join(' · '))}</span>
-        </a>`).join('') : '<p class="text-xs text-slate-400 mb-1">社名付き記事は見つかりませんでした（小さな地方紙含む検索済み）</p>'}
-      ${exs.length ? `
-        <p class="text-xs font-bold text-violet-800 mt-2 mb-1">展示会 → 直接訪問（キーマン接触）</p>
-        <p class="text-[11px] text-violet-700 mb-1">会場で役の有無を見極め、名刺交換→的確フォロー。</p>
-        ${exs.slice(0, 4).map(x => `
-          <a href="${esc(x.link || x.url || '#')}" target="_blank" rel="noopener" class="block mb-1.5 text-xs text-slate-700 hover:text-violet-800">
-            <span class="font-semibold text-violet-800">${esc(x.name || '')}</span>
-            <span class="block">${esc(x.title || '')}</span>
-            <span class="block text-[10px] text-slate-400">${esc([x.city, x.dates].filter(Boolean).join(' · '))}</span>
-          </a>`).join('')}` : ''}
+    <div class="mt-3 space-y-3">
+      <div class="p-2 rounded-lg bg-violet-50 border border-violet-200">
+        <p class="text-xs font-bold text-violet-900 mb-1 flex items-center gap-2">
+          出展展示会一覧
+          ${upcoming.length ? `<span class="exhibit-blink-badge text-[10px] font-bold text-white bg-violet-600 px-1.5 py-0.5 rounded">出展 ${upcoming.length}</span>` : ''}
+        </p>
+        <p class="text-[11px] text-violet-800 mb-2">チカチカ＝直近・予定。会場でキーマン接触 → フォロー。</p>
+        ${ordered.length ? ordered.slice(0, 8).map(x => {
+          const up = isUpcomingExhibit(x);
+          return `
+          <a href="${esc(x.link || x.url || '#')}" target="_blank" rel="noopener"
+            class="block mb-2 rounded-lg border px-2.5 py-2 text-xs text-slate-800 hover:border-violet-400 ${up ? 'exhibit-blink border-violet-300' : 'border-violet-100 bg-white'}">
+            <span class="font-bold ${up ? 'text-violet-900' : 'text-slate-700'}">${esc(x.name || '展示会')}</span>
+            ${up ? '<span class="ml-1 text-[10px] font-bold text-violet-700">出展予定</span>' : '<span class="ml-1 text-[10px] text-slate-400">参考・過去</span>'}
+            ${x.title && x.title !== x.name ? `<span class="block mt-0.5 text-slate-600">${esc(x.title)}</span>` : ''}
+            <span class="block text-[10px] text-slate-500 mt-0.5">${esc([x.city, x.dates, x.evidence].filter(Boolean).join(' · '))}</span>
+          </a>`;
+        }).join('') : `<p class="text-xs text-slate-500 mb-1">出展ヒットなし。${sig.exhibit_search_url ? `<a class="underline text-violet-700 font-semibold" href="${esc(sig.exhibit_search_url)}" target="_blank" rel="noopener">展示会検索 ↗</a>` : ''}</p>`}
+      </div>
+      <div class="p-2 rounded-lg bg-sky-50 border border-sky-100">
+        <p class="text-xs font-bold text-sky-900 mb-1">記事シグナル</p>
+        <p class="text-[11px] text-slate-500 mb-2">${esc(sig.summary || '')}${links ? ' · ' + links : ''}</p>
+        ${arts.length ? arts.slice(0, 6).map(a => `
+          <a href="${esc(a.link || '#')}" target="_blank" rel="noopener" class="block mb-1.5 text-xs text-slate-700 hover:text-sky-800">
+            <span class="font-medium">${esc(a.title || '')}</span>
+            <span class="block text-[10px] text-slate-400">${esc([a.source, (a.pub||'').slice(0,10)].filter(Boolean).join(' · '))}</span>
+          </a>`).join('') : '<p class="text-xs text-slate-400 mb-1">社名付き記事は見つかりませんでした</p>'}
+      </div>
     </div>`;
+}
+
+function showScmTarget(id) {
+  const found = findScmTargetById(id);
+  const el = document.getElementById('detail-panel');
+  if (!found) {
+    el.innerHTML = '<p class="text-sm text-slate-400">データなし</p>';
+    scrollDetailPanel();
+    return;
+  }
+  const t = found.company;
+  const g = found.group;
+  if (t.lat != null && t.lng != null) focusPin(t.lat, t.lng, 12);
+  const sig = findTargetSignals(t);
+  const home = t.source_url || '';
+  const mats = (t.materials || []).join(' / ');
+  const majors = (t.linked_majors || []).join(' / ');
+  const roleLabel = t.role === 'reducer_maker' ? '減速機製造'
+    : t.role === 'gear_maker' ? '歯車'
+    : t.role === 'metal_processor' ? (t.has_inhouse_heat ? '金属加工・自社炉' : '金属加工')
+    : t.role === 'competitor' ? '競合（攻めない）'
+    : t.role === 'anchor' ? 'アンカー'
+    : (t.category || 'ターゲット');
+  el.innerHTML = `
+    <p class="text-xs font-bold text-orange-800 mb-1">ターゲット企業${g?.area ? ' · ' + esc(g.area) : ''}</p>
+    <h3 class="text-base font-bold text-slate-900">${esc(t.name || '')}</h3>
+    <div class="mt-1 flex flex-wrap gap-2 text-xs">
+      <a href="${esc(companyInfoUrl(t.name, home))}" target="_blank" rel="noopener" class="text-orange-700 font-semibold hover:underline">会社情報 / HP ↗</a>
+      ${home ? `<a href="${esc(home)}" target="_blank" rel="noopener" class="text-slate-600 hover:underline">出典 ↗</a>` : ''}
+    </div>
+    <p class="text-xs text-slate-500 mt-2">${esc([roleLabel, t.category, t.area].filter(Boolean).join(' · '))}</p>
+    ${t.scale_summary ? `<p class="text-xs font-semibold text-slate-800 mt-1">${esc(t.scale_summary)}</p>` : ''}
+    ${t.must_pickup ? `<p class="mt-2 text-xs font-bold text-white bg-rose-600 inline-block px-2 py-0.5 rounded">要・必ず拾う: ${esc(t.must_pickup_label || '')}</p>` : ''}
+    <div class="mt-3 p-2 rounded-lg bg-orange-50 border border-orange-200 text-xs text-orange-950">
+      <p><span class="font-bold">理由:</span> ${esc(t.reason || '—')}</p>
+      ${t.heat_relation ? `<p class="mt-1"><span class="font-bold">熱処理:</span> ${esc(t.heat_relation)}</p>` : ''}
+      ${mats ? `<p class="mt-1"><span class="font-bold">材質:</span> ${esc(mats)}</p>` : ''}
+      ${majors ? `<p class="mt-1"><span class="font-bold">大手接点:</span> ${esc(majors)}</p>` : ''}
+      ${t.investigation ? `<p class="mt-1"><span class="font-bold">調査:</span> ${esc(t.investigation)}</p>` : ''}
+      ${t.must_pickup ? `<p class="text-[10px] font-bold text-rose-700 mt-1">要・必ず拾う: ${esc(t.must_pickup_label || '')}</p>` : ''}
+      ${t.pit_furnace_fit ? `<p class="mt-1 font-semibold text-rose-800">ピット炉: ${esc(t.pit_furnace_fit)}${t.size_hint ? ' · ' + esc(t.size_hint) : ''}</p>` : ''}
+    </div>
+    ${renderSignalsBlock(sig, t.name)}
+    <p class="text-[10px] text-slate-400 mt-3">社名クリックでこのパネルを開きます。出展予定はチカチカ表示。</p>`;
+  scrollDetailPanel();
 }
 
 async function loadTargetSignals() {
@@ -559,9 +672,8 @@ function renderCompanyCards(comps) {
     const src = t.source_url
       ? `<a href="${esc(t.source_url)}" target="_blank" rel="noopener" class="text-xs text-orange-700 underline" onclick="event.stopPropagation()">出典</a>`
       : '';
-    const lat = Number(t.lat), lng = Number(t.lng);
-    const focus = (Number.isFinite(lat) && Number.isFinite(lng))
-      ? `onclick="focusPin(${lat},${lng})"` : '';
+    const tid = esc(t.id || '');
+    const openJs = tid ? `showScmTarget('${tid}')` : '';
     const ph = t.is_placeholder
       ? 'border-dashed border-orange-300 bg-orange-50/40'
       : 'border-orange-200 bg-white';
@@ -576,8 +688,15 @@ function renderCompanyCards(comps) {
     const lgBadge = t.large_gear
       ? '<span class="text-[10px] font-bold text-rose-800 bg-rose-100 px-1.5 py-0.5 rounded ml-1">大型ギア</span>'
       : '';
+    const mustBadge = t.must_pickup
+      ? `<span class="text-[10px] font-bold text-white bg-rose-600 px-1.5 py-0.5 rounded ml-1">要・${esc(t.must_pickup_label || '必ず拾う')}</span>`
+      : '';
     const roleBadge = t.role === 'reducer_maker'
       ? '<span class="text-[10px] font-bold text-emerald-900 bg-emerald-100 px-1.5 py-0.5 rounded ml-1">減速機製造</span>'
+      : t.role === 'gear_maker'
+      ? '<span class="text-[10px] font-bold text-orange-900 bg-orange-100 px-1.5 py-0.5 rounded ml-1">歯車</span>'
+      : t.role === 'metal_processor'
+      ? `<span class="text-[10px] font-bold text-teal-900 bg-teal-100 px-1.5 py-0.5 rounded ml-1">金属加工${t.has_inhouse_heat ? '・自社炉' : ''}</span>`
       : t.role === 'competitor'
       ? '<span class="text-[10px] font-bold text-red-800 bg-red-100 px-1.5 py-0.5 rounded ml-1">競合（攻めない）</span>'
       : t.role === 'coop_candidate'
@@ -595,19 +714,23 @@ function renderCompanyCards(comps) {
       ? `<p class="text-xs text-indigo-900 mt-1 font-medium">調査: ${esc(t.investigation)}</p>`
       : '';
     const sig = findTargetSignals(t);
-    const sigLine = sig && ((sig.articles||[]).length || (sig.exhibitions||[]).length)
-      ? `<p class="text-xs text-sky-800 mt-1 font-medium">記事${(sig.articles||[]).length} · 展示会言及${(sig.exhibitions||[]).length}
-          ${sig.google_news_url ? ` · <a class="underline" href="${esc(sig.google_news_url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">ニュース</a>` : ''}
-          ${sig.exhibit_search_url ? ` · <a class="underline" href="${esc(sig.exhibit_search_url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">展示会検索</a>` : ''}
+    const exN = (sig?.exhibitions || []).length;
+    const upN = (sig?.exhibitions || []).filter(isUpcomingExhibit).length;
+    const sigLine = sig && ((sig.articles||[]).length || exN)
+      ? `<p class="text-xs text-sky-800 mt-1 font-medium">記事${(sig.articles||[]).length} · 展示会${exN}
+          ${upN ? ` <span class="exhibit-blink-badge inline-block text-[10px] font-bold text-white bg-violet-600 px-1.5 py-0.5 rounded">出展 ${upN}</span>` : ''}
         </p>`
       : (sig ? `<p class="text-[11px] text-slate-400 mt-1">記事ヒットなし（検索済）</p>` : '');
     const artsHtml = (sig?.articles || []).slice(0, 2).map(a =>
       `<a href="${esc(a.link||'#')}" target="_blank" rel="noopener" onclick="event.stopPropagation()" class="block text-[11px] text-slate-600 hover:text-sky-800 truncate">· ${esc(a.title||'')}</a>`
     ).join('');
+    const exPreview = (sig?.exhibitions || []).filter(isUpcomingExhibit).slice(0, 2).map(x =>
+      `<p class="text-[11px] text-violet-800 font-medium truncate">◎ ${esc(x.name || '')}${x.dates ? ' · ' + esc(x.dates) : ''}</p>`
+    ).join('');
     return `
-    <div ${focus} class="rounded-xl border ${ph} p-3 ${focus ? 'cursor-pointer hover:bg-orange-50' : ''}">
+    <div ${openJs ? `onclick="${openJs}"` : ''} class="rounded-xl border ${ph} p-3 ${openJs ? 'cursor-pointer hover:bg-orange-50' : ''}">
       <div class="flex items-start justify-between gap-2">
-        <p class="text-sm font-bold text-slate-800">${tag}${lgBadge}${roleBadge} ${companyNameLink(t.name || '', t.source_url || '', 'hover:underline hover:text-orange-800')}</p>
+        <p class="text-sm font-bold text-slate-800">${tag}${lgBadge}${mustBadge}${roleBadge} ${companyNameLink(t.name || '', t.source_url || '', 'hover:underline hover:text-orange-800', openJs)}</p>
         ${src}
       </div>
       <p class="text-xs text-slate-600 mt-0.5">${esc(t.category || '')} · ${esc(t.area || '')}</p>
@@ -615,10 +738,12 @@ function renderCompanyCards(comps) {
       ${invLine}
       ${pit}
       ${sigLine}
+      ${exPreview}
       ${artsHtml}
       <p class="text-xs text-slate-700 mt-1 font-medium">規模: ${esc(t.scale_summary || '規模未確認')}</p>
       <p class="text-xs text-slate-500 mt-0.5">熱処理: ${esc(t.heat_relation || '')}${mats ? ' / 材質: ' + esc(mats) : ''}</p>
       ${majors}
+      <p class="text-[10px] text-slate-400 mt-1">クリック → 情報＋出展一覧</p>
     </div>`;
   }).join('') || '<p class="text-sm text-slate-400">この界隈の社名はまだ少ない。探索枠を埋めていく。</p>';
 }
@@ -635,18 +760,28 @@ function renderHotspotDrill(group, data) {
   meta.textContent = `${real.length}社 · 更新 ${esc((data.updated || '').slice(0, 16))}`;
   note.textContent = `${group.pain || ''} ／ ${(data.disclaimer || '')}`;
 
-  const isInvest = !!group.investigation_mode || group.hotspot_id === 'ube_nagoya' || group.hotspot_id === 'daido_nagoya';
+  const isInvest = !!group.investigation_mode || group.hotspot_id === 'ube_nagoya' || group.hotspot_id === 'daido_nagoya' || group.hotspot_id === 'wakayama' || group.hotspot_id === 'large_gear';
   const isDaido = group.hotspot_id === 'daido_nagoya';
   const isUbe = group.hotspot_id === 'ube_nagoya';
+  const isWaka = group.hotspot_id === 'wakayama';
+  const isLarge = group.hotspot_id === 'large_gear';
   const ubeFocus = (data.ube_nagoya_focus) || {};
   const daidoFocus = (data.daido_nagoya_focus) || {};
-  const focusQs = (data.large_gear_focus && data.large_gear_focus.search_queries) || [];
+  const wakaFocus = (data.wakayama_focus) || {};
+  const largeFocus = (data.large_gear_focus) || {};
+  const focusQs = (largeFocus.search_queries) || [];
   const investQs = (group.search_queries && group.search_queries.length)
     ? group.search_queries
-    : (isDaido ? (daidoFocus.search_queries || []) : (ubeFocus.search_queries || []));
+    : (isDaido ? (daidoFocus.search_queries || [])
+      : isWaka ? (wakaFocus.search_queries || [])
+      : isLarge ? (largeFocus.search_queries || [])
+      : (ubeFocus.search_queries || []));
   const qHints = isInvest
     ? (investQs.length ? investQs : (data.search_queries || []).filter(q =>
-        isDaido ? /大同|星崎|滝春|知多/.test(q) : /減速機|UBE|宇部/.test(q)
+        isDaido ? /大同|星崎|滝春|知多/.test(q)
+        : isWaka ? /和歌山|フッコ|伏虎|海南/.test(q)
+        : isLarge ? /ピット炉|大型|京都|神戸/.test(q)
+        : /減速機|UBE|宇部/.test(q)
       )).slice(0, 10)
     : (group.hotspot_id === 'large_gear' || (group.area || '').includes('大型ギア') || (group.area || '').includes('ピット炉'))
     ? (focusQs.length ? focusQs : (data.search_queries || []).filter(q => /ピット炉|大型/.test(q))).slice(0, 6)
@@ -665,21 +800,33 @@ function renderHotspotDrill(group, data) {
   ).join('');
 
   const steps = group.how_to_investigate
-    || (isDaido ? daidoFocus.how_to_investigate : ubeFocus.how_to_investigate)
+    || (isDaido ? daidoFocus.how_to_investigate
+      : isWaka ? wakaFocus.how_to_investigate
+      : isLarge ? largeFocus.how_to_investigate
+      : ubeFocus.how_to_investigate)
     || [];
+  const geoEx = group.geo_exception || largeFocus.geo_exception || {};
+  const geoNote = (isLarge && geoEx.note)
+    ? `<p class="text-xs text-rose-800 font-semibold mb-2 bg-rose-50 border border-rose-200 rounded-lg px-2 py-1.5">${esc(geoEx.note)}</p>`
+    : '';
   const netNotes = group.known_network_notes
-    || (isDaido ? daidoFocus.known_network_notes : ubeFocus.known_network_notes)
+    || (isDaido ? daidoFocus.known_network_notes : isWaka ? wakaFocus.known_network_notes : ubeFocus.known_network_notes)
     || [];
-  const invTitle = isDaido
+  const invTitle = isLarge
+    ? '調査手順（開発最優先：大型ギア×ピット炉／【要】大型ギア・大型部品・大型減速機は必ず拾う／適合なら京都・兵庫北部も可）'
+    : isDaido
     ? '調査手順（大同＝素材入口 → 協力組合・鋼材ユーザーを洗う／熱処理屋は攻めない）'
+    : isWaka
+    ? '調査手順（フッコ起点 → 熱処理が絡む金属加工だけ拾う／建設・切断は除外）'
     : isUbe
     ? '調査手順（減速機製造を最優先 → UBE関連・周辺歯切を洗う）'
     : '調査手順';
-  const invHtml = isInvest && (steps.length || netNotes.length) ? `
-    <div class="rounded-xl border border-indigo-200 bg-indigo-50/70 p-3 mb-2">
-      <p class="text-xs font-bold text-indigo-900 mb-1">${invTitle}</p>
-      ${steps.length ? `<ol class="list-decimal pl-4 space-y-0.5 text-xs text-indigo-950">${steps.map(s => `<li>${esc(s)}</li>`).join('')}</ol>` : ''}
-      ${netNotes.length ? `<div class="mt-2 pt-2 border-t border-indigo-100 space-y-1">${netNotes.map(n =>
+  const invHtml = isInvest && (steps.length || netNotes.length || geoNote) ? `
+    <div class="rounded-xl border ${isLarge ? 'border-rose-300 bg-rose-50/70' : 'border-indigo-200 bg-indigo-50/70'} p-3 mb-2">
+      <p class="text-xs font-bold ${isLarge ? 'text-rose-900' : 'text-indigo-900'} mb-1">${invTitle}</p>
+      ${geoNote}
+      ${steps.length ? `<ol class="list-decimal pl-4 space-y-0.5 text-xs ${isLarge ? 'text-rose-950' : 'text-indigo-950'}">${steps.map(s => `<li>${esc(s)}</li>`).join('')}</ol>` : ''}
+      ${netNotes.length ? `<div class="mt-2 pt-2 border-t ${isLarge ? 'border-rose-100' : 'border-indigo-100'} space-y-1">${netNotes.map(n =>
         `<p class="text-[11px] text-slate-700"><span class="font-semibold">${esc(n.name || '')}</span>：${esc(n.note || '')}</p>`
       ).join('')}</div>` : ''}
     </div>` : '';
@@ -804,9 +951,9 @@ function renderLists(data) {
   const pickList = [
     {
       id: 'large_gear',
-      area: largeFocus.area || '大型ギア特化（ピット炉検証）',
-      pain: largeFocus.pain || 'ピット炉対応の検証と大型製品の購入トライ',
-      sources: ['ピット炉', '大型製品トライ'],
+      area: largeFocus.area || '大型ギア×ピット炉（開発最優先）',
+      pain: largeFocus.pain || '大型ギアをピット炉で処理する仕事が一番したい。適合なら京都・兵庫北部も検討。',
+      sources: ['ピット炉', '開発最優先', '京都・兵庫北部例外'],
       lat: largeFocus.lat ?? 34.8,
       lng: largeFocus.lng ?? 136.5,
     },
@@ -843,7 +990,7 @@ function renderLists(data) {
         class="w-full text-left rounded-xl border ${border} hover:bg-orange-50 p-3 transition">
         <p class="text-sm font-bold text-slate-800">${star}${esc(h.area)}
           <span class="text-[10px] font-semibold text-orange-700 bg-orange-50 border border-orange-200 px-1.5 py-0.5 rounded ml-1">選んで深掘り</span>
-          ${h.id === 'large_gear' ? '<span class="text-[10px] font-semibold text-rose-800 bg-rose-100 border border-rose-200 px-1.5 py-0.5 rounded ml-1">集中検索</span>' : ''}
+          ${h.id === 'large_gear' ? '<span class="text-[10px] font-semibold text-white bg-rose-600 border border-rose-700 px-1.5 py-0.5 rounded ml-1">開発最優先</span>' : ''}
           ${h.id === 'ube_nagoya' ? '<span class="text-[10px] font-semibold text-indigo-800 bg-indigo-100 border border-indigo-200 px-1.5 py-0.5 rounded ml-1">調査モード</span><span class="text-[10px] font-semibold text-emerald-900 bg-emerald-100 border border-emerald-200 px-1.5 py-0.5 rounded ml-1">減速機製造</span>' : ''}
           ${h.id === 'daido_nagoya' ? '<span class="text-[10px] font-semibold text-teal-900 bg-teal-100 border border-teal-200 px-1.5 py-0.5 rounded ml-1">調査モード</span><span class="text-[10px] font-semibold text-slate-700 bg-slate-100 border border-slate-200 px-1.5 py-0.5 rounded ml-1">未開拓</span>' : ''}
         </p>
@@ -853,39 +1000,14 @@ function renderLists(data) {
   }).join('');
   backToHotspotList();
 
-  document.getElementById('target-list').innerHTML =
-    [...(data.competitor_adjacent_targets || [])]
-      .sort((a, b) => {
-        const ia = competitorById[a.id] || {};
-        const ib = competitorById[b.id] || {};
-        const sa = ia.scope === 'company_wide' ? 0 : 1;
-        const sb = ib.scope === 'company_wide' ? 0 : 1;
-        if (sa !== sb) return sa - sb;
-        return (a.name || '').localeCompare(b.name || '', 'ja');
-      })
-      .map(c => {
-      const intel = competitorById[c.id] || {};
-      const isCorp = intel.scope === 'company_wide' || (c.name || '').includes('(全社)');
-      const scale = intel.scale_summary || '';
-      const eq = intel.equipment_summary || '';
-      const hints = (intel.client_hints || []).length;
-      const sectors = (intel.client_sectors || []).slice(0, 3).join('・');
-      const sub = [scale, eq].filter(Boolean).join(' / ')
-        || (isCorp ? '全社規模・設備' : '調査中（クリックで詳細）');
-      const home = competitorHomeUrl(intel);
-      return `
-      <button type="button" onclick="showCompetitor('${esc(c.id)}')"
-        class="w-full text-left rounded-xl border ${isCorp ? 'border-violet-300 bg-violet-50' : 'border-indigo-100 bg-indigo-50/50'} hover:bg-indigo-50 p-3 transition">
-        <p class="text-sm font-bold text-slate-800">${companyNameLink(c.name, home, 'hover:underline hover:text-indigo-900')} ${isCorp ? '<span class="text-[10px] font-bold text-violet-800 bg-violet-100 px-1.5 py-0.5 rounded">全社</span>' : '<span class="text-[10px] text-slate-500">拠点</span>'}</p>
-        <p class="text-xs text-slate-600 mt-0.5">${esc(c.area || '')}</p>
-        <p class="text-xs text-indigo-900 mt-1 font-medium">${esc(sub)}</p>
-        ${sectors ? `<p class="text-xs text-slate-500 mt-0.5">業種: ${esc(sectors)}</p>` : ''}
-        ${hints ? `<p class="text-xs text-rose-700 mt-0.5">新聞×取引先ヒント ${hints}件</p>` : ''}
-        <p class="text-[10px] text-slate-400 mt-1">社名クリック→公式/会社情報 · カードクリック→詳細</p>
-      </button>`;
-    }).join('');
+  const comps = data.competitor_adjacent_targets || [];
+  const missing = comps.filter(c => (competitorById[c.id] || {}).detail_missing).length;
+  const expand = comps.filter(c => (competitorById[c.id] || {}).has_expansion_alert).length;
+  const sumEl = document.getElementById('competitor-summary');
+  if (sumEl) {
+    sumEl.textContent = `${comps.length}社 · 詳細なし ${missing} · 増強 ${expand} · 地域別は競合画面`;
+  }
 }
-
 function showCompetitor(id) {
   const c = (territory?.competitor_adjacent_targets || []).find(x => x.id === id);
   const intel = competitorById[id] || {};
@@ -902,32 +1024,59 @@ function showCompetitor(id) {
   const news = intel.news || [];
   const partners = intel.partners || [];
   const sectors = intel.client_sectors || [];
+  const strategy = intel.strategy_notes || [];
+  const expansions = intel.expansion_alerts || [];
+  const missing = !!intel.detail_missing;
+  const expand = !!intel.has_expansion_alert;
+  const broker = (intel.operation === 'broker') || /委託型/.test(c.note || '') || /委託型/.test(intel.equipment_summary || '');
 
   el.innerHTML = `
     <p class="text-xs font-bold text-indigo-800 mb-1">競合インテリ</p>
     <h3 class="text-base font-bold text-slate-900">${companyNameLink(prof.official_name || c.name, competitorHomeUrl(intel), 'hover:underline hover:text-indigo-800')}</h3>
     <p class="text-xs text-slate-500 mt-1">${esc(c.area || '')}</p>
+    ${broker ? `<p class="text-sm font-bold text-amber-800 mt-2">委託型（自社炉なし／他社委託の聞き取り）</p>
+      ${intel.delegate_to ? `<p class="text-xs text-amber-900 mt-0.5">委託先: ${esc(intel.delegate_to)}</p>` : ''}
+      <p class="text-xs text-slate-600 mt-1">${esc(c.note || '')}</p>` : ''}
+    ${expand ? `<p class="text-sm comp-alert-expand mt-2">⚠ 増強情報あり</p>` : ''}
+    ${missing ? `<p class="text-sm comp-alert-missing mt-2">詳細情報がない — 相手にしない</p>` : ''}
     ${competitorHomeUrl(intel) ? `<a href="${esc(competitorHomeUrl(intel))}" target="_blank" rel="noopener" class="inline-block mt-1 text-xs text-indigo-700 font-semibold hover:underline">会社ホームページを開く ↗</a>` : `<a href="${esc(companyInfoUrl(prof.official_name || c.name))}" target="_blank" rel="noopener" class="inline-block mt-1 text-xs text-indigo-700 font-semibold hover:underline">会社情報を検索 ↗</a>`}
     ${intel.scale_summary ? `<p class="text-xs font-semibold text-indigo-900 mt-2">${esc(intel.scale_summary)}</p>` : ''}
+    ${prof.capital || prof.employees ? `<p class="text-xs text-slate-700 mt-1">資本金: ${esc(prof.capital || '—')} ／ 従業員: ${esc(prof.employees || '—')}</p>` : ''}
     ${intel.scope === 'company_wide' || (intel.profile && intel.profile.equipment_note) ? `
     <p class="text-[11px] text-rose-700 mt-1 font-semibold">${esc((intel.profile && intel.profile.equipment_note) || '設備数は全社合計。この拠点単体ではない可能性あり。')}</p>` : ''}
+
+    ${expansions.length ? `
+    <div class="mt-3 p-2 rounded-lg border border-rose-300 bg-rose-50">
+      <p class="text-xs font-bold text-rose-800 mb-1">新聞・公開の増強アラート</p>
+      ${expansions.map(a => `
+        <a href="${esc(a.link || '#')}" target="_blank" rel="noopener" class="block text-xs text-rose-800 font-semibold mb-1 hover:underline">${esc(a.title || '')}</a>
+      `).join('')}
+    </div>` : ''}
+
+    ${strategy.length && !missing ? `
+    <div class="mt-3 p-2 rounded-lg bg-amber-50 border border-amber-200">
+      <p class="text-xs font-bold text-amber-900 mb-1">HP上の狙い・増強方針</p>
+      ${strategy.map(s => `<p class="text-xs text-slate-700 mb-1">・${esc(s)}</p>`).join('')}
+    </div>` : ''}
 
     ${equipment.length ? `
     <div class="mt-3">
       <p class="text-xs font-bold text-slate-700 mb-1">設備（公式・公開情報）</p>
       <table class="intel-table">
-        <thead><tr><th>設備</th><th>台数</th><th>仕様</th></tr></thead>
+        <thead><tr><th>設備</th><th>台数</th><th>メーカー</th><th>仕様</th></tr></thead>
         <tbody>
-          ${equipment.slice(0, 12).map(e => `
+          ${equipment.slice(0, 14).map(e => `
             <tr>
               <td>${esc(e.name)}</td>
               <td>${e.count}基</td>
+              <td>${esc(e.maker || '—')}</td>
               <td>${esc(e.spec || '—')}</td>
             </tr>`).join('')}
         </tbody>
       </table>
-      ${equipment.length > 12 ? `<p class="text-[10px] text-slate-400 mt-1">他${equipment.length - 12}種</p>` : ''}
-    </div>` : ''}
+      ${equipment.length > 14 ? `<p class="text-[10px] text-slate-400 mt-1">他${equipment.length - 14}種</p>` : ''}
+      ${intel.equipment_summary ? `<p class="text-[11px] text-slate-600 mt-1">${esc(intel.equipment_summary)}</p>` : ''}
+    </div>` : (missing ? '' : `<p class="text-xs text-slate-400 mt-3">設備台数の公開なし</p>`)}
 
     ${sectors.length || partners.length ? `
     <div class="mt-3 p-2 rounded-lg bg-slate-100 border border-slate-200 text-xs">
@@ -951,10 +1100,10 @@ function showCompetitor(id) {
       <p class="text-xs font-bold text-slate-600 mb-1">関連ニュース (${news.length})</p>
       ${news.slice(0, 5).map(n => `
         <a href="${esc(n.link || '#')}" target="_blank" rel="noopener"
-          class="block mb-1.5 text-xs text-slate-600 hover:text-indigo-800">${esc(n.title || '')}</a>`).join('')}
+          class="block mb-1.5 text-xs ${n.is_expansion ? 'comp-alert-missing' : 'text-slate-600 hover:text-indigo-800'}">${n.is_expansion ? '【増強】' : ''}${esc(n.title || '')}</a>`).join('')}
     </div>` : ''}
 
-    ${!equipment.length && !hints.length && !sectors.length ? `
+    ${!equipment.length && !hints.length && !sectors.length && !missing ? `
     <p class="text-xs text-slate-400 mt-3">公開情報が少ない競合です。現地・業界紙で追加調査してください。</p>` : ''}
 
     <p class="text-[10px] text-slate-400 mt-3">${intel.updated ? `収集: ${esc(String(intel.updated).slice(0, 16).replace('T',' '))}` : ''} · 客として訪問しない</p>`;
@@ -976,7 +1125,7 @@ function showCompany(id) {
   const sig = findTargetSignals(c);
   el.innerHTML = `
     <p class="text-xs font-bold text-teal-700 mb-1">${esc(c.marker === 'eight' ? 'Eight名刺' : '訪問・開拓')}</p>
-    <h3 class="text-base font-bold text-slate-900">${companyNameLink(intel.profile?.official_name || c.name, intel.homepage || intel.source_url || '', 'hover:underline hover:text-teal-800')}</h3>
+    <h3 class="text-base font-bold text-slate-900">${esc(intel.profile?.official_name || c.name)}</h3>
     <a href="${esc(companyInfoUrl(intel.profile?.official_name || c.name, intel.homepage || intel.source_url || ''))}" target="_blank" rel="noopener" class="inline-block mt-1 text-xs text-teal-700 font-semibold hover:underline">会社ホームページ / 会社情報 ↗</a>
     <p class="text-xs text-slate-500 mt-1">${esc([c.prefecture, c.address].filter(Boolean).join(' '))}</p>
     <p class="text-xs text-slate-500">${esc([c.industry, c.rank, c.heat_vendor].filter(Boolean).join(' · '))}</p>
@@ -1014,6 +1163,7 @@ function showCompany(id) {
           <p class="text-xs text-slate-600 mt-1 whitespace-pre-wrap">${esc(r.body || '')}</p>
         </div>`).join('') : '<p class="text-xs text-slate-400">記録なし（投入箱に営業報告書CSVを入れてください）</p>'}
     </div>`;
+  scrollDetailPanel();
 }
 
 function openAction(a) {
@@ -1022,6 +1172,15 @@ function openAction(a) {
   }
   if (a.company_id && companyById[a.company_id]) {
     showCompany(a.company_id);
+  } else if (a.company_id && findScmTargetById(a.company_id)) {
+    showScmTarget(a.company_id);
+  } else if (a.company && scmRadarData) {
+    const short = String(a.company || '').replace(/株式会社|\(株\)|（株）/g, '').trim();
+    const hit = (scmRadarData.targets || []).find(t => {
+      const n = String(t.name || '').replace(/株式会社|\(株\)|（株）/g, '').trim();
+      return n && short && (n.includes(short) || short.includes(n));
+    });
+    if (hit?.id) showScmTarget(hit.id);
   } else if (a.lat != null && a.lng != null && !a.link) {
     focusPin(a.lat, a.lng);
   }
@@ -1153,6 +1312,10 @@ function renderCompanyList(filter = '') {
     const sigBadge = artN || exN
       ? `<span class="text-[10px] text-sky-800 font-bold bg-sky-100 px-1.5 py-0.5 rounded">記事${artN}${exN ? `·展${exN}` : ''}</span>`
       : '';
+    const upN = (sig?.exhibitions || []).filter(isUpcomingExhibit).length;
+    const exBadge = upN
+      ? `<span class="exhibit-blink-badge text-[10px] font-bold text-white bg-violet-600 px-1.5 py-0.5 rounded">出展 ${upN}</span>`
+      : '';
     const dim = VISIT_INACTIVE.has(st) && st !== 'listen' ? 'opacity-70' : '';
     const border = st === 'listen'
       ? 'border-amber-300 bg-amber-50/70'
@@ -1166,7 +1329,7 @@ function renderCompanyList(filter = '') {
     return `
     <button type="button" onclick="showCompany('${esc(c.id)}')"
       class="text-left rounded-xl border ${border} hover:bg-teal-50 p-3 transition ${dim}">
-      <p class="text-sm font-bold text-slate-800">${companyNameLink(c.name, intel.homepage || intel.source_url || '', 'hover:underline hover:text-teal-900')} ${stBadge} ${sigBadge} ${(c.news_hits||[]).length ? `<span class="text-[10px] text-rose-700 font-bold">新聞${c.news_hits.length}</span>` : ''}</p>
+      <p class="text-sm font-bold text-slate-800">${companyNameLink(c.name, intel.homepage || intel.source_url || '', 'hover:underline hover:text-teal-900', `showCompany('${esc(c.id)}')`)} ${stBadge} ${sigBadge} ${exBadge} ${(c.news_hits||[]).length ? `<span class="text-[10px] text-rose-700 font-bold">新聞${c.news_hits.length}</span>` : ''}</p>
       <p class="text-xs text-slate-500 mt-0.5">${esc([c.prefecture, c.rank, c.marker, c.heat_vendor].filter(Boolean).join(' · '))}</p>
       ${intel.scale_summary ? `<p class="text-xs text-teal-800 mt-1 line-clamp-2">${esc(intel.scale_summary)}</p>` : ''}
       ${artN && sig.articles[0] ? `<p class="text-xs text-sky-800 mt-1 line-clamp-2">${esc(sig.articles[0].title || '')}</p>` : ''}
@@ -1226,8 +1389,8 @@ function buildMap(data, visitData) {
     const pop = [intel.equipment_summary, intel.scale_summary].filter(Boolean).join(' / ') || c.area || '';
     L.marker([c.lat, c.lng], { icon: circleIcon(COLORS.competitor) })
       .addTo(map)
-      .bindPopup(`<strong>${esc(c.name)}</strong><br>${esc(pop)}<br><button type="button" onclick="showCompetitor('${esc(c.id)}')" style="margin-top:6px;font-size:12px;color:#5b21b6;font-weight:700">設備・取引先を見る</button>`)
-      .on('click', () => showCompetitor(c.id));
+      .bindPopup(`<strong>${esc(c.name)}</strong><br>${esc(pop)}<br><a href="./competitors.html" style="margin-top:6px;font-size:12px;color:#5b21b6;font-weight:700;display:inline-block">競合画面で見る ↗</a>`)
+      .on('click', () => { window.location.href = './competitors.html'; });
   });
 
   (data.coverage?.not_yet || []).forEach(n => {
@@ -1293,8 +1456,9 @@ function buildBrief(data, seeds, visitData) {
   lines.push('■攻めどころ');
   (data.pain_hotspots || []).forEach(h => lines.push(`・${h.area}: ${h.pain || ''}`));
   lines.push('');
-  lines.push('■競合隣接・ターゲット');
-  (data.competitor_adjacent_targets || []).forEach(c => lines.push(`・${c.name}: ${c.note || c.area || ''}`));
+  lines.push('■競合（詳細は競合画面）');
+  const nComp = (data.competitor_adjacent_targets || []).length;
+  lines.push(`・${nComp}社 — 地域別・一言コメントは strategy/competitors.html`);
   const top = (visitData?.companies || []).filter(c => (c.rank || '').includes('A')).slice(0, 8);
   if (top.length) {
     lines.push('');

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>競合インテリ（熱処理屋）</title>
+  <link rel="manifest" href="../manifest.json" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic UI', sans-serif; }
+    .chip { white-space: nowrap; }
+    .chip.active { background: #4c1d95; color: #fff; border-color: #4c1d95; }
+    .blurb { line-height: 1.45; }
+    .comp-alert-expand { color: #b91c1c; font-weight: 800; }
+    .comp-alert-missing { color: #b91c1c; font-weight: 700; }
+    .intel-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+    .intel-table th, .intel-table td { border: 1px solid #e2e8f0; padding: 4px 6px; text-align: left; }
+    .intel-table th { background: #f1f5f9; font-weight: 600; }
+  </style>
+</head>
+<body class="bg-slate-50 min-h-screen">
+
+<header class="bg-white border-b border-slate-200 sticky top-0 z-30">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+    <div class="flex items-center gap-3">
+      <a href="./index.html" class="text-slate-400 hover:text-slate-600 text-sm">← 戦略と戦術</a>
+      <span class="text-slate-300">|</span>
+      <div>
+        <h1 class="text-lg font-bold text-violet-900">競合管理</h1>
+        <p class="text-xs text-slate-500">攻めどころとは別画面。地域別にまとめて、設備・増強・委託型を確認</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-2 text-xs">
+      <span id="stat" class="text-slate-500"></span>
+      <a href="./index.html" class="font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg">地図</a>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-4 py-4 grid grid-cols-1 lg:grid-cols-12 gap-4">
+
+  <!-- 左: 検索 -->
+  <aside class="lg:col-span-4 space-y-3">
+    <section class="bg-white rounded-2xl border border-violet-200 p-4">
+      <label class="block text-xs font-bold text-violet-900 mb-1">フリー検索</label>
+      <input id="q" type="search" placeholder="社名・設備・地域・ピット炉・増強…"
+        class="w-full border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-violet-300"
+        oninput="onSearch()" />
+      <div class="mt-2 flex flex-wrap gap-1.5">
+        <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-slate-200 bg-slate-50" onclick="clearAll()">クリア</button>
+        <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-amber-200 bg-amber-50 text-amber-900" onclick="applyPreset({tags:['委託型']})">委託型</button>
+        <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-rose-200 bg-rose-50 text-rose-800" onclick="applyPreset({tags:['増強']})">増強あり</button>
+        <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-violet-200 bg-violet-50 text-violet-900" onclick="applyPreset({macro:'keihanshin'})">京阪神</button>
+      </div>
+    </section>
+
+    <section class="bg-white rounded-2xl border border-slate-200 p-4">
+      <div class="flex items-center justify-between mb-2">
+        <h2 class="text-sm font-bold text-slate-800">探す（約50問）</h2>
+        <span id="preset-count" class="text-[10px] text-slate-400"></span>
+      </div>
+      <div id="presets" class="flex flex-wrap gap-1.5 max-h-[52vh] overflow-auto pr-1"></div>
+    </section>
+  </aside>
+
+  <!-- 中: リスト（地域） -->
+  <section class="lg:col-span-5 space-y-3">
+    <div class="bg-white rounded-2xl border border-slate-200 p-3 flex items-center justify-between gap-2">
+      <p id="result-count" class="text-xs text-slate-600"></p>
+      <select id="sort" class="text-xs border border-slate-200 rounded-lg px-2 py-1" onchange="renderList()">
+        <option value="region">地域順</option>
+        <option value="name">名前順</option>
+        <option value="expand">増強優先</option>
+        <option value="detail">詳細あり優先</option>
+      </select>
+    </div>
+    <div id="list" class="space-y-4"></div>
+  </section>
+
+  <!-- 右: 詳細 -->
+  <section class="lg:col-span-3">
+    <div id="detail" class="bg-white rounded-2xl border border-violet-200 p-4 sticky top-20 max-h-[80vh] overflow-auto">
+      <p class="text-sm text-slate-400">左のカードを選ぶと詳細が出ます</p>
+    </div>
+  </section>
+</main>
+
+<script>
+const REGION_ORDER = ['大阪','兵庫','京都・滋賀・奈良','愛知','岐阜','三重','石川・富山','福井','長野','和歌山','静岡','岡山など','その他'];
+let territory = null;
+let intel = null;
+let presets = null;
+let byId = {};
+let activePresetId = null;
+let filter = { query: '', tags: [], region: '', macro: '' };
+
+function esc(s) {
+  return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function homeUrl(c) {
+  const sources = (c.sources || []).filter(s => s.url && !s.error);
+  const co = sources.find(s => s.kind === 'company') || sources[0];
+  return co?.url || '';
+}
+
+function allRows() {
+  const comps = territory?.competitor_adjacent_targets || [];
+  return comps.map(c => {
+    const i = byId[c.id] || {};
+    return { ...c, ...i, id: c.id, name: c.name, area: c.area || i.area, note: c.note || i.note || '' };
+  });
+}
+
+function matches(row) {
+  const q = (filter.query || '').trim().toLowerCase();
+  const blob = [
+    row.name, row.area, row.note, row.blurb, row.commentary,
+    row.equipment_summary, row.scale_summary,
+    (row.tags || []).join(' '),
+    (row.strategy_notes || []).join(' '),
+    (row.equipment || []).map(e => `${e.name} ${e.maker || ''} ${e.spec || ''}`).join(' '),
+    row.region_label, row.macro_region, row.operation, row.delegate_to,
+    row.detail_missing ? '詳細情報がない 相手にしない' : '',
+    row.has_expansion_alert ? '増強' : '',
+    (row.client_hints || []).length ? '取引先ヒント' : '',
+  ].join(' ').toLowerCase();
+
+  if (filter.region && row.region_label !== filter.region) return false;
+  if (filter.macro && row.macro_region !== filter.macro) return false;
+  if ((filter.tags || []).length) {
+    const tags = new Set(row.tags || []);
+    if (!filter.tags.every(t => tags.has(t) || blob.includes(t.toLowerCase()))) return false;
+  }
+  if (q && !blob.includes(q)) return false;
+  return true;
+}
+
+function filtered() {
+  let rows = allRows().filter(matches);
+  const sort = document.getElementById('sort').value;
+  rows.sort((a, b) => {
+    if (sort === 'expand') {
+      const d = (b.has_expansion_alert ? 1 : 0) - (a.has_expansion_alert ? 1 : 0);
+      if (d) return d;
+    }
+    if (sort === 'detail') {
+      const d = (a.detail_missing ? 1 : 0) - (b.detail_missing ? 1 : 0);
+      if (d) return d;
+    }
+    if (sort === 'name') return (a.name || '').localeCompare(b.name || '', 'ja');
+    const ra = REGION_ORDER.indexOf(a.region_label || 'その他');
+    const rb = REGION_ORDER.indexOf(b.region_label || 'その他');
+    if (ra !== rb) return (ra < 0 ? 99 : ra) - (rb < 0 ? 99 : rb);
+    return (a.name || '').localeCompare(b.name || '', 'ja');
+  });
+  return rows;
+}
+
+function onSearch() {
+  filter.query = document.getElementById('q').value || '';
+  activePresetId = null;
+  highlightPresets();
+  renderList();
+}
+
+function clearAll() {
+  filter = { query: '', tags: [], region: '', macro: '' };
+  document.getElementById('q').value = '';
+  activePresetId = null;
+  highlightPresets();
+  renderList();
+}
+
+function applyPreset(p, id) {
+  filter = {
+    query: p.query || '',
+    tags: p.tags || [],
+    region: p.region || '',
+    macro: p.macro || '',
+  };
+  document.getElementById('q').value = filter.query;
+  activePresetId = id || null;
+  highlightPresets();
+  renderList();
+}
+
+function highlightPresets() {
+  document.querySelectorAll('#presets .chip').forEach(el => {
+    el.classList.toggle('active', el.dataset.id === activePresetId);
+  });
+}
+
+function renderPresets() {
+  const qs = presets?.questions || [];
+  document.getElementById('preset-count').textContent = `${qs.length}問`;
+  document.getElementById('presets').innerHTML = qs.map((p, idx) => `
+    <button type="button" data-id="${esc(p.id)}" data-idx="${idx}"
+      class="chip text-[11px] px-2.5 py-1 rounded-full border border-violet-200 bg-violet-50 text-violet-900 hover:bg-violet-100"
+      onclick="applyPresetByIdx(${idx})">${esc(p.q)}</button>
+  `).join('');
+}
+
+function applyPresetByIdx(idx) {
+  const p = (presets?.questions || [])[idx];
+  if (!p) return;
+  applyPreset(p, p.id);
+}
+
+function cardHtml(row) {
+  const broker = row.operation === 'broker' || /委託型/.test(row.blurb || '') || /【委託型/.test(row.note || '');
+  const missing = !!row.detail_missing;
+  const expand = !!row.has_expansion_alert;
+  const tags = (row.tags || []).slice(0, 6).map(t =>
+    `<span class="text-[10px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-700">${esc(t)}</span>`
+  ).join(' ');
+  return `
+  <button type="button" onclick="showDetail('${esc(row.id)}')"
+    class="w-full text-left rounded-xl border p-3 transition hover:bg-violet-50/60
+      ${expand ? 'border-rose-300 bg-rose-50/50' : broker ? 'border-amber-300 bg-amber-50/40' : missing ? 'border-rose-100' : 'border-slate-200 bg-white'}">
+    <div class="flex items-start justify-between gap-2">
+      <p class="text-sm font-bold text-slate-900">${esc(row.name)}</p>
+      <div class="flex gap-1 shrink-0">
+        ${expand ? '<span class="text-[10px] font-bold text-rose-700">増強</span>' : ''}
+        ${broker ? '<span class="text-[10px] font-bold text-amber-800">委託型</span>' : ''}
+        ${missing ? '<span class="text-[10px] font-bold text-rose-600">詳細なし</span>' : ''}
+      </div>
+    </div>
+    <p class="text-[11px] text-slate-500 mt-0.5">${esc(row.area || '')}</p>
+    <p class="blurb text-xs text-slate-800 mt-1.5">${esc(row.blurb || row.note || '—')}</p>
+    ${row.scale_summary ? `<p class="text-[11px] text-indigo-800 mt-1">${esc(row.scale_summary)}</p>` : ''}
+    <div class="flex flex-wrap gap-1 mt-2">${tags}</div>
+  </button>`;
+}
+
+function renderList() {
+  const rows = filtered();
+  document.getElementById('result-count').textContent = `${rows.length} / ${allRows().length} 社`;
+  const groups = new Map();
+  for (const r of rows) {
+    const key = r.region_label || 'その他';
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(r);
+  }
+  const ordered = [...groups.keys()].sort((a, b) => {
+    const ia = REGION_ORDER.indexOf(a), ib = REGION_ORDER.indexOf(b);
+    return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
+  });
+  document.getElementById('list').innerHTML = ordered.map(region => `
+    <div>
+      <h3 class="text-xs font-bold text-violet-900 mb-2 sticky top-16 bg-slate-50/95 py-1 z-10">${esc(region)}
+        <span class="text-slate-400 font-normal">（${groups.get(region).length}）</span></h3>
+      <div class="space-y-2">${groups.get(region).map(cardHtml).join('')}</div>
+    </div>
+  `).join('') || '<p class="text-sm text-slate-400 p-4">該当なし。条件を緩めてください。</p>';
+}
+
+function showDetail(id) {
+  const row = allRows().find(r => r.id === id);
+  const el = document.getElementById('detail');
+  if (!row) { el.innerHTML = '<p class="text-sm text-slate-400">データなし</p>'; return; }
+  const home = homeUrl(row);
+  const eq = row.equipment || [];
+  const strategy = row.strategy_notes || [];
+  const expansions = row.expansion_alerts || [];
+  const news = row.news || [];
+  const hints = row.client_hints || [];
+  el.innerHTML = `
+    <p class="text-[10px] font-bold text-violet-800 mb-1">${esc(row.region_label || '')} · ${esc(row.macro_region || '')}</p>
+    <h3 class="text-base font-bold text-slate-900">${esc(row.name)}</h3>
+    <p class="text-xs text-slate-500 mt-1">${esc(row.area || '')}</p>
+    ${home ? `<a class="inline-block mt-1 text-xs text-indigo-700 font-semibold hover:underline" href="${esc(home)}" target="_blank" rel="noopener">公式HP ↗</a>` : ''}
+    ${row.has_expansion_alert ? '<p class="text-sm comp-alert-expand mt-2">⚠ 増強情報あり</p>' : ''}
+    ${row.operation === 'broker' ? `<p class="text-sm font-bold text-amber-800 mt-2">委託型</p><p class="text-xs text-amber-900">委託先: ${esc(row.delegate_to || '要確認')}</p>` : ''}
+    ${row.detail_missing ? '<p class="text-sm comp-alert-missing mt-2">詳細情報がない — 相手にしない</p>' : ''}
+
+    <div class="mt-3 p-2 rounded-lg bg-violet-50 border border-violet-100">
+      <p class="text-[10px] font-bold text-violet-900 mb-1">一言コメント</p>
+      <p class="text-xs text-slate-800 blurb">${esc(row.blurb || '—')}</p>
+    </div>
+    ${row.commentary ? `<p class="text-xs text-slate-700 mt-2 leading-relaxed">${esc(row.commentary)}</p>` : ''}
+    ${row.note ? `<p class="text-[11px] text-slate-500 mt-2">${esc(row.note)}</p>` : ''}
+    ${row.scale_summary ? `<p class="text-xs font-semibold text-indigo-900 mt-2">${esc(row.scale_summary)}</p>` : ''}
+    ${(row.profile?.capital || row.profile?.employees) ? `<p class="text-xs text-slate-700 mt-1">資本金 ${esc(row.profile.capital || '—')} ／ 従業員 ${esc(row.profile.employees || '—')}</p>` : ''}
+
+    <div class="flex flex-wrap gap-1 mt-2">${(row.tags || []).map(t => `<span class="text-[10px] px-1.5 py-0.5 rounded bg-slate-100">${esc(t)}</span>`).join('')}</div>
+
+    ${expansions.length ? `<div class="mt-3 p-2 rounded-lg border border-rose-300 bg-rose-50">
+      <p class="text-xs font-bold text-rose-800 mb-1">増強アラート</p>
+      ${expansions.map(a => `<a class="block text-xs text-rose-800 font-semibold mb-1 hover:underline" href="${esc(a.link || '#')}" target="_blank" rel="noopener">${esc(a.title || '')}</a>`).join('')}
+    </div>` : ''}
+
+    ${strategy.length ? `<div class="mt-3"><p class="text-xs font-bold text-amber-900 mb-1">HP方針・狙い</p>
+      ${strategy.map(s => `<p class="text-xs text-slate-700 mb-1">・${esc(s)}</p>`).join('')}</div>` : ''}
+
+    ${eq.length ? `<div class="mt-3"><p class="text-xs font-bold text-slate-700 mb-1">設備</p>
+      <table class="intel-table"><thead><tr><th>設備</th><th>台数</th><th>メーカー</th><th>仕様</th></tr></thead>
+      <tbody>${eq.slice(0, 16).map(e => `<tr><td>${esc(e.name)}</td><td>${e.count}基</td><td>${esc(e.maker || '—')}</td><td>${esc(e.spec || '—')}</td></tr>`).join('')}</tbody></table>
+      ${row.equipment_summary ? `<p class="text-[11px] text-slate-600 mt-1">${esc(row.equipment_summary)}</p>` : ''}
+    </div>` : ''}
+
+    ${hints.length ? `<div class="mt-3"><p class="text-xs font-bold text-rose-800 mb-1">新聞×取引先</p>
+      ${hints.slice(0,5).map(h => `<a href="${esc(h.link||'#')}" target="_blank" rel="noopener" class="block text-xs mb-1"><span class="font-bold text-rose-700">${esc(h.name)}</span> ${esc(h.title||'')}</a>`).join('')}
+    </div>` : ''}
+
+    ${news.length ? `<div class="mt-3"><p class="text-xs font-bold text-slate-600 mb-1">関連ニュース</p>
+      ${news.slice(0,5).map(n => `<a href="${esc(n.link||'#')}" target="_blank" rel="noopener" class="block text-xs text-slate-600 mb-1 ${n.is_expansion ? 'comp-alert-missing' : ''}">${n.is_expansion ? '【増強】' : ''}${esc(n.title||'')}</a>`).join('')}
+    </div>` : ''}
+
+    <p class="text-[10px] text-slate-400 mt-4">${row.updated ? '収集: ' + esc(String(row.updated).slice(0,16).replace('T',' ')) : ''} · 客として訪問しない</p>
+  `;
+}
+
+async function boot() {
+  const [tRes, iRes, pRes] = await Promise.all([
+    fetch('./territory_strategy.json?v=' + Date.now()),
+    fetch('./competitor_intel.json?v=' + Date.now()),
+    fetch('./competitor_search_presets.json?v=' + Date.now()),
+  ]);
+  territory = await tRes.json();
+  intel = await iRes.json();
+  presets = await pRes.json();
+  byId = Object.fromEntries((intel.competitors || []).map(c => [c.id, c]));
+  // ensure Documents also has territory (synced to news/ too) — strategy copy may be needed
+  if (!(territory.competitor_adjacent_targets || []).length) {
+    const t2 = await fetch('../news/territory_strategy.json?v=' + Date.now()).then(r => r.json()).catch(() => null);
+    if (t2) territory = t2;
+  }
+  document.getElementById('stat').textContent =
+    `${(territory.competitor_adjacent_targets || []).length}社 · blurb ${(intel.competitors || []).filter(c => c.blurb).length}`;
+  renderPresets();
+  renderList();
+}
+boot().catch(e => {
+  document.getElementById('list').innerHTML = `<p class="text-sm text-rose-700 p-4">読込失敗: ${esc(e.message)}</p>`;
+});
+</script>
+</body>
+</html>

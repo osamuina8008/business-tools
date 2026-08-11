@@ -105,5 +105,6 @@
   },
   "min_score": 5,
   "max_seeds": 12,
+  "max_age_days": 365,
   "slack_max": 2
 }

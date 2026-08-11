@@ -80,14 +80,14 @@
 
 <script>
 let data = null;
-let filter = { query: '', region: '', priority: '', focus: false };
+let filter = { query: '', region: '', priority: '', focus: false, category: '' };
 
 function esc(s) {
   return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
 
 function setFilter(patch) {
-  filter = { query: filter.query, region: '', priority: '', focus: false, ...patch };
+  filter = { query: filter.query, region: '', priority: '', focus: false, category: '', ...patch };
   if (patch.query !== undefined) filter.query = patch.query;
   document.getElementById('q').value = filter.query || '';
   render();
@@ -97,9 +97,10 @@ function matches(c) {
   if (filter.focus && !(c.focus_agreed || c.focus)) return false;
   if (filter.region && c.region !== filter.region) return false;
   if (filter.priority && c.priority !== filter.priority) return false;
+  if (filter.category && (c.category || '自家熱処理メーカー') !== filter.category) return false;
   const q = (filter.query || '').trim().toLowerCase();
   if (!q) return true;
-  const blob = [c.name, c.short, c.pref, c.region, c.business, c.furnaces, c.note, ...(c.aliases||[])].join(' ').toLowerCase();
+  const blob = [c.name, c.short, c.pref, c.region, c.business, c.furnaces, c.note, c.category, c.confirm, ...(c.aliases||[])].join(' ').toLowerCase();
   return q.split(/[\s　]+/).filter(Boolean).every(p => blob.includes(p));
 }
 

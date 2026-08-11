@@ -11473,6 +11473,60 @@
       "client_hints": [],
       "errors": [],
       "updated": "2026-08-12"
+    },
+    {
+      "id": "06d047409175",
+      "name": "株式会社アイシン福井",
+      "area": "福井県・越前市（本社／池ノ上／白崎）",
+      "region_label": "福井",
+      "macro_region": "hokuriku",
+      "scope": "company_wide",
+      "operation": "own",
+      "relation": "inhouse_ht",
+      "tags": [
+        "社内炉",
+        "次期ターゲット",
+        "未取引",
+        "アイシン",
+        "福井",
+        "浸炭",
+        "真空",
+        "高周波",
+        "軟窒化"
+      ],
+      "aliases": [
+        "アイシン福井",
+        "愛心福井",
+        "AISIN Fukui",
+        "あisin福井"
+      ],
+      "blurb": "未取引の会社、社内炉あり。AT／電動化部品。熱処理をコア技術として公開（浸炭・浸炭窒化・ガス軟窒化・真空・高周波）。公式設備：熱処理炉40台・高周波7・プレステンパー44。",
+      "note": "未取引の会社、社内炉あり。愛心福井＝アイシン福井。攻める競合ではなく、社内炉メーカーの次期調査対象。",
+      "commentary": "ググれる典型例。HPで熱処理技術・炉台数を公開。ピーク・特殊・試作・外注化余地を洗う。",
+      "lat": 35.903,
+      "lng": 136.169,
+      "equipment_summary": "熱処理炉（浸炭・ガス軟・ブレージング）40／高周波焼入れ機7／プレステンパー44（公式技能ページ）",
+      "profile": {
+        "official_name": "株式会社アイシン福井",
+        "address": "福井県越前市池ノ上町38",
+        "website": "https://www.aisin-fukui.co.jp/technology/industrial.php",
+        "lat": 35.903,
+        "lng": 136.169,
+        "inhouse_furnace": "熱処理炉（浸炭・ガス軟・ブレージング）40／高周波焼入れ機7／プレステンパー44（公式技能ページ）"
+      },
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.aisin-fukui.co.jp/technology/industrial.php"
+        }
+      ],
+      "detail_missing": false,
+      "has_expansion_alert": false,
+      "expansion_alerts": [],
+      "news": [],
+      "client_hints": [],
+      "errors": [],
+      "updated": "2026-08-12"
     }
   ],
   "blurbs_updated": "2026-08-12T07:12:30+09:00",

@@ -1,9 +1,9 @@
 {
   "version": 3,
-  "updated": "2026-08-11T08:59:25+09:00",
+  "updated": "2026-08-11T09:21:30+09:00",
   "disclaimer": "strategy_master.xlsx 由来。営業報告書CSV優先。新聞一致は news_hits に集約。",
   "source": "strategy_master.xlsx",
-  "count": 87,
+  "count": 89,
   "news_matched_companies": 0,
   "companies": [
     {
@@ -1728,6 +1728,41 @@
       "news_hints": []
     },
     {
+      "id": "e5953e465087",
+      "name": "東福鍛工",
+      "address": "",
+      "prefecture": "",
+      "lat": null,
+      "lng": null,
+      "industry": "",
+      "rank": "",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "no_prospect",
+      "source": "visit_report",
+      "proposal": "訪問済・見込みなし（再訪不要）",
+      "note": "見込みなし(単価不一致)。再訪不要。",
+      "reports": [
+        {
+          "date": "",
+          "title": "訪問済・見送り",
+          "body": "単価が合わないため取引見送り。",
+          "summary": "",
+          "source_file": "cmd_20260811_092121_999823.csv"
+        },
+        {
+          "date": "",
+          "title": "メモ",
+          "body": "見込みなし(単価不一致)。再訪不要。",
+          "summary": "",
+          "source_file": "cmd_20260811_092122_043808.csv"
+        }
+      ],
+      "eight_people": [],
+      "news_hits": [],
+      "news_hints": []
+    },
+    {
       "id": "49e587c43cd2",
       "name": "栗田HT(株)",
       "address": "羽咋市三ツ屋町ニ66番地1",
@@ -1759,10 +1794,25 @@
       "heat_vendor": "",
       "marker": "visit",
       "status": "prospect",
-      "source": "manual",
-      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認",
-      "note": "",
-      "reports": [],
+      "source": "visit_report",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録2件",
+      "note": "既存取引先。",
+      "reports": [
+        {
+          "date": "",
+          "title": "既存取引先",
+          "body": "取引先。攻略一覧から除外。",
+          "summary": "",
+          "source_file": "cmd_20260811_092122_158316.csv"
+        },
+        {
+          "date": "",
+          "title": "メモ",
+          "body": "既存取引先。",
+          "summary": "",
+          "source_file": "cmd_20260811_092122_197907.csv"
+        }
+      ],
       "eight_people": [],
       "news_hits": [],
       "news_hints": []
@@ -1783,6 +1833,41 @@
       "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認",
       "note": "",
       "reports": [],
+      "eight_people": [],
+      "news_hits": [],
+      "news_hints": []
+    },
+    {
+      "id": "d4088483f0a4",
+      "name": "石垣歯車",
+      "address": "",
+      "prefecture": "",
+      "lat": null,
+      "lng": null,
+      "industry": "",
+      "rank": "",
+      "heat_vendor": "",
+      "marker": "visit",
+      "status": "prospect",
+      "source": "visit_report",
+      "proposal": "現行熱処理先は未把握→まず利用有無と外注先を確認／記録2件",
+      "note": "既存取引先。",
+      "reports": [
+        {
+          "date": "",
+          "title": "既存取引先",
+          "body": "取引先。攻略一覧から除外。",
+          "summary": "",
+          "source_file": "cmd_20260811_092122_082932.csv"
+        },
+        {
+          "date": "",
+          "title": "メモ",
+          "body": "既存取引先。",
+          "summary": "",
+          "source_file": "cmd_20260811_092122_122064.csv"
+        }
+      ],
       "eight_people": [],
       "news_hits": [],
       "news_hints": []

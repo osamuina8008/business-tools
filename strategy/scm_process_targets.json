@@ -1,8 +1,8 @@
 {
-  "updated": "2026-08-11T09:41:53+09:00",
+  "updated": "2026-08-11T10:16:04+09:00",
   "disclaimer": "攻めどころ界隈の公開情報・聞き取りベース。既存顧客・コマツ筋・高周波メイン等は除外済み。",
   "how_to_use": "各界隈の社名一覧を見て訪問先を決める。探索枠は現地で社名を確定して埋める。",
-  "count": 20,
+  "count": 19,
   "group_count": 9,
   "groups": [
     {
@@ -11,7 +11,7 @@
       "pain": "ピット炉対応の検証と大型製品の購入トライのため、大型歯車メーカーに集中する。",
       "lat": 34.8,
       "lng": 136.5,
-      "count": 5,
+      "count": 4,
       "companies": [
         {
           "name": "石田歯車工業株式会社",
@@ -89,30 +89,6 @@
           "capital_man_yen": null,
           "employees": null,
           "scale_source": ""
-        },
-        {
-          "name": "東洋チンローラー株式会社",
-          "category": "ラック・歯切",
-          "area": "愛知県名古屋市",
-          "materials": [
-            "各種"
-          ],
-          "heat_relation": "大型ラックは焼入・歪み取りが絡む",
-          "reason": "大型ラック〜M16。大型製品トライの入口。",
-          "source_url": "https://toyotinroller.meisho-hp.jp/",
-          "linked_majors": [],
-          "priority": 1,
-          "large_gear": true,
-          "pit_furnace_fit": "中〜高（大型ラック）",
-          "size_hint": "ラック M〜16",
-          "lat": 35.15,
-          "lng": 136.9,
-          "scale_summary": "公開規模未確認",
-          "id": "large_gear-東洋チンローラー",
-          "hotspot_id": "large_gear",
-          "hotspot_area": "大型ギア特化（ピット炉検証）",
-          "capital_man_yen": null,
-          "employees": null
         },
         {
           "name": "株式会社ジェイテクトギヤシステム",
@@ -1211,30 +1187,6 @@
       "scale_source": ""
     },
     {
-      "name": "東洋チンローラー株式会社",
-      "category": "ラック・歯切",
-      "area": "愛知県名古屋市",
-      "materials": [
-        "各種"
-      ],
-      "heat_relation": "大型ラックは焼入・歪み取りが絡む",
-      "reason": "大型ラック〜M16。大型製品トライの入口。",
-      "source_url": "https://toyotinroller.meisho-hp.jp/",
-      "linked_majors": [],
-      "priority": 1,
-      "large_gear": true,
-      "pit_furnace_fit": "中〜高（大型ラック）",
-      "size_hint": "ラック M〜16",
-      "lat": 35.15,
-      "lng": 136.9,
-      "scale_summary": "公開規模未確認",
-      "id": "large_gear-東洋チンローラー",
-      "hotspot_id": "large_gear",
-      "hotspot_area": "大型ギア特化（ピット炉検証）",
-      "capital_man_yen": null,
-      "employees": null
-    },
-    {
       "name": "株式会社ジェイテクトギヤシステム",
       "category": "大型〜自動車歯車（系列）",
       "area": "愛知県瀬戸・日進／岐阜御嵩",
@@ -1520,14 +1472,6 @@
       "priority": 2
     },
     {
-      "name": "東洋チンローラー株式会社",
-      "hotspot_area": "大型ギア特化（ピット炉検証）",
-      "capital_man_yen": null,
-      "employees": null,
-      "scale_summary": "公開規模未確認",
-      "priority": 1
-    },
-    {
       "name": "株式会社MD（東海市）",
       "hotspot_area": "愛知・豊和工業（清須本社）界隈",
       "capital_man_yen": null,
@@ -1672,8 +1616,7 @@
       "大型ギヤ φ1000 OR φ2000 浸炭 OR ピット炉 外注",
       "ピット炉 浸炭 大型歯車 東海 OR 関西",
       "大型スプロケット 歯切 SCM 焼入 兵庫 OR 大阪",
-      "歯車 直径 メートル 熱処理 外注",
-      "大型ラック モジュール16 歯切 愛知"
+      "歯車 直径 メートル 熱処理 外注"
     ],
     "companies": [
       {
@@ -1719,25 +1662,6 @@
         "capital_man_yen": 1000,
         "employees": 7,
         "scale_summary": "資本金1,000万円 / 従業員約7名"
-      },
-      {
-        "name": "東洋チンローラー株式会社",
-        "category": "ラック・歯切",
-        "area": "愛知県名古屋市",
-        "materials": [
-          "各種"
-        ],
-        "heat_relation": "大型ラックは焼入・歪み取りが絡む",
-        "reason": "大型ラック〜M16。大型製品トライの入口。",
-        "source_url": "https://toyotinroller.meisho-hp.jp/",
-        "linked_majors": [],
-        "priority": 1,
-        "large_gear": true,
-        "pit_furnace_fit": "中〜高（大型ラック）",
-        "size_hint": "ラック M〜16",
-        "lat": 35.15,
-        "lng": 136.9,
-        "scale_summary": "公開規模未確認"
       },
       {
         "name": "姫路歯車工業株式会社",
@@ -1801,6 +1725,9 @@
         "lng": 136.5,
         "scale_summary": "—"
       }
+    ],
+    "excluded_notes": [
+      "東洋チンローラー: 公式は極小〜小型歯車が主。『大型ラックM16・長さ〜2.1m』は長尺ラックであり、ピット炉検証用の大径歯車とは別物のため大型ギア特化から除外。"
     ]
   },
   "search_queries": [

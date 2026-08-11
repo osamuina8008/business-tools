@@ -29,8 +29,8 @@
     "オカネツ工業",
     "明治製作所",
     "米子製鋼",
-    "YPTキャステクノ松江",
-    "エンドー島根"
+    "ヤンマーキャステクノ",
+    "エンドー島根工場"
   ],
   "next_step": "エリアを100～200社まで拡張し、会社名／県／本業／炉種類／台数／能力／設備メーカー／設備URL／営業優先度のDBにする。",
   "companies": [
@@ -46,13 +46,15 @@
       "source_url": "https://www.aichi-steel.co.jp/products/kitaeru_company/equipment/",
       "source_label": "愛知製鋼 主要設備",
       "id": "39d82626021d",
-      "status": "prospect",
+      "status": "priority_research",
       "deal_status": "未取引",
       "aliases": [],
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": true,
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
     },
     {
       "name": "旭鉄工株式会社",
@@ -66,13 +68,15 @@
       "source_url": "https://www.asahi-tekko.co.jp/facility_tax/all_facility/heat_treatment/",
       "source_label": "旭鉄工 熱処理設備",
       "id": "c460ed1a1b75",
-      "status": "prospect",
+      "status": "priority_research",
       "deal_status": "未取引",
       "aliases": [],
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": true,
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
     },
     {
       "name": "旭電気製鋼株式会社",
@@ -92,7 +96,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "マイクロフィルター株式会社",
@@ -112,7 +117,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "東宏工業株式会社",
@@ -132,7 +138,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "神岡部品工業株式会社",
@@ -147,12 +154,14 @@
       "source_label": "神岡部品工業 主要設備",
       "note": "設備量が多く詳しく調べる価値あり",
       "id": "882da43d402b",
-      "status": "prospect",
+      "status": "priority_research",
       "deal_status": "未取引",
       "aliases": [],
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": true,
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
     },
     {
       "name": "株式会社長倉製作所",
@@ -167,12 +176,14 @@
       "source_label": "長倉製作所 設備",
       "note": "設備量が多く詳しく調べる価値あり",
       "id": "1d8b66e7a2a4",
-      "status": "prospect",
+      "status": "priority_research",
       "deal_status": "未取引",
       "aliases": [],
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": true,
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
     },
     {
       "name": "小松工業株式会社",
@@ -192,7 +203,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "北陸工業株式会社",
@@ -207,12 +219,14 @@
       "source_label": "北陸工業 主要生産設備",
       "note": "設備量が多く詳しく調べる価値あり",
       "id": "298580da03c1",
-      "status": "prospect",
+      "status": "priority_research",
       "deal_status": "未取引",
       "aliases": [],
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": true,
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
     },
     {
       "name": "アイチテクノメタルフカウミ株式会社",
@@ -232,7 +246,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "有限会社ファインフォーミング",
@@ -252,7 +267,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "東新精工株式会社",
@@ -272,7 +288,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "株式会社松栄製作所",
@@ -292,7 +309,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "越川工業株式会社",
@@ -312,7 +330,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "株式会社ダイヤ精工",
@@ -327,12 +346,14 @@
       "source_label": "ダイヤ精工 設備",
       "note": "設備量が多く詳しく調べる価値あり",
       "id": "d2eb517dc96e",
-      "status": "prospect",
+      "status": "priority_research",
       "deal_status": "未取引",
       "aliases": [],
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": true,
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
     },
     {
       "name": "オカダ合金株式会社",
@@ -352,7 +373,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "近江鍛工株式会社",
@@ -367,12 +389,14 @@
       "source_label": "しがプラザ 近江鍛工",
       "note": "近畿重点。熱処理が生産工程の重要部分",
       "id": "ec6262258449",
-      "status": "prospect",
+      "status": "priority_research",
       "deal_status": "未取引",
       "aliases": [],
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": true,
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
     },
     {
       "name": "日伸工業株式会社",
@@ -387,12 +411,14 @@
       "source_label": "しがプラザ 日伸工業",
       "note": "近畿重点。熱処理が生産工程の重要部分",
       "id": "dd2a72e35b58",
-      "status": "prospect",
+      "status": "priority_research",
       "deal_status": "未取引",
       "aliases": [],
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": true,
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
     },
     {
       "name": "株式会社大阪合金工業所",
@@ -412,7 +438,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "和伸工業株式会社",
@@ -427,12 +454,14 @@
       "source_label": "和伸工業 設備",
       "note": "近畿重点。熱処理が生産工程の重要部分",
       "id": "ee559859695e",
-      "status": "prospect",
+      "status": "priority_research",
       "deal_status": "未取引",
       "aliases": [],
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": true,
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
     },
     {
       "name": "三陽金属株式会社",
@@ -452,7 +481,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "近畿丸製ナット株式会社",
@@ -472,7 +502,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "株式会社ハクロフォージング",
@@ -492,7 +523,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "関西鋼業株式会社",
@@ -512,7 +544,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "株式会社OTS",
@@ -527,12 +560,14 @@
       "source_label": "OTS 生産拠点",
       "note": "岡山最有望。熱処理能力が大きい製造会社",
       "id": "7b3ed3add4c2",
-      "status": "prospect",
+      "status": "priority_research",
       "deal_status": "未取引",
       "aliases": [],
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": true,
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
     },
     {
       "name": "オカネツ工業株式会社",
@@ -547,12 +582,14 @@
       "source_label": "オカネツ 熱処理設備",
       "note": "岡山最有望。熱処理能力が大きい製造会社",
       "id": "fe18ed22e7f3",
-      "status": "prospect",
+      "status": "priority_research",
       "deal_status": "未取引",
       "aliases": [],
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": true,
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
     },
     {
       "name": "株式会社吉延精機工業",
@@ -572,7 +609,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "光軽金属工業株式会社",
@@ -592,7 +630,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "サクライ軽金属株式会社",
@@ -612,7 +651,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "TPRアルテック株式会社",
@@ -632,7 +672,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "株式会社岡島パイプ製作所",
@@ -652,7 +693,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "株式会社明治製作所",
@@ -667,12 +709,14 @@
       "source_label": "トリトン ガイドブック",
       "note": "鳥取最優先。設備・一貫・鍛造規模が突出",
       "id": "9f71f7e17309",
-      "status": "prospect",
+      "status": "priority_research",
       "deal_status": "未取引",
       "aliases": [],
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": true,
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
     },
     {
       "name": "株式会社菊水フォージング",
@@ -692,7 +736,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "米子製鋼株式会社",
@@ -706,13 +751,15 @@
       "source_url": "https://www.toriton.or.jp/2023_guidebook/2023_guidebook/pageindices/index127.html",
       "source_label": "トリトン ガイドブック",
       "id": "61818d9b9134",
-      "status": "prospect",
+      "status": "priority_research",
       "deal_status": "未取引",
       "aliases": [],
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": true,
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
     },
     {
       "name": "株式会社ミヨシ",
@@ -732,7 +779,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "安田精工株式会社",
@@ -752,7 +800,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "株式会社ササヤマ",
@@ -772,7 +821,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "聖和精機株式会社",
@@ -792,7 +842,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "ヤンマーキャステクノ株式会社(松江事業部)",
@@ -810,12 +861,14 @@
         "キャステクノ松江"
       ],
       "id": "f18ed852c5f4",
-      "status": "prospect",
+      "status": "priority_research",
       "deal_status": "未取引",
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": true,
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
     },
     {
       "name": "株式会社エンドー(島根工場)",
@@ -829,13 +882,15 @@
       "source_url": "https://www.joho-shimane.or.jp/guidebook2026/pageindices/index22.html",
       "source_label": "情報しまね ガイド",
       "id": "e551f7c3a64b",
-      "status": "prospect",
+      "status": "priority_research",
       "deal_status": "未取引",
       "aliases": [],
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": true,
+      "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。"
     },
     {
       "name": "株式会社渡部製鋼所",
@@ -855,7 +910,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "オーエム金属工業株式会社",
@@ -875,7 +931,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "島根自動機株式会社",
@@ -895,7 +952,8 @@
       "note": "",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     },
     {
       "name": "株式会社アイシン福井",
@@ -903,7 +961,7 @@
       "pref": "福井",
       "region": "中部（東海除く）",
       "priority": "A",
-      "focus": true,
+      "focus": false,
       "business": "AT・電動化部品（塑性・熱処理・接合）",
       "furnaces": "熱処理炉（浸炭・ガス軟・ブレージング）40台、高周波7、プレステンパー44。",
       "source_url": "https://www.aisin-fukui.co.jp/technology/industrial.php",
@@ -918,12 +976,13 @@
       "deal_status": "未取引",
       "furnace_maker": "",
       "capacity": "",
-      "list_type": "inhouse_ht_maker"
+      "list_type": "inhouse_ht_maker",
+      "focus_agreed": false
     }
   ],
   "stats": {
     "total": 44,
-    "focus": 16,
+    "focus": 15,
     "by_region": {
       "東海": 8,
       "中部（東海除く）": 9,
@@ -936,6 +995,20 @@
       "A": 31,
       "B": 5,
       "A+": 8
-    }
-  }
+    },
+    "focus_agreed": 15
+  },
+  "focus_agreed_at": "2026-08-12",
+  "focus_agreed_by": "user",
+  "focus_agreed_reason": "量産工程に熱処理を組み込み、炉数・処理量・製品規模が大きい公開設備の会社。研究用・金型用小型炉は除外。",
+  "expansion_cuts": [
+    "自動車部品",
+    "鍛造",
+    "アルミ鋳造",
+    "鋳鋼",
+    "ベアリング",
+    "ボルト・ナット",
+    "農機・建機部品"
+  ],
+  "expansion_note": "上記切り口で各県を掘ると社内炉保有企業をさらに増やせる。目標100～200社。"
 }

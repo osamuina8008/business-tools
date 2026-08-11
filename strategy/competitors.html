@@ -90,6 +90,7 @@
         <button type="button" class="kwchip text-[11px] px-2 py-1 rounded-lg border border-sky-200 bg-sky-50 text-sky-900" onclick="applyKeyword('浸炭')">浸炭</button>
         <button type="button" class="kwchip text-[11px] px-2 py-1 rounded-lg border border-sky-200 bg-sky-50 text-sky-900" onclick="applyKeyword('高周波')">高周波</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-teal-200 bg-teal-50 text-teal-900" onclick="applyPreset({tags:['協力候補'], query:'協力候補'})">協力候補</button>
+        <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-teal-200 bg-teal-50 text-teal-900" onclick="applyPreset({tags:['一部協業'], query:'一部協業'})">一部協業</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-teal-200 bg-teal-50 text-teal-900" onclick="applyPreset({tags:['委託先候補'], query:'委託先候補'})">委託先候補</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-amber-200 bg-amber-50 text-amber-900" onclick="applyPreset({tags:['委託型']})">委託型</button>
         <button type="button" class="text-[11px] px-2 py-1 rounded-lg border border-rose-200 bg-rose-50 text-rose-800" onclick="applyPreset({tags:['増強']})">増強あり</button>
@@ -177,6 +178,7 @@ function circleIcon(color, size = 14) {
 
 function pinColor(row) {
   if (row.has_expansion_alert) return '#b91c1c';
+  if (row.relation === 'coop_partial' || (row.tags || []).includes('一部協業') || (row.tags || []).includes('競合兼協力')) return '#0f766e';
   if (row.relation === 'coop_candidate' || (row.tags || []).includes('協力候補')) return '#047857';
   if (row.detail_missing) return '#94a3b8';
   return '#6d28d9';
@@ -262,8 +264,10 @@ const KEYWORD_SYNONYMS = {
   '浸炭': ['浸炭', 'ガス浸炭', '浸炭窒化'],
   '真空': ['真空', '真空炉', '真空熱処理'],
   '高周波': ['高周波', '誘導加熱', '高周波焼入'],
-  '協力候補': ['協力候補', '委託先候補', '協力', '相互紹介'],
+  '協力候補': ['協力候補', '委託先候補', '協力', '相互紹介', '一部協業', '競合兼協力'],
   '委託先候補': ['委託先候補', '協力候補', '委託'],
+  '一部協業': ['一部協業', '競合兼協力', '協力候補'],
+  '競合兼協力': ['競合兼協力', '一部協業', '協力候補'],
   'ガス難実家': ['ガス窒化', '窒化', '窒化処理'], // 誤変換救済
   '実家処理': ['窒化処理', '窒化', 'ガス窒化'],
 };
@@ -354,7 +358,7 @@ function matches(row) {
     row.region_label, row.macro_region, row.operation, row.delegate_to, row.relation,
     row.detail_missing ? '詳細情報がない 相手にしない' : '',
     row.has_expansion_alert ? '増強' : '',
-    row.relation === 'coop_candidate' ? '協力候補 委託先候補 協力 委託' : '',
+    row.relation === 'coop_candidate' || row.relation === 'coop_partial' ? '協力候補 委託先候補 協力 委託 一部協業 競合兼協力' : '',
     (row.client_hints || []).length ? '取引先ヒント' : '',
   ].join(' ').toLowerCase();
 
@@ -480,7 +484,8 @@ function cardHtml(row) {
       <div class="flex gap-1 shrink-0">
         ${expand ? '<span class="text-[10px] font-bold text-rose-700">増強</span>' : ''}
         ${broker ? '<span class="text-[10px] font-bold text-amber-800">委託型</span>' : ''}
-        ${row.relation==='coop_candidate' || (row.tags||[]).includes('協力候補') ? '<span class="text-[10px] font-bold text-emerald-700">協力候補</span>' : ''}
+        ${row.relation==='coop_partial' || (row.tags||[]).includes('一部協業') ? '<span class="text-[10px] font-bold text-teal-800">一部協業</span>' :
+          (row.relation==='coop_candidate' || (row.tags||[]).includes('協力候補') ? '<span class="text-[10px] font-bold text-emerald-700">協力候補</span>' : '')}
         ${row.position ? `<span class="text-[10px] font-bold text-indigo-700">${esc(row.position)}</span>` : ''}
         ${missing ? '<span class="text-[10px] font-bold text-rose-600">詳細なし</span>' : ''}
       </div>
@@ -609,7 +614,12 @@ function showDetail(id) {
       </tr></tbody></table>
       <p class="text-[10px] text-slate-600 mt-1">最大サイズ: ${esc(row.equipment_map.max_size || '不明')} ／ ロット: ${esc(row.equipment_map.lot || '不明')}</p>
     </div>` : ''}
-    ${row.relation === 'coop_candidate' || (row.tags || []).includes('協力候補') ? `
+    ${row.relation === 'coop_partial' || (row.tags || []).includes('一部協業') || (row.tags || []).includes('競合兼協力') ? `
+      <div class="mt-2 p-2 rounded-lg border border-teal-300 bg-teal-50">
+        <p class="text-sm font-bold text-teal-950">一部協業・兼競合</p>
+        <p class="text-[11px] text-teal-900 mt-0.5">${esc(row.coop_note || 'たまに注文あり。全面協業ではなく、案件によってはコンペティター。')}</p>
+        ${(row.partners || []).length ? `<p class="text-[11px] text-teal-800 mt-1">同系統: ${esc((row.partners || []).join(' / '))}</p>` : ''}
+      </div>` : row.relation === 'coop_candidate' || (row.tags || []).includes('協力候補') ? `
       <div class="mt-2 p-2 rounded-lg border border-emerald-300 bg-emerald-50">
         <p class="text-sm font-bold text-emerald-900">協力候補（こちらから委託しうる相手）</p>
         <p class="text-[11px] text-emerald-900 mt-0.5">競合でも役割分担・相互紹介・外注先になり得る。取引条件・品質・キャパを要確認。</p>

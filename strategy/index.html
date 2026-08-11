@@ -151,20 +151,21 @@
       <section class="bg-white rounded-2xl border border-orange-100 shadow-sm p-5">
         <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
           <h2 class="font-bold text-orange-800">攻めどころ（困りごと聞き取り）</h2>
-          <button type="button" id="scm-radar-btn" onclick="toggleScmRadar()"
-            class="text-xs font-semibold bg-orange-700 hover:bg-orange-800 text-white px-3 py-1.5 rounded-lg">
-            界隈の攻略候補一覧
+          <button type="button" id="scm-back-btn" onclick="backToHotspotList()"
+            class="hidden text-xs font-semibold border border-orange-300 text-orange-800 hover:bg-orange-50 px-3 py-1.5 rounded-lg">
+            ← 界隈一覧に戻る
           </button>
         </div>
+        <p id="hotspot-hint" class="text-xs text-slate-500 mb-2">界隈を選ぶと、その周辺の攻略候補（規模・理由つき）を深掘りします。</p>
         <div id="hotspot-list" class="space-y-2"></div>
-        <div id="scm-radar-panel" class="hidden mt-4 border-t border-orange-100 pt-3">
+        <div id="scm-radar-panel" class="hidden mt-3">
           <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-            <p class="text-sm font-bold text-orange-900">SCM材・歯車・金属加工（熱処理関連）候補</p>
+            <p id="scm-radar-title" class="text-sm font-bold text-orange-900">深掘り</p>
             <span id="scm-radar-meta" class="text-xs text-slate-400"></span>
           </div>
           <p id="scm-radar-note" class="text-xs text-slate-500 mb-2"></p>
           <div id="scm-query-links" class="flex flex-wrap gap-1.5 mb-3"></div>
-          <div id="scm-radar-list" class="space-y-2 max-h-96 overflow-y-auto"></div>
+          <div id="scm-radar-list" class="space-y-2 max-h-[28rem] overflow-y-auto"></div>
         </div>
       </section>
       <section class="bg-white rounded-2xl border border-indigo-100 shadow-sm p-5">
@@ -318,7 +319,7 @@ function showAnchorById(id) {
 
 
 let scmRadarData = null;
-let scmRadarOpen = false;
+let selectedHotspotId = null;
 
 async function loadScmRadar() {
   if (scmRadarData) return scmRadarData;
@@ -332,127 +333,178 @@ function googleSearchUrl(q) {
   return 'https://www.google.com/search?q=' + encodeURIComponent(q);
 }
 
-function renderScmRadar(data) {
+function formatCapital(manYen) {
+  if (manYen == null) return '—';
+  if (manYen >= 10000) return (manYen / 10000).toLocaleString('ja-JP') + '億円';
+  return Number(manYen).toLocaleString('ja-JP') + '万円';
+}
+
+function formatEmployees(n) {
+  if (n == null) return '—';
+  return Number(n).toLocaleString('ja-JP') + '名';
+}
+
+function findScmGroup(data, hotspotId) {
+  const groups = data.groups || [];
+  let g = groups.find(x => x.hotspot_id === hotspotId);
+  if (g) return g;
+  // 豊和を選んだら Willbe も併記する入口を用意
+  if (hotspotId === 'houwa') {
+    return {
+      hotspot_id: 'houwa',
+      area: '愛知・豊和工業界隈（＋近傍Willbe）',
+      pain: '防炭・周辺外注',
+      companies: [
+        ...(groups.find(x => x.hotspot_id === 'willbe_tsushima')?.companies || []),
+        ...(groups.find(x => x.hotspot_id === 'houwa')?.companies || []),
+      ],
+      lat: groups.find(x => x.hotspot_id === 'houwa')?.lat,
+      lng: groups.find(x => x.hotspot_id === 'houwa')?.lng,
+    };
+  }
+  return null;
+}
+
+function renderCompanyCards(comps) {
+  return (comps || []).map(t => {
+    const mats = (t.materials || []).slice(0, 4).join('・');
+    const majors = (t.linked_majors || []).length
+      ? `<p class="text-xs text-slate-500 mt-0.5">大手接点: ${esc(t.linked_majors.join(' / '))}</p>` : '';
+    const src = t.source_url
+      ? `<a href="${esc(t.source_url)}" target="_blank" rel="noopener" class="text-xs text-orange-700 underline" onclick="event.stopPropagation()">出典</a>`
+      : '';
+    const lat = Number(t.lat), lng = Number(t.lng);
+    const focus = (Number.isFinite(lat) && Number.isFinite(lng))
+      ? `onclick="focusPin(${lat},${lng})"` : '';
+    const ph = t.is_placeholder
+      ? 'border-dashed border-orange-300 bg-orange-50/40'
+      : 'border-orange-200 bg-white';
+    const tag = t.is_placeholder
+      ? '<span class="text-[10px] font-bold text-amber-800 bg-amber-100 px-1.5 py-0.5 rounded">探索枠</span>'
+      : (t.pipeline_status === 'contacted_revisit'
+        ? '<span class="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-1.5 py-0.5 rounded">近々訪問</span>'
+        : `P${t.priority ?? '—'}`);
+    return `
+    <div ${focus} class="rounded-xl border ${ph} p-3 ${focus ? 'cursor-pointer hover:bg-orange-50' : ''}">
+      <div class="flex items-start justify-between gap-2">
+        <p class="text-sm font-bold text-slate-800">${tag} ${esc(t.name || '')}</p>
+        ${src}
+      </div>
+      <p class="text-xs text-slate-600 mt-0.5">${esc(t.category || '')} · ${esc(t.area || '')}</p>
+      <p class="text-xs text-orange-900 mt-1 font-medium">理由: ${esc(t.reason || '')}</p>
+      <p class="text-xs text-slate-700 mt-1 font-medium">規模: ${esc(t.scale_summary || '規模未確認')}</p>
+      <p class="text-xs text-slate-500 mt-0.5">熱処理: ${esc(t.heat_relation || '')}${mats ? ' / 材質: ' + esc(mats) : ''}</p>
+      ${majors}
+    </div>`;
+  }).join('') || '<p class="text-sm text-slate-400">この界隈の社名はまだ少ない。探索枠を埋めていく。</p>';
+}
+
+function renderHotspotDrill(group, data) {
   const meta = document.getElementById('scm-radar-meta');
   const note = document.getElementById('scm-radar-note');
+  const title = document.getElementById('scm-radar-title');
   const queries = document.getElementById('scm-query-links');
   const list = document.getElementById('scm-radar-list');
-  meta.textContent = `${data.count || 0}社 · 界隈${data.group_count || 0} · 更新 ${esc((data.updated || '').slice(0, 16))}`;
-  note.textContent = (data.how_to_use || '') + ' ' + (data.disclaimer || '');
-  queries.innerHTML = (data.search_queries || []).map(q =>
+  const comps = group.companies || [];
+  const real = comps.filter(c => !c.is_placeholder);
+  title.textContent = `深掘り: ${group.area || ''}`;
+  meta.textContent = `${real.length}社 · 更新 ${esc((data.updated || '').slice(0, 16))}`;
+  note.textContent = `${group.pain || ''} ／ ${(data.disclaimer || '')}`;
+
+  const qHints = (data.search_queries || []).filter(q => {
+    const area = group.area || '';
+    return area.includes('豊和') || area.includes('Willbe') ? /Willbe|清須|津島|豊和/.test(q)
+      : area.includes('刈谷') ? /刈谷/.test(q)
+      : area.includes('豊中') ? /豊中/.test(q)
+      : area.includes('尼崎') ? /尼崎/.test(q)
+      : area.includes('姫路') ? /姫路/.test(q)
+      : true;
+  }).slice(0, 3);
+  queries.innerHTML = qHints.map(q =>
     `<a href="${googleSearchUrl(q)}" target="_blank" rel="noopener"
       class="text-[11px] px-2 py-1 rounded-md border border-orange-200 bg-white text-orange-800 hover:bg-orange-50">${esc(q)}</a>`
   ).join('');
 
-  const groups = data.groups || [];
-  const scaleRows = (data.scale_table || data.targets || []).filter(t => !t.is_placeholder);
-  const scaleHtml = scaleRows.length ? `
-    <div class="rounded-xl border border-slate-200 bg-white p-3 mb-2">
-      <p class="text-xs font-bold text-slate-800 mb-2">規模一覧（資本金・従業員／大きい順）</p>
+  const scaleRows = real.slice().sort((a, b) => (b.employees ?? -1) - (a.employees ?? -1));
+  const scaleHtml = scaleRows.some(t => t.capital_man_yen != null || t.employees != null) ? `
+    <div class="rounded-xl border border-slate-200 bg-white p-3">
+      <p class="text-xs font-bold text-slate-800 mb-2">この界隈の規模（資本金・従業員）</p>
       <div class="overflow-x-auto">
         <table class="w-full text-xs text-left">
           <thead class="text-slate-500 border-b border-slate-100">
-            <tr><th class="py-1 pr-2">会社</th><th class="py-1 pr-2">界隈</th><th class="py-1 pr-2">資本金</th><th class="py-1 pr-2">従業員</th><th class="py-1">摘要</th></tr>
+            <tr><th class="py-1 pr-2">会社</th><th class="py-1 pr-2">資本金</th><th class="py-1 pr-2">従業員</th><th class="py-1">摘要</th></tr>
           </thead>
           <tbody>
-            ${scaleRows.map(t => {
-              const cap = t.capital_man_yen == null ? '—' : (t.capital_man_yen >= 10000 ? ((t.capital_man_yen/10000).toLocaleString('ja-JP') + '億円') : (Number(t.capital_man_yen).toLocaleString('ja-JP') + '万円'));
-              const emp = t.employees == null ? '—' : (Number(t.employees).toLocaleString('ja-JP') + '名');
-              return `<tr class="border-b border-slate-50 align-top">
-                <td class="py-1 pr-2 font-medium text-slate-800 whitespace-nowrap">${esc(t.name||'')}</td>
-                <td class="py-1 pr-2 text-slate-500 whitespace-nowrap">${esc((t.hotspot_area||'').replace(/^愛知・|^大阪・|^兵庫・|^三重・/,''))}</td>
-                <td class="py-1 pr-2 whitespace-nowrap">${cap}</td>
-                <td class="py-1 pr-2 whitespace-nowrap">${emp}</td>
-                <td class="py-1 text-slate-600">${esc(t.scale_summary||'')}</td>
-              </tr>`;
-            }).join('')}
+            ${scaleRows.map(t => `<tr class="border-b border-slate-50">
+              <td class="py-1 pr-2 font-medium whitespace-nowrap">${esc(t.name||'')}</td>
+              <td class="py-1 pr-2 whitespace-nowrap">${formatCapital(t.capital_man_yen)}</td>
+              <td class="py-1 pr-2 whitespace-nowrap">${formatEmployees(t.employees)}</td>
+              <td class="py-1 text-slate-600">${esc(t.scale_summary||'')}</td>
+            </tr>`).join('')}
           </tbody>
         </table>
       </div>
-      <p class="text-[10px] text-slate-400 mt-1">公開情報ベース。未確認は—。既存顧客・広島等は除外済み。</p>
     </div>` : '';
-  list.innerHTML = scaleHtml + groups.map(g => {
-    const comps = g.companies || [];
-    const cards = comps.map(t => {
-      const mats = (t.materials || []).slice(0, 4).join('・');
-      const majors = (t.linked_majors || []).length
-        ? `<p class="text-xs text-slate-500 mt-0.5">大手接点: ${esc(t.linked_majors.join(' / '))}</p>` : '';
-      const src = t.source_url
-        ? `<a href="${esc(t.source_url)}" target="_blank" rel="noopener" class="text-xs text-orange-700 underline" onclick="event.stopPropagation()">出典</a>`
-        : '';
-      const lat = Number(t.lat), lng = Number(t.lng);
-      const focus = (Number.isFinite(lat) && Number.isFinite(lng))
-        ? `onclick="focusPin(${lat},${lng})"` : '';
-      const ph = t.is_placeholder
-        ? 'border-dashed border-orange-300 bg-orange-50/40'
-        : 'border-orange-200 bg-white';
-      const tag = t.is_placeholder
-        ? '<span class="text-[10px] font-bold text-amber-800 bg-amber-100 px-1.5 py-0.5 rounded">探索枠</span>'
-        : (t.pipeline_status === 'contacted_revisit'
-          ? '<span class="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-1.5 py-0.5 rounded">近々訪問</span>'
-          : `P${t.priority ?? '—'}`);
-      return `
-      <div ${focus} class="rounded-xl border ${ph} p-3 ${focus ? 'cursor-pointer hover:bg-orange-50' : ''}">
-        <div class="flex items-start justify-between gap-2">
-          <p class="text-sm font-bold text-slate-800">${tag} ${esc(t.name || '')}</p>
-          ${src}
-        </div>
-        <p class="text-xs text-slate-600 mt-0.5">${esc(t.category || '')} · ${esc(t.area || '')}</p>
-        <p class="text-xs text-orange-900 mt-1 font-medium">理由: ${esc(t.reason || '')}</p>
-        <p class="text-xs text-slate-700 mt-1 font-medium">規模: ${esc(t.scale_summary || '規模未確認')}</p>
-        <p class="text-xs text-slate-500 mt-0.5">熱処理: ${esc(t.heat_relation || '')}${mats ? ' / 材質: ' + esc(mats) : ''}</p>
-        ${majors}
-      </div>`;
-    }).join('') || '<p class="text-sm text-slate-400">この界隈の社名は未充足。探索枠を埋める。</p>';
 
-    const glat = Number(g.lat), glng = Number(g.lng);
-    const gfocus = (Number.isFinite(glat) && Number.isFinite(glng))
-      ? `onclick="focusPin(${glat},${glng})"` : '';
-    return `
-    <div class="rounded-xl border border-orange-300 bg-orange-50/70 p-3">
-      <button type="button" ${gfocus} class="w-full text-left">
-        <p class="text-sm font-bold text-orange-950">${esc(g.area || '')}</p>
-        <p class="text-xs text-slate-600 mt-0.5">${esc(g.pain || '')}</p>
-        <p class="text-xs text-orange-800 mt-1 font-semibold">攻略候補 ${g.count || 0}社（探索枠除く）</p>
-      </button>
-      <div class="mt-2 space-y-2">${cards}</div>
-    </div>`;
-  }).join('') || '<p class="text-sm text-slate-400">候補なし</p>';
-
-  const excl = data.excluded_notes || [];
-  if (excl.length) {
-    list.innerHTML += `
-      <div class="rounded-xl border border-slate-200 bg-slate-50 p-3">
-        <p class="text-xs font-bold text-slate-700 mb-1">一覧から除外（顧客・対象外）</p>
-        <ul class="text-xs text-slate-600 space-y-0.5">
-          ${excl.map(e => `<li>・${esc(e.name)} — ${esc(e.why)}</li>`).join('')}
-        </ul>
-      </div>`;
-  }
+  list.innerHTML = scaleHtml + `<div class="space-y-2">${renderCompanyCards(comps)}</div>`;
 }
 
-async function toggleScmRadar() {
+function backToHotspotList() {
+  selectedHotspotId = null;
+  document.getElementById('scm-radar-panel').classList.add('hidden');
+  document.getElementById('hotspot-list').classList.remove('hidden');
+  document.getElementById('hotspot-hint').classList.remove('hidden');
+  document.getElementById('scm-back-btn').classList.add('hidden');
+  // clear selection styles
+  document.querySelectorAll('#hotspot-list [data-hotspot-id]').forEach(el => {
+    el.classList.remove('ring-2', 'ring-orange-500');
+  });
+}
+
+async function selectHotspotDrill(hotspotId, lat, lng) {
+  if (lat != null && lng != null && !Number.isNaN(Number(lat))) focusPin(Number(lat), Number(lng));
+  selectedHotspotId = hotspotId;
+  const back = document.getElementById('scm-back-btn');
   const panel = document.getElementById('scm-radar-panel');
-  const btn = document.getElementById('scm-radar-btn');
-  if (scmRadarOpen) {
-    panel.classList.add('hidden');
-    scmRadarOpen = false;
-    btn.textContent = '界隈の攻略候補一覧';
-    return;
-  }
-  btn.textContent = '読込中…';
-  btn.disabled = true;
+  const list = document.getElementById('hotspot-list');
+  const hint = document.getElementById('hotspot-hint');
+  back.classList.remove('hidden');
+  back.textContent = '読込中…';
   try {
     const data = await loadScmRadar();
-    renderScmRadar(data);
+    let group = findScmGroup(data, hotspotId);
+    if (!group) {
+      // SCMグループが無い界隈でもカードは出す
+      const h = (territory?.pain_hotspots || []).find(x => x.id === hotspotId) || {};
+      group = {
+        hotspot_id: hotspotId,
+        area: h.area || hotspotId,
+        pain: h.pain || '',
+        companies: [{
+          name: 'この界隈の具体社名は未充足',
+          category: '探索メモ',
+          area: h.area || '',
+          reason: '聞き取り・公開情報で社名を確定して埋める。',
+          heat_relation: '要確認',
+          scale_summary: '—',
+          is_placeholder: true,
+          priority: 2,
+        }],
+        lat: h.lat, lng: h.lng,
+      };
+    }
+    // Willbe専用カード
+    if (hotspotId === 'willbe_tsushima') {
+      group = (data.groups || []).find(x => x.hotspot_id === 'willbe_tsushima') || group;
+    }
+    renderHotspotDrill(group, data);
+    list.classList.add('hidden');
+    hint.classList.add('hidden');
     panel.classList.remove('hidden');
-    scmRadarOpen = true;
-    btn.textContent = '界隈一覧を閉じる';
+    back.textContent = '← 界隈一覧に戻る';
   } catch (e) {
     alert(e.message || String(e));
-    btn.textContent = '界隈の攻略候補一覧';
-  } finally {
-    btn.disabled = false;
+    back.textContent = '← 界隈一覧に戻る';
   }
 }
 
@@ -478,14 +530,27 @@ function renderLists(data) {
     }
   }
 
-  document.getElementById('hotspot-list').innerHTML =
-    [...(data.pain_hotspots || [])].sort((a, b) => (a.id === 'houwa' ? -1 : b.id === 'houwa' ? 1 : 0)).map(h => `
-      <button type="button" onclick="focusPin(${h.lat},${h.lng})"
-        class="w-full text-left rounded-xl border ${h.id === 'houwa' ? 'border-orange-300 bg-orange-100/80' : 'border-orange-100 bg-orange-50/60'} hover:bg-orange-50 p-3 transition">
-        <p class="text-sm font-bold text-slate-800">${h.id === 'houwa' ? '★ ' : ''}${esc(h.area)}</p>
+  const hotspotOrder = (a, b) => {
+    const rank = { willbe_tsushima: -1, houwa: 0, kariya_jtekt: 1, toyonaka: 2, amagasaki: 3, himeji: 4, inabe: 5, wakayama: 6 };
+    return (rank[a.id] ?? 50) - (rank[b.id] ?? 50);
+  };
+  const baseHotspots = [...(data.pain_hotspots || [])].filter(h => !(h.area || '').includes('石川'));
+  // Willbe を選べる入口を先頭に追加
+  const pickList = [
+    { id: 'willbe_tsushima', area: '愛知・Willbe（津島）界隈', pain: '旧三菱重工メイキ。本命OEM＋周辺加工', sources: ['Willbe'], lat: 35.177, lng: 136.741 },
+    ...baseHotspots,
+  ].sort(hotspotOrder);
+  document.getElementById('hotspot-list').innerHTML = pickList.map(h => `
+      <button type="button" data-hotspot-id="${esc(h.id)}"
+        onclick="selectHotspotDrill('${esc(h.id)}', ${h.lat ?? 'null'}, ${h.lng ?? 'null'})"
+        class="w-full text-left rounded-xl border ${h.id === 'houwa' || h.id === 'willbe_tsushima' ? 'border-orange-300 bg-orange-100/80' : 'border-orange-100 bg-orange-50/60'} hover:bg-orange-50 p-3 transition">
+        <p class="text-sm font-bold text-slate-800">${h.id === 'houwa' || h.id === 'willbe_tsushima' ? '★ ' : ''}${esc(h.area)}
+          <span class="text-[10px] font-semibold text-orange-700 bg-orange-50 border border-orange-200 px-1.5 py-0.5 rounded ml-1">選んで深掘り</span>
+        </p>
         <p class="text-xs text-slate-600 mt-1">${esc(h.pain || '')}</p>
         ${(h.sources||[]).length ? `<p class="text-xs text-slate-400 mt-1">アンカー: ${esc(h.sources.join(' / '))}</p>` : ''}
       </button>`).join('');
+  backToHotspotList();
 
   document.getElementById('target-list').innerHTML =
     [...(data.competitor_adjacent_targets || [])]

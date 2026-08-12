@@ -9425,66 +9425,6 @@
       }
     },
     {
-      "id": "63ce6e18a5a3",
-      "name": "近畿刃物工業株式会社",
-      "area": "大阪府・守口市",
-      "updated": "2026-08-12T05:48:26+09:00",
-      "scope": "plant",
-      "profile": {
-        "official_name": "近畿刃物工業株式会社"
-      },
-      "scale_summary": "大阪府守口市/ダンボール製函機刃物メーカー",
-      "equipment": [],
-      "equipment_summary": "熱処理競合ではない(刃物製造)。西部工業会会員のため隣接として把握のみ",
-      "strategy_notes": [
-        "競合対象外。ダンボール刃物・製函機刃物が本業",
-        "更なる高みを目指して工作機械を新設&増設!",
-        "本機は既設同型機に続く増設となります。",
-        "さらなる高精度・高品質な加工体制の強化を図ってまいります。 NC3軸目立機 導入年:2025年",
-        "特徴:不等速連動制御により、といしが回転テーブル上のどの位置にあっても研削量が常に一定になるように制御されることで、面粗さと品質が安定し、生産性が向上します。ロータリー式の平面研磨機は以前より稼動している機械の1つですが増設によってボトルネックが解消し、これまで以上の納期対応の貢"
-      ],
-      "operation": "adjacent",
-      "delegate_to": "",
-      "detail_status": "partial",
-      "detail_missing": false,
-      "detail_note": "設備概要あり／台数・メーカーの詳細は追加調査",
-      "ignore_for_watch": false,
-      "has_expansion_alert": true,
-      "expansion_alerts": [],
-      "client_sectors": [],
-      "partners": [],
-      "client_hints": [],
-      "news": [],
-      "sources": [
-        {
-          "kind": "company",
-          "url": "https://www.kinkihamono.co.jp/",
-          "fetched_at": "2026-08-12T05:48:23+09:00"
-        },
-        {
-          "kind": "products",
-          "url": "https://www.kinkihamono.co.jp/products.html",
-          "fetched_at": "2026-08-12T05:48:24+09:00"
-        },
-        {
-          "kind": "equipment",
-          "url": "https://www.kinkihamono.co.jp/cgi-bin/whatsnew/whats_display.cgi?id:development+base:/whats_data/development/_temp/process.html",
-          "fetched_at": "2026-08-12T05:48:25+09:00"
-        }
-      ],
-      "errors": [],
-      "note": "西部工業会会員(京阪神)。刃物製造が主だが熱処理関連会員。実態・外注関係を調査。客として訪問しない。",
-      "region_label": "大阪",
-      "macro_region": "keihanshin",
-      "blurb": "熱処理競合ではない(刃物製造)。西部工業会会員のため隣接として把握のみ 大阪府守口市/ダンボール製函機刃物メーカー 更なる高みを目指して工作機械を新設&増設! ⚠増強情報あり。 強み候補: 増強",
-      "commentary": "競合対象外。ダンボール刃物・製函機刃物が本業 / 更なる高みを目指して工作機械を新設&増設! / 本機は既設同型機に続く増設となります。",
-      "tags": [
-        "増強",
-        "京阪神",
-        "西部会員"
-      ]
-    },
-    {
       "id": "bac61a90ba93",
       "name": "株式会社ジェイテクトサープレット",
       "area": "大阪府・八尾市",
@@ -9643,196 +9583,6 @@
         "西部会員"
       ],
       "relation": "coop_candidate"
-    },
-    {
-      "id": "a7c95456c68e",
-      "name": "東洋摩擦圧接工業株式会社",
-      "area": "大阪府・大阪市住之江区",
-      "updated": "2026-08-11T19:03:22+09:00",
-      "scope": "plant",
-      "profile": {
-        "official_name": "東洋摩擦圧接工業株式会社"
-      },
-      "scale_summary": "大阪府・大阪市住之江区",
-      "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
-      "strategy_notes": [
-        "西部工業会会員(京阪神)。摩擦圧接が主。熱処理併設の有無を調査。客として訪問しない。"
-      ],
-      "operation": "adjacent",
-      "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
-      "has_expansion_alert": false,
-      "expansion_alerts": [],
-      "client_sectors": [],
-      "partners": [],
-      "client_hints": [],
-      "news": [],
-      "sources": [],
-      "errors": [],
-      "note": "西部工業会会員(京阪神)。摩擦圧接が主。熱処理併設の有無を調査。客として訪問しない。",
-      "region_label": "大阪",
-      "macro_region": "keihanshin",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 大阪府・大阪市住之江区 西部工業会会員(京阪神)。摩擦圧接が主。熱処理併設の有無を調査。客として訪問しない。",
-      "commentary": "西部工業会会員(京阪神)。摩擦圧接が主。熱処理併設の有無を調査。客として訪問しない。",
-      "tags": [
-        "詳細不足",
-        "京阪神",
-        "西部会員"
-      ]
-    },
-    {
-      "id": "91bbf39177c5",
-      "name": "ナノコート・ティーエス株式会社 大阪事業部",
-      "area": "大阪府・八尾市",
-      "updated": "2026-08-11T19:03:23+09:00",
-      "scope": "plant",
-      "profile": {
-        "official_name": "ナノコート・ティーエス株式会社 大阪事業部"
-      },
-      "scale_summary": "",
-      "equipment": [],
-      "equipment_summary": "詳細情報がない（公式URL未設定）",
-      "strategy_notes": [],
-      "operation": "own",
-      "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない（公式URL未設定）",
-      "ignore_for_watch": true,
-      "has_expansion_alert": false,
-      "expansion_alerts": [],
-      "client_sectors": [],
-      "partners": [],
-      "client_hints": [],
-      "news": [],
-      "sources": [],
-      "errors": [],
-      "note": "西部工業会会員(京阪神・八尾事業部)。コーティング/表面改質。熱処理炉競合というより隣接。客として訪問しない。",
-      "region_label": "大阪",
-      "macro_region": "keihanshin",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。",
-      "tags": [
-        "詳細不足",
-        "京阪神",
-        "西部会員"
-      ]
-    },
-    {
-      "id": "a260ab54cd40",
-      "name": "富士電子工業株式会社",
-      "area": "大阪府・八尾市",
-      "updated": "2026-08-11T19:03:25+09:00",
-      "scope": "plant",
-      "profile": {
-        "official_name": "富士電子工業株式会社"
-      },
-      "scale_summary": "大阪府・八尾市",
-      "equipment": [],
-      "equipment_summary": "詳細情報がない",
-      "strategy_notes": [
-        "西部工業会会員(京阪神・八尾)。高周波電源・加熱装置メーカー寄りの可能性大。受託熱処理か装置か調査。客として訪問しない。",
-        "単品から量産、小型から大型部品まで富士電子の豊富な加工設備で対応"
-      ],
-      "operation": "adjacent",
-      "delegate_to": "",
-      "detail_status": "missing",
-      "detail_missing": true,
-      "detail_note": "詳細情報がない",
-      "ignore_for_watch": true,
-      "has_expansion_alert": false,
-      "expansion_alerts": [],
-      "client_sectors": [],
-      "partners": [],
-      "client_hints": [],
-      "news": [
-        {
-          "title": "金属熱処理工業会、会長に富士電子工業の渡辺弘子氏",
-          "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1zNjBMLUhMWWhtNl9zLTY4bktrSm5iZ3BhazVrQmxudmVWRU01TDc1N3Njd25UZHZhdG41Tm9LSWdRS2NQb0Z3LUhFdkpPQkhrSWtibEttUGh5RXBSREJvUzJjTkdGV0ZqR05tcQ?oc=5",
-          "source": "nikkei.com",
-          "pub": "2023-06-07T16:00:00+09:00",
-          "query": "富士電子工業株式会社 熱処理",
-          "clients": [],
-          "is_expansion": false
-        },
-        {
-          "title": "三島智和准教授と富士電子工業(株)が共同開発した「高周波誘導加熱装置」が国際展示会「サーモテック2017」に出展",
-          "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBQbjAzcEs4ZWg2YmY0VHc1Q25NeU5DOGZlSTl6dFZXNTU5WElxM3hTVjdKWkJQUjJQSVJUZzVnVXl2MUdhLW9JLURzU3pLWkItSWMzQzRlUTVWdDBwYTVRcjdoY2sxbGF3?oc=5",
-          "source": "maritime.kobe-u.ac.jp",
-          "pub": "2017-07-25T16:00:00+09:00",
-          "query": "富士電子工業株式会社 熱処理",
-          "clients": [],
-          "is_expansion": false
-        },
-        {
-          "title": "日本の製造業を変える原動力に「一般社団法人ものづくりなでしこ」 渡邊弘子 代表理事",
-          "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5UV3duN1A5Q3RiUW1mdnMzT18yVjhLcjBPZUsxWTJtZzBicEg2WkhzZ0xsc3JfR2ZsMVdyZU40dW9LcTlnZzBEOWlzWUJFNzU5eGRwM1NwSldVRDJpSU5SZjlGVUhyNnlPR09QWHB5MW9Qa0VF?oc=5",
-          "source": "エヌエヌ生命",
-          "pub": "2021-07-13T16:00:00+09:00",
-          "query": "富士電子工業株式会社 熱処理",
-          "clients": [],
-          "is_expansion": false
-        },
-        {
-          "title": "“時代を拓く先見力”",
-          "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9sVTRKVFpyWm96MEFGaVdNVHRoTzkzbXNHMGMxX0F3ek5YLTVKVU1jbng2bU15clRLQXRiS2daV3FNUDBTUlFQcjFxY1ZRTTFBRzlv?oc=5",
-          "source": "マシニスト出版",
-          "pub": "2023-11-21T14:49:33+09:00",
-          "query": "富士電子工業株式会社 熱処理",
-          "clients": [],
-          "is_expansion": false
-        },
-        {
-          "title": "「女性の視点から視る日本のモノづくりの未来」(3/26、渡邉弘子氏、SJC) ※予定通り開催",
-          "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9NVm1VTTAzZ09aTjdaYkNiWFFKX0g3TFlMMFBkQV9KWEFzd3hQN2NFaEVyMzRYbDVXaDZ3cDNtZVk1WWY1OUJVX2haMGdlRDQ?oc=5",
-          "source": "senkenkeizai.com",
-          "pub": "2020-01-15T17:00:00+09:00",
-          "query": "富士電子工業株式会社 熱処理",
-          "clients": [],
-          "is_expansion": false
-        },
-        {
-          "title": "キリンホールディングス、ものづくりなでしこ、中外製薬の豪華登壇者が決定!「Manufacturing Japan Summit 2023」開催案内",
-          "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5hQTh3cTIyQkJWVjhaZ2hlMnhScWN2em1tUGhyRnRleW9nd05rczlLclM3N3JBOEtpXy1YQ0tIX0FKcExqMVZ3YWhwVUpVdkhLOGhrc2NEV1ZabWNnNkhZZVBRVlVUd0ZVUnc?oc=5",
-          "source": "PR TIMES",
-          "pub": "2022-12-22T17:00:00+09:00",
-          "query": "富士電子工業株式会社 熱処理",
-          "clients": [],
-          "is_expansion": false
-        },
-        {
-          "title": "富士電子工業社長 渡辺弘子さん 女性が物づくりを変える(1)",
-          "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9IREJXdURuVkVpdkJ0TnRKQjRMNmYwYXkzSzM4MEVFR3BmSVg1WUY2RnJ5T3JfZk1Fd2NXeWlaNzhnSGh5bEpzRFFSd2ppZEJsbE5SZ3FrTFFMTUo5dDdyMktKQTZTS1YzNkdWRA?oc=5",
-          "source": "nikkei.com",
-          "pub": "2021-08-30T16:00:00+09:00",
-          "query": "富士電子工業株式会社 熱処理",
-          "clients": [],
-          "is_expansion": false
-        }
-      ],
-      "sources": [
-        {
-          "kind": "company",
-          "url": "https://www.fujidenshi.co.jp/",
-          "fetched_at": "2026-08-11T19:03:24+09:00"
-        }
-      ],
-      "errors": [],
-      "note": "西部工業会会員(京阪神・八尾)。高周波電源・加熱装置メーカー寄りの可能性大。受託熱処理か装置か調査。客として訪問しない。",
-      "region_label": "大阪",
-      "macro_region": "keihanshin",
-      "blurb": "公開設備の詳細が取れず、相手優先度は下げ。 大阪府・八尾市 単品から量産、小型から大型部品まで富士電子の豊富な加工設備で対応 強み候補: 高周波・大型",
-      "commentary": "西部工業会会員(京阪神・八尾)。高周波電源・加熱装置メーカー寄りの可能性大。受託熱処理か装置か調査。客として訪問しない。 / 単品から量産、小型から大型部品まで富士電子の豊富な加工設備で対応",
-      "tags": [
-        "高周波",
-        "大型",
-        "詳細不足",
-        "京阪神",
-        "西部会員"
-      ]
     },
     {
       "id": "b7cfc0f0753b",
@@ -10971,31 +10721,6 @@
       "errors": []
     },
     {
-      "name": "株式会社ジェイテクトコーティング",
-      "area": "愛知県・刈谷市野田町",
-      "region": "tokai",
-      "lat": 34.99,
-      "lng": 137.02,
-      "tags": [
-        "刈谷",
-        "コーティング",
-        "表面処理"
-      ],
-      "aliases": [
-        "ジェイテクトコーティング",
-        "JTEKTコーティング"
-      ],
-      "profile": {
-        "official_name": "株式会社ジェイテクトコーティング",
-        "address": "愛知県刈谷市野田町場割28番地",
-        "lat": 34.99,
-        "lng": 137.02
-      },
-      "blurb": "ジェイテクト系。日本金属熱処理工業会(中部)会員。コーティング／表面処理寄り。",
-      "note": "競合隣接。組合会員だが事業はコーティング中心。客として訪問しない。",
-      "scope": "plant"
-    },
-    {
       "name": "大同DMソリューション株式会社",
       "area": "大阪府・大東市（本社）",
       "region": "kansai",
@@ -11096,39 +10821,6 @@
       },
       "blurb": "大同DM名古屋工場。e-HIT法（低歪・高靭性）対応。ダイカスト型など大型金型熱処理。",
       "note": "競合（金型・工具鋼熱処理）。客として訪問しない。大同界隈の熱処理競合。",
-      "scope": "plant",
-      "source_urls": [
-        "https://daidodms.co.jp/products/heattreatment/",
-        "https://daidodms.co.jp/company/network/"
-      ]
-    },
-    {
-      "name": "大同DMソリューション株式会社(静岡)",
-      "area": "静岡県・周智郡森町（静岡工場）",
-      "region": "tokai",
-      "lat": 34.835,
-      "lng": 137.927,
-      "tags": [
-        "真空",
-        "コーティング",
-        "金型鋼",
-        "工具鋼",
-        "大同DM",
-        "委託型"
-      ],
-      "aliases": [
-        "大同DM",
-        "大同DMソリューション"
-      ],
-      "profile": {
-        "official_name": "大同DMソリューション株式会社(静岡)",
-        "address": "静岡県周智郡森町橘29-1",
-        "website": "https://daidodms.co.jp/products/heattreatment/",
-        "lat": 34.835,
-        "lng": 137.927
-      },
-      "blurb": "大同DM静岡工場。コーティング拠点。雰囲気熱処理は除く（公式）。",
-      "note": "競合（金型・工具鋼熱処理／コーティング）。客として訪問しない。",
       "scope": "plant",
       "source_urls": [
         "https://daidodms.co.jp/products/heattreatment/",
@@ -11582,5 +11274,17 @@
     }
   ],
   "blurbs_updated": "2026-08-12T07:12:30+09:00",
-  "updated": "2026-08-12"
+  "updated": "2026-08-12",
+  "exclusion_policy": {
+    "rule": "西部工業会会員でもネストリ（熱処理受託・熱処理炉）と無関係なら不要。コーティング／PVD／DLC専業は現時点で不要。",
+    "updated": "2026-08-12",
+    "examples_removed": [
+      "近畿刃物工業株式会社",
+      "東洋摩擦圧接工業株式会社",
+      "ナノコート・ティーエス株式会社 大阪事業部",
+      "富士電子工業株式会社",
+      "株式会社ジェイテクトコーティング",
+      "大同DMソリューション株式会社(静岡)"
+    ]
+  }
 }

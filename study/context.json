@@ -4,7 +4,26 @@
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [],
+  "today_logs": [
+    {
+      "type": "短答",
+      "questions_count": 15,
+      "understanding": "普通",
+      "topic": ""
+    },
+    {
+      "type": "論文",
+      "questions_count": 0,
+      "understanding": "普通",
+      "topic": ""
+    },
+    {
+      "type": "論文",
+      "questions_count": 1,
+      "understanding": "普通",
+      "topic": ""
+    }
+  ],
   "spacing_items": [
     {
       "interval_label": "",
@@ -219,8 +238,8 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": false,
-  "updated_at": "2026-08-12T07:00:09.764522",
+  "has_data": true,
+  "updated_at": "2026-08-12T18:44:24.077403",
   "today_tasks": [
     {
       "subject": "憲法",
@@ -257,17 +276,17 @@
       "status": "遅れ",
       "action": "短答3問｜論点：訴訟要件（当事者適格・訴えの利益）・既判力の範囲",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（11日ぶり）",
-      "actual_q": 0,
+      "situation": "今週1/15問。あと14問",
+      "actual_q": 1,
       "target_q": 15,
       "checked": false
     },
     {
       "subject": "刑事訴訟法",
       "status": "今週",
-      "action": "4日前に学習済。今週の目標：短答2周目",
+      "action": "0日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（4日ぶり）",
+      "situation": "今週0/15問。あと15問",
       "actual_q": 0,
       "target_q": 15,
       "checked": false

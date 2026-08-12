@@ -58,7 +58,11 @@
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
       "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 35.2437,
+      "lng": 136.8925,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "旭鉄工株式会社",
@@ -81,7 +85,11 @@
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
       "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 35.1782,
+      "lng": 136.9409,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "旭電気製鋼株式会社",
@@ -103,7 +111,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 35.171,
+      "lng": 136.7953,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "マイクロフィルター株式会社",
@@ -125,7 +137,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 35.1316,
+      "lng": 136.9246,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "東宏工業株式会社",
@@ -147,7 +163,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 35.1971,
+      "lng": 136.8824,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "神岡部品工業株式会社",
@@ -170,7 +190,11 @@
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
       "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 35.3974,
+      "lng": 136.7622,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "株式会社長倉製作所",
@@ -193,7 +217,11 @@
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
       "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 34.91,
+      "lng": 138.4185,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "小松工業株式会社",
@@ -215,7 +243,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 36.4417,
+      "lng": 136.5004,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "北陸工業株式会社",
@@ -238,7 +270,11 @@
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
       "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 37.8334,
+      "lng": 139.0453,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "アイチテクノメタルフカウミ株式会社",
@@ -260,7 +296,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 37.9855,
+      "lng": 138.9214,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "有限会社ファインフォーミング",
@@ -282,7 +322,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 36.6154,
+      "lng": 138.0832,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "東新精工株式会社",
@@ -304,7 +348,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 36.6513,
+      "lng": 138.2533,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "株式会社松栄製作所",
@@ -326,7 +374,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 36.5686,
+      "lng": 138.0839,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "越川工業株式会社",
@@ -348,7 +400,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 36.7166,
+      "lng": 138.0753,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "株式会社ダイヤ精工",
@@ -371,7 +427,11 @@
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
       "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 36.5926,
+      "lng": 138.2101,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "オカダ合金株式会社",
@@ -393,7 +453,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 36.6213,
+      "lng": 136.6274,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "近江鍛工株式会社",
@@ -416,7 +480,11 @@
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
       "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 35.0232,
+      "lng": 135.9514,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "日伸工業株式会社",
@@ -439,7 +507,11 @@
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
       "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 35.0286,
+      "lng": 135.8801,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "株式会社大阪合金工業所",
@@ -461,7 +533,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 34.6106,
+      "lng": 135.4102,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "和伸工業株式会社",
@@ -484,7 +560,11 @@
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
       "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 34.7744,
+      "lng": 135.5189,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "三陽金属株式会社",
@@ -506,7 +586,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 34.748,
+      "lng": 135.2524,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "近畿丸製ナット株式会社",
@@ -528,7 +612,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 34.6945,
+      "lng": 135.2255,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "株式会社ハクロフォージング",
@@ -550,7 +638,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 34.6484,
+      "lng": 135.0907,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "関西鋼業株式会社",
@@ -572,7 +664,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 34.6848,
+      "lng": 135.1435,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "株式会社OTS",
@@ -595,7 +691,11 @@
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
       "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 34.748,
+      "lng": 133.9771,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "オカネツ工業株式会社",
@@ -618,7 +718,11 @@
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
       "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 34.6481,
+      "lng": 133.8301,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "株式会社吉延精機工業",
@@ -640,7 +744,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 34.5876,
+      "lng": 133.8781,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "光軽金属工業株式会社",
@@ -662,7 +770,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 34.599,
+      "lng": 133.9973,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "サクライ軽金属株式会社",
@@ -684,7 +796,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 34.6915,
+      "lng": 133.9331,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "TPRアルテック株式会社",
@@ -706,7 +822,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 34.7352,
+      "lng": 133.86,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "株式会社岡島パイプ製作所",
@@ -728,7 +848,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 34.6758,
+      "lng": 133.919,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "株式会社明治製作所",
@@ -751,7 +875,11 @@
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
       "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 35.4764,
+      "lng": 134.1401,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "株式会社菊水フォージング",
@@ -773,7 +901,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 35.5299,
+      "lng": 134.2228,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "米子製鋼株式会社",
@@ -796,7 +928,11 @@
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
       "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 35.4725,
+      "lng": 134.3236,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "株式会社ミヨシ",
@@ -818,7 +954,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 35.4161,
+      "lng": 134.2622,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "安田精工株式会社",
@@ -840,7 +980,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 35.507,
+      "lng": 134.3355,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "株式会社ササヤマ",
@@ -862,7 +1006,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 35.4998,
+      "lng": 134.3095,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "聖和精機株式会社",
@@ -884,7 +1032,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 35.5,
+      "lng": 134.348,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "ヤンマーキャステクノ株式会社(松江事業部)",
@@ -910,7 +1062,11 @@
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
       "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 35.4783,
+      "lng": 133.0874,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "株式会社エンドー(島根工場)",
@@ -933,7 +1089,11 @@
       "list_type": "inhouse_ht_maker",
       "focus_agreed": true,
       "focus_reason": "単なる研究用電気炉や金型用小型炉ではなく、本業の量産工程に熱処理を組み込んでいる可能性が高く、炉数・処理量・製品規模が大きい（公開設備構成からの営業上の推定）。ユーザー合意済み。",
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 35.4353,
+      "lng": 133.0179,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "株式会社渡部製鋼所",
@@ -955,7 +1115,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 35.4389,
+      "lng": 133.1351,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "オーエム金属工業株式会社",
@@ -977,7 +1141,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 35.4585,
+      "lng": 133.1316,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "島根自動機株式会社",
@@ -999,7 +1167,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 35.4263,
+      "lng": 132.9545,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "株式会社アイシン福井",
@@ -1024,7 +1196,11 @@
       "capacity": "",
       "list_type": "inhouse_ht_maker",
       "focus_agreed": false,
-      "category": "自家熱処理メーカー"
+      "category": "自家熱処理メーカー",
+      "lat": 35.9843,
+      "lng": 136.1789,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "田中精密工業株式会社",
@@ -1048,7 +1224,11 @@
       ],
       "id": "420a0686cd41",
       "list_type": "inhouse_ht_maker",
-      "status": "prospect"
+      "status": "prospect",
+      "lat": 36.6615,
+      "lng": 137.3097,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "株式会社林鍛造所",
@@ -1073,7 +1253,11 @@
       ],
       "id": "19752204bd70",
       "list_type": "inhouse_ht_maker",
-      "status": "prospect"
+      "status": "prospect",
+      "lat": 36.6476,
+      "lng": 136.5433,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "株式会社明石合銅",
@@ -1097,7 +1281,11 @@
       ],
       "id": "a2e927fc707f",
       "list_type": "inhouse_ht_maker",
-      "status": "prospect"
+      "status": "prospect",
+      "lat": 36.5209,
+      "lng": 136.5616,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "武生特殊鋼材株式会社",
@@ -1122,7 +1310,11 @@
       ],
       "id": "3898b33485b2",
       "list_type": "inhouse_ht_maker",
-      "status": "prospect"
+      "status": "prospect",
+      "lat": 36.0599,
+      "lng": 136.2268,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "福井鋲螺株式会社",
@@ -1148,7 +1340,11 @@
       ],
       "id": "a6107c7628cb",
       "list_type": "inhouse_ht_maker",
-      "status": "prospect"
+      "status": "prospect",
+      "lat": 36.0329,
+      "lng": 136.1316,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "深田熱処理工業株式会社",
@@ -1373,7 +1569,11 @@
       ],
       "id": "8f3d8acff89e",
       "list_type": "inhouse_ht_maker",
-      "status": "prospect"
+      "status": "prospect",
+      "lat": 35.5514,
+      "lng": 134.9885,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "株式会社笠谷スプリング工場",
@@ -1395,7 +1595,11 @@
       "id": "13f9da87a74c",
       "list_type": "inhouse_ht_maker",
       "aliases": [],
-      "status": "prospect"
+      "status": "prospect",
+      "lat": 35.342,
+      "lng": 134.771,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "和田山精機株式会社",
@@ -1417,7 +1621,11 @@
       "id": "d47dec1672fa",
       "list_type": "inhouse_ht_maker",
       "aliases": [],
-      "status": "prospect"
+      "status": "prospect",
+      "lat": 35.2914,
+      "lng": 134.7448,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "株式会社メガサス",
@@ -1439,7 +1647,11 @@
       "id": "b14f20b00edd",
       "list_type": "inhouse_ht_maker",
       "aliases": [],
-      "status": "prospect"
+      "status": "prospect",
+      "lat": 35.4199,
+      "lng": 134.9054,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "中部金属熱処理協同組合",
@@ -1462,7 +1674,11 @@
       "id": "36013c731cb5",
       "list_type": "協同組合・業界団体",
       "aliases": [],
-      "status": "prospect"
+      "status": "prospect",
+      "lat": 35.2015,
+      "lng": 136.811,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "丹後機械工業協同組合（TANKI）",
@@ -1485,7 +1701,11 @@
       "id": "890152adf678",
       "list_type": "協同組合・業界団体",
       "aliases": [],
-      "status": "prospect"
+      "status": "prospect",
+      "lat": 35.5827,
+      "lng": 135.0743,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "協業組合丹後熱処理センター",
@@ -1508,7 +1728,11 @@
       "id": "fc63c7f248d4",
       "list_type": "熱処理専業",
       "aliases": [],
-      "status": "prospect"
+      "status": "prospect",
+      "lat": 35.6528,
+      "lng": 135.0373,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "京都府熱処理事業協同組合",
@@ -1530,7 +1754,11 @@
       "id": "2afc7d1d7f68",
       "list_type": "協同組合・業界団体",
       "aliases": [],
-      "status": "prospect"
+      "status": "prospect",
+      "lat": 34.9611,
+      "lng": 135.6918,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "西部金属熱処理工業協同組合",
@@ -1552,7 +1780,11 @@
       "id": "bc2074135346",
       "list_type": "協同組合・業界団体",
       "aliases": [],
-      "status": "prospect"
+      "status": "prospect",
+      "lat": 34.6855,
+      "lng": 135.4435,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "name": "日本金属熱処理工業会",
@@ -1574,7 +1806,11 @@
       "id": "7e6ade728523",
       "list_type": "協同組合・業界団体",
       "aliases": [],
-      "status": "prospect"
+      "status": "prospect",
+      "lat": 35.766,
+      "lng": 139.855,
+      "geo_approx": true,
+      "geo_note": "市区町村付近の概略位置"
     },
     {
       "id": "f717419620b3",
@@ -1657,7 +1893,8 @@
       "自家熱処理メーカー": 53,
       "熱処理専業": 8,
       "協同組合・業界団体": 5
-    }
+    },
+    "with_geo": 68
   },
   "focus_agreed_at": "2026-08-12",
   "focus_agreed_by": "user",
@@ -1699,5 +1936,7 @@
       "action": "大型案件を受注できるか確認",
       "note": "優先度Aの攻略案件。ユーザー呼称「栗田工業」＝栗田精工（水処理の栗田工業とは別）。栗田HT訪問の前に、親会社・栗田精工（桑名・いなべ）へ行き、大型案件を受注できるか確認する。いなべ工場は軸受の球状化焼鈍・焼準と旋削を一貫。グループに栗田HT（羽咋・受託熱処理）あり。"
     }
-  ]
+  ],
+  "map_url": "https://osamuina8008.github.io/business-tools/strategy/inhouse_ht.html#map",
+  "map_image_url": "https://osamuina8008.github.io/business-tools/strategy/inhouse_ht_map.png"
 }

@@ -10,5 +10,6 @@
   "map_page_id": "3badf02f-7a10-81d8-9e59-f72ed5277e5f",
   "map_page_url": "https://www.notion.so/3badf02f7a1081d89e59f72ed5277e5f",
   "map_url": "https://osamuina8008.github.io/business-tools/strategy/inhouse_ht.html#map",
-  "map_image_url": "https://osamuina8008.github.io/business-tools/strategy/inhouse_ht_map.png"
+  "map_image_url": "https://raw.githubusercontent.com/osamuina8008/business-tools/main/strategy/inhouse_ht_map.png",
+  "map_url_fallback": "https://cdn.jsdelivr.net/gh/osamuina8008/business-tools@main/strategy/inhouse_ht.html#map"
 }

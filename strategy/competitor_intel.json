@@ -11271,6 +11271,71 @@
       "client_hints": [],
       "errors": [],
       "updated": "2026-08-12"
+    },
+    {
+      "id": "63ce6e18a5a3",
+      "name": "近畿刃物工業株式会社",
+      "area": "大阪府・守口市",
+      "updated": "2026-08-12T05:48:26+09:00",
+      "scope": "plant",
+      "profile": {
+        "official_name": "近畿刃物工業株式会社"
+      },
+      "scale_summary": "大阪府守口市/ダンボール製函機刃物メーカー",
+      "equipment": [],
+      "equipment_summary": "熱処理競合ではない(刃物製造)。西部工業会会員のため隣接として把握のみ",
+      "strategy_notes": [
+        "競合対象外。ダンボール刃物・製函機刃物が本業",
+        "更なる高みを目指して工作機械を新設&増設!",
+        "本機は既設同型機に続く増設となります。",
+        "さらなる高精度・高品質な加工体制の強化を図ってまいります。 NC3軸目立機 導入年:2025年",
+        "特徴:不等速連動制御により、といしが回転テーブル上のどの位置にあっても研削量が常に一定になるように制御されることで、面粗さと品質が安定し、生産性が向上します。ロータリー式の平面研磨機は以前より稼動している機械の1つですが増設によってボトルネックが解消し、これまで以上の納期対応の貢"
+      ],
+      "operation": "adjacent",
+      "delegate_to": "",
+      "detail_status": "partial",
+      "detail_missing": false,
+      "detail_note": "設備概要あり／台数・メーカーの詳細は追加調査",
+      "ignore_for_watch": false,
+      "has_expansion_alert": true,
+      "expansion_alerts": [],
+      "client_sectors": [],
+      "partners": [],
+      "client_hints": [],
+      "news": [],
+      "sources": [
+        {
+          "kind": "company",
+          "url": "https://www.kinkihamono.co.jp/",
+          "fetched_at": "2026-08-12T05:48:23+09:00"
+        },
+        {
+          "kind": "products",
+          "url": "https://www.kinkihamono.co.jp/products.html",
+          "fetched_at": "2026-08-12T05:48:24+09:00"
+        },
+        {
+          "kind": "equipment",
+          "url": "https://www.kinkihamono.co.jp/cgi-bin/whatsnew/whats_display.cgi?id:development+base:/whats_data/development/_temp/process.html",
+          "fetched_at": "2026-08-12T05:48:25+09:00"
+        }
+      ],
+      "errors": [],
+      "note": "西部工業会会員(京阪神)。刃物製造が主だが熱処理関連会員。実態・外注関係を調査。客として訪問しない。 ユーザー指示: 微妙だが当面残す（呼称ゆれ「近藤刃物」）。",
+      "region_label": "大阪",
+      "macro_region": "keihanshin",
+      "blurb": "熱処理競合ではない(刃物製造)。西部工業会会員のため隣接として把握のみ 大阪府守口市/ダンボール製函機刃物メーカー 更なる高みを目指して工作機械を新設&増設! ⚠増強情報あり。 強み候補: 増強",
+      "commentary": "競合対象外。ダンボール刃物・製函機刃物が本業 / 更なる高みを目指して工作機械を新設&増設! / 本機は既設同型機に続く増設となります。",
+      "tags": [
+        "増強",
+        "京阪神",
+        "西部会員",
+        "当面残す"
+      ],
+      "aliases": [
+        "近藤刃物",
+        "近畿刃物"
+      ]
     }
   ],
   "blurbs_updated": "2026-08-12T07:12:30+09:00",
@@ -11279,12 +11344,15 @@
     "rule": "西部工業会会員でもネストリ（熱処理受託・熱処理炉）と無関係なら不要。コーティング／PVD／DLC専業は現時点で不要。",
     "updated": "2026-08-12",
     "examples_removed": [
-      "近畿刃物工業株式会社",
       "東洋摩擦圧接工業株式会社",
       "ナノコート・ティーエス株式会社 大阪事業部",
       "富士電子工業株式会社",
       "株式会社ジェイテクトコーティング",
       "大同DMソリューション株式会社(静岡)"
+    ],
+    "exceptions": [
+      "近畿刃物工業は微妙だが当面残す（ユーザー指示。呼称ゆれ: 近藤刃物）。",
+      "ジェイテクト系の熱処理関連（例: サープレット）は残す。コーティング専業は除外のまま。"
     ]
   }
 }

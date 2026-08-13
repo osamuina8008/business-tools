@@ -2,9 +2,21 @@
   "subject": "行政法",
   "date": "2026-08-13",
   "keywords": [],
-  "wrong_qs": [],
+  "wrong_qs": [
+    "申請型 vs 非申請型の要件区別",
+    "差止訴訟の訴訟要件",
+    "仮の救済の位置づけ",
+    "「懲戒処分」の原告適格"
+  ],
   "wrong_topics": [],
-  "today_logs": [],
+  "today_logs": [
+    {
+      "type": "インプット",
+      "questions_count": 10,
+      "understanding": "普通",
+      "topic": ""
+    }
+  ],
   "spacing_items": [
     {
       "interval_label": "",
@@ -251,8 +263,8 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": false,
-  "updated_at": "2026-08-13T07:00:09.247113",
+  "has_data": true,
+  "updated_at": "2026-08-13T14:33:34.715434",
   "today_tasks": [
     {
       "subject": "憲法",
@@ -279,8 +291,8 @@
       "status": "遅れ",
       "action": "短答3問｜論点：取消訴訟の訴訟要件（処分性・原告適格・出訴期間）",
       "theme": "短答2周目・条文ベース定着",
-      "situation": "今週0/15問。あと15問（7日ぶり）",
-      "actual_q": 0,
+      "situation": "今週10/15問。あと5問",
+      "actual_q": 10,
       "target_q": 15,
       "checked": false
     },
@@ -315,10 +327,31 @@
       "checked": false
     }
   ],
-  "quiz_question": "",
-  "quiz_answer_hint": "",
-  "articles": [],
-  "freq_rating": "",
+  "quiz_question": "申請型義務付け訴訟で拒否処分が無効な場合、義務付けの訴えを単独提起できるか？",
+  "quiz_answer_hint": "行訴法37条の3第3項2号（無効の場合も無効等確認訴訟の併合が必要）",
+  "articles": [
+    {
+      "gist": "執行停止の対象は効力・執行・続行の停止",
+      "ref": "行訴法25条2項"
+    },
+    {
+      "gist": "非申請型義務付けの重大な損害・補充性要件",
+      "ref": "行訴法37条の2第1項"
+    },
+    {
+      "gist": "申請型は申請者限定・取消訴訟等の併合必須",
+      "ref": "行訴法37条の3第2項・3項"
+    },
+    {
+      "gist": "仮の義務付け・仮の差止めの要件",
+      "ref": "行訴法37条の5"
+    },
+    {
+      "gist": "行政処分への民事保全法仮処分の排除",
+      "ref": "行訴法44条"
+    }
+  ],
+  "freq_rating": "★★★",
   "weak_points_text": "",
   "next_focus": "",
   "persistent_weak": [

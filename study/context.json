@@ -15,6 +15,42 @@
       "questions_count": 10,
       "understanding": "普通",
       "topic": ""
+    },
+    {
+      "type": "論文",
+      "questions_count": 0,
+      "understanding": "普通",
+      "topic": ""
+    },
+    {
+      "type": "論文",
+      "questions_count": 0,
+      "understanding": "普通",
+      "topic": ""
+    },
+    {
+      "type": "論文",
+      "questions_count": 0,
+      "understanding": "普通",
+      "topic": ""
+    },
+    {
+      "type": "論文",
+      "questions_count": 0,
+      "understanding": "普通",
+      "topic": ""
+    },
+    {
+      "type": "短答",
+      "questions_count": 5,
+      "understanding": "普通",
+      "topic": ""
+    },
+    {
+      "type": "インプット",
+      "questions_count": 15,
+      "understanding": "普通",
+      "topic": ""
     }
   ],
   "spacing_items": [
@@ -264,7 +300,7 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-08-13T14:33:34.715434",
+  "updated_at": "2026-08-13T20:51:27.761790",
   "today_tasks": [
     {
       "subject": "憲法",
@@ -278,21 +314,11 @@
     },
     {
       "subject": "刑法",
-      "status": "遅れ",
-      "action": "短答3問｜論点：構成要件該当性・違法性阻却（正当防衛の要件）・共犯の成立",
+      "status": "今週",
+      "action": "0日前に学習済。今週の目標：短答2周目・論文構成入門",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週0/15問。あと15問（8日ぶり）",
+      "situation": "今週0/15問。あと15問",
       "actual_q": 0,
-      "target_q": 15,
-      "checked": false
-    },
-    {
-      "subject": "行政法",
-      "status": "遅れ",
-      "action": "短答3問｜論点：取消訴訟の訴訟要件（処分性・原告適格・出訴期間）",
-      "theme": "短答2周目・条文ベース定着",
-      "situation": "今週10/15問。あと5問",
-      "actual_q": 10,
       "target_q": 15,
       "checked": false
     },
@@ -309,9 +335,9 @@
     {
       "subject": "刑事訴訟法",
       "status": "今週",
-      "action": "1日前に学習済。今週の目標：短答2周目",
+      "action": "0日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（1日ぶり）",
+      "situation": "今週0/15問。あと15問",
       "actual_q": 0,
       "target_q": 15,
       "checked": false

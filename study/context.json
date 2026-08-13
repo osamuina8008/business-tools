@@ -1,118 +1,73 @@
 {
-  "subject": "行政法",
-  "date": "2026-08-13",
+  "subject": "民訴法",
+  "date": "2026-08-14",
   "keywords": [],
-  "wrong_qs": [
-    "申請型 vs 非申請型の要件区別",
-    "差止訴訟の訴訟要件",
-    "仮の救済の位置づけ",
-    "「懲戒処分」の原告適格"
-  ],
+  "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [
-    {
-      "type": "インプット",
-      "questions_count": 10,
-      "understanding": "普通",
-      "topic": ""
-    },
-    {
-      "type": "論文",
-      "questions_count": 0,
-      "understanding": "普通",
-      "topic": ""
-    },
-    {
-      "type": "論文",
-      "questions_count": 0,
-      "understanding": "普通",
-      "topic": ""
-    },
-    {
-      "type": "論文",
-      "questions_count": 0,
-      "understanding": "普通",
-      "topic": ""
-    },
-    {
-      "type": "論文",
-      "questions_count": 0,
-      "understanding": "普通",
-      "topic": ""
-    },
-    {
-      "type": "短答",
-      "questions_count": 5,
-      "understanding": "普通",
-      "topic": ""
-    },
-    {
-      "type": "インプット",
-      "questions_count": 15,
-      "understanding": "普通",
-      "topic": ""
-    }
-  ],
+  "today_logs": [],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-08-12",
-      "subject": "—",
+      "date": "2026-08-13",
+      "subject": "行政法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [],
+      "keywords": [
+        "義務付け訴訟の類型区別",
+        "仮の救済の要件"
+      ],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-08-12",
+      "date": "2026-08-13",
+      "subject": "刑法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "義務付け訴訟の類型区別",
+        "仮の救済の要件"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-08-13",
       "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
+      "keywords": [
+        "義務付け訴訟の類型区別",
+        "仮の救済の要件"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-08-11",
+      "subject": "民法",
+      "questions_count": 0,
+      "wrong_qs": [],
       "keywords": [],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-08-12",
+      "date": "2026-07-24",
       "subject": "民事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-08-10",
-      "subject": "商法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-08-06",
-      "subject": "行政法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-23",
-      "subject": "行政法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
+      "keywords": [
+        "既判力の客観的範囲",
+        "移送の種類"
+      ],
       "claude_notes": []
     }
   ],
   "today_schedule": [
     {
       "time": "03:45",
-      "activity": "家起床"
+      "activity": "家"
     },
     {
       "time": "03:50",
@@ -299,15 +254,15 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": true,
-  "updated_at": "2026-08-13T20:51:27.761790",
+  "has_data": false,
+  "updated_at": "2026-08-14T07:00:05.789042",
   "today_tasks": [
     {
       "subject": "憲法",
       "status": "遅れ",
       "action": "短答3問｜論点：違憲審査基準（LRA・比較衡量）・表現の自由・平等原則",
       "theme": "短答2周目開始・論文構成（骨組みのみ）",
-      "situation": "今週0/15問。あと15問（10日ぶり）",
+      "situation": "今週0/15問。あと15問（11日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -315,9 +270,9 @@
     {
       "subject": "刑法",
       "status": "今週",
-      "action": "0日前に学習済。今週の目標：短答2周目・論文構成入門",
+      "action": "1日前に学習済。今週の目標：短答2周目・論文構成入門",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週0/15問。あと15問",
+      "situation": "今週0/15問。あと15問（1日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -327,7 +282,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：訴訟要件（当事者適格・訴えの利益）・既判力の範囲",
       "theme": "短答2周目",
-      "situation": "今週1/15問。あと14問（1日ぶり）",
+      "situation": "今週1/15問。あと14問（2日ぶり）",
       "actual_q": 1,
       "target_q": 15,
       "checked": false
@@ -335,9 +290,9 @@
     {
       "subject": "刑事訴訟法",
       "status": "今週",
-      "action": "0日前に学習済。今週の目標：短答2周目",
+      "action": "1日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問",
+      "situation": "今週0/15問。あと15問（1日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -347,37 +302,16 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（51日ぶり）",
+      "situation": "今週0/10問。あと10問（52日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "申請型義務付け訴訟で拒否処分が無効な場合、義務付けの訴えを単独提起できるか？",
-  "quiz_answer_hint": "行訴法37条の3第3項2号（無効の場合も無効等確認訴訟の併合が必要）",
-  "articles": [
-    {
-      "gist": "執行停止の対象は効力・執行・続行の停止",
-      "ref": "行訴法25条2項"
-    },
-    {
-      "gist": "非申請型義務付けの重大な損害・補充性要件",
-      "ref": "行訴法37条の2第1項"
-    },
-    {
-      "gist": "申請型は申請者限定・取消訴訟等の併合必須",
-      "ref": "行訴法37条の3第2項・3項"
-    },
-    {
-      "gist": "仮の義務付け・仮の差止めの要件",
-      "ref": "行訴法37条の5"
-    },
-    {
-      "gist": "行政処分への民事保全法仮処分の排除",
-      "ref": "行訴法44条"
-    }
-  ],
-  "freq_rating": "★★★",
+  "quiz_question": "",
+  "quiz_answer_hint": "",
+  "articles": [],
+  "freq_rating": "",
   "weak_points_text": "",
   "next_focus": "",
   "persistent_weak": [

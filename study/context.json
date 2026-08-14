@@ -1,24 +1,12 @@
 {
-  "subject": "民訴法",
-  "date": "2026-08-14",
+  "subject": "刑訴法",
+  "date": "2026-08-15",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
   "today_logs": [
     {
       "type": "短答",
-      "questions_count": 15,
-      "understanding": "普通",
-      "topic": ""
-    },
-    {
-      "type": "インプット",
-      "questions_count": 0,
-      "understanding": "普通",
-      "topic": ""
-    },
-    {
-      "type": "インプット",
       "questions_count": 0,
       "understanding": "普通",
       "topic": ""
@@ -27,8 +15,8 @@
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-08-13",
-      "subject": "行政法",
+      "date": "2026-08-14",
+      "subject": "民事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -36,19 +24,34 @@
     },
     {
       "interval_label": "",
-      "date": "2026-08-13",
-      "subject": "刑法",
+      "date": "2026-08-14",
+      "subject": "憲法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [
-        "義務付け訴訟の類型区別",
-        "仮の救済の要件"
-      ],
+      "keywords": [],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-08-13",
+      "date": "2026-08-14",
+      "subject": "刑法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-08-12",
+      "subject": "—",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-08-12",
       "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
@@ -57,8 +60,8 @@
     },
     {
       "interval_label": "",
-      "date": "2026-08-11",
-      "subject": "民法",
+      "date": "2026-08-12",
+      "subject": "民事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -66,216 +69,178 @@
     },
     {
       "interval_label": "",
-      "date": "2026-07-24",
-      "subject": "民事訴訟法",
+      "date": "2026-08-08",
+      "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [
-        "既判力の客観的範囲",
-        "移送の種類"
-      ],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-25",
+      "subject": "刑事訴訟法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
       "claude_notes": []
     }
   ],
   "today_schedule": [
     {
-      "time": "03:45",
-      "activity": "家"
-    },
-    {
-      "time": "03:50",
-      "activity": "家準備"
-    },
-    {
-      "time": "03:55",
-      "activity": "家瞑想"
-    },
-    {
-      "time": "03:59",
-      "activity": "家朝準備"
-    },
-    {
       "time": "04:00",
-      "activity": "家学習"
+      "activity": "実家"
     },
     {
       "time": "04:15",
-      "activity": "家学習"
+      "activity": "実家"
     },
     {
       "time": "04:30",
-      "activity": "家学習"
+      "activity": "実家"
     },
     {
       "time": "04:45",
-      "activity": "家学習"
+      "activity": "実家"
     },
     {
       "time": "05:00",
-      "activity": "家学習"
+      "activity": "実家"
     },
     {
       "time": "05:15",
-      "activity": "家食事・準備"
+      "activity": "実家"
     },
     {
       "time": "05:30",
-      "activity": "移動家→駅"
+      "activity": "実家"
     },
     {
-      "time": "06:05",
-      "activity": "電車学習"
+      "time": "05:45",
+      "activity": "実家"
     },
     {
-      "time": "06:15",
-      "activity": "電車学習"
+      "time": "06:00",
+      "activity": "実家"
     },
     {
       "time": "06:30",
-      "activity": "電車学習"
+      "activity": "移動"
     },
     {
       "time": "06:45",
-      "activity": "移動移動"
+      "activity": "移動"
     },
     {
       "time": "07:00",
-      "activity": "移動運動"
+      "activity": "移動"
     },
     {
       "time": "07:15",
-      "activity": "移動運動"
+      "activity": "移動"
     },
     {
-      "time": "07:40",
-      "activity": "仕事仕事"
+      "time": "07:30",
+      "activity": "移動"
     },
     {
       "time": "08:00",
-      "activity": "仕事仕事"
+      "activity": "移動"
     },
     {
       "time": "09:00",
-      "activity": "仕事仕事"
+      "activity": "家掃除"
     },
     {
       "time": "10:00",
-      "activity": "仕事仕事"
+      "activity": "家掃除"
     },
     {
       "time": "11:00",
-      "activity": "仕事仕事"
+      "activity": "家掃除"
     },
     {
       "time": "12:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "13:00",
-      "activity": "仕事仕事"
+      "activity": "家掃除"
     },
     {
       "time": "14:00",
-      "activity": "仕事仕事"
+      "activity": "家学習"
     },
     {
       "time": "15:00",
-      "activity": "仕事仕事"
+      "activity": "家学習"
     },
     {
       "time": "16:00",
-      "activity": "仕事仕事"
+      "activity": "ベスパ確認"
     },
     {
       "time": "17:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "18:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "18:10",
-      "activity": "車移動"
-    },
-    {
-      "time": "18:30",
-      "activity": "車夕食"
-    },
-    {
-      "time": "18:40",
-      "activity": "電車学習"
-    },
-    {
-      "time": "18:45",
-      "activity": "電車学習"
-    },
-    {
-      "time": "19:00",
-      "activity": "電車学習"
-    },
-    {
-      "time": "19:15",
-      "activity": "電車学習"
-    },
-    {
-      "time": "19:20",
-      "activity": "移動歩き"
-    },
-    {
-      "time": "19:40",
       "activity": "ベスパ筋トレ"
     },
     {
-      "time": "19:55",
-      "activity": "ベスパ運動"
+      "time": "17:15",
+      "activity": "ベスパ筋トレ"
     },
     {
-      "time": "20:05",
-      "activity": "ベスパストレッチ"
+      "time": "17:30",
+      "activity": "移動"
     },
     {
-      "time": "20:15",
-      "activity": "ベスパ風呂"
+      "time": "18:00",
+      "activity": "家食事"
+    },
+    {
+      "time": "18:15",
+      "activity": "家食事"
+    },
+    {
+      "time": "18:30",
+      "activity": "家食事"
+    },
+    {
+      "time": "18:45",
+      "activity": "家食事"
+    },
+    {
+      "time": "19:00",
+      "activity": "家料理準備"
+    },
+    {
+      "time": "19:15",
+      "activity": "家料理準備"
+    },
+    {
+      "time": "19:30",
+      "activity": "家料理準備"
+    },
+    {
+      "time": "19:45",
+      "activity": "家料理準備"
     },
     {
       "time": "20:30",
-      "activity": "ベスパ風呂"
+      "activity": "家復習と到達点の確認"
     },
     {
-      "time": "20:45",
-      "activity": "移動帰宅"
-    },
-    {
-      "time": "21:10",
-      "activity": "家片付け"
-    },
-    {
-      "time": "21:20",
-      "activity": "家復習"
-    },
-    {
-      "time": "21:25",
-      "activity": "家ブログ"
+      "time": "21:00",
+      "activity": "家復習と到達点の確認"
     },
     {
       "time": "21:30",
-      "activity": "家明日の支度"
-    },
-    {
-      "time": "21:45",
       "activity": "家就寝"
     }
   ],
   "has_data": true,
-  "updated_at": "2026-08-14T20:43:39.687474",
+  "updated_at": "2026-08-15T07:00:51.038404",
   "today_tasks": [
     {
       "subject": "憲法",
       "status": "今週",
-      "action": "0日前に学習済。今週の目標：短答2周目開始・論文構成（骨組みのみ）",
+      "action": "1日前に学習済。今週の目標：短答2周目開始・論文構成（骨組みのみ）",
       "theme": "短答2周目開始・論文構成（骨組みのみ）",
-      "situation": "今週0/15問。あと15問",
+      "situation": "今週0/15問。あと15問（1日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -283,9 +248,9 @@
     {
       "subject": "刑法",
       "status": "今週",
-      "action": "0日前に学習済。今週の目標：短答2周目・論文構成入門",
+      "action": "1日前に学習済。今週の目標：短答2周目・論文構成入門",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週0/15問。あと15問",
+      "situation": "今週0/15問。あと15問（1日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -293,9 +258,9 @@
     {
       "subject": "刑事訴訟法",
       "status": "今週",
-      "action": "1日前に学習済。今週の目標：短答2周目",
+      "action": "0日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（1日ぶり）",
+      "situation": "今週0/15問。あと15問",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -305,37 +270,16 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（52日ぶり）",
+      "situation": "今週0/10問。あと10問（53日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "民訴157条Ⅰで攻撃防御方法を却下するために必要な要件は何個か？",
-  "quiz_answer_hint": "民訴法157条Ⅰ：①時機後れ②故意重過失③訴訟遅延の3要件",
-  "articles": [
-    {
-      "gist": "故意重過失＋遅延の場合に却下可",
-      "ref": "民訴法157条Ⅰ"
-    },
-    {
-      "gist": "既判力は主文に包含するものに限る",
-      "ref": "民訴法114条Ⅰ"
-    },
-    {
-      "gist": "控訴審で一審口頭弁論結果を陳述",
-      "ref": "民訴法296条Ⅱ"
-    },
-    {
-      "gist": "一審規定を控訴審に準用",
-      "ref": "民訴法297条"
-    },
-    {
-      "gist": "控訴審で管轄違い主張は原則不可",
-      "ref": "民訴法299条Ⅰ"
-    }
-  ],
-  "freq_rating": "★★★",
+  "quiz_question": "",
+  "quiz_answer_hint": "",
+  "articles": [],
+  "freq_rating": "",
   "weak_points_text": "",
   "next_focus": "",
   "persistent_weak": [

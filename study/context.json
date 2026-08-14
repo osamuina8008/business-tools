@@ -16,6 +16,12 @@
       "questions_count": 0,
       "understanding": "普通",
       "topic": ""
+    },
+    {
+      "type": "インプット",
+      "questions_count": 0,
+      "understanding": "普通",
+      "topic": ""
     }
   ],
   "spacing_items": [
@@ -25,10 +31,7 @@
       "subject": "行政法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [
-        "義務付け訴訟の類型区別",
-        "仮の救済の要件"
-      ],
+      "keywords": [],
       "claude_notes": []
     },
     {
@@ -49,10 +52,7 @@
       "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [
-        "義務付け訴訟の類型区別",
-        "仮の救済の要件"
-      ],
+      "keywords": [],
       "claude_notes": []
     },
     {
@@ -268,7 +268,7 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-08-14T13:43:03.735367",
+  "updated_at": "2026-08-14T20:24:54.453624",
   "today_tasks": [
     {
       "subject": "憲法",
@@ -283,9 +283,9 @@
     {
       "subject": "刑法",
       "status": "今週",
-      "action": "1日前に学習済。今週の目標：短答2周目・論文構成入門",
+      "action": "0日前に学習済。今週の目標：短答2周目・論文構成入門",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週0/15問。あと15問（1日ぶり）",
+      "situation": "今週0/15問。あと15問",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -311,10 +311,31 @@
       "checked": false
     }
   ],
-  "quiz_question": "",
-  "quiz_answer_hint": "",
-  "articles": [],
-  "freq_rating": "",
+  "quiz_question": "民訴157条Ⅰで攻撃防御方法を却下するために必要な要件は何個か？",
+  "quiz_answer_hint": "民訴法157条Ⅰ：①時機後れ②故意重過失③訴訟遅延の3要件",
+  "articles": [
+    {
+      "gist": "故意重過失＋遅延の場合に却下可",
+      "ref": "民訴法157条Ⅰ"
+    },
+    {
+      "gist": "既判力は主文に包含するものに限る",
+      "ref": "民訴法114条Ⅰ"
+    },
+    {
+      "gist": "控訴審で一審口頭弁論結果を陳述",
+      "ref": "民訴法296条Ⅱ"
+    },
+    {
+      "gist": "一審規定を控訴審に準用",
+      "ref": "民訴法297条"
+    },
+    {
+      "gist": "控訴審で管轄違い主張は原則不可",
+      "ref": "民訴法299条Ⅰ"
+    }
+  ],
+  "freq_rating": "★★★",
   "weak_points_text": "",
   "next_focus": "",
   "persistent_weak": [

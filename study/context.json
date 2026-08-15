@@ -1,22 +1,15 @@
 {
-  "subject": "刑訴法",
-  "date": "2026-08-15",
+  "subject": "商法",
+  "date": "2026-08-16",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [
-    {
-      "type": "短答",
-      "questions_count": 0,
-      "understanding": "普通",
-      "topic": ""
-    }
-  ],
+  "today_logs": [],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-08-14",
-      "subject": "民事訴訟法",
+      "date": "2026-08-15",
+      "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -24,8 +17,8 @@
     },
     {
       "interval_label": "",
-      "date": "2026-08-14",
-      "subject": "憲法",
+      "date": "2026-08-13",
+      "subject": "行政法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -33,25 +26,19 @@
     },
     {
       "interval_label": "",
-      "date": "2026-08-14",
+      "date": "2026-08-13",
       "subject": "刑法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [],
+      "keywords": [
+        "義務付け訴訟の類型区別",
+        "仮の救済の要件"
+      ],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-08-12",
-      "subject": "—",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-08-12",
+      "date": "2026-08-13",
       "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
@@ -60,29 +47,15 @@
     },
     {
       "interval_label": "",
-      "date": "2026-08-12",
-      "subject": "民事訴訟法",
+      "date": "2026-07-26",
+      "subject": "商法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-08-08",
-      "subject": "刑事訴訟法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-25",
-      "subject": "刑事訴訟法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
+      "keywords": [
+        "株主保護の総合",
+        "続と無効の訴え",
+        "業譲渡の異同②"
+      ],
       "claude_notes": []
     }
   ],
@@ -232,15 +205,15 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": true,
-  "updated_at": "2026-08-15T21:18:56.695922",
+  "has_data": false,
+  "updated_at": "2026-08-16T07:00:29.841653",
   "today_tasks": [
     {
       "subject": "憲法",
       "status": "今週",
-      "action": "1日前に学習済。今週の目標：短答2周目開始・論文構成（骨組みのみ）",
+      "action": "2日前に学習済。今週の目標：短答2周目開始・論文構成（骨組みのみ）",
       "theme": "短答2周目開始・論文構成（骨組みのみ）",
-      "situation": "今週0/15問。あと15問（1日ぶり）",
+      "situation": "今週0/15問。あと15問（2日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -248,9 +221,9 @@
     {
       "subject": "刑法",
       "status": "今週",
-      "action": "1日前に学習済。今週の目標：短答2周目・論文構成入門",
+      "action": "2日前に学習済。今週の目標：短答2周目・論文構成入門",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週0/15問。あと15問（1日ぶり）",
+      "situation": "今週0/15問。あと15問（2日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -258,9 +231,9 @@
     {
       "subject": "刑事訴訟法",
       "status": "今週",
-      "action": "0日前に学習済。今週の目標：短答2周目",
+      "action": "1日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問",
+      "situation": "今週0/15問。あと15問（1日ぶり）",
       "actual_q": 0,
       "target_q": 15,
       "checked": false
@@ -270,7 +243,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（53日ぶり）",
+      "situation": "今週0/10問。あと10問（54日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false

@@ -206,16 +206,16 @@
     }
   ],
   "has_data": false,
-  "updated_at": "2026-08-16T07:00:29.841653",
+  "updated_at": "2026-08-16T08:48:35.575457",
   "today_tasks": [
     {
       "subject": "憲法",
       "status": "今週",
       "action": "2日前に学習済。今週の目標：短答2周目開始・論文構成（骨組みのみ）",
       "theme": "短答2周目開始・論文構成（骨組みのみ）",
-      "situation": "今週0/15問。あと15問（2日ぶり）",
+      "situation": "今週0/10問。あと10問（2日ぶり）",
       "actual_q": 0,
-      "target_q": 15,
+      "target_q": 10,
       "checked": false
     },
     {
@@ -223,9 +223,9 @@
       "status": "今週",
       "action": "2日前に学習済。今週の目標：短答2周目・論文構成入門",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週0/15問。あと15問（2日ぶり）",
+      "situation": "今週0/10問。あと10問（2日ぶり）",
       "actual_q": 0,
-      "target_q": 15,
+      "target_q": 10,
       "checked": false
     },
     {
@@ -233,9 +233,9 @@
       "status": "今週",
       "action": "1日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/15問。あと15問（1日ぶり）",
+      "situation": "今週0/10問。あと10問（1日ぶり）",
       "actual_q": 0,
-      "target_q": 15,
+      "target_q": 10,
       "checked": false
     },
     {

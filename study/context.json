@@ -1,6 +1,6 @@
 {
-  "subject": "商法",
-  "date": "2026-08-16",
+  "subject": "憲法",
+  "date": "2026-08-17",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
@@ -10,223 +10,272 @@
       "questions_count": 10,
       "understanding": "普通",
       "topic": ""
-    },
-    {
-      "type": "論文",
-      "questions_count": 0,
-      "understanding": "普通",
-      "topic": ""
     }
   ],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-08-15",
-      "subject": "刑事訴訟法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-08-13",
-      "subject": "行政法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-08-13",
-      "subject": "刑法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "義務付け訴訟の類型区別",
-        "仮の救済の要件"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-08-13",
-      "subject": "刑事訴訟法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-26",
+      "date": "2026-08-16",
       "subject": "商法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [
-        "株主保護の総合",
-        "続と無効の訴え",
-        "業譲渡の異同②"
-      ],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-08-16",
+      "subject": "—",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-08-14",
+      "subject": "民事訴訟法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-08-14",
+      "subject": "憲法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-08-14",
+      "subject": "刑法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-08-10",
+      "subject": "商法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-27",
+      "subject": "憲法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
       "claude_notes": []
     }
   ],
   "today_schedule": [
     {
+      "time": "03:45",
+      "activity": "家起床"
+    },
+    {
+      "time": "03:50",
+      "activity": "家準備"
+    },
+    {
+      "time": "03:55",
+      "activity": "家瞑想"
+    },
+    {
+      "time": "03:59",
+      "activity": "家朝準備"
+    },
+    {
       "time": "04:00",
-      "activity": "実家"
+      "activity": "家学習"
     },
     {
       "time": "04:15",
-      "activity": "実家"
+      "activity": "家学習"
     },
     {
       "time": "04:30",
-      "activity": "実家"
+      "activity": "家学習"
     },
     {
       "time": "04:45",
-      "activity": "実家"
+      "activity": "家学習"
     },
     {
       "time": "05:00",
-      "activity": "実家"
+      "activity": "家学習"
     },
     {
       "time": "05:15",
-      "activity": "実家"
-    },
-    {
-      "time": "05:30",
-      "activity": "実家"
+      "activity": "家食事・準備"
     },
     {
       "time": "05:45",
-      "activity": "実家"
+      "activity": "車音声学習"
     },
     {
       "time": "06:00",
-      "activity": "実家"
+      "activity": "車音声学習"
+    },
+    {
+      "time": "06:15",
+      "activity": "車音声学習"
     },
     {
       "time": "06:30",
-      "activity": "移動"
+      "activity": "車音声学習"
     },
     {
       "time": "06:45",
-      "activity": "移動"
+      "activity": "車移動"
     },
     {
       "time": "07:00",
-      "activity": "移動"
+      "activity": "移動運動"
     },
     {
       "time": "07:15",
-      "activity": "移動"
+      "activity": "移動運動"
     },
     {
-      "time": "07:30",
-      "activity": "移動"
+      "time": "07:40",
+      "activity": "仕事仕事"
     },
     {
       "time": "08:00",
-      "activity": "移動"
+      "activity": "仕事仕事"
     },
     {
       "time": "09:00",
-      "activity": "家掃除"
+      "activity": "仕事仕事"
     },
     {
       "time": "10:00",
-      "activity": "家掃除"
+      "activity": "仕事仕事"
     },
     {
       "time": "11:00",
-      "activity": "家掃除"
+      "activity": "仕事仕事"
     },
     {
       "time": "12:00",
-      "activity": "家掃除"
+      "activity": "仕事仕事"
+    },
+    {
+      "time": "13:00",
+      "activity": "仕事仕事"
     },
     {
       "time": "14:00",
-      "activity": "家学習"
+      "activity": "仕事仕事"
     },
     {
       "time": "15:00",
-      "activity": "家学習"
+      "activity": "仕事仕事"
     },
     {
       "time": "16:00",
-      "activity": "ベスパ確認"
+      "activity": "仕事仕事"
     },
     {
       "time": "17:00",
-      "activity": "ベスパ筋トレ"
-    },
-    {
-      "time": "17:15",
-      "activity": "ベスパ筋トレ"
-    },
-    {
-      "time": "17:30",
-      "activity": "移動"
+      "activity": "仕事仕事"
     },
     {
       "time": "18:00",
-      "activity": "家食事"
+      "activity": "仕事仕事"
     },
     {
-      "time": "18:15",
-      "activity": "家食事"
+      "time": "18:10",
+      "activity": "車移動"
     },
     {
       "time": "18:30",
-      "activity": "家食事"
+      "activity": "車夕食"
+    },
+    {
+      "time": "18:40",
+      "activity": "電車学習"
     },
     {
       "time": "18:45",
-      "activity": "家食事"
+      "activity": "電車学習"
     },
     {
       "time": "19:00",
-      "activity": "家料理準備"
+      "activity": "電車学習"
     },
     {
       "time": "19:15",
-      "activity": "家料理準備"
+      "activity": "電車学習"
     },
     {
-      "time": "19:30",
-      "activity": "家料理準備"
+      "time": "19:20",
+      "activity": "移動歩き"
     },
     {
-      "time": "19:45",
-      "activity": "家料理準備"
+      "time": "19:40",
+      "activity": "ベスパ筋トレ"
+    },
+    {
+      "time": "19:55",
+      "activity": "ベスパ運動"
+    },
+    {
+      "time": "20:05",
+      "activity": "ベスパストレッチ"
+    },
+    {
+      "time": "20:15",
+      "activity": "ベスパ風呂"
     },
     {
       "time": "20:30",
-      "activity": "家復習と到達点の確認"
+      "activity": "ベスパ風呂"
     },
     {
-      "time": "21:00",
-      "activity": "家復習と到達点の確認"
+      "time": "20:45",
+      "activity": "移動帰宅"
+    },
+    {
+      "time": "21:10",
+      "activity": "家片付け"
+    },
+    {
+      "time": "21:20",
+      "activity": "家復習"
+    },
+    {
+      "time": "21:25",
+      "activity": "家ブログ"
     },
     {
       "time": "21:30",
+      "activity": "家明日の支度"
+    },
+    {
+      "time": "21:45",
       "activity": "家就寝"
     }
   ],
   "has_data": true,
-  "updated_at": "2026-08-16T17:30:05.017144",
+  "updated_at": "2026-08-17T07:00:58.100634",
   "today_tasks": [
     {
-      "subject": "憲法",
+      "subject": "民法",
       "status": "今週",
-      "action": "2日前に学習済。今週の目標：短答2周目開始・論文構成（骨組みのみ）",
-      "theme": "短答2周目開始・論文構成（骨組みのみ）",
-      "situation": "今週0/10問。あと10問（2日ぶり）",
+      "action": "6日前に学習済。今週の目標：短答2周目・頻出論点の論文骨組み",
+      "theme": "短答2周目・頻出論点の論文骨組み",
+      "situation": "今週0/10問。あと10問（6日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -234,15 +283,45 @@
     {
       "subject": "刑法",
       "status": "今週",
-      "action": "2日前に学習済。今週の目標：短答2周目・論文構成入門",
+      "action": "3日前に学習済。今週の目標：短答2周目・論文構成入門",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週0/10問。あと10問（2日ぶり）",
+      "situation": "今週0/10問。あと10問（3日ぶり）",
+      "actual_q": 0,
+      "target_q": 10,
+      "checked": false
+    },
+    {
+      "subject": "行政法",
+      "status": "今週",
+      "action": "4日前に学習済。今週の目標：短答2周目・条文ベース定着",
+      "theme": "短答2周目・条文ベース定着",
+      "situation": "今週0/10問。あと10問（4日ぶり）",
+      "actual_q": 0,
+      "target_q": 10,
+      "checked": false
+    },
+    {
+      "subject": "民事訴訟法",
+      "status": "今週",
+      "action": "3日前に学習済。今週の目標：短答2周目",
+      "theme": "短答2周目",
+      "situation": "今週0/10問。あと10問（3日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     },
     {
       "subject": "刑事訴訟法",
+      "status": "今週",
+      "action": "2日前に学習済。今週の目標：短答2周目",
+      "theme": "短答2周目",
+      "situation": "今週0/10問。あと10問（2日ぶり）",
+      "actual_q": 0,
+      "target_q": 10,
+      "checked": false
+    },
+    {
+      "subject": "商法",
       "status": "今週",
       "action": "1日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
@@ -256,16 +335,33 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（54日ぶり）",
+      "situation": "今週0/10問。あと10問（55日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "",
-  "quiz_answer_hint": "",
-  "articles": [],
-  "freq_rating": "",
+  "quiz_question": "大学の自治が及ぶ領域として誤っているものはどれか？①人事②施設管理③学生管理④教師の給与決定",
+  "quiz_answer_hint": "ポポロ事件（最大判昭38.5.22）：人事・施設・学生管理の三領域。④は含まれない",
+  "articles": [
+    {
+      "gist": "学問の自由を保障",
+      "ref": "憲法23条"
+    },
+    {
+      "gist": "職業選択の自由を保障",
+      "ref": "憲法22条1項"
+    },
+    {
+      "gist": "教育を受ける権利を保障",
+      "ref": "憲法26条"
+    },
+    {
+      "gist": "個人の尊重・幸福追求権",
+      "ref": "憲法13条"
+    }
+  ],
+  "freq_rating": "★★★",
   "weak_points_text": "",
   "next_focus": "",
   "persistent_weak": [

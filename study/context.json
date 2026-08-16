@@ -4,7 +4,20 @@
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [],
+  "today_logs": [
+    {
+      "type": "短答",
+      "questions_count": 10,
+      "understanding": "普通",
+      "topic": ""
+    },
+    {
+      "type": "論文",
+      "questions_count": 0,
+      "understanding": "普通",
+      "topic": ""
+    }
+  ],
   "spacing_items": [
     {
       "interval_label": "",
@@ -205,8 +218,8 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": false,
-  "updated_at": "2026-08-16T09:10:11.896447",
+  "has_data": true,
+  "updated_at": "2026-08-16T17:30:05.017144",
   "today_tasks": [
     {
       "subject": "憲法",

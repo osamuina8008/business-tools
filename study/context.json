@@ -1,13 +1,19 @@
 {
-  "subject": "憲法",
-  "date": "2026-08-17",
+  "subject": "民法",
+  "date": "2026-08-18",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
   "today_logs": [
     {
-      "type": "短答",
+      "type": "インプット",
       "questions_count": 10,
+      "understanding": "普通",
+      "topic": ""
+    },
+    {
+      "type": "短答",
+      "questions_count": 0,
       "understanding": "普通",
       "topic": ""
     }
@@ -15,34 +21,7 @@
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-08-16",
-      "subject": "商法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-08-16",
-      "subject": "—",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-08-14",
-      "subject": "民事訴訟法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-08-14",
+      "date": "2026-08-17",
       "subject": "憲法",
       "questions_count": 0,
       "wrong_qs": [],
@@ -51,8 +30,8 @@
     },
     {
       "interval_label": "",
-      "date": "2026-08-14",
-      "subject": "刑法",
+      "date": "2026-08-15",
+      "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -60,17 +39,8 @@
     },
     {
       "interval_label": "",
-      "date": "2026-08-10",
-      "subject": "商法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-07-27",
-      "subject": "憲法",
+      "date": "2026-08-11",
+      "subject": "民法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -119,24 +89,24 @@
       "activity": "家食事・準備"
     },
     {
-      "time": "05:45",
-      "activity": "車音声学習"
+      "time": "05:30",
+      "activity": "移動家→駅"
     },
     {
-      "time": "06:00",
-      "activity": "車音声学習"
+      "time": "06:05",
+      "activity": "電車学習"
     },
     {
       "time": "06:15",
-      "activity": "車音声学習"
+      "activity": "電車学習"
     },
     {
       "time": "06:30",
-      "activity": "車音声学習"
+      "activity": "電車学習"
     },
     {
       "time": "06:45",
-      "activity": "車移動"
+      "activity": "移動移動"
     },
     {
       "time": "07:00",
@@ -268,24 +238,14 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-08-17T07:00:58.100634",
+  "updated_at": "2026-08-18T07:00:19.667611",
   "today_tasks": [
-    {
-      "subject": "民法",
-      "status": "今週",
-      "action": "6日前に学習済。今週の目標：短答2周目・頻出論点の論文骨組み",
-      "theme": "短答2周目・頻出論点の論文骨組み",
-      "situation": "今週0/10問。あと10問（6日ぶり）",
-      "actual_q": 0,
-      "target_q": 10,
-      "checked": false
-    },
     {
       "subject": "刑法",
       "status": "今週",
-      "action": "3日前に学習済。今週の目標：短答2周目・論文構成入門",
+      "action": "4日前に学習済。今週の目標：短答2周目・論文構成入門",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週0/10問。あと10問（3日ぶり）",
+      "situation": "今週0/10問。あと10問（4日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -293,15 +253,25 @@
     {
       "subject": "行政法",
       "status": "今週",
-      "action": "4日前に学習済。今週の目標：短答2周目・条文ベース定着",
+      "action": "5日前に学習済。今週の目標：短答2周目・条文ベース定着",
       "theme": "短答2周目・条文ベース定着",
-      "situation": "今週0/10問。あと10問（4日ぶり）",
+      "situation": "今週0/10問。あと10問（5日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     },
     {
       "subject": "民事訴訟法",
+      "status": "今週",
+      "action": "4日前に学習済。今週の目標：短答2周目",
+      "theme": "短答2周目",
+      "situation": "今週0/10問。あと10問（4日ぶり）",
+      "actual_q": 0,
+      "target_q": 10,
+      "checked": false
+    },
+    {
+      "subject": "刑事訴訟法",
       "status": "今週",
       "action": "3日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
@@ -311,7 +281,7 @@
       "checked": false
     },
     {
-      "subject": "刑事訴訟法",
+      "subject": "商法",
       "status": "今週",
       "action": "2日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
@@ -321,47 +291,20 @@
       "checked": false
     },
     {
-      "subject": "商法",
-      "status": "今週",
-      "action": "1日前に学習済。今週の目標：短答2周目",
-      "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（1日ぶり）",
-      "actual_q": 0,
-      "target_q": 10,
-      "checked": false
-    },
-    {
       "subject": "実務基礎",
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（55日ぶり）",
+      "situation": "今週0/10問。あと10問（56日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "大学の自治が及ぶ領域として誤っているものはどれか？①人事②施設管理③学生管理④教師の給与決定",
-  "quiz_answer_hint": "ポポロ事件（最大判昭38.5.22）：人事・施設・学生管理の三領域。④は含まれない",
-  "articles": [
-    {
-      "gist": "学問の自由を保障",
-      "ref": "憲法23条"
-    },
-    {
-      "gist": "職業選択の自由を保障",
-      "ref": "憲法22条1項"
-    },
-    {
-      "gist": "教育を受ける権利を保障",
-      "ref": "憲法26条"
-    },
-    {
-      "gist": "個人の尊重・幸福追求権",
-      "ref": "憲法13条"
-    }
-  ],
-  "freq_rating": "★★★",
+  "quiz_question": "",
+  "quiz_answer_hint": "",
+  "articles": [],
+  "freq_rating": "",
   "weak_points_text": "",
   "next_focus": "",
   "persistent_weak": [

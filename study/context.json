@@ -1,19 +1,19 @@
 {
-  "subject": "民法",
-  "date": "2026-08-18",
+  "subject": "刑法",
+  "date": "2026-08-19",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
   "today_logs": [
     {
       "type": "インプット",
-      "questions_count": 10,
+      "questions_count": 0,
       "understanding": "普通",
       "topic": ""
     },
     {
-      "type": "短答",
-      "questions_count": 0,
+      "type": "インプット",
+      "questions_count": 10,
       "understanding": "普通",
       "topic": ""
     }
@@ -21,8 +21,8 @@
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-08-17",
-      "subject": "憲法",
+      "date": "2026-08-18",
+      "subject": "民法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -30,7 +30,34 @@
     },
     {
       "interval_label": "",
-      "date": "2026-08-15",
+      "date": "2026-08-16",
+      "subject": "商法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-08-16",
+      "subject": "—",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-08-12",
+      "subject": "—",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-08-12",
       "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
@@ -39,11 +66,23 @@
     },
     {
       "interval_label": "",
-      "date": "2026-08-11",
-      "subject": "民法",
+      "date": "2026-08-12",
+      "subject": "民事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-07-29",
+      "subject": "刑法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "刑法211条]]／ひっか",
+        "特定論点で突出した弱点"
+      ],
       "claude_notes": []
     }
   ],
@@ -238,30 +277,30 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-08-18T23:10:43.596500",
+  "updated_at": "2026-08-19T20:41:26.114943",
   "today_tasks": [
-    {
-      "subject": "刑法",
-      "status": "今週",
-      "action": "4日前に学習済。今週の目標：短答2周目・論文構成入門",
-      "theme": "短答2周目・論文構成入門",
-      "situation": "今週0/10問。あと10問（4日ぶり）",
-      "actual_q": 0,
-      "target_q": 10,
-      "checked": false
-    },
     {
       "subject": "行政法",
       "status": "今週",
-      "action": "5日前に学習済。今週の目標：短答2周目・条文ベース定着",
+      "action": "6日前に学習済。今週の目標：短答2周目・条文ベース定着",
       "theme": "短答2周目・条文ベース定着",
-      "situation": "今週0/10問。あと10問（5日ぶり）",
+      "situation": "今週0/10問。あと10問（6日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     },
     {
       "subject": "民事訴訟法",
+      "status": "今週",
+      "action": "5日前に学習済。今週の目標：短答2周目",
+      "theme": "短答2周目",
+      "situation": "今週0/10問。あと10問（5日ぶり）",
+      "actual_q": 0,
+      "target_q": 10,
+      "checked": false
+    },
+    {
+      "subject": "刑事訴訟法",
       "status": "今週",
       "action": "4日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
@@ -271,7 +310,7 @@
       "checked": false
     },
     {
-      "subject": "刑事訴訟法",
+      "subject": "商法",
       "status": "今週",
       "action": "3日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
@@ -281,21 +320,11 @@
       "checked": false
     },
     {
-      "subject": "商法",
-      "status": "今週",
-      "action": "2日前に学習済。今週の目標：短答2周目",
-      "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（2日ぶり）",
-      "actual_q": 0,
-      "target_q": 10,
-      "checked": false
-    },
-    {
       "subject": "実務基礎",
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（56日ぶり）",
+      "situation": "今週0/10問。あと10問（57日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false

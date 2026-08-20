@@ -10,6 +10,12 @@
       "questions_count": 5,
       "understanding": "普通",
       "topic": ""
+    },
+    {
+      "type": "日記",
+      "questions_count": 0,
+      "understanding": "普通",
+      "topic": "日記"
     }
   ],
   "spacing_items": [
@@ -264,7 +270,7 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-08-20T20:40:04.591386",
+  "updated_at": "2026-08-20T21:19:37.037695",
   "today_tasks": [
     {
       "subject": "行政法",
@@ -317,10 +323,23 @@
       "checked": false
     }
   ],
-  "quiz_question": "",
-  "quiz_answer_hint": "",
-  "articles": [],
-  "freq_rating": "",
+  "quiz_question": "無罪判決確定のみで検察官の公訴提起は国賠法上違法となるか？",
+  "quiz_answer_hint": "最判昭53.10.20・職務行為基準説",
+  "articles": [
+    {
+      "gist": "公務員の違法な公権力行使による賠償責任",
+      "ref": "国家賠償法1条1項"
+    },
+    {
+      "gist": "公の営造物の設置・管理の瑕疵による賠償責任",
+      "ref": "国家賠償法2条1項"
+    },
+    {
+      "gist": "不作為の違法確認の訴えの定義",
+      "ref": "行政事件訴訟法3条5項"
+    }
+  ],
+  "freq_rating": "★★★",
   "weak_points_text": "",
   "next_focus": "",
   "persistent_weak": [

@@ -1,28 +1,15 @@
 {
-  "subject": "行政法",
-  "date": "2026-08-20",
+  "subject": "民訴法",
+  "date": "2026-08-21",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [
-    {
-      "type": "インプット",
-      "questions_count": 5,
-      "understanding": "普通",
-      "topic": ""
-    },
-    {
-      "type": "日記",
-      "questions_count": 0,
-      "understanding": "普通",
-      "topic": "日記"
-    }
-  ],
+  "today_logs": [],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-08-19",
-      "subject": "刑法",
+      "date": "2026-08-20",
+      "subject": "行政法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -30,7 +17,25 @@
     },
     {
       "interval_label": "",
-      "date": "2026-08-17",
+      "date": "2026-08-18",
+      "subject": "民法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-08-14",
+      "subject": "民事訴訟法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-08-14",
       "subject": "憲法",
       "questions_count": 0,
       "wrong_qs": [],
@@ -39,42 +44,23 @@
     },
     {
       "interval_label": "",
-      "date": "2026-08-13",
-      "subject": "行政法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-08-13",
+      "date": "2026-08-14",
       "subject": "刑法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [
-        "義務付け訴訟の類型区別",
-        "仮の救済の要件"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-08-13",
-      "subject": "刑事訴訟法",
-      "questions_count": 0,
-      "wrong_qs": [],
       "keywords": [],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-07-30",
-      "subject": "行政法",
+      "date": "2026-07-31",
+      "subject": "民事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [
-        "民訴法143条]]との違"
+        "意見陳述の方法",
+        "成立の真正",
+        "二段の推定"
       ],
       "claude_notes": []
     }
@@ -269,21 +255,31 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": true,
-  "updated_at": "2026-08-20T21:19:37.037695",
+  "has_data": false,
+  "updated_at": "2026-08-21T07:00:11.418128",
   "today_tasks": [
     {
       "subject": "行政法",
       "status": "遅れ",
       "action": "短答3問｜論点：取消訴訟の訴訟要件（処分性・原告適格・出訴期間）",
       "theme": "短答2周目・条文ベース定着",
-      "situation": "今週5/10問。あと5問",
+      "situation": "今週5/10問。あと5問（1日ぶり）",
       "actual_q": 5,
       "target_q": 10,
       "checked": false
     },
     {
       "subject": "民事訴訟法",
+      "status": "遅れ",
+      "action": "短答3問｜論点：訴訟要件（当事者適格・訴えの利益）・既判力の範囲",
+      "theme": "短答2周目",
+      "situation": "今週0/10問。あと10問（7日ぶり）",
+      "actual_q": 0,
+      "target_q": 10,
+      "checked": false
+    },
+    {
+      "subject": "刑事訴訟法",
       "status": "今週",
       "action": "6日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
@@ -293,7 +289,7 @@
       "checked": false
     },
     {
-      "subject": "刑事訴訟法",
+      "subject": "商法",
       "status": "今週",
       "action": "5日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
@@ -303,43 +299,41 @@
       "checked": false
     },
     {
-      "subject": "商法",
-      "status": "今週",
-      "action": "4日前に学習済。今週の目標：短答2周目",
-      "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（4日ぶり）",
-      "actual_q": 0,
-      "target_q": 10,
-      "checked": false
-    },
-    {
       "subject": "実務基礎",
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（58日ぶり）",
+      "situation": "今週0/10問。あと10問（59日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "無罪判決確定のみで検察官の公訴提起は国賠法上違法となるか？",
-  "quiz_answer_hint": "最判昭53.10.20・職務行為基準説",
+  "quiz_question": "控訴権を放棄した当事者は附帯控訴を提起できるか？",
+  "quiz_answer_hint": "民訴法293条1項・放棄後も口頭弁論終結まで可",
   "articles": [
     {
-      "gist": "公務員の違法な公権力行使による賠償責任",
-      "ref": "国家賠償法1条1項"
+      "gist": "控訴期間は送達から2週間・送達前提起も有効",
+      "ref": "民訴法285条"
     },
     {
-      "gist": "公の営造物の設置・管理の瑕疵による賠償責任",
-      "ref": "国家賠償法2条1項"
+      "gist": "控訴取下げに相手方同意不要",
+      "ref": "民訴法292条"
     },
     {
-      "gist": "不作為の違法確認の訴えの定義",
-      "ref": "行政事件訴訟法3条5項"
+      "gist": "附帯控訴は口頭弁論終結まで可・放棄後も可",
+      "ref": "民訴法293条"
+    },
+    {
+      "gist": "上告理由は憲法違反と絶対的上告理由の2類型",
+      "ref": "民訴法312条"
+    },
+    {
+      "gist": "即時抗告期間は告知日から1週間の不変期間",
+      "ref": "民訴法332条"
     }
   ],
-  "freq_rating": "★★★",
+  "freq_rating": "★★☆",
   "weak_points_text": "",
   "next_focus": "",
   "persistent_weak": [

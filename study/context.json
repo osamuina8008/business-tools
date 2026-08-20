@@ -4,7 +4,14 @@
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [],
+  "today_logs": [
+    {
+      "type": "インプット",
+      "questions_count": 5,
+      "understanding": "普通",
+      "topic": ""
+    }
+  ],
   "spacing_items": [
     {
       "interval_label": "",
@@ -256,16 +263,16 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": false,
-  "updated_at": "2026-08-20T07:00:15.983577",
+  "has_data": true,
+  "updated_at": "2026-08-20T20:40:04.591386",
   "today_tasks": [
     {
       "subject": "行政法",
       "status": "遅れ",
       "action": "短答3問｜論点：取消訴訟の訴訟要件（処分性・原告適格・出訴期間）",
       "theme": "短答2周目・条文ベース定着",
-      "situation": "今週0/10問。あと10問（7日ぶり）",
-      "actual_q": 0,
+      "situation": "今週5/10問。あと5問",
+      "actual_q": 5,
       "target_q": 10,
       "checked": false
     },

@@ -11,6 +11,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-title" content="業務ツール" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   
   <style>
     body { font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic UI', sans-serif; }
@@ -191,6 +194,38 @@ function catalogById() {
   return map;
 }
 
+function normalizeTool(t, catalog) {
+  const base = catalog[t.id];
+  if (base) {
+    return {
+      ...t,
+      ...base,
+      group: LEGACY_IDS.has(base.id) ? 'legacy' : (base.group || 'primary'),
+    };
+  }
+  return {
+    ...t,
+    bg: t.bg || 'bg-gray-100',
+    icon: t.icon || 'link',
+    group: String(t.id).startsWith('custom_') ? 'primary' : (t.group || 'primary'),
+  };
+}
+
+function insertMissingPrimary(list, catalog) {
+  PRIMARY_DEFAULT_IDS.forEach((id, idx) => {
+    if (list.find(t => t.id === id)) return;
+    const def = catalog[id];
+    if (!def) return;
+    let insertAt = 0;
+    for (let j = idx - 1; j >= 0; j--) {
+      const prev = list.findIndex(t => t.id === PRIMARY_DEFAULT_IDS[j]);
+      if (prev >= 0) { insertAt = prev + 1; break; }
+    }
+    list.splice(insertAt, 0, { ...def });
+  });
+  return list;
+}
+
 function loadTools() {
   const catalog = catalogById();
   const saved = localStorage.getItem('bt_tools_order_v2');
@@ -198,12 +233,7 @@ function loadTools() {
   if (saved) {
     try {
       const order = JSON.parse(saved);
-      order.forEach(t => { if (!catalog[t.id]) catalog[t.id] = t; });
-      list = order.map(o => {
-        const base = catalog[o.id];
-        if (!base) return null;
-        return { ...base, ...o, group: LEGACY_IDS.has(o.id) ? 'legacy' : (base.group === 'primary' || o.group === 'primary' ? 'primary' : (LEGACY_IDS.has(o.id) ? 'legacy' : (o.group || base.group || 'primary'))) };
-      }).filter(Boolean);
+      list = order.map(o => normalizeTool(o, catalog)).filter(t => t && t.id && t.url);
     } catch {}
   }
   if (!list.length) {
@@ -221,23 +251,10 @@ function loadTools() {
       ...DEFAULT_TOOLS.filter(t => t.group === 'legacy'),
     ];
   }
-  // 新しく増えた常用ツールは、カタログ順で欠けている位置に挿入
-  PRIMARY_DEFAULT_IDS.forEach((id, idx) => {
-    if (list.find(t => t.id === id)) return;
-    const def = catalog[id];
-    if (!def) return;
-    let insertAt = 0;
-    for (let j = idx - 1; j >= 0; j--) {
-      const prev = list.findIndex(t => t.id === PRIMARY_DEFAULT_IDS[j]);
-      if (prev >= 0) { insertAt = prev + 1; break; }
-    }
-    list.splice(insertAt, 0, { ...def });
-  });
-  // 常用は group を強制
-  list = list.map(t => ({
-    ...t,
-    group: LEGACY_IDS.has(t.id) ? 'legacy' : (PRIMARY_DEFAULT_IDS.includes(t.id) || String(t.id).startsWith('custom_') ? 'primary' : (t.group || 'legacy')),
-  }));
+  list = insertMissingPrimary(list, catalog);
+  list = list.map(t => normalizeTool(t, catalog));
+  // 常用カードが戻るたびに消えないよう、補完後の並びを保存する
+  try { localStorage.setItem('bt_tools_order_v2', JSON.stringify(list)); } catch {}
   return list;
 }
 function saveTools(list) {

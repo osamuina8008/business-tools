@@ -753,7 +753,7 @@
     <header class="bg-white border-b border-gray-200 sticky top-0 z-20">
       <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
         <div class="flex items-center gap-3 min-w-0">
-          <a href="../../index.html" class="text-gray-400 hover:text-gray-600 text-sm whitespace-nowrap">← ツール一覧</a>
+          <a href="../../index.html?v=b2b2" class="text-gray-400 hover:text-gray-600 text-sm whitespace-nowrap">← ツール一覧</a>
           <span class="text-gray-300">|</span>
           <div class="min-w-0">
             <div class="flex items-center gap-2">

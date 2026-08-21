@@ -1,6 +1,6 @@
 {
-  "subject": "民訴法",
-  "date": "2026-08-21",
+  "subject": "刑訴法",
+  "date": "2026-08-22",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
@@ -8,43 +8,7 @@
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-08-20",
-      "subject": "行政法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-08-18",
-      "subject": "民法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-08-14",
-      "subject": "民事訴訟法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-08-14",
-      "subject": "憲法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-08-14",
+      "date": "2026-08-19",
       "subject": "刑法",
       "questions_count": 0,
       "wrong_qs": [],
@@ -53,217 +17,187 @@
     },
     {
       "interval_label": "",
-      "date": "2026-07-31",
+      "date": "2026-08-15",
+      "subject": "刑事訴訟法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-08-01",
       "subject": "民事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [
-        "意見陳述の方法",
-        "成立の真正",
-        "二段の推定"
-      ],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-08-01",
+      "subject": "刑事訴訟法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
       "claude_notes": []
     }
   ],
   "today_schedule": [
     {
-      "time": "03:45",
-      "activity": "家起床"
-    },
-    {
-      "time": "03:50",
-      "activity": "家準備"
-    },
-    {
-      "time": "03:55",
-      "activity": "家瞑想"
-    },
-    {
-      "time": "03:59",
-      "activity": "家朝準備"
-    },
-    {
       "time": "04:00",
-      "activity": "家学習"
+      "activity": "実家"
     },
     {
       "time": "04:15",
-      "activity": "家学習"
+      "activity": "実家"
     },
     {
       "time": "04:30",
-      "activity": "家学習"
+      "activity": "実家"
     },
     {
       "time": "04:45",
-      "activity": "家学習"
+      "activity": "実家"
     },
     {
       "time": "05:00",
-      "activity": "家学習"
+      "activity": "実家"
     },
     {
       "time": "05:15",
-      "activity": "家食事・準備"
+      "activity": "実家"
     },
     {
       "time": "05:30",
-      "activity": "移動家→駅"
+      "activity": "実家"
     },
     {
-      "time": "06:05",
-      "activity": "電車学習"
+      "time": "05:45",
+      "activity": "実家"
     },
     {
-      "time": "06:15",
-      "activity": "電車学習"
+      "time": "06:00",
+      "activity": "実家"
     },
     {
       "time": "06:30",
-      "activity": "電車学習"
+      "activity": "移動"
     },
     {
       "time": "06:45",
-      "activity": "移動移動"
+      "activity": "移動"
     },
     {
       "time": "07:00",
-      "activity": "移動運動"
+      "activity": "移動"
     },
     {
       "time": "07:15",
-      "activity": "移動運動"
+      "activity": "移動"
     },
     {
-      "time": "07:40",
-      "activity": "仕事仕事"
+      "time": "07:30",
+      "activity": "移動"
     },
     {
       "time": "08:00",
-      "activity": "仕事仕事"
+      "activity": "移動"
     },
     {
       "time": "09:00",
-      "activity": "仕事仕事"
+      "activity": "家掃除"
     },
     {
       "time": "10:00",
-      "activity": "仕事仕事"
+      "activity": "家掃除"
     },
     {
       "time": "11:00",
-      "activity": "仕事仕事"
+      "activity": "家掃除"
     },
     {
       "time": "12:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "13:00",
-      "activity": "仕事仕事"
+      "activity": "家掃除"
     },
     {
       "time": "14:00",
-      "activity": "仕事仕事"
+      "activity": "家学習"
     },
     {
       "time": "15:00",
-      "activity": "仕事仕事"
+      "activity": "家学習"
     },
     {
       "time": "16:00",
-      "activity": "仕事仕事"
+      "activity": "ベスパ確認"
     },
     {
       "time": "17:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "18:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "18:10",
-      "activity": "車移動"
-    },
-    {
-      "time": "18:30",
-      "activity": "車夕食"
-    },
-    {
-      "time": "18:40",
-      "activity": "電車学習"
-    },
-    {
-      "time": "18:45",
-      "activity": "電車学習"
-    },
-    {
-      "time": "19:00",
-      "activity": "電車学習"
-    },
-    {
-      "time": "19:15",
-      "activity": "電車学習"
-    },
-    {
-      "time": "19:20",
-      "activity": "移動歩き"
-    },
-    {
-      "time": "19:40",
       "activity": "ベスパ筋トレ"
     },
     {
-      "time": "19:55",
-      "activity": "ベスパ運動"
+      "time": "17:15",
+      "activity": "ベスパ筋トレ"
     },
     {
-      "time": "20:05",
-      "activity": "ベスパストレッチ"
+      "time": "17:30",
+      "activity": "移動"
     },
     {
-      "time": "20:15",
-      "activity": "ベスパ風呂"
+      "time": "18:00",
+      "activity": "家食事"
+    },
+    {
+      "time": "18:15",
+      "activity": "家食事"
+    },
+    {
+      "time": "18:30",
+      "activity": "家食事"
+    },
+    {
+      "time": "18:45",
+      "activity": "家食事"
+    },
+    {
+      "time": "19:00",
+      "activity": "家料理準備"
+    },
+    {
+      "time": "19:15",
+      "activity": "家料理準備"
+    },
+    {
+      "time": "19:30",
+      "activity": "家料理準備"
+    },
+    {
+      "time": "19:45",
+      "activity": "家料理準備"
     },
     {
       "time": "20:30",
-      "activity": "ベスパ風呂"
+      "activity": "家復習と到達点の確認"
     },
     {
-      "time": "20:45",
-      "activity": "移動帰宅"
-    },
-    {
-      "time": "21:10",
-      "activity": "家片付け"
-    },
-    {
-      "time": "21:20",
-      "activity": "家復習"
-    },
-    {
-      "time": "21:25",
-      "activity": "家ブログ"
+      "time": "21:00",
+      "activity": "家復習と到達点の確認"
     },
     {
       "time": "21:30",
-      "activity": "家明日の支度"
-    },
-    {
-      "time": "21:45",
       "activity": "家就寝"
     }
   ],
   "has_data": false,
-  "updated_at": "2026-08-21T07:00:11.418128",
+  "updated_at": "2026-08-22T07:00:23.886464",
   "today_tasks": [
     {
       "subject": "行政法",
       "status": "遅れ",
       "action": "短答3問｜論点：取消訴訟の訴訟要件（処分性・原告適格・出訴期間）",
       "theme": "短答2周目・条文ベース定着",
-      "situation": "今週5/10問。あと5問（1日ぶり）",
+      "situation": "今週5/10問。あと5問（2日ぶり）",
       "actual_q": 5,
       "target_q": 10,
       "checked": false
@@ -273,13 +207,23 @@
       "status": "遅れ",
       "action": "短答3問｜論点：訴訟要件（当事者適格・訴えの利益）・既判力の範囲",
       "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（7日ぶり）",
+      "situation": "今週0/10問。あと10問（8日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     },
     {
       "subject": "刑事訴訟法",
+      "status": "遅れ",
+      "action": "短答3問｜論点：捜査の端緒・逮捕の種類と要件・接見交通権",
+      "theme": "短答2周目",
+      "situation": "今週0/10問。あと10問（7日ぶり）",
+      "actual_q": 0,
+      "target_q": 10,
+      "checked": false
+    },
+    {
+      "subject": "商法",
       "status": "今週",
       "action": "6日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
@@ -289,51 +233,20 @@
       "checked": false
     },
     {
-      "subject": "商法",
-      "status": "今週",
-      "action": "5日前に学習済。今週の目標：短答2周目",
-      "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（5日ぶり）",
-      "actual_q": 0,
-      "target_q": 10,
-      "checked": false
-    },
-    {
       "subject": "実務基礎",
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（59日ぶり）",
+      "situation": "今週0/10問。あと10問（60日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "控訴権を放棄した当事者は附帯控訴を提起できるか？",
-  "quiz_answer_hint": "民訴法293条1項・放棄後も口頭弁論終結まで可",
-  "articles": [
-    {
-      "gist": "控訴期間は送達から2週間・送達前提起も有効",
-      "ref": "民訴法285条"
-    },
-    {
-      "gist": "控訴取下げに相手方同意不要",
-      "ref": "民訴法292条"
-    },
-    {
-      "gist": "附帯控訴は口頭弁論終結まで可・放棄後も可",
-      "ref": "民訴法293条"
-    },
-    {
-      "gist": "上告理由は憲法違反と絶対的上告理由の2類型",
-      "ref": "民訴法312条"
-    },
-    {
-      "gist": "即時抗告期間は告知日から1週間の不変期間",
-      "ref": "民訴法332条"
-    }
-  ],
-  "freq_rating": "★★☆",
+  "quiz_question": "",
+  "quiz_answer_hint": "",
+  "articles": [],
+  "freq_rating": "",
   "weak_points_text": "",
   "next_focus": "",
   "persistent_weak": [

@@ -1,36 +1,14 @@
 {
-  "subject": "刑訴法",
-  "date": "2026-08-22",
+  "subject": "商法",
+  "date": "2026-08-23",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [
-    {
-      "type": "インプット",
-      "questions_count": 10,
-      "understanding": "普通",
-      "topic": ""
-    },
-    {
-      "type": "日記",
-      "questions_count": 0,
-      "understanding": "普通",
-      "topic": "日記"
-    }
-  ],
+  "today_logs": [],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-08-19",
-      "subject": "刑法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-08-15",
+      "date": "2026-08-22",
       "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
@@ -39,8 +17,8 @@
     },
     {
       "interval_label": "",
-      "date": "2026-08-01",
-      "subject": "民事訴訟法",
+      "date": "2026-08-20",
+      "subject": "行政法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -48,90 +26,68 @@
     },
     {
       "interval_label": "",
-      "date": "2026-08-01",
-      "subject": "刑事訴訟法",
+      "date": "2026-08-16",
+      "subject": "商法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-08-16",
+      "subject": "—",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-08-02",
+      "subject": "商法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "株主総会決議の瑕疵に関す",
+        "株主総会決議取消しの訴え",
+        "株主総会決議の取消しの訴"
+      ],
       "claude_notes": []
     }
   ],
   "today_schedule": [
     {
-      "time": "04:00",
-      "activity": "実家"
-    },
-    {
-      "time": "04:15",
-      "activity": "実家"
-    },
-    {
-      "time": "04:30",
-      "activity": "実家"
-    },
-    {
-      "time": "04:45",
-      "activity": "実家"
-    },
-    {
-      "time": "05:00",
-      "activity": "実家"
-    },
-    {
-      "time": "05:15",
-      "activity": "実家"
-    },
-    {
-      "time": "05:30",
-      "activity": "実家"
-    },
-    {
       "time": "05:45",
-      "activity": "実家"
+      "activity": "家起床"
     },
     {
       "time": "06:00",
-      "activity": "実家"
-    },
-    {
-      "time": "06:30",
-      "activity": "移動"
-    },
-    {
-      "time": "06:45",
-      "activity": "移動"
-    },
-    {
-      "time": "07:00",
-      "activity": "移動"
-    },
-    {
-      "time": "07:15",
-      "activity": "移動"
-    },
-    {
-      "time": "07:30",
       "activity": "家食事"
     },
     {
-      "time": "08:00",
-      "activity": "剣道教室家族"
+      "time": "06:45",
+      "activity": "家学習"
     },
     {
       "time": "08:30",
-      "activity": "移動"
+      "activity": "外note・YouTube"
     },
     {
-      "time": "09:00",
-      "activity": "家"
+      "time": "09:15",
+      "activity": "家学習"
     },
     {
-      "time": "10:00",
-      "activity": "家"
+      "time": "10:45",
+      "activity": "家運動"
     },
     {
       "time": "11:00",
-      "activity": "家仕事"
+      "activity": "家学習"
+    },
+    {
+      "time": "11:45",
+      "activity": "家運動"
     },
     {
       "time": "12:00",
@@ -143,62 +99,58 @@
     },
     {
       "time": "14:00",
-      "activity": "ホンダ支度・準備"
+      "activity": "移動運動"
     },
     {
       "time": "15:00",
-      "activity": "ジム運動"
+      "activity": "家復習"
+    },
+    {
+      "time": "16:00",
+      "activity": "家運動"
+    },
+    {
+      "time": "16:30",
+      "activity": "移動運動"
+    },
+    {
+      "time": "17:30",
+      "activity": "家支度・準備"
     },
     {
       "time": "18:00",
-      "activity": "家食事"
-    },
-    {
-      "time": "18:15",
-      "activity": "家食事"
+      "activity": "家食事準備"
     },
     {
       "time": "18:30",
       "activity": "家食事"
     },
     {
-      "time": "18:45",
-      "activity": "家食事"
-    },
-    {
-      "time": "19:00",
-      "activity": "家食事"
-    },
-    {
       "time": "19:30",
-      "activity": "家料理準備"
+      "activity": "家復習"
     },
     {
-      "time": "19:45",
-      "activity": "家仕事"
-    },
-    {
-      "time": "20:45",
-      "activity": "家復習と到達点の確認"
+      "time": "20:30",
+      "activity": "家SNS"
     },
     {
       "time": "21:00",
-      "activity": "家復習と到達点の確認"
+      "activity": "家予定作成"
     },
     {
-      "time": "21:30",
+      "time": "21:15",
       "activity": "家就寝"
     }
   ],
-  "has_data": true,
-  "updated_at": "2026-08-22T21:01:48.978225",
+  "has_data": false,
+  "updated_at": "2026-08-23T07:00:50.645161",
   "today_tasks": [
     {
       "subject": "行政法",
       "status": "遅れ",
       "action": "短答3問｜論点：取消訴訟の訴訟要件（処分性・原告適格・出訴期間）",
       "theme": "短答2周目・条文ベース定着",
-      "situation": "今週5/10問。あと5問（2日ぶり）",
+      "situation": "今週5/10問。あと5問（3日ぶり）",
       "actual_q": 5,
       "target_q": 10,
       "checked": false
@@ -208,17 +160,17 @@
       "status": "遅れ",
       "action": "短答3問｜論点：訴訟要件（当事者適格・訴えの利益）・既判力の範囲",
       "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（8日ぶり）",
+      "situation": "今週0/10問。あと10問（9日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     },
     {
       "subject": "商法",
-      "status": "今週",
-      "action": "6日前に学習済。今週の目標：短答2周目",
+      "status": "遅れ",
+      "action": "短答3問｜論点：株主総会決議（種類・要件・瑕疵）・取締役の善管注意義務",
       "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（6日ぶり）",
+      "situation": "今週0/10問。あと10問（7日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -228,37 +180,16 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（60日ぶり）",
+      "situation": "今週0/10問。あと10問（61日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "乙「甲と共に犯行した」との自白のみで甲を有罪にできるか？",
-  "quiz_answer_hint": "刑訴法319条2項・判例（共犯者自白は他人の供述）",
-  "articles": [
-    {
-      "gist": "伝聞証拠の原則排除",
-      "ref": "刑訴法320条1項"
-    },
-    {
-      "gist": "検察官面前調書の証拠能力要件",
-      "ref": "刑訴法321条1項2号"
-    },
-    {
-      "gist": "実況見分調書の証拠能力要件",
-      "ref": "刑訴法321条3項"
-    },
-    {
-      "gist": "本人の自白のみでは有罪不可",
-      "ref": "刑訴法319条2項"
-    },
-    {
-      "gist": "被告人の自白書面の証拠能力要件",
-      "ref": "刑訴法322条1項"
-    }
-  ],
-  "freq_rating": "★★★",
+  "quiz_question": "",
+  "quiz_answer_hint": "",
+  "articles": [],
+  "freq_rating": "",
   "weak_points_text": "",
   "next_focus": "",
   "persistent_weak": [

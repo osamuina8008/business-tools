@@ -105,10 +105,14 @@
     },
     {
       "time": "07:30",
-      "activity": "移動"
+      "activity": "家食事"
     },
     {
       "time": "08:00",
+      "activity": "剣道教室家族"
+    },
+    {
+      "time": "08:30",
       "activity": "移動"
     },
     {
@@ -121,23 +125,23 @@
     },
     {
       "time": "11:00",
-      "activity": "家掃除"
+      "activity": "家仕事"
     },
     {
       "time": "12:00",
+      "activity": "家食事"
+    },
+    {
+      "time": "13:00",
       "activity": "家掃除"
     },
     {
       "time": "14:00",
-      "activity": "家"
+      "activity": "ホンダ支度・準備"
     },
     {
       "time": "15:00",
-      "activity": "家"
-    },
-    {
-      "time": "17:30",
-      "activity": "移動"
+      "activity": "ジム運動"
     },
     {
       "time": "18:00",
@@ -157,11 +161,7 @@
     },
     {
       "time": "19:00",
-      "activity": "家料理準備"
-    },
-    {
-      "time": "19:15",
-      "activity": "家料理準備"
+      "activity": "家食事"
     },
     {
       "time": "19:30",
@@ -169,10 +169,10 @@
     },
     {
       "time": "19:45",
-      "activity": "家料理準備"
+      "activity": "家仕事"
     },
     {
-      "time": "20:30",
+      "time": "20:45",
       "activity": "家復習と到達点の確認"
     },
     {
@@ -185,7 +185,7 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-08-22T20:17:56.273726",
+  "updated_at": "2026-08-22T20:23:06.177481",
   "today_tasks": [
     {
       "subject": "行政法",

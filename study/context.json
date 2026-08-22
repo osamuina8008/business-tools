@@ -4,7 +4,14 @@
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [],
+  "today_logs": [
+    {
+      "type": "インプット",
+      "questions_count": 10,
+      "understanding": "普通",
+      "topic": ""
+    }
+  ],
   "spacing_items": [
     {
       "interval_label": "",
@@ -106,11 +113,11 @@
     },
     {
       "time": "09:00",
-      "activity": "家掃除"
+      "activity": "家"
     },
     {
       "time": "10:00",
-      "activity": "家掃除"
+      "activity": "家"
     },
     {
       "time": "11:00",
@@ -122,23 +129,11 @@
     },
     {
       "time": "14:00",
-      "activity": "家学習"
+      "activity": "家"
     },
     {
       "time": "15:00",
-      "activity": "家学習"
-    },
-    {
-      "time": "16:00",
-      "activity": "ベスパ確認"
-    },
-    {
-      "time": "17:00",
-      "activity": "ベスパ筋トレ"
-    },
-    {
-      "time": "17:15",
-      "activity": "ベスパ筋トレ"
+      "activity": "家"
     },
     {
       "time": "17:30",
@@ -189,8 +184,8 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": false,
-  "updated_at": "2026-08-22T11:25:16.982590",
+  "has_data": true,
+  "updated_at": "2026-08-22T12:58:29.624104",
   "today_tasks": [
     {
       "subject": "行政法",
@@ -208,16 +203,6 @@
       "action": "短答3問｜論点：訴訟要件（当事者適格・訴えの利益）・既判力の範囲",
       "theme": "短答2周目",
       "situation": "今週0/10問。あと10問（8日ぶり）",
-      "actual_q": 0,
-      "target_q": 10,
-      "checked": false
-    },
-    {
-      "subject": "刑事訴訟法",
-      "status": "遅れ",
-      "action": "短答3問｜論点：捜査の端緒・逮捕の種類と要件・接見交通権",
-      "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（7日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false

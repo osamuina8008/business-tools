@@ -4,7 +4,14 @@
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [],
+  "today_logs": [
+    {
+      "type": "短答",
+      "questions_count": 10,
+      "understanding": "普通",
+      "topic": ""
+    }
+  ],
   "spacing_items": [
     {
       "interval_label": "",
@@ -142,8 +149,8 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": false,
-  "updated_at": "2026-08-23T07:00:50.645161",
+  "has_data": true,
+  "updated_at": "2026-08-23T13:09:18.714847",
   "today_tasks": [
     {
       "subject": "行政法",
@@ -161,16 +168,6 @@
       "action": "短答3問｜論点：訴訟要件（当事者適格・訴えの利益）・既判力の範囲",
       "theme": "短答2周目",
       "situation": "今週0/10問。あと10問（9日ぶり）",
-      "actual_q": 0,
-      "target_q": 10,
-      "checked": false
-    },
-    {
-      "subject": "商法",
-      "status": "遅れ",
-      "action": "短答3問｜論点：株主総会決議（種類・要件・瑕疵）・取締役の善管注意義務",
-      "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（7日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false

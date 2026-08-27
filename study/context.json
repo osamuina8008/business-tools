@@ -1,18 +1,27 @@
 {
-  "subject": "民法",
-  "date": "2026-08-25",
+  "subject": "行政法",
+  "date": "2026-08-27",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
   "today_logs": [
     {
-      "type": "インプット",
-      "questions_count": 10,
-      "understanding": "普通",
+      "type": "短答",
+      "questions_count": 22,
+      "understanding": "良好",
       "topic": ""
     }
   ],
   "spacing_items": [
+    {
+      "interval_label": "",
+      "date": "2026-08-26",
+      "subject": "刑法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
     {
       "interval_label": "",
       "date": "2026-08-24",
@@ -24,8 +33,8 @@
     },
     {
       "interval_label": "",
-      "date": "2026-08-22",
-      "subject": "刑事訴訟法",
+      "date": "2026-08-20",
+      "subject": "行政法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -33,22 +42,11 @@
     },
     {
       "interval_label": "",
-      "date": "2026-08-18",
-      "subject": "民法",
+      "date": "2026-08-06",
+      "subject": "行政法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-08-04",
-      "subject": "民法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "条文番号と文言の紐付け"
-      ],
       "claude_notes": []
     }
   ],
@@ -243,34 +241,14 @@
     }
   ],
   "has_data": true,
-  "updated_at": "2026-08-25T07:00:35.041093",
+  "updated_at": "2026-08-27T10:48:13.139766",
   "today_tasks": [
-    {
-      "subject": "刑法",
-      "status": "今週",
-      "action": "6日前に学習済。今週の目標：短答2周目・論文構成入門",
-      "theme": "短答2周目・論文構成入門",
-      "situation": "今週0/10問。あと10問（6日ぶり）",
-      "actual_q": 0,
-      "target_q": 10,
-      "checked": false
-    },
-    {
-      "subject": "行政法",
-      "status": "今週",
-      "action": "5日前に学習済。今週の目標：短答2周目・条文ベース定着",
-      "theme": "短答2周目・条文ベース定着",
-      "situation": "今週0/10問。あと10問（5日ぶり）",
-      "actual_q": 0,
-      "target_q": 10,
-      "checked": false
-    },
     {
       "subject": "民事訴訟法",
       "status": "遅れ",
       "action": "短答3問｜論点：訴訟要件（当事者適格・訴えの利益）・既判力の範囲",
       "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（11日ぶり）",
+      "situation": "今週0/10問。あと10問（13日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -278,9 +256,9 @@
     {
       "subject": "刑事訴訟法",
       "status": "今週",
-      "action": "3日前に学習済。今週の目標：短答2周目",
+      "action": "5日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（3日ぶり）",
+      "situation": "今週0/10問。あと10問（5日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -288,9 +266,9 @@
     {
       "subject": "商法",
       "status": "今週",
-      "action": "2日前に学習済。今週の目標：短答2周目",
+      "action": "4日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（2日ぶり）",
+      "situation": "今週0/10問。あと10問（4日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -300,7 +278,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（63日ぶり）",
+      "situation": "今週0/10問。あと10問（65日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -340,16 +318,9 @@
       "category": "creator"
     },
     {
-      "title": "2026年予備試験 短答式試験結果発表をうけて 伊藤塾からの大切なご案内",
-      "label": "「予備校ニュース」 2026年予備試験 短答式試験結果発表をうけて 伊藤塾からの大切なご案内",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/feature/shiken/yobi/index.html",
-      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
-      "category": "prep"
-    },
-    {
-      "title": "2026年司法試験 短答式試験結果発表をうけて 伊藤塾からの大切なご案内",
-      "label": "「予備校ニュース」 2026年司法試験 短答式試験結果発表をうけて 伊藤塾からの大切なご案内",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/feature/shiken/shihou/index.html",
+      "title": "【予備試験対策】 NEW 『3ステップ論文速習講座』 「論文の書き方がわからない⇒手が出ない」からはこれで脱却!",
+      "label": "「予備校ニュース」 【予備試験対策】 NEW 『3ステップ論文速習講座』 「論文の書き方がわからない⇒手が出ない」からはこれで脱却!",
+      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/26A11054.html",
       "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
       "category": "prep"
     },
@@ -364,6 +335,13 @@
       "title": "【予備試験対策】 『予備試験受験生のための要件事実講義/事実認定講義』 論文・口述対策にもイチオシ!",
       "label": "「予備校・イベント・教材」 【予備試験対策】 『予備試験受験生のための要件事実講義/事実認定講義』 論文・口述対策にもイチオシ!",
       "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/25A33003_0.html",
+      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
+      "category": "prep"
+    },
+    {
+      "title": "【予備試験論文受験生の方へ】 『論文受験生サポートプログラム』 エントリー受付中!《口述再現集他、受験生必須の対策を進呈します!》",
+      "label": "「予備校・イベント・教材」 【予備試験論文受験生の方へ】 『論文受験生サポートプログラム』 エントリー受付中!《口述再現集他、受験生必須の対策を進呈します!》",
+      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/yobi/yobironbun_shougaku.html",
       "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
       "category": "prep"
     },

@@ -1,6 +1,6 @@
 {
-  "subject": "民訴法",
-  "date": "2026-08-28",
+  "subject": "刑訴法",
+  "date": "2026-08-29",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
@@ -8,8 +8,8 @@
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-08-27",
-      "subject": "行政法",
+      "date": "2026-08-26",
+      "subject": "刑法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -17,8 +17,17 @@
     },
     {
       "interval_label": "",
-      "date": "2026-08-25",
-      "subject": "民法",
+      "date": "2026-08-22",
+      "subject": "刑事訴訟法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-08-08",
+      "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -27,209 +36,115 @@
   ],
   "today_schedule": [
     {
-      "time": "03:45",
+      "time": "05:45",
       "activity": "家起床"
     },
     {
-      "time": "03:50",
-      "activity": "家準備"
-    },
-    {
-      "time": "03:55",
-      "activity": "家瞑想"
-    },
-    {
-      "time": "03:59",
-      "activity": "家朝準備"
-    },
-    {
-      "time": "04:00",
-      "activity": "家学習"
-    },
-    {
-      "time": "04:15",
-      "activity": "家学習"
-    },
-    {
-      "time": "04:30",
-      "activity": "家学習"
-    },
-    {
-      "time": "04:45",
-      "activity": "家学習"
-    },
-    {
-      "time": "05:00",
-      "activity": "家学習"
-    },
-    {
-      "time": "05:15",
-      "activity": "家食事・準備"
-    },
-    {
-      "time": "05:30",
-      "activity": "移動家→駅"
-    },
-    {
-      "time": "06:05",
-      "activity": "電車学習"
-    },
-    {
-      "time": "06:15",
-      "activity": "電車学習"
-    },
-    {
-      "time": "06:30",
-      "activity": "電車学習"
+      "time": "06:00",
+      "activity": "家食事"
     },
     {
       "time": "06:45",
-      "activity": "移動移動"
+      "activity": "家学習"
     },
     {
-      "time": "07:00",
-      "activity": "移動運動"
+      "time": "08:30",
+      "activity": "外note・YouTube"
     },
     {
-      "time": "07:15",
-      "activity": "移動運動"
+      "time": "09:15",
+      "activity": "家学習"
     },
     {
-      "time": "07:40",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "08:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "09:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "10:00",
-      "activity": "仕事仕事"
+      "time": "10:45",
+      "activity": "家運動"
     },
     {
       "time": "11:00",
-      "activity": "仕事仕事"
+      "activity": "家学習"
+    },
+    {
+      "time": "11:45",
+      "activity": "家運動"
     },
     {
       "time": "12:00",
-      "activity": "仕事仕事"
+      "activity": "家食事"
     },
     {
       "time": "13:00",
-      "activity": "仕事仕事"
+      "activity": "家掃除"
     },
     {
       "time": "14:00",
-      "activity": "仕事仕事"
+      "activity": "移動運動"
     },
     {
       "time": "15:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "16:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "17:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "18:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "18:10",
-      "activity": "車移動"
-    },
-    {
-      "time": "18:30",
-      "activity": "車夕食"
-    },
-    {
-      "time": "18:40",
-      "activity": "電車学習"
-    },
-    {
-      "time": "18:45",
-      "activity": "電車学習"
-    },
-    {
-      "time": "19:00",
-      "activity": "電車学習"
-    },
-    {
-      "time": "19:15",
-      "activity": "電車学習"
-    },
-    {
-      "time": "19:20",
-      "activity": "移動歩き"
-    },
-    {
-      "time": "19:40",
-      "activity": "ベスパ筋トレ"
-    },
-    {
-      "time": "19:55",
-      "activity": "ベスパ運動"
-    },
-    {
-      "time": "20:05",
-      "activity": "ベスパストレッチ"
-    },
-    {
-      "time": "20:15",
-      "activity": "ベスパ風呂"
-    },
-    {
-      "time": "20:30",
-      "activity": "ベスパ風呂"
-    },
-    {
-      "time": "20:45",
-      "activity": "移動帰宅"
-    },
-    {
-      "time": "21:10",
-      "activity": "家片付け"
-    },
-    {
-      "time": "21:20",
       "activity": "家復習"
     },
     {
-      "time": "21:25",
-      "activity": "家ブログ"
+      "time": "16:00",
+      "activity": "家運動"
     },
     {
-      "time": "21:30",
-      "activity": "家明日の支度"
+      "time": "16:30",
+      "activity": "移動運動"
     },
     {
-      "time": "21:45",
+      "time": "17:30",
+      "activity": "家支度・準備"
+    },
+    {
+      "time": "18:00",
+      "activity": "家食事準備"
+    },
+    {
+      "time": "18:30",
+      "activity": "家食事"
+    },
+    {
+      "time": "19:30",
+      "activity": "家復習"
+    },
+    {
+      "time": "20:30",
+      "activity": "家SNS"
+    },
+    {
+      "time": "21:00",
+      "activity": "家予定作成"
+    },
+    {
+      "time": "21:15",
       "activity": "家就寝"
     }
   ],
   "has_data": false,
-  "updated_at": "2026-08-28T07:04:42.329113",
+  "updated_at": "2026-08-29T07:00:38.167617",
   "today_tasks": [
     {
       "subject": "民事訴訟法",
       "status": "遅れ",
       "action": "短答3問｜論点：訴訟要件（当事者適格・訴えの利益）・既判力の範囲",
       "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（14日ぶり）",
+      "situation": "今週0/10問。あと10問（15日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     },
     {
       "subject": "刑事訴訟法",
+      "status": "遅れ",
+      "action": "短答3問｜論点：捜査の端緒・逮捕の種類と要件・接見交通権",
+      "theme": "短答2周目",
+      "situation": "今週0/10問。あと10問（7日ぶり）",
+      "actual_q": 0,
+      "target_q": 10,
+      "checked": false
+    },
+    {
+      "subject": "商法",
       "status": "今週",
       "action": "6日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
@@ -239,21 +154,11 @@
       "checked": false
     },
     {
-      "subject": "商法",
-      "status": "今週",
-      "action": "5日前に学習済。今週の目標：短答2周目",
-      "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（5日ぶり）",
-      "actual_q": 0,
-      "target_q": 10,
-      "checked": false
-    },
-    {
       "subject": "実務基礎",
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（66日ぶり）",
+      "situation": "今週0/10問。あと10問（67日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false

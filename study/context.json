@@ -1,15 +1,22 @@
 {
-  "subject": "憲法",
-  "date": "2026-08-31",
+  "subject": "民法",
+  "date": "2026-09-01",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [],
+  "today_logs": [
+    {
+      "type": "短答",
+      "questions_count": 10,
+      "understanding": "普通",
+      "topic": ""
+    }
+  ],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-08-30",
-      "subject": "商法",
+      "date": "2026-08-25",
+      "subject": "民法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -17,26 +24,8 @@
     },
     {
       "interval_label": "",
-      "date": "2026-08-30",
-      "subject": "—",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-08-24",
-      "subject": "憲法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-08-10",
-      "subject": "商法",
+      "date": "2026-08-11",
+      "subject": "民法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -233,25 +222,15 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": false,
-  "updated_at": "2026-08-31T07:00:32.130975",
+  "has_data": true,
+  "updated_at": "2026-09-01T07:00:07.742397",
   "today_tasks": [
     {
       "subject": "憲法",
       "status": "遅れ",
       "action": "短答3問｜論点：違憲審査基準（LRA・比較衡量）・表現の自由・平等原則",
       "theme": "短答2周目開始・論文構成（骨組みのみ）",
-      "situation": "今週0/10問。あと10問（7日ぶり）",
-      "actual_q": 0,
-      "target_q": 10,
-      "checked": false
-    },
-    {
-      "subject": "民法",
-      "status": "今週",
-      "action": "6日前に学習済。今週の目標：短答2周目・頻出論点の論文骨組み",
-      "theme": "短答2周目・頻出論点の論文骨組み",
-      "situation": "今週0/10問。あと10問（6日ぶり）",
+      "situation": "今週0/10問。あと10問（8日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -259,9 +238,9 @@
     {
       "subject": "刑法",
       "status": "今週",
-      "action": "5日前に学習済。今週の目標：短答2周目・論文構成入門",
+      "action": "6日前に学習済。今週の目標：短答2周目・論文構成入門",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週0/10問。あと10問（5日ぶり）",
+      "situation": "今週0/10問。あと10問（6日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -269,9 +248,9 @@
     {
       "subject": "行政法",
       "status": "今週",
-      "action": "4日前に学習済。今週の目標：短答2周目・条文ベース定着",
+      "action": "5日前に学習済。今週の目標：短答2周目・条文ベース定着",
       "theme": "短答2周目・条文ベース定着",
-      "situation": "今週0/10問。あと10問（4日ぶり）",
+      "situation": "今週0/10問。あと10問（5日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -281,7 +260,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：訴訟要件（当事者適格・訴えの利益）・既判力の範囲",
       "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（17日ぶり）",
+      "situation": "今週0/10問。あと10問（18日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -291,7 +270,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：捜査の端緒・逮捕の種類と要件・接見交通権",
       "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（9日ぶり）",
+      "situation": "今週0/10問。あと10問（10日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -299,9 +278,9 @@
     {
       "subject": "商法",
       "status": "今週",
-      "action": "1日前に学習済。今週の目標：短答2周目",
+      "action": "2日前に学習済。今週の目標：短答2周目",
       "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（1日ぶり）",
+      "situation": "今週0/10問。あと10問（2日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -311,7 +290,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（69日ぶり）",
+      "situation": "今週0/10問。あと10問（70日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false

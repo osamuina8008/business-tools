@@ -236,6 +236,8 @@
 
     /* ── 「別の提案」ボタン ── */
     #more-row { display: flex; justify-content: center; margin-top: 18px; }
+    #ver-row { text-align: center; font-size: 10.5px; color: var(--dim); opacity: .6;
+      margin-top: 10px; letter-spacing: .03em; }
     #more-btn {
       font-size: 14px; font-weight: 800; padding: 12px 26px; border-radius: 18px;
       background: var(--surf); border: 1px dashed var(--acc); color: var(--acc);
@@ -404,6 +406,7 @@
     <div id="more-row" class="hidden">
       <button id="more-btn">🎲 別の提案を見る</button>
     </div>
+    <div id="ver-row">v<span id="app-ver"></span></div>
   </div>
 
   <!-- ③ チャット -->
@@ -452,6 +455,7 @@
 //  定数
 // ════════════════════════════════════════════
 const WEEKLY = {0:"商法",1:"憲法",2:"民法",3:"刑法",4:"行政法",5:"民訴法",6:"刑訴法"};
+const APP_VER = "20260908-1";   // ← 更新するたびに version.json と合わせて上げる
 const API_URL = "https://api.anthropic.com/v1/messages";
 const API_MODEL = "claude-haiku-4-5-20251001";
 const CTX_URL = () => `https://raw.githubusercontent.com/osamuina8008/business-tools/main/study/context.json?t=${Date.now()}`;
@@ -1651,6 +1655,7 @@ $("font-btn").addEventListener("click", ()=>{ sizeIdx=(sizeIdx+1)%SIZES.length; 
 
 // リセット
 $("reset-btn").addEventListener("click", ()=>{
+  checkUpdate();
   if(!confirm("リセットしますか？")) return;
   if(!confirm("APIキーは残しますか？（キャンセルで削除）")){ localStorage.removeItem("anthropic_api_key"); apiKey=""; }
   history=[]; ctx=null; subjFilter=""; catFilter="all"; reshuffle=0;
@@ -1661,9 +1666,28 @@ $("reset-btn").addEventListener("click", ()=>{
 // ════════════════════════════════════════════
 //  起動
 // ════════════════════════════════════════════
+// ── 自動アップデート ──
+// ホーム画面に追加したPWAはHTMLを強くキャッシュするため、
+// version.json（キャッシュ無効で取得）と食い違ったら ?v= 付きで読み直す。
+async function checkUpdate(){
+  try{
+    const r = await fetch(`version.json?t=${Date.now()}`, {cache:"no-store"});
+    if(!r.ok) return;
+    const v = await r.json();
+    if(!v || !v.version || v.version === APP_VER) return;
+    let once = false;
+    try{ once = sessionStorage.getItem("rf_upd") === v.version; }catch(e){}
+    if(once) return;                       // 読み直しても古いままなら無限ループを避ける
+    try{ sessionStorage.setItem("rf_upd", v.version); }catch(e){}
+    location.replace(location.pathname + "?v=" + encodeURIComponent(v.version));
+  }catch(e){ /* オフラインなどは無視 */ }
+}
+
 function init(){
   const now=new Date(); const d=["日","月","火","水","木","金","土"];
   $("hd-date").textContent = `${now.getMonth()+1}/${now.getDate()}（${d[now.getDay()]}）`;
+  $("app-ver").textContent = APP_VER;
+  checkUpdate();
   applyTheme((localStorage.getItem("rf_theme")||"light")==="dark");
   applyFont();
   if(!apiKey){ showSetup(); }

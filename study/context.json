@@ -1,11 +1,27 @@
 {
-  "subject": "憲法",
-  "date": "2026-09-07",
+  "subject": "刑法",
+  "date": "2026-09-09",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [],
+  "today_logs": [
+    {
+      "type": "短答",
+      "questions_count": 5,
+      "understanding": "普通",
+      "topic": ""
+    }
+  ],
   "spacing_items": [
+    {
+      "interval_label": "",
+      "date": "2026-09-08",
+      "subject": "憲法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
     {
       "interval_label": "",
       "date": "2026-09-06",
@@ -17,17 +33,8 @@
     },
     {
       "interval_label": "",
-      "date": "2026-09-04",
-      "subject": "民事訴訟法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-08-17",
-      "subject": "憲法",
+      "date": "2026-08-19",
+      "subject": "刑法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -224,25 +231,25 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": false,
-  "updated_at": "2026-09-07T07:00:38.102843",
+  "has_data": true,
+  "updated_at": "2026-09-09T07:04:26.832822",
   "today_tasks": [
     {
       "subject": "憲法",
       "status": "遅れ",
       "action": "短答3問｜論点：違憲審査基準（LRA・比較衡量）・表現の自由・平等原則",
       "theme": "短答2周目開始・論文構成（骨組みのみ）",
-      "situation": "今週0/10問。あと10問（14日ぶり）",
-      "actual_q": 0,
+      "situation": "今週5/10問。あと5問（1日ぶり）",
+      "actual_q": 5,
       "target_q": 10,
       "checked": false
     },
     {
       "subject": "民法",
-      "status": "今週",
-      "action": "6日前に学習済。今週の目標：短答2周目・頻出論点の論文骨組み",
+      "status": "遅れ",
+      "action": "短答3問｜論点：物権変動（対抗要件・善意取得）・抵当権の効力範囲",
       "theme": "短答2周目・頻出論点の論文骨組み",
-      "situation": "今週0/10問。あと10問（6日ぶり）",
+      "situation": "今週0/10問。あと10問（8日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -252,17 +259,17 @@
       "status": "遅れ",
       "action": "短答3問｜論点：構成要件該当性・違法性阻却（正当防衛の要件）・共犯の成立",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週0/10問。あと10問（12日ぶり）",
-      "actual_q": 0,
+      "situation": "今週5/10問。あと5問",
+      "actual_q": 5,
       "target_q": 10,
       "checked": false
     },
     {
       "subject": "行政法",
       "status": "今週",
-      "action": "4日前に学習済。今週の目標：短答2周目・条文ベース定着",
+      "action": "短答3問｜論点：処分性・原告適格・理由の提示（行手法14条）",
       "theme": "短答2周目・条文ベース定着",
-      "situation": "今週0/10問。あと10問（4日ぶり）",
+      "situation": "今週0/10問。あと10問（6日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -270,9 +277,9 @@
     {
       "subject": "民事訴訟法",
       "status": "今週",
-      "action": "3日前に学習済。今週の目標：短答2周目",
+      "action": "短答3問｜論点：訴訟物の特定・処分権主義・弁論主義",
       "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（3日ぶり）",
+      "situation": "今週0/10問。あと10問（5日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -282,7 +289,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：捜査の端緒・逮捕の種類と要件・接見交通権",
       "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（16日ぶり）",
+      "situation": "今週0/10問。あと10問（18日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -290,9 +297,9 @@
     {
       "subject": "商法",
       "status": "今週",
-      "action": "1日前に学習済。今週の目標：短答2周目",
+      "action": "短答3問｜論点：善管注意義務と経営判断原則・利益相反取引・株主総会決議の瑕疵",
       "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（1日ぶり）",
+      "situation": "今週0/10問。あと10問（3日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -302,33 +309,16 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（76日ぶり）",
+      "situation": "今週0/10問。あと10問（78日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "余罪を量刑で実質処罰することは憲法何条に違反するか？",
-  "quiz_answer_hint": "憲法31条・38条3項（最大判昭42.7.5）",
-  "articles": [
-    {
-      "gist": "適正手続・不告不理の根拠",
-      "ref": "憲法31条"
-    },
-    {
-      "gist": "迅速な公開裁判を受ける権利",
-      "ref": "憲法37条1項"
-    },
-    {
-      "gist": "自白のみによる有罪認定禁止",
-      "ref": "憲法38条3項"
-    },
-    {
-      "gist": "対審・判決の公開原則",
-      "ref": "憲法82条1項"
-    }
-  ],
-  "freq_rating": "★★★",
+  "quiz_question": "",
+  "quiz_answer_hint": "",
+  "articles": [],
+  "freq_rating": "",
   "weak_points_text": "",
   "next_focus": "",
   "persistent_weak": [
@@ -353,9 +343,9 @@
       "subject": "民訴法"
     },
     {
-      "keyword": "補強法則",
+      "keyword": "立証責任",
       "count": 3,
-      "subject": "憲法"
+      "subject": "民法"
     }
   ],
   "today_review_items": [],
@@ -369,16 +359,16 @@
       "category": "creator"
     },
     {
-      "title": "【予備試験対策】 NEW 『3ステップ論文速習講座』 「論文の書き方がわからない⇒手が出ない」からはこれで脱却!",
-      "label": "「予備校ニュース」 【予備試験対策】 NEW 『3ステップ論文速習講座』 「論文の書き方がわからない⇒手が出ない」からはこれで脱却!",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/26A11054.html",
+      "title": "【予備試験対策】 2027年合格目標 『CBTコンプリート論文答練』 9月開講! 本答練を含む答練パックは今なら30%OFF!",
+      "label": "「予備校・イベント・教材」 【予備試験対策】 2027年合格目標 『CBTコンプリート論文答練』 9月開講! 本答練を含む答練パックは今なら30%OFF!",
+      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/26A34021.html",
       "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
       "category": "prep"
     },
     {
-      "title": "【予備試験対策】 「基礎・論文マスター選択科目」 倒産法 新収録講義リリース!",
-      "label": "「予備校・イベント・教材」 【予備試験対策】 「基礎・論文マスター選択科目」 倒産法 新収録講義リリース!",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/25A01068.html",
+      "title": "【予備試験対策】 NEW 『3ステップ論文速習講座』 「論文の書き方がわからない⇒手が出ない」からはこれで脱却!",
+      "label": "「予備校ニュース」 【予備試験対策】 NEW 『3ステップ論文速習講座』 「論文の書き方がわからない⇒手が出ない」からはこれで脱却!",
+      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/26A11054.html",
       "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
       "category": "prep"
     },
@@ -393,13 +383,6 @@
       "title": "【予備試験論文受験生の方へ】 『論文受験生サポートプログラム』 エントリー受付中!《口述再現集他、受験生必須の対策を進呈します!》",
       "label": "「予備校・イベント・教材」 【予備試験論文受験生の方へ】 『論文受験生サポートプログラム』 エントリー受付中!《口述再現集他、受験生必須の対策を進呈します!》",
       "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/yobi/yobironbun_shougaku.html",
-      "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
-      "category": "prep"
-    },
-    {
-      "title": "【司法試験対策】 2027年合格目標 TKC 司法試験 [短答式]全国実力確認テスト 《本試験会場 新宿のCBTテストセンターで実施!》 受付 8/30(日)まで!",
-      "label": "「予備校・イベント・教材」 【司法試験対策】 2027年合格目標 TKC 司法試験 [短答式]全国実力確認テスト 《本試験会場 新宿のCBTテストセンターで実施!》 受付 8/30(日)まで!",
-      "url": "https://www.itojuku.co.jp/shiken/shihou/kouza/27A22001.html",
       "source": "伊藤塾｜更新情報（司法試験・予備試験コース）",
       "category": "prep"
     },
@@ -428,6 +411,13 @@
       "title": "司法試験予備試験の実施について",
       "label": "「日程・要項の骨格」 司法試験予備試験の実施について",
       "url": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00026.html",
+      "source": "法務省｜司法試験・予備試験",
+      "category": "official"
+    },
+    {
+      "title": "司法試験予備試験の結果について",
+      "label": "「結果・合格情報」 司法試験予備試験の結果について",
+      "url": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00027.html",
       "source": "法務省｜司法試験・予備試験",
       "category": "official"
     }

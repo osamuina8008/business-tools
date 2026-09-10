@@ -1,32 +1,14 @@
 {
-  "subject": "行政法",
-  "date": "2026-09-10",
+  "subject": "民訴法",
+  "date": "2026-09-11",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [
-    {
-      "type": "論文",
-      "questions_count": 1,
-      "understanding": "普通",
-      "topic": ""
-    }
-  ],
+  "today_logs": [],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-09-09",
-      "subject": "刑法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [
-        "各論"
-      ],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-09-03",
+      "date": "2026-09-10",
       "subject": "行政法",
       "questions_count": 0,
       "wrong_qs": [],
@@ -35,8 +17,17 @@
     },
     {
       "interval_label": "",
-      "date": "2026-08-20",
-      "subject": "行政法",
+      "date": "2026-09-08",
+      "subject": "憲法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-09-04",
+      "subject": "民事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -233,15 +224,15 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": true,
-  "updated_at": "2026-09-10T21:38:30.621926",
+  "has_data": false,
+  "updated_at": "2026-09-11T07:03:57.142494",
   "today_tasks": [
     {
       "subject": "憲法",
       "status": "遅れ",
       "action": "短答3問｜論点：違憲審査基準（LRA・比較衡量）・表現の自由・平等原則",
       "theme": "短答2周目開始・論文構成（骨組みのみ）",
-      "situation": "今週5/10問。あと5問（2日ぶり）",
+      "situation": "今週5/10問。あと5問（3日ぶり）",
       "actual_q": 5,
       "target_q": 10,
       "checked": false
@@ -251,7 +242,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：物権変動（対抗要件・善意取得）・抵当権の効力範囲",
       "theme": "短答2周目・頻出論点の論文骨組み",
-      "situation": "今週0/10問。あと10問（9日ぶり）",
+      "situation": "今週0/10問。あと10問（10日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -261,7 +252,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：構成要件該当性・違法性阻却（正当防衛の要件）・共犯の成立",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週5/10問。あと5問（1日ぶり）",
+      "situation": "今週5/10問。あと5問（2日ぶり）",
       "actual_q": 5,
       "target_q": 10,
       "checked": false
@@ -271,17 +262,17 @@
       "status": "遅れ",
       "action": "短答3問｜論点：取消訴訟の訴訟要件（処分性・原告適格・出訴期間）",
       "theme": "短答2周目・条文ベース定着",
-      "situation": "今週1/10問。あと9問",
+      "situation": "今週1/10問。あと9問（1日ぶり）",
       "actual_q": 1,
       "target_q": 10,
       "checked": false
     },
     {
       "subject": "民事訴訟法",
-      "status": "今週",
-      "action": "短答3問｜論点：訴訟物の特定・処分権主義・弁論主義",
+      "status": "遅れ",
+      "action": "短答3問｜論点：訴訟要件（当事者適格・訴えの利益）・既判力の範囲",
       "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（6日ぶり）",
+      "situation": "今週0/10問。あと10問（7日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -291,7 +282,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：捜査の端緒・逮捕の種類と要件・接見交通権",
       "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（19日ぶり）",
+      "situation": "今週0/10問。あと10問（20日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -301,7 +292,7 @@
       "status": "今週",
       "action": "短答3問｜論点：善管注意義務と経営判断原則・利益相反取引・株主総会決議の瑕疵",
       "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（4日ぶり）",
+      "situation": "今週0/10問。あと10問（5日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -311,7 +302,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（79日ぶり）",
+      "situation": "今週0/10問。あと10問（80日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false

@@ -4,7 +4,14 @@
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [],
+  "today_logs": [
+    {
+      "type": "短答",
+      "questions_count": 5,
+      "understanding": "普通",
+      "topic": ""
+    }
+  ],
   "spacing_items": [
     {
       "interval_label": "",
@@ -113,8 +120,8 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": false,
-  "updated_at": "2026-09-12T07:00:11.965080",
+  "has_data": true,
+  "updated_at": "2026-09-12T15:06:09.357403",
   "today_tasks": [
     {
       "subject": "憲法",
@@ -171,8 +178,8 @@
       "status": "遅れ",
       "action": "短答3問｜論点：捜査の端緒・逮捕の種類と要件・接見交通権",
       "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（21日ぶり）",
-      "actual_q": 0,
+      "situation": "今週5/10問。あと5問",
+      "actual_q": 5,
       "target_q": 10,
       "checked": false
     },
@@ -197,10 +204,31 @@
       "checked": false
     }
   ],
-  "quiz_question": "",
-  "quiz_answer_hint": "",
-  "articles": [],
-  "freq_rating": "",
+  "quiz_question": "私人が作成した燃焼実験報告書に321条3項を準用できるか？",
+  "quiz_answer_hint": "最決平20.8.27・刑訴法321条4項",
+  "articles": [
+    {
+      "gist": "捜査機関作成の検証調書の伝聞例外",
+      "ref": "刑訴法321条3項"
+    },
+    {
+      "gist": "鑑定書の伝聞例外（3項準用）",
+      "ref": "刑訴法321条4項"
+    },
+    {
+      "gist": "業務通常過程書面の伝聞例外",
+      "ref": "刑訴法323条2号"
+    },
+    {
+      "gist": "弾劾目的の証拠使用",
+      "ref": "刑訴法328条"
+    },
+    {
+      "gist": "被告人の供述書面の伝聞例外",
+      "ref": "刑訴法322条1項"
+    }
+  ],
+  "freq_rating": "★★★",
   "weak_points_text": "",
   "next_focus": "",
   "persistent_weak": [

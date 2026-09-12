@@ -1,33 +1,42 @@
 {
-  "subject": "刑訴法",
-  "date": "2026-09-12",
+  "subject": "商法",
+  "date": "2026-09-13",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [
-    {
-      "type": "短答",
-      "questions_count": 5,
-      "understanding": "普通",
-      "topic": ""
-    }
-  ],
+  "today_logs": [],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-09-09",
-      "subject": "刑法",
+      "date": "2026-09-12",
+      "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
-      "keywords": [
-        "各論"
-      ],
+      "keywords": [],
       "claude_notes": []
     },
     {
       "interval_label": "",
-      "date": "2026-08-22",
-      "subject": "刑事訴訟法",
+      "date": "2026-09-10",
+      "subject": "行政法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-09-06",
+      "subject": "商法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-08-23",
+      "subject": "商法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -120,15 +129,15 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": true,
-  "updated_at": "2026-09-12T15:06:09.357403",
+  "has_data": false,
+  "updated_at": "2026-09-13T07:00:45.141025",
   "today_tasks": [
     {
       "subject": "憲法",
       "status": "遅れ",
       "action": "短答3問｜論点：違憲審査基準（LRA・比較衡量）・表現の自由・平等原則",
       "theme": "短答2周目開始・論文構成（骨組みのみ）",
-      "situation": "今週5/10問。あと5問（4日ぶり）",
+      "situation": "今週5/10問。あと5問（5日ぶり）",
       "actual_q": 5,
       "target_q": 10,
       "checked": false
@@ -138,7 +147,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：物権変動（対抗要件・善意取得）・抵当権の効力範囲",
       "theme": "短答2周目・頻出論点の論文骨組み",
-      "situation": "今週0/10問。あと10問（11日ぶり）",
+      "situation": "今週0/10問。あと10問（12日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -148,7 +157,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：構成要件該当性・違法性阻却（正当防衛の要件）・共犯の成立",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週5/10問。あと5問（3日ぶり）",
+      "situation": "今週5/10問。あと5問（4日ぶり）",
       "actual_q": 5,
       "target_q": 10,
       "checked": false
@@ -158,7 +167,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：取消訴訟の訴訟要件（処分性・原告適格・出訴期間）",
       "theme": "短答2周目・条文ベース定着",
-      "situation": "今週1/10問。あと9問（2日ぶり）",
+      "situation": "今週1/10問。あと9問（3日ぶり）",
       "actual_q": 1,
       "target_q": 10,
       "checked": false
@@ -168,7 +177,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：訴訟要件（当事者適格・訴えの利益）・既判力の範囲",
       "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（8日ぶり）",
+      "situation": "今週0/10問。あと10問（9日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -178,17 +187,17 @@
       "status": "遅れ",
       "action": "短答3問｜論点：捜査の端緒・逮捕の種類と要件・接見交通権",
       "theme": "短答2周目",
-      "situation": "今週5/10問。あと5問",
+      "situation": "今週5/10問。あと5問（1日ぶり）",
       "actual_q": 5,
       "target_q": 10,
       "checked": false
     },
     {
       "subject": "商法",
-      "status": "今週",
-      "action": "短答3問｜論点：善管注意義務と経営判断原則・利益相反取引・株主総会決議の瑕疵",
+      "status": "遅れ",
+      "action": "短答3問｜論点：株主総会決議（種類・要件・瑕疵）・取締役の善管注意義務",
       "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（6日ぶり）",
+      "situation": "今週0/10問。あと10問（7日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -198,37 +207,16 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（81日ぶり）",
+      "situation": "今週0/10問。あと10問（82日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "私人が作成した燃焼実験報告書に321条3項を準用できるか？",
-  "quiz_answer_hint": "最決平20.8.27・刑訴法321条4項",
-  "articles": [
-    {
-      "gist": "捜査機関作成の検証調書の伝聞例外",
-      "ref": "刑訴法321条3項"
-    },
-    {
-      "gist": "鑑定書の伝聞例外（3項準用）",
-      "ref": "刑訴法321条4項"
-    },
-    {
-      "gist": "業務通常過程書面の伝聞例外",
-      "ref": "刑訴法323条2号"
-    },
-    {
-      "gist": "弾劾目的の証拠使用",
-      "ref": "刑訴法328条"
-    },
-    {
-      "gist": "被告人の供述書面の伝聞例外",
-      "ref": "刑訴法322条1項"
-    }
-  ],
-  "freq_rating": "★★★",
+  "quiz_question": "",
+  "quiz_answer_hint": "",
+  "articles": [],
+  "freq_rating": "",
   "weak_points_text": "",
   "next_focus": "",
   "persistent_weak": [

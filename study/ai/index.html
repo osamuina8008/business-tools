@@ -43,6 +43,11 @@ aside{background:var(--surface);border-right:1px solid var(--line);
   border:1px solid var(--differ);font-size:11.5px;line-height:1.7}
 .duetop b{display:block;color:var(--differ);font-size:11px;letter-spacing:.1em;margin-bottom:2px}
 .duetop span{display:block;color:var(--ink)}
+.duetop .duebtn{display:flex;align-items:baseline;gap:6px;width:calc(100% + 8px);margin:0 -4px;
+  padding:3px 4px;border:0;border-radius:5px;background:none;text-align:left;
+  font:inherit;font-size:11.5px;line-height:1.7;color:var(--ink);cursor:pointer}
+.duetop .duebtn:hover{background:var(--surface)}
+.duetop .duebtn em{margin-left:auto;font-style:normal;font-weight:700;color:var(--differ);opacity:.8}
 .grp{display:flex;align-items:center;gap:7px;width:100%;text-align:left;
   padding:12px 14px 12px 12px;margin-top:6px;background:none;border:0;border-top:1px solid var(--line);
   font:inherit;font-size:11px;letter-spacing:.1em;color:var(--muted);font-weight:700;cursor:pointer}
@@ -391,6 +396,17 @@ function markActive(){
   [...nav.querySelectorAll('.qbtn')].forEach(b => b.classList.toggle('on', b.dataset.id === uid));
 }
 
+/* 「きょう復習する日」から、その日の1問目を開く。
+   show() が畳んでいた日を開き直し・見出しも合わせてくれる。 */
+function openDay(day){
+  const d = DB.days.find(x => x.day === day);
+  if (!d || !d.qs.length) return;
+  Promise.resolve(show(day + d.qs[0].id)).then(() => {
+    const el = nav.querySelector('.qbtn.on');
+    if (el) el.scrollIntoView({block:'nearest'});
+  });
+}
+
 function buildNav(){
   nav.innerHTML = '';
   const days = DB.days.slice().filter(d => d.qs.length)
@@ -411,8 +427,16 @@ function buildNav(){
   if (due.length){
     const t = document.createElement('div');
     t.className = 'duetop';
-    t.innerHTML = '<b>きょう復習する日</b>' + due.map(d =>
-      `<span>${esc(d.subject)}　${ymd(d.day).slice(5).replace('-','/')}（${dueOf(d.day)}）</span>`).join('');
+    t.innerHTML = '<b>きょう復習する日</b>';
+    due.forEach(d => {
+      const b = document.createElement('button');
+      b.className = 'duebtn';
+      b.title = 'この日の1問目を開く';
+      b.innerHTML = `${esc(d.subject)}　${ymd(d.day).slice(5).replace('-','/')}`
+        + `（${dueOf(d.day)}）<em>${d.qs.length}問 ›</em>`;
+      b.onclick = () => openDay(d.day);
+      t.appendChild(b);
+    });
     nav.appendChild(t);
   }
 

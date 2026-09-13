@@ -158,6 +158,7 @@ tr.split td{background:var(--flagbg)}
 .art span.none{color:var(--muted)}
 .art a{font-size:12px;white-space:nowrap;color:var(--ai)}
 .kw{cursor:pointer}
+.kw .imp{font-size:9px;letter-spacing:-.5px;opacity:.75;margin-left:3px;vertical-align:1px}
 .kw:hover{background:var(--sunk);border-color:var(--ai)}
 .kw:not(.mine){border-style:dashed}
 .art .acts{display:flex;gap:7px;flex-wrap:wrap;flex-basis:100%;margin-top:2px}
@@ -633,6 +634,22 @@ function kws(t, ai){
 
 const ARTS = {};
 const PAST = {};   // 旧構成の日に自分が書いた疑問・メモ（つまずき索引）
+const FREQ = {};   // 語 → 自分が解いた問題のうち何問に出たか（＝重要度の実体）
+let NQ = 0;        // 収録している問題の総数
+
+/* 重要度は「よく出る」を★の数で。AIの判断ではなく自分の問題データが根拠。 */
+function impStars(k){
+  const n = FREQ[k] || 0;
+  if (n >= 8) return '★★★';
+  if (n >= 4) return '★★';
+  if (n >= 2) return '★';
+  return '';
+}
+function impTitle(k){
+  const n = FREQ[k] || 0;
+  if (!n) return '';
+  return 'これまでの' + NQ + '問のうち ' + n + '問に出ています';
+}
 
 /* ---- 自分の条文ノートから一言まとめを出す ---- */
 function obs(file){
@@ -713,7 +730,10 @@ function showArt(k){
       + '</div>';
   }
 
-  box.innerHTML = '<div class="art"><b>' + esc(k) + '</b>'
+  const ft = impTitle(k);
+  box.innerHTML = '<div class="art"><b>' + esc(k)
+    + (impStars(k) ? ' <span class="imp">' + impStars(k) + '</span>' : '') + '</b>'
+    + (ft ? '<span class="none">' + esc(ft) + '</span>' : '')
     + (a ? (a.s ? '<span>' + esc(a.s) + '</span>'
                 : '<span class="none">（一言まとめが書かれていません）</span>')
          : '<span class="none">まだ自分のノートがありません</span>')
@@ -748,9 +768,12 @@ function renderCols(){
         const cls = n === A.length && A.length > 1 ? 'all' : (n === 1 ? 'solo' : '');
         const mine = ARTS[k] || PAST[k];             // 自分のノートか、過去のつまずきがあるか
         /* ノートが無い語も押せる。無いときは「探す・作る」を出す＝行き止まりにしない */
+        const st = impStars(k), it = impTitle(k);
         return '<button class="kw ' + cls + (mine ? ' mine' : '')
-             + '" data-k="' + esc(k) + '" title="' + (mine ? '自分のノートを見る' : '探す・作る') + '">'
-             + esc(k) + (n===1 && A.length>1 ? ' ⚑' : '') + '</button>';
+             + '" data-k="' + esc(k) + '" title="'
+             + (it ? esc(it) + '／' : '') + (mine ? '自分のノートを見る' : '探す・作る') + '">'
+             + esc(k) + (n===1 && A.length>1 ? ' ⚑' : '')
+             + (st ? '<span class="imp">' + st + '</span>' : '') + '</button>';
       }).join('');
       return '<div class="col"><h4>' + a
            + '<button class="send" data-ai="' + esc(a) + '" title="この解説をChatGPTへ">⤴</button></h4>'
@@ -786,6 +809,8 @@ function ingest(data, full){
   });
   Object.assign(ARTS, data.arts || {});
   Object.assign(PAST, data.past || {});
+  if (data.freq) Object.assign(FREQ, data.freq);
+  if (data.nq) NQ = data.nq;
   buildFlat();
 }
 

@@ -80,6 +80,13 @@
       border-radius: 11px; display: flex; align-items: center; justify-content: center;
       box-shadow: var(--shadow); flex-shrink: 0; transition: transform .12s; }
     .icon-btn:active { transform: scale(.9); }
+    /* ボタンが1つ増えた分、狭い端末ではヘッダーを詰める */
+    @media (max-width: 400px) {
+      header { gap: 7px; padding-left: 12px; padding-right: 12px; }
+      header h1 { font-size: 15px; white-space: nowrap; }
+      .logo { font-size: 19px; }
+      .icon-btn { width: 30px; height: 30px; font-size: 14px; border-radius: 10px; }
+    }
 
     /* ── 科目バー ── */
     #subj-bar {
@@ -349,6 +356,90 @@
     #undo-btn { background: transparent; border: none; color: #fbbf24; font-weight: 800;
       font-size: 14px; cursor: pointer; flex: 0 0 auto; padding: 4px; }
     .swipe-hint { font-size: 11.5px; color: var(--dim); font-weight: 600; margin: 2px 0 0; }
+
+    /* ════════ 🎙 自己説明 → 🤖 添削 → 🧠 今日覚える ════════ */
+    #speak-row { display:flex; gap:7px; padding:6px 16px 0; flex-shrink:0; }
+    .sp-btn { flex:1; font-size:13.5px; font-weight:800; padding:11px 10px; border-radius:15px;
+      border:none; color:#fff; cursor:pointer; -webkit-tap-highlight-color:transparent;
+      box-shadow:var(--shadow); }
+    .sp-btn:active { transform:scale(.96); }
+    .sp-mic  { background:linear-gradient(135deg,#ef4768,#f5901e); }
+    .sp-memo { background:linear-gradient(135deg,#18b389,#4f86ff); }
+
+    /* ボトムシート */
+    .sheet-ov { position:fixed; inset:0; z-index:120; display:flex;
+      align-items:flex-end; justify-content:center;
+      background:rgba(20,16,40,.5); -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px); }
+    @media (min-width:600px){ .sheet-ov { align-items:center; } .sheet { border-radius:24px !important; } }
+    .sheet { width:100%; max-width:560px; max-height:92vh; overflow-y:auto;
+      -webkit-overflow-scrolling:touch;
+      background:var(--surf); border-radius:24px 24px 0 0;
+      padding:16px 16px calc(18px + env(safe-area-inset-bottom));
+      box-shadow:var(--shadow-lg); animation:sheetUp .24s cubic-bezier(.2,.8,.2,1) both; }
+    @keyframes sheetUp { from{transform:translateY(26px);opacity:0} to{transform:translateY(0);opacity:1} }
+    .sheet-head { display:flex; align-items:center; gap:10px; margin-bottom:9px; }
+    .sheet-head b { flex:1; font-size:16px; font-weight:800; }
+    .sheet-sub { font-size:12.5px; color:var(--dim); font-weight:600; line-height:1.7; margin-bottom:11px; }
+    .sheet-sub b { color:var(--text); }
+    .sp-ta { width:100%; background:var(--surf2); border:1px solid var(--border); border-radius:14px;
+      padding:12px 14px; color:var(--text); font-size:15.5px; line-height:1.65; outline:none;
+      resize:none; min-height:130px; font-family:inherit; box-sizing:border-box; }
+    .sp-ta:focus { border-color:var(--acc); }
+    .fld { margin-bottom:9px; }
+    .fld label { display:block; font-size:11.5px; font-weight:800; color:var(--dim); margin:0 0 4px 3px; }
+    .fld textarea { width:100%; background:var(--surf2); border:1px solid var(--border);
+      border-radius:12px; padding:9px 12px; color:var(--text); font-size:14px; line-height:1.6;
+      outline:none; resize:none; min-height:42px; font-family:inherit; box-sizing:border-box; }
+    .fld textarea:focus { border-color:var(--acc); }
+    .fld.gap textarea { border-left:4px solid var(--c-weak); }
+    .fld.rec textarea { border-left:4px solid var(--c-quiz); font-weight:700; }
+    .sheet-btns { display:flex; gap:8px; margin-top:8px; }
+    .sheet-btns button { flex:1; padding:13px 8px; border-radius:15px; border:none; font-size:14px;
+      font-weight:800; cursor:pointer; -webkit-tap-highlight-color:transparent; }
+    .sheet-btns button:active { transform:scale(.97); }
+    .sb-main { background:linear-gradient(135deg,var(--acc),var(--acc2)); color:#fff; }
+    .sb-main:disabled { opacity:.4; }
+    .sb-sub  { background:var(--surf2); border:1px solid var(--border); color:var(--text); }
+    .sb-sub.rec-on { background:var(--c-weak-bg); border-color:var(--c-weak); color:var(--c-weak);
+      animation:pulse 1.1s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+
+    /* 今日覚える デッキ */
+    .ov { position:fixed; inset:0; z-index:60; display:flex;
+      align-items:flex-end; justify-content:center;
+      background:rgba(20,16,40,.45); -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px);
+      animation:fadeUp .18s ease both; }
+    @media (min-width:600px) { .ov { align-items:center; } }
+    .memo-card { background:var(--surf2); border:1px solid var(--border);
+      border-left:4px solid var(--c-quiz); border-radius:14px; padding:12px 14px; margin:10px 0; }
+    .memo-card.hot { border-left-color:var(--c-weak); }
+    .mc-top { display:flex; align-items:center; gap:7px; margin-bottom:5px; flex-wrap:wrap; }
+    .mc-subj { font-size:10.5px; font-weight:800; color:var(--c-quiz);
+      background:var(--c-quiz-bg); padding:3px 8px; border-radius:8px; }
+    .memo-card.hot .mc-subj { color:var(--c-weak); background:var(--c-weak-bg); }
+    .mc-miss { font-size:10.5px; font-weight:800; color:var(--c-weak);
+      background:var(--c-weak-bg); padding:3px 8px; border-radius:8px; }
+    .mc-title { flex-basis:100%; font-size:14.5px; font-weight:800; line-height:1.5; }
+    .mc-body { font-size:13.5px; line-height:1.8; margin-top:7px; }
+    .mc-body .k { font-weight:800; color:var(--dim); font-size:11.5px; }
+    .mc-gap { color:var(--c-weak); }
+    .mc-recite { margin-top:8px; padding:10px 12px; border-radius:11px;
+      background:var(--c-quiz-bg); font-size:14.5px; font-weight:700; line-height:1.7; }
+    .mc-btns { display:flex; gap:6px; margin-top:9px; flex-wrap:wrap; }
+    .mc-btns button { font-size:12px; font-weight:700; padding:7px 12px; border-radius:11px;
+      border:1px solid var(--border); background:var(--surf); color:var(--text); cursor:pointer;
+      -webkit-tap-highlight-color:transparent; }
+    .mc-btns button:active { transform:scale(.94); }
+    .mc-btns .ok { border-color:var(--c-quiz); color:var(--c-quiz); font-weight:800; }
+    .mc-btns .ng { border-color:var(--c-weak); color:var(--c-weak); font-weight:800; }
+    .mc-btns .up { border-color:var(--c-task); color:var(--c-task); font-weight:800; }
+    #memo-list { flex:1; overflow-y:auto; padding:4px 14px 10px; -webkit-overflow-scrolling:touch; }
+    #memo-clear { width:100%; padding:11px; border-radius:14px; cursor:pointer;
+      border:1px solid var(--border); background:var(--surf2); color:var(--c-weak); font-weight:700; }
+    .memo-pill { position:relative; }
+    .memo-pill .badge { position:absolute; top:-3px; right:-3px; min-width:16px; height:16px;
+      border-radius:8px; background:var(--c-weak); color:#fff; font-size:10px; font-weight:800;
+      display:flex; align-items:center; justify-content:center; padding:0 4px; }
   </style>
 </head>
 <body>
@@ -358,6 +449,7 @@
   <header>
     <span class="logo">📚</span>
     <h1>復習フィード<small id="hd-date">--</small></h1>
+    <button class="icon-btn memo-pill" id="memo-btn" title="今日覚える">🧠<span class="badge hidden" id="memo-badge">0</span></button>
     <button class="icon-btn" id="log-btn" title="復習ログ">📖</button>
     <button class="icon-btn" id="theme-btn" title="テーマ">🌙</button>
     <button class="icon-btn" id="font-btn" title="文字サイズ" style="font-weight:800">A</button>
@@ -416,6 +508,10 @@
       <span id="chat-subj">--</span>
     </div>
     <div id="chat-area"></div>
+    <div id="speak-row">
+      <button class="sp-btn sp-mic"  id="speak-btn">🎙 自分で説明する</button>
+      <button class="sp-btn sp-memo" id="chat-memo-btn">🧠 今日覚える</button>
+    </div>
     <div id="quick">
       <button class="qb" data-m="いちばん重要な要点を、もう少し詳しく教えてください">🔎 もっと詳しく</button>
       <button class="qb" data-m="重複しない別の論点キーワードを5〜7個挙げてください">🔄 別の5つ</button>
@@ -442,6 +538,18 @@
     </div>
   </div>
 
+  <!-- ⑤ 今日覚える デッキ -->
+  <div id="memo-ov" class="ov hidden">
+    <div class="log-panel">
+      <div class="log-head">
+        <span>🧠 今日覚える</span>
+        <button class="icon-btn" id="memo-close" title="閉じる">✕</button>
+      </div>
+      <div id="memo-list"></div>
+      <div class="log-foot"><button id="memo-clear">🗑 言えたものを片づける（〇が2回以上）</button></div>
+    </div>
+  </div>
+
   <!-- 完了取り消しバー -->
   <div id="undo-bar">
     <span id="undo-text"></span>
@@ -455,7 +563,7 @@
 //  定数
 // ════════════════════════════════════════════
 const WEEKLY = {0:"商法",1:"憲法",2:"民法",3:"刑法",4:"行政法",5:"民訴法",6:"刑訴法"};
-const APP_VER = "20260908-1";   // ← 更新するたびに version.json と合わせて上げる
+const APP_VER = "20260913-1";   // ← 更新するたびに version.json と合わせて上げる
 const API_URL = "https://api.anthropic.com/v1/messages";
 const API_MODEL = "claude-haiku-4-5-20251001";
 const CTX_URL = () => `https://raw.githubusercontent.com/osamuina8008/business-tools/main/study/context.json?t=${Date.now()}`;
@@ -510,10 +618,27 @@ const esc = s => clean(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/
 // ── メモ・検索の飛び先（Obsidian）──
 // Vault名を変えたい場合はブラウザの localStorage の rf_obs_vault を書き換える
 const OBS_VAULT = localStorage.getItem("rf_obs_vault") || "Time based-司法試験予備試験";
-const OBS_MEMO_DIR = "TimeBase/10_Daily Log";
+const OBS_STUDY_DIR = "TimeBase/20_Study";
+// 科目名 → 20_Study 配下のフォルダ名（表記ゆれも拾う）
+const SUBJ_DIR = {
+  "刑事訴訟法":"1.刑訴法", "民事訴訟法":"2.民訴法",
+  "刑訴法":"1.刑訴法", "民訴法":"2.民訴法",
+  "刑訴":"1.刑訴法",   "民訴":"2.民訴法",
+  "会社法":"3.商法",   "商法":"3.商法",
+  "行政法":"6.行政法", "憲法":"7.憲法",
+  "民法":"4.民法",     "刑法":"5.刑法"
+};
+const SUBJ_KEYS = Object.keys(SUBJ_DIR).sort((a,b)=>b.length-a.length);
+// メモの保存先フォルダ。科目が判らないときだけ 20_Study 直下に置く
+function obsMemoDir(subject){
+  const k = clean(subject);
+  if(SUBJ_DIR[k]) return `${OBS_STUDY_DIR}/${SUBJ_DIR[k]}`;
+  const hit = SUBJ_KEYS.find(x => k.includes(x));
+  return hit ? `${OBS_STUDY_DIR}/${SUBJ_DIR[hit]}` : OBS_STUDY_DIR;
+}
 const obsSearch = q => `obsidian://search?vault=${encodeURIComponent(OBS_VAULT)}&query=${encodeURIComponent(clean(q))}`;
 function obsMemo(c){
-  const file = `${OBS_MEMO_DIR}/${dayKey(Date.now())}復習メモ`;
+  const file = `${obsMemoDir(c.subject)}/復習メモ_${dayKey(Date.now())}`;
   const kw = (c.kws||[]).filter(Boolean).map(clean).join("・");
   const body = [
     `## ${clean(c.title)}`,
@@ -1416,6 +1541,7 @@ function launch(card){
   recordReview(card);
   if(card.read && card.url){ renderFeed(); window.open(card.url, "_blank"); return; }
   chatSubject = card.subject || ctx?.subject || chatSubject;
+  curTopic = { title: clean(card.topic || card.title), subject: chatSubject };
   $("chat-subj").textContent = chatSubject;
   history = [];
   $("chat-area").innerHTML = "";
@@ -1559,7 +1685,7 @@ document.querySelectorAll(".sbt").forEach(btn=>{
     const s = btn.dataset.s;
     if(!$("chat-wrap").classList.contains("hidden")){
       // チャット中：科目切替
-      if(s){ chatSubject=s; $("chat-subj").textContent=s;
+      if(s){ chatSubject=s; curTopic={title:"",subject:s}; $("chat-subj").textContent=s;
         send(`科目を${s}に切り替えます。${s}の今日押さえるべき論点キーワードを5〜7個、簡潔に挙げてください。`); }
       else { backToFeed(); }
     } else {
@@ -1683,6 +1809,373 @@ async function checkUpdate(){
   }catch(e){ /* オフラインなどは無視 */ }
 }
 
+// ════════════════════════════════════════════
+//  🎙 自分で説明 → 🤖 AI添削 → 🧠 今日覚える → 🔁 再回答
+//  ・保存するのは4項目（結論／条文／ひっかけ／30秒暗唱）＋自分のズレ だけ
+//  ・AIとの会話全文は保存しない（会話は捨てる。間違いだけ残す）
+// ════════════════════════════════════════════
+const MEMO_KEY = "rf_memo_cards";
+let memoCards = (()=>{ try{ const v=JSON.parse(localStorage.getItem(MEMO_KEY)||"[]");
+  return Array.isArray(v)?v:[]; }catch(e){ return []; } })();
+function saveMemos(){
+  if(memoCards.length>200) memoCards = memoCards.slice(-200);
+  try{ localStorage.setItem(MEMO_KEY, JSON.stringify(memoCards)); }catch(e){}
+  renderMemoBadge();
+}
+// いま説明している論点（チャットを開くたびに更新）
+let curTopic = { title:"", subject:"" };
+function topicLabel(){ return clean(curTopic.title) || chatSubject; }
+const memoId = (subj,title) => `${clean(subj)}::${clean(title)}`;
+
+function renderMemoBadge(){
+  const n = memoCards.filter(m=> (m.hit||0) < 2).length;
+  const b = $("memo-badge");
+  b.textContent = n > 99 ? "99" : n;
+  b.classList.toggle("hidden", n === 0);
+}
+
+// ── 音声入力（対応端末のみ。iOSはキーボードの🎤を使う）──
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+let recog = null, recogOn = false;
+function stopRecog(){ if(recog){ try{ recog.stop(); }catch(e){} } recogOn=false;
+  const b=$("sp-rec"); if(b){ b.classList.remove("rec-on"); b.textContent="🎤 話して入力"; } }
+
+function toggleRecog(){
+  const ta = $("sp-ta"), btn = $("sp-rec");
+  if(!SR){ // iOS Safari 等：標準のディクテーションへ誘導
+    ta.focus();
+    $("sp-hint").innerHTML = "キーボードの <b>🎤</b> を押すと、話した内容がそのまま文字になります。";
+    return;
+  }
+  if(recogOn){ stopRecog(); return; }
+  recog = new SR();
+  recog.lang = "ja-JP"; recog.continuous = true; recog.interimResults = true;
+  const base = ta.value ? ta.value.replace(/\s+$/,"") + "\n" : "";
+  recog.onresult = ev => {
+    let fixed = "", interim = "";
+    for(let i=ev.resultIndex; i<ev.results.length; i++){
+      const t = ev.results[i][0].transcript;
+      if(ev.results[i].isFinal) fixed += t; else interim += t;
+    }
+    if(fixed) ta.value = (ta.value ? ta.value.replace(/\s+$/,"")+"" : "") + fixed;
+    $("sp-hint").textContent = interim ? "…" + interim : "";
+    $("sp-go").disabled = ta.value.trim().length < 4;
+  };
+  recog.onerror = e => { $("sp-hint").textContent = "音声が使えませんでした（"+e.error+"）。キーボードの🎤でも入力できます。"; stopRecog(); };
+  recog.onend = () => { if(recogOn){ try{ recog.start(); }catch(e){ stopRecog(); } } };
+  try{ recog.start(); recogOn = true;
+    btn.classList.add("rec-on"); btn.textContent = "■ 停止";
+    $("sp-hint").textContent = "聞いています…";
+  }catch(e){ stopRecog(); }
+  ta.value = base;
+}
+
+// ── ① 自己説明シート ──
+function closeSheet(){ stopRecog(); const el=$("speak-ov"); if(el) el.remove(); }
+
+function openSpeak(){
+  closeSheet();
+  const ov = document.createElement("div");
+  ov.className = "sheet-ov"; ov.id = "speak-ov";
+  ov.innerHTML = `
+    <div class="sheet">
+      <div class="sheet-head"><b>🎙 自分の言葉で説明する</b>
+        <button class="icon-btn" id="sp-x">✕</button></div>
+      <div class="sheet-sub">「<b>${esc(topicLabel())}</b>」<br>
+        <b>答えを見る前に</b>、30秒で言い切る。<br>
+        短答ならこう／論文ならこう、の順で話すと形になります。</div>
+      <textarea class="sp-ta" id="sp-ta" placeholder="例：招集通知が1人に届いていない事案。短答なら…。論文なら…。"></textarea>
+      <div class="sheet-btns">
+        <button class="sb-sub"  id="sp-rec">🎤 話して入力</button>
+        <button class="sb-main" id="sp-go" disabled>🤖 添削してもらう</button>
+      </div>
+      <div class="sheet-sub" id="sp-hint" style="margin:9px 0 0">${
+        SR ? "" : "キーボードの <b>🎤</b> を押すと、話した内容がそのまま文字になります。"}</div>
+    </div>`;
+  document.body.appendChild(ov);
+  ov.addEventListener("click", e=>{ if(e.target===ov) closeSheet(); });
+  $("sp-x").addEventListener("click", closeSheet);
+  $("sp-rec").addEventListener("click", toggleRecog);
+  $("sp-ta").addEventListener("input", ()=>{ $("sp-go").disabled = $("sp-ta").value.trim().length < 4; });
+  $("sp-go").addEventListener("click", ()=>{
+    const mine = $("sp-ta").value.trim();
+    closeSheet();
+    gradeSelf(mine);
+  });
+  setTimeout(()=>{ if(!SR) $("sp-ta").focus(); }, 120);
+}
+
+// ── ② AI添削（6行だけ返させる）──
+function selfSystem(){
+  return `あなたは司法試験予備試験の答案添削者です。受験生（53歳・2028年合格目標）が自分の言葉で口述した理解を添削します。
+
+科目: ${chatSubject}
+論点: ${topicLabel()}
+
+【出力形式】必ず次の6行だけを出力する。各項目はかならず1行に収める（項目の中で改行しない）。見出しの角括弧は変えない。前置き・あいさつ・箇条書き・補足説明は一切書かない。
+[ズレ] 受験生の説明のうち、誤り・危うい断定・概念の混同を1つだけ指摘する。正しければ「なし（要点は押さえられています）」とだけ書く。
+[修正] そのズレをどう直すか。1〜2文。
+[結論] この論点の結論。原則と例外をセットで1文。
+[条文] 根拠条文と理由を1つ。確信が持てる条文だけ書き、不確かなら条文名のみにする。番号のでっち上げは禁止。
+[ひっかけ] 短答で引っかかりやすい点を「〜と考えがちだが〜」の形で1文。
+[暗唱] 声に出して20〜30秒で言える要約。1〜2文。
+
+【内容のルール】
+- 効力を一方的に断定しない（「必ず無効」「当然に有効」等は禁止）。原則と例外、または満たすべき要件をセットで示す。
+- 現行法の用語で書く（民法は「契約不適合責任」。会社法を「商法」と書かない）。
+- 難易度は「基本」。学説の細かい対立や重箱のひっかけは避ける。
+- 受験生の説明が断片的・不明瞭でも聞き返さない。科目と論点から最も自然な内容を推定してそのまま添削する。
+- 無効・取消し・不存在のような効果の区別が絡む論点では、その区別をズレ／ひっかけで必ず拾う。`;
+}
+
+function parseFb(txt){
+  const get = k => {
+    const m = txt.match(new RegExp("\\[" + k + "\\][ 　:：]*([^\\n]*)"));
+    return m ? clean(m[1]) : "";
+  };
+  return { gap:get("ズレ"), fix:get("修正"), conc:get("結論"),
+           art:get("条文"), trap:get("ひっかけ"), recite:get("暗唱") };
+}
+
+async function gradeSelf(mine){
+  if(busy) return;
+  addBubble("user", "🎙 " + mine);
+  busy = true; $("send").disabled = true;
+  const typing = addTyping();
+  try{
+    const res = await fetch(API_URL, {
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+        "x-api-key": apiKey,
+        "anthropic-version": "2023-06-01",
+        "anthropic-dangerous-direct-browser-access": "true",
+      },
+      body: JSON.stringify({
+        model: API_MODEL, max_tokens: 500, system: selfSystem(),
+        messages: [{role:"user", content:`論点：${topicLabel()}\n\n私の説明：\n${mine}`}],
+      }),
+    });
+    const data = await res.json();
+    typing.remove();
+    if(data.type==="error" || data.error){
+      addBubble("ai", `⚠️ エラー：${data.error?.message||"不明"}\n\nAPIキーが切れている場合は、右上の ↺ → キーを入れ直してください。`);
+    } else {
+      const raw = (data.content||[]).filter(b=>b.type==="text").map(b=>b.text).join("");
+      const fb = parseFb(raw);
+      if(!fb.conc && !fb.gap){ addBubble("ai", raw || "（応答なし）"); }
+      else { showFeedback(fb, mine); }
+    }
+  }catch(e){
+    typing.remove();
+    addBubble("ai", "⚠️ 通信エラー。ネット接続を確認してください。");
+  }
+  busy = false; $("send").disabled = ($("msg-in").value.trim()==="");
+  scrollBottom();
+}
+
+// 添削結果を吹き出し＋「🧠 今日覚える に保存」ボタンで出す
+function showFeedback(fb, mine){
+  const noGap = /^なし/.test(fb.gap||"");
+  const txt = [
+    noGap ? "🟢 ズレなし　" + fb.gap : "🔴 自分のズレ\n" + fb.gap,
+    fb.fix ? (noGap ? "" : "\n🟢 修正\n" + fb.fix) : "",
+    "\n─────────",
+    fb.conc   ? "結論｜"    + fb.conc   : "",
+    fb.art    ? "条文｜"    + fb.art    : "",
+    fb.trap   ? "ひっかけ｜"+ fb.trap   : "",
+    fb.recite ? "30秒暗唱｜"+ fb.recite : "",
+  ].filter(Boolean).join("\n");
+  addBubble("ai", txt);
+
+  const row = document.createElement("div"); row.className = "msg ai";
+  row.style.cssText = "max-width:100%;width:100%;";
+  const wrap = document.createElement("div");
+  wrap.style.cssText = "display:flex;gap:7px;width:100%";
+  const b1 = document.createElement("button");
+  b1.className = "sp-btn sp-memo"; b1.textContent = "🧠 今日覚える に保存";
+  b1.addEventListener("click", ()=>{ row.remove(); openMemoEdit(fb, mine); });
+  const b2 = document.createElement("button");
+  b2.className = "sp-btn sp-mic"; b2.style.flex = "0 0 44%"; b2.textContent = "🔁 もう一度言い直す";
+  b2.addEventListener("click", ()=>{ row.remove(); openSpeak(); });
+  wrap.appendChild(b1); wrap.appendChild(b2);
+  row.appendChild(wrap); $("chat-area").appendChild(row); scrollBottom();
+}
+
+// ── ③ 今日覚える（4項目だけ。編集して保存）──
+function openMemoEdit(fb, mine, existingId){
+  closeSheet();
+  const ov = document.createElement("div");
+  ov.className = "sheet-ov"; ov.id = "speak-ov";
+  const f = (id,label,val,cls,rows) => `
+    <div class="fld ${cls||""}"><label>${label}</label>
+      <textarea id="${id}" rows="${rows||2}">${esc(val||"")}</textarea></div>`;
+  ov.innerHTML = `
+    <div class="sheet">
+      <div class="sheet-head"><b>🧠 今日覚える</b>
+        <button class="icon-btn" id="sp-x">✕</button></div>
+      <div class="sheet-sub">「<b>${esc(topicLabel())}</b>」<br>
+        残すのはこれだけ。長い解説は残さない。</div>
+      ${f("me-gap","🔴 自分のズレ（いちばん価値のあるデータ）", fb.gap && !/^なし/.test(fb.gap) ? fb.gap : "", "gap")}
+      ${f("me-conc","① 結論")}
+      ${f("me-art","② 条文・理由")}
+      ${f("me-trap","③ ひっかけ")}
+      ${f("me-rec","④ 30秒暗唱","", "rec")}
+      <div class="sheet-btns">
+        <button class="sb-sub"  id="me-obs">📤 Obsidian</button>
+        <button class="sb-main" id="me-save">🧠 保存する</button>
+      </div>
+    </div>`;
+  document.body.appendChild(ov);
+  $("me-conc").value = fb.conc||""; $("me-art").value = fb.art||"";
+  $("me-trap").value = fb.trap||""; $("me-rec").value = fb.recite||"";
+  ["me-gap","me-conc","me-art","me-trap","me-rec"].forEach(id=>{
+    const el=$(id); el.style.height="auto"; el.style.height=Math.max(42,el.scrollHeight)+"px";
+    el.addEventListener("input", ()=>{ el.style.height="auto"; el.style.height=el.scrollHeight+"px"; });
+  });
+  ov.addEventListener("click", e=>{ if(e.target===ov) closeSheet(); });
+  $("sp-x").addEventListener("click", closeSheet);
+
+  const collect = () => ({
+    id: existingId || memoId(curTopic.subject||chatSubject, topicLabel()),
+    subject: clean(curTopic.subject||chatSubject),
+    title: topicLabel(),
+    gap: $("me-gap").value.trim(), fix: fb.fix||"",
+    conc: $("me-conc").value.trim(), art: $("me-art").value.trim(),
+    trap: $("me-trap").value.trim(), recite: $("me-rec").value.trim(),
+    mine: (mine||"").slice(0,400),
+  });
+  $("me-save").addEventListener("click", ()=>{ saveMemo(collect()); closeSheet();
+    toast("🧠 今日覚える に保存しました"); });
+  $("me-obs").addEventListener("click", ()=>{ const c=saveMemo(collect()); toObsidian(c, false); closeSheet(); });
+}
+
+function saveMemo(c){
+  const i = memoCards.findIndex(m=>m.id===c.id);
+  if(i>=0){
+    const old = memoCards[i];
+    memoCards[i] = Object.assign({}, old, c, { ts:Date.now(), hit:old.hit||0, ng:old.ng||0 });
+    memoCards.push(memoCards.splice(i,1)[0]);
+  } else {
+    memoCards.push(Object.assign({ ts:Date.now(), hit:0, ng:0, last:0 }, c));
+  }
+  saveMemos();
+  return memoCards[memoCards.length-1];
+}
+
+// ── Obsidian へ（日次メモ／昇格）──
+function memoBody(c){
+  return [
+    `### ${clean(c.title)}`,
+    c.conc   ? `- 結論：${clean(c.conc)}`     : "",
+    c.art    ? `- 条文：${clean(c.art)}`      : "",
+    c.trap   ? `- ひっかけ：${clean(c.trap)}` : "",
+    c.gap    ? `- 🔴自分のズレ：${clean(c.gap)}` : "",
+    c.recite ? `- 一撃：${clean(c.recite)}`   : "",
+  ].filter(Boolean).join("\n");
+}
+// promote=false → その日の「今日覚える」ノート / true → 科目の「よく間違える論点」ノート
+function toObsidian(c, promote){
+  const dir = obsMemoDir(c.subject);
+  const file = promote ? `${dir}/よく間違える論点`
+                       : `${dir}/今日覚える_${dayKey(Date.now())}`;
+  const body = memoBody(c) + (promote ? `\n- 間違えた回数：${c.ng||0}` : "");
+  location.href = `obsidian://new?vault=${encodeURIComponent(OBS_VAULT)}`
+    + `&file=${encodeURIComponent(file)}&append=true&content=${encodeURIComponent(body+"\n\n")}`;
+}
+
+// ── ④ 今日覚える デッキ（想起モード：まず隠す）──
+let memoOpen = {};   // id → 答えを表示中か
+function renderMemoDeck(){
+  const list = $("memo-list");
+  if(!memoCards.length){
+    list.innerHTML = `<div class="log-empty">まだありません。<br><br>
+      提案を開いて <b>🎙 自分で説明する</b> → <b>🤖 添削</b> → <b>🧠 今日覚える</b><br>
+      の順に押すと、ここに4項目だけが貯まります。</div>`;
+    return;
+  }
+  const sorted = memoCards.slice().sort((a,b)=>
+    ((b.ng||0)-(a.ng||0)) || (b.ts-a.ts));
+  list.innerHTML = "";
+  sorted.forEach(c=>{
+    const hot = (c.ng||0) >= 2;
+    const shown = !!memoOpen[c.id];
+    const el = document.createElement("div");
+    el.className = "memo-card" + (hot?" hot":"");
+    el.innerHTML = `
+      <div class="mc-top">
+        ${c.subject?`<span class="mc-subj">${esc(c.subject)}</span>`:""}
+        ${(c.ng||0)?`<span class="mc-miss">✕${c.ng}</span>`:""}
+        ${(c.hit||0)?`<span class="mc-subj">〇${c.hit}</span>`:""}
+        <div class="mc-title">${esc(c.title)}</div>
+      </div>
+      ${shown ? `
+        <div class="mc-body">
+          ${c.conc?`<div><span class="k">結論</span>　${esc(c.conc)}</div>`:""}
+          ${c.art ?`<div><span class="k">条文</span>　${esc(c.art)}</div>`:""}
+          ${c.trap?`<div><span class="k">ひっかけ</span>　${esc(c.trap)}</div>`:""}
+          ${c.gap ?`<div class="mc-gap"><span class="k">🔴ズレ</span>　${esc(c.gap)}</div>`:""}
+        </div>
+        ${c.recite?`<div class="mc-recite">🗣 ${esc(c.recite)}</div>`:""}` : ``}
+      <div class="mc-btns">
+        <button data-a="see">${shown?"🙈 隠す":"👁 答えを見る"}</button>
+        <button class="ok" data-a="ok">〇 言えた</button>
+        <button class="ng" data-a="ng">✕ ズレた</button>
+        <button data-a="re">🔁 再回答</button>
+        <button data-a="obs">📤 Obsidian</button>
+        ${hot?`<button class="up" data-a="up">⭐️ 昇格</button>`:""}
+      </div>`;
+    el.querySelectorAll("button").forEach(b=> b.addEventListener("click", ()=>{
+      const a = b.dataset.a;
+      if(a==="see"){ memoOpen[c.id] = !memoOpen[c.id]; renderMemoDeck(); }
+      else if(a==="ok"){ c.hit=(c.hit||0)+1; c.last=Date.now(); memoOpen[c.id]=false; saveMemos(); renderMemoDeck(); }
+      else if(a==="ng"){ c.ng =(c.ng ||0)+1; c.last=Date.now(); memoOpen[c.id]=true;  saveMemos(); renderMemoDeck(); }
+      else if(a==="re"){ closeMemoDeck(); reAnswer(c); }
+      else if(a==="obs"){ toObsidian(c, false); }
+      else if(a==="up"){ toObsidian(c, true); }
+    }));
+    list.appendChild(el);
+  });
+}
+function openMemoDeck(){ renderMemoDeck(); $("memo-ov").classList.remove("hidden"); }
+function closeMemoDeck(){ $("memo-ov").classList.add("hidden"); }
+
+// 🔁 再回答：その論点でチャットを開き、すぐ自己説明シートを出す
+function reAnswer(c){
+  chatSubject = c.subject || chatSubject;
+  curTopic = { title:c.title, subject:c.subject };
+  $("chat-subj").textContent = chatSubject;
+  history = [];
+  $("chat-area").innerHTML = "";
+  showChatScreen();
+  addBubble("ai", `🔁 「${c.title}」をもう一度。\n答えを見ずに、30秒で言い切ってみてください。`);
+  openSpeak();
+}
+
+let toastTimer = null;
+function toast(msg){
+  const bar = $("undo-bar");
+  $("undo-text").textContent = msg;
+  $("undo-btn").classList.add("hidden");
+  bar.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>{ bar.classList.remove("show");
+    $("undo-btn").classList.remove("hidden"); }, 2600);
+}
+
+// ── イベント ──
+$("memo-btn").addEventListener("click", openMemoDeck);
+$("memo-close").addEventListener("click", closeMemoDeck);
+$("memo-ov").addEventListener("click", e=>{ if(e.target===$("memo-ov")) closeMemoDeck(); });
+$("chat-memo-btn").addEventListener("click", openMemoDeck);
+$("speak-btn").addEventListener("click", openSpeak);
+$("memo-clear").addEventListener("click", ()=>{
+  const before = memoCards.length;
+  memoCards = memoCards.filter(m=> (m.hit||0) < 2);
+  if(before === memoCards.length){ alert("〇が2回以上ついたカードはまだありません。"); return; }
+  saveMemos(); renderMemoDeck();
+});
+
 function init(){
   const now=new Date(); const d=["日","月","火","水","木","金","土"];
   $("hd-date").textContent = `${now.getMonth()+1}/${now.getDate()}（${d[now.getDay()]}）`;
@@ -1690,6 +2183,7 @@ function init(){
   checkUpdate();
   applyTheme((localStorage.getItem("rf_theme")||"light")==="dark");
   applyFont();
+  renderMemoBadge();
   if(!apiKey){ showSetup(); }
   else { loadFeed(); }
 }

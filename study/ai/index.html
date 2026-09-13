@@ -399,6 +399,23 @@ let CUR = null;
 const VAULT = 'Time based-司法試験予備試験';
 const qkey = q => 'xq_' + q.day + q.id;
 
+/* ---- 復習キュー ----
+   同じ GitHub Pages に置いた復習フィードと localStorage を共有する。
+   ここで入れた問題が、翌朝フィードの先頭に出る。 */
+const RFQ = 'rf_queue';
+const rfKey = q => q.day + '|' + q.id;
+function rfLoad(){ try { return JSON.parse(localStorage.getItem(RFQ) || '{}'); } catch(e){ return {}; } }
+function rfSave(v){ try { localStorage.setItem(RFQ, JSON.stringify(v)); return true; } catch(e){ return false; } }
+function rfHas(q){ return !!rfLoad()[rfKey(q)]; }
+function rfToggle(q){
+  const all = rfLoad(), k = rfKey(q);
+  if (all[k]) { delete all[k]; rfSave(all); return false; }
+  all[k] = { d: q.day, id: q.id, s: q.subject, t: q.title || '',
+             at: new Date().toISOString().slice(0,10) };
+  rfSave(all);
+  return true;
+}
+
 /* ---- 疑問メモを持ち回す ---- */
 function loadQ(q){ try { return localStorage.getItem(qkey(q)) || ''; } catch(e){ return ''; } }
 function saveQ(q, v){ try { v ? localStorage.setItem(qkey(q), v) : localStorage.removeItem(qkey(q)); } catch(e){} }
@@ -509,6 +526,7 @@ function askbox(q){
     +   '<button id="ask-gpt" class="primary">ChatGPT で聞く</button>'
     +   '<button id="ask-copy">コピー</button>'
     +   '<button id="ask-obs">Obsidian に残す</button>'
+    +   '<button id="ask-rev">' + (rfHas(q) ? '✓ 復習リスト' : '⇢ 復習に回す') + '</button>'
     + '</div>'
     + '<p class="hint">問題番号・論点・各AIの正解を添えて送ります。⤴ を押すとその AI の解説も一緒に送ります。</p>'
     + '</div>';
@@ -589,6 +607,12 @@ async function show(uid){
   document.getElementById('ask-copy').onclick = async () => {
     const t = (box.value || '').trim();
     flash(await toClip(ctx(q, null) + (t ? '\n【質問】' + t : '')) ? 'コピーしました。' : 'コピーできませんでした。');
+  };
+  const rev = document.getElementById('ask-rev');
+  rev.onclick = () => {
+    const on = rfToggle(q);
+    rev.textContent = on ? '✓ 復習リスト' : '⇢ 復習に回す';
+    flash(on ? '復習フィードに入れました。' : '復習フィードから外しました。');
   };
   document.getElementById('ask-obs').onclick = () => {
     const t = (box.value || '').trim();

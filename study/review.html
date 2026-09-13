@@ -564,7 +564,7 @@
 //  定数
 // ════════════════════════════════════════════
 const WEEKLY = {0:"商法",1:"憲法",2:"民法",3:"刑法",4:"行政法",5:"民訴法",6:"刑訴法"};
-const APP_VER = "20260913-2";   // ← 更新するたびに version.json と合わせて上げる
+const APP_VER = "20260913-3";   // ← 更新するたびに version.json と合わせて上げる
 const API_URL = "https://api.anthropic.com/v1/messages";
 const API_MODEL = "claude-haiku-4-5-20251001";
 const CTX_URL = () => `https://raw.githubusercontent.com/osamuina8008/business-tools/main/study/context.json?t=${Date.now()}`;
@@ -577,6 +577,7 @@ const CAT = {
   quiz:   { label:"今日の1問",icon:"🧠", color:"var(--c-quiz)",   bg:"var(--c-quiz-bg)" },
   tip:    { label:"コツ",     icon:"💡", color:"var(--c-tip)",    bg:"var(--c-tip-bg)" },
   read:   { label:"読みもの", icon:"📰", color:"var(--c-read)",   bg:"var(--c-read-bg)" },
+  ai:     { label:"AI横断",   icon:"⤴",  color:"var(--c-weak)",   bg:"var(--c-weak-bg)" },
 };
 
 // ════════════════════════════════════════════
@@ -1324,7 +1325,7 @@ function saveShown(){
   Object.keys(SHOWN).forEach(k=>{ if(SHOWN[k] < lim) delete SHOWN[k]; });
   localStorage.setItem("rf_shown", JSON.stringify(SHOWN));
 }
-const COOLDOWN = { tip:16, read:8, weak:6, review:5, task:4, quiz:2 };
+const COOLDOWN = { tip:16, read:8, weak:6, review:5, task:4, quiz:2, ai:6 };
 function daysSince(dstr){
   if(!dstr) return 999;
   const n = Math.round((new Date(dayKey(Date.now())) - new Date(dstr)) / 86400000);
@@ -1393,7 +1394,7 @@ function cardHTML(c){
   const rv = REVIEWED[cardId(c)];
   const kws = (c.kws||[]).filter(Boolean).map(k=>
     `<a class="c-kw" href="${obsSearch(k)}" onclick="event.stopPropagation()">🔍 ${esc(k)}</a>`).join("");
-  const ax = aiRef(c);
+  const ax = c.aiLink || aiRef(c);
   const aiChip = ax
     ? `<a class="c-kw c-ai" href="${esc(ax.href)}" onclick="event.stopPropagation()">⤴ AI横断 ${esc(ax.id)}${ax.sp?" ⚑":""}</a>`
     : "";
@@ -1599,6 +1600,45 @@ function aiLookup(term, subject){
   const same = subject ? rows.filter(r => shortSubj(AIX.qs[r[0]]?.s||"") === subject) : [];
   return (same.length ? same : rows)[0][0];      // 同じ科目を優先、無ければ重みの高いもの
 }
+/* ビューアの「⇢ 復習に回す」で入れた問題。同じオリジンなので localStorage を直接読める。 */
+function aiQueue(){
+  try { return JSON.parse(localStorage.getItem("rf_queue") || "{}"); } catch(e){ return {}; }
+}
+function aiHref(day, id){
+  return `${AI_BASE}#${encodeURIComponent(day)}/${encodeURIComponent(id)}`;
+}
+/* 「自分で入れた問題」と「AIが割れた問題」をカードにする。 */
+function aiCards(){
+  const out = [];
+  const seen = new Set();
+  const q = aiQueue();
+  Object.keys(q).forEach(ref=>{
+    const it = q[ref] || {};
+    if(!it.d || !it.id) return;
+    seen.add(ref);
+    out.push({ cat:"ai", subject: shortSubj(it.s||""), title: it.t || `${it.id} を見直す`,
+      why: "iPad で「復習に回す」に入れた問題です。五者の解説をもう一度。",
+      when: it.at ? `${it.at} に登録` : "",
+      aiLink: { href: aiHref(it.d, it.id), id: it.id, sp:false },
+      chat: `予備試験の${shortSubj(it.s||"")}「${it.t||it.id}」を復習します。要点を3行、ひっかかりやすい点を2つ、短く。`,
+      score: 96 });
+  });
+  if(AIX){                                    // AIの答えが割れている問題＝まず疑うべきところ
+    Object.keys(AIX.qs).forEach(ref=>{
+      const m = AIX.qs[ref];
+      if(!m.sp || seen.has(ref)) return;
+      const [day, id] = ref.split("|");
+      out.push({ cat:"ai", subject: shortSubj(m.s||""), title: m.t || `${id}`,
+        why: "AIの答えが割れています。条文と判例に自分で当たる合図。",
+        when: `⚑ ${day.slice(0,10)}`,
+        aiLink: { href: aiHref(day, id), id, sp:true },
+        chat: `予備試験の${shortSubj(m.s||"")}「${m.t||id}」について、答えが割れやすい理由と、条文上の決め手を短く。`,
+        score: 70 });
+    });
+  }
+  return out;
+}
+
 function aiRef(c){
   if(!AIX) return null;
   const terms = [...(c.kws||[]), c.topic].filter(Boolean).map(clean);
@@ -1632,10 +1672,16 @@ async function loadFeed(){
   } catch(e){
     ctx = null;
   }
-  ALL_CARDS = buildCards(ctx);
+  ALL_CARDS = buildCards(ctx).concat(aiCards());
   // データが薄い時の保険：論点ライブラリ（TOPICS）から必ずカードが立つ
   renderFeed();
-  if(!AIX){ loadAiIndex().then(()=>{ if(AIX) renderFeed(); }); }   // 索引は後から届いてもよい
+  if(!AIX){                                    // 索引は後から届いてもよい
+    loadAiIndex().then(()=>{
+      if(!AIX) return;
+      ALL_CARDS = buildCards(ctx).concat(aiCards());
+      renderFeed();
+    });
+  }
 }
 
 // ════════════════════════════════════════════

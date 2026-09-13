@@ -182,6 +182,7 @@
       background: var(--surf); color: var(--cc, var(--acc)); font-weight: 600;
       border: 0.5px solid var(--border);
       max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .card .c-ai { background: var(--ccbg, var(--surf2)); border-color: var(--cc, var(--acc)); }
     .card .c-foot { display: flex; align-items: center; gap: 8px; margin-top: 2px; }
     .card .c-go {
       flex: 1; font-size: 13px; font-weight: 800; padding: 9px; border-radius: 13px; border: none;
@@ -563,7 +564,7 @@
 //  定数
 // ════════════════════════════════════════════
 const WEEKLY = {0:"商法",1:"憲法",2:"民法",3:"刑法",4:"行政法",5:"民訴法",6:"刑訴法"};
-const APP_VER = "20260913-1";   // ← 更新するたびに version.json と合わせて上げる
+const APP_VER = "20260913-2";   // ← 更新するたびに version.json と合わせて上げる
 const API_URL = "https://api.anthropic.com/v1/messages";
 const API_MODEL = "claude-haiku-4-5-20251001";
 const CTX_URL = () => `https://raw.githubusercontent.com/osamuina8008/business-tools/main/study/context.json?t=${Date.now()}`;
@@ -1392,6 +1393,10 @@ function cardHTML(c){
   const rv = REVIEWED[cardId(c)];
   const kws = (c.kws||[]).filter(Boolean).map(k=>
     `<a class="c-kw" href="${obsSearch(k)}" onclick="event.stopPropagation()">🔍 ${esc(k)}</a>`).join("");
+  const ax = aiRef(c);
+  const aiChip = ax
+    ? `<a class="c-kw c-ai" href="${esc(ax.href)}" onclick="event.stopPropagation()">⤴ AI横断 ${esc(ax.id)}${ax.sp?" ⚑":""}</a>`
+    : "";
   const foot = c.read && c.url
     ? `<a class="c-go" style="text-align:center;text-decoration:none;line-height:1.2" href="${esc(c.url)}" target="_blank" onclick="event.stopPropagation()">記事を開く ↗</a>`
     : `<button class="c-go">${rv?"🔁 もう一度":"▶ これを復習"}</button>`
@@ -1406,7 +1411,7 @@ function cardHTML(c){
     <div class="c-title">${esc(c.title)}</div>
     ${c.why?`<div class="c-why">${esc(c.why)}</div>`:""}
     ${c.aim?`<div class="c-aim">🎯 ${esc(c.aim)}</div>`:""}
-    ${kws?`<div class="c-kws">${kws}</div>`:""}
+    ${(kws||aiChip)?`<div class="c-kws">${kws}${aiChip}</div>`:""}
     <div class="c-foot">${foot}</div>
   </div>`;
 }
@@ -1558,6 +1563,61 @@ function launch(card){
 }
 
 // ════════════════════════════════════════════
+//  AI五者横断ノート（同じ Pages の study/ai/）への橋渡し
+//  カードのキーワードから、その論点を実際に解いた問題へ飛ぶ。
+// ════════════════════════════════════════════
+const AI_BASE = "ai/";
+let AIX = null;                                  // {qs:{ref:{s,t,sp}}, kw:{語:[[ref,重み]]}}
+
+async function loadAiIndex(){
+  try {
+    const res = await fetch(`${AI_BASE}data/kwindex.json?t=${Date.now()}`, {cache:"no-cache"});
+    if(!res.ok) throw new Error("HTTP "+res.status);
+    AIX = await res.json();
+  } catch(e){ AIX = null; }                      // 無くてもカードは今までどおり出す
+}
+
+const ART_RE = /(\d{1,4})条(?:の(\d{1,2}))?/;
+function artCanon(k){                            // 「刑訴法321条3項」も「321条」も同じ鍵にする
+  const m = ART_RE.exec(k||"");
+  return m ? (m[2] ? `${m[1]}条の${m[2]}` : `${m[1]}条`) : null;
+}
+function aiLookup(term, subject){
+  if(!AIX || !term) return null;
+  let rows = AIX.kw[term];
+  if(!rows){
+    const c = artCanon(term);
+    if(c){                                       // 条文は番号で厳密に（部分一致だと321条3項が21条に当たる）
+      for(const key in AIX.kw){ if(artCanon(key) === c){ rows = AIX.kw[key]; break; } }
+    } else if(term.length >= 3){                 // 語は3字以上でだけゆるく当てる
+      for(const key in AIX.kw){
+        if(key.length >= 3 && (key.includes(term) || term.includes(key))){ rows = AIX.kw[key]; break; }
+      }
+    }
+  }
+  if(!rows || !rows.length) return null;
+  const same = subject ? rows.filter(r => shortSubj(AIX.qs[r[0]]?.s||"") === subject) : [];
+  return (same.length ? same : rows)[0][0];      // 同じ科目を優先、無ければ重みの高いもの
+}
+function aiRef(c){
+  if(!AIX) return null;
+  const terms = [...(c.kws||[]), c.topic].filter(Boolean).map(clean);
+  for(const t of terms){
+    const ref = aiLookup(t, c.subject);
+    if(ref && AIX.qs[ref]){
+      const [day, id] = ref.split("|");
+      const meta = AIX.qs[ref];
+      const subj = shortSubj(meta.s || "");
+      return { href: `${AI_BASE}#${encodeURIComponent(day)}/${encodeURIComponent(id)}`,
+               // 別科目の問題に飛ぶときは科目も出す（民法のカードから民訴の問題、などがある）
+               id: (subj && subj !== c.subject ? subj + " " : "") + id,
+               sp: !!meta.sp };
+    }
+  }
+  return null;
+}
+
+// ════════════════════════════════════════════
 //  コンテキスト読み込み
 // ════════════════════════════════════════════
 async function loadFeed(){
@@ -1575,6 +1635,7 @@ async function loadFeed(){
   ALL_CARDS = buildCards(ctx);
   // データが薄い時の保険：論点ライブラリ（TOPICS）から必ずカードが立つ
   renderFeed();
+  if(!AIX){ loadAiIndex().then(()=>{ if(AIX) renderFeed(); }); }   // 索引は後から届いてもよい
 }
 
 // ════════════════════════════════════════════

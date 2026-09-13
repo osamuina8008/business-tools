@@ -47,6 +47,16 @@ aside{background:var(--surface);border-right:1px solid var(--line);
   padding:3px 4px;border:0;border-radius:5px;background:none;text-align:left;
   font:inherit;font-size:11.5px;line-height:1.7;color:var(--ink);cursor:pointer}
 .duetop .duebtn:hover{background:var(--surface)}
+.qsrc{display:flex;align-items:center;gap:10px;margin:12px 0 0;flex-wrap:wrap}
+.qsrc button{background:var(--sunk);border:1px solid var(--line);border-radius:6px;
+  padding:7px 13px;font:inherit;font-size:13px;font-weight:700;color:var(--ink);cursor:pointer}
+.qsrc button:hover{border-color:var(--ai);color:var(--ai)}
+.qsrc a{font-size:12px;color:var(--ai);text-decoration:none}
+.qsrc a:hover{text-decoration:underline}
+#qpdfbox iframe{width:100%;height:520px;margin-top:10px;border:1px solid var(--line);
+  border-radius:6px;background:var(--surface)}
+#qpdfbox .note{font-size:12px;color:var(--muted);margin-top:6px}
+@media(max-width:820px){#qpdfbox iframe{height:62vh}}
 .duetop .duebtn em{margin-left:auto;font-style:normal;font-weight:700;color:var(--differ);opacity:.8}
 .grp{display:flex;align-items:center;gap:7px;width:100%;text-align:left;
   padding:12px 14px 12px 12px;margin-top:6px;background:none;border:0;border-top:1px solid var(--line);
@@ -147,6 +157,19 @@ tr.split td{background:var(--flagbg)}
 .art span{font-size:13px;line-height:1.8;flex:1;min-width:200px}
 .art span.none{color:var(--muted)}
 .art a{font-size:12px;white-space:nowrap;color:var(--ai)}
+.kw{cursor:pointer}
+.kw:hover{background:var(--sunk);border-color:var(--ai)}
+.kw:not(.mine){border-style:dashed}
+.art .acts{display:flex;gap:7px;flex-wrap:wrap;flex-basis:100%;margin-top:2px}
+.art .acts a,.art .acts button{font-size:11.5px;white-space:nowrap;color:var(--ai);
+  border:1px solid var(--line);border-radius:3px;padding:4px 10px;background:var(--paper);
+  font-family:inherit;cursor:pointer;line-height:1.5}
+.art .acts a:hover,.art .acts button:hover{border-color:var(--ai);background:var(--sunk)}
+.art .cur{flex-basis:100%;margin-top:8px}
+.art .cur textarea{width:100%;min-height:132px;font-family:var(--mono,ui-monospace,Menlo,monospace);
+  font-size:11.5px;line-height:1.7;color:var(--ink);background:var(--sunk);
+  border:1px solid var(--line);border-radius:3px;padding:10px 12px;resize:vertical}
+.art .cur p{font-size:11px;color:var(--muted);margin:5px 0 0;line-height:1.6}
 
 /* ---- 過去につまずいた記録 ---- */
 .past{margin-top:8px;padding:11px 15px;border:1px solid var(--line);border-radius:3px;
@@ -627,18 +650,88 @@ function pastRows(k){
   };
   return block(p.q, '前にもここで止まっています', 'q') + block(p.m, '自分のメモ', 'm');
 }
+/* 科目 → 20_Study 配下のフォルダ名（復習フィードの SUBJ_DIR と揃える） */
+const SUBJ_DIR = {"刑事訴訟法":"1.刑訴法","民事訴訟法":"2.民訴法","刑訴法":"1.刑訴法","民訴法":"2.民訴法",
+  "刑訴":"1.刑訴法","民訴":"2.民訴法","会社法":"3.商法","商法":"3.商法",
+  "行政法":"6.行政法","憲法":"7.憲法","民法":"4.民法","刑法":"5.刑法"};
+function subjDir(){
+  const k = (CUR && CUR.subject) || '';
+  if (SUBJ_DIR[k]) return SUBJ_DIR[k];
+  const hit = Object.keys(SUBJ_DIR).sort((a,b)=>b.length-a.length).find(x => k.includes(x));
+  return hit ? SUBJ_DIR[hit] : '';
+}
+const obsSearch = q => 'obsidian://search?vault=' + encodeURIComponent(VAULT)
+  + '&query=' + encodeURIComponent(q);
+function obsNew(file, body){
+  return 'obsidian://new?vault=' + encodeURIComponent(VAULT)
+    + '&file=' + encodeURIComponent(file) + '&content=' + encodeURIComponent(body);
+}
+/* 「民訴法246条」「刑法199条の2」から条数だけ取り出す。判例や論点語なら null */
+function artNo(k){
+  const m = String(k).match(/(\d+条(?:の\d+)?)\s*$/);
+  return m ? m[1] : null;
+}
+function noteSkeleton(k){
+  return ['一言まとめ：', '', '## 条文', '', '## 趣旨', '', '## 要件・効果', '',
+          '## ひっかけ', '', '## 関連条文・判例', '', '（' + k + '）', ''].join('\n');
+}
+function cursorPrompt(k){
+  const dir = subjDir(), no = artNo(k);
+  const path = no && dir ? 'TimeBase/20_Study/' + dir + '/条文/' + no + '.md' : '（同科目の条文フォルダ）';
+  return [
+    'Obsidian Vault「' + VAULT + '」に、次のノートを作ってください。',
+    '',
+    '対象: ' + k + (CUR ? '（' + CUR.subject + '・' + CUR.id + ' で出てきた）' : ''),
+    '保存先: ' + path,
+    '',
+    '書式は同じフォルダの既存ノートに合わせること。先頭は必ず「一言まとめ：」の1行で、',
+    '試験でそのまま使える言い回しにする。以下の見出しを立てる。',
+    '  ## 条文 ／ ## 趣旨 ／ ## 要件・効果 ／ ## ひっかけ ／ ## 関連条文・判例',
+    '',
+    '条数と効力は断定せず、原則と例外をセットで書くこと。',
+    '現行法の用語を使う（民法は「契約不適合責任」、会社法を「商法」と書かない）。'
+  ].join('\n');
+}
+
 function showArt(k){
   const a = ARTS[k], p = PAST[k];
-  if(!a && !p) return;
   const box = document.getElementById('artbox'); if(!box) return;
   if (box.dataset.k === k){ box.innerHTML=''; box.dataset.k=''; return; }  // もう一度押すと閉じる
   box.dataset.k = k;
+
+  let acts = '';
+  if (!a){
+    const no = artNo(k), dir = subjDir();
+    acts = '<div class="acts">'
+      + '<a href="' + obsSearch(k) + '">🔍 Vault を検索</a>'
+      + (no && dir
+          ? '<a href="' + obsNew('TimeBase/20_Study/' + dir + '/条文/' + no + '.md', noteSkeleton(k))
+            + '">＋ ノートを作る</a>' : '')
+      + '<button data-cur="1">📋 Cursor への指示</button>'
+      + '<a href="https://www.google.com/search?q=' + encodeURIComponent(k + ' 判例 要件')
+      + '" target="_blank" rel="noopener">🔎 Web で調べる</a>'
+      + '</div>';
+  }
+
   box.innerHTML = '<div class="art"><b>' + esc(k) + '</b>'
     + (a ? (a.s ? '<span>' + esc(a.s) + '</span>'
                 : '<span class="none">（一言まとめが書かれていません）</span>')
-         : '<span class="none">（この条文のノートはまだありません）</span>')
+         : '<span class="none">まだ自分のノートがありません</span>')
     + (a ? '<a href="' + obs(a.f) + '">自分のノートを開く ↗</a>' : '')
-    + '</div>' + pastRows(k);
+    + acts + '</div>' + pastRows(k);
+
+  const cb = box.querySelector('[data-cur]');
+  if (cb) cb.onclick = () => {
+    if (box.querySelector('.cur')) { box.querySelector('.cur').remove(); return; }
+    const d = document.createElement('div');
+    d.className = 'cur';
+    d.innerHTML = '<textarea readonly spellcheck="false"></textarea>'
+      + '<p>⌘C でコピーして Cursor に貼ってください。</p>';
+    box.querySelector('.art').appendChild(d);
+    const t = d.querySelector('textarea');
+    t.value = cursorPrompt(k);
+    t.focus(); t.select();
+  };
 }
 
 function renderCols(){
@@ -654,16 +747,17 @@ function renderCols(){
         const n = tally[k];
         const cls = n === A.length && A.length > 1 ? 'all' : (n === 1 ? 'solo' : '');
         const mine = ARTS[k] || PAST[k];             // 自分のノートか、過去のつまずきがあるか
-        return '<' + (mine ? 'button' : 'span') + ' class="kw ' + cls + (mine ? ' mine' : '')
-             + '"' + (mine ? ' data-k="' + esc(k) + '"' : '') + '>'
-             + esc(k) + (n===1 && A.length>1 ? ' ⚑' : '') + '</' + (mine ? 'button' : 'span') + '>';
+        /* ノートが無い語も押せる。無いときは「探す・作る」を出す＝行き止まりにしない */
+        return '<button class="kw ' + cls + (mine ? ' mine' : '')
+             + '" data-k="' + esc(k) + '" title="' + (mine ? '自分のノートを見る' : '探す・作る') + '">'
+             + esc(k) + (n===1 && A.length>1 ? ' ⚑' : '') + '</button>';
       }).join('');
       return '<div class="col"><h4>' + a
            + '<button class="send" data-ai="' + esc(a) + '" title="この解説をChatGPTへ">⤴</button></h4>'
            + (chips ? '<div class="kws">' + chips + '</div>' : '')
            + '<div class="md">' + md(q.ai[a].sections[secPick]) + '</div></div>';
     }).join('');
-  document.querySelectorAll('.kw.mine').forEach(b => b.onclick = () => showArt(b.dataset.k));
+  document.querySelectorAll('.kw').forEach(b => b.onclick = () => showArt(b.dataset.k));
   document.querySelectorAll('.col .send').forEach(b => b.onclick = () => {
     const extra = (document.getElementById('qbox').value || '').trim();
     toGPT(ctx(CUR, b.dataset.ai) + (extra ? '\n【質問】' + extra : '\n【質問】この説明の妥当性を検討してください。'));
@@ -732,6 +826,10 @@ async function show(uid){
       <div class="eyebrow">${esc(q.subject)}　${esc(q.day.slice(0,10))}　収録 ${A.length} AI</div>
       <h2>${esc(q.id)}</h2>
       <p>${esc(q.title || '')}</p>
+      ${q.pdf ? `<div class="qsrc">
+        <button id="qpdf">📄 ${q.pdfk === 'day' ? 'この日の問題を見る' : '問題を見る'}</button>
+        <a href="${esc(q.pdf)}" target="_blank" rel="noopener">別ウィンドウで開く ↗</a>
+      </div><div id="qpdfbox"></div>` : ''}
     </div>
     <div class="tabs">${secs.map(x=>`<button data-s="${esc(x)}" class="${x===secPick?'on':''}">${esc(x)}</button>`).join('')}</div>
     <div class="cols" id="cols"></div>
@@ -749,6 +847,29 @@ async function show(uid){
     main.querySelectorAll('.tabs button').forEach(x => x.classList.toggle('on', x.dataset.s === secPick));
     renderCols();                       /* スクロール位置はそのまま */
   });
+
+  const pdfBtn = document.getElementById('qpdf');
+  if (pdfBtn) {
+    const host = document.getElementById('qpdfbox');
+    const draw = on => {
+      const lbl = q.pdfk === 'day' ? 'この日の問題' : '問題';
+      pdfBtn.textContent = on ? ('📄 ' + lbl + 'を閉じる') : ('📄 ' + lbl + 'を見る');
+      host.innerHTML = on
+        ? '<iframe src="' + esc(q.pdf.replace('/view', '/preview')) + '" loading="lazy"></iframe>'
+          + '<p class="note">Googleドライブの自分のファイルです'
+          + (q.pdfk === 'day' ? '（この問題だけのPDFが無いので、その日のまとめPDF）' : '')
+          + '。表示されないときは「別ウィンドウで開く」からどうぞ。</p>'
+        : '';
+    };
+    let on = false;
+    try { on = localStorage.getItem('xpdf_open') === '1'; } catch(e){}
+    draw(on);
+    pdfBtn.onclick = () => {
+      on = !on;
+      try { localStorage.setItem('xpdf_open', on ? '1' : '0'); } catch(e){}
+      draw(on);
+    };
+  }
 
   const box = document.getElementById('qbox');
   box.value = loadQ(q);

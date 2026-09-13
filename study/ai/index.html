@@ -33,8 +33,28 @@ aside{background:var(--surface);border-right:1px solid var(--line);
 .brand{padding:0 18px 14px;border-bottom:1px solid var(--line);margin-bottom:12px}
 .brand h1{font-family:var(--disp);font-size:19px;margin:0;letter-spacing:.04em;text-wrap:balance}
 .brand p{margin:4px 0 0;font-size:12px;color:var(--muted);line-height:1.6}
-.grp{padding:14px 18px 4px;font-size:11px;letter-spacing:.14em;color:var(--muted);
-  text-transform:uppercase;font-weight:700}
+.navbar{display:flex;align-items:center;gap:8px;padding:10px 18px;
+  border-bottom:1px solid var(--line)}
+.navbar .lbl{flex:1;font-size:11px;letter-spacing:.12em;color:var(--muted);font-weight:700}
+.sortbtn{flex:none;background:var(--sunk);color:var(--ink);border:1px solid var(--line);
+  border-radius:6px;padding:4px 9px;font:inherit;font-size:11.5px;font-weight:700;cursor:pointer}
+.sortbtn:hover{border-color:var(--ai);color:var(--ai)}
+.duetop{margin:10px 12px;padding:9px 11px;border-radius:8px;background:var(--flagbg);
+  border:1px solid var(--differ);font-size:11.5px;line-height:1.7}
+.duetop b{display:block;color:var(--differ);font-size:11px;letter-spacing:.1em;margin-bottom:2px}
+.duetop span{display:block;color:var(--ink)}
+.grp{display:flex;align-items:center;gap:7px;width:100%;text-align:left;
+  padding:12px 14px 12px 12px;margin-top:6px;background:none;border:0;border-top:1px solid var(--line);
+  font:inherit;font-size:11px;letter-spacing:.1em;color:var(--muted);font-weight:700;cursor:pointer}
+.grp:hover{background:var(--sunk);color:var(--ink)}
+.grp .cv{flex:none;display:inline-block;transition:transform .15s;font-size:10px;opacity:.7}
+.grp.open .cv{transform:rotate(90deg)}
+.grp .gt{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.grp.due .gt{color:var(--differ)}
+.grp .badge{flex:none;background:var(--differ);color:#fff;border-radius:4px;
+  padding:1px 5px;font-size:9.5px;letter-spacing:.02em}
+.grp .fl{flex:none;color:var(--differ);font-size:10px}
+.grp .ct{flex:none;color:var(--muted);font-size:10px;font-variant-numeric:tabular-nums;opacity:.8}
 .qbtn{display:flex;align-items:baseline;gap:8px;width:100%;text-align:left;background:none;
   border:0;border-left:3px solid transparent;padding:7px 18px;color:var(--ink);
   font:inherit;font-size:13.5px;cursor:pointer;line-height:1.5}
@@ -122,6 +142,20 @@ tr.split td{background:var(--flagbg)}
 .art span{font-size:13px;line-height:1.8;flex:1;min-width:200px}
 .art span.none{color:var(--muted)}
 .art a{font-size:12px;white-space:nowrap;color:var(--ai)}
+
+/* ---- 過去につまずいた記録 ---- */
+.past{margin-top:8px;padding:11px 15px;border:1px solid var(--line);border-radius:3px;
+  background:var(--surface)}
+.past.q{border-left:3px solid var(--differ)}
+.past.m{border-left:3px solid var(--muted)}
+.past>b{display:block;font-size:12px;letter-spacing:.06em;margin-bottom:6px}
+.past.q>b{color:var(--differ)}
+.past.m>b{color:var(--muted)}
+.past ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px}
+.past li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline;font-size:12.5px;line-height:1.6}
+.past .d{font-variant-numeric:tabular-nums;color:var(--muted);font-size:11.5px;white-space:nowrap}
+.past a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.past a:hover{border-bottom-color:var(--ai);color:var(--ai)}
 
 /* ---- 判定の見方 ---- */
 .howto{margin-top:9px;border:1px solid var(--line);border-radius:3px;background:var(--surface)}
@@ -315,12 +349,87 @@ function md(src){
 
 /* 一覧の ⚑ は、本体を読む前でも出せるように manifest 側で計算済み（sp）。 */
 const flagged = q => (q.sp !== undefined ? q.sp : split(q));
+/* ── 目次の状態（並び順・日ごとの開閉）は端末に憶えておく ── */
+const NAVKEY = 'qg_nav';
+let navState = (() => { try { return JSON.parse(localStorage.getItem(NAVKEY) || '{}'); }
+  catch(e){ return {}; } })();
+if (typeof navState.desc !== 'boolean') navState.desc = true;   /* 既定＝新しい順 */
+function saveNav(){ try { localStorage.setItem(NAVKEY, JSON.stringify(navState)); } catch(e){} }
+
+/* ── 復習どき：3日前・1週間前・21日前にあたる日に印を出す ── */
+const CHECKPOINTS = [{n:3, l:'3日前'}, {n:7, l:'1週間前'}, {n:21, l:'21日前'}];
+const ymd = s => String(s).slice(0, 10);
+function daysAgo(day){
+  const m = ymd(day).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!m) return null;
+  const then = new Date(+m[1], +m[2]-1, +m[3]); then.setHours(0,0,0,0);
+  const now = new Date(); now.setHours(0,0,0,0);
+  return Math.round((now - then) / 86400000);
+}
+function dueOf(day){
+  const n = daysAgo(day);
+  if (n === null) return null;
+  const hit = CHECKPOINTS.find(c => c.n === n);
+  return hit ? hit.l : null;
+}
+
+function newestDay(){
+  let p = null;
+  DB.days.forEach(d => { if (d.qs.length && (!p || d.day > p)) p = d.day; });
+  return p;
+}
+function isOpen(day){
+  if (navState.open && day in navState.open) return !!navState.open[day];
+  return day === newestDay();          /* 既定はいちばん新しい日だけ開く */
+}
+function setOpen(day, v){
+  navState.open = navState.open || {};
+  navState.open[day] = v; saveNav();
+}
+function markActive(){
+  const uid = CUR ? CUR.day + CUR.id : null;
+  [...nav.querySelectorAll('.qbtn')].forEach(b => b.classList.toggle('on', b.dataset.id === uid));
+}
+
 function buildNav(){
   nav.innerHTML = '';
-  DB.days.forEach(d => {
-    const h = document.createElement('div');
-    h.className = 'grp'; h.textContent = d.subject + '　' + d.day.slice(0,10);
+  const days = DB.days.slice().filter(d => d.qs.length)
+    .sort((a, b) => navState.desc ? (a.day < b.day ? 1 : -1) : (a.day > b.day ? 1 : -1));
+
+  const bar = document.createElement('div');
+  bar.className = 'navbar';
+  bar.innerHTML = `<span class="lbl">${days.length}日</span>`;
+  const sb = document.createElement('button');
+  sb.className = 'sortbtn';
+  sb.textContent = navState.desc ? '新しい順 ↓' : '古い順 ↑';
+  sb.title = '並び順を入れ替える';
+  sb.onclick = () => { navState.desc = !navState.desc; saveNav(); buildNav(); markActive(); };
+  bar.appendChild(sb);
+  nav.appendChild(bar);
+
+  const due = days.filter(d => dueOf(d.day));
+  if (due.length){
+    const t = document.createElement('div');
+    t.className = 'duetop';
+    t.innerHTML = '<b>きょう復習する日</b>' + due.map(d =>
+      `<span>${esc(d.subject)}　${ymd(d.day).slice(5).replace('-','/')}（${dueOf(d.day)}）</span>`).join('');
+    nav.appendChild(t);
+  }
+
+  days.forEach(d => {
+    const open = isOpen(d.day), label = dueOf(d.day);
+    const flags = d.qs.filter(flagged).length;
+    const h = document.createElement('button');
+    h.className = 'grp' + (open ? ' open' : '') + (label ? ' due' : '');
+    h.setAttribute('aria-expanded', open ? 'true' : 'false');
+    h.innerHTML = '<span class="cv">▸</span>'
+      + `<span class="gt">${esc(d.subject)}　${ymd(d.day)}</span>`
+      + (label ? `<span class="badge">${label}</span>` : '')
+      + (flags ? `<span class="fl">⚑${flags}</span>` : '')
+      + `<span class="ct">${d.qs.length}</span>`;
+    h.onclick = () => { setOpen(d.day, !isOpen(d.day)); buildNav(); markActive(); };
     nav.appendChild(h);
+    if (!open) return;
     d.qs.forEach(q => {
       const b = document.createElement('button');
       b.className = 'qbtn'; b.dataset.id = d.day + q.id;
@@ -476,17 +585,36 @@ function kws(t, ai){
 }
 
 const ARTS = {};
+const PAST = {};   // 旧構成の日に自分が書いた疑問・メモ（つまずき索引）
 
 /* ---- 自分の条文ノートから一言まとめを出す ---- */
+function obs(file){
+  return 'obsidian://open?vault=' + encodeURIComponent(VAULT) + '&file=' + encodeURIComponent(file);
+}
+function pastRows(k){
+  const p = PAST[k]; if(!p) return '';
+  const block = (rows, label, cls) => {
+    if(!rows) return '';
+    return '<div class="past ' + cls + '"><b>' + label
+      + (rows.n > rows.r.length ? ' ' + rows.n + '回' : '') + '</b><ul>'
+      + rows.r.map(r => '<li><span class="d">' + esc(r.d) + '</span>'
+          + '<a href="' + obs(r.f) + '">' + esc(r.t) + ' ↗</a></li>').join('')
+      + '</ul></div>';
+  };
+  return block(p.q, '前にもここで止まっています', 'q') + block(p.m, '自分のメモ', 'm');
+}
 function showArt(k){
-  const a = ARTS[k]; if(!a) return;
+  const a = ARTS[k], p = PAST[k];
+  if(!a && !p) return;
   const box = document.getElementById('artbox'); if(!box) return;
   if (box.dataset.k === k){ box.innerHTML=''; box.dataset.k=''; return; }  // もう一度押すと閉じる
   box.dataset.k = k;
   box.innerHTML = '<div class="art"><b>' + esc(k) + '</b>'
-    + (a.s ? '<span>' + esc(a.s) + '</span>' : '<span class="none">（一言まとめが書かれていません）</span>')
-    + '<a href="obsidian://open?vault=' + encodeURIComponent(VAULT)
-    + '&file=' + encodeURIComponent(a.f) + '">自分のノートを開く ↗</a></div>';
+    + (a ? (a.s ? '<span>' + esc(a.s) + '</span>'
+                : '<span class="none">（一言まとめが書かれていません）</span>')
+         : '<span class="none">（この条文のノートはまだありません）</span>')
+    + (a ? '<a href="' + obs(a.f) + '">自分のノートを開く ↗</a>' : '')
+    + '</div>' + pastRows(k);
 }
 
 function renderCols(){
@@ -501,7 +629,7 @@ function renderCols(){
       const chips = K[a].map(k => {
         const n = tally[k];
         const cls = n === A.length && A.length > 1 ? 'all' : (n === 1 ? 'solo' : '');
-        const mine = ARTS[k];                       // 自分の条文ノートがあるか
+        const mine = ARTS[k] || PAST[k];             // 自分のノートか、過去のつまずきがあるか
         return '<' + (mine ? 'button' : 'span') + ' class="kw ' + cls + (mine ? ' mine' : '')
              + '"' + (mine ? ' data-k="' + esc(k) + '"' : '') + '>'
              + esc(k) + (n===1 && A.length>1 ? ' ⚑' : '') + '</' + (mine ? 'button' : 'span') + '>';
@@ -539,6 +667,7 @@ function ingest(data, full){
     if (full) LOADED.add(d.day);
   });
   Object.assign(ARTS, data.arts || {});
+  Object.assign(PAST, data.past || {});
   buildFlat();
 }
 
@@ -567,7 +696,8 @@ async function show(uid){
   document.body.classList.remove('navopen');          /* 狭い画面では選んだら畳む */
   navToggle.setAttribute('aria-expanded', 'false');
   try { history.replaceState(null, '', '#' + encodeURIComponent(q.day) + '/' + encodeURIComponent(q.id)); } catch(e){}
-  [...nav.querySelectorAll('.qbtn')].forEach(b => b.classList.toggle('on', b.dataset.id === uid));
+  if (!isOpen(q.day)) { setOpen(q.day, true); buildNav(); }
+  markActive();
   const A = ais(q);
   const secs = [...new Set(A.flatMap(a => Object.keys(q.ai[a].sections)))]
     .sort((x,y) => SECORD.indexOf(x[0]) - SECORD.indexOf(y[0]));

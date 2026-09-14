@@ -159,6 +159,7 @@ tr.split td{background:var(--flagbg)}
 .art a{font-size:12px;white-space:nowrap;color:var(--ai)}
 .kw{cursor:pointer}
 .kw .imp{font-size:9px;letter-spacing:-.5px;opacity:.75;margin-left:3px;vertical-align:1px}
+.artwrap{margin:2px 0 6px}
 .kw:hover{background:var(--sunk);border-color:var(--ai)}
 .kw:not(.mine){border-style:dashed}
 .art .acts{display:flex;gap:7px;flex-wrap:wrap;flex-basis:100%;margin-top:2px}
@@ -710,11 +711,18 @@ function cursorPrompt(k){
   ].join('\n');
 }
 
-function showArt(k){
+let artKey = '';
+function showArt(k, el){
   const a = ARTS[k], p = PAST[k];
-  const box = document.getElementById('artbox'); if(!box) return;
-  if (box.dataset.k === k){ box.innerHTML=''; box.dataset.k=''; return; }  // もう一度押すと閉じる
-  box.dataset.k = k;
+  /* パネルは「押したチップのすぐ下」に出す。ページ末尾の #artbox に描くと
+     チップから数千px下になり、押しても何も起きていないように見えた（2026-09-14）。 */
+  document.querySelectorAll('.artwrap').forEach(x => x.remove());
+  const fallback = document.getElementById('artbox');
+  if (fallback) fallback.innerHTML = '';
+  if (artKey === k){ artKey = ''; return; }      // もう一度押すと閉じる
+  artKey = k;
+  const box = document.createElement('div');
+  box.className = 'artwrap';
 
   let acts = '';
   if (!a){
@@ -739,6 +747,11 @@ function showArt(k){
          : '<span class="none">まだ自分のノートがありません</span>')
     + (a ? '<a href="' + obs(a.f) + '">自分のノートを開く ↗</a>' : '')
     + acts + '</div>' + pastRows(k);
+
+  const row = el && el.closest('.kws');
+  if (row) row.after(box);
+  else if (fallback) fallback.appendChild(box);
+  try { box.scrollIntoView({block:'nearest', behavior:'smooth'}); } catch(e){}
 
   const cb = box.querySelector('[data-cur]');
   if (cb) cb.onclick = () => {
@@ -780,7 +793,7 @@ function renderCols(){
            + (chips ? '<div class="kws">' + chips + '</div>' : '')
            + '<div class="md">' + md(q.ai[a].sections[secPick]) + '</div></div>';
     }).join('');
-  document.querySelectorAll('.kw').forEach(b => b.onclick = () => showArt(b.dataset.k));
+  document.querySelectorAll('.kw').forEach(b => b.onclick = () => showArt(b.dataset.k, b));
   document.querySelectorAll('.col .send').forEach(b => b.onclick = () => {
     const extra = (document.getElementById('qbox').value || '').trim();
     toGPT(ctx(CUR, b.dataset.ai) + (extra ? '\n【質問】' + extra : '\n【質問】この説明の妥当性を検討してください。'));

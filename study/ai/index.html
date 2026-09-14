@@ -156,12 +156,19 @@ tr.split td{background:var(--flagbg)}
 .art b{font-family:var(--disp);font-size:14px;color:var(--ai);white-space:nowrap}
 .art span{font-size:13px;line-height:1.8;flex:1;min-width:200px}
 .art span.none{color:var(--muted)}
+/* 覚えること（一言）＝ここが本体。回数や出典は下に小さく置く */
+.art .gist{flex-basis:100%;margin:1px 0 0;font-size:14.5px;line-height:1.8;color:var(--ink)}
+.art .gist.none{font-size:13px;color:var(--muted)}
+.art .nick{flex:0 0 auto;min-width:0;font-size:12px;color:var(--muted)}
+.art .src{flex-basis:100%;flex-grow:0;min-width:0;font-size:11px;line-height:1.6;color:var(--muted)}
+.art .acts .lbl{flex:0 0 auto;min-width:0;font-size:11px;color:var(--muted);
+  align-self:center;padding-right:2px}
 .art a{font-size:12px;white-space:nowrap;color:var(--ai)}
 .kw{cursor:pointer}
 .kw .imp{font-size:9px;letter-spacing:-.5px;opacity:.75;margin-left:3px;vertical-align:1px}
 .artwrap{margin:2px 0 6px}
 .kw:hover{background:var(--sunk);border-color:var(--ai)}
-.kw:not(.mine){border-style:dashed}
+.kw:not(.mine):not(.has){border-style:dashed}   /* 押しても何も出ない語だけ点線 */
 .art .acts{display:flex;gap:7px;flex-wrap:wrap;flex-basis:100%;margin-top:2px}
 .art .acts a,.art .acts button{font-size:11.5px;white-space:nowrap;color:var(--ai);
   border:1px solid var(--line);border-radius:3px;padding:4px 10px;background:var(--paper);
@@ -617,11 +624,14 @@ async function toGPT(text){
 }
 
 /* ---- 節の本文から要点の語を拾う ---- */
-const LAWRE = /(?:民法|商法|会社法|手形法|小切手法|刑法|刑事訴訟法|刑訴法|民事訴訟法|民訴法|憲法|行政法|破産法)?第?\d{1,4}条(?:の\d{1,2})?(?:[ⅠⅡⅢⅣⅤ]|第?\d項)?/g;
+const LAWRE = /(?:民法|商法|会社法|手形法|小切手法|刑法|刑事訴訟法|刑訴法|民事訴訟法|民訴法|公職選挙法|公選法|憲法|行政法|破産法)?第?\d{1,4}条(?:の\d{1,2})?(?:[ⅠⅡⅢⅣⅤ]|第?\d項)?/g;
+/* 肢の○×や「誤答原因」のような、覚える対象ではない太字はチップにしない */
+const KW_NG = /[○◯×✕]|^(誤答原因|分析|判断のポイント|ポイント|結論|まとめ|注意|補足|理由|要点|今回|正解|覚え方|ひっかけ|次回|解き方|チェック|根拠条文|根拠|条文・判例)/;
 function kws(t, ai){
   const out = [];
   const push = x => {
     x = String(x||'').trim().replace(/^[「『（(\[]+|[」』）)\]]+$/g,'').replace(/[、。：:]$/,'');
+    if(KW_NG.test(x)) return;
     if(x.length>=2 && x.length<=16 && !/[。！？\n]/.test(x) && !out.includes(x)) out.push(x);
   };
   (ai.articles||[]).slice(0,4).forEach(push);      // 挙げた条文
@@ -634,6 +644,7 @@ function kws(t, ai){
 }
 
 const ARTS = {};
+const GIST = {};   // 語 → 覚えることを一言で（自分のノート／AI解説の「結論：」から）
 const PAST = {};   // 旧構成の日に自分が書いた疑問・メモ（つまずき索引）
 const FREQ = {};   // 語 → 自分が解いた問題のうち何問に出たか（＝重要度の実体）
 let NQ = 0;        // 収録している問題の総数
@@ -650,6 +661,60 @@ function impTitle(k){
   const n = FREQ[k] || 0;
   if (!n) return '';
   return 'これまでの' + NQ + '問のうち ' + n + '問に出ています';
+}
+
+/* ---- 覚えることを一言で ----
+   チップを押した／ホバーしたとき、いちばん先に出す行。
+   「212問中6問に出ています」のような回数は、それだけでは何も思い出せない。 */
+const LAW_DEF = {"刑訴法":"刑訴法","民訴法":"民訴法","商法":"手形法","民法":"民法",
+  "刑法":"刑法","行政法":"行政法","憲法":"憲法","倒産法":"破産法"};
+const LAW_RE = /^(刑事訴訟法|民事訴訟法|行政事件訴訟法|行政不服審査法|行政手続法|国家賠償法|不動産登記法|公職選挙法|小切手法|会社法|手形法|会計法|破産法|民事執行法|刑訴法|民訴法|民執法|行訴法|公選法|刑訴|民訴|刑法|民法|憲法|商法)/;
+function gistFor(k){
+  if (GIST[k]) return GIST[k];
+  /* 「37条Ⅱ」「321条3項」のように項・号が付いた語、法令名が省かれた語も引けるようにする */
+  let base = String(k).replace(/(前段|後段|本文|ただし書|柱書)+\s*$/, '')
+                      .replace(/(第?\d+項|[ⅠⅡⅢⅣⅤ]+|第?\d+号)+\s*$/, '').trim();
+  base = base.replace(/第(\d)/, '$1');          // 「第15条」→「15条」
+  if (GIST[base]) return GIST[base];
+  if (/\d+条/.test(base) && !LAW_RE.test(base)){
+    const law = LAW_DEF[(CUR && CUR.subject) || ''] || '';
+    if (law && GIST[law + base]) return GIST[law + base];
+  }
+  return null;
+}
+
+/* 条文でも判例でもない語（「連座制」「在外選挙権」など）は索引に無い。
+   その場合だけ、いま開いている問題の解説から、その語を説明している一文を拾う。 */
+let LG = {}, LGQ = '';
+const LG_GOOD = /(とは|である|をいう|しなければ|できる|できない|認め|成立|必要|要する|当たる|反しない|違反|無効|有効|原則|例外|趣旨)/;
+const LG_BAD = /(本問|今回|肢|正解|上記|下記|前述|次回|参照)/;
+function localGist(k){
+  if (!CUR) return null;
+  if (LGQ !== CUR.day + CUR.id){ LG = {}; LGQ = CUR.day + CUR.id; }
+  if (k in LG) return LG[k];
+  let best = null;
+  for (const a of Object.keys(CUR.ai || {})){
+    const secs = CUR.ai[a].sections || {};
+    for (const sec of Object.keys(secs)){
+      for (const line of String(secs[sec]).split(/\n/)){
+        for (const sent of line.split(/(?<=。)/)){
+          const t = sent.replace(/\[([^\]]*)\]\([^)]*\)/g,'$1').replace(/https?:\/\/\S+/g,'')
+                        .replace(/[*`>#\[\]]+/g,'').trim().replace(/^[-・\s]+/,'');
+          if (t.length < 14 || t.length > 130 || t.indexOf(k) < 0) continue;
+          if (t.length < k.length + 10) continue;     // 語をなぞっただけの一文は要らない
+          let sc = 0;
+          if (LG_GOOD.test(t)) sc += 3;
+          if (LG_BAD.test(t)) sc -= 3;
+          if (t.endsWith('。')) sc += 2;
+          if (sec.startsWith('④') || sec.startsWith('⑤') || sec.startsWith('①')) sc += 2;
+          if (t.indexOf(k) < 12) sc += 1;
+          if (!best || sc > best.sc) best = {sc, t, src: a + 'の解説から'};
+        }
+      }
+    }
+  }
+  LG[k] = best && best.sc > 0 ? {t: best.t, w: '', src: best.src} : null;
+  return LG[k];
 }
 
 /* ---- 自分の条文ノートから一言まとめを出す ---- */
@@ -724,29 +789,28 @@ function showArt(k, el){
   const box = document.createElement('div');
   box.className = 'artwrap';
 
-  let acts = '';
-  if (!a){
-    const no = artNo(k), dir = subjDir();
-    acts = '<div class="acts">'
-      + '<a href="' + obsSearch(k) + '">🔍 Vault を検索</a>'
-      + (no && dir
-          ? '<a href="' + obsNew('TimeBase/20_Study/' + dir + '/条文/' + no + '.md', noteSkeleton(k))
-            + '">＋ ノートを作る</a>' : '')
-      + '<button data-cur="1">📋 Cursor への指示</button>'
-      + '<a href="https://www.google.com/search?q=' + encodeURIComponent(k + ' 判例 要件')
-      + '" target="_blank" rel="noopener">🔎 Web で調べる</a>'
-      + '</div>';
-  }
+  const no = artNo(k), dir = subjDir();
+  /* 参照するもの＝自分のノート、無ければ作る・探す。回数などの脇の情報は下に小さく。 */
+  const refs = [];
+  if (a) refs.push('<a href="' + obs(a.f) + '">📓 自分のノートを開く ↗</a>');
+  else if (no && dir)
+    refs.push('<a href="' + obsNew('TimeBase/20_Study/' + dir + '/条文/' + no + '.md', noteSkeleton(k))
+      + '">＋ ノートを作る</a>');
+  refs.push('<a href="' + obsSearch(k) + '">🔍 Vault を検索</a>');
+  if (!a) refs.push('<button data-cur="1">📋 Cursor への指示</button>');
+  refs.push('<a href="https://www.google.com/search?q=' + encodeURIComponent(k + ' 判例 要件')
+    + '" target="_blank" rel="noopener">🔎 Web で調べる</a>');
 
-  const ft = impTitle(k);
+  const g = gistFor(k) || localGist(k), ft = impTitle(k);
+  const src = [g ? '出典 ' + g.src : '', ft].filter(Boolean).join('　・　');
   box.innerHTML = '<div class="art"><b>' + esc(k)
     + (impStars(k) ? ' <span class="imp">' + impStars(k) + '</span>' : '') + '</b>'
-    + (ft ? '<span class="none">' + esc(ft) + '</span>' : '')
-    + (a ? (a.s ? '<span>' + esc(a.s) + '</span>'
-                : '<span class="none">（一言まとめが書かれていません）</span>')
-         : '<span class="none">まだ自分のノートがありません</span>')
-    + (a ? '<a href="' + obs(a.f) + '">自分のノートを開く ↗</a>' : '')
-    + acts + '</div>' + pastRows(k);
+    + (g && g.w ? '<span class="nick">' + esc(g.w) + '</span>' : '')
+    + '<p class="gist' + (g ? '' : ' none') + '">'
+    + (g ? esc(g.t) : 'まだ一言まとめがありません。下から探すか、自分で書いてください。') + '</p>'
+    + (src ? '<span class="src">' + esc(src) + '</span>' : '')
+    + '<div class="acts"><span class="lbl">参照する</span>' + refs.join('') + '</div>'
+    + '</div>' + pastRows(k);
 
   const row = el && el.closest('.kws');
   if (row) row.after(box);
@@ -781,10 +845,12 @@ function renderCols(){
         const cls = n === A.length && A.length > 1 ? 'all' : (n === 1 ? 'solo' : '');
         const mine = ARTS[k] || PAST[k];             // 自分のノートか、過去のつまずきがあるか
         /* ノートが無い語も押せる。無いときは「探す・作る」を出す＝行き止まりにしない */
-        const st = impStars(k), it = impTitle(k);
-        return '<button class="kw ' + cls + (mine ? ' mine' : '')
-             + '" data-k="' + esc(k) + '" title="'
-             + (it ? esc(it) + '／' : '') + (mine ? '自分のノートを見る' : '探す・作る') + '">'
+        const st = impStars(k), g = gistFor(k) || localGist(k);
+        /* ホバーで出るのは「覚えること」。回数だけでは思い出す手がかりにならない。 */
+        const tip = g ? g.t + '\n（' + g.src + '）'
+                      : (mine ? '自分のノートを見る' : 'まだ一言まとめがありません。押すと探せます');
+        return '<button class="kw ' + cls + (mine ? ' mine' : '') + (g ? ' has' : '')
+             + '" data-k="' + esc(k) + '" title="' + esc(tip) + '">'
              + esc(k) + (n===1 && A.length>1 ? ' ⚑' : '')
              + (st ? '<span class="imp">' + st + '</span>' : '') + '</button>';
       }).join('');
@@ -821,6 +887,8 @@ function ingest(data, full){
     if (full) LOADED.add(d.day);
   });
   Object.assign(ARTS, data.arts || {});
+  Object.assign(GIST, data.gist || {});
+  Object.assign(GIST, data.gist || {});
   Object.assign(PAST, data.past || {});
   if (data.freq) Object.assign(FREQ, data.freq);
   if (data.nq) NQ = data.nq;

@@ -1,49 +1,35 @@
 {
-  "subject": "民法",
-  "date": "2026-09-15",
+  "subject": "刑法",
+  "date": "2026-09-16",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [
-    {
-      "type": "短答",
-      "questions_count": 0,
-      "understanding": "普通",
-      "topic": ""
-    }
-  ],
+  "today_logs": [],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-09-14",
-      "subject": "憲法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-09-12",
-      "subject": "刑事訴訟法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-09-08",
-      "subject": "憲法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-08-25",
+      "date": "2026-09-15",
       "subject": "民法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-09-09",
+      "subject": "刑法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [
+        "各論"
+      ],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-08-26",
+      "subject": "刑法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -240,15 +226,15 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": true,
-  "updated_at": "2026-09-15T21:55:38.792942",
+  "has_data": false,
+  "updated_at": "2026-09-16T07:00:33.082745",
   "today_tasks": [
     {
       "subject": "憲法",
       "status": "遅れ",
       "action": "短答3問｜論点：違憲審査基準（LRA・比較衡量）・表現の自由・平等原則",
       "theme": "短答2周目開始・論文構成（骨組みのみ）",
-      "situation": "今週5/10問。あと5問（1日ぶり）",
+      "situation": "今週5/10問。あと5問（2日ぶり）",
       "actual_q": 5,
       "target_q": 10,
       "checked": false
@@ -258,17 +244,17 @@
       "status": "今週",
       "action": "短答3問｜論点：対抗要件（177条）・意思表示の瑕疵・同時履行の抗弁",
       "theme": "短答2周目・頻出論点の論文骨組み",
-      "situation": "今週0/10問。あと10問",
+      "situation": "今週0/10問。あと10問（1日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     },
     {
       "subject": "刑法",
-      "status": "今週",
-      "action": "短答3問｜論点：正当防衛・因果関係（危険の現実化）・事実の錯誤",
+      "status": "遅れ",
+      "action": "短答3問｜論点：構成要件該当性・違法性阻却（正当防衛の要件）・共犯の成立",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週0/10問。あと10問（6日ぶり）",
+      "situation": "今週0/10問。あと10問（7日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -278,7 +264,7 @@
       "status": "今週",
       "action": "短答3問｜論点：処分性・原告適格・理由の提示（行手法14条）",
       "theme": "短答2周目・条文ベース定着",
-      "situation": "今週0/10問。あと10問（5日ぶり）",
+      "situation": "今週0/10問。あと10問（6日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -288,7 +274,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：訴訟要件（当事者適格・訴えの利益）・既判力の範囲",
       "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（11日ぶり）",
+      "situation": "今週0/10問。あと10問（12日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -298,7 +284,7 @@
       "status": "今週",
       "action": "短答3問｜論点：職務質問と所持品検査・伝聞法則・自白法則",
       "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（3日ぶり）",
+      "situation": "今週0/10問。あと10問（4日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -308,7 +294,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：株主総会決議（種類・要件・瑕疵）・取締役の善管注意義務",
       "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（9日ぶり）",
+      "situation": "今週0/10問。あと10問（10日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -318,30 +304,34 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（84日ぶり）",
+      "situation": "今週0/10問。あと10問（85日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "動産質権者が質物の占有を奪われた場合、質権に基づく物権的返還請求ができるか？",
-  "quiz_answer_hint": "民法353条・352条。占有回収の訴えによってのみ回復可能。",
+  "quiz_question": "C説に対してA説・B説から「成立範囲が広すぎる」と批判できるか？",
+  "quiz_answer_hint": "刑法60条・C説は最狭→批判の方向が逆（最決昭54・4・13）",
   "articles": [
     {
-      "gist": "解除後の原状回復義務",
-      "ref": "民法545条1項"
+      "gist": "共同正犯の成立根拠",
+      "ref": "刑法60条"
     },
     {
-      "gist": "動産質権者は占有回収の訴えによってのみ質物回復可",
-      "ref": "民法353条"
+      "gist": "故意なき行為は罰しない",
+      "ref": "刑法38条1項"
     },
     {
-      "gist": "他人物売買は有効・売主に取得義務",
-      "ref": "民法561条"
+      "gist": "重い罪に当たることを知らなければ重い罪で処断不可",
+      "ref": "刑法38条2項"
     },
     {
-      "gist": "動産質権の対抗要件は占有継続",
-      "ref": "民法352条"
+      "gist": "殺人罪",
+      "ref": "刑法199条"
+    },
+    {
+      "gist": "傷害致死罪",
+      "ref": "刑法205条"
     }
   ],
   "freq_rating": "★★★",

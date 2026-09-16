@@ -163,6 +163,11 @@ tr.split td{background:var(--flagbg)}
 .art .src{flex-basis:100%;flex-grow:0;min-width:0;font-size:11px;line-height:1.6;color:var(--muted)}
 .art .acts .lbl{flex:0 0 auto;min-width:0;font-size:11px;color:var(--muted);
   align-self:center;padding-right:2px}
+.art .jobun{flex-basis:100%;margin:6px 0 4px;padding:10px 12px;background:var(--sunk);border-left:3px solid var(--ai);
+  font-size:14px;line-height:1.85;color:var(--ink);white-space:pre-wrap;word-break:break-word}
+.art .jobun.clip{max-height:11.5em;overflow:hidden;position:relative}
+.art .jobun-more{font-size:12px;color:var(--ai);background:none;border:0;padding:0;cursor:pointer}
+.art .jobun-src{flex-basis:100%;font-size:11px;color:var(--muted);margin-bottom:6px}
 .art a{font-size:12px;white-space:nowrap;color:var(--ai)}
 .kw{cursor:pointer}
 .kw .imp{font-size:9px;letter-spacing:-.5px;opacity:.75;margin-left:3px;vertical-align:1px}
@@ -654,6 +659,7 @@ function kws(t, ai){
 }
 
 const ARTS = {};
+const JOBUN = {};   /* e-Gov の現行条文（2026-09-16） */
 const GIST = {};   // 語 → 覚えることを一言で（自分のノート／AI解説の「結論：」から）
 const PAST = {};   // 旧構成の日に自分が書いた疑問・メモ（つまずき索引）
 const DAYX = {};   // 日付科目 → その日ぜんぶに関わる補足（Q番号の無い補足）
@@ -830,8 +836,13 @@ function showArt(k, el){
 
   const g = gistFor(k) || localGist(k), ft = impTitle(k);
   const src = [g ? '出典 ' + g.src : '', ft].filter(Boolean).join('　・　');
+  /* まず条文そのもの（本人の希望、2026-09-16）。長い条文は畳んで「全文」で開く。 */
+  const jb = JOBUN[k];
   box.innerHTML = '<div class="art"><b>' + esc(k)
     + (impStars(k) ? ' <span class="imp">' + impStars(k) + '</span>' : '') + '</b>'
+    + (jb ? '<div class="jobun' + (jb.length > 260 ? ' clip' : '') + '">' + esc(jb) + '</div>'
+      + '<div class="jobun-src">' + (jb.length > 260 ? '<button class="jobun-more">▼ 全文を表示</button>　' : '')
+      + '現行法（e-Gov）</div>' : '')
     + (g && g.w ? '<span class="nick">' + esc(g.w) + '</span>' : '')
     + '<p class="gist' + (g ? '' : ' none') + '">'
     + (g ? esc(g.t) : 'まだ一言まとめがありません。下から探すか、自分で書いてください。') + '</p>'
@@ -844,6 +855,11 @@ function showArt(k, el){
   else if (fallback) fallback.appendChild(box);
   try { box.scrollIntoView({block:'nearest', behavior:'smooth'}); } catch(e){}
 
+  const jm = box.querySelector('.jobun-more');
+  if (jm) jm.onclick = () => {
+    const j = box.querySelector('.jobun'), open = j.classList.toggle('clip');
+    jm.textContent = open ? '▼ 全文を表示' : '▲ たたむ';
+  };
   const cb = box.querySelector('[data-cur]');
   if (cb) cb.onclick = () => {
     if (box.querySelector('.cur')) { box.querySelector('.cur').remove(); return; }
@@ -923,6 +939,7 @@ function ingest(data, full){
     if (full) LOADED.add(d.day);
   });
   Object.assign(ARTS, data.arts || {});
+  Object.assign(JOBUN, data.jobun || {});
   Object.assign(GIST, data.gist || {});
   Object.assign(GIST, data.gist || {});
   Object.assign(PAST, data.past || {});

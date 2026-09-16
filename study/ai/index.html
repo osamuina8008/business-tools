@@ -291,7 +291,7 @@ const EMBED = null;
 const WEB   = "data/";
 let DB = {days:[], arts:{}};
 const LOADED = new Set();
-const ORDER = ["ChatGPT","Claude Sonnet","Gemini","Grok","Copilot","NotebookLM","その他"];
+const ORDER = ["ChatGPT","Claude","Gemini","Grok","Copilot","NotebookLM","その他"];
 const SECORD = "①②③④⑤⑥⑦⑧⑨";
 const nav = document.getElementById('nav'), main = document.getElementById('main');
 let flat = [];
@@ -301,7 +301,8 @@ function buildFlat(){
 }
 
 const na = s => (s.match(/\d/g)||[]).sort().join('');
-const ais = q => ORDER.filter(a => q.ai[a]);
+/* ORDERに無い名前のAIフォルダも捨てずに末尾へ（「Claude Sonnet」→「Claude」改名で丸ごと消えていた、2026-09-16） */
+const ais = q => [...ORDER.filter(a => q.ai[a]), ...Object.keys(q.ai).filter(a => !ORDER.includes(a))];
 const split = q => new Set(ais(q).map(a=>q.ai[a].answer).filter(Boolean).map(na)).size > 1;
 const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 
@@ -999,7 +1000,16 @@ async function show(uid){
   });
 
   const pdfBtn = document.getElementById('qpdf');
-  if (pdfBtn) {
+  /* iPad・SafariはGoogleのログイン情報を埋め込み枠に渡さないため、非公開のDrive PDFは
+     枠内で「400 エラー」になる（2026-09-16）。その環境では枠を使わず、Driveを直接開く。 */
+  const noEmbed = /iPad|iPhone|iPod/.test(navigator.userAgent)
+    || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+    || (/Safari/.test(navigator.userAgent) && !/Chrome|CriOS|Chromium|Edg|FxiOS|Firefox/.test(navigator.userAgent));
+  if (pdfBtn && noEmbed) {
+    pdfBtn.textContent = '📄 ' + (q.pdfk === 'day' ? 'この日の問題' : '問題') + 'を開く ↗';
+    pdfBtn.onclick = () => window.open(q.pdf, '_blank', 'noopener');
+    const alt = pdfBtn.nextElementSibling; if (alt && alt.tagName === 'A') alt.remove();
+  } else if (pdfBtn) {
     const host = document.getElementById('qpdfbox');
     const draw = on => {
       const lbl = q.pdfk === 'day' ? 'この日の問題' : '問題';

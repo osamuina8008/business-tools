@@ -114,6 +114,8 @@ tr.split td{background:var(--flagbg)}
 .mk.m-c{color:var(--ink);border:1px solid var(--muted)}
 .mk.m-d{color:#fff;background:var(--differ)}
 
+.col.nosec{opacity:.85}
+.col.nosec summary{cursor:pointer;color:var(--muted);font-size:13px;padding:4px 0}
 .tabs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px;position:sticky;top:0;z-index:3;
   background:var(--paper);padding:9px 0;border-bottom:1px solid var(--line)}
 .tabs button{border:1px solid var(--line);background:var(--surface);color:var(--muted);
@@ -309,6 +311,8 @@ const na = s => (s.match(/\d/g)||[]).sort().join('');
 /* ORDERに無い名前のAIフォルダも捨てずに末尾へ（「Claude Sonnet」→「Claude」改名で丸ごと消えていた、2026-09-16） */
 const ais = q => [...ORDER.filter(a => q.ai[a]), ...Object.keys(q.ai).filter(a => !ORDER.includes(a))];
 const split = q => new Set(ais(q).map(a=>q.ai[a].answer).filter(Boolean).map(na)).size > 1;
+/* 論文フォルダ（{日付}{科目}★論文…）は同じ日の短答と並ぶので見出しで区別する（2026-09-19） */
+const subjLabel = d => d.subject + (d.day.includes('★論文') ? '・論文' : '');
 const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 
 /* ---- マークダウンを HTML に組む（**強調**・箇条書き・見出し・表・コード）---- */
@@ -479,7 +483,7 @@ function buildNav(){
       const b = document.createElement('button');
       b.className = 'duebtn';
       b.title = 'この日の1問目を開く';
-      b.innerHTML = `${esc(d.subject)}　${ymd(d.day).slice(5).replace('-','/')}`
+      b.innerHTML = `${esc(subjLabel(d))}　${ymd(d.day).slice(5).replace('-','/')}`
         + `（${dueOf(d.day)}）<em>${d.qs.length}問 ›</em>`;
       b.onclick = () => openDay(d.day);
       t.appendChild(b);
@@ -494,7 +498,7 @@ function buildNav(){
     h.className = 'grp' + (open ? ' open' : '') + (label ? ' due' : '');
     h.setAttribute('aria-expanded', open ? 'true' : 'false');
     h.innerHTML = '<span class="cv">▸</span>'
-      + `<span class="gt">${esc(d.subject)}　${ymd(d.day)}</span>`
+      + `<span class="gt">${esc(subjLabel(d))}　${ymd(d.day)}</span>`
       + (label ? `<span class="badge">${label}</span>` : '')
       + (flags ? `<span class="fl">⚑${flags}</span>` : '')
       + `<span class="ct">${d.qs.length}</span>`;
@@ -904,7 +908,16 @@ function renderCols(){
            + '<button class="send" data-ai="' + esc(a) + '" title="この解説をChatGPTへ">⤴</button></h4>'
            + ((chips || notes) ? '<div class="kws">' + chips + notes + '</div>' : '')
            + '<div class="md">' + md(q.ai[a].sections[secPick]) + '</div></div>';
-    }).join('');
+    }).join('')
+    /* この節の見出しを書いていないAIも消さない（2026-09-19）。以前はタブを選ぶと、その見出しを
+       持つAIだけが並び「ChatGPTしか入っていない」ように見えた。畳んだ全文で並べる。 */
+    + ais(q).filter(a => !q.ai[a].sections[secPick] && Object.keys(q.ai[a].sections).length)
+      .map(a => {
+        const all = Object.entries(q.ai[a].sections).map(([k, v]) => '### ' + k + '\n' + v).join('\n\n');
+        return '<div class="col nosec"><h4>' + a + '</h4>'
+             + '<details><summary>「' + esc(secPick) + '」の見出しなし — 全文を開く</summary>'
+             + '<div class="md">' + md(all) + '</div></details></div>';
+      }).join('');
   document.querySelectorAll('.kw[data-k]').forEach(b => b.onclick = () => showArt(b.dataset.k, b));
   document.querySelectorAll('.kw[data-note]').forEach(b => b.onclick = () => {
     const [a, i] = b.dataset.note.split('|');

@@ -107,6 +107,7 @@ tr.split td{background:var(--flagbg)}
 .tok{display:block}
 .tok.all{font-weight:700}
 .tok.solo{color:var(--differ)}
+.na{color:var(--muted);font-size:12.5px;white-space:nowrap}
 .legend{font-size:12px;color:var(--muted);margin-top:8px}
 .mk{display:inline-block;min-width:1.6em;text-align:center;font-weight:700;border-radius:2px;padding:0 .2em}
 .mk.m-a{color:#fff;background:var(--agree)}
@@ -300,7 +301,9 @@ const EMBED = null;
 const WEB   = "data/";
 let DB = {days:[], arts:{}};
 const LOADED = new Set();
-const ORDER = ["ChatGPT","Claude","Gemini","Grok","Copilot","NotebookLM","その他"];
+const CORE = ["ChatGPT","Claude","Gemini","Grok","Copilot"];
+const ORDER = [...CORE, "NotebookLM","その他"];
+const AI_ALIAS = {"Claude Sonnet":"Claude","claude":"Claude","claude sonnet":"Claude","GPT":"ChatGPT","gemini":"Gemini"};
 const SECORD = "①②③④⑤⑥⑦⑧⑨";
 const nav = document.getElementById('nav'), main = document.getElementById('main');
 let flat = [];
@@ -310,8 +313,24 @@ function buildFlat(){
 }
 
 const na = s => (s.match(/\d/g)||[]).sort().join('');
-/* ORDERに無い名前のAIフォルダも捨てずに末尾へ（「Claude Sonnet」→「Claude」改名で丸ごと消えていた、2026-09-16） */
-const ais = q => [...ORDER.filter(a => q.ai[a]), ...Object.keys(q.ai).filter(a => !ORDER.includes(a))];
+const canonAi = n => AI_ALIAS[n] || AI_ALIAS[String(n).toLowerCase()] || n;
+function remapAiMap(obj){
+  const out = {};
+  Object.keys(obj || {}).forEach(k => {
+    const n = canonAi(k);
+    if (!out[n]) { out[n] = obj[k]; return; }
+    const as = Object.keys((out[n].sections) || {}).length;
+    const bs = Object.keys((obj[k].sections) || {}).length;
+    if (bs > as) out[n] = obj[k];
+  });
+  return out;
+}
+/* 本文タブは実データがあるAIだけ。比較表は CORE 5列を常時出す（無い欄は「対象なし」） */
+const ais = q => [...ORDER.filter(a => q.ai[a]), ...Object.keys(q.ai||{}).filter(a => !ORDER.includes(a))];
+function matrixCols(q){
+  const present = ais(q);
+  return [...CORE, ...present.filter(a => !CORE.includes(a))];
+}
 const split = q => new Set(ais(q).map(a=>q.ai[a].answer).filter(Boolean).map(na)).size > 1;
 /* 論文フォルダ（{日付}{科目}★論文…）は同じ日の短答と並ぶので見出しで区別する（2026-09-19） */
 const subjLabel = d => d.subject + (d.day.includes('★論文') ? '・論文' : '');
@@ -555,8 +574,12 @@ function verdicts(q){
 
 function matrix(q){
   const A = ais(q);
+  const cols = matrixCols(q);
+  const has = a => !!(q.ai && q.ai[a]);
+  const NA = '<span class="na">対象なし</span>';
   const count = (x, f) => A.filter(a => q.ai[a][f].includes(x)).length;
   const cell = (a, f) => {
+    if (!has(a)) return NA;
     const u = [...new Set(q.ai[a][f])];
     if (!u.length) return '<span style="color:var(--muted)">—</span>';
     return u.map(x => {
@@ -565,18 +588,18 @@ function matrix(q){
       return `<span class="tok ${cls}">${esc(x)}${n===1?' ⚑':''}</span>`;
     }).join('');
   };
-  let h = `<div class="scroll"><table><thead><tr><th></th>${A.map(a=>`<th>${a}</th>`).join('')}</tr></thead><tbody>`;
+  let h = `<div class="scroll"><table><thead><tr><th></th>${cols.map(a=>`<th>${a}</th>`).join('')}</tr></thead><tbody>`;
   const sp = split(q);
-  h += `<tr class="${sp?'split':''}"><th>正解</th>${A.map(a=>`<td class="ans mid">${esc(q.ai[a].answer||'—')}</td>`).join('')}</tr>`;
+  h += `<tr class="${sp?'split':''}"><th>正解</th>${cols.map(a=>`<td class="ans mid">${has(a)?esc(q.ai[a].answer||'—'):NA}</td>`).join('')}</tr>`;
   const labels = [...new Set(A.flatMap(a=>Object.keys(q.ai[a].choices)))].sort();
   labels.forEach(lb => {
     const vs = new Set(A.map(a=>q.ai[a].choices[lb]).filter(Boolean));
     const bad = vs.size > 1;
-    h += `<tr class="${bad?'split':''}"><th>肢 ${lb}${bad?' ⚑':''}</th>${A.map(a=>`<td class="mid">${q.ai[a].choices[lb]||'—'}</td>`).join('')}</tr>`;
+    h += `<tr class="${bad?'split':''}"><th>肢 ${lb}${bad?' ⚑':''}</th>${cols.map(a=>`<td class="mid">${has(a)?(q.ai[a].choices[lb]||'—'):NA}</td>`).join('')}</tr>`;
   });
-  h += `<tr><th>挙げた条文</th>${A.map(a=>`<td>${cell(a,'articles')}</td>`).join('')}</tr>`;
-  h += `<tr><th>挙げた判例</th>${A.map(a=>`<td>${cell(a,'cases')}</td>`).join('')}</tr>`;
-  h += '</tbody></table></div><p class="legend">太字＝全AIが挙げた／<span style="color:var(--differ)">朱色 ⚑</span>＝1つのAIだけが挙げた・判断が割れた箇所</p>';
+  h += `<tr><th>挙げた条文</th>${cols.map(a=>`<td>${cell(a,'articles')}</td>`).join('')}</tr>`;
+  h += `<tr><th>挙げた判例</th>${cols.map(a=>`<td>${cell(a,'cases')}</td>`).join('')}</tr>`;
+  h += '</tbody></table></div><p class="legend">太字＝全AIが挙げた／<span style="color:var(--differ)">朱色 ⚑</span>＝1つのAIだけが挙げた・判断が割れた箇所／「対象なし」＝その問題の解説が無い</p>';
   return h;
 }
 
@@ -950,6 +973,11 @@ function askbox(q){
 
 function ingest(data, full){
   (data.days || []).forEach(d => {
+    (d.qs || []).forEach(q => {
+      q.ai = remapAiMap(q.ai);
+      if (q.review) q.review = remapAiMap(q.review);
+      (q.missing || []).forEach(m => { m.a = canonAi(m.a); });
+    });
     if (d.extra) DAYX[d.day] = d.extra;
     const ex = DB.days.find(x => x.day === d.day);
     if (ex) ex.qs = d.qs; else DB.days.push(d);

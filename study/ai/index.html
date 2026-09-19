@@ -906,9 +906,11 @@ function renderCols(){
       const notes = (q.ai[a].notes || []).map((nt, i) =>
         '<button class="kw note" data-note="' + esc(a) + '|' + i
         + '" title="補足を開く">📎 ' + esc(nt.t) + '</button>').join('');
+      const warn = q.ai[a].needfile
+        ? '<div class="miss">⚠ このAIは「問題文などをアップロードしてください」と答えています（添付が届いていない可能性）。中身は一般論のことがあります。</div>' : '';
       return '<div class="col"><h4>' + a
            + '<button class="send" data-ai="' + esc(a) + '" title="この解説をChatGPTへ">⤴</button></h4>'
-           + ((chips || notes) ? '<div class="kws">' + chips + notes + '</div>' : '')
+           + ((chips || notes) ? '<div class="kws">' + chips + notes + '</div>' : '') + warn
            + '<div class="md">' + md(q.ai[a].sections[secPick]) + '</div></div>';
     }).join('')
     /* この節の見出しを書いていないAIも消さない（2026-09-19）。以前はタブを選ぶと、その見出しを
@@ -1009,8 +1011,8 @@ async function show(uid){
       <span class="lbl">この日の補足</span>${DAYX[q.day].map((e,i)=>
         `<button class="kw note" data-dx="${i}" title="${esc(e.ai)} の補足">📎 ${esc(e.t)}</button>`).join('')}
     </div>` : ''}
-    ${(q.missing && q.missing.length) ? `<div class="miss">⚠ <b>${q.missing.map(esc).join('・')}</b> はこの問題の解説が見つかりません。
-      同じ日は全AIが同じ問題を解いているはずなので、<b>貼り忘れ</b>か、別の番号・別のフォルダに入っている可能性があります。</div>` : ''}
+    ${(q.missing && q.missing.length) ? q.missing.map(m =>
+      `<div class="miss">⚠ <b>${esc(m.a)}</b> — ${esc(m.why)}</div>`).join('') : ''}
     ${A.filter(a => q.ai[a].renum).map(a => `<div class="miss ren">↺ ${esc(a)} は「${q.ai[a].renum.map(esc).join('・')}」と書いていましたが、同じ日の他のAIと突き合わせて ${esc(q.id)} として並べています。</div>`).join('')}
     <div class="tabs">${secs.map(x=>`<button data-s="${esc(x)}" class="${x===secPick?'on':''}">${esc(x)}</button>`).join('')}</div>
     <div class="cols" id="cols"></div>

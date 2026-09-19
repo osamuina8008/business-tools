@@ -115,6 +115,8 @@ tr.split td{background:var(--flagbg)}
 .mk.m-d{color:#fff;background:var(--differ)}
 
 .col.nosec{opacity:.85}
+.miss{margin:0 0 10px;padding:8px 12px;border-radius:8px;font-size:13px;line-height:1.6;background:color-mix(in srgb,var(--differ) 12%,transparent);border:1px solid color-mix(in srgb,var(--differ) 45%,transparent)}
+.miss.ren{background:transparent;border-style:dashed;color:var(--muted)}
 .col.nosec summary{cursor:pointer;color:var(--muted);font-size:13px;padding:4px 0}
 .tabs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px;position:sticky;top:0;z-index:3;
   background:var(--paper);padding:9px 0;border-bottom:1px solid var(--line)}
@@ -1007,6 +1009,9 @@ async function show(uid){
       <span class="lbl">この日の補足</span>${DAYX[q.day].map((e,i)=>
         `<button class="kw note" data-dx="${i}" title="${esc(e.ai)} の補足">📎 ${esc(e.t)}</button>`).join('')}
     </div>` : ''}
+    ${(q.missing && q.missing.length) ? `<div class="miss">⚠ <b>${q.missing.map(esc).join('・')}</b> はこの問題の解説が見つかりません。
+      同じ日は全AIが同じ問題を解いているはずなので、<b>貼り忘れ</b>か、別の番号・別のフォルダに入っている可能性があります。</div>` : ''}
+    ${A.filter(a => q.ai[a].renum).map(a => `<div class="miss ren">↺ ${esc(a)} は「${q.ai[a].renum.map(esc).join('・')}」と書いていましたが、同じ日の他のAIと突き合わせて ${esc(q.id)} として並べています。</div>`).join('')}
     <div class="tabs">${secs.map(x=>`<button data-s="${esc(x)}" class="${x===secPick?'on':''}">${esc(x)}</button>`).join('')}</div>
     <div class="cols" id="cols"></div>
     <div id="artbox"></div>

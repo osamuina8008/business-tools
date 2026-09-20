@@ -250,8 +250,9 @@ tr.split td{background:var(--flagbg)}
   border:1px solid var(--line);background:var(--paper);color:var(--muted)}
 .kw.all{border-color:var(--agree);color:var(--agree);font-weight:700}
 .kw.solo{border-color:var(--differ);color:var(--differ);background:var(--flagbg)}
-.col .send{margin-left:auto;border:1px solid var(--line);background:var(--paper);color:var(--muted);
-  border-radius:3px;font:inherit;font-size:13px;line-height:1;padding:5px 9px;cursor:pointer;min-height:30px}
+.col .send{margin-left:auto;flex:none;border:1px solid var(--line);background:var(--paper);color:var(--muted);
+  border-radius:3px;font:inherit;font-size:11px;font-weight:400;letter-spacing:0;line-height:1.3;
+  padding:5px 8px;cursor:pointer;min-height:30px;white-space:nowrap}
 .col .send:hover{background:var(--ai);border-color:var(--ai);color:#fff}
 #flash{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(10px);
   background:var(--ink);color:var(--paper);padding:11px 20px;border-radius:4px;font-size:13px;
@@ -321,6 +322,51 @@ tr.hot>th:first-child{box-shadow:inset 3px 0 0 var(--ai)}
 .only{display:block;margin-top:3px;font-size:12px;color:var(--differ)}
 .gd{color:var(--agree)}
 
+/* ---- 1つのAIだけを全画面で読む ---- */
+.col h4 .ainame{font:inherit;font-family:var(--disp);font-size:13px;letter-spacing:.06em;
+  color:var(--ai);border-bottom:0;padding:2px 5px 2px 0;border-radius:3px}
+.col h4 .ainame::after{content:" ⤢";font-size:11px;opacity:.5}
+.col h4 .ainame:hover{background:var(--sunk)}
+.col h4 .ainame:hover::after{opacity:1}
+body.reading{overflow:hidden}
+.reader{position:fixed;inset:0;z-index:40;background:var(--paper);overflow-y:auto;
+  -webkit-overflow-scrolling:touch}
+.reader[hidden]{display:none}
+.rd-top{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  padding:11px 22px;background:var(--surface);border-bottom:1px solid var(--line)}
+.rd-name{font-family:var(--disp);font-size:22px;color:var(--ai);letter-spacing:.04em}
+.rd-who{display:flex;align-items:center;gap:9px;flex-wrap:wrap;min-width:0}
+.rd-top button{flex:none;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:4px;padding:8px 14px;font:inherit;font-size:13px;cursor:pointer;min-height:38px}
+.rd-top button:hover{border-color:var(--ai);color:var(--ai)}
+.rd-top button[disabled]{opacity:.35;cursor:default}
+.rd-move{margin-left:auto;display:flex;gap:7px}
+.rd-meta{max-width:80ch;margin:0 auto;padding:11px 22px 0;font-size:12.5px;color:var(--muted);line-height:1.85}
+.rd-meta .warnw{color:var(--differ)}
+.rd-tabs{display:flex;flex-wrap:wrap;gap:6px;max-width:80ch;margin:0 auto;
+  padding:11px 22px 13px;border-bottom:1px solid var(--line)}
+.rd-tabs button{border:1px solid var(--line);background:var(--surface);color:var(--muted);
+  border-radius:2px;padding:6px 13px;font:inherit;font-size:13px;cursor:pointer;min-height:36px}
+.rd-tabs button:hover{border-color:var(--ai);color:var(--ai)}
+.rd-tabs button.on{background:var(--ai);border-color:var(--ai);color:#fff;font-weight:700}
+.rd-body{max-width:80ch;margin:0 auto;padding:20px 22px 100px}
+.rd-body .md{font-size:16.5px;line-height:2.1}
+.rd-body .md h5{font-size:17px}
+.rd-body .kws{margin-bottom:16px}
+.rd-body .rd-h{font-family:var(--disp);font-size:15px;letter-spacing:.06em;color:var(--ai);
+  margin:30px 0 10px;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.rd-body .rd-h:first-child{margin-top:0}
+@media(max-width:820px){
+  .rd-top{padding:10px 14px;gap:9px}
+  .rd-name{font-size:18px}
+  .rd-top button{padding:8px 11px;font-size:12.5px}
+  .rd-move{margin-left:0;width:100%}
+  .rd-move button{flex:1}
+  .rd-meta,.rd-tabs{padding-left:14px;padding-right:14px}
+  .rd-body{padding:16px 14px 90px}
+  .rd-body .md{font-size:16px;line-height:2}
+}
+
 /* ---- iPad・iPhone ---- */
 @media(max-width:1024px){
   .tabs button{padding:9px 14px;font-size:13.5px;min-height:40px}
@@ -355,6 +401,7 @@ tr.hot>th:first-child{box-shadow:inset 3px 0 0 var(--ai)}
 <main id="main"></main>
 <div id="flash"></div>
 </div>
+<div class="reader" id="reader" hidden></div>
 <script>
 /* データは2系統。
    ・埋め込み版（Obsidian/GoodNotes向け）＝ EMBED に全部入っている。従来どおり。
@@ -402,6 +449,13 @@ const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c
 /* ---- マークダウンを HTML に組む（**強調**・箇条書き・見出し・表・コード）---- */
 function inline(t){
   let h = esc(t);
+  /* Obsidian のリンク記法は、ここでは道順（TimeBase/20_Study/…）が長いだけで読みにくい。
+     [[パス|表示名]] は表示名、[[パス]] は末尾だけを残して、ただの言葉に戻す（2026-09-20）。 */
+  h = h.replace(/\[\[([^\]]+)\]\]/g, (m, inner) => {
+    const bar = inner.indexOf('|');
+    const w = (bar >= 0 ? inner.slice(bar + 1) : inner.split('/').pop().split('#').pop()).trim();
+    return w || inner.trim();
+  });
   const code = [];
   h = h.replace(/`([^`]+)`/g, (m,c)=>{ code.push(c); return '\uE000'+(code.length-1)+'\uE001'; });
   h = h.replace(/\*\*\*([^*]+)\*\*\*/g, '<strong><em>$1</em></strong>')
@@ -698,7 +752,8 @@ function aiRank(q){
 const STARS = n => { const k = n >= 90 ? 5 : n >= 78 ? 4 : n >= 62 ? 3 : n >= 45 ? 2 : 1;
   return '★★★★★'.slice(0, k) + '☆☆☆☆☆'.slice(0, 5 - k); };
 const BARCLS = n => n >= 70 ? '' : (n >= 45 ? 'mid' : 'lo');
-const aibtn = (a, cls) => '<button data-focus="' + esc(a) + '"' + (cls ? ' class="' + cls + '"' : '') + '>' + esc(a) + '</button>';
+const aibtn = (a, cls) => '<button data-open="' + esc(a) + '"' + (cls ? ' class="' + cls + '"' : '')
+  + ' title="' + esc(a + ' だけを全画面で読む') + '">' + esc(a) + '</button>';
 
 /* ---- 「まず読む」の一枚 ---- */
 function pickBox(q){
@@ -723,7 +778,8 @@ function pickBox(q){
     rows.push('<span class="row">ここだけが挙げた — ' + solo.slice(0,3).map(a => aibtn(a) + '（'
       + esc([...R.per[a].solo.articles, ...R.per[a].solo.cases].slice(0,2).join('・')) + '）').join('・') + '</span>');
   return '<div class="pick"><div class="pk-main"><span class="pk-lbl">まず読む</span>'
-    + '<button class="pk-ai" data-focus="' + esc(R.best) + '">' + esc(R.best) + '</button>'
+    + '<button class="pk-ai" data-open="' + esc(R.best) + '" title="' + esc(R.best + ' だけを全画面で読む') + '">'
+    + esc(R.best) + ' ⤢</button>'
     + '<span class="pk-star ' + BARCLS(b.score) + '">' + STARS(b.score) + '</span>'
     + '<span class="pk-num">おすすめ度 ' + b.score + ' / 100</span></div>'
     + '<p class="pk-why">' + esc(why) + '</p>'
@@ -771,8 +827,117 @@ function paintFocus(){
     tr.classList.toggle('hot', !!F && tr.dataset.airow === F));
 }
 
+/* ---- 全画面リーダー：1つのAIだけを一面に出して読む ----
+   列見出し・講評表・比較表のAI名を押すと開く。Esc か ✕ で元の位置に戻る。 */
+let READ = null, rSec = null, rScroll = 0;
+const ALLSEC = '＊全文';
+const readerEl = document.getElementById('reader');
+
+function rdSections(q, a){ return Object.keys(q.ai[a].sections || {})
+  .sort((x,y) => SECORD.indexOf(x[0]) - SECORD.indexOf(y[0])); }
+
+function drawReader(){
+  const q = CUR, a = READ;
+  if (!q || !a || !q.ai[a]) return;
+  const R = aiRank(q), p = R ? R.per[a] : null;
+  const A = ais(q), i = A.indexOf(a);
+  const secs = rdSections(q, a);
+  if (rSec !== ALLSEC && !q.ai[a].sections[rSec]) rSec = secs.length ? secs[0] : ALLSEC;
+  const pick = rSec === ALLSEC ? secs : [rSec];
+  const body = pick.map(k => (pick.length > 1 ? '<div class="rd-h">' + esc(k) + '</div>' : '')
+                            + '<div class="md">' + md(q.ai[a].sections[k]) + '</div>').join('');
+  const chips = (rSec === ALLSEC ? secs : [rSec])
+    .flatMap(k => kws(q.ai[a].sections[k] || '', q.ai[a]));
+  const seen = new Set(), chipHtml = chips.filter(k => !seen.has(k) && seen.add(k))
+    .map(k => '<button class="kw' + ((ARTS[k] || PAST[k]) ? ' mine' : '')
+      + ((gistFor(k) || localGist(k)) ? ' has' : '') + '" data-k="' + esc(k) + '">' + esc(k) + '</button>').join('');
+  const notes = (q.ai[a].notes || []).map((nt, j) =>
+    '<button class="kw note" data-note="' + esc(a) + '|' + j + '">📎 ' + esc(nt.t) + '</button>').join('');
+  const prev = A[(i - 1 + A.length) % A.length], next = A[(i + 1) % A.length];
+
+  readerEl.innerHTML =
+      '<div class="rd-top">'
+    +   '<button class="rd-x">✕ 戻る</button>'
+    +   '<div class="rd-who"><span class="rd-name">' + esc(a) + '</span>'
+    +     (p ? '<span class="pk-star ' + BARCLS(p.score) + '">' + STARS(p.score) + '</span>'
+             + '<span class="pk-num">おすすめ度 ' + p.score + '</span>' : '')
+    +   '</div>'
+    +   '<div class="rd-move">'
+    +     (A.length > 1 ? '<button data-go="' + esc(prev) + '">◀ ' + esc(prev) + '</button>'
+                        + '<button data-go="' + esc(next) + '">' + esc(next) + ' ▶</button>' : '')
+    +     '<button class="rd-gpt">⤴ ChatGPTへ</button>'
+    +   '</div>'
+    + '</div>'
+    + '<div class="rd-meta">' + esc(q.subject) + '　' + esc(q.day.slice(0,10)) + '　'
+    +   esc(q.id) + '　' + esc(q.title || '') + '<br>'
+    +   (p ? p.secs + '節 / ' + p.chars.toLocaleString() + '字　'
+           + (p.warn.length ? '<span class="warnw">⚑ ' + esc(p.warn.join('／')) + '</span>'
+                            : esc(p.good.join('／'))) : '')
+    + '</div>'
+    + '<div class="rd-tabs">'
+    +   secs.map(k => '<button data-rs="' + esc(k) + '" class="' + (k === rSec ? 'on' : '') + '">'
+          + esc(k) + '</button>').join('')
+    +   (secs.length > 1 ? '<button data-rs="' + ALLSEC + '" class="' + (rSec === ALLSEC ? 'on' : '')
+          + '">全文</button>' : '')
+    + '</div>'
+    + '<div class="rd-body">'
+    +   ((chipHtml || notes) ? '<div class="kws">' + chipHtml + notes + '</div>' : '')
+    +   (body || '<p class="legend">この節の記載がありません。</p>')
+    + '</div>';
+
+  readerEl.querySelector('.rd-x').onclick = closeReader;
+  readerEl.querySelector('.rd-gpt').onclick = () => {
+    const bx = document.getElementById('qbox'), extra = ((bx && bx.value) || '').trim();
+    const keep = secPick; secPick = (rSec === ALLSEC ? secs[0] : rSec);
+    const t = ctx(q, a); secPick = keep;
+    toGPT(t + (extra ? '\n【質問】' + extra : '\n【質問】この説明の妥当性を検討してください。'));
+  };
+  readerEl.querySelectorAll('[data-go]').forEach(b => b.onclick = () => { READ = b.dataset.go; drawReader(); readerEl.scrollTop = 0; });
+  readerEl.querySelectorAll('[data-rs]').forEach(b => b.onclick = () => { rSec = b.dataset.rs; drawReader(); readerEl.scrollTop = 0; });
+  readerEl.querySelectorAll('.kw[data-k]').forEach(b => b.onclick = () => showArt(b.dataset.k, b));
+  readerEl.querySelectorAll('.kw[data-note]').forEach(b => b.onclick = () => {
+    const [ai0, j] = b.dataset.note.split('|');
+    const nt = ((CUR.ai[ai0] || {}).notes || [])[+j];
+    if (nt) showNote('r:' + CUR.id + ':' + b.dataset.note, nt.t, nt.b, b);
+  });
+}
+
+function openReader(a){
+  const q = CUR;
+  if (!q || !q.ai || !q.ai[a]) return;
+  READ = a;
+  rSec = q.ai[a].sections[secPick] ? secPick : (rdSections(q, a)[0] || ALLSEC);
+  rScroll = window.scrollY;
+  drawReader();
+  readerEl.hidden = false;
+  readerEl.scrollTop = 0;
+  document.body.classList.add('reading');
+}
+
+function closeReader(){
+  if (!READ) return;
+  READ = null;
+  readerEl.hidden = true;
+  readerEl.innerHTML = '';
+  document.body.classList.remove('reading');
+  window.scrollTo(0, rScroll);
+}
+
+document.addEventListener('keydown', e => {
+  if (!READ) return;
+  if (e.key === 'Escape') { closeReader(); return; }
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowRight'){
+    const A = ais(CUR), i = A.indexOf(READ);
+    if (i < 0 || A.length < 2) return;
+    READ = A[(i + (e.key === 'ArrowRight' ? 1 : A.length - 1)) % A.length];
+    drawReader(); readerEl.scrollTop = 0; e.preventDefault();
+  }
+});
+
 function wireFocus(root){
-  (root || main).querySelectorAll('[data-focus]').forEach(b => b.onclick = () => setFocus(b.dataset.focus));
+  const r = root || main;
+  r.querySelectorAll('[data-focus]').forEach(b => b.onclick = () => setFocus(b.dataset.focus));
+  r.querySelectorAll('[data-open]').forEach(b => b.onclick = () => openReader(b.dataset.open));
 }
 
 function applyFocus(){
@@ -824,8 +989,8 @@ function verdicts(q){
               : (r ? r.note : '—');
     h += '<tr data-airow="' + esc(a) + '">'
       + '<th><span class="rk">' + (p ? p.place : '') + '</span>'
-      + '<button class="ainame" data-focus="' + esc(a) + '" title="' + esc(a + ' だけを大きく読む') + '">'
-      + esc(a) + ' ▸</button></th>'
+      + '<button class="ainame" data-open="' + esc(a) + '" title="' + esc(a + ' だけを全画面で読む') + '">'
+      + esc(a) + ' ⤢</button></th>'
       + '<td class="mid">' + (mark ? '<span class="mk ' + (MARKCLS[mark]||'') + '">' + mark + '</span> ' : '')
       + esc(r ? r.verdict : '—') + '</td>'
       + '<td class="mid recc">' + (sc === null ? '—'
@@ -840,7 +1005,7 @@ function verdicts(q){
       + '</td></tr>';
   });
   h += '</tbody></table></div>'
-     + '<p class="legend">AI名を押すと、そのAIの解説だけを大きく開きます。表はおすすめ度の高い順。</p>'
+     + '<p class="legend">AI名を押すと、そのAIの解説だけが全画面で開きます（Esc で戻る）。表はおすすめ度の高い順。</p>'
      + HOWTO;
   return h;
 }
@@ -864,7 +1029,7 @@ function matrix(q){
   const td = (a, inner, cls) =>
     `<td class="${cls||''}" data-ai="${esc(a)}">${inner}</td>`;
   let h = `<div class="scroll"><table><thead><tr><th></th>${cols.map(a=>
-      `<th data-ai="${esc(a)}"><button class="ainame" data-focus="${esc(a)}" title="${esc(a+' だけを大きく読む')}">${esc(a)} ▸</button></th>`
+      `<th data-ai="${esc(a)}"><button class="ainame" data-open="${esc(a)}" title="${esc(a+' だけを全画面で読む')}">${esc(a)} ⤢</button></th>`
     ).join('')}</tr></thead><tbody>`;
   const sp = split(q);
   h += `<tr class="${sp?'split':''}"><th>正解</th>${cols.map(a=>td(a, has(a)?esc(q.ai[a].answer||'—'):NA, 'ans mid')).join('')}</tr>`;
@@ -876,7 +1041,7 @@ function matrix(q){
   });
   h += `<tr><th>挙げた条文</th>${cols.map(a=>td(a, cell(a,'articles'))).join('')}</tr>`;
   h += `<tr><th>挙げた判例</th>${cols.map(a=>td(a, cell(a,'cases'))).join('')}</tr>`;
-  h += '</tbody></table></div><p class="legend">太字＝全AIが挙げた／<span style="color:var(--differ)">朱色 ⚑</span>＝1つのAIだけが挙げた・判断が割れた箇所／「対象なし」＝その問題の解説が無い／AI名を押すとそのAIだけを大きく開く</p>';
+  h += '</tbody></table></div><p class="legend">太字＝全AIが挙げた／<span style="color:var(--differ)">朱色 ⚑</span>＝1つのAIだけが挙げた・判断が割れた箇所／「対象なし」＝その問題の解説が無い／AI名を押すとそのAIだけが全画面で開く</p>';
   return h;
 }
 
@@ -1213,9 +1378,12 @@ function renderCols(){
         + '" title="補足を開く">📎 ' + esc(nt.t) + '</button>').join('');
       const warn = q.ai[a].needfile
         ? '<div class="miss">⚠ このAIは「問題文などをアップロードしてください」と答えています（添付が届いていない可能性）。中身は一般論のことがあります。</div>' : '';
-      return '<div class="col"><h4>' + a
+      return '<div class="col"><h4>'
+           + '<button class="ainame" data-open="' + esc(a) + '" title="' + esc(a + ' だけを全画面で読む') + '">' + esc(a) + '</button>'
            + (F ? '<button class="unfocus" data-focus="">✕ ' + ALL.length + 'AIを並べる</button>' : '')
-           + '<button class="send" data-ai="' + esc(a) + '" title="この解説をChatGPTへ">⤴</button></h4>'
+           + '<button class="send" data-ai="' + esc(a) + '" title="'
+           + esc('いま開いている「' + secPick + '」の ' + a + ' の解説と、下の「ここで疑問に思ったこと」をまとめて ChatGPT に送ります')
+           + '">⤴ ChatGPTへ</button></h4>'
            + ((chips || notes) ? '<div class="kws">' + chips + notes + '</div>' : '') + warn
            + '<div class="md">' + md(q.ai[a].sections[secPick]) + '</div></div>';
     }).join('')
@@ -1224,7 +1392,8 @@ function renderCols(){
     + ais(q).filter(a => (!F || a === F) && !q.ai[a].sections[secPick] && Object.keys(q.ai[a].sections).length)
       .map(a => {
         const all = Object.entries(q.ai[a].sections).map(([k, v]) => '### ' + k + '\n' + v).join('\n\n');
-        return '<div class="col nosec"><h4>' + a + '</h4>'
+        return '<div class="col nosec"><h4><button class="ainame" data-open="' + esc(a) + '" title="'
+             + esc(a + ' だけを全画面で読む') + '">' + esc(a) + '</button></h4>'
              + '<details><summary>「' + esc(secPick) + '」の見出しなし — 全文を開く</summary>'
              + '<div class="md">' + md(all) + '</div></details></div>';
       }).join('');
@@ -1299,6 +1468,8 @@ async function show(uid){
     if (!q) return;
   }
   CUR = q;
+  if (READ) { READ = null; readerEl.hidden = true; readerEl.innerHTML = '';
+              document.body.classList.remove('reading'); }
   document.body.classList.remove('navopen');          /* 狭い画面では選んだら畳む */
   navToggle.setAttribute('aria-expanded', 'false');
   try { history.replaceState(null, '', '#' + encodeURIComponent(q.day) + '/' + encodeURIComponent(q.id)); } catch(e){}

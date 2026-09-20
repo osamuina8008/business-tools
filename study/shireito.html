@@ -10,14 +10,14 @@
 :root{
   --bg:#f5f2ea; --bg2:#faf8f4; --card:#ffffff; --ink:#16203c; --ink2:#4a5468;
   --ink3:#8b93a5; --line:#e4dfd4; --navy:#16203c;
-  --must:#b4541f; --review:#2f6b4f; --weak:#6b4fa0;
+  --must:#b4541f; --review:#2f6b4f; --weak:#6b4fa0; --mine:#1f6f8b;
   --warn:#9a3412; --warnbg:#fdf0e6;
 }
 @media (prefers-color-scheme:dark){
   :root{
     --bg:#12151d; --bg2:#171b25; --card:#1c212d; --ink:#eef1f6; --ink2:#b3bccd;
     --ink3:#7b87a0; --line:#2b3242; --navy:#e8ecf4;
-    --must:#e8935f; --review:#6fbf95; --weak:#b195e0;
+    --must:#e8935f; --review:#6fbf95; --weak:#b195e0; --mine:#6fc0d8;
     --warn:#f0a882; --warnbg:#2a1c14;
   }
 }
@@ -70,9 +70,10 @@ section{padding:26px 0 4px}
 .card.k-gap{border-top-color:var(--must)}
 .card.k-srs{border-top-color:var(--review)}
 .card.k-weak{border-top-color:var(--weak)}
+.card.k-mine{border-top-color:var(--mine)}
 .card.done{opacity:.5}
 .crow{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.08em}
-.k-gap .ctag{color:var(--must)} .k-srs .ctag{color:var(--review)} .k-weak .ctag{color:var(--weak)}
+.k-gap .ctag{color:var(--must)} .k-srs .ctag{color:var(--review)} .k-weak .ctag{color:var(--weak)} .k-mine .ctag{color:var(--mine)}
 .cmin{color:var(--ink3);font-weight:600;letter-spacing:0}
 .tag{align-self:flex-start;font-size:11px;background:var(--bg);border:1px solid var(--line);
   border-radius:999px;padding:3px 10px;color:var(--ink2)}
@@ -107,6 +108,20 @@ section{padding:26px 0 4px}
 .links a span{display:block;font-size:11px;color:var(--ink3)}
 .links a b{font-size:13.5px}
 .note{font-size:12px;color:var(--ink3);margin:12px 0 0}
+/* 日次運用の流れ */
+.flow{display:grid;gap:8px;grid-template-columns:1fr;margin-top:12px}
+@media(min-width:720px){.flow{grid-template-columns:repeat(3,1fr)}}
+.flow div{background:var(--card);border:1px solid var(--line);border-radius:10px;
+  padding:10px 14px;font-size:12px;color:var(--ink3)}
+.flow div b{display:block;font-size:14px;color:var(--ink)}
+.flow div span{float:right;font-size:11px;color:var(--ink3);font-weight:700}
+/* 入力フォーム */
+.fld{display:block;margin:0 0 10px}
+.fld span{display:block;font-size:12px;color:var(--ink3);margin-bottom:4px;font-weight:600}
+.fld input{width:100%;font:inherit;font-size:15px;padding:9px 11px;border-radius:9px;
+  border:1px solid var(--line);background:var(--bg2);color:var(--ink)}
+.frow{display:grid;grid-template-columns:2fr 1fr;gap:10px}
+.qlist li .del{background:none;border:0;color:var(--ink3);font:inherit;font-size:12px;cursor:pointer;padding:0 2px}
 .warn{background:var(--warnbg);border:1px solid var(--warn);color:var(--warn);
   border-radius:12px;padding:12px 14px;font-size:13px;margin:14px 0 0}
 .warn b{display:block;margin-bottom:3px}
@@ -186,8 +201,50 @@ footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);
     <a href="https://docs.google.com/document/d/1PtYzFYlEplqpf_yUs5GEsrCjwi018EZlfcyFtCVDGWI/edit"><span>必要時だけ</span><b>法改正ウォッチ</b></a>
     <a href="https://drive.google.com/drive/folders/1jREbA6l0SXSaMRjXm61xA2medCFttmXW"><span>正本フォルダ</span><b>00_INBOX</b></a>
     <a href="https://drive.google.com/drive/folders/17PgJRSlg9bODhCDsIz0BkXvTRA691ci6"><span>GoodNotes投入</span><b>使うPDFだけ</b></a>
+    <a href="https://mail.google.com/mail/u/0/#search/subject%3A(%E4%BB%8A%E6%97%A5%E3%81%AE%E4%BD%9C%E6%88%A6)"><span>朝に見る面</span><b>[予備] 今日の作戦</b></a>
     <a href="review.html"><span>同じデータで動く</span><b>復習フィード</b></a>
     <a href="ai/"><span>5社横断</span><b>AI横断ノート</b></a>
+  </div>
+  <div class="flow">
+    <div><span>1</span><b>Drive</b>正本を更新</div>
+    <div><span>2</span><b>Gmail</b>件名固定の1通</div>
+    <div><span>3</span><b>今日の一手</b>ここで実行・記録</div>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><div><div class="eyebrow">MY CONTROLS</div><h3>学習管理</h3></div></div>
+  <div class="grid2">
+    <div class="box">
+      <div class="eyebrow">DAILY RHYTHM</div>
+      <h3>学習の上限</h3>
+      <label class="fld"><span>1日の上限（分）</span>
+        <input type="number" id="capMin" min="5" max="180" step="5"></label>
+      <p class="note" style="margin:8px 0 12px">体調が「良い」日でも、ここを超える計画は立てません。<br>無理をした翌日に戻れなくなるのを防ぐためのブレーキです。</p>
+      <div class="acts">
+        <button type="button" id="saveCap">上限を保存</button>
+        <button type="button" class="sub" id="bkOut">書き出し</button>
+        <button type="button" class="sub" id="bkIn">読み込み</button>
+      </div>
+      <input type="file" id="bkFile" accept="application/json" hidden>
+      <p class="note" id="capNote"></p>
+    </div>
+    <div class="box">
+      <div class="eyebrow">ADD ONE THING</div>
+      <h3>課題を一つ追加</h3>
+      <form id="addForm">
+        <div class="frow">
+          <label class="fld"><span>科目</span><input type="text" id="mSub" placeholder="例：刑法"></label>
+          <label class="fld"><span>分</span><input type="number" id="mMin" value="15" min="5" max="90" step="5"></label>
+        </div>
+        <label class="fld"><span>やること</span>
+          <input type="text" id="mAct" placeholder="例：共同正犯を一行で説明する" required></label>
+        <label class="fld"><span>着手日</span><input type="date" id="mDay"></label>
+        <div class="acts"><button type="submit">この課題を足す</button></div>
+      </form>
+      <ul class="qlist" id="mineList" style="margin-top:12px"></ul>
+      <p class="note">自分で足した課題は、この端末のブラウザに残ります。<br>機種を変えるときは「書き出し」でJSONを持ち出してください。</p>
+    </div>
   </div>
 </section>
 
@@ -206,7 +263,7 @@ footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);
              ② ai/data/manifest.json … 実際に解いた日と問題番号（間隔反復の種）
    固定の例文は一切持たない。読めなかったら「読めなかった」と出す。
    ══════════════════════════════════════════════════════════ */
-const VER = "20260921-1";
+const VER = "20260921-2";
 const CTX_URL = () => `https://raw.githubusercontent.com/osamuina8008/business-tools/main/study/context.json?t=${Date.now()}`;
 const MAN_URL = () => `ai/data/manifest.json?t=${Date.now()}`;
 
@@ -247,11 +304,19 @@ let doneLog = (()=>{ try{ return JSON.parse(localStorage.getItem(LOG_KEY)||"[]")
 const saveLog = () => { try{ localStorage.setItem(LOG_KEY, JSON.stringify(doneLog.slice(-400))); }catch(e){} };
 const lastDone = key => { const h=doneLog.filter(x=>x.key===key); return h.length ? h[h.length-1].d : null; };
 /* 種類ごとの休止日数：やったばかりのものは出さない */
-const COOLDOWN = {gap:1, srs:14, weak:3};
+const COOLDOWN = {gap:1, srs:14, weak:3, mine:9999};   /* 自分で足した分は一度やれば終わり */
 function isResting(key,kind){
   const d = lastDone(key); if(!d) return false;
   return daysBetween(d, TODAY) < (COOLDOWN[kind]||1);
 }
+
+/* ── 自分で足した課題（この端末のブラウザに残る）── */
+const MINE_KEY = "st_manual_v1";
+let mine = (()=>{ try{ return JSON.parse(localStorage.getItem(MINE_KEY)||"[]"); }catch(e){ return []; } })();
+const saveMine = () => { try{ localStorage.setItem(MINE_KEY, JSON.stringify(mine)); }catch(e){} };
+
+/* ── 1日の上限（体調が良くてもここで止める）── */
+let capMin = Number(localStorage.getItem("st_cap")||60);
 
 /* ── 体調（=今日の持ち時間）── */
 let budget = Number(localStorage.getItem("st_budget")||35);
@@ -283,6 +348,20 @@ function splitAction(a){
 
 function buildPool(){
   const pool = [];
+
+  /* ⓪ 自分で足した課題 ─ 着手日が来たものを最優先で出す */
+  mine.forEach(m=>{
+    if(m.day && m.day > TODAY) return;
+    const late = m.day ? daysBetween(m.day, TODAY) : 0;
+    pool.push({
+      kind:"mine", key:`mine:${m.id}`, subject:(m.subject||"").trim(),
+      minutes: Number(m.minutes)||15,
+      title: m.act,
+      how: "自分で決めた課題です。終わったら記録して、ここから消します。",
+      why: `<b>自分で追加</b>${m.day ? "・"+esc(m.day)+"に着手と決めた" : ""}${late>0 ? `（${late}日超過）` : ""}`,
+      score: 1000 + late
+    });
+  });
 
   /* ① 放置している科目 ─ context.json の today_tasks */
   (CTX?.today_tasks||[]).forEach(t=>{
@@ -357,25 +436,26 @@ function buildPool(){
 
 /* 持ち時間に収まるだけ選ぶ。同じ種類・同じ科目で埋め尽くさない */
 function selectCards(pool){
-  const out=[], perKind={gap:0,srs:0,weak:0}, perSub={};
-  const MAXK={gap:2,srs:2,weak:2};
+  const out=[], perKind={gap:0,srs:0,weak:0,mine:0}, perSub={};
+  const MAXK={gap:2,srs:2,weak:2,mine:3};
+  const limit = Math.min(budget, capMin);   /* 体調と1日の上限、厳しい方を採る */
   let used=0;
   for(const c of pool){
     /* 今日記録した分は「記録済み」として今日は残す（消えると押した手応えが無いため）*/
     if(isResting(c.key,c.kind) && lastDone(c.key)!==TODAY) continue;
     if(perKind[c.kind] >= MAXK[c.kind]) continue;
     if((perSub[c.subject]||0) >= 2) continue;
-    if(out.length && used + c.minutes > budget) continue;
+    if(out.length && used + c.minutes > limit) continue;
     out.push(c); used += c.minutes;
     perKind[c.kind]++; perSub[c.subject]=(perSub[c.subject]||0)+1;
-    if(used >= budget) break;
+    if(used >= limit) break;
   }
   return out;
 }
 
 /* ══════ 描画 ══════ */
 function cardHTML(c){
-  const label = {gap:"今日の必須", srs:"期限の復習", weak:"繰り返しの弱点"}[c.kind];
+  const label = {gap:"今日の必須", srs:"期限の復習", weak:"繰り返しの弱点", mine:"自分で足した"}[c.kind];
   const done = lastDone(c.key)===TODAY;
   return `<article class="card k-${c.kind}${done?" done":""}" data-key="${esc(c.key)}">
     <div class="crow"><span class="ctag">${label}</span><span class="cmin">${c.minutes}分</span></div>
@@ -420,9 +500,80 @@ function render(){
     el.querySelector('[data-act="done"]').addEventListener("click", ()=>{
       if(lastDone(c.key)===TODAY) return;
       doneLog.push({d:TODAY, key:c.key, kind:c.kind, subject:c.subject, title:c.title});
-      saveLog(); render();
+      saveLog(); render(); renderMine();
     });
     el.querySelector('[data-act="obs"]').addEventListener("click", ()=>obsWrite(c));
+  });
+}
+
+/* ══════ 学習管理（上限・自分で足す課題・持ち出し）══════ */
+function renderMine(){
+  const pending = mine.filter(m=>lastDone(`mine:${m.id}`)===null);
+  $("#mineList").innerHTML = pending.length
+    ? pending.map(m=>`<li data-id="${esc(m.id)}">
+        <span>${esc(m.subject||"—")}　${esc(m.act)}</span>
+        <span class="s">${esc(m.day||"")}・${Number(m.minutes)||15}分
+          <button type="button" class="del" title="消す">✕</button></span></li>`).join("")
+    : `<li><span style="color:var(--ink3)">まだありません。</span></li>`;
+  $("#mineList").querySelectorAll(".del").forEach(b=>{
+    b.addEventListener("click", ()=>{
+      const id = b.closest("li").dataset.id;
+      mine = mine.filter(m=>m.id!==id); saveMine();
+      POOL = buildPool(); renderMine(); render();
+    });
+  });
+}
+
+function setupControls(){
+  /* 1日の上限 */
+  $("#capMin").value = capMin;
+  $("#saveCap").addEventListener("click", ()=>{
+    const v = Math.max(5, Math.min(180, Number($("#capMin").value)||60));
+    capMin = v; $("#capMin").value = v;
+    try{ localStorage.setItem("st_cap", v); }catch(e){}
+    $("#capNote").textContent = `上限を${v}分にしました。`;
+    render();
+  });
+
+  /* 課題を一つ追加 */
+  $("#mDay").value = TODAY;
+  $("#addForm").addEventListener("submit", e=>{
+    e.preventDefault();
+    const act = $("#mAct").value.trim(); if(!act) return;
+    mine.push({
+      id: String(Date.now()).slice(-8),
+      subject: $("#mSub").value.trim(),
+      minutes: Number($("#mMin").value)||15,
+      act, day: $("#mDay").value || TODAY
+    });
+    saveMine();
+    $("#mAct").value=""; $("#mSub").value="";
+    POOL = buildPool(); renderMine(); render();
+  });
+
+  /* 持ち出し（機種変え・別端末へ）*/
+  $("#bkOut").addEventListener("click", ()=>{
+    const data = {v:VER, out:new Date().toISOString(), log:doneLog, mine, cap:capMin, budget};
+    const url = URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:"application/json"}));
+    const a = document.createElement("a");
+    a.href = url; a.download = `shireito_backup_${TODAY}.json`; a.click();
+    setTimeout(()=>URL.revokeObjectURL(url), 2000);
+    $("#capNote").textContent = "JSONを書き出しました。";
+  });
+  $("#bkIn").addEventListener("click", ()=>$("#bkFile").click());
+  $("#bkFile").addEventListener("change", async e=>{
+    const f = e.target.files[0]; if(!f) return;
+    try{
+      const d = JSON.parse(await f.text());
+      if(Array.isArray(d.log)) { doneLog = d.log; saveLog(); }
+      if(Array.isArray(d.mine)){ mine = d.mine; saveMine(); }
+      if(d.cap){ capMin = Number(d.cap); $("#capMin").value = capMin; try{ localStorage.setItem("st_cap", capMin); }catch(x){} }
+      $("#capNote").textContent = `読み込みました（記録${doneLog.length}件・自分の課題${mine.length}件）。`;
+      POOL = buildPool(); renderMine(); render();
+    }catch(err){
+      $("#capNote").textContent = `読み込めませんでした：${err.message}`;
+    }
+    e.target.value = "";
   });
 }
 
@@ -452,6 +603,8 @@ async function boot(){
   }
 
   POOL = buildPool();
+  setupControls();
+  renderMine();
   const src = [];
   if(CTX?.date) src.push(`進捗 ${CTX.date}`);
   if(MAN?.days) src.push(`解いた記録 ${MAN.days.length}日分`);

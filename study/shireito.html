@@ -92,8 +92,8 @@ section{padding:26px 0 4px}
 .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
 .box h3{margin:6px 0 12px;font-size:18px;font-weight:800}
 .qlist{list-style:none;margin:0;padding:0}
-.qlist li{display:flex;justify-content:space-between;gap:10px;align-items:baseline;
-  padding:9px 0;border-top:1px solid var(--line);font-size:13.5px}
+.qlist li{padding:10px 0;border-top:1px solid var(--line);font-size:13.5px;
+  display:flex;justify-content:space-between;gap:10px;align-items:baseline}
 .qlist li:first-child{border-top:0}
 .qlist .s{font-size:11px;color:var(--ink3);white-space:nowrap}
 .road{list-style:none;margin:0;padding:0}
@@ -121,6 +121,13 @@ section{padding:26px 0 4px}
 .fld input{width:100%;font:inherit;font-size:15px;padding:9px 11px;border-radius:9px;
   border:1px solid var(--line);background:var(--bg2);color:var(--ink)}
 .frow{display:grid;grid-template-columns:2fr 1fr;gap:10px}
+.qlist .qgo{text-decoration:none;color:inherit;display:block}
+.qlist .qgo b{display:block;font-weight:700;font-size:14px;line-height:1.5}
+.qlist .qgo small{color:var(--ink3);font-size:11.5px;display:block;line-height:1.6}
+.qlist a.qgo:hover b{text-decoration:underline}
+.acts a.sub{display:grid;place-items:center;text-decoration:none;background:transparent;
+  color:var(--ink2);border:1px solid var(--line);border-radius:10px;font-size:13px;
+  font-weight:600;padding:0 14px;flex:0 0 auto}
 .qlist li .del{background:none;border:0;color:var(--ink3);font:inherit;font-size:12px;cursor:pointer;padding:0 2px}
 .warn{background:var(--warnbg);border:1px solid var(--warn);color:var(--warn);
   border-radius:12px;padding:12px 14px;font-size:13px;margin:14px 0 0}
@@ -263,7 +270,7 @@ footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);
              ② ai/data/manifest.json … 実際に解いた日と問題番号（間隔反復の種）
    固定の例文は一切持たない。読めなかったら「読めなかった」と出す。
    ══════════════════════════════════════════════════════════ */
-const VER = "20260921-3";
+const VER = "20260921-5";
 const CTX_URL = () => `https://raw.githubusercontent.com/osamuina8008/business-tools/main/study/context.json?t=${Date.now()}`;
 const MAN_URL = () => `ai/data/manifest.json?t=${Date.now()}`;
 
@@ -332,6 +339,26 @@ document.querySelectorAll("#cond button").forEach(b=>{
 
 /* ══════ カードを作る ══════ */
 let CTX=null, MAN=null, POOL=[], QUEUE=[];
+
+/* ── 問題タイトルから論点名だけを取り出す ──
+   manifest には「Q258　支配人【重要度A】」「Q226ウの場合」のような行も混ざる。
+   番号や重要度を落として、意味のある論点名だけを残す。 */
+function topicOf(q){
+  let t = String(q.title||"")
+    .replace(/^Q?\s*\d+[\s\u3000.:：]*/,"")   /* 先頭のQ番号 */
+    .replace(/【[^】]*】/g,"")                  /* 【重要度A】 */
+    .replace(/（[^）]*）/g,"")                  /* （平成19年 体系No.93）*/
+    .replace(/［[^］]*］/g,"")                  /* ［正解：5］ */
+    .trim();
+  if(!t) return "";
+  if(/^Q?\d+$/.test(t)) return "";                  /* 番号だけ */
+  if(/^[ではにをがともの、。]/.test(t)) return "";        /* 「で優先して覚える3点」「の解き方」*/
+  if(/^[ぁ-んァ-ヶ][のはがをでにと]/.test(t)) return "";  /* 「ウの場合」 */
+  if(t.length > 30) return "";
+  return t;
+}
+/* AI横断ノートは #2026-08-14民訴法/Q263 の形で直接開ける */
+const aiLink = (day,id) => `ai/#${encodeURIComponent(day)}/${encodeURIComponent(id)}`;
 
 /* 「今週5/10問。あと5問（6日ぶり）」から数字を取り出す */
 function parseSituation(s){
@@ -406,15 +433,18 @@ function buildPool(){
       return;
     }
     if(!qs.length) return;
-    const pick = qs.slice(0,3);
+    /* 論点名のある問題を先に拾う。番号だけでは何の問題か分からないため */
+    const named = qs.filter(q=>topicOf(q));
+    const pick = (named.length ? named : qs).slice(0,3);
     const ids = pick.map(q=>q.id).join("・");
-    const titles = [...new Set(pick.map(q=>(q.title||"").replace(/（[^）]*）/g,"").trim()).filter(t=>t && t.length<=28))];
+    const topics = [...new Set(pick.map(topicOf).filter(Boolean))].slice(0,2);
     pool.push({
       kind:"srs", key, subject:sub, minutes:10,
-      title:`${sub} ${ids} をもう一度`,
-      how: titles.length ? `${titles.join("／")}。答えを隠して、肢の切り方だけ先に言います。`
-                         : `${date}に解いた問題。答えを隠して、肢の切り方だけ先に言います。`,
+      title: topics.length ? topics.join("／") : `${sub} ${ids} をもう一度`,
+      how: `${ids}（${date}に解いた回）。答えを隠して、肢の切り方だけ先に言います。`,
       why:`<b>${elapsed}日経過</b>・${date}に解いた回`,
+      link: aiLink(d.day, pick[0].id),
+      ids, day:d.day,
       score: elapsed*0.5
     });
   });
@@ -465,6 +495,7 @@ function cardHTML(c){
     <p class="why">なぜ今日：${c.why}</p>
     <div class="acts">
       <button type="button" data-act="done">${done?"記録済み":"この課題を記録する"}</button>
+      ${c.link?`<a class="sub" href="${esc(c.link)}" title="問題を開く">開く</a>`:""}
       <button type="button" class="sub" data-act="obs">📝</button>
     </div>
   </article>`;
@@ -490,7 +521,14 @@ function render(){
   const rest = POOL.filter(c=>c.kind!=="gap" && !picked.includes(c) && !isResting(c.key,c.kind)).slice(0,6);
   QUEUE = rest;
   $("#queue").innerHTML = rest.length
-    ? rest.map(c=>`<li><span>${esc(c.subject)}　${esc(c.title)}</span><span class="s">${c.why.replace(/<[^>]+>/g,"")}</span></li>`).join("")
+    ? rest.map(c=>{
+        /* 論点名を主、科目・番号・経過日数は1行にまとめる（横に並べると狭い画面で潰れる）*/
+        const meta = [c.subject, c.ids, c.why.replace(/<[^>]+>/g,"")].filter(Boolean).join("・");
+        const head = `<b>${esc(c.title)}</b><small>${esc(meta)}</small>`;
+        return `<li>${c.link
+          ? `<a class="qgo" href="${esc(c.link)}">${head}</a>`
+          : `<span class="qgo">${head}</span>`}</li>`;
+      }).join("")
     : `<li><span style="color:var(--ink3)">待ちはありません。</span></li>`;
   $("#qCount").textContent = rest.length ? `${rest.length}件` : "";
   $("#queueNote").textContent = rest.length ? "体調が良い日はここから前倒しできます。" : "";

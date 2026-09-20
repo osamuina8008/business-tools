@@ -263,7 +263,7 @@ footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);
              ② ai/data/manifest.json … 実際に解いた日と問題番号（間隔反復の種）
    固定の例文は一切持たない。読めなかったら「読めなかった」と出す。
    ══════════════════════════════════════════════════════════ */
-const VER = "20260921-2";
+const VER = "20260921-3";
 const CTX_URL = () => `https://raw.githubusercontent.com/osamuina8008/business-tools/main/study/context.json?t=${Date.now()}`;
 const MAN_URL = () => `ai/data/manifest.json?t=${Date.now()}`;
 
@@ -612,6 +612,20 @@ async function boot(){
   render();
 }
 boot();
+
+/* ── 新しい版が出ていたら勝手に入れ替わる ──
+   iPad/iPhoneのSafariはHTMLを掴んだまま離さないことがあるため、
+   shireito_version.json を見て食い違ったら ?v= を付けて読み直す。 */
+(async ()=>{
+  try{
+    const r = await fetch(`shireito_version.json?t=${Date.now()}`, {cache:"no-store"});
+    if(!r.ok) return;
+    const {version} = await r.json();
+    if(version && version !== VER && !location.search.includes("v="+version)){
+      location.replace(location.pathname + "?v=" + version);
+    }
+  }catch(e){ /* 取れなければ今の版のままで良い */ }
+})();
 </script>
 </body>
 </html>

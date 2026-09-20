@@ -52,6 +52,8 @@ aside{background:var(--surface);border-right:1px solid var(--line);
   padding:7px 13px;font:inherit;font-size:13px;font-weight:700;color:var(--ink);cursor:pointer}
 .qsrc button:hover{border-color:var(--ai);color:var(--ai)}
 .qsrc a{font-size:12px;color:var(--ai);text-decoration:none}
+.qsrc.audio a{font-size:13px;font-weight:700;border:1px solid var(--line);border-radius:6px;padding:6px 12px}
+.qsrc.audio a:hover{border-color:var(--ai);text-decoration:none}
 .qsrc a:hover{text-decoration:underline}
 #qpdfbox iframe{width:100%;height:520px;margin-top:10px;border:1px solid var(--line);
   border-radius:6px;background:var(--surface)}
@@ -1134,6 +1136,7 @@ const JOBUN = {};   /* e-Gov の現行条文（2026-09-16） */
 const GIST = {};   // 語 → 覚えることを一言で（自分のノート／AI解説の「結論：」から）
 const PAST = {};   // 旧構成の日に自分が書いた疑問・メモ（つまずき索引）
 const DAYX = {};   // 日付科目 → その日ぜんぶに関わる補足（Q番号の無い補足）
+const AUDIO = {};  // 日付科目 → {url, minutes}（5社横断の音声解説。中身は非公開の棚にある）
 const FREQ = {};   // 語 → 自分が解いた問題のうち何問に出たか（＝重要度の実体）
 let NQ = 0;        // 収録している問題の総数
 
@@ -1485,6 +1488,9 @@ async function show(uid){
       <div class="eyebrow">${esc(q.subject)}　${esc(q.day.slice(0,10))}　収録 ${A.length} AI</div>
       <h2>${esc(q.id)}</h2>
       <p>${esc(q.title || '')}</p>
+      ${AUDIO[q.day] ? `<div class="qsrc audio">
+        <a href="${esc(AUDIO[q.day].url)}" target="_blank" rel="noopener">🎧 この日の5社横断を聞く（約${esc(String(AUDIO[q.day].minutes||''))}分）</a>
+      </div>` : ''}
       ${q.pdf ? `<div class="qsrc">
         <button id="qpdf">📄 ${q.pdfk === 'day' ? 'この日の問題を見る' : '問題を見る'}</button>
         <a href="${esc(q.pdf)}" target="_blank" rel="noopener">別ウィンドウで開く ↗</a>
@@ -1615,6 +1621,10 @@ async function boot(){
     ingest(EMBED, true);
   } else {
     try {
+      fetch(WEB + 'audio.json', {cache:'no-cache'})
+        .then(r => r.ok ? r.json() : {})
+        .then(m => { Object.assign(AUDIO, m); if (CUR) show(CUR.day + CUR.id); })
+        .catch(()=>{});
       const r = await fetch(WEB + 'manifest.json', {cache:'no-cache'});
       if (!r.ok) throw new Error('HTTP ' + r.status);
       ingest(await r.json(), false);

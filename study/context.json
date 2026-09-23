@@ -1,11 +1,39 @@
 {
-  "subject": "刑法",
-  "date": "2026-09-23",
+  "subject": "行政法",
+  "date": "2026-09-24",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
   "today_logs": [],
-  "spacing_items": [],
+  "spacing_items": [
+    {
+      "interval_label": "",
+      "date": "2026-09-21",
+      "subject": "商法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-09-17",
+      "subject": "行政法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-09-03",
+      "subject": "行政法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    }
+  ],
   "today_schedule": [
     {
       "time": "03:45",
@@ -197,14 +225,14 @@
     }
   ],
   "has_data": false,
-  "updated_at": "2026-09-23T07:00:25.594875",
+  "updated_at": "2026-09-24T07:00:07.253810",
   "today_tasks": [
     {
       "subject": "憲法",
       "status": "遅れ",
       "action": "短答3問｜論点：違憲審査基準（LRA・比較衡量）・表現の自由・平等原則",
       "theme": "短答2周目開始・論文構成（骨組みのみ）",
-      "situation": "今週0/10問。あと10問（9日ぶり）",
+      "situation": "今週0/10問。あと10問（10日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -214,7 +242,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：物権変動（対抗要件・善意取得）・抵当権の効力範囲",
       "theme": "短答2周目・頻出論点の論文骨組み",
-      "situation": "今週0/10問。あと10問（8日ぶり）",
+      "situation": "今週0/10問。あと10問（9日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -224,17 +252,17 @@
       "status": "遅れ",
       "action": "短答3問｜論点：構成要件該当性・違法性阻却（正当防衛の要件）・共犯の成立",
       "theme": "短答2周目・論文構成入門",
-      "situation": "今週0/10問。あと10問（14日ぶり）",
+      "situation": "今週0/10問。あと10問（15日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     },
     {
       "subject": "行政法",
-      "status": "今週",
-      "action": "短答3問｜論点：処分性・原告適格・理由の提示（行手法14条）",
+      "status": "遅れ",
+      "action": "短答3問｜論点：取消訴訟の訴訟要件（処分性・原告適格・出訴期間）",
       "theme": "短答2周目・条文ベース定着",
-      "situation": "今週0/10問。あと10問（6日ぶり）",
+      "situation": "今週0/10問。あと10問（7日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -244,7 +272,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：訴訟要件（当事者適格・訴えの利益）・既判力の範囲",
       "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（19日ぶり）",
+      "situation": "今週0/10問。あと10問（20日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -254,7 +282,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：捜査の端緒・逮捕の種類と要件・接見交通権",
       "theme": "短答2周目",
-      "situation": "今週0/10問。あと10問（11日ぶり）",
+      "situation": "今週0/10問。あと10問（12日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -264,16 +292,25 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "民事・刑事実務の短答練習",
-      "situation": "今週0/10問。あと10問（92日ぶり）",
+      "situation": "今週0/10問。あと10問（93日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
     }
   ],
-  "quiz_question": "",
-  "quiz_answer_hint": "",
-  "articles": [],
-  "freq_rating": "",
+  "quiz_question": "医薬品ネット販売事件で最高裁が省令を無効とした根拠は何か？",
+  "quiz_answer_hint": "委任逸脱（法律違反）。根拠：最判平25.1.11。憲法22条違反ではない",
+  "articles": [
+    {
+      "gist": "公法上の法律関係の確認訴訟",
+      "ref": "行訴法4条後段"
+    },
+    {
+      "gist": "命令等は根拠法令の趣旨に適合すること",
+      "ref": "行手法38条1項"
+    }
+  ],
+  "freq_rating": "★★★",
   "weak_points_text": "",
   "next_focus": "",
   "persistent_weak": [

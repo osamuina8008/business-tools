@@ -434,6 +434,32 @@ body.reading{overflow:hidden}
   .sm td:first-child{white-space:normal}
 }
 
+
+/* ---- 問題の引き出し ---- */
+#qdrawer{display:none;position:fixed;z-index:30;background:var(--surface);border-left:1px solid var(--line);
+  right:0;top:0;bottom:0;width:46vw;flex-direction:column;box-shadow:-4px 0 18px rgba(0,0,0,.08)}
+body.drawer #qdrawer{display:flex}
+body.drawer .wrap{margin-right:46vw}
+.qd-bar{display:flex;align-items:center;gap:12px;padding:8px 12px;border-bottom:1px solid var(--line);font-size:13px}
+.qd-bar b{flex:1;font-family:var(--disp);font-size:15px}
+.qd-bar a{color:var(--ai);text-decoration:none}
+.qd-bar button{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--sunk);color:var(--ink);
+  border-radius:5px;padding:6px 12px;min-height:36px;cursor:pointer}
+#qd-f{flex:1;width:100%;border:0;background:#fff}
+.pkform{margin-top:10px;background:var(--sunk);border-radius:6px;padding:12px 14px;max-width:520px}
+.pkform label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px}
+.pkform div{display:flex;gap:8px}
+.pkform input{flex:1;font:inherit;font-size:16px;padding:8px 10px;border:1px solid var(--line);border-radius:5px;background:var(--surface);color:var(--ink)}
+.pkform button{font:inherit;font-size:14px;padding:8px 16px;border:0;border-radius:5px;background:var(--ai);color:#fff;cursor:pointer}
+/* 並べている間は左の一覧を畳んで、解説側の幅を確保する */
+body.drawer .wrap{grid-template-columns:minmax(0,1fr)} body.drawer aside{display:none}
+@media(max-width:820px), (orientation:portrait) and (max-width:1100px){
+  #qdrawer{left:0;right:0;top:auto;width:auto;height:52vh;border-left:0;border-top:1px solid var(--line);
+    box-shadow:0 -4px 18px rgba(0,0,0,.1)}
+  body.drawer .wrap{margin-right:0;padding-bottom:52vh}
+  body.drawer aside{display:block}
+}
+
 @media(max-width:1024px){
   .tabs button{padding:9px 14px;font-size:13.5px;min-height:40px}
   .col{max-height:none}
@@ -528,6 +554,8 @@ function inline(t){
        .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
        .replace(/(^|[^*])\*([^*\n]+)\*(?!\*)/g, '$1<em>$2</em>')
        .replace(/~~([^~]+)~~/g, '<s>$1</s>')
+       .replace(/\[([^\]]*)\]\(#drive=([A-Za-z0-9_-]+)\)/g,
+                '<a href="#" class="drv" data-drv="$2">$1</a>')
        .replace(/\[([^\]]*)\]\((https?:\/\/[^\s)]+)\)/g,
                 '<a href="$2" target="_blank" rel="noopener">$1</a>');
   return h.replace(/\uE000(\d+)\uE001/g, (m,i)=>'<code>'+code[+i]+'</code>');
@@ -1642,6 +1670,118 @@ function wireSum(){
   };
 }
 
+
+/* ---- 問題を同じ画面に並べる（2026-09-25） ----
+   画面を分けず、ページの中に「問題の引き出し」を出す。横長（iPad横・Mac）は右半分、
+   縦長は下半分。開いたまま別の問題へ移ると、その問題のPDFに差し替わる。
+   問題PDFのリンクは公開データでは暗号化してある（pdfx）。合言葉を1回入れると、
+   そこから作った鍵をこの端末に保存して、以後は自動で開く。 */
+let PK = null;
+const PDFKEY = 'x_pdfkey';
+const b64d = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+const b64e = u => btoa(String.fromCharCode(...new Uint8Array(u)));
+let PDF_KEY = null;
+async function pdfKeyStored(){
+  if (PDF_KEY) return PDF_KEY;
+  let raw = null; try { raw = localStorage.getItem(PDFKEY); } catch(e){}
+  if (!raw || !crypto.subtle) return null;
+  try { PDF_KEY = await crypto.subtle.importKey('raw', b64d(raw), 'AES-GCM', false, ['decrypt']); } catch(e){ return null; }
+  return PDF_KEY;
+}
+async function pdfDec(key, x){
+  const u = b64d(x);
+  const pt = await crypto.subtle.decrypt({name:'AES-GCM', iv:u.slice(0,12)}, key, u.slice(12));
+  return new TextDecoder().decode(pt);
+}
+async function pdfKeyFrom(pass){
+  if (!PK) throw new Error('合言葉の情報がありません');
+  const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pass), 'PBKDF2', false, ['deriveBits']);
+  const bits = await crypto.subtle.deriveBits({name:'PBKDF2', hash:'SHA-256', salt:b64d(PK.s), iterations:PK.i}, base, 256);
+  const key = await crypto.subtle.importKey('raw', bits, 'AES-GCM', false, ['decrypt']);
+  if (await pdfDec(key, PK.c) !== 'qgather-ok') throw new Error('mismatch');
+  try { localStorage.setItem(PDFKEY, b64e(bits)); } catch(e){}
+  PDF_KEY = key;
+  return key;
+}
+async function pdfUrlOf(q){
+  if (q.pdf) return q.pdf;
+  if (!q.pdfx) return '';
+  const key = await pdfKeyStored(); if (!key) return null;      /* null＝合言葉が要る */
+  try { return await pdfDec(key, q.pdfx); }
+  catch(e){ try { localStorage.removeItem(PDFKEY); } catch(_){} PDF_KEY = null; return null; }
+}
+let DRAWER_ON = false;
+try { DRAWER_ON = localStorage.getItem('xpdf_open') === '1'; } catch(e){}
+function drawerEl(){
+  let d = document.getElementById('qdrawer');
+  if (!d) {
+    d = document.createElement('div'); d.id = 'qdrawer';
+    d.innerHTML = '<div class="qd-bar"><b id="qd-t"></b><a id="qd-ext" target="_blank" rel="noopener">別ウィンドウ ↗</a>'
+      + '<button id="qd-x" aria-label="閉じる">閉じる ✕</button></div><iframe id="qd-f" loading="lazy"></iframe>';
+    document.body.appendChild(d);
+    d.querySelector('#qd-x').onclick = () => setDrawer(false);
+  }
+  return d;
+}
+function setDrawer(on, url, title){
+  DRAWER_ON = on;
+  try { localStorage.setItem('xpdf_open', on ? '1' : '0'); } catch(e){}
+  const d = drawerEl();
+  document.body.classList.toggle('drawer', on);
+  if (on && url) {
+    const pv = url.replace('/view', '/preview');
+    const f = d.querySelector('#qd-f'); if (f.getAttribute('src') !== pv) f.setAttribute('src', pv);
+    d.querySelector('#qd-ext').href = url;
+    d.querySelector('#qd-t').textContent = title || '問題';
+  }
+  if (!on) { const f = d.querySelector('#qd-f'); f.removeAttribute('src'); }
+  const b = document.getElementById('qpdf');
+  if (b) b.textContent = on ? '📄 問題を閉じる' : ('📄 ' + (CUR && CUR.pdfk === 'day' ? 'この日の問題' : '問題') + 'を並べて見る');
+}
+async function openPdf(q){
+  const url = await pdfUrlOf(q);
+  const host = document.getElementById('qpdfbox');
+  const title = q.id + (q.pdfk === 'day' ? '（その日のまとめPDF）' : '');
+  if (url) { if (host) host.innerHTML = ''; setDrawer(true, url, title); return; }
+  if (!host) return;
+  host.innerHTML = '<form class="pkform" id="pkform"><label>合言葉を入れると問題を開けます（この端末では1回だけ）</label>'
+    + '<div><input type="password" id="pkin" autocomplete="current-password" placeholder="合言葉">'
+    + '<button type="submit">開く</button></div><p class="note" id="pkmsg"></p></form>';
+  const f = document.getElementById('pkform'), inp = document.getElementById('pkin');
+  inp.focus();
+  f.onsubmit = async e => {
+    e.preventDefault();
+    const msg = document.getElementById('pkmsg');
+    msg.textContent = '確認しています…';
+    try { await pdfKeyFrom(inp.value); host.innerHTML = ''; openPdf(q); }
+    catch(err){ msg.textContent = '合言葉が違います。'; inp.select(); }
+  };
+}
+function wirePdf(q){
+  const btn = document.getElementById('qpdf');
+  if (!btn) { if (DRAWER_ON) { document.body.classList.remove('drawer'); } return; }
+  btn.onclick = () => DRAWER_ON && document.body.classList.contains('drawer') ? setDrawer(false) : openPdf(q);
+  if (DRAWER_ON) openPdf(q);          /* 開いたまま次の問題へ → 差し替え */
+}
+
+
+/* 本文中の（暗号化した）Driveリンク → 復号して問題の引き出しで開く */
+document.addEventListener('click', async e => {
+  const a = e.target.closest && e.target.closest('a.drv'); if (!a) return;
+  e.preventDefault();
+  let key = await pdfKeyStored();
+  if (!key) {
+    const pw = prompt('合言葉を入れるとリンクを開けます（この端末では1回だけ）');
+    if (!pw) return;
+    try { key = await pdfKeyFrom(pw); } catch(err){ flash('合言葉が違います。'); return; }
+  }
+  try {
+    const x = a.dataset.drv.replace(/-/g, '+').replace(/_/g, '/');
+    const url = await pdfDec(key, x + '==='.slice((x.length + 3) % 4));
+    setDrawer(true, url, a.textContent || 'Drive');
+  } catch(err){ flash('開けませんでした。'); }
+});
+
 async function show(uid){
   let q = flat.find(x => x.day + x.id === uid);
   if (!q) return;
@@ -1676,9 +1816,8 @@ async function show(uid){
       ${AUDIO[q.day] ? `<div class="qsrc audio">
         <a href="${esc(AUDIO[q.day].url)}" target="_blank" rel="noopener">🎧 この日の5社横断を聞く（約${esc(String(AUDIO[q.day].minutes||''))}分）</a>
       </div>` : ''}
-      ${q.pdf ? `<div class="qsrc">
-        <button id="qpdf">📄 ${q.pdfk === 'day' ? 'この日の問題を見る' : '問題を見る'}</button>
-        <a href="${esc(q.pdf)}" target="_blank" rel="noopener">別ウィンドウで開く ↗</a>
+      ${(q.pdf || q.pdfx) ? `<div class="qsrc">
+        <button id="qpdf">📄 ${q.pdfk === 'day' ? 'この日の問題を並べて見る' : '問題を並べて見る'}</button>
       </div><div id="qpdfbox"></div>` : ''}
     </div>
     ${sumBlock(q)}
@@ -1718,37 +1857,7 @@ async function show(uid){
     renderCols();                       /* スクロール位置はそのまま */
   });
 
-  const pdfBtn = document.getElementById('qpdf');
-  /* iPad・SafariはGoogleのログイン情報を埋め込み枠に渡さないため、非公開のDrive PDFは
-     枠内で「400 エラー」になる（2026-09-16）。その環境では枠を使わず、Driveを直接開く。 */
-  const noEmbed = /iPad|iPhone|iPod/.test(navigator.userAgent)
-    || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
-    || (/Safari/.test(navigator.userAgent) && !/Chrome|CriOS|Chromium|Edg|FxiOS|Firefox/.test(navigator.userAgent));
-  if (pdfBtn && noEmbed) {
-    pdfBtn.textContent = '📄 ' + (q.pdfk === 'day' ? 'この日の問題' : '問題') + 'を開く ↗';
-    pdfBtn.onclick = () => window.open(q.pdf, '_blank', 'noopener');
-    const alt = pdfBtn.nextElementSibling; if (alt && alt.tagName === 'A') alt.remove();
-  } else if (pdfBtn) {
-    const host = document.getElementById('qpdfbox');
-    const draw = on => {
-      const lbl = q.pdfk === 'day' ? 'この日の問題' : '問題';
-      pdfBtn.textContent = on ? ('📄 ' + lbl + 'を閉じる') : ('📄 ' + lbl + 'を見る');
-      host.innerHTML = on
-        ? '<iframe src="' + esc(q.pdf.replace('/view', '/preview')) + '" loading="lazy"></iframe>'
-          + '<p class="note">Googleドライブの自分のファイルです'
-          + (q.pdfk === 'day' ? '（この問題だけのPDFが無いので、その日のまとめPDF）' : '')
-          + '。表示されないときは「別ウィンドウで開く」からどうぞ。</p>'
-        : '';
-    };
-    let on = false;
-    try { on = localStorage.getItem('xpdf_open') === '1'; } catch(e){}
-    draw(on);
-    pdfBtn.onclick = () => {
-      on = !on;
-      try { localStorage.setItem('xpdf_open', on ? '1' : '0'); } catch(e){}
-      draw(on);
-    };
-  }
+  wirePdf(q);
 
   const box = document.getElementById('qbox');
   box.value = loadQ(q);
@@ -1814,7 +1923,8 @@ async function boot(){
         .catch(()=>{});
       const r = await fetch(WEB + 'manifest.json', {cache:'no-cache'});
       if (!r.ok) throw new Error('HTTP ' + r.status);
-      ingest(await r.json(), false);
+      const mf = await r.json(); PK = mf.pk || null;
+      ingest(mf, false);
     } catch(e){
       main.innerHTML = '<div class="qhead"><h2>目次を読み込めませんでした</h2><p>'
         + esc(String(e && e.message || e)) + '</p></div>';

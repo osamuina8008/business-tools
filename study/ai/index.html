@@ -372,6 +372,68 @@ body.reading{overflow:hidden}
 }
 
 /* ---- iPad・iPhone ---- */
+
+/* ---- 冒頭の「頭に入る版」（qsummary.py、2026-09-25） ---- */
+.sm{margin:18px 0 8px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px 22px}
+.sm-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.sm-top .lbl{font-size:11px;letter-spacing:.14em;color:var(--muted);font-weight:700}
+.sm-top .th{font-family:var(--disp);font-size:18px;font-weight:700}
+.sm-ans{padding:2px 12px;border-radius:4px;background:var(--ai);color:var(--surface);font-weight:700;font-size:14px}
+.sm-ans small{font-weight:400;opacity:.85;margin-left:6px}
+.sm-fold{margin-left:auto;font:inherit;font-size:12.5px;border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:4px;padding:3px 10px;cursor:pointer}
+.sm.shut .sm-body{display:none}
+.sm h4{font-family:var(--disp);font-size:15.5px;color:var(--ai);margin:22px 0 10px;letter-spacing:.04em}
+.sm-lead{margin:0 0 10px;font-size:15.5px}
+.sm-q{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.sm-qb{background:var(--sunk);border-radius:5px;padding:12px 14px}
+.sm-qb .qt{font-weight:700;margin-bottom:6px}
+.sm-qb .r{font-size:14px;line-height:1.6;margin:5px 0}
+.sm-qb .r b{font-weight:700}
+.sm-qb .r span{color:var(--muted)}
+.sm-note{font-size:13.5px;color:var(--muted);margin:8px 0 0}
+.sm-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.sm-tabs button{font:inherit;font-size:13px;padding:4px 12px;min-height:34px;border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:4px;cursor:pointer}
+.sm-tabs button.on{background:var(--ai);border-color:var(--ai);color:#fff}
+.sm-tabs button .x{color:var(--differ);font-weight:700;margin-left:3px}
+.sm-tabs button.on .x{color:#fff}
+.sm-pane{display:none}.sm-pane.on{display:block}
+.sm-zu pre{font-size:13px;line-height:1.65;background:var(--sunk);border-radius:5px;padding:12px 14px;margin:0;overflow-x:auto}
+.sm-leg{border-top:1px solid var(--line);padding:13px 0 6px}
+.sm-leg:first-of-type{border-top:0;padding-top:2px}
+.sm-lh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.sm-lid{font-family:var(--disp);font-size:19px;font-weight:700;min-width:24px}
+.sm-ox{font-size:20px;font-weight:700;min-width:22px;text-align:center}
+.sm-ox.x{color:var(--differ)}.sm-ox.o{color:var(--agree)}
+.sm-look{font-size:13.5px;background:var(--sunk);padding:1px 9px;border-radius:3px}
+.sm-look::before{content:"ここを見る  ";color:var(--muted);font-size:12px}
+.sm-chip{font-size:12px;padding:0 8px;border-radius:10px;border:1px solid var(--agree);color:var(--agree)}
+.sm-chip.split{border-color:var(--differ);color:var(--differ);background:var(--flagbg)}
+.sm-one{font-size:16.5px;font-weight:500;margin:4px 0 1px 34px}
+.sm-one em{font-style:normal;background:linear-gradient(transparent 60%,rgba(46,115,85,.25) 60%)}
+.sm-src{font-size:12.5px;color:var(--muted);margin-left:34px}
+.sm-warn{background:var(--flagbg);border-left:4px solid var(--differ);border-radius:4px;padding:8px 12px;margin:8px 0 0 34px;font-size:14px;line-height:1.7}
+.sm details{margin:8px 0 4px 34px}
+.sm summary{cursor:pointer;font-size:13.5px;color:var(--ai);list-style:none;min-height:30px;display:flex;align-items:center}
+.sm summary::-webkit-details-marker{display:none}
+.sm summary::before{content:"▸\00a0"}
+.sm details[open] summary::before{content:"▾\00a0"}
+.sm-ai{border-left:3px solid var(--line);padding:2px 0 2px 12px;font-size:14.5px}
+.sm-ai.bad{border-left-color:var(--differ)}
+.sm-pair{display:flex;gap:10px;margin:8px 0;font-size:14.5px;line-height:1.7}
+.sm-pair b{flex:none;min-width:9em}
+.sm table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.6}
+.sm th,.sm td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+.sm th{font-size:12px;color:var(--muted);font-weight:500}
+.sm td:first-child{white-space:nowrap;font-weight:700}
+.sm-next{font-size:16px;font-weight:500;margin:0}
+.sm-foot{font-size:12px;color:var(--muted);margin:16px 0 0;text-align:right}
+@media(max-width:820px){
+  .sm{padding:16px 14px}
+  .sm-one,.sm-src,.sm-warn,.sm details{margin-left:0}
+  .sm-pair{flex-direction:column;gap:0}
+  .sm td:first-child{white-space:normal}
+}
+
 @media(max-width:1024px){
   .tabs button{padding:9px 14px;font-size:13.5px;min-height:40px}
   .col{max-height:none}
@@ -1459,6 +1521,127 @@ async function loadDay(day){
   ingest(await r.json(), true);
 }
 
+
+/* ---- 冒頭の「頭に入る版」 ----
+   qsummary.py が6社の解説から作った要約（q.sum）を最初に見せる。
+   ○×の一致・割れは要約に頼らず各社の choices から数える。
+   図解と肢ごとの各社解説は、元の本文をそのまま切り替えて読めるようにする。 */
+const SM_CH = /^\s*(?:[-*+]\s+)?(?:#{2,5}\s+)?\*{0,2}\s*(?:肢\s*)?([ア-オ]|[1-5]|[１-５])(?![0-9０-９．.])[^\n]{0,60}?([○◯〇×✕])/gm;
+const SM_Z = s => s.replace(/[１-５]/g, c => String.fromCharCode(c.charCodeAt(0) - 0xFEE0));
+const SM_OX = s => ({'◯':'○','〇':'○','✕':'×'}[s] || s);
+function smLegs(text){
+  const out = {}; if (!text) return out;
+  const hits = [...String(text).matchAll(SM_CH)];
+  if (hits.length < 2) return out;
+  hits.forEach((m, i) => {
+    const lab = SM_Z(m[1]);
+    const end = i + 1 < hits.length ? hits[i+1].index : text.length;
+    if (!out[lab]) out[lab] = text.slice(m.index, end).trim();
+  });
+  return out;
+}
+function smSec(v, mark){
+  const k = Object.keys(v.sections || {}).find(x => x.startsWith(mark));
+  return k ? v.sections[k] : '';
+}
+let SM_SHUT = false;
+try { SM_SHUT = localStorage.getItem('x_sm_shut') === '1'; } catch(e){}
+function sumBlock(q){
+  const S = q.sum; if (!S) return '';
+  const A = ais(q);
+  const em = t => esc(t || '').replace(/【(.+?)】/g, '<em>$1</em>');
+  const tabs = (grp, items, on) => '<div class="sm-tabs" data-g="' + grp + '">' + items.map(([k, lbl]) =>
+      '<button data-k="' + esc(k) + '" class="' + (k === on ? 'on' : '') + '">' + lbl + '</button>').join('') + '</div>';
+  const pane = (grp, k, on, html, cls) => '<div class="sm-pane ' + (cls || '') + (k === on ? ' on' : '')
+      + '" data-g="' + grp + '" data-k="' + esc(k) + '">' + html + '</div>';
+  let h = '';
+  /* 1 軸 */
+  const ax = S.axis || {};
+  if (ax.boxes && ax.boxes.length) {
+    h += '<h4>① まず、この問題の軸</h4>' + (ax.lead ? '<p class="sm-lead">' + esc(ax.lead) + '</p>' : '')
+      + '<div class="sm-q">' + ax.boxes.map(b => '<div class="sm-qb"><div class="qt">' + esc(b.q || '') + '</div>'
+        + (b.rows || []).map(r => '<div class="r"><b>' + esc(r[0] || '') + '</b> <span>' + esc(r[1] || '') + '</span></div>').join('')
+        + '</div>').join('') + '</div>'
+      + (ax.note ? '<p class="sm-note">' + esc(ax.note) + '</p>' : '');
+  }
+  /* 2 図解（各社の②をそのまま） */
+  const zu = A.filter(a => smSec(q.ai[a], '②').trim());
+  if (zu.length) {
+    const on = zu.includes(S.zu) ? S.zu : zu[0];
+    h += '<h4>② 図解 <span class="sm-note">（' + zu.length + '社の図を切り替え）</span></h4>'
+      + tabs('zu', zu.map(a => [a, esc(a)]), on)
+      + zu.map(a => pane('zu', a, on, '<div class="sm-zu">' + md(smSec(q.ai[a], '②')) + '</div>')).join('');
+  }
+  /* 3 肢ごと */
+  const legs = S.legs || [];
+  if (legs.length) {
+    const per = {};
+    A.forEach(a => {
+      per[a] = smLegs(smSec(q.ai[a], '⑥'));
+      /* ChatGPT は肢ごとの解説を①の中に書くことがある → ⑥で取れなければ本文全体から */
+      if (!Object.keys(per[a]).length) per[a] = smLegs(Object.values(q.ai[a].sections || {}).join('\n\n'));
+    });
+    h += '<h4>③ 肢ごとの判断</h4>' + legs.map((L, i) => {
+      const lab = SM_Z(String(L.l || ''));
+      const votes = {};
+      A.forEach(a => { const c = ((q.ai[a].choices || {})[lab] || '').trim(); if (c) (votes[SM_OX(c)] = votes[SM_OX(c)] || []).push(a); });
+      const kinds = Object.keys(votes);
+      let chip = '';
+      if (kinds.length === 1) chip = '<span class="sm-chip">' + votes[kinds[0]].length + '社一致</span>';
+      else if (kinds.length > 1) {
+        const minor = kinds.sort((x, y) => votes[x].length - votes[y].length)[0];
+        chip = '<span class="sm-chip split">' + votes[minor].map(esc).join('・') + 'だけ' + esc(minor) + '</span>';
+      }
+      const ox = SM_OX(L.ox || '');
+      const who = A.filter(a => per[a][lab]);
+      const gid = 'lg' + i, on = who[0];
+      const wrong = a => { const c = SM_OX(((q.ai[a].choices || {})[lab] || '').trim()); return c && ox && c !== ox; };
+      return '<div class="sm-leg"><div class="sm-lh"><span class="sm-lid">' + esc(L.l || '') + '</span>'
+        + '<span class="sm-ox ' + (ox === '×' ? 'x' : 'o') + '">' + esc(ox) + '</span>'
+        + (L.look ? '<span class="sm-look">' + esc(L.look) + '</span>' : '') + chip + '</div>'
+        + '<p class="sm-one">' + em(L.one) + '</p>'
+        + (L.src ? '<div class="sm-src">' + esc(L.src) + '</div>' : '')
+        + (L.warn ? '<div class="sm-warn">⚠ ' + esc(L.warn) + '</div>' : '')
+        + (who.length ? '<details><summary>各社の解説（' + who.length + '社）</summary>'
+          + tabs(gid, who.map(a => [a, esc(a) + (wrong(a) ? '<span class="x">×</span>' : '')]), on)
+          + who.map(a => pane(gid, a, on, md(per[a][lab]), 'sm-ai' + (wrong(a) ? ' bad' : ''))).join('')
+          + '</details>' : '')
+        + '</div>';
+    }).join('');
+  }
+  /* 4 取り違え */
+  if ((S.traps || []).length)
+    h += '<h4>④ 取り違えやすいところ</h4>' + S.traps.map(t => '<div class="sm-pair"><b>' + esc(t[0] || '') + '</b><span>' + esc(t[1] || '') + '</span></div>').join('');
+  /* 5 要件表 */
+  if ((S.reqs || []).length)
+    h += '<h4>⑤ 条文ごとの要件</h4><table><thead><tr><th>条文</th><th>何の書面・場面か</th><th>要件</th></tr></thead><tbody>'
+      + S.reqs.map(r => '<tr><td>' + esc(r[0] || '') + '</td><td>' + esc(r[1] || '') + '</td><td>' + esc(r[2] || '') + '</td></tr>').join('')
+      + '</tbody></table>';
+  /* 6 次回 */
+  if (S.next) h += '<h4>⑥ 次に迷ったら</h4><p class="sm-next">' + esc(S.next) + '</p>';
+  return '<section class="sm' + (SM_SHUT ? ' shut' : '') + '" id="sm"><div class="sm-top">'
+    + '<span class="lbl">頭に入る版</span><span class="th">' + esc(S.theme || '') + '</span>'
+    + (S.answer ? '<span class="sm-ans">正解 ' + esc(S.answer) + (S.answer_note ? '<small>' + esc(S.answer_note) + '</small>' : '') + '</span>' : '')
+    + '<button class="sm-fold" id="smfold">' + (SM_SHUT ? 'まとめを開く ▾' : 'まとめを畳む ▴') + '</button></div>'
+    + '<div class="sm-body">' + h + '<p class="sm-foot">6社の解説から自動でまとめ直したもの。下に従来の比較・各社の本文が続きます。</p></div></section>';
+}
+function wireSum(){
+  const box = document.getElementById('sm'); if (!box) return;
+  box.querySelectorAll('.sm-tabs').forEach(g => g.onclick = e => {
+    const b = e.target.closest('button'); if (!b) return;
+    const grp = g.dataset.g, k = b.dataset.k, scope = g.parentElement;
+    g.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b));
+    scope.querySelectorAll('.sm-pane[data-g="' + grp + '"]').forEach(p => p.classList.toggle('on', p.dataset.k === k));
+  });
+  const f = document.getElementById('smfold');
+  f.onclick = () => {
+    SM_SHUT = !SM_SHUT;
+    box.classList.toggle('shut', SM_SHUT);
+    f.textContent = SM_SHUT ? 'まとめを開く ▾' : 'まとめを畳む ▴';
+    try { localStorage.setItem('x_sm_shut', SM_SHUT ? '1' : '0'); } catch(e){}
+  };
+}
+
 async function show(uid){
   let q = flat.find(x => x.day + x.id === uid);
   if (!q) return;
@@ -1498,6 +1681,7 @@ async function show(uid){
         <a href="${esc(q.pdf)}" target="_blank" rel="noopener">別ウィンドウで開く ↗</a>
       </div><div id="qpdfbox"></div>` : ''}
     </div>
+    ${sumBlock(q)}
     ${(DAYX[q.day] && DAYX[q.day].length) ? `<div class="kws dayx" id="dayx">
       <span class="lbl">この日の補足</span>${DAYX[q.day].map((e,i)=>
         `<button class="kw note" data-dx="${i}" title="${esc(e.ai)} の補足">📎 ${esc(e.t)}</button>`).join('')}
@@ -1526,6 +1710,7 @@ async function show(uid){
   renderCols();
   paintFocus();
   wireFocus();
+  wireSum();
 
   main.querySelectorAll('.tabs button').forEach(b => b.onclick = () => {
     secPick = b.dataset.s;

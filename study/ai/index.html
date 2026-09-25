@@ -426,10 +426,17 @@ body.reading{overflow:hidden}
 .sm th{font-size:12px;color:var(--muted);font-weight:500}
 .sm td:first-child{white-space:nowrap;font-weight:700}
 .sm-next{font-size:16px;font-weight:500;margin:0}
+.sm-fn{font-family:var(--disp);font-size:16.5px;font-weight:700}
+.sm-tg{display:inline-block;font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:3px;padding:0 6px;margin-right:8px;font-weight:400;vertical-align:2px}
+.sm-fx{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:6px 0 2px 34px}
+.sm-fx .sm-look::before{content:none}
+.sm-cc{font-size:15px;margin:6px 0 2px 34px}
+.sm-must{margin:0;padding-left:1.3em;font-size:15.5px;line-height:1.8}
+.sm-must em{font-style:normal;background:linear-gradient(transparent 60%,rgba(46,115,85,.25) 60%)}
 .sm-foot{font-size:12px;color:var(--muted);margin:16px 0 0;text-align:right}
 @media(max-width:820px){
   .sm{padding:16px 14px}
-  .sm-one,.sm-src,.sm-warn,.sm details{margin-left:0}
+  .sm-one,.sm-src,.sm-warn,.sm details,.sm-fx,.sm-cc{margin-left:0}
   .sm-pair{flex-direction:column;gap:0}
   .sm td:first-child{white-space:normal}
 }
@@ -480,6 +487,49 @@ body.drawer .wrap{grid-template-columns:minmax(0,1fr)} body.drawer aside{display
   .qhead h2{font-size:24px}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ── この1週間（2026-09-26） ── */
+.weekbtn{flex:none;background:var(--ai);color:var(--surface);border:1px solid var(--ai);
+  border-radius:6px;padding:4px 9px;font:inherit;font-size:11.5px;font-weight:700;cursor:pointer}
+.wk .qhead h2{font-size:26px}
+.wk-f{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+.wk-f button{background:var(--sunk);color:var(--ink);border:1px solid var(--line);border-radius:14px;
+  padding:3px 11px;font:inherit;font-size:12px;cursor:pointer}
+.wk-f button.on{background:var(--ai);color:var(--surface);border-color:var(--ai)}
+.wk-box{background:var(--flagbg);border-radius:8px;padding:12px 15px;margin:0 0 18px}
+.wk-box b.h{display:block;color:var(--differ);font-size:12px;letter-spacing:.1em;margin-bottom:6px}
+.wk-box a{display:block;color:var(--ink);text-decoration:none;font-size:13.5px;line-height:1.7;padding:2px 0}
+.wk-box a:hover{text-decoration:underline}
+.wk-box a i{font-style:normal;color:var(--muted);font-size:12px;margin-left:6px}
+.wk-t{background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.wk-r{display:grid;grid-template-columns:78px minmax(0,1.3fr) minmax(0,1.2fr) minmax(0,.9fr) minmax(0,1.3fr);
+  gap:10px;padding:10px 12px;border-top:1px solid var(--line);font-size:13px;line-height:1.6}
+.wk-r.hd{border-top:0;background:var(--sunk);color:var(--muted);font-size:11.5px;font-weight:700;padding:7px 12px}
+.wk-r .dq a{color:var(--ai);font-weight:700;text-decoration:none}
+.wk-r .dq small{display:block;color:var(--muted);font-size:11.5px}
+.wk-r .th a{color:var(--ink);text-decoration:none;font-weight:700}
+.wk-r .th a:hover,.wk-r .pt a:hover{text-decoration:underline}
+.wk-r .th small{display:block;color:var(--muted);font-weight:400}
+.wk-r .pt a{color:var(--ink);text-decoration:none}
+.wk-r .none{color:var(--muted)}
+.wk-c{display:inline-block;margin:0 4px 4px 0;padding:1px 7px;border-radius:6px;font:inherit;font-size:12px;
+  cursor:pointer;border:1px solid var(--line);background:var(--sunk);color:var(--ai);text-align:left}
+.wk-c.cs{color:var(--agree)}
+.wk-c.on{border-color:var(--ai);background:var(--surface)}
+.wk-c small{display:block;color:var(--muted);font-size:11px;line-height:1.4}
+.wk-pop{border-top:1px dashed var(--line);padding:4px 12px 12px;background:var(--paper)}
+.wk-pop .art{display:block}
+.wk-pop .jh{font-size:13px;color:var(--muted);margin:6px 0 0}
+.wk-pop details{font-size:13px;line-height:1.8;white-space:pre-wrap;margin:4px 0}
+.wk-pop .rf{margin:8px 0 0;font-size:13px}
+.wk-pop .rf a{display:block;color:var(--ai);text-decoration:none;padding:2px 0}
+.wk-pop .rf a em{font-style:normal;font-size:11px;color:var(--agree);margin-left:6px}
+.wk-pop .acts a{margin-right:12px;font-size:13px}
+@media (max-width:760px){
+  .wk-r{grid-template-columns:1fr;gap:4px}
+  .wk-r.hd{display:none}
+  .wk-r .dq{display:flex;gap:8px;align-items:baseline}
+}
 </style>
 <div class="wrap">
 <aside>
@@ -704,6 +754,13 @@ function buildNav(){
   sb.title = '並び順を入れ替える';
   sb.onclick = () => { navState.desc = !navState.desc; saveNav(); buildNav(); markActive(); };
   bar.appendChild(sb);
+  const wb = document.createElement('button');
+  wb.className = 'weekbtn';
+  wb.textContent = 'この1週間';
+  wb.title = '直前1週間にやった問題・条文・判例・ポイントの一覧';
+  wb.onclick = () => { document.body.classList.remove('navopen');
+    if (location.hash === '#week') renderWeek(); else location.hash = 'week'; };
+  bar.appendChild(wb);
   nav.appendChild(bar);
 
   const due = days.filter(d => dueOf(d.day));
@@ -1592,11 +1649,13 @@ function sumBlock(q){
         + '</div>').join('') + '</div>'
       + (ax.note ? '<p class="sm-note">' + esc(ax.note) + '</p>' : '');
   }
-  /* 2 図解（各社の②をそのまま） */
+  /* 2 図解（各社の②をそのまま）。論文の②は骨格 */
+  const RB = S.kind === 'ronbun';
   const zu = A.filter(a => smSec(q.ai[a], '②').trim());
   if (zu.length) {
     const on = zu.includes(S.zu) ? S.zu : zu[0];
-    h += '<h4>② 図解 <span class="sm-note">（' + zu.length + '社の図を切り替え）</span></h4>'
+    h += (RB ? '<h4>② 骨格 <span class="sm-note">（' + zu.length + '社の骨格を切り替え）</span></h4>'
+             : '<h4>② 図解 <span class="sm-note">（' + zu.length + '社の図を切り替え）</span></h4>')
       + tabs('zu', zu.map(a => [a, esc(a)]), on)
       + zu.map(a => pane('zu', a, on, '<div class="sm-zu">' + md(smSec(q.ai[a], '②')) + '</div>')).join('');
   }
@@ -1637,19 +1696,37 @@ function sumBlock(q){
         + '</div>';
     }).join('');
   }
+  /* 3' 論文：論点ごとに 規範 → 使う事実 → 結論（2026-09-26） */
+  const flow = S.flow || [];
+  if (flow.length) {
+    const rc = A.filter(a => smSec(q.ai[a], '③').trim());
+    h += '<h4>③ 論点ごとの流れ <span class="sm-note">（答案に書く順）</span></h4>' + flow.map(F =>
+      '<div class="sm-leg sm-fl"><div class="sm-lh"><span class="sm-fn">' + esc(F.n || '') + '</span></div>'
+      + (F.rule ? '<p class="sm-one"><span class="sm-tg">規範</span>' + em(F.rule) + '</p>' : '')
+      + ((F.facts || []).length ? '<div class="sm-fx"><span class="sm-tg">使う事実</span>' + F.facts.map(x => '<span class="sm-look">' + esc(x) + '</span>').join('') + '</div>' : '')
+      + (F.concl ? '<p class="sm-cc"><span class="sm-tg">結論</span>' + esc(F.concl) + '</p>' : '')
+      + (F.src ? '<div class="sm-src">' + esc(F.src) + '</div>' : '')
+      + (F.warn ? '<div class="sm-warn">⚠ ' + esc(F.warn) + '</div>' : '')
+      + '</div>').join('')
+      + (rc.length ? '<details><summary>各社の規範カード（' + rc.length + '社）</summary>'
+        + tabs('rc', rc.map(a => [a, esc(a)]), rc[0])
+        + rc.map(a => pane('rc', a, rc[0], md(smSec(q.ai[a], '③')), 'sm-ai')).join('') + '</details>' : '');
+  }
   /* 4 取り違え */
   if ((S.traps || []).length)
     h += '<h4>④ 取り違えやすいところ</h4>' + S.traps.map(t => '<div class="sm-pair"><b>' + esc(t[0] || '') + '</b><span>' + esc(t[1] || '') + '</span></div>').join('');
   /* 5 要件表 */
   if ((S.reqs || []).length)
-    h += '<h4>⑤ 条文ごとの要件</h4><table><thead><tr><th>条文</th><th>何の書面・場面か</th><th>要件</th></tr></thead><tbody>'
+    h += '<h4>⑤ 条文ごとの要件</h4><table><thead><tr><th>条文</th><th>' + (RB ? '何の場面か' : '何の書面・場面か') + '</th><th>要件</th></tr></thead><tbody>'
       + S.reqs.map(r => '<tr><td>' + esc(r[0] || '') + '</td><td>' + esc(r[1] || '') + '</td><td>' + esc(r[2] || '') + '</td></tr>').join('')
       + '</tbody></table>';
   /* 6 次回 */
-  if (S.next) h += '<h4>⑥ 次に迷ったら</h4><p class="sm-next">' + esc(S.next) + '</p>';
+  if ((S.must || []).length)
+    h += '<h4>⑥ 答案に必ず書く一文</h4><ul class="sm-must">' + S.must.map(x => '<li>' + em(x) + '</li>').join('') + '</ul>';
+  if (S.next) h += '<h4>' + (RB ? '⑦' : '⑥') + ' 次に迷ったら</h4><p class="sm-next">' + esc(S.next) + '</p>';
   return '<section class="sm' + (SM_SHUT ? ' shut' : '') + '" id="sm"><div class="sm-top">'
     + '<span class="lbl">頭に入る版</span><span class="th">' + esc(S.theme || '') + '</span>'
-    + (S.answer ? '<span class="sm-ans">正解 ' + esc(S.answer) + (S.answer_note ? '<small>' + esc(S.answer_note) + '</small>' : '') + '</span>' : '')
+    + (S.answer ? '<span class="sm-ans">' + (RB ? '結論 ' : '正解 ') + esc(S.answer) + (S.answer_note ? '<small>' + esc(S.answer_note) + '</small>' : '') + '</span>' : '')
     + '<button class="sm-fold" id="smfold">' + (SM_SHUT ? 'まとめを開く ▾' : 'まとめを畳む ▴') + '</button></div>'
     + '<div class="sm-body">' + h + '<p class="sm-foot">6社の解説から自動でまとめ直したもの。下に従来の比較・各社の本文が続きます。</p></div></section>';
 }
@@ -1933,9 +2010,110 @@ async function boot(){
   }
   buildNav();
   if (!flat.length) { main.innerHTML = '<div class="qhead"><h2>データがありません</h2></div>'; return; }
-  show(fromHash() || firstOfNewestDay());
+  if (isWeekHash()) { renderWeek(); return; }
+  const sec = hashSec();
+  Promise.resolve(show(fromHash() || firstOfNewestDay())).then(() => scrollToSec(sec));
 }
 
-window.addEventListener('hashchange', () => { const u = fromHash(); if (u) show(u); });
+
+/* ---- この1週間（2026-09-26、本人要望） ----
+   直前7日を1問1行に。行・ポイントは押すとその問題（その箇所）へ飛ぶ。
+   条文・判例は押すと、条文本文・一言・「前にも出た問題」・e-Gov／Web検索を出す＝想起の補強。 */
+let WEEK = null, WK_SUBJ = '';
+async function getWeek(){
+  if (WEEK) return WEEK;
+  if (EMBED) return (WEEK = EMBED.week || null);
+  const r = await fetch(WEB + 'week.json', {cache:'no-cache'});
+  if (!r.ok) throw new Error('HTTP ' + r.status);
+  return (WEEK = await r.json());
+}
+const md5 = d => ymd(d).slice(5).replace('-', '/');
+const qhref = (day, id, sec) => '#' + encodeURIComponent(day) + '/' + encodeURIComponent(id) + (sec ? '/' + sec : '');
+const refLabel = ref => {
+  const [day, id] = ref.split('|');
+  const q = flat.find(x => x.day === day && x.id === id);
+  const d = DB.days.find(x => x.day === day);
+  return md5(day) + '　' + (d ? subjLabel(d) : '') + '　' + id + (q && q.title ? '　' + q.title : '');
+};
+async function renderWeek(){
+  CUR = null; markActive();
+  main.innerHTML = '<div class="qhead"><p>読み込み中…</p></div>';
+  let W;
+  try { W = await getWeek(); } catch(e){ W = null; }
+  if (!W || !W.rows) { main.innerHTML = '<div class="qhead"><h2>この1週間のデータがありません</h2><p>次の定時実行で作られます。</p></div>'; return; }
+  const subs = [...new Set(W.rows.map(r => r.subj + (r.ron ? '・論文' : '')))];
+  const rows = W.rows.filter(r => !WK_SUBJ || r.subj + (r.ron ? '・論文' : '') === WK_SUBJ);
+  const nA = new Set(rows.flatMap(r => r.arts)).size, nC = new Set(rows.flatMap(r => r.cases)).size;
+  const chip = (k, cs) => {
+    const t = W.terms[k] || {};
+    const hd = t.j ? (t.j.split('\n')[0].match(/（(.+?)）/) || [])[1] : (t.w || '');
+    return '<button class="wk-c' + (cs ? ' cs' : '') + '" data-k="' + esc(k) + '">' + esc(k)
+      + (hd ? '<small>' + esc(hd) + '</small>' : '') + '</button>';
+  };
+  let h = '<div class="wk"><div class="qhead"><p>' + md5(W.from) + ' 〜 ' + md5(W.to) + '</p>'
+    + '<h2>この1週間にやったこと</h2><p>' + rows.length + '問・条文 ' + nA + '・判例 ' + nC
+    + '　／　行を押すとその問題へ、条文・判例を押すと中身と「前にも出た問題」が開きます。</p></div>';
+  h += '<div class="wk-f"><button data-s="" class="' + (WK_SUBJ ? '' : 'on') + '">すべて</button>'
+    + subs.map(x => '<button data-s="' + esc(x) + '" class="' + (x === WK_SUBJ ? 'on' : '') + '">' + esc(x) + '</button>').join('') + '</div>';
+  const tr = rows.filter(r => r.traps && r.traps.length).slice(0, 10);
+  if (tr.length) h += '<div class="wk-box"><b class="h">別枠：取り違えやすいところ</b>'
+    + tr.map(r => '<a href="' + qhref(r.day, r.id, '④') + '">・' + esc(r.traps[0][0] || '') + '：'
+      + esc(r.traps[0][1] || '') + '<i>' + md5(r.day) + ' ' + esc(r.subj) + ' ' + r.id + '</i></a>').join('') + '</div>';
+  h += '<div class="wk-t"><div class="wk-r hd"><span>日・問</span><span>やったこと</span><span>条文（中身）</span><span>判例</span><span>ポイント</span></div>';
+  rows.forEach((r, i) => {
+    const u = qhref(r.day, r.id);
+    h += '<div class="wk-r" data-i="' + i + '">'
+      + '<div class="dq"><a href="' + u + '">' + r.id + '</a><small>' + md5(r.day) + ' ' + esc(r.subj) + (r.ron ? '・論文' : '') + '</small></div>'
+      + '<div class="th"><a href="' + u + '">' + esc(r.theme || '—') + '</a>'
+        + (r.ans ? '<small>正解 ' + esc(r.ans) + '</small>' : '') + '</div>'
+      + '<div>' + (r.arts.length ? r.arts.map(k => chip(k)).join('') : '<span class="none">—</span>') + '</div>'
+      + '<div>' + (r.cases.length ? r.cases.map(k => chip(k, 1)).join('') : '<span class="none">—</span>') + '</div>'
+      + '<div class="pt">' + (r.lead ? '<a href="' + qhref(r.day, r.id, '①') + '">' + esc(r.lead) + '</a>'
+        : '<span class="none">' + (r.sum ? '—' : '要約はまだ（定時実行後に入ります）') + '</span>') + '</div>'
+      + '</div>';
+  });
+  main.innerHTML = h + '</div></div>';
+  main.querySelectorAll('.wk-f button').forEach(b => b.onclick = () => { WK_SUBJ = b.dataset.s; renderWeek(); });
+  main.querySelectorAll('.wk-c').forEach(b => b.onclick = () => wkPop(W, b));
+  window.scrollTo({top:0});
+}
+function wkPop(W, btn){
+  const row = btn.closest('.wk-r'), k = btn.dataset.k, was = btn.classList.contains('on');
+  main.querySelectorAll('.wk-pop').forEach(x => x.remove());
+  main.querySelectorAll('.wk-c.on').forEach(x => x.classList.remove('on'));
+  if (was) return;
+  btn.classList.add('on');
+  const t = W.terms[k] || {}, isArt = !!artNo(k) && /条/.test(k);
+  const inWeek = new Set(W.rows.map(r => r.day + '|' + r.id));
+  const acts = [];
+  if (t.law) acts.push('<a href="https://laws.e-gov.go.jp/law/' + t.law + '#Mp-At_' + t.at + '" target="_blank" rel="noopener">📜 e-Govで条文</a>');
+  acts.push('<a href="https://www.google.com/search?q=' + encodeURIComponent(k + (isArt ? ' 趣旨 要件' : ' 判旨')) + '" target="_blank" rel="noopener">🔎 Webで調べる</a>');
+  if (!isArt) acts.push('<a href="https://www.google.com/search?q=' + encodeURIComponent(k + ' site:courts.go.jp') + '" target="_blank" rel="noopener">⚖️ 裁判所の判例</a>');
+  acts.push('<a href="' + obsSearch(k) + '">🔍 Vaultを検索</a>');
+  const jl = t.j ? t.j.split('\n') : [];
+  const box = document.createElement('div');
+  box.className = 'wk-pop';
+  box.innerHTML = '<div class="art"><b>' + esc(k) + '</b>' + (t.w ? ' <span class="nick">' + esc(t.w) + '</span>' : '')
+    + (jl.length ? '<p class="jh">' + esc(jl[0]) + '</p><details><summary>条文を読む（現行法・e-Gov）</summary>' + esc(jl.slice(1).join('\n')) + '</details>' : '')
+    + '<p class="gist' + (t.g ? '' : ' none') + '">' + esc(t.g || 'まだ一言まとめがありません。') + '</p>'
+    + (t.gs ? '<span class="src">出典 ' + esc(t.gs) + '</span>' : '')
+    + '<div class="rf"><span class="lbl">この語が出た問題（' + (t.refs || []).length + '）</span>'
+    + (t.refs || []).map(ref => { const [d, id] = ref.split('|');
+        return '<a href="' + qhref(d, id) + '">' + esc(refLabel(ref)) + (inWeek.has(ref) ? '<em>今週</em>' : '') + '</a>'; }).join('')
+    + '</div><div class="acts"><span class="lbl">調べる</span>' + acts.join('') + '</div></div>';
+  row.after(box);
+}
+/* #日付科目/Q18/④ の3つ目＝その見出しまでスクロール */
+function scrollToSec(sec){
+  if (!sec) return;
+  const h = [...main.querySelectorAll('h4')].find(x => x.textContent.trim().startsWith(sec));
+  if (h) setTimeout(() => h.scrollIntoView({block:'start'}), 60);
+}
+const hashSec = () => decodeURIComponent(String(location.hash || '').replace(/^#/, '')).split('/')[2] || '';
+const isWeekHash = () => location.hash === '#week';
+window.addEventListener('hashchange', () => {
+  if (isWeekHash()) { renderWeek(); return; }
+  const u = fromHash(), sec = hashSec(); if (u) Promise.resolve(show(u)).then(() => scrollToSec(sec));
+});
 boot();
 </script>

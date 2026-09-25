@@ -525,9 +525,13 @@ body.drawer .wrap{grid-template-columns:minmax(0,1fr)} body.drawer aside{display
 .wk-pop .rf a{display:block;color:var(--ai);text-decoration:none;padding:2px 0}
 .wk-pop .rf a em{font-style:normal;font-size:11px;color:var(--agree);margin-left:6px}
 .wk-pop .acts a{margin-right:12px;font-size:13px}
-@media (max-width:760px){
-  .wk-r{grid-template-columns:1fr;gap:4px}
+@media (max-width:900px){
+  .wk-r{grid-template-columns:64px minmax(0,1fr) minmax(0,1fr);grid-template-areas:"dq th pt" "dq ar cs";row-gap:6px}
+  .wk-r .dq{grid-area:dq}.wk-r .th{grid-area:th}.wk-r .pt{grid-area:pt}.wk-r .ar{grid-area:ar}.wk-r .cs{grid-area:cs}
   .wk-r.hd{display:none}
+}
+@media (max-width:560px){
+  .wk-r{grid-template-columns:1fr;grid-template-areas:"dq" "th" "pt" "ar" "cs";gap:4px}
   .wk-r .dq{display:flex;gap:8px;align-items:baseline}
 }
 </style>
@@ -2066,8 +2070,8 @@ async function renderWeek(){
       + '<div class="dq"><a href="' + u + '">' + r.id + '</a><small>' + md5(r.day) + ' ' + esc(r.subj) + (r.ron ? '・論文' : '') + '</small></div>'
       + '<div class="th"><a href="' + u + '">' + esc(r.theme || '—') + '</a>'
         + (r.ans ? '<small>正解 ' + esc(r.ans) + '</small>' : '') + '</div>'
-      + '<div>' + (r.arts.length ? r.arts.map(k => chip(k)).join('') : '<span class="none">—</span>') + '</div>'
-      + '<div>' + (r.cases.length ? r.cases.map(k => chip(k, 1)).join('') : '<span class="none">—</span>') + '</div>'
+      + '<div class="ar">' + (r.arts.length ? r.arts.map(k => chip(k)).join('') : '<span class="none">—</span>') + '</div>'
+      + '<div class="cs">' + (r.cases.length ? r.cases.map(k => chip(k, 1)).join('') : '<span class="none">—</span>') + '</div>'
       + '<div class="pt">' + (r.lead ? '<a href="' + qhref(r.day, r.id, '①') + '">' + esc(r.lead) + '</a>'
         : '<span class="none">' + (r.sum ? '—' : '要約はまだ（定時実行後に入ります）') + '</span>') + '</div>'
       + '</div>';

@@ -86,6 +86,17 @@ section{padding:26px 0 4px}
 .body .arts span{font-size:11.5px;background:var(--card);border:1px solid var(--line);
   border-radius:6px;padding:2px 7px;color:var(--ink2)}
 .body .ans{margin:10px 0 0;font-size:15px;font-weight:800;color:var(--review)}
+.body .gain{margin:0 0 10px;font-size:14px;font-weight:700;line-height:1.65;color:var(--ink)}
+.body .gain span,.body .one span,.body .trap span{display:inline-block;margin-right:7px;font-size:10.5px;
+  font-weight:700;letter-spacing:.05em;padding:1px 7px;border-radius:5px;background:var(--card);
+  border:1px solid var(--line);color:var(--ink3);vertical-align:1px}
+.body .pts{margin:0}
+.body .pts dt{margin:10px 0 2px;font-size:13px;font-weight:800;color:var(--review)}
+.body .pts dt:first-child{margin-top:0}
+.body .pts dd{margin:0;font-size:14px;line-height:1.75;color:var(--ink)}
+.body .pts b,.body .trap b{background:linear-gradient(transparent 60%,rgba(214,170,60,.35) 60%)}
+.body .one{margin:12px 0 0;font-size:14.5px;font-weight:800;line-height:1.6}
+.body .trap{margin:8px 0 0;font-size:13px;line-height:1.7;color:var(--ink2)}
 .body .ans.thin{font-size:12px;font-weight:600;color:var(--ink3)}
 .body .reveal{margin-top:0;width:100%;font:inherit;font-size:13px;font-weight:700;
   padding:9px;border-radius:9px;border:1px dashed var(--line);background:transparent;
@@ -282,7 +293,7 @@ footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);
              ② ai/data/manifest.json … 実際に解いた日と問題番号（間隔反復の種）
    固定の例文は一切持たない。読めなかったら「読めなかった」と出す。
    ══════════════════════════════════════════════════════════ */
-const VER = "20260927-1";
+const VER = "20260927-2";
 const CTX_URL = () => `https://raw.githubusercontent.com/osamuina8008/business-tools/main/study/context.json?t=${Date.now()}`;
 const MAN_URL = () => `ai/data/manifest.json?t=${Date.now()}`;
 const PACK_URL = () => `pack.json?t=${Date.now()}`;
@@ -408,7 +419,9 @@ function splitAction(a){
    「短答を3問」とだけ言われても、電車の中では何も始められないため。 */
 const usedBodies = new Set();
 function pickForSubject(subject){
-  const list = PBYSUBJ.get(normSubj(subject)) || [];
+  const all = PBYSUBJ.get(normSubj(subject)) || [];
+  /* 「これで身につくこと」(g) が作れている問題を先に出す（2026-09-27）*/
+  const list = [...all.filter(it=>it.g), ...all.filter(it=>!it.g)];
   for(const it of list){
     const k = `${it.d}|${it.q}`;
     if(usedBodies.has(k)) continue;
@@ -453,7 +466,7 @@ function buildPool(){
       kind:"gap", key, subject:sub, minutes:15,
       title: gapBody && gapBody.t ? gapBody.t : `${sub}の短答を3問`,
       how: gapBody
-        ? `${sub}の短答3問、まずこの1問から。見出しの論点を自分の言葉で説明してから、要点を開きます。`
+        ? `${sub}の短答3問、まずこの1問から。` + (gapBody.g ? `下の条文で何が決まっているか、言ってから要点を開きます。` : `見出しの論点を自分の言葉で説明してから、要点を開きます。`)
         : (topics ? `論点は ${topics}。正解を見る前に、どこが問われているかを一言で言います。`
                   : `${head||"短答3問"}。正解を見る前に、どこが問われているかを一言で言います。`),
       why: `<b>${gapDays!=null ? gapDays+"日ぶり" : "進捗あり"}</b>${sit ? "・"+esc(sit) : ""}`,
@@ -487,7 +500,8 @@ function buildPool(){
     if(!qs.length) return;
     /* 中身（何を聞いているか）を持つ問題を最優先。次に論点名のある問題。
        番号しか無いものを見出しにすると、電車の中で何もできない。 */
-    const withBody = qs.filter(q=>PQ.has(`${d.day}|${q.id}`));
+    const withBody = [...qs.filter(q=>PQ.get(`${d.day}|${q.id}`)?.g),
+                      ...qs.filter(q=>{const x=PQ.get(`${d.day}|${q.id}`); return x && !x.g;})];
     const named    = qs.filter(q=>topicOf(q));
     const order    = withBody.length ? withBody : (named.length ? named : qs);
     const lead     = order[0];
@@ -497,7 +511,7 @@ function buildPool(){
       kind:"srs", key, subject:sub, minutes:10,
       title: (body && body.t) || topicOf(lead) || `${sub} ${lead.id} をもう一度`,
       how: body
-        ? `${lead.id}（${date}に解いた回）。まず見出しの論点を自分の言葉で説明してから、要点を開きます。`
+        ? `${lead.id}（${date}に解いた回）。` + (body.g ? `下の条文で何が決まっているか、言ってから要点を開きます。` : `まず見出しの論点を自分の言葉で説明してから、要点を開きます。`)
         : `${lead.id}${rest.length?"・"+rest.join("・"):""}（${date}に解いた回）。答えを隠して、肢の切り方だけ先に言います。`,
       why:`<b>${elapsed}日経過</b>・${date}に解いた回`,
       link: aiLink(d.day, lead.id),
@@ -546,6 +560,25 @@ function selectCards(pool){
 }
 
 /* ══════ 描画 ══════ */
+/* 「これで身につくこと」版の中身（card_gain.py → pack.json の g）2026-09-27
+   押す前: 身につくこと＋条文の見出しだけ。押した後: 条文ごとの中身・一言で・ひっかけ。 */
+const hl = s => esc(s).replace(/【([^】]*)】/g,"<b>$1</b>");
+const ansLine = b => `<p class="ans thin">${b.ans
+  ? `元の短答は 肢${esc(b.ans)} が正解（問題文は「開く」で確認）`
+  : `元の短答の正解はAIで割れています。「開く」で確かめてください。`}</p>`;
+function gainHTML(b, shown){
+  const g = b.g;
+  return `<div class="body">
+    ${g.gain?`<p class="gain"><span>身につくこと</span>${esc(g.gain)}</p>`:""}
+    ${shown
+      ? `<dl class="pts">${g.p.map(p=>`<dt>${esc(p.k)}</dt><dd>${hl(p.v)}</dd>`).join("")}</dl>
+         ${g.one?`<p class="one"><span>一言で</span>${esc(g.one)}</p>`:""}
+         ${g.trap?`<p class="trap"><span>ひっかけ</span>${hl(g.trap)}</p>`:""}
+         ${ansLine(b)}`
+      : `<p class="arts">${g.p.map(p=>`<span>${esc(p.k)}</span>`).join("")}</p>
+         <button type="button" class="reveal" data-act="reveal">言えたら、要点を見る</button>`}
+  </div>`;
+}
 function cardHTML(c){
   const label = {gap:"今日の必須", srs:"期限の復習", weak:"繰り返しの弱点", mine:"自分で足した"}[c.kind];
   const done = lastDone(c.key)===TODAY;
@@ -556,7 +589,8 @@ function cardHTML(c){
     ${c.subject?`<span class="tag">${esc(c.subject)}${b?"・"+esc(b.q):""}</span>`:""}
     <h4>${esc(c.title)}</h4>
     <p class="how">${esc(c.how)}</p>
-    ${b ? `<div class="body">
+    ${b && b.g ? gainHTML(b, shown) : ""}
+    ${b && !b.g ? `<div class="body">
       ${(b.ar&&b.ar.length)?`<p class="arts">${b.ar.map(a=>`<span>${esc(a)}</span>`).join("")}</p>`:""}
       ${shown
         ? `<p class="ask">${esc(b.a)}</p>

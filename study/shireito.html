@@ -79,15 +79,15 @@ section{padding:26px 0 4px}
   border-radius:999px;padding:3px 10px;color:var(--ink2)}
 .card h4{margin:0;font-size:17px;font-weight:800;line-height:1.5}
 .card .how{margin:0;font-size:13.5px;color:var(--ink2)}
-/* カードの中身（何を聞いているか・条文・正解）*/
+/* カードの中身（条文→言えたら要点・元の正解肢）*/
 .body{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:12px 13px}
 .body .ask{margin:0;font-size:14px;line-height:1.75;color:var(--ink)}
-.body .arts{margin:9px 0 0;display:flex;flex-wrap:wrap;gap:5px}
+.body .arts{margin:0 0 10px;display:flex;flex-wrap:wrap;gap:5px}
 .body .arts span{font-size:11.5px;background:var(--card);border:1px solid var(--line);
   border-radius:6px;padding:2px 7px;color:var(--ink2)}
 .body .ans{margin:10px 0 0;font-size:15px;font-weight:800;color:var(--review)}
 .body .ans.thin{font-size:12px;font-weight:600;color:var(--ink3)}
-.body .reveal{margin-top:10px;width:100%;font:inherit;font-size:13px;font-weight:700;
+.body .reveal{margin-top:0;width:100%;font:inherit;font-size:13px;font-weight:700;
   padding:9px;border-radius:9px;border:1px dashed var(--line);background:transparent;
   color:var(--ink2);cursor:pointer}
 .body .reveal:hover{border-style:solid;color:var(--ink)}
@@ -282,7 +282,7 @@ footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);
              ② ai/data/manifest.json … 実際に解いた日と問題番号（間隔反復の種）
    固定の例文は一切持たない。読めなかったら「読めなかった」と出す。
    ══════════════════════════════════════════════════════════ */
-const VER = "20260922-1";
+const VER = "20260927-1";
 const CTX_URL = () => `https://raw.githubusercontent.com/osamuina8008/business-tools/main/study/context.json?t=${Date.now()}`;
 const MAN_URL = () => `ai/data/manifest.json?t=${Date.now()}`;
 const PACK_URL = () => `pack.json?t=${Date.now()}`;
@@ -453,7 +453,7 @@ function buildPool(){
       kind:"gap", key, subject:sub, minutes:15,
       title: gapBody && gapBody.t ? gapBody.t : `${sub}の短答を3問`,
       how: gapBody
-        ? `${sub}の短答3問、まずこの1問から。自分の言葉で答えてから、答えを開きます。`
+        ? `${sub}の短答3問、まずこの1問から。見出しの論点を自分の言葉で説明してから、要点を開きます。`
         : (topics ? `論点は ${topics}。正解を見る前に、どこが問われているかを一言で言います。`
                   : `${head||"短答3問"}。正解を見る前に、どこが問われているかを一言で言います。`),
       why: `<b>${gapDays!=null ? gapDays+"日ぶり" : "進捗あり"}</b>${sit ? "・"+esc(sit) : ""}`,
@@ -497,7 +497,7 @@ function buildPool(){
       kind:"srs", key, subject:sub, minutes:10,
       title: (body && body.t) || topicOf(lead) || `${sub} ${lead.id} をもう一度`,
       how: body
-        ? `${lead.id}（${date}に解いた回）。まず自分の言葉で答えてから、答えを開きます。`
+        ? `${lead.id}（${date}に解いた回）。まず見出しの論点を自分の言葉で説明してから、要点を開きます。`
         : `${lead.id}${rest.length?"・"+rest.join("・"):""}（${date}に解いた回）。答えを隠して、肢の切り方だけ先に言います。`,
       why:`<b>${elapsed}日経過</b>・${date}に解いた回`,
       link: aiLink(d.day, lead.id),
@@ -557,12 +557,13 @@ function cardHTML(c){
     <h4>${esc(c.title)}</h4>
     <p class="how">${esc(c.how)}</p>
     ${b ? `<div class="body">
-      <p class="ask">${esc(b.a)}</p>
       ${(b.ar&&b.ar.length)?`<p class="arts">${b.ar.map(a=>`<span>${esc(a)}</span>`).join("")}</p>`:""}
-      ${b.ans
-        ? (shown ? `<p class="ans">正解 ${esc(b.ans)}</p>`
-                 : `<button type="button" class="reveal" data-act="reveal">言えたら、答えを見る</button>`)
-        : `<p class="ans thin">この問題の正解はAIで割れています。開いて確かめてください。</p>`}
+      ${shown
+        ? `<p class="ask">${esc(b.a)}</p>
+           <p class="ans thin">${b.ans
+              ? `元の短答は 肢${esc(b.ans)} が正解（問題文は「開く」で確認）`
+              : `元の短答の正解はAIで割れています。「開く」で確かめてください。`}</p>`
+        : `<button type="button" class="reveal" data-act="reveal">言えたら、要点を見る</button>`}
     </div>` : ""}
     <p class="why">なぜ今日：${c.why}</p>
     <div class="acts">

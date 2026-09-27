@@ -411,6 +411,9 @@ body.reading{overflow:hidden}
 .sm-one{font-size:16.5px;font-weight:500;margin:4px 0 1px 34px}
 .sm-one em{font-style:normal;background:linear-gradient(transparent 60%,rgba(46,115,85,.25) 60%)}
 .sm-src{font-size:12.5px;color:var(--muted);margin-left:34px}
+.sm-src .sm-art{font:inherit;font-size:12.5px;color:var(--ai);background:var(--sunk);border:1px solid var(--line);
+  border-radius:5px;padding:0 5px;margin:0 1px;cursor:pointer;text-decoration:underline dotted}
+.sm-src .sm-art:hover{border-color:var(--ai)}
 .sm-warn{background:var(--flagbg);border-left:4px solid var(--differ);border-radius:4px;padding:8px 12px;margin:8px 0 0 34px;font-size:14px;line-height:1.7}
 .sm details{margin:8px 0 4px 34px}
 .sm summary{cursor:pointer;font-size:13.5px;color:var(--ai);list-style:none;min-height:30px;display:flex;align-items:center}
@@ -1440,6 +1443,30 @@ function showNote(key, title, body, el){
   try { box.scrollIntoView({block:'nearest', behavior:'smooth'}); } catch(e){}
 }
 
+/* ③肢ごとの判断の「条文：会社法42条・43条1項」「主体の軸／38条1項」の条数を押せるように（2026-09-27、本人要望）。
+   法令名の無い条数は直前の法令名、無ければその問題で一番多く挙がった法令とみなす（qgather.py の sum_leg_arts と同じ）。 */
+const LAWS = ['国家賠償法','行政不服審査法','行政手続法','小切手法','手形法','会社法','刑訴法','民訴法','行訴法','公選法','会計法','破産法','民執法','民法','憲法','刑法','商法'];
+const LAW_RX = new RegExp('(' + LAWS.join('|') + ')?第?(\\d+)条(?:の(\\d+))?[^・、，,／/（）()\\s]*', 'g');
+function mainLaw(q){
+  const c = {};
+  Object.values(q.ai || {}).forEach(v => (v.articles || []).forEach(a => {
+    const m = a.match(new RegExp('^(' + LAWS.join('|') + ')\\d')); if (m) c[m[1]] = (c[m[1]] || 0) + 1; }));
+  return Object.keys(c).sort((x, y) => c[y] - c[x])[0] || '';
+}
+function smSrc(q, src){
+  let law = mainLaw(q), out = '', last = 0, m;
+  LAW_RX.lastIndex = 0;
+  while ((m = LAW_RX.exec(src))) {
+    law = m[1] || law;
+    out += esc(src.slice(last, m.index));
+    const k = law ? law + m[2] + '条' + (m[3] ? 'の' + m[3] : '') : '';
+    out += k ? '<button class="kw sm-art" data-k="' + esc(k) + '" title="' + esc(k + ' の条文・一言・前に出た問題') + '">' + esc(m[0]) + '</button>'
+             : esc(m[0]);
+    last = m.index + m[0].length;
+  }
+  return out + esc(src.slice(last));
+}
+
 let artKey = '';
 function showArt(k, el){
   const a = ARTS[k], p = PAST[k];
@@ -1481,7 +1508,7 @@ function showArt(k, el){
     + '<div class="acts"><span class="lbl">参照する</span>' + refs.join('') + '</div>'
     + '</div>' + pastRows(k);
 
-  const row = el && el.closest('.kws');
+  const row = el && el.closest('.kws, .sm-src');
   if (row) row.after(box);
   else if (fallback) fallback.appendChild(box);
   try { box.scrollIntoView({block:'nearest', behavior:'smooth'}); } catch(e){}
@@ -1695,7 +1722,7 @@ function sumBlock(q){
         + '<span class="sm-ox ' + (ox === '×' ? 'x' : 'o') + '">' + esc(ox) + '</span>'
         + (L.look ? '<span class="sm-look">' + esc(L.look) + '</span>' : '') + chip + '</div>'
         + '<p class="sm-one">' + em(L.one) + '</p>'
-        + (L.src ? '<div class="sm-src">' + esc(L.src) + '</div>' : '')
+        + (L.src ? '<div class="sm-src">' + smSrc(q, L.src) + '</div>' : '')
         + (L.warn ? '<div class="sm-warn">⚠ ' + esc(L.warn) + '</div>' : '')
         + (who.length ? '<details><summary>各社の解説（' + who.length + '社）</summary>'
           + tabs(gid, who.map(a => [a, esc(a) + (wrong(a) ? '<span class="x">×</span>' : '')]), on)

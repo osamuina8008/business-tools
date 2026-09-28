@@ -55,6 +55,25 @@
       --c-read-bg:   rgba(14,165,183,.18);
     }
 
+    /* モノトーン（AI横断ノートと同じ落ち着いた配色）。本人の希望で追加 2026-09-29 */
+    body.mono {
+      --bg1: #F1F3F6; --bg2: #F1F3F6; --surf: #FFFFFF; --surf2: #E7EBF0; --border: #D3DAE2;
+      --text: #15202B; --dim: #5D6B7A; --acc: #1F4E79; --acc2: #1F4E79;
+      --shadow: 0 1px 3px rgba(20,30,45,.08); --shadow-lg: 0 6px 18px rgba(20,30,45,.12);
+      --c-review: #1F4E79; --c-weak: #AE3826; --c-task: #5D6B7A; --c-quiz: #2E7355; --c-tip: #1F4E79; --c-read: #1F4E79;
+      --c-review-bg: #E7EBF0; --c-weak-bg: #FBECE8; --c-task-bg: #E7EBF0; --c-quiz-bg: #E6F1EB; --c-tip-bg: #E7EBF0; --c-read-bg: #E7EBF0;
+    }
+    body.mono.dark {
+      --bg1: #12161B; --bg2: #12161B; --surf: #1B212A; --surf2: #232A34; --border: #2E3742;
+      --text: #E3E8EE; --dim: #94A2B2; --acc: #83B4E4; --acc2: #83B4E4;
+      --shadow: 0 1px 3px rgba(0,0,0,.4); --shadow-lg: 0 6px 18px rgba(0,0,0,.5);
+      --c-review: #83B4E4; --c-weak: #EC8272; --c-task: #94A2B2; --c-quiz: #66C79B; --c-tip: #83B4E4; --c-read: #83B4E4;
+      --c-review-bg: #232A34; --c-weak-bg: #3A2420; --c-task-bg: #232A34; --c-quiz-bg: #1F3329; --c-tip-bg: #232A34; --c-read-bg: #232A34;
+    }
+    body.mono .sp-mic, body.mono .sp-memo { background: var(--acc); }
+    body.mono.dark .sp-mic, body.mono.dark .sp-memo { color: #12161B; }
+    :root { --bg: var(--surf2); }
+    body { --bg: var(--surf2); }
     html, body { height: 100%; }
     body {
       background: linear-gradient(160deg, var(--bg1), var(--bg2));
@@ -642,7 +661,7 @@
 //  定数
 // ════════════════════════════════════════════
 const WEEKLY = {0:"商法",1:"憲法",2:"民法",3:"刑法",4:"行政法",5:"民訴法",6:"刑訴法"};
-const APP_VER = "20260929-3";   // ← 更新するたびに version.json と合わせて上げる
+const APP_VER = "20260929-4";   // ← 更新するたびに version.json と合わせて上げる
 const API_URL = "https://api.anthropic.com/v1/messages";
 const API_MODEL = "claude-haiku-4-5-20251001";
 const CTX_URL = () => `https://raw.githubusercontent.com/osamuina8008/business-tools/main/study/context.json?t=${Date.now()}`;
@@ -2360,9 +2379,24 @@ $("log-clear").addEventListener("click", ()=>{
 });
 
 // テーマ
-function applyTheme(dark){ document.body.classList.toggle("dark", dark);
-  $("theme-btn").textContent = dark?"☀️":"🌙"; localStorage.setItem("rf_theme", dark?"dark":"light"); }
-$("theme-btn").addEventListener("click", ()=> applyTheme(!document.body.classList.contains("dark")));
+/* 表示モード：カラー（明/暗）・モノトーン（明/暗）の4つを🌙ボタンで順に切り替え */
+const THEMES = ["light","dark","mono","mono-dark"];
+const THEME_ICON = {light:"🎨", dark:"🌙", mono:"◐", "mono-dark":"●"};
+const THEME_NAME = {light:"カラー（明るい）", dark:"カラー（暗い）", mono:"モノトーン（明るい）", "mono-dark":"モノトーン（暗い）"};
+function applyTheme(t){
+  if(t===true) t="dark"; if(t===false) t="light";
+  if(!THEMES.includes(t)) t="light";
+  document.body.classList.toggle("dark", t==="dark" || t==="mono-dark");
+  document.body.classList.toggle("mono", t==="mono" || t==="mono-dark");
+  $("theme-btn").textContent = THEME_ICON[t]; $("theme-btn").title = "表示：" + THEME_NAME[t];
+  try{ localStorage.setItem("rf_theme", t); }catch(e){}
+  return t;
+}
+$("theme-btn").addEventListener("click", ()=>{
+  let cur; try{ cur = localStorage.getItem("rf_theme")||"light"; }catch(e){ cur="light"; }
+  const t = applyTheme(THEMES[(THEMES.indexOf(cur)+1) % THEMES.length]);
+  toast("表示：" + THEME_NAME[t]);
+});
 
 // 文字サイズ
 const SIZES=[15,17,19]; let sizeIdx=parseInt(localStorage.getItem("rf_font")||"0");
@@ -2772,7 +2806,7 @@ function init(){
   $("hd-date").textContent = `${now.getMonth()+1}/${now.getDate()}（${d[now.getDay()]}）`;
   $("app-ver").textContent = APP_VER;
   checkUpdate();
-  applyTheme((localStorage.getItem("rf_theme")||"light")==="dark");
+  try{ applyTheme(localStorage.getItem("rf_theme")||"light"); }catch(e){ applyTheme("light"); }
   applyFont();
   renderMemoBadge();
   if(!apiKey){ showSetup(); }

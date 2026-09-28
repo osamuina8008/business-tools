@@ -411,54 +411,9 @@ body.reading{overflow:hidden}
 .sm-one{font-size:16.5px;font-weight:500;margin:4px 0 1px 34px}
 .sm-one em{font-style:normal;background:linear-gradient(transparent 60%,rgba(46,115,85,.25) 60%)}
 .sm-src{font-size:12.5px;color:var(--muted);margin-left:34px}
-a.egov,.sm a.egov,.md a.egov,.tok a.egov{color:inherit;text-decoration:underline;text-underline-offset:2px;text-decoration-color:rgba(37,99,235,.45)}
-a.egov:hover,.sm a.egov:hover,.md a.egov:hover,.tok a.egov:hover{color:#2563eb;text-decoration-color:#2563eb}
-a.kw.egov-art{text-decoration:underline;text-underline-offset:2px;text-decoration-color:rgba(37,99,235,.35)}
-/* ---- 条文クリック：要約パネル（e-Gov は別タブ） ---- */
-#artov{display:none;position:fixed;inset:0;z-index:40;background:rgba(21,32,43,.38)}
-body.artopen #artov{display:block}
-#artpanel{display:none;position:fixed;z-index:41;background:var(--surface);color:var(--ink);
-  border-left:1px solid var(--line);right:0;top:0;bottom:0;width:min(420px,92vw);
-  flex-direction:column;box-shadow:-6px 0 24px rgba(0,0,0,.1);
-  transform:translateX(8px);opacity:0;transition:transform .18s ease,opacity .18s ease}
-body.artopen #artpanel{display:flex;transform:translateX(0);opacity:1}
-.ap-bar{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line)}
-.ap-bar .ap-ttl{flex:1;min-width:0}
-.ap-bar .ap-ttl b{display:block;font-family:var(--disp);font-size:18px;line-height:1.35;color:var(--ai)}
-.ap-bar .ap-ttl span{display:block;font-size:12px;color:var(--muted);margin-top:2px}
-.ap-x{flex:none;font:inherit;font-size:13px;border:1px solid var(--line);background:var(--sunk);color:var(--ink);
-  border-radius:5px;padding:7px 12px;min-height:36px;cursor:pointer}
-.ap-x:hover{border-color:var(--ai);color:var(--ai)}
-.ap-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:14px 16px 28px}
-.ap-body h5{font-family:var(--disp);font-size:13px;letter-spacing:.06em;color:var(--muted);
-  margin:18px 0 6px;font-weight:700}
-.ap-body h5:first-child{margin-top:0}
-.ap-ul{list-style:none;margin:0;padding:0}
-.ap-ul li{position:relative;padding:6px 0 6px 14px;font-size:14.5px;line-height:1.65;
-  color:var(--ink);word-break:break-word}
-.ap-ul li + li{border-top:1px solid rgba(0,0,0,.06)}
-.ap-ul li::before{content:"";position:absolute;left:0;top:.9em;width:5px;height:5px;
-  border-radius:50%;background:var(--ai);opacity:.85}
-.ap-ul .wh{display:inline;font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.03em;margin-right:.45em}
-.ap-ul .tx{display:inline}
-.ap-ul .tx em{font-style:normal;background:linear-gradient(transparent 60%,rgba(46,115,85,.25) 60%)}
-.ap-ul.ap-soft li{font-size:13px;line-height:1.55;color:var(--ink)}
-.ap-ul.ap-soft li::before{background:var(--muted);opacity:.5;width:4px;height:4px;top:.95em}
-.ap-empty{font-size:13.5px;color:var(--muted);line-height:1.7;margin:0 0 12px}
-.ap-foot{padding:12px 14px 16px;border-top:1px solid var(--line);background:var(--paper);
-  display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.ap-egov{display:inline-flex;align-items:center;justify-content:center;font:inherit;font-size:14px;font-weight:700;
-  color:var(--surface);background:var(--ai);border:1px solid var(--ai);border-radius:6px;
-  padding:10px 16px;min-height:42px;text-decoration:none;cursor:pointer}
-.ap-egov:hover{filter:brightness(1.06)}
-.ap-note{font-size:11.5px;color:var(--muted);line-height:1.55;flex:1;min-width:12em}
-@media(max-width:820px),(orientation:portrait) and (max-width:1100px){
-  #artpanel{left:0;right:0;top:auto;bottom:0;width:auto;height:min(72vh,640px);
-    border-left:0;border-top:1px solid var(--line);border-radius:12px 12px 0 0;
-    box-shadow:0 -6px 24px rgba(0,0,0,.12);transform:translateY(12px)}
-  body.artopen #artpanel{transform:translateY(0)}
-}
-@media(prefers-reduced-motion:reduce){#artpanel{transition:none}}
+.sm-src .sm-art{font:inherit;font-size:12.5px;color:var(--ai);background:var(--sunk);border:1px solid var(--line);
+  border-radius:5px;padding:0 5px;margin:0 1px;cursor:pointer;text-decoration:underline dotted}
+.sm-src .sm-art:hover{border-color:var(--ai)}
 .sm-warn{background:var(--flagbg);border-left:4px solid var(--differ);border-radius:4px;padding:8px 12px;margin:8px 0 0 34px;font-size:14px;line-height:1.7}
 .sm details{margin:8px 0 4px 34px}
 .sm summary{cursor:pointer;font-size:13.5px;color:var(--ai);list-style:none;min-height:30px;display:flex;align-items:center}
@@ -492,15 +447,27 @@ body.artopen #artpanel{display:flex;transform:translateX(0);opacity:1}
 
 /* ---- 問題の引き出し ---- */
 #qdrawer{display:none;position:fixed;z-index:30;background:var(--surface);border-left:1px solid var(--line);
-  right:0;top:0;bottom:0;width:46vw;flex-direction:column;box-shadow:-4px 0 18px rgba(0,0,0,.08)}
+  right:0;top:0;bottom:0;width:var(--dw,46vw);flex-direction:column;box-shadow:-4px 0 18px rgba(0,0,0,.08)}
 body.drawer #qdrawer{display:flex}
-body.drawer .wrap{margin-right:46vw}
-.qd-bar{display:flex;align-items:center;gap:12px;padding:8px 12px;border-bottom:1px solid var(--line);font-size:13px}
+body.drawer .wrap{margin-right:var(--dw,46vw)}
+/* 仕切り（ドラッグで幅を変える）。iPadの指でもつかめるよう太めに取る */
+#qd-grip{position:absolute;left:-9px;top:0;bottom:0;width:18px;cursor:col-resize;touch-action:none;z-index:2;
+  display:flex;align-items:center;justify-content:center}
+#qd-grip::after{content:"";width:5px;height:56px;border-radius:3px;background:var(--line)}
+#qd-grip:hover::after,body.qd-drag #qd-grip::after{background:var(--ai)}
+body.qd-drag{user-select:none;-webkit-user-select:none}
+body.qd-drag #qd-f{pointer-events:none}
+/* 拡大：iframeを枠より広くして、はみ出した分は枠の中でスクロール */
+#qd-box{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;position:relative}
+.qd-zoom{display:flex;align-items:center;gap:4px}
+.qd-zoom span{min-width:3.2em;text-align:center;font-variant-numeric:tabular-nums}
+.qd-bar .qd-zoom button{padding:6px 10px;min-width:36px}
+.qd-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:8px 12px;border-bottom:1px solid var(--line);font-size:13px}
 .qd-bar b{flex:1;font-family:var(--disp);font-size:15px}
 .qd-bar a{color:var(--ai);text-decoration:none}
 .qd-bar button{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--sunk);color:var(--ink);
   border-radius:5px;padding:6px 12px;min-height:36px;cursor:pointer}
-#qd-f{flex:1;width:100%;border:0;background:#fff}
+#qd-f{display:block;width:calc(100% * var(--qz,1));height:100%;border:0;background:#fff}
 .pkform{margin-top:10px;background:var(--sunk);border-radius:6px;padding:12px 14px;max-width:520px}
 .pkform label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px}
 .pkform div{display:flex;gap:8px}
@@ -509,9 +476,11 @@ body.drawer .wrap{margin-right:46vw}
 /* 並べている間は左の一覧を畳んで、解説側の幅を確保する */
 body.drawer .wrap{grid-template-columns:minmax(0,1fr)} body.drawer aside{display:none}
 @media(max-width:820px), (orientation:portrait) and (max-width:1100px){
-  #qdrawer{left:0;right:0;top:auto;width:auto;height:52vh;border-left:0;border-top:1px solid var(--line);
+  #qdrawer{left:0;right:0;top:auto;width:auto;height:var(--dh,52vh);border-left:0;border-top:1px solid var(--line);
     box-shadow:0 -4px 18px rgba(0,0,0,.1)}
-  body.drawer .wrap{margin-right:0;padding-bottom:52vh}
+  body.drawer .wrap{margin-right:0;padding-bottom:var(--dh,52vh)}
+  #qd-grip{left:0;right:0;top:-9px;bottom:auto;width:auto;height:18px;cursor:row-resize}
+  #qd-grip::after{width:56px;height:5px}
   body.drawer aside{display:block}
 }
 
@@ -587,6 +556,10 @@ body.drawer .wrap{grid-template-columns:minmax(0,1fr)} body.drawer aside{display
   .wk-r .dq{display:flex;gap:8px;align-items:baseline}
 }
 </style>
+<script>
+/* 表示の明るさ：自動（端末に合わせる）／ライト／ダーク。本人の希望で追加（2026-09-29） */
+(function(){ try{ var t = localStorage.getItem("qg_theme"); if(t==="light"||t==="dark") document.documentElement.setAttribute("data-theme", t); }catch(e){} })();
+</script>
 <div class="wrap">
 <aside>
   <div class="brand">
@@ -680,8 +653,7 @@ function md(src){
     if(/^\s*```/.test(ln)){
       flush(); const buf = []; i++;
       while(i < L.length && !/^\s*```/.test(L[i])) buf.push(L[i++]);
-      /* 図解の条番号もリンク化（pre 内でも a.egov 可） */
-      i++; out.push('<pre><code>'+linkifyArts(buf.join('\n'), CUR)+'</code></pre>'); continue;
+      i++; out.push('<pre><code>'+esc(buf.join('\n'))+'</code></pre>'); continue;
     }
     if(/^\s*(-{3,}|_{3,}|\*{3,})\s*$/.test(ln)){ flush(); out.push('<hr>'); i++; continue; }
 
@@ -739,8 +711,7 @@ function md(src){
     para.push(ln); i++;
   }
   flush();
-  /* AI本文・図解・各社解説内の「会社法N条」等を e-Gov 検索へ */
-  return linkifyHtml(out.join(''), CUR);
+  return out.join('');
 }
 
 /* 一覧の ⚑ は、本体を読む前でも出せるように manifest 側で計算済み（sp）。 */
@@ -1058,8 +1029,8 @@ function drawReader(){
   const chips = (rSec === ALLSEC ? secs : [rSec])
     .flatMap(k => kws(q.ai[a].sections[k] || '', q.ai[a]));
   const seen = new Set(), chipHtml = chips.filter(k => !seen.has(k) && seen.add(k))
-    .map(k => kwArtChip(k, ((ARTS[k] || PAST[k]) ? ' mine' : '')
-      + ((gistFor(k) || localGist(k)) ? ' has' : ''), '', '')).join('');
+    .map(k => '<button class="kw' + ((ARTS[k] || PAST[k]) ? ' mine' : '')
+      + ((gistFor(k) || localGist(k)) ? ' has' : '') + '" data-k="' + esc(k) + '">' + esc(k) + '</button>').join('');
   const notes = (q.ai[a].notes || []).map((nt, j) =>
     '<button class="kw note" data-note="' + esc(a) + '|' + j + '">📎 ' + esc(nt.t) + '</button>').join('');
   const prev = A[(i - 1 + A.length) % A.length], next = A[(i + 1) % A.length];
@@ -1103,7 +1074,7 @@ function drawReader(){
   };
   readerEl.querySelectorAll('[data-go]').forEach(b => b.onclick = () => { READ = b.dataset.go; drawReader(); readerEl.scrollTop = 0; });
   readerEl.querySelectorAll('[data-rs]').forEach(b => b.onclick = () => { rSec = b.dataset.rs; drawReader(); readerEl.scrollTop = 0; });
-  wireKwArtClicks(readerEl);
+  readerEl.querySelectorAll('.kw[data-k]').forEach(b => b.onclick = () => showArt(b.dataset.k, b));
   readerEl.querySelectorAll('.kw[data-note]').forEach(b => b.onclick = () => {
     const [ai0, j] = b.dataset.note.split('|');
     const nt = ((CUR.ai[ai0] || {}).notes || [])[+j];
@@ -1232,8 +1203,7 @@ function matrix(q){
     return u.map(x => {
       const n = count(x, f);
       const cls = n === A.length ? 'all' : (n === 1 ? 'solo' : '');
-      const body = f === 'articles' ? linkifyArts(x, q) : esc(x);
-      return `<span class="tok ${cls}">${body}${n===1?' ⚑':''}</span>`;
+      return `<span class="tok ${cls}">${esc(x)}${n===1?' ⚑':''}</span>`;
     }).join('');
   };
   const td = (a, inner, cls) =>
@@ -1491,20 +1461,35 @@ function showNote(key, title, body, el){
   try { box.scrollIntoView({block:'nearest', behavior:'smooth'}); } catch(e){}
 }
 
+/* ③肢ごとの判断の「条文：会社法42条・43条1項」「主体の軸／38条1項」の条数を押せるように（2026-09-27、本人要望）。
+   法令名の無い条数は直前の法令名、無ければその問題で一番多く挙がった法令とみなす（qgather.py の sum_leg_arts と同じ）。 */
+const LAWS = ['刑事補償法','国家賠償法','行政不服審査法','行政手続法','小切手法','手形法','会社法','刑訴法','民訴法','行訴法','公選法','会計法','破産法','民執法','民法','憲法','刑法','商法'];
+const LAW_RX = new RegExp('(' + LAWS.join('|') + '|[一-龥]{1,10}法)?第?(\\d+)条(?:の(\\d+))?[^・、，,／/（）()\\s]*', 'g');
+function mainLaw(q){
+  const c = {};
+  Object.values(q.ai || {}).forEach(v => (v.articles || []).forEach(a => {
+    const m = a.match(new RegExp('^(' + LAWS.join('|') + ')\\d')); if (m) c[m[1]] = (c[m[1]] || 0) + 1; }));
+  return Object.keys(c).sort((x, y) => c[y] - c[x])[0] || '';
+}
+function smSrc(q, src){
+  let law = mainLaw(q), out = '', last = 0, m;
+  LAW_RX.lastIndex = 0;
+  while ((m = LAW_RX.exec(src))) {
+    /* 知らない法令名（「刑事補償法5条1項」等）も法令名として受ける。受けないと直前の「憲法」を引き継ぎ、
+       憲法5条（摂政）を出していた（2026-09-28）。知っている名で終わるならその名に寄せる。 */
+    const g = m[1] ? (LAWS.find(n => m[1].endsWith(n)) || m[1]) : '';
+    law = g || law;
+    out += esc(src.slice(last, m.index));
+    const k = law ? law + m[2] + '条' + (m[3] ? 'の' + m[3] : '') : '';
+    out += k ? '<button class="kw sm-art" data-k="' + esc(k) + '" title="' + esc(k + ' の条文・一言・前に出た問題') + '">' + esc(m[0]) + '</button>'
+             : esc(m[0]);
+    last = m.index + m[0].length;
+  }
+  return out + esc(src.slice(last));
+}
+
 let artKey = '';
 function showArt(k, el){
-  /* 条文は要点パネルへ統一。ここは判例・論点語など非条文チップ用 */
-  const eg = egovCiteHref(k);
-  if (eg && artNo(k)) {
-    document.querySelectorAll('.artwrap').forEach(x => x.remove());
-    artKey = '';
-    if (document.body.classList.contains('artopen') && ART_PANEL_CITE === k) {
-      closeArtPanel();
-      return;
-    }
-    openArtPanel(k, eg);
-    return;
-  }
   const a = ARTS[k], p = PAST[k];
   /* パネルは「押したチップのすぐ下」に出す。ページ末尾の #artbox に描くと
      チップから数千px下になり、押しても何も起きていないように見えた（2026-09-14）。 */
@@ -1513,7 +1498,6 @@ function showArt(k, el){
   if (fallback) fallback.innerHTML = '';
   if (artKey === k){ artKey = ''; return; }      // もう一度押すと閉じる
   artKey = k;
-  closeArtPanel();
   const box = document.createElement('div');
   box.className = 'artwrap';
 
@@ -1528,7 +1512,6 @@ function showArt(k, el){
   if (!a) refs.push('<button data-cur="1">📋 Cursor への指示</button>');
   refs.push('<a href="https://www.google.com/search?q=' + encodeURIComponent(k + ' 判例 要件')
     + '" target="_blank" rel="noopener">🔎 Web で調べる</a>');
-  if (eg) refs.push('<a href="' + eg + '" target="_blank" rel="noopener">📜 e-Govで検索</a>');
 
   const g = gistFor(k) || localGist(k), ft = impTitle(k);
   const src = [g ? '出典 ' + g.src : '', ft].filter(Boolean).join('　・　');
@@ -1546,7 +1529,7 @@ function showArt(k, el){
     + '<div class="acts"><span class="lbl">参照する</span>' + refs.join('') + '</div>'
     + '</div>' + pastRows(k);
 
-  const row = el && el.closest('.kws');
+  const row = el && el.closest('.kws, .sm-src');
   if (row) row.after(box);
   else if (fallback) fallback.appendChild(box);
   try { box.scrollIntoView({block:'nearest', behavior:'smooth'}); } catch(e){}
@@ -1593,9 +1576,10 @@ function renderCols(){
         /* ホバーで出るのは「覚えること」。回数だけでは思い出す手がかりにならない。 */
         const tip = g ? g.t + '\n（' + g.src + '）'
                       : (mine ? '自分のノートを見る' : 'まだ一言まとめがありません。押すと探せます');
-        const extra = (n===1 && ALL.length>1 ? ' ⚑' : '')
-          + (st ? '<span class="imp">' + st + '</span>' : '');
-        return kwArtChip(k, cls + (mine ? ' mine' : '') + (g ? ' has' : ''), tip, extra);
+        return '<button class="kw ' + cls + (mine ? ' mine' : '') + (g ? ' has' : '')
+             + '" data-k="' + esc(k) + '" title="' + esc(tip) + '">'
+             + esc(k) + (n===1 && ALL.length>1 ? ' ⚑' : '')
+             + (st ? '<span class="imp">' + st + '</span>' : '') + '</button>';
       }).join('');
       const notes = (q.ai[a].notes || []).map((nt, i) =>
         '<button class="kw note" data-note="' + esc(a) + '|' + i
@@ -1621,7 +1605,7 @@ function renderCols(){
              + '<details><summary>「' + esc(secPick) + '」の見出しなし — 全文を開く</summary>'
              + '<div class="md">' + md(all) + '</div></details></div>';
       }).join('');
-  wireKwArtClicks(colsEl);
+  document.querySelectorAll('.kw[data-k]').forEach(b => b.onclick = () => showArt(b.dataset.k, b));
   document.querySelectorAll('.kw[data-note]').forEach(b => b.onclick = () => {
     const [a, i] = b.dataset.note.split('|');
     const nt = ((CUR.ai[a] || {}).notes || [])[+i];
@@ -1679,219 +1663,6 @@ async function loadDay(day){
 }
 
 
-/* ---- 条文 → e-Gov 法令検索 ----
-   画面上の条番号引用を検索結果へリンクする（頭に入る版・AI本文・チップ・比較表）。
-   条文ページ /law/{id}#Mp-At_N。クリックは要約パネル、e-Gov全文はボタン（2026-09-28）。 */
-const EGOV_LAW_NAMES = [
-  '行政事件訴訟法','行政不服審査法','行政手続法','国家賠償法','国家公務員法',
-  '公職選挙法','民事訴訟法','刑事訴訟法','民事執行法','不動産登記法',
-  '会社法施行規則','民事訴訟規則','行政代執行法','食品衛生法','建築基準法',
-  '生活保護法','児童扶養手当法','政策評価法','行政機関情報公開法','銃砲刀剣類所持等取締法','国家行政組織法',
-  '会社法','手形法','小切手法','破産法','裁判所法','会計法','警察法','関税法',
-  '国賠法','国行組法','銃刀法',
-  '民法','商法','刑法','憲法',
-  '行訴法','公選法','国公法','民訴規則','民訴法','刑訴法','民執法','施行規則',
-  '民訴','刑訴','民執','行訴','公選',
-  /* 略号（長い法令名の後。民545条・手6条・憲37条 等） */
-  '民','手','小','憲','刑','商'
-];
-const EGOV_LAW_CANON = {
-  '行政事件訴訟法':'行政事件訴訟法','行訴法':'行政事件訴訟法','行訴':'行政事件訴訟法',
-  '行政不服審査法':'行政不服審査法','行政手続法':'行政手続法',
-  '国家賠償法':'国家賠償法','国賠法':'国家賠償法',
-  '国家公務員法':'国家公務員法','国公法':'国家公務員法',
-  '公職選挙法':'公職選挙法','公選法':'公職選挙法','公選':'公職選挙法',
-  '民事訴訟法':'民事訴訟法','民訴法':'民事訴訟法','民訴':'民事訴訟法',
-  '刑事訴訟法':'刑事訴訟法','刑訴法':'刑事訴訟法','刑訴':'刑事訴訟法',
-  '民事執行法':'民事執行法','民執法':'民事執行法','民執':'民事執行法',
-  '民事訴訟規則':'民事訴訟規則','民訴規則':'民事訴訟規則',
-  '不動産登記法':'不動産登記法','会社法施行規則':'会社法施行規則','施行規則':'会社法施行規則',
-  '行政代執行法':'行政代執行法','食品衛生法':'食品衛生法','建築基準法':'建築基準法',
-  '生活保護法':'生活保護法','児童扶養手当法':'児童扶養手当法','政策評価法':'政策評価法',
-  '行政機関情報公開法':'行政機関情報公開法','国家行政組織法':'国家行政組織法',
-  '銃砲刀剣類所持等取締法':'銃砲刀剣類所持等取締法','銃刀法':'銃砲刀剣類所持等取締法',
-  '会社法':'会社法','手形法':'手形法','小切手法':'小切手法','破産法':'破産法',
-  '裁判所法':'裁判所法','会計法':'会計法','警察法':'警察法','関税法':'関税法',
-  '国行組法':'国家行政組織法',
-  '民法':'民法','商法':'商法','刑法':'刑法','憲法':'憲法',
-  '民':'民法','手':'手形法','小':'小切手法','憲':'憲法','刑':'刑法','商':'商法'
-};
-/* 法令名（正規化後）→ e-Gov law_id。未収録はトップへフォールバック */
-const EGOV_LAW_IDS = {
-  '行政事件訴訟法':'337AC0000000139',
-  '行政不服審査法':'426AC0000000068',
-  '行政手続法':'405AC0000000088',
-  '国家賠償法':'322AC0000000125',
-  '国家公務員法':'322AC0000000120',
-  '公職選挙法':'325AC1000000100',
-  '民事訴訟法':'408AC0000000109',
-  '刑事訴訟法':'323AC0000000131',
-  '民事執行法':'354AC0000000004',
-  '不動産登記法':'416AC0000000123',
-  '会社法施行規則':'418M60000010012',
-  '行政代執行法':'323AC0000000043',
-  '食品衛生法':'322AC0000000233',
-  '建築基準法':'325AC0000000201',
-  '生活保護法':'325AC0000000144',
-  '児童扶養手当法':'336AC0000000238',
-  '政策評価法':'413AC0000000086',
-  '行政機関情報公開法':'411AC0000000042',
-  '銃砲刀剣類所持等取締法':'333AC0000000006',
-  '国家行政組織法':'323AC0000000120',
-  '会社法':'417AC0000000086',
-  '手形法':'307AC0000000020',
-  '小切手法':'308AC0000000057',
-  '破産法':'416AC0000000075',
-  '裁判所法':'322AC0000000059',
-  '会計法':'322AC0000000035',
-  '警察法':'329AC0000000162',
-  '関税法':'329AC0000000061',
-  '民法':'129AC0000000089',
-  '商法':'132AC0000000048',
-  '刑法':'140AC0000000045',
-  '憲法':'321CONSTITUTION'
-};
-const EGOV_TOP = 'https://laws.e-gov.go.jp/';
-const EGOV_SUBJ_LAW = {
-  '商法':'会社法','民法':'民法','刑法':'刑法','憲法':'憲法',
-  '民訴法':'民事訴訟法','民事訴訟法':'民事訴訟法',
-  '刑訴法':'刑事訴訟法','刑事訴訟法':'刑事訴訟法',
-  '行政法':'行政事件訴訟法'
-};
-/* 手16Ⅰ → 手16条Ⅰ（条省略のローマ数字項） */
-function egovNormCite(s){
-  return String(s).replace(
-    /(行政事件訴訟法|行政不服審査法|行政手続法|国家賠償法|国家公務員法|公職選挙法|民事訴訟法|刑事訴訟法|民事執行法|不動産登記法|会社法施行規則|民事訴訟規則|行政代執行法|食品衛生法|建築基準法|生活保護法|児童扶養手当法|会社法|手形法|小切手法|破産法|裁判所法|会計法|警察法|関税法|国賠法|国行組法|銃刀法|民法|商法|刑法|憲法|行訴法|公選法|国公法|民訴規則|民訴法|刑訴法|民執法|施行規則|民訴|刑訴|民執|行訴|公選|民|手|小|憲|刑|商)(\d{1,4})([ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ]+)/g,
-    '$1$2条$3'
-  );
-}
-const EGOV_ART_RE = new RegExp(
-  '(?:(' + EGOV_LAW_NAMES.join('|') + ')\\s*)?' +
-  '第?(\\d{1,4})条(?:の\\d{1,2})?' +
-  '(?:' +
-    '(?:第?\\d{1,2}項|[ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ]+|第?\\d{1,2}号)+' +
-    '(?:・(?:第?\\d{1,2}項|[ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ]+|第?\\d{1,2}号)+)*' +
-  ')?',
-  'g'
-);
-/* 会社法42条 → /law/...#Mp-At_42 */
-function egovSearchHref(q){
-  const s = String(q || '');
-  const m = s.match(/^(.+?)(\d{1,4})条(?:の(\d{1,2}))?/);
-  if (!m) return EGOV_TOP;
-  const law = EGOV_LAW_CANON[m[1]] || m[1];
-  const id = EGOV_LAW_IDS[law];
-  if (!id) return EGOV_TOP;
-  const frag = m[3] ? ('Mp-At_' + m[2] + '_' + m[3]) : ('Mp-At_' + m[2]);
-  return 'https://laws.e-gov.go.jp/law/' + id + '#' + frag;
-}
-function egovDefaultLaw(q){
-  const sub = (q && q.subject) || (CUR && CUR.subject) || '';
-  if (EGOV_SUBJ_LAW[sub]) return EGOV_SUBJ_LAW[sub];
-  const hit = Object.keys(EGOV_SUBJ_LAW).sort((a,b)=>b.length-a.length).find(k => sub.includes(k));
-  return hit ? EGOV_SUBJ_LAW[hit] : '';
-}
-function egovCanonLaw(raw){
-  return raw ? (EGOV_LAW_CANON[raw] || raw) : '';
-}
-/* 1件分の検索キーワード。法令名なし条は科目既定／carry を使う */
-function egovArtKeyword(full, rawLaw, lastLaw){
-  const law = rawLaw ? egovCanonLaw(rawLaw) : lastLaw;
-  if (!law) return { law: lastLaw, kw: '' };
-  const artPart = full.slice(rawLaw.length).replace(/^\s+/, '').replace(/^第/, '');
-  return { law, kw: law + artPart };
-}
-function egovAnchor(full, kw){
-  return '<a class="egov" href="' + egovSearchHref(kw) + '" data-cite="' + esc(kw)
-      + '" target="_blank" rel="noopener">' + esc(full) + '</a>';
-}
-/* 条番号の連続をリンク化。法令名のない条は直前の法令名（なければ科目の既定）を引き継ぐ。
-   「（主体は発起人のみ）」のような条番号でない括弧書きはそのまま。
-   alreadyEsc: 入力が HTML エスケープ済み（タグ外テキスト）のとき二重エスケープしない。 */
-function linkifyArts(text, q, alreadyEsc){
-  if (!text) return '';
-  const s0 = String(text);
-  const s = egovNormCite(s0);
-  /* norm で長さが変わった場合は s0 全体を s 基準で処理（表示も正規化後） */
-  const src = s;
-  const defLaw = egovDefaultLaw(q);
-  let lastLaw = defLaw;
-  let out = '', i = 0;
-  const wrap = alreadyEsc ? (t => t) : esc;
-  for (const m of src.matchAll(EGOV_ART_RE)) {
-    const gap = src.slice(i, m.index);
-    /* ／・。で文が切れたら法令名の引き継ぎを科目既定に戻す
-       （例: 裁判所法33条Ⅰ／15条 → 15条は民訴法） */
-    if (/[／。]/.test(gap)) lastLaw = defLaw;
-    out += wrap(gap);
-    const rawLaw = m[1] || '';
-    const full = m[0];
-    const { law, kw } = egovArtKeyword(full, rawLaw, lastLaw);
-    if (rawLaw) lastLaw = law;
-    else if (law) lastLaw = law;
-    if (kw) {
-      out += alreadyEsc
-        ? '<a class="egov" href="' + egovSearchHref(kw) + '" data-cite="' + esc(kw) + '" target="_blank" rel="noopener">' + full + '</a>'
-        : egovAnchor(full, kw);
-    } else {
-      out += wrap(full);
-    }
-    i = m.index + full.length;
-  }
-  out += wrap(src.slice(i));
-  return out;
-}
-/* 既に組み立てた HTML のタグ外テキストだけリンク化（AI本文用）。既存 <a> 内は触らない。 */
-function linkifyHtml(html, q){
-  if (!html) return '';
-  let depth = 0;
-  return String(html).split(/(<[^>]+>)/).map(part => {
-    if (!part) return '';
-    if (part.charAt(0) === '<') {
-      if (/^<a\b/i.test(part)) depth++;
-      else if (/^<\/a>/i.test(part)) depth = Math.max(0, depth - 1);
-      return part;
-    }
-    if (depth) return part;
-    return linkifyArts(part, q, true);
-  }).join('');
-}
-/* チップ1語から検索 URL（条文っぽいときだけ） */
-function egovCiteHref(k, q){
-  if (!k || !/条/.test(k)) return '';
-  const s = egovNormCite(k);
-  const defLaw = egovDefaultLaw(q || CUR);
-  let lastLaw = defLaw, href = '';
-  for (const m of s.matchAll(EGOV_ART_RE)) {
-    const rawLaw = m[1] || '';
-    const { law, kw } = egovArtKeyword(m[0], rawLaw, lastLaw);
-    if (rawLaw) lastLaw = law;
-    else if (law) lastLaw = law;
-    if (kw) { href = egovSearchHref(kw); break; }
-  }
-  return href;
-}
-function kwArtChip(k, cls, tip, extra){
-  const href = egovCiteHref(k);
-  const c = (cls || '') + (href ? ' egov-art' : '');
-  if (href) {
-    return '<a class="kw ' + c + '" href="' + href + '" target="_blank" rel="noopener" data-k="'
-      + esc(k) + '" title="' + esc(tip || '') + '">' + esc(k) + (extra || '') + '</a>';
-  }
-  return '<button class="kw ' + c + '" data-k="' + esc(k) + '" title="' + esc(tip || '') + '">'
-    + esc(k) + (extra || '') + '</button>';
-}
-function wireKwArtClicks(root){
-  (root || document).querySelectorAll('.kw[data-k]').forEach(b => {
-    b.onclick = e => {
-      /* 通常クリック＝要点パネル（条文）／旧カードは出さない。修飾キーは e-Gov 直開 */
-      if (b.tagName === 'A' && (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button === 1)) return;
-      if (b.tagName === 'A') e.preventDefault();
-      showArt(b.dataset.k, b);
-    };
-  });
-}
-
 /* ---- 冒頭の「頭に入る版」 ----
    qsummary.py が6社の解説から作った要約（q.sum）を最初に見せる。
    ○×の一致・割れは要約に頼らず各社の choices から数える。
@@ -1919,9 +1690,7 @@ try { SM_SHUT = localStorage.getItem('x_sm_shut') === '1'; } catch(e){}
 function sumBlock(q){
   const S = q.sum; if (!S) return '';
   const A = ais(q);
-  /* esc＋条文リンク＋【強調】 */
-  const em = t => linkifyArts(t || '', q).replace(/【(.+?)】/g, '<em>$1</em>');
-  const arts = t => linkifyArts(t || '', q);
+  const em = t => esc(t || '').replace(/【(.+?)】/g, '<em>$1</em>');
   const tabs = (grp, items, on) => '<div class="sm-tabs" data-g="' + grp + '">' + items.map(([k, lbl]) =>
       '<button data-k="' + esc(k) + '" class="' + (k === on ? 'on' : '') + '">' + lbl + '</button>').join('') + '</div>';
   const pane = (grp, k, on, html, cls) => '<div class="sm-pane ' + (cls || '') + (k === on ? ' on' : '')
@@ -1930,11 +1699,11 @@ function sumBlock(q){
   /* 1 軸 */
   const ax = S.axis || {};
   if (ax.boxes && ax.boxes.length) {
-    h += '<h4>① まず、この問題の軸</h4>' + (ax.lead ? '<p class="sm-lead">' + arts(ax.lead) + '</p>' : '')
-      + '<div class="sm-q">' + ax.boxes.map(b => '<div class="sm-qb"><div class="qt">' + arts(b.q || '') + '</div>'
-        + (b.rows || []).map(r => '<div class="r"><b>' + arts(r[0] || '') + '</b> <span>' + arts(r[1] || '') + '</span></div>').join('')
+    h += '<h4>① まず、この問題の軸</h4>' + (ax.lead ? '<p class="sm-lead">' + esc(ax.lead) + '</p>' : '')
+      + '<div class="sm-q">' + ax.boxes.map(b => '<div class="sm-qb"><div class="qt">' + esc(b.q || '') + '</div>'
+        + (b.rows || []).map(r => '<div class="r"><b>' + esc(r[0] || '') + '</b> <span>' + esc(r[1] || '') + '</span></div>').join('')
         + '</div>').join('') + '</div>'
-      + (ax.note ? '<p class="sm-note">' + arts(ax.note) + '</p>' : '');
+      + (ax.note ? '<p class="sm-note">' + esc(ax.note) + '</p>' : '');
   }
   /* 2 図解（各社の②をそのまま）。論文の②は骨格 */
   const RB = S.kind === 'ronbun';
@@ -1972,10 +1741,10 @@ function sumBlock(q){
       const wrong = a => { const c = SM_OX(((q.ai[a].choices || {})[lab] || '').trim()); return c && ox && c !== ox; };
       return '<div class="sm-leg"><div class="sm-lh"><span class="sm-lid">' + esc(L.l || '') + '</span>'
         + '<span class="sm-ox ' + (ox === '×' ? 'x' : 'o') + '">' + esc(ox) + '</span>'
-        + (L.look ? '<span class="sm-look">' + arts(L.look) + '</span>' : '') + chip + '</div>'
+        + (L.look ? '<span class="sm-look">' + esc(L.look) + '</span>' : '') + chip + '</div>'
         + '<p class="sm-one">' + em(L.one) + '</p>'
-        + (L.src ? '<div class="sm-src">' + arts(L.src) + '</div>' : '')
-        + (L.warn ? '<div class="sm-warn">⚠ ' + arts(L.warn) + '</div>' : '')
+        + (L.src ? '<div class="sm-src">' + smSrc(q, L.src) + '</div>' : '')
+        + (L.warn ? '<div class="sm-warn">⚠ ' + esc(L.warn) + '</div>' : '')
         + (who.length ? '<details><summary>各社の解説（' + who.length + '社）</summary>'
           + tabs(gid, who.map(a => [a, esc(a) + (wrong(a) ? '<span class="x">×</span>' : '')]), on)
           + who.map(a => pane(gid, a, on, md(per[a][lab]), 'sm-ai' + (wrong(a) ? ' bad' : ''))).join('')
@@ -1990,10 +1759,10 @@ function sumBlock(q){
     h += '<h4>③ 論点ごとの流れ <span class="sm-note">（答案に書く順）</span></h4>' + flow.map(F =>
       '<div class="sm-leg sm-fl"><div class="sm-lh"><span class="sm-fn">' + esc(F.n || '') + '</span></div>'
       + (F.rule ? '<p class="sm-one"><span class="sm-tg">規範</span>' + em(F.rule) + '</p>' : '')
-      + ((F.facts || []).length ? '<div class="sm-fx"><span class="sm-tg">使う事実</span>' + F.facts.map(x => '<span class="sm-look">' + arts(x) + '</span>').join('') + '</div>' : '')
-      + (F.concl ? '<p class="sm-cc"><span class="sm-tg">結論</span>' + arts(F.concl) + '</p>' : '')
-      + (F.src ? '<div class="sm-src">' + arts(F.src) + '</div>' : '')
-      + (F.warn ? '<div class="sm-warn">⚠ ' + arts(F.warn) + '</div>' : '')
+      + ((F.facts || []).length ? '<div class="sm-fx"><span class="sm-tg">使う事実</span>' + F.facts.map(x => '<span class="sm-look">' + esc(x) + '</span>').join('') + '</div>' : '')
+      + (F.concl ? '<p class="sm-cc"><span class="sm-tg">結論</span>' + esc(F.concl) + '</p>' : '')
+      + (F.src ? '<div class="sm-src">' + esc(F.src) + '</div>' : '')
+      + (F.warn ? '<div class="sm-warn">⚠ ' + esc(F.warn) + '</div>' : '')
       + '</div>').join('')
       + (rc.length ? '<details><summary>各社の規範カード（' + rc.length + '社）</summary>'
         + tabs('rc', rc.map(a => [a, esc(a)]), rc[0])
@@ -2001,19 +1770,19 @@ function sumBlock(q){
   }
   /* 4 取り違え */
   if ((S.traps || []).length)
-    h += '<h4>④ 取り違えやすいところ</h4>' + S.traps.map(t => '<div class="sm-pair"><b>' + arts(t[0] || '') + '</b><span>' + arts(t[1] || '') + '</span></div>').join('');
+    h += '<h4>④ 取り違えやすいところ</h4>' + S.traps.map(t => '<div class="sm-pair"><b>' + esc(t[0] || '') + '</b><span>' + esc(t[1] || '') + '</span></div>').join('');
   /* 5 要件表 */
   if ((S.reqs || []).length)
     h += '<h4>⑤ 条文ごとの要件</h4><table><thead><tr><th>条文</th><th>' + (RB ? '何の場面か' : '何の書面・場面か') + '</th><th>要件</th></tr></thead><tbody>'
-      + S.reqs.map(r => '<tr><td>' + arts(r[0] || '') + '</td><td>' + arts(r[1] || '') + '</td><td>' + arts(r[2] || '') + '</td></tr>').join('')
+      + S.reqs.map(r => '<tr><td>' + esc(r[0] || '') + '</td><td>' + esc(r[1] || '') + '</td><td>' + esc(r[2] || '') + '</td></tr>').join('')
       + '</tbody></table>';
   /* 6 次回 */
   if ((S.must || []).length)
     h += '<h4>⑥ 答案に必ず書く一文</h4><ul class="sm-must">' + S.must.map(x => '<li>' + em(x) + '</li>').join('') + '</ul>';
-  if (S.next) h += '<h4>' + (RB ? '⑦' : '⑥') + ' 次に迷ったら</h4><p class="sm-next">' + arts(S.next) + '</p>';
+  if (S.next) h += '<h4>' + (RB ? '⑦' : '⑥') + ' 次に迷ったら</h4><p class="sm-next">' + esc(S.next) + '</p>';
   return '<section class="sm' + (SM_SHUT ? ' shut' : '') + '" id="sm"><div class="sm-top">'
-    + '<span class="lbl">頭に入る版</span><span class="th">' + arts(S.theme || '') + '</span>'
-    + (S.answer ? '<span class="sm-ans">' + (RB ? '結論 ' : '正解 ') + esc(S.answer) + (S.answer_note ? '<small>' + arts(S.answer_note) + '</small>' : '') + '</span>' : '')
+    + '<span class="lbl">頭に入る版</span><span class="th">' + esc(S.theme || '') + '</span>'
+    + (S.answer ? '<span class="sm-ans">' + (RB ? '結論 ' : '正解 ') + esc(S.answer) + (S.answer_note ? '<small>' + esc(S.answer_note) + '</small>' : '') + '</span>' : '')
     + '<button class="sm-fold" id="smfold">' + (SM_SHUT ? 'まとめを開く ▾' : 'まとめを畳む ▴') + '</button></div>'
     + '<div class="sm-body">' + h + '<p class="sm-foot">6社の解説から自動でまとめ直したもの。下に従来の比較・各社の本文が続きます。</p></div></section>';
 }
@@ -2080,12 +1849,74 @@ function drawerEl(){
   let d = document.getElementById('qdrawer');
   if (!d) {
     d = document.createElement('div'); d.id = 'qdrawer';
-    d.innerHTML = '<div class="qd-bar"><b id="qd-t"></b><a id="qd-ext" target="_blank" rel="noopener">別ウィンドウ ↗</a>'
-      + '<button id="qd-x" aria-label="閉じる">閉じる ✕</button></div><iframe id="qd-f" loading="lazy"></iframe>';
+    d.innerHTML = '<div id="qd-grip" title="ドラッグで幅を変える（ダブルクリックで元に戻す）"></div>'
+      + '<div class="qd-bar"><b id="qd-t"></b>'
+      + '<span class="qd-zoom"><button id="qd-zo" aria-label="縮小">－</button><span id="qd-zv"></span>'
+      + '<button id="qd-zi" aria-label="拡大">＋</button></span>'
+      + '<a id="qd-ext" target="_blank" rel="noopener">別ウィンドウ ↗</a>'
+      + '<button id="qd-x" aria-label="閉じる">閉じる ✕</button></div><div id="qd-box"><iframe id="qd-f" loading="lazy"></iframe></div>';
     document.body.appendChild(d);
     d.querySelector('#qd-x').onclick = () => setDrawer(false);
+    d.querySelector('#qd-zi').onclick = () => setZoom(QZ_STEPS[Math.min(QZ_STEPS.length - 1, QZ_STEPS.indexOf(QZ) + 1)]);
+    d.querySelector('#qd-zo').onclick = () => setZoom(QZ_STEPS[Math.max(0, QZ_STEPS.indexOf(QZ) - 1)]);
+    d.querySelector('#qd-zv').onclick = () => setZoom(1);
+    wireGrip(d.querySelector('#qd-grip'));
+    setZoom(QZ);
   }
   return d;
+}
+
+/* 拡大率：Driveのプレビューは中身を枠の幅に合わせて描くので、iframe自体を広く取れば文字が大きくなる */
+const QZ_STEPS = [1, 1.25, 1.5, 1.75, 2, 2.5, 3];
+let QZ = 1;
+try { const z = parseFloat(localStorage.getItem('xpdf_zoom')); if (QZ_STEPS.includes(z)) QZ = z; } catch(e){}
+function setZoom(z){
+  QZ = z;
+  document.documentElement.style.setProperty('--qz', z);
+  const v = document.getElementById('qd-zv'); if (v) v.textContent = Math.round(z * 100) + '%';
+  try { localStorage.setItem('xpdf_zoom', String(z)); } catch(e){}
+}
+
+/* 仕切り：幅（縦並びのときは高さ）をドラッグで変え、この端末に覚える */
+const qdStacked = () => getComputedStyle(document.getElementById('qdrawer')).top !== '0px';
+function applySplit(){
+  let w = null, h = null;
+  try { w = localStorage.getItem('xpdf_w'); h = localStorage.getItem('xpdf_h'); } catch(e){}
+  const r = document.documentElement.style;
+  w ? r.setProperty('--dw', w) : r.removeProperty('--dw');
+  h ? r.setProperty('--dh', h) : r.removeProperty('--dh');
+}
+applySplit();
+function wireGrip(g){
+  g.addEventListener('pointerdown', e => {
+    e.preventDefault();
+    g.setPointerCapture(e.pointerId);
+    document.body.classList.add('qd-drag');
+    const stacked = qdStacked();
+    const move = ev => {
+      if (stacked) {
+        const h = Math.min(90, Math.max(20, (innerHeight - ev.clientY) / innerHeight * 100));
+        document.documentElement.style.setProperty('--dh', h.toFixed(1) + 'vh');
+      } else {
+        const w = Math.min(85, Math.max(20, (innerWidth - ev.clientX) / innerWidth * 100));
+        document.documentElement.style.setProperty('--dw', w.toFixed(1) + 'vw');
+      }
+    };
+    const up = () => {
+      g.removeEventListener('pointermove', move); g.removeEventListener('pointerup', up); g.removeEventListener('pointercancel', up);
+      document.body.classList.remove('qd-drag');
+      const r = document.documentElement.style;
+      try {
+        if (stacked) localStorage.setItem('xpdf_h', r.getPropertyValue('--dh'));
+        else localStorage.setItem('xpdf_w', r.getPropertyValue('--dw'));
+      } catch(e){}
+    };
+    g.addEventListener('pointermove', move); g.addEventListener('pointerup', up); g.addEventListener('pointercancel', up);
+  });
+  g.addEventListener('dblclick', () => {
+    try { localStorage.removeItem(qdStacked() ? 'xpdf_h' : 'xpdf_w'); } catch(e){}
+    applySplit();
+  });
 }
 function setDrawer(on, url, title){
   DRAWER_ON = on;
@@ -2384,8 +2215,7 @@ function wkPop(W, btn){
   const t = W.terms[k] || {}, isArt = !!artNo(k) && /条/.test(k);
   const inWeek = new Set(W.rows.map(r => r.day + '|' + r.id));
   const acts = [];
-  if (egovCiteHref(k)) acts.push('<a href="' + egovCiteHref(k) + '" target="_blank" rel="noopener">📜 e-Govで検索</a>');
-  else if (t.law) acts.push('<a href="' + egovSearchHref(k) + '" target="_blank" rel="noopener">📜 e-Govで検索</a>');
+  if (t.law) acts.push('<a href="https://laws.e-gov.go.jp/law/' + t.law + '#Mp-At_' + t.at + '" target="_blank" rel="noopener">📜 e-Govで条文</a>');
   acts.push('<a href="https://www.google.com/search?q=' + encodeURIComponent(k + (isArt ? ' 趣旨 要件' : ' 判旨')) + '" target="_blank" rel="noopener">🔎 Webで調べる</a>');
   if (!isArt) acts.push('<a href="https://www.google.com/search?q=' + encodeURIComponent(k + ' site:courts.go.jp') + '" target="_blank" rel="noopener">⚖️ 裁判所の判例</a>');
   acts.push('<a href="' + obsSearch(k) + '">🔍 Vaultを検索</a>');
@@ -2414,277 +2244,31 @@ window.addEventListener('hashchange', () => {
   if (isWeekHash()) { renderWeek(); return; }
   const u = fromHash(), sec = hashSec(); if (u) Promise.resolve(show(u)).then(() => scrollToSec(sec));
 });
-
-/* ---- 条文引用クリック → 要点パネル ----
-   a.egov（本文）も .kw[data-k] 条文チップも同じ要点パネル。
-   Ctrl/⌘/Shift/Alt・中クリックは e-Gov をそのまま。
-   要約は q.sum（頭に入る版）と AI 本文の既存言及のみ。新規の法解釈は作らない。
-   旧「この問題での言及」＋.ap-hit カード／チップ直下 .artwrap は使わない。 */
-let ART_PANEL_CITE = '';
-function artNeedle(cite){
-  const s = egovNormCite(String(cite || ''));
-  const m = s.match(/(\d{1,4})条(?:の(\d{1,2}))?/);
-  if (!m) return '';
-  return m[2] ? (m[1] + '条の' + m[2]) : (m[1] + '条');
-}
-function artLawLabel(cite){
-  const s = egovNormCite(String(cite || ''));
-  const m = s.match(/^(.+?)(\d{1,4})条(?:の(\d{1,2}))?/);
-  if (!m) return { law: '', label: s };
-  const law = EGOV_LAW_CANON[m[1]] || m[1];
-  const art = m[3] ? (m[2] + '条の' + m[3]) : (m[2] + '条');
-  return { law, label: (law ? law : '') + art };
-}
-function artTextHas(text, needle){
-  if (!text || !needle) return false;
-  const s = String(text);
-  const n = String(needle);
-  let i = 0;
-  while ((i = s.indexOf(n, i)) !== -1) {
-    if (i === 0 || !/\d/.test(s.charAt(i - 1))) return true;
-    i += n.length;
-  }
-  return false;
-}
-function artCleanSnippet(text){
-  return String(text || '')
-    .replace(/^[\s|│┃─┌┐└┘├┤┬┴┼]+/, '')
-    .replace(/[\s|│┃─┌┐└┘├┤┬┴┼]+$/, '')
-    .replace(/^[-・●○◆◇▶▷\s]+/, '')
-    .replace(/\*\*([^*]+)\*\*/g, '$1')
-    .replace(/^\*\*|\*\*$/g, '')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-/* 条文番号・法令名だけの行（タグ／「根拠：42条」等）は要点にならないので落とす */
-function artIsBareCite(text, needle, wantLaw){
-  let s = artCleanSnippet(text);
-  if (!s) return true;
-  s = s.replace(/\*\*/g, '').replace(/[【】\[\]()（）「」『』]/g, ' ');
-  const escN = needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  /* 既知の法令名だけ剥がす（直前の普通の語を法令名扱いしない） */
-  const laws = Object.keys(EGOV_LAW_IDS || {}).concat(Object.keys(EGOV_LAW_CANON || {}))
-    .filter(Boolean).sort((a, b) => b.length - a.length)
-    .map(x => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-  const lawAlt = laws.length ? '(?:' + laws.join('|') + ')?' : '';
-  s = s.replace(new RegExp(lawAlt + '\\s*' + escN
-    + '(?:第?\\d+項|[ⅠⅡⅢⅣⅤ]+|第?\\d+号)*', 'g'), ' ');
-  s = s.replace(new RegExp(lawAlt + '\\s*\\d{1,4}条(?:の\\d{1,2})?(?:第?\\d+項|[ⅠⅡⅢⅣⅤ]+|第?\\d+号)*', 'g'), ' ');
-  s = s.replace(/(根拠|条文|参照|出典|関連|該当|上記|下記|など|等|および|及び|ならびに|並びに|と|・|／|\/|,|、|：|:|＝|=|-|—|–|\|)+/g, ' ');
-  s = s.replace(/\s+/g, '').trim();
-  return s.length < 2;
-}
-function artNormKey(text){
-  return artCleanSnippet(text).replace(/\*\*/g, '').replace(/\s+/g, '').toLowerCase();
-}
-function artWhereLabel(where){
-  let w = String(where || '')
-    .replace(/・要点$|・見る所$|・注意$|・注$|・規範$|・結論$|・事実$/, '')
-    .replace(/・条文タグ$/, '')
-    .replace(/^⑥ 必ず書く一文$/, '⑥')
-    .replace(/^④ 取り違え$/, '④')
-    .replace(/^⑤ 要件$/, '⑤')
-    .replace(/^一言メモ.*/, '一言');
-  /* Claude・④ 条文 / Claude・⑥ 各肢の解説 → Claude・④ / Claude・⑥ */
-  w = w.replace(/・([①-⑳\d]+)[\s　].*$/, '・$1');
-  return w.trim();
-}
-function artPushHit(out, where, text, needle, wantLaw, tier){
-  const raw = artCleanSnippet(text);
-  if (!raw || !artTextHas(raw, needle)) return;
-  /* 法令名付き引用のとき、別法令＋同番号（手形法42条 vs 会社法42条）は落とす */
-  if (wantLaw) {
-    const re = new RegExp('([一-龯ァ-ヶーA-Za-z]{1,24})\\s*' + needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-    const m = raw.match(re);
-    if (m) {
-      const other = EGOV_LAW_CANON[m[1]] || m[1];
-      if (other && other !== wantLaw && EGOV_LAW_IDS[other]) return;
-    }
-  }
-  if (artIsBareCite(raw, needle, wantLaw)) return;
-  const snip = raw.length > 160 ? raw.slice(0, 160) + '…' : raw;
-  const key = artNormKey(snip);
-  /* 同一・包含の冗長行は長い方を残す（要点優先） */
-  for (let i = 0; i < out.length; i++) {
-    const o = out[i];
-    const ok = artNormKey(o.text);
-    if (ok === key || ok.indexOf(key) !== -1 || key.indexOf(ok) !== -1) {
-      const preferNew = (tier === 'key' && o.tier !== 'key')
-        || (tier === o.tier && snip.length > o.text.length);
-      if (preferNew) out[i] = { where, text: snip, tier: tier || o.tier || 'more' };
-      return;
-    }
-  }
-  out.push({ where, text: snip, tier: tier || 'more' });
-}
-function collectArtMentions(q, cite){
-  const needle = artNeedle(cite);
-  const wantLaw = artLawLabel(cite).law || '';
-  const out = [];
-  if (!needle || !q) return out;
-  const S = q.sum || null;
-  if (S) {
-    /* 頭に入る版を要点優先で拾う（軸・肢・取り違え・要件） */
-    const ax = S.axis || {};
-    artPushHit(out, '① 軸', ax.lead, needle, wantLaw, 'key');
-    artPushHit(out, '① 軸', ax.note, needle, wantLaw, 'key');
-    (ax.boxes || []).forEach(b => {
-      artPushHit(out, '① 軸', b.q, needle, wantLaw, 'key');
-      (b.rows || []).forEach(r => {
-        artPushHit(out, '① 軸', ((r[0] || '') + ' ' + (r[1] || '')).trim(), needle, wantLaw, 'key');
-      });
-    });
-    (S.legs || []).forEach(L => {
-      const lab = '③ 肢' + (L.l || '');
-      const srcHit = artTextHas(L.src, needle) && !artIsBareCite(L.src || '', needle, wantLaw);
-      /* 肢の条文行がヒットしたら、番号が無い「要点」一文を優先 */
-      if (srcHit && L.one) {
-        const one = artCleanSnippet(L.one);
-        if (one) artPushHit(out, lab, artTextHas(one, needle) ? one : (one + '（' + needle + '）'), needle, wantLaw, 'key');
-        artPushHit(out, lab, L.src, needle, wantLaw, 'more');
-      } else {
-        artPushHit(out, lab, L.one, needle, wantLaw, 'key');
-        artPushHit(out, lab, L.src, needle, wantLaw, 'key');
-      }
-      artPushHit(out, lab, L.warn, needle, wantLaw, 'key');
-      artPushHit(out, lab, L.look, needle, wantLaw, 'more');
-    });
-    (S.flow || []).forEach(F => {
-      const lab = '③ ' + (F.n || '論点');
-      artPushHit(out, lab, F.concl, needle, wantLaw, 'key');
-      artPushHit(out, lab, F.rule, needle, wantLaw, 'key');
-      artPushHit(out, lab, F.src, needle, wantLaw, 'key');
-      artPushHit(out, lab, F.warn, needle, wantLaw, 'more');
-      (F.facts || []).forEach(x => artPushHit(out, lab, x, needle, wantLaw, 'more'));
-    });
-    (S.traps || []).forEach(t => {
-      artPushHit(out, '④ 取り違え', ((t[0] || '') + '：' + (t[1] || '')).trim(), needle, wantLaw, 'key');
-      artPushHit(out, '④ 取り違え', (t[0] || ''), needle, wantLaw, 'key');
-    });
-    (S.reqs || []).forEach(r => {
-      const row = [r[0], r[1], r[2]].filter(Boolean).join('／');
-      artPushHit(out, '⑤ 要件', row, needle, wantLaw, 'key');
-    });
-    (S.must || []).forEach(x => artPushHit(out, '⑥', x, needle, wantLaw, 'key'));
-    artPushHit(out, '正解メモ', S.answer_note, needle, wantLaw, 'more');
-    artPushHit(out, '次に', S.next, needle, wantLaw, 'more');
-  }
-  const A = typeof ais === 'function' ? ais(q) : Object.keys(q.ai || {});
-  A.forEach(a => {
-    const ai = q.ai[a] || {};
-    /* 条文タグ単体はスキップ（bare cite）。本文の中身だけ拾う */
-    Object.entries(ai.sections || {}).forEach(([sec, body]) => {
-      if (!body || !artTextHas(body, needle)) return;
-      const lines = String(body).split(/\n+/).map(x => x.trim()).filter(Boolean);
-      const hitLines = lines.filter(ln => artTextHas(ln, needle)).slice(0, 2);
-      hitLines.forEach(ln => {
-        artPushHit(out, a + '・' + sec, ln, needle, wantLaw, 'more');
-      });
-    });
-  });
-  return out;
-}
-function artRenderBullets(items, soft){
-  if (!items || !items.length) return '';
-  return '<ul class="ap-ul' + (soft ? ' ap-soft' : '') + '">' + items.map(x => {
-    const wh = artWhereLabel(x.where);
-    let tx = x.text;
-    if (soft && tx.length > 88) tx = tx.slice(0, 88) + '…';
-    return '<li>' + (wh ? '<span class="wh">' + esc(wh) + '</span>' : '')
-      + '<span class="tx">' + esc(tx).replace(/【(.+?)】/g, '<em>$1</em>') + '</span></li>';
-  }).join('') + '</ul>';
-}
-function artPanelEl(){
-  let ov = document.getElementById('artov');
-  let pan = document.getElementById('artpanel');
-  if (!ov) {
-    ov = document.createElement('div'); ov.id = 'artov'; ov.setAttribute('aria-hidden', 'true');
-    document.body.appendChild(ov);
-    ov.addEventListener('click', () => closeArtPanel());
-  }
-  if (!pan) {
-    pan = document.createElement('div'); pan.id = 'artpanel';
-    pan.setAttribute('role', 'dialog'); pan.setAttribute('aria-modal', 'true'); pan.setAttribute('aria-label', '条文の要点');
-    pan.innerHTML = '<div class="ap-bar"><div class="ap-ttl"><b id="ap-title"></b><span id="ap-sub"></span></div>'
-      + '<button type="button" class="ap-x" id="ap-x" aria-label="閉じる">閉じる</button></div>'
-      + '<div class="ap-body" id="ap-body"></div>'
-      + '<div class="ap-foot"><a class="ap-egov" id="ap-egov" target="_blank" rel="noopener">e-Govで全文</a>'
-      + '<span class="ap-note">このパネルは学習ノート上の言及だけを集めます。法的助言ではありません。</span></div>';
-    document.body.appendChild(pan);
-    pan.querySelector('#ap-x').onclick = () => closeArtPanel();
-  }
-  return pan;
-}
-function closeArtPanel(){
-  ART_PANEL_CITE = '';
-  document.body.classList.remove('artopen');
-  const pan = document.getElementById('artpanel');
-  if (pan) pan.setAttribute('aria-hidden', 'true');
-}
-function openArtPanel(cite, href){
-  const q = CUR;
-  const { law, label } = artLawLabel(cite);
-  const hits = collectArtMentions(q, cite);
-  const pan = artPanelEl();
-  /* チップ由来の旧 .artwrap カードが残ると要点パネルと二重表示になるので消す */
-  document.querySelectorAll('.artwrap').forEach(x => x.remove());
-  artKey = '';
-  ART_PANEL_CITE = cite;
-  document.getElementById('ap-title').textContent = label || cite;
-  document.getElementById('ap-sub').textContent = (q
-    ? ((q.subject || '') + ' ' + (q.id || '') + (q.sum && q.sum.theme ? '　' + q.sum.theme : ''))
-    : '');
-  const eg = document.getElementById('ap-egov');
-  eg.href = href || egovSearchHref(cite);
-  eg.textContent = 'e-Govで全文';
-  const body = document.getElementById('ap-body');
-  let h = '';
-  const g = (typeof gistFor === 'function' ? gistFor(cite) : null) || (typeof localGist === 'function' ? localGist(cite) : null);
-  const gistHit = (g && g.t && !artIsBareCite(g.t, artNeedle(cite), law))
-    ? [{ where: '一言', text: artCleanSnippet(g.t), tier: 'key' }]
-    : [];
-  const key = gistHit.concat(hits.filter(x => x.tier === 'key')).slice(0, 2);
-  const keyNorm = new Set(key.map(x => artNormKey(x.text)));
-  const moreRank = (x) => {
-    let sc = Math.min(x.text.length, 120);
-    if (/解任|選任|できる|できない|とは|趣旨|要件|成立|無効|原則/.test(x.text)) sc += 40;
-    if (/迷い|誤答|分類|根拠/.test(x.text) || /迷い|誤答|図解/.test(x.where || '')) sc -= 50;
-    return sc;
-  };
-  const more = hits.filter(x => x.tier !== 'key' && !keyNorm.has(artNormKey(x.text)))
-    .sort((a, b) => moreRank(b) - moreRank(a))
-    .slice(0, 3);
-  if (key.length) {
-    h += '<h5>要点</h5>' + artRenderBullets(key, false);
-  }
-  if (more.length) {
-    h += '<h5>どこで出てくる</h5>' + artRenderBullets(more, true);
-  }
-  if (!key.length && !more.length) {
-    h += '<p class="ap-empty">この問題の「頭に入る版」や AI 解説から、この条文への短い要点は見つかりませんでした。'
-      + '下のボタンから e-Gov の全文を開けます。</p>';
-    if (law) h += '<p class="ap-empty">法令：' + esc(law) + '</p>';
-  }
-  body.innerHTML = h;
-  document.body.classList.add('artopen');
-  pan.setAttribute('aria-hidden', 'false');
-  try { pan.querySelector('#ap-x').focus(); } catch(e){}
-}
-document.addEventListener('click', e => {
-  const a = e.target.closest && e.target.closest('a.egov');
-  if (!a) return;
-  if (a.id === 'ap-egov' || a.classList.contains('ap-egov')) return;
-  if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button === 1) return;
-  e.preventDefault();
-  const cite = a.getAttribute('data-cite') || a.textContent.trim();
-  openArtPanel(cite, a.getAttribute('href') || egovSearchHref(cite));
-});
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && document.body.classList.contains('artopen')) {
-    e.preventDefault();
-    closeArtPanel();
-  }
-});
-
 boot();
+</script>
+
+<button id="qg-theme" type="button" aria-label="表示の明るさを切り替え"></button>
+<style>
+#qg-theme{position:fixed;right:14px;bottom:14px;z-index:50;font:700 13px/1 var(--body);color:var(--ink);
+  background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:10px 14px;
+  box-shadow:0 2px 10px rgba(0,0,0,.18);cursor:pointer}
+@media print{#qg-theme{display:none}}
+</style>
+<script>
+(function(){
+  var b = document.getElementById("qg-theme"), order = ["auto","light","dark"],
+      label = {auto:"🌓 自動", light:"☀️ ライト", dark:"🌙 ダーク"};
+  function cur(){ try{ return localStorage.getItem("qg_theme") || "auto"; }catch(e){ return "auto"; } }
+  function apply(t){
+    if(t==="auto") document.documentElement.removeAttribute("data-theme");
+    else document.documentElement.setAttribute("data-theme", t);
+    b.textContent = label[t];
+  }
+  apply(cur());
+  b.addEventListener("click", function(){
+    var t = order[(order.indexOf(cur()) + 1) % 3];
+    try{ localStorage.setItem("qg_theme", t); }catch(e){}
+    apply(t);
+  });
+})();
 </script>

@@ -642,7 +642,7 @@
 //  定数
 // ════════════════════════════════════════════
 const WEEKLY = {0:"商法",1:"憲法",2:"民法",3:"刑法",4:"行政法",5:"民訴法",6:"刑訴法"};
-const APP_VER = "20260929-2";   // ← 更新するたびに version.json と合わせて上げる
+const APP_VER = "20260929-3";   // ← 更新するたびに version.json と合わせて上げる
 const API_URL = "https://api.anthropic.com/v1/messages";
 const API_MODEL = "claude-haiku-4-5-20251001";
 const CTX_URL = () => `https://raw.githubusercontent.com/osamuina8008/business-tools/main/study/context.json?t=${Date.now()}`;
@@ -1849,7 +1849,8 @@ function structSheet(card, box, st, ans){
   st._b = ans;
   const id = cardId(card);
   const gr = GRADES[id] || {};
-  const n = gr.n || 0, prev = gr.miss || [];
+  // 前の画面（項目ごとに◯✕を付けていた版）で記録した論点は、回数が無くても「2回目以降」として数える
+  const n = gr.n || (gr.g ? 1 : 0), prev = gr.miss || [];
   const plan = lsPlan(lsQuestions(st), n, prev);
   const seed = Math.floor(Date.now()/86400000) + n*13;
   const res = {};

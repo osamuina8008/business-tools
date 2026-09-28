@@ -604,7 +604,7 @@
 //  定数
 // ════════════════════════════════════════════
 const WEEKLY = {0:"商法",1:"憲法",2:"民法",3:"刑法",4:"行政法",5:"民訴法",6:"刑訴法"};
-const APP_VER = "20260928-3";   // ← 更新するたびに version.json と合わせて上げる
+const APP_VER = "20260928-4";   // ← 更新するたびに version.json と合わせて上げる
 const API_URL = "https://api.anthropic.com/v1/messages";
 const API_MODEL = "claude-haiku-4-5-20251001";
 const CTX_URL = () => `https://raw.githubusercontent.com/osamuina8008/business-tools/main/study/context.json?t=${Date.now()}`;
@@ -925,7 +925,7 @@ const TOPICS = {
      hook:"同じ争いを別の裁判所にも持ち込んだ。後の訴えはどうなるか",
      aim:"142条の当事者・事件の同一性を訴訟物論とつなげられる",
      b:"当事者の同一＋審判対象の同一。相殺の抗弁と別訴の関係、一部請求後の残部請求が典型の争点。趣旨は判決矛盾の回避・被告の応訴の煩・訴訟経済。"},
-    {t:"証明責任", kw:"証明責任",
+    {t:"証明責任", kw:"証明責任", syn:["立証責任"],
      hook:"どちらとも言えない、で終わった事実。負けるのはどちらか",
      aim:"真偽不明の処理を、規範説の配分から説明できる",
      b:"真偽不明のとき不利益を受ける当事者の地位。法律要件分類説で権利根拠・障害・消滅・阻止の各規定に振り分ける。自由心証主義（247条）、証明度、事実上の推定と区別する。"},
@@ -1662,7 +1662,9 @@ function launch(card){
   recordReview(card);
   if(card.read && card.url){ renderFeed(); window.open(card.url, "_blank"); return; }
   chatSubject = card.subject || ctx?.subject || chatSubject;
-  const ans = clean(card.b || card.why || "");
+  // 答えは論点ライブラリの要点(b)だけ。カードの説明文(why)を答えとして出さない（2026-09-28「立証責任」で
+  // 「これまで3回つまずいた論点」が答え欄に出た）
+  const ans = clean(card.b || (card.cat==="review"||card.cat==="weak" ? "" : card.why) || "");
   curTopic = { title: clean(card.topic || card.title), subject: chatSubject, q: clean(card.title), b: ans };
   $("chat-subj").textContent = chatSubject;
   // AIボタン用に、この論点の要点を会話の先頭に入れておく（画面には出さない）

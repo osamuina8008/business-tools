@@ -345,6 +345,43 @@
     .rv-ok button.on { background: linear-gradient(135deg, var(--acc), var(--acc2)); color: #fff; border-color: transparent; }
     .rv-sum { font-size: 13.5px; line-height: 1.7; font-weight: 700; }
     .rv-full summary { font-size: 12.5px; color: var(--dim); cursor: pointer; }
+    .ls-lec { font-size: 15px; line-height: 1.85; }
+    .ls-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .ls-row button, .ls-next { border: 1px solid var(--border); background: var(--bg); color: var(--text);
+      border-radius: 12px; padding: 10px 14px; font-size: 14px; font-weight: 800; cursor: pointer; }
+    .ls-row button.pri, .ls-next { background: linear-gradient(135deg, var(--acc), var(--acc2)); color: #fff; border-color: transparent; }
+    .ls-head { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--dim); font-weight: 800; }
+    .ls-tag { font-size: 11px; font-weight: 800; border-radius: 8px; padding: 2px 8px; border: 1px solid var(--border); }
+    .ls-tag.mem { background: #fde8e8; color: #b42318; border-color: #f5c2c0; }
+    .ls-tag.ok  { background: #e7f5ec; color: #1f7a45; border-color: #bfe3cc; }
+    .ls-tag.sho { background: #eaf0fe; color: #2b4fbd; border-color: #c6d4fb; }
+    .ls-q { font-size: 17px; font-weight: 800; line-height: 1.6; }
+    .ls-a { font-size: 15px; line-height: 1.8; background: var(--bg); border-radius: 12px; padding: 10px 12px; }
+    .ls-a ul { margin: 0; padding-left: 1.2em; }
+    .ls-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .ls-opts button { border: 1px solid var(--border); background: var(--bg); color: var(--text); border-radius: 12px;
+      padding: 12px 8px; font-size: 14.5px; font-weight: 800; cursor: pointer; }
+    .ls-opts button.right { background: #1f7a45; color: #fff; border-color: transparent; }
+    .ls-opts button.wrong { background: #b42318; color: #fff; border-color: transparent; }
+    .ls-cloze { font-size: 15.5px; line-height: 2.1; }
+    .ls-cloze button { border: none; border-bottom: 2px solid var(--acc); background: var(--bg); color: var(--acc);
+      font-weight: 800; font-size: 14px; padding: 2px 10px; margin: 0 2px; border-radius: 6px; cursor: pointer; }
+    .ls-cloze b.open { background: #fff4c2; color: #6b4e00; padding: 1px 4px; border-radius: 4px; }
+    .ls-res { font-size: 14.5px; font-weight: 800; }
+    .ls-res.good { color: #1f7a45; } .ls-res.bad { color: #b42318; }
+    .ls-src { font-size: 11.5px; color: var(--dim); line-height: 1.6; }
+    .ls-law { font-size: 13px; line-height: 1.7; }
+    .ls-law summary { cursor: pointer; color: var(--acc); font-weight: 800; }
+    .tk { display: flex; gap: 8px; align-items: flex-start; }
+    .tk .who { flex: none; font-size: 11px; font-weight: 800; border-radius: 8px; padding: 3px 7px; margin-top: 3px; }
+    .tk.t .who { background: #eaf0fe; color: #2b4fbd; } .tk.s .who { background: #fff1e0; color: #a15c00; }
+    .tk .say { font-size: 14.5px; line-height: 1.7; border-radius: 12px; padding: 7px 11px; background: var(--bg); }
+    .tk.on .say { outline: 2px solid var(--acc); }
+    .ls-pts { display: grid; gap: 6px; }
+    .ls-pt { display: grid; grid-template-columns: 5.5em 1fr; gap: 8px; font-size: 14px; line-height: 1.65; }
+    .ls-pt .k { font-weight: 800; font-size: 12.5px; }
+    .ls-pt .k small { display: block; font-size: 10.5px; font-weight: 800; }
+    .ls-pt .k small.mem { color: #b42318; } .ls-pt .k small.ok { color: #1f7a45; }
     #ai-note { font-size: 11px; color: var(--dim); padding: 6px 18px 0; }
     #quick { display: flex; gap: 7px; padding: 8px 16px 4px; overflow-x: auto;
       flex-shrink: 0; scrollbar-width: none; }
@@ -604,7 +641,7 @@
 //  定数
 // ════════════════════════════════════════════
 const WEEKLY = {0:"商法",1:"憲法",2:"民法",3:"刑法",4:"行政法",5:"民訴法",6:"刑訴法"};
-const APP_VER = "20260928-4";   // ← 更新するたびに version.json と合わせて上げる
+const APP_VER = "20260929-1";   // ← 更新するたびに version.json と合わせて上げる
 const API_URL = "https://api.anthropic.com/v1/messages";
 const API_MODEL = "claude-haiku-4-5-20251001";
 const CTX_URL = () => `https://raw.githubusercontent.com/osamuina8008/business-tools/main/study/context.json?t=${Date.now()}`;
@@ -874,7 +911,7 @@ const TOPICS = {
     {t:"裁量権の逸脱・濫用", kw:"裁量権", syn:["判断過程","判断過程審査","比例原則","他事考慮"],
      hook:"どちらの判断もありえた場面で、裁判所はどこまで踏み込むのか",
      aim:"30条の当てはめを、4類型と判断過程審査で厚く書ける",
-     b:"①事実誤認②目的違反・他事考慮③平等原則違反④比例原則違反。近時は判断過程の合理性審査（日光太郎杉・小田急）。社会観念上著しく妥当を欠くかが基本の物差し。"},
+     b:"行訴法30条＝裁量処分は、裁量権の範囲をこえ又はその濫用があった場合に限り取り消せる。①事実誤認②目的違反・他事考慮③平等原則違反④比例原則違反。近時は判断過程の合理性審査（日光太郎杉・小田急）。社会観念上著しく妥当を欠くかが基本の物差し。"},
     {t:"理由の提示", kw:"理由の提示",
      hook:"「不許可とする」の一言だけの通知書。それだけで取消事由になるか",
      aim:"手続の瑕疵だけで勝てる筋を落とさない",
@@ -1598,7 +1635,8 @@ function showChatScreen(){ $("setup").classList.add("hidden"); $("scroll").class
 // ════════════════════════════════════════════
 let GRADES = (()=>{ try{ return JSON.parse(localStorage.getItem("rf_grades")||"{}"); }catch(e){ return {}; } })();
 function saveGrade(c, g, miss){
-  GRADES[cardId(c)] = { g, d: dayKey(Date.now()), t: c.topic || c.title, s: c.subject||"", miss: miss||[] };
+  const n = ((GRADES[cardId(c)]||{}).n || 0) + 1;
+  GRADES[cardId(c)] = { g, d: dayKey(Date.now()), t: c.topic || c.title, s: c.subject||"", miss: miss||[], n };
   try{ localStorage.setItem("rf_grades", JSON.stringify(GRADES)); }catch(e){}
 }
 let STRUCT = null;
@@ -1694,51 +1732,260 @@ async function fillQs(card, box){
   scrollBottom();
 }
 
-/* 項目ごとに「言う→見る→◯✕」。前回✕だった項目は先頭に出し「前回✕」と付ける */
+/* ════════════════════════════════════════════
+   講義 → 一問ずつ（2026-09-28 作り直し）
+   本人の声:「言えなかったを押すだけの作業になる」「2回目も同じ画面」
+   → 答えは隠して1問ずつ。規範は穴埋め、条文は4択、○×は自動で正誤。
+     自分で押すのは「開いたあとの合ってた/違った」1回だけ。違った問題だけ次回に先に出す。
+     1回目は短い講義（読み上げ可・端末の音声なので0円）。2回目以降は出し方を変える。
+   ════════════════════════════════════════════ */
+const TAG = { mem:["mem","暗記"], ok:["ok","言えればOK"], sho:["sho","短答"] };
+function lsSpeak(text, btn){
+  try{
+    const ss = window.speechSynthesis; if(!ss) return toast("この端末は読み上げに対応していません");
+    if(ss.speaking){ ss.cancel(); btn.textContent="🔊 声で聞く"; return; }
+    const u = new SpeechSynthesisUtterance(text.replace(/[【】]/g,""));
+    u.lang = "ja-JP"; u.rate = 0.95;
+    const v = ss.getVoices().find(v=>/^ja/.test(v.lang)); if(v) u.voice = v;
+    u.onend = ()=>{ btn.textContent="🔊 声で聞く"; };
+    btn.textContent = "⏹ 止める"; ss.speak(u);
+  }catch(e){}
+}
+function lsStop(){ try{ lsTalkRun = 0; window.speechSynthesis && window.speechSynthesis.cancel(); }catch(e){} }
+
+/* 条文の4択。まちがいの選択肢は、同じ科目のほかの論点の条文から取る（足りなければ近い番号） */
+function lsChoices(st, seed){
+  const base0 = k => k.replace(/(条(?:の\d+)?).*$/,"$1");
+  const right = base0(st.jobun[0]);   // 選択肢はすべて「◯条」までにそろえる（項の有無で正解が分からないように）
+  const lawOf = k => (k.match(/^(.+?)\d/)||[])[1] || "";
+  const base = k => k.replace(/(条(?:の\d+)?).*$/,"$1");
+  const pool = [];
+  Object.values(STRUCT||{}).forEach(o=>{ if(o.s===st.s) (o.jobun||[]).forEach(k=>pool.push(base(k))); });
+  const own = new Set((st.jobun||[]).map(base));
+  let cand = [...new Set(pool)].filter(k=> !own.has(k) && lawOf(k)===lawOf(right));
+  if(cand.length < 3) cand = cand.concat([...new Set(pool)].filter(k=>!own.has(k) && !cand.includes(k)));
+  const m = base(right).match(/^(.+?)(\d+)条/);
+  if(m){ [1,2,3,5,10].forEach(d=>{ const n=+m[2]+d; if(cand.length<6) cand.push(`${m[1]}${n}条`); }); }
+  // 自分の根拠条文（例：462条）が「まちがい」として混ざらないように最後にもう一度はじく
+  // 講義・規範などに出てくる条文も「まちがい」にしない（例：共同正犯と幇助の区別で刑法62条が不正解になっていた）
+  const txt = [st._b, st.lecture, st.kihan, st.kouka, st.gensoku, st.reigai, st.trap, ...(st.yoken||[]), ...((st.talk||[]).map(x=>x.t))].join(" ");
+  const said = k => { const m = k.match(/(\d+)条(?:の(\d+))?/); if(!m) return false;
+    return new RegExp(`(^|[^\\d])${m[1]}条${m[2]?"の"+m[2]:"(?!の)"}`).test(txt); };
+  cand = [...new Set(cand)].filter(k=> !own.has(k) && k!==right && !said(k));
+  const pick = shuffle(cand, seed).slice(0,3);
+  return shuffle([right, ...pick], seed+7);
+}
+
+function lsQuestions(st){
+  const L = a => (a||[]).filter(Boolean);
+  const Q = [];
+  if(st.ronten) Q.push({k:"ronten", type:"open", tag:TAG.ok, q:"この場面の論点は何か？", a:esc(st.ronten)});
+  if(L(st.jobun).length) Q.push({k:"jobun", type:"choice", tag:TAG.mem, q:"根拠になる条文はどれ？"});
+  if(st.cloze && /【/.test(st.cloze)) Q.push({k:"kihan", type:"cloze", tag:TAG.mem, q:"規範の［？］を思い出す（タップで開く）"});
+  else if(st.kihan) Q.push({k:"kihan", type:"open", tag:TAG.mem, q:"規範を一文で言うと？", a:esc(st.kihan)});
+  if(L(st.yoken).length) Q.push({k:"yoken", type:"open", tag:TAG.mem, q:`要件は？（${L(st.yoken).length}つ）`,
+    a:"<ul>"+L(st.yoken).map(y=>`<li>${esc(y)}</li>`).join("")+"</ul>"});
+  if(st.gensoku || st.reigai) Q.push({k:"gensoku", type:"open", tag:TAG.ok, q:"原則と例外は？",
+    a:`${st.gensoku?`<b>原則</b>　${esc(st.gensoku)}`:""}${st.reigai?`<br><b>例外</b>　${esc(st.reigai)}`:""}`});
+  if(st.kouka) Q.push({k:"kouka", type:"open", tag:TAG.ok, q:"結論（効果）はどうなる？", a:esc(st.kouka)});
+  L(st.ox).forEach((o,i)=> Q.push({k:"ox"+i, type:"ox", tag:TAG.sho, q:o.s, ox:o}));
+  if(st.trap) Q.push({k:"trap", type:"open", tag:TAG.sho, q:"短答でどこを引っかけてくる？", a:esc(st.trap)});
+  return Q;
+}
+
+/* 最後の復習チェック＝3問だけ。前回違ったものを先に、○×は1問まで（本人「○×は最小限」2026-09-28）。
+   回ごとに組み合わせを変える：1回目 穴埋め・条文・○× → 2回目 要件・条文・原則例外 → 3回目 穴埋め・結論・○× */
+function lsPlan(all, n, prev){
+  const pick = k => all.find(x=>x.k===k);
+  const oxs = all.filter(x=>x.type==="ox");
+  const ox1 = oxs.length ? oxs[n % oxs.length] : null;
+  const sets = [["kihan","jobun","OX"], ["yoken","jobun","gensoku"], ["kihan","kouka","OX"], ["ronten","yoken","trap"]];
+  const want = sets[n % sets.length].map(k=> k==="OX" ? ox1 : pick(k)).filter(Boolean);
+  const miss = all.filter(x=>prev.includes(x.k) && x.type!=="ox");
+  const qs = [];
+  [...miss, ...want, ...all.filter(x=>x.type!=="ox")].forEach(x=>{ if(x && !qs.includes(x) && qs.length<3) qs.push(x); });
+  return {name: n===0 ? "講義 → 掛け合い → 3問チェック" : "もう一度聞いて、3問チェック", qs, miss:miss.length};
+}
+
+/* 掛け合いを、先生と受験生で声を変えて順に読み上げる（端末の音声＝0円） */
+let lsTalkRun = 0;
+function lsPlayTalk(talk, box, btn){
+  const ss = window.speechSynthesis;
+  if(!ss) return toast("この端末は読み上げに対応していません");
+  if(ss.speaking || lsTalkRun){ lsStop(); lsTalkRun = 0; btn.textContent = "▶ 掛け合いを聞く"; box.querySelectorAll(".tk").forEach(x=>x.classList.remove("on")); return; }
+  const vs = ss.getVoices().filter(v=>/^ja/.test(v.lang));
+  const run = ++lsTalkRun;
+  btn.textContent = "⏹ 止める";
+  const rows = box.querySelectorAll(".tk");
+  const say = i=>{
+    if(run !== lsTalkRun) return;
+    rows.forEach(x=>x.classList.remove("on"));
+    if(i >= talk.length){ lsTalkRun = 0; btn.textContent = "▶ もう一度聞く"; return; }
+    rows[i] && rows[i].classList.add("on"); rows[i] && rows[i].scrollIntoView({block:"nearest", behavior:"smooth"});
+    const u = new SpeechSynthesisUtterance(talk[i].t);
+    u.lang = "ja-JP";
+    const sensei = talk[i].w === "先生";
+    if(vs.length > 1) u.voice = vs[sensei ? 0 : 1]; else if(vs[0]) u.voice = vs[0];
+    u.pitch = sensei ? 0.9 : 1.25; u.rate = sensei ? 0.95 : 1.05;
+    u.onend = ()=> setTimeout(()=>say(i+1), 350);
+    ss.speak(u);
+  };
+  say(0);
+}
+
 function structSheet(card, box, st, ans){
-  const prev = (GRADES[cardId(card)]||{}).miss || [];
-  let items = structItems(st);
-  items = [...items.filter(x=>prev.includes(x.k)), ...items.filter(x=>!prev.includes(x.k))];
+  st._b = ans;
+  const id = cardId(card);
+  const gr = GRADES[id] || {};
+  const n = gr.n || 0, prev = gr.miss || [];
+  const plan = lsPlan(lsQuestions(st), n, prev);
+  const seed = Math.floor(Date.now()/86400000) + n*13;
   const res = {};
-  box.innerHTML = `
-    <div class="rv-step">問い</div>
-    <div class="rv-q">${esc(card.title)}</div>
-    ${card.aim?`<div class="rv-aim">🎯 ${esc(card.aim)}</div>`:""}
-    <div class="rv-note">1項目ずつ、<b>見る前に声に出して言って</b>から「見る」。言えたら◯、言えなければ✕。</div>
-    ${items.map((x,i)=>`
-      <div class="rv-item${prev.includes(x.k)?" miss":""}" data-k="${x.k}">
-        <div class="rv-ih"><span class="n">${i+1}</span><span class="q">${esc(x.q)}？</span>
-          ${prev.includes(x.k)?`<span class="prev">前回✕</span>`:""}
-          <button data-act="see">見る</button></div>
-        <div class="rv-ia" hidden>${x.a}</div>
-        <div class="rv-ok" hidden><button data-ok="o">◯ 言えた</button><button data-ok="x">✕ 言えなかった</button></div>
-      </div>`).join("")}
-    <div class="rv-sum" data-el="sum"></div>
-    ${ans?`<details class="rv-full"><summary>まとめ（全文）</summary><div class="rv-ans" style="margin-top:6px">${esc(ans)}</div></details>`:""}
-    <div data-el="qs"></div>`;
+  let idx = -1;
+  const warn = (st.warn||[]).length ? `<br>⚠️ ${esc(st.warn.join("・"))} はe-Govで見つかりませんでした。六法で確認してください。` : "";
+  const src = `<div class="ls-src">作り方：論点の要点をAIが分けて、e-Gov（現行法）の条文と照らして2回点検しています。条文の本文はe-Govそのものです。判例・学説の部分は教科書でも確かめてください。${warn}</div>`;
+  const lecture = st.lecture || ans;
+
+  const head = ()=> `<div class="rv-step">${n===0?"1回目":`${n+1}回目`}：${esc(plan.name)}${plan.miss?`（前回違った${plan.miss}問から）`:""}</div>
+    <div class="rv-q">${esc(card.title)}</div>`;
+
+  const L = a => (a||[]).filter(Boolean);
+  const points = ()=>{
+    const rows = [
+      ["論点", "ok", st.ronten],
+      ["条文", "mem", L(st.jobun).join("・")],
+      ["規範", "mem", st.kihan],
+      ["原則", "ok", st.gensoku], ["例外", "ok", st.reigai],
+      ["要件", "mem", L(st.yoken).map((y,i)=>`${i+1}. ${y}`).join("　")],
+      ["結論", "ok", st.kouka],
+      ["ひっかけ", "", st.trap],
+    ].filter(r=>r[2]);
+    return `<div class="ls-pts">${rows.map(([k,c,v])=>`<div class="ls-pt"><div class="k">${k}${c?`<small class="${c}">${c==="mem"?"暗記":"言えればOK"}</small>`:""}</div><div>${esc(v)}</div></div>`).join("")}</div>`;
+  };
+  const talkHTML = ()=> L(st.talk).map(x=>`<div class="tk ${x.w==="先生"?"t":"s"}"><span class="who">${esc(x.w)}</span><span class="say">${esc(x.t)}</span></div>`).join("");
+  const showLecture = ()=>{
+    lsStop();
+    box.innerHTML = `${head()}
+      <div class="rv-step">1. 講義（読む・聞く）</div>
+      <div class="ls-lec">${esc(lecture)}</div>
+      <div class="ls-row"><button data-act="speak">🔊 講義を聞く</button></div>
+      <div class="rv-step">要点（赤＝暗記、緑＝言えればOK）</div>
+      ${points()}
+      ${law()}
+      <div class="ls-row"><button class="pri" data-act="talk">2. 掛け合いへ →</button></div>
+      ${src}`;
+    scrollBottom();
+  };
+  const showTalk = ()=>{
+    lsStop();
+    if(!L(st.talk).length) return showStart();
+    box.innerHTML = `${head()}
+      <div class="rv-step">2. 掛け合い（先生と受験生）</div>
+      <div class="rv-note">受験生のよくある勘違いを、先生が条文で正します。聞き流すだけでOK。</div>
+      <div class="ls-row"><button class="pri" data-act="play">▶ 掛け合いを聞く</button></div>
+      ${talkHTML()}
+      <div class="ls-row"><button data-act="lecture">← 講義に戻る</button><button class="pri" data-act="start">3. 復習チェック（${plan.qs.length}問）→</button></div>`;
+    scrollBottom();
+  };
+  const showStart = ()=>{
+    box.innerHTML = `${head()}
+      <div class="rv-note">前回の復習から${n}回目です。忘れていたら講義か掛け合いから。覚えていればそのままチェックへ。</div>
+      <div class="ls-row"><button data-act="lecture">1. 講義</button>${L(st.talk).length?`<button data-act="talk">2. 掛け合い</button>`:""}<button class="pri" data-act="start">3. 復習チェック（${plan.qs.length}問）→</button></div>
+      ${src}`;
+  };
+  const law = ()=> Object.entries(st.jtext||{}).map(([k,t])=>
+    `<details class="ls-law"><summary>📖 ${esc(k)} の条文（e-Gov）</summary><div>${esc(t)}</div></details>`).join("");
+
+  const showQ = ()=>{
+    lsStop();
+    const q = plan.qs[idx];
+    const top = `<div class="ls-head">${idx+1} / ${plan.qs.length}<span class="ls-tag ${q.tag[0]}">${q.tag[1]}</span>${prev.includes(q.k)?`<span class="ls-tag mem">前回違った</span>`:""}</div>`;
+    let body = "";
+    if(q.type==="open"){
+      body = `<div class="ls-q">${esc(q.q)}</div>
+        <div class="ls-row"><button class="pri" data-act="open">思い出したら、答えを開く</button></div>
+        <div data-el="after" hidden><div class="ls-a">${q.a}</div>
+          <div class="ls-row"><button data-self="o">◯ 合ってた</button><button data-self="x">✕ 違った</button></div></div>`;
+    } else if(q.type==="cloze"){
+      let bi = 0;
+      const html = esc(st.cloze).replace(/【([^】]*)】/g, (_,w)=>`<button data-blank="${bi++}" data-w="${w}">［？］</button>`);
+      body = `<div class="ls-q">${esc(q.q)}</div><div class="ls-cloze">${html}</div>
+        <div data-el="after" hidden><div class="ls-row"><button data-self="o">◯ 全部思い出せた</button><button data-self="x">✕ 違った</button></div></div>`;
+    } else if(q.type==="choice"){
+      const opts = lsChoices(st, seed);
+      body = `<div class="ls-q">${esc(q.q)}</div>
+        <div class="rv-note">${esc(st.ronten||"")}</div>
+        <div class="ls-opts">${opts.map(o=>`<button data-pick="${esc(o)}">${esc(o)}</button>`).join("")}</div>
+        <div data-el="after" hidden><div class="ls-res" data-el="r"></div>
+          <div class="ls-a">根拠：${esc((st.jobun||[]).join("・"))}</div>${law()}
+          <button class="ls-next" data-act="next">次へ →</button></div>`;
+    } else if(q.type==="ox"){
+      body = `<div class="ls-q">○か×か：${esc(q.ox.s)}</div>
+        <div class="ls-opts"><button data-ox="○">○</button><button data-ox="×">×</button></div>
+        <div data-el="after" hidden><div class="ls-res" data-el="r"></div><div class="ls-a">${esc(q.ox.why)}</div>
+          <button class="ls-next" data-act="next">次へ →</button></div>`;
+    }
+    box.innerHTML = `${top}${body}`;
+    scrollBottom();
+  };
+  const done = (k, ok)=>{ res[k] = ok ? "o" : "x"; };
+  const next = ()=>{ idx++; if(idx < plan.qs.length) showQ(); else finish(); };
+  const finish = ()=>{
+    const miss = plan.qs.filter(x=>res[x.k]==="x");
+    const good = plan.qs.length - miss.length;
+    const g = !miss.length ? "o" : miss.length>=2 ? "x" : "m";
+    saveGrade(card, g, miss.map(x=>x.k));
+    box.innerHTML = `${head()}
+      <div class="ls-res ${miss.length?"bad":"good"}">復習チェック ${good} / ${plan.qs.length} 問</div>
+      ${miss.length ? `<div class="rv-note">違った問題：</div>` + miss.map(x=>`<div class="ls-a"><b>${esc(x.type==="ox"?"○×："+x.q:x.q)}</b><br>${
+          x.type==="open"?x.a : x.type==="ox"? `正解は${esc(x.ox.a)}。${esc(x.ox.why)}` : x.type==="choice"? `正解は ${esc(st.jobun[0])}` : esc(st.kihan||"")}</div>`).join("")
+        + `<div class="rv-note">ここだけ、もう一度声に出して読んでおきましょう。${g==="x"?"明日":"2日後"}にこの問題から出します。</div>`
+        : `<div class="rv-note">全問できました。次は間を空けて、出し方を変えて出します。</div>`}
+      <div class="ls-row"><button data-act="lecture">講義を読み直す</button>${L(st.talk).length?`<button data-act="talk">掛け合いをもう一度</button>`:""}</div>
+      ${ans?`<details class="rv-full"><summary>まとめ（全文）</summary><div class="rv-ans" style="margin-top:6px">${esc(ans)}</div></details>`:""}
+      ${law()}
+      ${src}
+      <div data-el="qs"></div>`;
+    fillQs(card, box);
+    scrollBottom();
+  };
+
   box.addEventListener("click", e=>{
     const b = e.target.closest("button"); if(!b) return;
-    const row = b.closest(".rv-item"); if(!row) return;
-    if(b.dataset.act==="see"){
-      b.remove(); row.querySelector(".rv-ia").hidden=false; row.querySelector(".rv-ok").hidden=false;
-      return;
+    const q = plan.qs[idx];
+    if(b.dataset.act==="speak") return lsSpeak(lecture, b);
+    if(b.dataset.act==="lecture"){ idx = -1; return showLecture(); }
+    if(b.dataset.act==="talk"){ idx = -1; return showTalk(); }
+    if(b.dataset.act==="play") return lsPlayTalk(L(st.talk), box, b);
+    if(b.dataset.act==="start"){ lsStop(); idx = 0; return showQ(); }
+    if(b.dataset.act==="next") return next();
+    if(b.dataset.act==="open"){ b.parentElement.remove(); box.querySelector('[data-el="after"]').hidden=false; return scrollBottom(); }
+    if(b.dataset.self){ done(q.k, b.dataset.self==="o"); return next(); }
+    if(b.dataset.blank!==undefined){
+      const w = document.createElement("b"); w.className="open"; w.textContent=b.dataset.w; b.replaceWith(w);
+      if(!box.querySelector("[data-blank]")) box.querySelector('[data-el="after"]').hidden=false;
+      return scrollBottom();
     }
-    if(b.dataset.ok){
-      res[row.dataset.k] = b.dataset.ok;
-      row.querySelectorAll(".rv-ok button").forEach(x=>x.classList.toggle("on", x===b));
-      row.classList.toggle("miss", b.dataset.ok==="x");
-      if(Object.keys(res).length === items.length){
-        const miss = items.filter(x=>res[x.k]==="x");
-        const g = !miss.length ? "o" : (miss.length >= 2 || miss.some(x=>["kihan","yoken","jobun"].includes(x.k))) ? "x" : "m";
-        saveGrade(card, g, miss.map(x=>x.k));
-        box.querySelector('[data-el="sum"]').innerHTML = !miss.length
-          ? `◯ 全部言えました。次は間を空けて出します。`
-          : `${g==="x"?"✕":"△"} 言えなかった所：${miss.map(x=>esc(x.q)).join("・")}<br>`
-            + `${g==="x"?"明日":"2日後"}、この項目を先頭にしてもう一度出します。今もう一度、声に出して言っておくと効きます。`;
-        fillQs(card, box);
-      }
+    if(b.dataset.pick){
+      if(box.querySelector(".ls-opts .right")) return;
+      const base = k => k.replace(/(条(?:の\d+)?).*$/,"$1");
+      const ok = base(b.dataset.pick)===base(st.jobun[0]);
+      box.querySelectorAll(".ls-opts button").forEach(x=>{
+        if(base(x.dataset.pick)===base(st.jobun[0])) x.classList.add("right"); else if(x===b) x.classList.add("wrong"); });
+      done(q.k, ok);
+      const r = box.querySelector('[data-el="r"]'); r.textContent = ok?"◯ 正解":"✕ ちがいます"; r.className="ls-res "+(ok?"good":"bad");
+      box.querySelector('[data-el="after"]').hidden=false; return scrollBottom();
+    }
+    if(b.dataset.ox){
+      if(box.querySelector('[data-el="after"]').hidden===false) return;
+      const ok = b.dataset.ox===q.ox.a;
+      done(q.k, ok);
+      box.querySelectorAll(".ls-opts button").forEach(x=>{ if(x.dataset.ox===q.ox.a) x.classList.add("right"); else if(x===b) x.classList.add("wrong"); });
+      const r = box.querySelector('[data-el="r"]'); r.textContent = ok?`◯ 正解（${q.ox.a}）`:`✕ ちがいます。正解は${q.ox.a}`; r.className="ls-res "+(ok?"good":"bad");
+      box.querySelector('[data-el="after"]').hidden=false; return scrollBottom();
     }
   });
+  if(n===0 && lecture) showLecture(); else showStart();
 }
 
 /* 分解がまだ無い論点（従来どおり、答えを一度に見る） */
@@ -2078,6 +2325,7 @@ function openLog(){ renderLog(); $("log-ov").classList.remove("hidden"); }
 function closeLog(){ $("log-ov").classList.add("hidden"); }
 
 function backToFeed(){
+  lsStop();
   document.querySelectorAll(".sbt").forEach(b=>b.classList.remove("on"));
   document.querySelector(".sbt[data-s='']").classList.add("on");
   subjFilter=""; catFilter="all"; loadFeed();

@@ -345,6 +345,7 @@
     .rv-ok button.on { background: linear-gradient(135deg, var(--acc), var(--acc2)); color: #fff; border-color: transparent; }
     .rv-sum { font-size: 13.5px; line-height: 1.7; font-weight: 700; }
     .rv-full summary { font-size: 12.5px; color: var(--dim); cursor: pointer; }
+    .ls-rate { align-items: center; } .ls-rate button { padding: 6px 11px; font-size: 13px; }
     .ls-lec { font-size: 15px; line-height: 1.85; }
     .ls-row { display: flex; gap: 8px; flex-wrap: wrap; }
     .ls-row button, .ls-next { border: 1px solid var(--border); background: var(--bg); color: var(--text);
@@ -641,7 +642,7 @@
 //  定数
 // ════════════════════════════════════════════
 const WEEKLY = {0:"商法",1:"憲法",2:"民法",3:"刑法",4:"行政法",5:"民訴法",6:"刑訴法"};
-const APP_VER = "20260929-1";   // ← 更新するたびに version.json と合わせて上げる
+const APP_VER = "20260929-2";   // ← 更新するたびに version.json と合わせて上げる
 const API_URL = "https://api.anthropic.com/v1/messages";
 const API_MODEL = "claude-haiku-4-5-20251001";
 const CTX_URL = () => `https://raw.githubusercontent.com/osamuina8008/business-tools/main/study/context.json?t=${Date.now()}`;
@@ -1740,14 +1741,25 @@ async function fillQs(card, box){
      1回目は短い講義（読み上げ可・端末の音声なので0円）。2回目以降は出し方を変える。
    ════════════════════════════════════════════ */
 const TAG = { mem:["mem","暗記"], ok:["ok","言えればOK"], sho:["sho","短答"] };
+/* 読み上げの速さ（本人の希望 2026-09-28）。端末に保存して次回も同じ速さ */
+const RATES = [0.8, 1.0, 1.2, 1.4, 1.7];
+let lsRate = (()=>{ try{ return parseFloat(localStorage.getItem("rf_rate")) || 1.0; }catch(e){ return 1.0; } })();
+function rateHTML(){ return `<div class="ls-row ls-rate"><span class="rv-note">速さ</span>${RATES.map(r=>`<button data-rate="${r}" class="${r===lsRate?"pri":""}">${r===1?"ふつう":r+"倍"}</button>`).join("")}</div>`; }
+function setRate(r, box){
+  lsRate = r; try{ localStorage.setItem("rf_rate", String(r)); }catch(e){}
+  box.querySelectorAll("[data-rate]").forEach(b=>b.classList.toggle("pri", parseFloat(b.dataset.rate)===r));
+  lsStop(); box.querySelectorAll('[data-act="speak"]').forEach(b=>b.textContent="🔊 講義を聞く");
+  box.querySelectorAll('[data-act="play"]').forEach(b=>b.textContent="▶ 掛け合いを聞く");
+  box.querySelectorAll(".tk").forEach(x=>x.classList.remove("on"));
+}
 function lsSpeak(text, btn){
   try{
     const ss = window.speechSynthesis; if(!ss) return toast("この端末は読み上げに対応していません");
-    if(ss.speaking){ ss.cancel(); btn.textContent="🔊 声で聞く"; return; }
+    if(ss.speaking){ ss.cancel(); btn.textContent="🔊 講義を聞く"; return; }
     const u = new SpeechSynthesisUtterance(text.replace(/[【】]/g,""));
-    u.lang = "ja-JP"; u.rate = 0.95;
+    u.lang = "ja-JP"; u.rate = 0.95 * lsRate;
     const v = ss.getVoices().find(v=>/^ja/.test(v.lang)); if(v) u.voice = v;
-    u.onend = ()=>{ btn.textContent="🔊 声で聞く"; };
+    u.onend = ()=>{ btn.textContent="🔊 講義を聞く"; };
     btn.textContent = "⏹ 止める"; ss.speak(u);
   }catch(e){}
 }
@@ -1826,7 +1838,7 @@ function lsPlayTalk(talk, box, btn){
     u.lang = "ja-JP";
     const sensei = talk[i].w === "先生";
     if(vs.length > 1) u.voice = vs[sensei ? 0 : 1]; else if(vs[0]) u.voice = vs[0];
-    u.pitch = sensei ? 0.9 : 1.25; u.rate = sensei ? 0.95 : 1.05;
+    u.pitch = sensei ? 0.9 : 1.25; u.rate = (sensei ? 0.95 : 1.05) * lsRate;
     u.onend = ()=> setTimeout(()=>say(i+1), 350);
     ss.speak(u);
   };
@@ -1869,6 +1881,7 @@ function structSheet(card, box, st, ans){
       <div class="rv-step">1. 講義（読む・聞く）</div>
       <div class="ls-lec">${esc(lecture)}</div>
       <div class="ls-row"><button data-act="speak">🔊 講義を聞く</button></div>
+      ${rateHTML()}
       <div class="rv-step">要点（赤＝暗記、緑＝言えればOK）</div>
       ${points()}
       ${law()}
@@ -1883,6 +1896,7 @@ function structSheet(card, box, st, ans){
       <div class="rv-step">2. 掛け合い（先生と受験生）</div>
       <div class="rv-note">受験生のよくある勘違いを、先生が条文で正します。聞き流すだけでOK。</div>
       <div class="ls-row"><button class="pri" data-act="play">▶ 掛け合いを聞く</button></div>
+      ${rateHTML()}
       ${talkHTML()}
       <div class="ls-row"><button data-act="lecture">← 講義に戻る</button><button class="pri" data-act="start">3. 復習チェック（${plan.qs.length}問）→</button></div>`;
     scrollBottom();
@@ -1953,6 +1967,7 @@ function structSheet(card, box, st, ans){
   box.addEventListener("click", e=>{
     const b = e.target.closest("button"); if(!b) return;
     const q = plan.qs[idx];
+    if(b.dataset.rate) return setRate(parseFloat(b.dataset.rate), box);
     if(b.dataset.act==="speak") return lsSpeak(lecture, b);
     if(b.dataset.act==="lecture"){ idx = -1; return showLecture(); }
     if(b.dataset.act==="talk"){ idx = -1; return showTalk(); }

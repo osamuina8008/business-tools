@@ -805,6 +805,13 @@ function buildNav(){
     tb.textContent = TL[t];
   };
   bar.appendChild(tb);
+  // 読み直し（ホーム画面から開くとブラウザの再読み込みボタンが無いため。2026-09-29）
+  const rb = document.createElement('button');
+  rb.className = 'sortbtn';
+  rb.textContent = '↻ 最新にする';
+  rb.title = '最新の内容を読み込み直す';
+  rb.onclick = () => { const u = new URL(location.href); u.searchParams.set('v', Date.now()); location.replace(u.toString()); };
+  bar.appendChild(rb);
   nav.appendChild(bar);
 
   const due = days.filter(d => dueOf(d.day));

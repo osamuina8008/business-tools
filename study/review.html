@@ -307,6 +307,26 @@
     .dot:nth-child(2){animation-delay:.2s} .dot:nth-child(3){animation-delay:.4s}
     @keyframes bop{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
 
+    /* 復習シート（2026-09-28）: AIを呼ばずに、問い→自分で言う→答え→自己採点 */
+    .rv { align-self: stretch; background: var(--surf); border: 1px solid var(--border);
+      border-radius: 18px; padding: 15px 16px; box-shadow: var(--shadow); display:flex; flex-direction:column; gap:10px; }
+    .rv-step { font-size: 11px; font-weight: 800; color: var(--acc); letter-spacing: .04em; }
+    .rv-q { font-size: 16px; font-weight: 800; line-height: 1.55; }
+    .rv-aim { font-size: 13px; color: var(--dim); line-height: 1.55; }
+    .rv-say { font-size: 13.5px; line-height: 1.7; background: var(--bg); border-radius: 12px; padding: 10px 12px; }
+    .rv-ans { font-size: 14.5px; line-height: 1.75; border-left: 4px solid var(--acc); padding: 4px 0 4px 12px; }
+    .rv-btn { border: 1px dashed var(--border); background: var(--bg); color: var(--text); border-radius: 13px;
+      padding: 12px; font-size: 14px; font-weight: 800; cursor: pointer; }
+    .rv-grade { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+    .rv-grade button { border: 1px solid var(--border); background: var(--bg); color: var(--text);
+      border-radius: 13px; padding: 11px 4px; font-size: 13.5px; font-weight: 800; cursor: pointer; }
+    .rv-grade button.on { background: linear-gradient(135deg, var(--acc), var(--acc2)); color:#fff; border-color: transparent; }
+    .rv-note { font-size: 12.5px; color: var(--dim); line-height: 1.6; }
+    .rv-q2 { border-top: 1px solid var(--border); padding-top: 10px; font-size: 13.5px; line-height: 1.7; }
+    .rv-q2 b.k { display:inline-block; font-size: 12px; background: var(--bg); border:1px solid var(--border);
+      border-radius: 8px; padding: 1px 7px; margin: 2px 4px 2px 0; }
+    .rv-q2 a { color: var(--acc); font-weight: 800; text-decoration: none; }
+    #ai-note { font-size: 11px; color: var(--dim); padding: 6px 18px 0; }
     #quick { display: flex; gap: 7px; padding: 8px 16px 4px; overflow-x: auto;
       flex-shrink: 0; scrollbar-width: none; }
     #quick::-webkit-scrollbar { display: none; }
@@ -513,6 +533,7 @@
       <button class="sp-btn sp-mic"  id="speak-btn">🎙 自分で説明する</button>
       <button class="sp-btn sp-memo" id="chat-memo-btn">🧠 今日覚える</button>
     </div>
+    <div id="ai-note">↓ ここから下はAI（Haiku・1回およそ0.5円）。上の復習だけなら0円です。</div>
     <div id="quick">
       <button class="qb" data-m="いちばん重要な要点を、もう少し詳しく教えてください">🔎 もっと詳しく</button>
       <button class="qb" data-m="重複しない別の論点キーワードを5〜7個挙げてください">🔄 別の5つ</button>
@@ -564,7 +585,7 @@
 //  定数
 // ════════════════════════════════════════════
 const WEEKLY = {0:"商法",1:"憲法",2:"民法",3:"刑法",4:"行政法",5:"民訴法",6:"刑訴法"};
-const APP_VER = "20260913-3";   // ← 更新するたびに version.json と合わせて上げる
+const APP_VER = "20260928-1";   // ← 更新するたびに version.json と合わせて上げる
 const API_URL = "https://api.anthropic.com/v1/messages";
 const API_MODEL = "claude-haiku-4-5-20251001";
 const CTX_URL = () => `https://raw.githubusercontent.com/osamuina8008/business-tools/main/study/context.json?t=${Date.now()}`;
@@ -1093,7 +1114,7 @@ function buildCards(ctx){
     push({
       cat:"review", subject:subj,
       title: tp.hook,
-      why: tp.b,
+      why: tp.b, b: tp.b,
       aim: tp.aim,
       topic: tp.t,
       when: lab ? `${lab}の続き` : "",
@@ -1112,6 +1133,7 @@ function buildCards(ctx){
     push({
       cat:"weak", subject: (tp && tp._subj) || subj,
       title: tp ? tp.hook : `「${kw}」でまた止まらないために`,
+      b: tp ? tp.b : "",
       why: tp ? tp.b : `これまで${p.count||"複数"}回つまずいた論点。ここを潰すと一気に伸びます。`,
       aim: tp ? tp.aim : `${kw}を自分の言葉で説明できる状態にする`,
       topic: tp ? tp.t : kw,
@@ -1128,6 +1150,7 @@ function buildCards(ctx){
     push({
       cat:"weak", subject: (tp && tp._subj) || subj,
       title: tp ? tp.hook : `前回ひっかかった「${t}」を上書きする`,
+      b: tp ? tp.b : "",
       why: tp ? tp.b : "記憶が新しいうちに、正しい形で入れ直しましょう。",
       aim: tp ? tp.aim : `${t}の規範を思い出さずに書ける`,
       topic: tp ? tp.t : t,
@@ -1155,7 +1178,7 @@ function buildCards(ctx){
     push({
       cat:"task", subject:subj,
       title: tp.hook,
-      why: tp.b,
+      why: tp.b, b: tp.b,
       aim: tp.aim,
       topic: tp.t,
       when: gap ? (late ? `残り${gap}問・遅れ` : `残り${gap}問`) : (late ? "遅れ" : "今週"),
@@ -1348,6 +1371,11 @@ function activeCards(){
     let pen = 0;
     if(dShown > 0 && dShown < cd) pen += Math.round((cd - dShown) / cd * 55);
     if(dDone  > 0 && dDone  < cd) pen += Math.round((cd - dDone)  / cd * 35);
+    // 自己採点：✕は翌日から、△は2日後から優先して戻す。◯は間隔を倍に
+    const g = GRADES[id];
+    if(g && g.g==="x" && daysSince(g.d) >= 1){ pen = 0; pen -= 30; }
+    else if(g && g.g==="m" && daysSince(g.d) >= 2){ pen = 0; pen -= 15; }
+    else if(g && g.g==="o" && daysSince(g.d) < cd*2){ pen += 40; }
     c._eff = c.score - pen;
   });
 
@@ -1410,7 +1438,7 @@ function cardHTML(c){
       ${c.when?`<span class="c-when">${esc(c.when)}</span>`:""}
     </div>
     <div class="c-title">${esc(c.title)}</div>
-    ${c.why?`<div class="c-why">${esc(c.why)}</div>`:""}
+    ${c.why && !c.b?`<div class="c-why">${esc(c.why)}</div>`:""}
     ${c.aim?`<div class="c-aim">🎯 ${esc(c.aim)}</div>`:""}
     ${(kws||aiChip)?`<div class="c-kws">${kws}${aiChip}</div>`:""}
     <div class="c-foot">${foot}</div>
@@ -1543,24 +1571,111 @@ function showChatScreen(){ $("setup").classList.add("hidden"); $("scroll").class
 // ════════════════════════════════════════════
 //  提案 → チャット起動
 // ════════════════════════════════════════════
+// ════════════════════════════════════════════
+//  復習シート（2026-09-28 作り直し）
+//  以前は「開く→AIが自動で解説」だった（7/27のHaiku切替でコスト0のため空画面になっていた）。
+//  いまはAIを呼ばずに: ①問い ②自分で言う ③答え合わせ ④◯△✕ ⑤この論点の自分の短答
+//  AIボタンを押したときも、この論点と要点をAIに渡す（「やさしく」が空振りしないように）。
+// ════════════════════════════════════════════
+let GRADES = (()=>{ try{ return JSON.parse(localStorage.getItem("rf_grades")||"{}"); }catch(e){ return {}; } })();
+function saveGrade(c, g){
+  GRADES[cardId(c)] = { g, d: dayKey(Date.now()), t: c.topic || c.title, s: c.subject||"" };
+  try{ localStorage.setItem("rf_grades", JSON.stringify(GRADES)); }catch(e){}
+}
+let PACK = null;
+async function loadPack(){
+  if(PACK) return PACK;
+  try{ PACK = (await (await fetch("pack.json?v="+Date.now())).json()).items || []; }catch(e){ PACK = []; }
+  return PACK;
+}
+/* この論点を実際に解いた自分の短答（pack.json）。論点名・キーワード・同義語で引く */
+function relatedQs(card, items){
+  // 論点名そのもの＝重み2、同義語（条番号・関連語）＝重み1。同義語1つだけの一致では出さない
+  const tp = Object.values(TOPICS).flat().find(x=> x.t===card.topic);
+  const main = [...new Set([card.topic, ...(card.kws||[]), tp&&tp.kw].map(clean).filter(w=>w && w.length>=2))];
+  const W = [...main.map(w=>[w,2]), ...((tp&&tp.syn)||[]).filter(w=>!main.includes(w)).map(w=>[w,1])];
+  if(!W.length) return [];
+  const sc = it => {
+    const g = it.g||{};
+    const hay = [it.t, it.a, g.gain, g.one, g.trap, ...(g.p||[]).map(p=>p.k+p.v)].join(" ");
+    let n = 0; W.forEach(([w,k])=>{ if((it.t||"").includes(w)) n+=k*2; else if(hay.includes(w)) n+=k; });
+    return n;
+  };
+  const OK_SUBJ = { "実務基礎": ["民法","民訴法","刑法","刑訴法"] };
+  const same = it => !card.subject || it.s===card.subject || (OK_SUBJ[card.subject]||[]).includes(it.s);
+  return items.filter(same).map(it=>[sc(it),it]).filter(x=>x[0]>=3)
+    .sort((a,b)=> b[0]-a[0] || (b[1].dt||"").localeCompare(a[1].dt||"")).slice(0,2).map(x=>x[1]);
+}
+function qHTML(it){
+  const g = it.g;
+  const pts = g && g.p ? g.p.map(p=>`<div><b class="k">${esc(p.k)}</b>${esc(p.v).replace(/【([^】]*)】/g,"<b>$1</b>")}</div>`).join("")
+    : (it.ar||[]).map(a=>`<b class="k">${esc(a)}</b>`).join("");
+  return `<div class="rv-q2">
+    <div><b>${esc(it.s)}・${esc(it.q)}</b>　${esc(it.t||"")}（${esc(it.dt||"")}に解いた）</div>
+    ${g&&g.gain?`<div class="rv-note">🎯 ${esc(g.gain)}</div>`:""}
+    ${pts}
+    ${g&&g.trap?`<div>⚠️ ひっかけ：${esc(g.trap).replace(/【([^】]*)】/g,"<b>$1</b>")}</div>`:""}
+    <div><a href="${esc(aiHref(it.d, it.q))}">⤴ 問題と6社の解説を開く</a></div>
+  </div>`;
+}
 function launch(card){
   recordReview(card);
   if(card.read && card.url){ renderFeed(); window.open(card.url, "_blank"); return; }
   chatSubject = card.subject || ctx?.subject || chatSubject;
-  curTopic = { title: clean(card.topic || card.title), subject: chatSubject };
+  const ans = clean(card.b || card.why || "");
+  curTopic = { title: clean(card.topic || card.title), subject: chatSubject, q: clean(card.title), b: ans };
   $("chat-subj").textContent = chatSubject;
-  history = [];
+  // AIボタン用に、この論点の要点を会話の先頭に入れておく（画面には出さない）
+  history = ans ? [
+    {role:"user", content:`${chatSubject}の「${curTopic.title}」を復習します。問い：${curTopic.q}`},
+    {role:"assistant", content:`要点：${ans}`},
+  ] : [];
   $("chat-area").innerHTML = "";
   showChatScreen();
-  addBubble("ai", `📌 「${card.title}」を復習しましょう！`);
-  const prompt = card.chat || `${chatSubject}の復習を始めます。①今日おさえる論点が実際に問題になる具体的な事案を1つ、短い物語で②答案で書く規範を3行③論点キーワード5個、をお願いします。`;
-  // 開いた瞬間はAIを呼ばない（コスト0）。タップで初めてHaikuに問い合わせる。
-  const row=document.createElement("div"); row.className="msg ai";
-  const btn=document.createElement("button"); btn.className="qb";
-  btn.style.cssText="font-weight:700";
-  btn.textContent="▶ 具体例つきで解説してもらう（Haiku）";
-  btn.addEventListener("click", ()=>{ row.remove(); send(prompt, {hidden:true}); });
-  row.appendChild(btn); $("chat-area").appendChild(row); scrollBottom();
+
+  const box = document.createElement("div"); box.className = "rv";
+  box.innerHTML = `
+    <div class="rv-step">① 問い</div>
+    <div class="rv-q">${esc(card.title)}</div>
+    ${card.aim?`<div class="rv-aim">🎯 ${esc(card.aim)}</div>`:""}
+    <div class="rv-step">② 見る前に、声に出して言う（30秒）</div>
+    <div class="rv-say">・論点は何か（${esc(curTopic.title)}）<br>・条文／規範を一文で<br>・原則と例外、要件は何か</div>
+    ${ans ? `<button class="rv-btn" data-act="show">言えたら（言えなくても）答えを見る</button>
+    <div class="rv-hide" hidden>
+      <div class="rv-step">③ 答え合わせ</div>
+      <div class="rv-ans">${esc(ans)}</div>
+      <div class="rv-step" style="margin-top:10px">④ 自分の出来は？</div>
+      <div class="rv-grade">
+        <button data-g="o">◯ 言えた</button><button data-g="m">△ あいまい</button><button data-g="x">✕ 言えない</button>
+      </div>
+      <div class="rv-note" data-el="gnote"></div>
+      <div data-el="qs"></div>
+    </div>` : `<div class="rv-note">この論点は要点がまだ登録されていません。「⤴ AI横断」か下のAIボタンで確認してください。</div><div data-el="qs"></div>`}
+  `;
+  $("chat-area").appendChild(box);
+
+  const fillQs = async ()=>{
+    const el = box.querySelector('[data-el="qs"]'); if(!el) return;
+    const qs = relatedQs(card, await loadPack());
+    el.innerHTML = qs.length
+      ? `<div class="rv-step" style="margin-top:6px">⑤ この論点に関係する、自分が解いた短答</div>` + qs.map(qHTML).join("")
+      : `<div class="rv-note">この論点で解いた短答はまだ見つかりません。</div>`;
+    scrollBottom();
+  };
+  box.addEventListener("click", e=>{
+    const b = e.target.closest("button"); if(!b) return;
+    if(b.dataset.act==="show"){ b.remove(); box.querySelector(".rv-hide").hidden=false; fillQs(); scrollBottom(); }
+    if(b.dataset.g){
+      saveGrade(card, b.dataset.g);
+      box.querySelectorAll(".rv-grade button").forEach(x=>x.classList.toggle("on", x===b));
+      box.querySelector('[data-el="gnote"]').textContent = {
+        o:"◯ 次は間を空けて出します。",
+        m:"△ 2日後にもう一度出します。「🎙 自分で説明する」で言い直すと定着します。",
+        x:"✕ 明日もう一度出します。下の短答で条文を確かめてから、もう一度声に出してみてください。"}[b.dataset.g];
+    }
+  });
+  if(!ans) fillQs();
+  scrollBottom();
 }
 
 // ════════════════════════════════════════════
@@ -1696,6 +1811,11 @@ function buildSystem(){
     if(ctx.next_focus) extra += `\n次に伸ばす狙い: ${ctx.next_focus}`;
   }
   extra += `\n（キーワードは先頭文字が欠けていることがある。上の文脈で自然に補って解釈する）`;
+  if(curTopic && curTopic.title){
+    extra += `\n\n【いま復習している論点】${curTopic.title}`;
+    if(curTopic.q) extra += `\n問い: ${curTopic.q}`;
+    if(curTopic.b) extra += `\n要点（この内容に沿って説明する。聞き返さない）: ${curTopic.b}`;
+  }
   return `あなたは司法試験予備試験の学習コーチです。受験生（53歳・予備試験2028年合格目標・毎朝3時半起きで学習）の復習を助けます。
 
 現在の科目: ${chatSubject}${extra}

@@ -749,6 +749,13 @@ function isOpen(day){
   if (navState.open && day in navState.open) return !!navState.open[day];
   return day === newestDay();          /* 既定はいちばん新しい日だけ開く */
 }
+/* 論文はフォルダ名（無ければ要約テーマ）を表題にする。番号は太字の「論文」だけ残す。 */
+function essayName(q){
+  const id = String(q && q.id || '');
+  if (!id.startsWith('論文')) return null;
+  const rest = id.replace(/^論文\s*/, '').trim();
+  return String(q.title || '').trim() || rest;
+}
 function setOpen(day, v){
   navState.open = navState.open || {};
   navState.open[day] = v; saveNav();
@@ -848,7 +855,10 @@ function buildNav(){
     d.qs.forEach(q => {
       const b = document.createElement('button');
       b.className = 'qbtn'; b.dataset.id = d.day + q.id;
-      b.innerHTML = `<b>${q.id}</b><span>${esc(q.title||'—')}</span>` + (flagged(q)?'<em>⚑</em>':'');
+      const en = essayName(q);
+      b.innerHTML = (en !== null
+        ? `<b>論文</b><span>${esc(en || '—')}</span>`
+        : `<b>${q.id}</b><span>${esc(q.title||'—')}</span>`) + (flagged(q)?'<em>⚑</em>':'');
       b.onclick = () => show(d.day + q.id);
       nav.appendChild(b);
     });
@@ -2025,11 +2035,12 @@ async function show(uid){
     .sort((x,y) => SECORD.indexOf(x[0]) - SECORD.indexOf(y[0]));
   if (!secs.includes(secPick)) secPick = secs[0];
 
+  const en = essayName(q);
   main.innerHTML = `
     <div class="qhead">
       <div class="eyebrow">${esc(q.subject)}　${esc(q.day.slice(0,10))}　収録 ${A.length} AI</div>
-      <h2>${esc(q.id)}</h2>
-      <p>${esc(q.title || '')}</p>
+      <h2>${esc(en !== null ? (en || q.id) : q.id)}</h2>
+      <p>${esc(en !== null ? '' : (q.title || ''))}</p>
       ${AUDIO[q.day] ? `<div class="qsrc audio">
         <a href="${esc(AUDIO[q.day].url)}" target="_blank" rel="noopener">🎧 この日の5社横断を聞く（約${esc(String(AUDIO[q.day].minutes||''))}分）</a>
       </div>` : ''}
@@ -2129,6 +2140,38 @@ function firstOfNewestDay(){
   return pick ? pick.day + pick.qs[0].id : (flat.length ? flat[0].day + flat[0].id : null);
 }
 
+/* 開いたままにしておくと、フォルダ名の変更が公開された時点でその論文を開き直す。 */
+let LIVE = '';
+function essayStem(day){
+  const i = String(day).indexOf('★論文');
+  return i < 0 ? String(day) : String(day).slice(0, i + '★論文'.length);
+}
+function armLive(stamp){
+  if (stamp) LIVE = stamp;
+  if (armLive.t || !WEB) return;
+  armLive.t = setInterval(async () => {
+    try {
+      const r = await fetch(WEB + 'manifest.json', {cache:'no-cache'});
+      if (!r.ok) return;
+      const mf = await r.json();
+      if (!mf.built || mf.built === LIVE) return;
+      const raw = decodeURIComponent(String(location.hash || '').replace(/^#/, ''));
+      const day = raw.split('/')[0];
+      let hash = location.hash;
+      if (day && !(mf.days || []).some(d => d.day === day)) {
+        const hit = (mf.days || []).find(d => essayStem(d.day) === essayStem(day));
+        if (hit && hit.qs && hit.qs[0]) {
+          hash = '#' + encodeURIComponent(hit.day) + '/' + encodeURIComponent(hit.qs[0].id);
+        }
+      }
+      const u = new URL(location.href);
+      u.searchParams.set('v', String(Date.now()));
+      if (hash) u.hash = hash;
+      location.replace(u.toString());
+    } catch (e) {}
+  }, 8000);
+}
+
 async function boot(){
   if (EMBED) {
     ingest(EMBED, true);
@@ -2142,6 +2185,7 @@ async function boot(){
       if (!r.ok) throw new Error('HTTP ' + r.status);
       const mf = await r.json(); PK = mf.pk || null;
       ingest(mf, false);
+      armLive(mf.built);
     } catch(e){
       main.innerHTML = '<div class="qhead"><h2>目次を読み込めませんでした</h2><p>'
         + esc(String(e && e.message || e)) + '</p></div>';

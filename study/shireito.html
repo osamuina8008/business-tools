@@ -318,7 +318,7 @@ function obsDir(sub){
   return hit ? `TimeBase/20_Study/${SUBJ_DIR[hit]}` : "TimeBase/20_Study";
 }
 function obsWrite(c){
-  const file = `${obsDir(c.subject)}/復習メモ_${TODAY}`;
+  const file = `${obsDir(c.subject)}/復習メモ/復習メモ_${TODAY}`;
   const body = [
     `## ${c.title}`,
     c.subject ? `- 科目：${c.subject}` : "",

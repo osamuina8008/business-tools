@@ -737,7 +737,7 @@ function obsMemoDir(subject){
 }
 const obsSearch = q => `obsidian://search?vault=${encodeURIComponent(OBS_VAULT)}&query=${encodeURIComponent(clean(q))}`;
 function obsMemo(c){
-  const file = `${obsMemoDir(c.subject)}/復習メモ_${dayKey(Date.now())}`;
+  const file = `${obsMemoDir(c.subject)}/復習メモ/復習メモ_${dayKey(Date.now())}`;
   const kw = (c.kws||[]).filter(Boolean).map(clean).join("・");
   const body = [
     `## ${clean(c.title)}`,

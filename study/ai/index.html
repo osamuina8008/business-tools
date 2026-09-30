@@ -2110,7 +2110,8 @@ async function show(uid){
     if (!t) { box.focus(); flash('残す内容を書いてください。'); return; }
     const body = '\n## ' + q.id + '　' + (q.title || '') + '\n' + t + '\n';
     location.href = 'obsidian://new?vault=' + encodeURIComponent(VAULT)
-      + '&file=' + encodeURIComponent('TimeBase/10_Daily Log/' + q.day.slice(0,10) + '疑問メモ')
+      /* その日の科目フォルダの中の「疑問メモ」フォルダへ。20_Study/{科目}/復習メモ/ へは毎時バッチが写す。 */
+      + '&file=' + encodeURIComponent('TimeBase/10_Daily Log/' + q.day + '/疑問メモ/' + q.day.slice(0,10) + '疑問メモ')
       + '&append=true&content=' + encodeURIComponent(body);
     flash('Obsidian に送りました。');
   };

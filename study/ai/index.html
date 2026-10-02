@@ -1988,6 +1988,15 @@ function wirePdf(q){
   const btn = document.getElementById('qpdf');
   if (!btn) { if (DRAWER_ON) { document.body.classList.remove('drawer'); } return; }
   btn.onclick = () => DRAWER_ON && document.body.classList.contains('drawer') ? setDrawer(false) : openPdf(q);
+  const bw = document.getElementById('qpdfw');
+  if (bw) bw.onclick = async () => {
+    /* 先に窓だけ開く（await の後だと iPad の Safari がポップアップとして止める） */
+    const w = window.open('', '_blank');
+    const url = await pdfUrlOf(q);
+    if (url) { if (w) w.location.href = url; else location.href = url; return; }
+    if (w) w.close();
+    openPdf(q);                         /* 合言葉がまだ → 入力欄を出す */
+  };
   if (DRAWER_ON) openPdf(q);          /* 開いたまま次の問題へ → 差し替え */
 }
 
@@ -2046,6 +2055,7 @@ async function show(uid){
       </div>` : ''}
       ${(q.pdf || q.pdfx) ? `<div class="qsrc">
         <button id="qpdf">📄 ${q.pdfk === 'day' ? 'この日の問題を並べて見る' : '問題を並べて見る'}</button>
+        <button id="qpdfw" title="別ウィンドウで開く（ピンチで拡大できます）">↗ 別ウィンドウで開く</button>
       </div><div id="qpdfbox"></div>` : ''}
     </div>
     ${sumBlock(q)}

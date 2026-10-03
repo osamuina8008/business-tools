@@ -1,6 +1,6 @@
 {
-  "subject": "刑訴法",
-  "date": "2026-10-03",
+  "subject": "商法",
+  "date": "2026-10-04",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
@@ -8,8 +8,8 @@
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-09-12",
-      "subject": "刑事訴訟法",
+      "date": "2026-10-01",
+      "subject": "行政法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -103,14 +103,14 @@
     }
   ],
   "has_data": false,
-  "updated_at": "2026-10-03T09:00:23.640131",
+  "updated_at": "2026-10-04T07:00:22.053872",
   "today_tasks": [
     {
       "subject": "憲法",
       "status": "遅れ",
       "action": "短答3問｜論点：違憲審査基準（LRA・比較衡量）・表現の自由・平等原則",
       "theme": "短答6割安定・論文頻出論点の型ノート作成",
-      "situation": "今週0/10問。あと10問（19日ぶり）",
+      "situation": "今週0/10問。あと10問（20日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -120,7 +120,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：物権変動（対抗要件・善意取得）・抵当権の効力範囲",
       "theme": "短答6割安定・論文型ノート（物権・債権）",
-      "situation": "今週0/10問。あと10問（18日ぶり）",
+      "situation": "今週0/10問。あと10問（19日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -130,7 +130,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：構成要件該当性・違法性阻却（正当防衛の要件）・共犯の成立",
       "theme": "短答6割安定・論文型ノート",
-      "situation": "今週0/10問。あと10問（24日ぶり）",
+      "situation": "今週0/10問。あと10問（25日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -140,7 +140,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：訴訟要件（当事者適格・訴えの利益）・既判力の範囲",
       "theme": "短答安定化・論文骨組み",
-      "situation": "今週0/10問。あと10問（8日ぶり）",
+      "situation": "今週0/10問。あと10問（9日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -150,7 +150,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：捜査の端緒・逮捕の種類と要件・接見交通権",
       "theme": "短答安定化・論文骨組み",
-      "situation": "今週0/10問。あと10問（21日ぶり）",
+      "situation": "今週0/10問。あと10問（22日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -160,7 +160,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：株主総会決議（種類・要件・瑕疵）・取締役の善管注意義務",
       "theme": "商法・会社法の短答6割目標",
-      "situation": "今週0/10問。あと10問（12日ぶり）",
+      "situation": "今週0/10問。あと10問（13日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -170,7 +170,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "実務基礎の短答・論文両面対策",
-      "situation": "今週0/10問。あと10問（102日ぶり）",
+      "situation": "今週0/10問。あと10問（103日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -204,9 +204,9 @@
       "subject": "民訴法"
     },
     {
-      "keyword": "対抗要件",
+      "keyword": "執行停止",
       "count": 3,
-      "subject": "民法"
+      "subject": "刑訴法"
     }
   ],
   "today_review_items": [],

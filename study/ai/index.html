@@ -467,7 +467,9 @@ body.qd-drag #qd-f{pointer-events:none}
 .qd-bar a{color:var(--ai);text-decoration:none}
 .qd-bar button{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--sunk);color:var(--ink);
   border-radius:5px;padding:6px 12px;min-height:36px;cursor:pointer}
-#qd-f{display:block;width:calc(100% * var(--qz,1));height:100%;border:0;background:#fff}
+/* 拡大は transform:scale で中身ごと確実に倍にする（幅を広げる方式はDrive側が途中で頭打ちになった 2026-10-04） */
+#qd-sz{position:relative;overflow:hidden}
+#qd-f{display:block;position:absolute;left:0;top:0;border:0;background:#fff;transform-origin:0 0}
 .pkform{margin-top:10px;background:var(--sunk);border-radius:6px;padding:12px 14px;max-width:520px}
 .pkform label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px}
 .pkform div{display:flex;gap:8px}
@@ -1885,20 +1887,42 @@ function drawerEl(){
       + '<div class="qd-bar"><b id="qd-t"></b>'
       + '<span class="qd-zoom"><button id="qd-zo" aria-label="縮小">－</button><span id="qd-zv"></span>'
       + '<button id="qd-zi" aria-label="拡大">＋</button></span>'
-      + '<a id="qd-ext" target="_blank" rel="noopener">別ウィンドウ ↗</a>'
-      + '<button id="qd-x" aria-label="閉じる">閉じる ✕</button></div><div id="qd-box"><iframe id="qd-f" loading="lazy"></iframe></div>';
+      + '<a id="qd-ext" href="#">別ウィンドウ ↗</a>'
+      + '<button id="qd-x" aria-label="閉じる">閉じる ✕</button></div><div id="qd-box"><div id="qd-sz"><iframe id="qd-f" loading="lazy"></iframe></div></div>';
     document.body.appendChild(d);
     d.querySelector('#qd-x').onclick = () => setDrawer(false);
     d.querySelector('#qd-zi').onclick = () => setZoom(QZ_STEPS[Math.min(QZ_STEPS.length - 1, QZ_STEPS.indexOf(QZ) + 1)]);
     d.querySelector('#qd-zo').onclick = () => setZoom(QZ_STEPS[Math.max(0, QZ_STEPS.indexOf(QZ) - 1)]);
     d.querySelector('#qd-zv').onclick = () => setZoom(1);
     wireGrip(d.querySelector('#qd-grip'));
+    d.querySelector('#qd-ext').onclick = e => { e.preventDefault(); openExt(d.querySelector('#qd-ext').dataset.url); };
+    if (window.ResizeObserver) new ResizeObserver(fitZoom).observe(d.querySelector('#qd-box'));
+    else addEventListener('resize', fitZoom);
     setZoom(QZ);
   }
   return d;
 }
 
-/* 拡大率：Driveのプレビューは中身を枠の幅に合わせて描くので、iframe自体を広く取れば文字が大きくなる */
+/* 拡大率：iframe を枠と同じ大きさで描かせてから scale(z) で拡大し、はみ出しは枠の中でスクロール。
+   offsetWidth（スクロールバーを含む幅）で測るので、スクロールバーの出入りで揺れない */
+function fitZoom(){
+  const box = document.getElementById('qd-box'); if (!box) return;
+  const f = document.getElementById('qd-f'), sz = document.getElementById('qd-sz');
+  const w = box.offsetWidth, h = box.offsetHeight; if (!w || !h) return;
+  f.style.width = w + 'px'; f.style.height = h + 'px';
+  f.style.transform = QZ === 1 ? '' : 'scale(' + QZ + ')';
+  sz.style.width = (w * QZ) + 'px'; sz.style.height = (h * QZ) + 'px';
+}
+/* 別ウィンドウ：ホーム画面のWebアプリからは新しい窓が作れない（アプリ内の仮ビューになる）。
+   iPad/iPhone は x-safari- で Safari 本体の窓として開く＝ステージマネージャで横に並べ、ピンチで拡大できる */
+const IOS = /iP(ad|hone|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+const STANDALONE = navigator.standalone === true || matchMedia('(display-mode: standalone)').matches;
+function openExt(url){
+  if (!url) return;
+  if (IOS && STANDALONE && /^https:/.test(url)) { location.href = 'x-safari-' + url; return; }
+  const w = window.open(url, '_blank', 'noopener');
+  if (!w && !IOS) location.href = url;
+}
 const QZ_STEPS = [1, 1.25, 1.5, 1.75, 2, 2.5, 3];
 let QZ = 1;
 try { const z = parseFloat(localStorage.getItem('xpdf_zoom')); if (QZ_STEPS.includes(z)) QZ = z; } catch(e){}
@@ -1906,6 +1930,7 @@ function setZoom(z){
   QZ = z;
   document.documentElement.style.setProperty('--qz', z);
   const v = document.getElementById('qd-zv'); if (v) v.textContent = Math.round(z * 100) + '%';
+  fitZoom();
   try { localStorage.setItem('xpdf_zoom', String(z)); } catch(e){}
 }
 
@@ -1958,7 +1983,8 @@ function setDrawer(on, url, title){
   if (on && url) {
     const pv = url.replace('/view', '/preview');
     const f = d.querySelector('#qd-f'); if (f.getAttribute('src') !== pv) f.setAttribute('src', pv);
-    d.querySelector('#qd-ext').href = url;
+    d.querySelector('#qd-ext').dataset.url = url;
+    requestAnimationFrame(fitZoom);
     d.querySelector('#qd-t').textContent = title || '問題';
   }
   if (!on) { const f = d.querySelector('#qd-f'); f.removeAttribute('src'); }
@@ -1989,14 +2015,16 @@ function wirePdf(q){
   if (!btn) { if (DRAWER_ON) { document.body.classList.remove('drawer'); } return; }
   btn.onclick = () => DRAWER_ON && document.body.classList.contains('drawer') ? setDrawer(false) : openPdf(q);
   const bw = document.getElementById('qpdfw');
-  if (bw) bw.onclick = async () => {
-    /* 先に窓だけ開く（await の後だと iPad の Safari がポップアップとして止める） */
-    const w = window.open('', '_blank');
-    const url = await pdfUrlOf(q);
-    if (url) { if (w) w.location.href = url; else location.href = url; return; }
-    if (w) w.close();
-    openPdf(q);                         /* 合言葉がまだ → 入力欄を出す */
-  };
+  if (bw) {
+    /* URLは先に復号しておく。押した瞬間に同期で開かないと iPad が止める／Webアプリでは空窓になる */
+    let ready = null; pdfUrlOf(q).then(u => { ready = u; });
+    bw.onclick = async () => {
+      if (ready) { openExt(ready); return; }
+      const url = await pdfUrlOf(q);
+      if (url) { ready = url; openExt(url); return; }
+      openPdf(q);                       /* 合言葉がまだ → 入力欄を出す */
+    };
+  }
   if (DRAWER_ON) openPdf(q);          /* 開いたまま次の問題へ → 差し替え */
 }
 

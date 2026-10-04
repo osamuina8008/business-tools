@@ -82,6 +82,9 @@ section{padding:26px 0 4px}
 /* カードの中身（条文→言えたら要点・元の正解肢）*/
 .body{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:12px 13px}
 .body .ask{margin:0;font-size:14px;line-height:1.75;color:var(--ink)}
+.body .qs{margin:0 0 10px;padding-left:1.4em;font-size:14px;line-height:1.7;color:var(--ink)}
+.body .qs li{margin:0 0 6px}
+.body .qs small{display:block;font-size:11px;color:var(--ink3)}
 .body .arts{margin:0 0 10px;display:flex;flex-wrap:wrap;gap:5px}
 .body .arts span{font-size:11.5px;background:var(--card);border:1px solid var(--line);
   border-radius:6px;padding:2px 7px;color:var(--ink2)}
@@ -293,7 +296,7 @@ footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);
              ② ai/data/manifest.json … 実際に解いた日と問題番号（間隔反復の種）
    固定の例文は一切持たない。読めなかったら「読めなかった」と出す。
    ══════════════════════════════════════════════════════════ */
-const VER = "20260927-2";
+const VER = "20261004-1";
 const CTX_URL = () => `https://raw.githubusercontent.com/osamuina8008/business-tools/main/study/context.json?t=${Date.now()}`;
 const MAN_URL = () => `ai/data/manifest.json?t=${Date.now()}`;
 const PACK_URL = () => `pack.json?t=${Date.now()}`;
@@ -418,6 +421,11 @@ function splitAction(a){
 /* 遅れている科目のカードに、実際の1問をぶら下げる。
    「短答を3問」とだけ言われても、電車の中では何も始められないため。 */
 const usedBodies = new Set();
+/* 見出しと「やること」は g（card_gain.py）の問いから作る（2026-10-04）。
+   「短答3問、まずこの1問から」では何を復習するのか分からないと指摘されたため。 */
+const cardTitle = b => (b && b.g && b.g.title) || (b && b.t) || "";
+const qOf = p => p.q || `${p.k}で何が決まっている？`;
+const howFor = b => `答えを見ずに、下の${b.g.p.length}問に一言ずつ答える（声に出すかメモに書く）。全部言えたら「要点を見る」で答え合わせ。`;
 function pickForSubject(subject){
   const all = PBYSUBJ.get(normSubj(subject)) || [];
   /* 「これで身につくこと」(g) が作れている問題を先に出す（2026-09-27）*/
@@ -464,9 +472,9 @@ function buildPool(){
     const sit = (t.situation||"").replace(/[（(]\d+日ぶり[)）]/,"").replace(/[。・]\s*$/,"").trim();
     pool.push({
       kind:"gap", key, subject:sub, minutes:15,
-      title: gapBody && gapBody.t ? gapBody.t : `${sub}の短答を3問`,
+      title: cardTitle(gapBody) || `${sub}の短答を3問`,
       how: gapBody
-        ? `${sub}の短答3問、まずこの1問から。` + (gapBody.g ? `下の条文で何が決まっているか、言ってから要点を開きます。` : `見出しの論点を自分の言葉で説明してから、要点を開きます。`)
+        ? (gapBody.g ? howFor(gapBody) : `見出しの論点を、定義→結論の順に自分の言葉で説明してから、要点を開きます。`)
         : (topics ? `論点は ${topics}。正解を見る前に、どこが問われているかを一言で言います。`
                   : `${head||"短答3問"}。正解を見る前に、どこが問われているかを一言で言います。`),
       why: `<b>${gapDays!=null ? gapDays+"日ぶり" : "進捗あり"}</b>${sit ? "・"+esc(sit) : ""}`,
@@ -509,9 +517,9 @@ function buildPool(){
     const rest     = order.slice(1,3).map(q=>q.id);
     pool.push({
       kind:"srs", key, subject:sub, minutes:10,
-      title: (body && body.t) || topicOf(lead) || `${sub} ${lead.id} をもう一度`,
+      title: cardTitle(body) || topicOf(lead) || `${sub} ${lead.id} をもう一度`,
       how: body
-        ? `${lead.id}（${date}に解いた回）。` + (body.g ? `下の条文で何が決まっているか、言ってから要点を開きます。` : `まず見出しの論点を自分の言葉で説明してから、要点を開きます。`)
+        ? `${lead.id}（${date}に解いた回）。` + (body.g ? howFor(body) : `まず見出しの論点を、定義→結論の順に自分の言葉で説明してから、要点を開きます。`)
         : `${lead.id}${rest.length?"・"+rest.join("・"):""}（${date}に解いた回）。答えを隠して、肢の切り方だけ先に言います。`,
       why:`<b>${elapsed}日経過</b>・${date}に解いた回`,
       link: aiLink(d.day, lead.id),
@@ -571,11 +579,11 @@ function gainHTML(b, shown){
   return `<div class="body">
     ${g.gain?`<p class="gain"><span>身につくこと</span>${esc(g.gain)}</p>`:""}
     ${shown
-      ? `<dl class="pts">${g.p.map(p=>`<dt>${esc(p.k)}</dt><dd>${hl(p.v)}</dd>`).join("")}</dl>
+      ? `<dl class="pts">${g.p.map((p,i)=>`<dt>${i+1}. ${esc(p.k)}</dt><dd>${hl(p.v)}</dd>`).join("")}</dl>
          ${g.one?`<p class="one"><span>一言で</span>${esc(g.one)}</p>`:""}
          ${g.trap?`<p class="trap"><span>ひっかけ</span>${hl(g.trap)}</p>`:""}
          ${ansLine(b)}`
-      : `<p class="arts">${g.p.map(p=>`<span>${esc(p.k)}</span>`).join("")}</p>
+      : `<ol class="qs">${g.p.map(p=>`<li>${esc(qOf(p))}<small>${esc(p.k)}</small></li>`).join("")}</ol>
          <button type="button" class="reveal" data-act="reveal">言えたら、要点を見る</button>`}
   </div>`;
 }

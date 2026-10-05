@@ -438,8 +438,49 @@ body.reading{overflow:hidden}
 .sm-must{margin:0;padding-left:1.3em;font-size:15.5px;line-height:1.8}
 .sm-must em{font-style:normal;background:linear-gradient(transparent 60%,rgba(46,115,85,.25) 60%)}
 .sm-foot{font-size:12px;color:var(--muted);margin:16px 0 0;text-align:right}
+/* ---- 絵の部品（2026-10-06） ---- */
+.eye{margin:14px 0 4px}
+.eye-h{font-size:12px;letter-spacing:.1em;color:var(--muted);font-weight:700;margin-bottom:8px}
+.eye-h small{font-weight:400;letter-spacing:0;margin-left:8px}
+.eye-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.eye-t{font:inherit;color:var(--ink);text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:6px;
+  background:var(--surface);border:2px solid var(--line);border-top-width:6px;border-radius:8px;padding:10px 12px 9px}
+.eye-t.o{border-color:var(--agree)}.eye-t.x{border-color:var(--differ)}
+.eye-t.o .eye-top svg{color:var(--agree)}.eye-t.x .eye-top svg{color:var(--differ)}
+.eye-t:active{transform:scale(.98)}
+.eye-top{display:flex;align-items:center;justify-content:space-between}
+.eye-l{font-family:var(--disp);font-size:26px;font-weight:700;line-height:1}
+.eye-k{font-size:17px;font-weight:700;line-height:1.35}
+.eye-s{font-size:12.5px;line-height:1.5;color:var(--muted)}
+.eye-s em{font-style:normal;color:var(--ink);font-weight:700}
+.eye-v{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.eye-v i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.eye-v i.ok{background:var(--agree)}.eye-v i.ng{background:var(--differ)}
+.eye-v small{font-size:11.5px;color:var(--differ);margin-left:4px}
+.eye-t.split{background:var(--flagbg)}
+.eye-road{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px}
+.eye-st{border-left:4px solid var(--ai);background:var(--sunk);border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;gap:3px}
+.eye-st b{width:24px;height:24px;border-radius:50%;background:var(--ai);color:var(--surface);display:grid;place-items:center;font-size:13px}
+.eye-st span{font-weight:700;font-size:15px}
+.eye-st small{font-size:12.5px;color:var(--muted);line-height:1.5}
+.sm-qb .qt{display:flex;gap:8px;align-items:flex-start;line-height:1.5}
+.fz-q{flex:none;width:24px;height:24px;border-radius:50%;background:var(--ai);color:var(--surface);display:grid;place-items:center;font-size:14px;font-weight:700}
+.fz-ar{width:0;height:0;margin:5px 0 5px 9px;border-left:7px solid transparent;border-right:7px solid transparent;border-top:9px solid var(--ai);opacity:.55}
+.fz-a{background:var(--surface);border:1.5px solid var(--ai);border-radius:16px;padding:5px 12px;font-weight:700;font-size:14.5px;line-height:1.5}
+.fz-w{display:flex;gap:6px;align-items:flex-start;font-size:13.5px;line-height:1.55;color:var(--muted)}
+.fz-i{flex:none;color:var(--ai);margin-top:1px}
+.fz-pair{flex-direction:column;gap:4px;background:var(--sunk);border-radius:6px;padding:10px 12px}
+.fz-pair p{margin:0}
+.fz-vs{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.fz-vs span{background:var(--surface);border:1.5px solid var(--line);border-radius:4px;padding:2px 10px;font-weight:700}
+.fz-vs i{font-style:normal;color:var(--differ);font-size:18px;font-weight:700}
+.sm-ox svg{display:block}
+.sm-ox.x svg{color:var(--differ)}.sm-ox.o svg{color:var(--agree)}
+.sm-leg.flash{animation:smflash 1.4s ease-out}
+@keyframes smflash{0%{background:var(--flagbg)}100%{background:transparent}}
 @media(max-width:820px){
   .sm{padding:16px 14px}
+  .eye-row{grid-template-columns:repeat(auto-fit,minmax(120px,1fr))}
   .sm-one,.sm-why,.sm-src,.sm-warn,.sm details,.sm-fx,.sm-cc{margin-left:0}
   .sm-pair{flex-direction:column;gap:0}
   .sm td:first-child{white-space:normal}
@@ -1722,6 +1763,65 @@ function smSec(v, mark){
 }
 let SM_SHUT = false;
 try { SM_SHUT = localStorage.getItem('x_sm_shut') === '1'; } catch(e){}
+/* ---- 絵の部品（2026-10-06）。文字の ○× ではなく描いた丸・バツ、判例＝天秤・条文＝本のしるし ---- */
+function smMark(ox, s){
+  s = s || 28;
+  return ox === '○'
+    ? '<svg class="mk-o" width="' + s + '" height="' + s + '" viewBox="0 0 40 40" aria-label="○"><circle cx="20" cy="20" r="14" fill="none" stroke="currentColor" stroke-width="5"/></svg>'
+    : '<svg class="mk-x" width="' + s + '" height="' + s + '" viewBox="0 0 40 40" aria-label="×"><path d="M9 9L31 31M31 9L9 31" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>';
+}
+/* 肢の○×は answer_note（例「ア○・イ×・ウ×」）を正とし、無ければ ox 欄の最後の記号 */
+function smLegOX(S, L){
+  const lab = String(L.l || '').trim();
+  if (lab) {
+    const m = String(S.answer_note || '').match(new RegExp(lab.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s*[：:]?\\s*([○◯〇×✕])'));
+    if (m) return SM_OX(m[1]);
+  }
+  const all = String(L.ox || '').match(/[○◯〇×✕]/g);
+  return all ? SM_OX(all[all.length - 1]) : SM_OX(L.ox || '');
+}
+function smIco(t){
+  if (/判|決|事件|訴訟/.test(t))   /* 天秤 */
+    return '<svg class="fz-i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7 21h10M4 7h16M4 7l-2.5 6a3 3 0 0 0 5 0L4 7M20 7l-2.5 6a3 3 0 0 0 5 0L20 7"/></svg>';
+  if (/条|法/.test(t))              /* 本 */
+    return '<svg class="fz-i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 21V5M8 7h7"/></svg>';
+  return '<svg class="fz-i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v5M12 16h0"/></svg>';
+}
+/* ひと目で：短答は肢ごとの大きな○×タイル（キーワード＋6社の票の点）、論文は論点の道すじ */
+function smEye(q, S, A, RB){
+  const em = t => esc(t || '').replace(/【(.+?)】/g, '<em>$1</em>');
+  if (RB) {
+    const fl = S.flow || [];
+    if (!fl.length) return '';
+    return '<div class="eye eye-rb"><div class="eye-h">ひと目で：答案の道すじ</div><div class="eye-road">'
+      + fl.map((F, i) => '<div class="eye-st"><b>' + (i + 1) + '</b><span>' + esc(String(F.n || '').replace(/^[①-⑳]\s*/, '')) + '</span>'
+        + (F.concl ? '<small>' + esc(String(F.concl).slice(0, 34)) + (String(F.concl).length > 34 ? '…' : '') + '</small>' : '') + '</div>').join('')
+      + '</div></div>';
+  }
+  const legs = S.legs || [];
+  if (!legs.length) return '';
+  const tiles = legs.map((L, i) => {
+    const ox = smLegOX(S, L), lab = SM_Z(String(L.l || ''));
+    const m = String(L.one || '').match(/【(.+?)】/);
+    const key = m ? m[1] : String(L.one || '').slice(0, 14);
+    const dots = A.map(a => {
+      const c = SM_OX(((q.ai[a].choices || {})[lab] || '').trim());
+      const k = !c ? 'nn' : (c === ox ? 'ok' : 'ng');
+      return '<i class="' + k + '" title="' + esc(a) + '：' + esc(c || '—') + '"></i>';
+    }).join('');
+    const ng = A.filter(a => { const c = SM_OX(((q.ai[a].choices || {})[lab] || '').trim()); return c && c !== ox; });
+    const cls = ox === '○' ? 'o' : ox === '×' ? 'x' : 'n';
+    return '<button class="eye-t ' + cls + (ng.length ? ' split' : '') + '" data-i="' + i + '">'
+      + '<span class="eye-top"><span class="eye-l">' + esc(L.l || '') + '</span>'
+      + (cls === 'n' ? '<span class="eye-l">' + esc(ox) + '</span>' : smMark(ox, 34)) + '</span>'
+      + '<span class="eye-k">' + esc(key) + '</span>'
+      + (m ? '<span class="eye-s">' + em(L.one) + '</span>' : '')
+      + '<span class="eye-v">' + dots + (ng.length ? '<small>' + ng.map(esc).join('・') + 'は逆</small>' : '') + '</span>'
+      + '</button>';
+  }).join('');
+  return '<div class="eye"><div class="eye-h">ひと目で <small>押すとその肢の解説へ／点＝各社の判定（緑＝正解と同じ・赤＝逆）</small></div>'
+    + '<div class="eye-row">' + tiles + '</div></div>';
+}
 function sumBlock(q){
   const S = q.sum; if (!S) return '';
   const A = ais(q);
@@ -1731,12 +1831,20 @@ function sumBlock(q){
   const pane = (grp, k, on, html, cls) => '<div class="sm-pane ' + (cls || '') + (k === on ? ' on' : '')
       + '" data-g="' + grp + '" data-k="' + esc(k) + '">' + html + '</div>';
   let h = '';
-  /* 1 軸 */
+  const RB0 = S.kind === 'ronbun';
+  /* 0 ひと目で（2026-10-06、本人要望「パッと見て頭に入る絵」）。既存の要約データだけで描く＝追加料金0 */
+  h += smEye(q, S, A, RB0);
+  /* 1 軸：問い → 答え → 根拠 を矢印でつないだ図にする */
   const ax = S.axis || {};
   if (ax.boxes && ax.boxes.length) {
     h += '<h4>① まず、この問題の軸</h4>' + (ax.lead ? '<p class="sm-lead">' + esc(ax.lead) + '</p>' : '')
-      + '<div class="sm-q">' + ax.boxes.map(b => '<div class="sm-qb"><div class="qt">' + esc(b.q || '') + '</div>'
-        + (b.rows || []).map(r => '<div class="r"><b>' + esc(r[0] || '') + '</b> <span>' + esc(r[1] || '') + '</span></div>').join('')
+      + '<div class="sm-q">' + ax.boxes.map(b => '<div class="sm-qb"><div class="qt"><span class="fz-q">？</span>'
+        + esc(String(b.q || '').replace(/^[①-⑳]\s*/, '')) + '</div>'
+        + (b.rows || []).map(r => {
+            const why = String(r[1] || '').replace(/^\s*(→|⇒)\s*/, '');
+            return '<div class="fz-ar"></div><div class="fz-a">' + esc(r[0] || '') + '</div>'
+              + (why ? '<div class="fz-ar"></div><div class="fz-w">' + smIco(why) + '<span>' + esc(why) + '</span></div>' : '');
+          }).join('')
         + '</div>').join('') + '</div>'
       + (ax.note ? '<p class="sm-note">' + esc(ax.note) + '</p>' : '');
   }
@@ -1770,12 +1878,12 @@ function sumBlock(q){
         const minor = kinds.sort((x, y) => votes[x].length - votes[y].length)[0];
         chip = '<span class="sm-chip split">' + votes[minor].map(esc).join('・') + 'だけ' + esc(minor) + '</span>';
       }
-      const ox = SM_OX(L.ox || '');
+      const ox = smLegOX(S, L);
       const who = A.filter(a => per[a][lab]);
       const gid = 'lg' + i, on = who[0];
       const wrong = a => { const c = SM_OX(((q.ai[a].choices || {})[lab] || '').trim()); return c && ox && c !== ox; };
-      return '<div class="sm-leg"><div class="sm-lh"><span class="sm-lid">' + esc(L.l || '') + '</span>'
-        + '<span class="sm-ox ' + (ox === '×' ? 'x' : 'o') + '">' + esc(ox) + '</span>'
+      return '<div class="sm-leg" id="smleg' + i + '"><div class="sm-lh"><span class="sm-lid">' + esc(L.l || '') + '</span>'
+        + '<span class="sm-ox ' + (ox === '×' ? 'x' : 'o') + '">' + (ox === '○' || ox === '×' ? smMark(ox, 24) : esc(ox)) + '</span>'
         + (L.look ? '<span class="sm-look">' + esc(L.look) + '</span>' : '') + chip + '</div>'
         + '<p class="sm-one">' + em(L.one) + '</p>'
         + (L.why ? '<p class="sm-why">' + esc(L.why) + '</p>' : '')
@@ -1806,7 +1914,14 @@ function sumBlock(q){
   }
   /* 4 取り違え */
   if ((S.traps || []).length)
-    h += '<h4>④ 取り違えやすいところ</h4>' + S.traps.map(t => '<div class="sm-pair"><b>' + esc(t[0] || '') + '</b><span>' + esc(t[1] || '') + '</span></div>').join('');
+    h += '<h4>④ 取り違えやすいところ</h4>' + S.traps.map(t => {
+      /* 「控訴審と最高裁」→ [控訴審] ⇄ [最高裁] の天秤に */
+      const pr = String(t[0] || '').split(/\s*(?:と|vs\.?|VS|／|\/|⇔|↔)\s*/).filter(Boolean);
+      const top = pr.length === 2
+        ? '<div class="fz-vs"><span>' + esc(pr[0]) + '</span><i>⇄</i><span>' + esc(pr[1]) + '</span></div>'
+        : '<div class="fz-vs"><span>' + esc(t[0] || '') + '</span></div>';
+      return '<div class="sm-pair fz-pair">' + top + '<p>' + esc(t[1] || '') + '</p></div>';
+    }).join('');
   /* 5 要件表 */
   if ((S.reqs || []).length)
     h += '<h4>⑤ 条文ごとの要件</h4><table><thead><tr><th>条文</th><th>' + (RB ? '何の場面か' : '何の書面・場面か') + '</th><th>要件</th></tr></thead><tbody>'
@@ -1829,6 +1944,11 @@ function wireSum(){
     const grp = g.dataset.g, k = b.dataset.k, scope = g.parentElement;
     g.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b));
     scope.querySelectorAll('.sm-pane[data-g="' + grp + '"]').forEach(p => p.classList.toggle('on', p.dataset.k === k));
+  });
+  box.querySelectorAll('.eye-t').forEach(t => t.onclick = () => {
+    const el = document.getElementById('smleg' + t.dataset.i); if (!el) return;
+    el.scrollIntoView({block: 'start'});
+    el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
   });
   const f = document.getElementById('smfold');
   f.onclick = () => {

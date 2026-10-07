@@ -1,21 +1,23 @@
 {
-  "subject": "刑法",
-  "date": "2026-10-07",
+  "subject": "行政法",
+  "date": "2026-10-08",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [
-    {
-      "type": "短答",
-      "questions_count": 5,
-      "understanding": "普通",
-      "topic": ""
-    }
-  ],
+  "today_logs": [],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-10-06",
+      "date": "2026-10-07",
+      "subject": "刑法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-10-05",
       "subject": "憲法",
       "questions_count": 0,
       "wrong_qs": [],
@@ -24,7 +26,7 @@
     },
     {
       "interval_label": "",
-      "date": "2026-10-06",
+      "date": "2026-10-01",
       "subject": "行政法",
       "questions_count": 0,
       "wrong_qs": [],
@@ -33,8 +35,8 @@
     },
     {
       "interval_label": "",
-      "date": "2026-10-06",
-      "subject": "民法",
+      "date": "2026-09-17",
+      "subject": "行政法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -231,15 +233,15 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": true,
-  "updated_at": "2026-10-07T07:00:24.414131",
+  "has_data": false,
+  "updated_at": "2026-10-08T07:00:45.089402",
   "today_tasks": [
     {
       "subject": "民法",
       "status": "今週",
       "action": "短答3問｜論点：対抗要件（177条）・意思表示の瑕疵・同時履行の抗弁",
       "theme": "短答6割安定・論文型ノート（物権・債権）",
-      "situation": "今週0/10問。あと10問（1日ぶり）",
+      "situation": "今週0/10問。あと10問（2日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -249,7 +251,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：構成要件該当性・違法性阻却（正当防衛の要件）・共犯の成立",
       "theme": "短答6割安定・論文型ノート",
-      "situation": "今週5/10問。あと5問",
+      "situation": "今週5/10問。あと5問（1日ぶり）",
       "actual_q": 5,
       "target_q": 10,
       "checked": false
@@ -259,7 +261,7 @@
       "status": "今週",
       "action": "短答3問｜論点：処分性・原告適格・理由の提示（行手法14条）",
       "theme": "短答6割目標・論文骨組み開始",
-      "situation": "今週0/10問。あと10問（1日ぶり）",
+      "situation": "今週0/10問。あと10問（2日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -269,7 +271,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：訴訟要件（当事者適格・訴えの利益）・既判力の範囲",
       "theme": "短答安定化・論文骨組み",
-      "situation": "今週0/10問。あと10問（12日ぶり）",
+      "situation": "今週0/10問。あと10問（13日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -279,7 +281,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：捜査の端緒・逮捕の種類と要件・接見交通権",
       "theme": "短答安定化・論文骨組み",
-      "situation": "今週0/10問。あと10問（25日ぶり）",
+      "situation": "今週0/10問。あと10問（26日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -289,7 +291,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：株主総会決議（種類・要件・瑕疵）・取締役の善管注意義務",
       "theme": "商法・会社法の短答6割目標",
-      "situation": "今週0/10問。あと10問（16日ぶり）",
+      "situation": "今週0/10問。あと10問（17日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -299,7 +301,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "実務基礎の短答・論文両面対策",
-      "situation": "今週0/10問。あと10問（106日ぶり）",
+      "situation": "今週0/10問。あと10問（107日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -330,12 +332,12 @@
     {
       "keyword": "原告適格",
       "count": 3,
-      "subject": "商法"
+      "subject": "行政法"
     },
     {
       "keyword": "同時履行の抗弁",
       "count": 3,
-      "subject": "民訴法"
+      "subject": "民法"
     }
   ],
   "today_review_items": [],

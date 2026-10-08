@@ -98,6 +98,20 @@ section{padding:26px 0 4px}
 .body .pts dt:first-child{margin-top:0}
 .body .pts dd{margin:0;font-size:14px;line-height:1.75;color:var(--ink)}
 .body .pts b,.body .trap b{background:linear-gradient(transparent 60%,rgba(214,170,60,.35) 60%)}
+/* 押した後も同じQ番号の問いを残し、その下に答え→理由→根拠（2026-10-09）。
+   旧版は押すと問いが消えて判例名の見出しに変わり、どれがどの答えか分からなかった。 */
+.body .qs{list-style:none;padding-left:0}
+.body .qs i,.body .qa .qq i{font-style:normal;font-weight:800;color:var(--review);margin-right:6px}
+.body .qa{list-style:none;margin:0;padding:0}
+.body .qa li{margin:0 0 10px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+.body .qa .qq{margin:0 0 6px;font-size:13px;line-height:1.6;color:var(--ink2)}
+.body .qa .aa{margin:0 0 4px;font-size:15px;font-weight:800;line-height:1.55;color:var(--ink)}
+.body .qa .vv{margin:0;font-size:13.5px;line-height:1.75;color:var(--ink)}
+.body .qa .aa span,.body .qa .vv span{display:inline-block;margin-right:7px;font-size:10.5px;font-weight:700;
+  padding:1px 7px;border-radius:5px;border:1px solid var(--line);color:var(--ink3);vertical-align:1px}
+.body .qa .aa span{border-color:var(--review);color:var(--review)}
+.body .qa .vv b{background:linear-gradient(transparent 60%,rgba(214,170,60,.35) 60%)}
+.body .qa .src{margin:4px 0 0;font-size:11px;color:var(--ink3)}
 .body .one{margin:12px 0 0;font-size:14.5px;font-weight:800;line-height:1.6}
 .body .trap{margin:8px 0 0;font-size:13px;line-height:1.7;color:var(--ink2)}
 .body .ans.thin{font-size:12px;font-weight:600;color:var(--ink3)}
@@ -296,7 +310,7 @@ footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);
              ② ai/data/manifest.json … 実際に解いた日と問題番号（間隔反復の種）
    固定の例文は一切持たない。読めなかったら「読めなかった」と出す。
    ══════════════════════════════════════════════════════════ */
-const VER = "20261004-1";
+const VER = "20261009-1";
 const CTX_URL = () => `https://raw.githubusercontent.com/osamuina8008/business-tools/main/study/context.json?t=${Date.now()}`;
 const MAN_URL = () => `ai/data/manifest.json?t=${Date.now()}`;
 const PACK_URL = () => `pack.json?t=${Date.now()}`;
@@ -579,11 +593,15 @@ function gainHTML(b, shown){
   return `<div class="body">
     ${g.gain?`<p class="gain"><span>身につくこと</span>${esc(g.gain)}</p>`:""}
     ${shown
-      ? `<dl class="pts">${g.p.map((p,i)=>`<dt>${i+1}. ${esc(p.k)}</dt><dd>${hl(p.v)}</dd>`).join("")}</dl>
+      ? `<ol class="qa">${g.p.map((p,i)=>`<li>
+           <p class="qq"><i>Q${i+1}</i>${esc(qOf(p))}</p>
+           ${p.a?`<p class="aa"><span>答え</span>${esc(p.a)}</p>`:""}
+           <p class="vv"><span>${p.a?"理由":"答え"}</span>${hl(p.v)}</p>
+           <p class="src">根拠：${esc(p.k)}</p></li>`).join("")}</ol>
          ${g.one?`<p class="one"><span>一言で</span>${esc(g.one)}</p>`:""}
          ${g.trap?`<p class="trap"><span>ひっかけ</span>${hl(g.trap)}</p>`:""}
          ${ansLine(b)}`
-      : `<ol class="qs">${g.p.map(p=>`<li>${esc(qOf(p))}<small>${esc(p.k)}</small></li>`).join("")}</ol>
+      : `<ol class="qs">${g.p.map((p,i)=>`<li><i>Q${i+1}</i>${esc(qOf(p))}<small>根拠：${esc(p.k)}</small></li>`).join("")}</ol>
          <button type="button" class="reveal" data-act="reveal">言えたら、要点を見る</button>`}
   </div>`;
 }

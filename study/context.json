@@ -1,22 +1,15 @@
 {
-  "subject": "民訴法",
-  "date": "2026-10-09",
+  "subject": "刑訴法",
+  "date": "2026-10-10",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [
-    {
-      "type": "短答",
-      "questions_count": 0,
-      "understanding": "普通",
-      "topic": ""
-    }
-  ],
+  "today_logs": [],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-10-06",
-      "subject": "憲法",
+      "date": "2026-10-09",
+      "subject": "民事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -24,17 +17,8 @@
     },
     {
       "interval_label": "",
-      "date": "2026-10-06",
-      "subject": "行政法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-10-06",
-      "subject": "民法",
+      "date": "2026-10-07",
+      "subject": "刑法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -43,203 +27,99 @@
   ],
   "today_schedule": [
     {
-      "time": "03:45",
+      "time": "05:45",
       "activity": "家起床"
     },
     {
-      "time": "03:50",
-      "activity": "家準備"
-    },
-    {
-      "time": "03:55",
-      "activity": "家瞑想"
-    },
-    {
-      "time": "03:59",
-      "activity": "家朝準備"
-    },
-    {
-      "time": "04:00",
-      "activity": "家学習"
-    },
-    {
-      "time": "04:15",
-      "activity": "家学習"
-    },
-    {
-      "time": "04:30",
-      "activity": "家学習"
-    },
-    {
-      "time": "04:45",
-      "activity": "家学習"
-    },
-    {
-      "time": "05:00",
-      "activity": "家学習"
-    },
-    {
-      "time": "05:15",
-      "activity": "家食事・準備"
-    },
-    {
-      "time": "05:30",
-      "activity": "移動家→駅"
-    },
-    {
-      "time": "06:05",
-      "activity": "電車学習"
-    },
-    {
-      "time": "06:15",
-      "activity": "電車学習"
-    },
-    {
-      "time": "06:30",
-      "activity": "電車学習"
+      "time": "06:00",
+      "activity": "家食事"
     },
     {
       "time": "06:45",
-      "activity": "移動移動"
+      "activity": "家学習"
     },
     {
-      "time": "07:00",
-      "activity": "移動運動"
+      "time": "08:30",
+      "activity": "外note・YouTube"
     },
     {
-      "time": "07:15",
-      "activity": "移動運動"
+      "time": "09:15",
+      "activity": "家学習"
     },
     {
-      "time": "07:40",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "08:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "09:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "10:00",
-      "activity": "仕事仕事"
+      "time": "10:45",
+      "activity": "家運動"
     },
     {
       "time": "11:00",
-      "activity": "仕事仕事"
+      "activity": "家学習"
+    },
+    {
+      "time": "11:45",
+      "activity": "家運動"
     },
     {
       "time": "12:00",
-      "activity": "仕事仕事"
+      "activity": "家食事"
     },
     {
       "time": "13:00",
-      "activity": "仕事仕事"
+      "activity": "家掃除"
     },
     {
       "time": "14:00",
-      "activity": "仕事仕事"
+      "activity": "移動運動"
     },
     {
       "time": "15:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "16:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "17:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "18:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "18:10",
-      "activity": "車移動"
-    },
-    {
-      "time": "18:30",
-      "activity": "車夕食"
-    },
-    {
-      "time": "18:40",
-      "activity": "電車学習"
-    },
-    {
-      "time": "18:45",
-      "activity": "電車学習"
-    },
-    {
-      "time": "19:00",
-      "activity": "電車学習"
-    },
-    {
-      "time": "19:15",
-      "activity": "電車学習"
-    },
-    {
-      "time": "19:20",
-      "activity": "移動歩き"
-    },
-    {
-      "time": "19:40",
-      "activity": "ベスパ筋トレ"
-    },
-    {
-      "time": "19:55",
-      "activity": "ベスパ運動"
-    },
-    {
-      "time": "20:05",
-      "activity": "ベスパストレッチ"
-    },
-    {
-      "time": "20:15",
-      "activity": "ベスパ風呂"
-    },
-    {
-      "time": "20:30",
-      "activity": "ベスパ風呂"
-    },
-    {
-      "time": "20:45",
-      "activity": "移動帰宅"
-    },
-    {
-      "time": "21:10",
-      "activity": "家片付け"
-    },
-    {
-      "time": "21:20",
       "activity": "家復習"
     },
     {
-      "time": "21:25",
-      "activity": "家ブログ"
+      "time": "16:00",
+      "activity": "家運動"
     },
     {
-      "time": "21:30",
-      "activity": "家明日の支度"
+      "time": "16:30",
+      "activity": "移動運動"
     },
     {
-      "time": "21:45",
+      "time": "17:30",
+      "activity": "家支度・準備"
+    },
+    {
+      "time": "18:00",
+      "activity": "家食事準備"
+    },
+    {
+      "time": "18:30",
+      "activity": "家食事"
+    },
+    {
+      "time": "19:30",
+      "activity": "家復習"
+    },
+    {
+      "time": "20:30",
+      "activity": "家SNS"
+    },
+    {
+      "time": "21:00",
+      "activity": "家予定作成"
+    },
+    {
+      "time": "21:15",
       "activity": "家就寝"
     }
   ],
-  "has_data": true,
-  "updated_at": "2026-10-09T07:00:32.580970",
+  "has_data": false,
+  "updated_at": "2026-10-10T07:00:47.226622",
   "today_tasks": [
     {
       "subject": "民法",
       "status": "今週",
       "action": "短答3問｜論点：対抗要件（177条）・意思表示の瑕疵・同時履行の抗弁",
       "theme": "短答6割安定・論文型ノート（物権・債権）",
-      "situation": "今週0/10問。あと10問（3日ぶり）",
+      "situation": "今週0/10問。あと10問（4日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -249,7 +129,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：構成要件該当性・違法性阻却（正当防衛の要件）・共犯の成立",
       "theme": "短答6割安定・論文型ノート",
-      "situation": "今週5/10問。あと5問（2日ぶり）",
+      "situation": "今週5/10問。あと5問（3日ぶり）",
       "actual_q": 5,
       "target_q": 10,
       "checked": false
@@ -259,7 +139,7 @@
       "status": "今週",
       "action": "短答3問｜論点：処分性・原告適格・理由の提示（行手法14条）",
       "theme": "短答6割目標・論文骨組み開始",
-      "situation": "今週0/10問。あと10問（3日ぶり）",
+      "situation": "今週0/10問。あと10問（4日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -269,7 +149,7 @@
       "status": "今週",
       "action": "短答3問｜論点：訴訟物の特定・処分権主義・弁論主義",
       "theme": "短答安定化・論文骨組み",
-      "situation": "今週0/10問。あと10問",
+      "situation": "今週0/10問。あと10問（1日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -279,7 +159,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：捜査の端緒・逮捕の種類と要件・接見交通権",
       "theme": "短答安定化・論文骨組み",
-      "situation": "今週0/10問。あと10問（27日ぶり）",
+      "situation": "今週0/10問。あと10問（28日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -289,7 +169,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：株主総会決議（種類・要件・瑕疵）・取締役の善管注意義務",
       "theme": "商法・会社法の短答6割目標",
-      "situation": "今週0/10問。あと10問（18日ぶり）",
+      "situation": "今週0/10問。あと10問（19日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -299,7 +179,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "実務基礎の短答・論文両面対策",
-      "situation": "今週0/10問。あと10問（108日ぶり）",
+      "situation": "今週0/10問。あと10問（109日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false

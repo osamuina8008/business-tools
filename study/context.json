@@ -4,7 +4,14 @@
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [],
+  "today_logs": [
+    {
+      "type": "短答",
+      "questions_count": 0,
+      "understanding": "普通",
+      "topic": ""
+    }
+  ],
   "spacing_items": [
     {
       "interval_label": "",
@@ -111,8 +118,8 @@
       "activity": "家就寝"
     }
   ],
-  "has_data": false,
-  "updated_at": "2026-10-10T07:00:47.226622",
+  "has_data": true,
+  "updated_at": "2026-10-10T08:59:45.006495",
   "today_tasks": [
     {
       "subject": "民法",
@@ -156,10 +163,10 @@
     },
     {
       "subject": "刑事訴訟法",
-      "status": "遅れ",
-      "action": "短答3問｜論点：捜査の端緒・逮捕の種類と要件・接見交通権",
+      "status": "今週",
+      "action": "短答3問｜論点：職務質問と所持品検査・伝聞法則・自白法則",
       "theme": "短答安定化・論文骨組み",
-      "situation": "今週0/10問。あと10問（28日ぶり）",
+      "situation": "今週0/10問。あと10問",
       "actual_q": 0,
       "target_q": 10,
       "checked": false

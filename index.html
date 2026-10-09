@@ -453,21 +453,36 @@ function fmtDate(d) {
   return `${d.getMonth()+1}/${d.getDate()}`;
 }
 
+// ニュースは Mac が毎時 Google ニュースから取得して置く news/feeds.json を読む（費用0・外部サービス不要）。
+// 以前の rss2json.com は 2026-10 に Internal error で止まったので、feeds.json に無い時だけの予備。
+let feedsPromise = null;
+function loadFeeds() {
+  if (!feedsPromise) {
+    feedsPromise = fetch('news/feeds.json?v=' + Date.now())
+      .then(r => r.ok ? r.json() : null).catch(() => null);
+  }
+  return feedsPromise;
+}
+
 async function fetchRSS(src) {
+  const toItem = item => ({
+    sourceId: src.id,
+    sourceName: src.name,
+    color: src.color,
+    tag: src.tag,
+    title: item.title || '',
+    link: item.link || '#',
+    pubDate: item.pubDate ? new Date(item.pubDate) : new Date(),
+  });
+  const feeds = await loadFeeds();
+  const cached = feeds?.feeds?.[new URL(src.rss).searchParams.get('q')];
+  if (cached) return cached.map(toItem);
   const url = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(src.rss)}`;
   try {
-    const res = await fetch(url);
+    const res = await fetch(url, { signal: AbortSignal.timeout(12000) });
     const data = await res.json();
     if (data.status !== 'ok') return [];
-    return data.items.map(item => ({
-      sourceId: src.id,
-      sourceName: src.name,
-      color: src.color,
-      tag: src.tag,
-      title: item.title || '',
-      link: item.link || '#',
-      pubDate: item.pubDate ? new Date(item.pubDate) : new Date(),
-    }));
+    return data.items.map(toItem);
   } catch { return []; }
 }
 
@@ -519,12 +534,15 @@ async function loadTopNews() {
       <span class="text-sm">取得中...</span>
     </div>`;
 
+  feedsPromise = null;  // 「更新」で最新の feeds.json を読み直す
   const results = await Promise.all(TOP_SOURCES.map(s => fetchRSS(s)));
   allTopItems = results.flat().sort((a, b) => b.pubDate - a.pubDate);
 
-  const now = new Date();
+  // 表示するのは「Mac が取得した時刻」（ページを開いた時刻ではない）
+  const feeds = await loadFeeds();
+  const at = feeds?.collected_at ? new Date(feeds.collected_at) : new Date();
   document.getElementById('news-time').textContent =
-    `更新: ${now.getHours()}:${String(now.getMinutes()).padStart(2,'0')}`;
+    `取得: ${at.getMonth()+1}/${at.getDate()} ${at.getHours()}:${String(at.getMinutes()).padStart(2,'0')}`;
 
   switchTab(currentTab);
   icon.classList.remove('spinner');

@@ -310,7 +310,7 @@
 
 <script>
 // ===== RSS ソース定義 =====
-// Google News RSS検索経由（rss2json.comで安定動作確認済み）
+// Google News RSS検索（Mac が feeds.json に取得して置く。news_feed_publish.py）
 const SOURCES = [
   {
     id: 'nikkan',
@@ -421,12 +421,31 @@ let allItems = [];
 let currentSource = 'all';
 
 // ===== RSS取得 =====
-async function fetchRSS(source) {
-  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(source.rss)}`;
+// Mac が毎時 Google ニュースから取得して置く feeds.json を読む（費用0・外部サービス不要）。
+// 以前の rss2json.com は 2026-10 に Internal error で止まったので、feeds.json に無い検索だけの予備。
+// キーは Google ニュース URL の q（news_feed_publish.py と同じ）。返り値は rss2json と同じ形。
+let feedsPromise = null;
+function loadFeeds() {
+  if (!feedsPromise) {
+    feedsPromise = fetch('feeds.json?v=' + Date.now())
+      .then(r => r.ok ? r.json() : null).catch(() => null);
+  }
+  return feedsPromise;
+}
+async function rssJson(rssUrl, count) {
+  const feeds = await loadFeeds();
+  const cached = feeds?.feeds?.[new URL(rssUrl).searchParams.get('q')];
+  if (cached) return { status: 'ok', items: count ? cached.slice(0, count) : cached };
   try {
-    const res = await fetch(apiUrl, { signal: AbortSignal.timeout(12000) });
-    if (!res.ok) throw new Error('fetch failed');
-    const data = await res.json();
+    const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}${count ? '&count=' + count : ''}`,
+      { signal: AbortSignal.timeout(12000) });
+    return await res.json();
+  } catch { return { status: 'error', items: [] }; }
+}
+
+async function fetchRSS(source) {
+  try {
+    const data = await rssJson(source.rss);
     if (data.status !== 'ok') throw new Error('rss error');
     return data.items.map(item => ({
       sourceId: source.id,
@@ -595,12 +614,15 @@ async function refreshAll() {
       <p class="text-sm">ニュースを取得中...</p>
     </div>`;
 
+  feedsPromise = null;  // 「更新」で最新の feeds.json を読み直す
   const results = await Promise.all(SOURCES.map(s => fetchRSS(s)));
   allItems = results.flat().sort((a, b) => b.pubDate - a.pubDate);
 
-  const now = new Date();
+  // 表示するのは「Mac が取得した時刻」（ページを開いた時刻ではない）
+  const feeds = await loadFeeds();
+  const at = feeds?.collected_at ? new Date(feeds.collected_at) : new Date();
   document.getElementById('last-updated').textContent =
-    `最終更新: ${now.getHours()}:${String(now.getMinutes()).padStart(2,'0')}`;
+    `取得: ${at.getMonth()+1}/${at.getDate()} ${at.getHours()}:${String(at.getMinutes()).padStart(2,'0')}`;
 
   applyKeywordFilter();
   if (territoryData) fetchStrategyEvidence(territoryData);
@@ -676,11 +698,9 @@ async function loadRegion(regionId, prefFilter) {
     : `製造業 OR 金属加工 OR 工場 (${r.query})`;
 
   const rssUrl = `https://news.google.com/rss/search?q=${encodeURIComponent(searchQuery)}&hl=ja&gl=JP&ceid=JP:ja`;
-  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=10`;
 
   try {
-    const res  = await fetch(apiUrl);
-    const data = await res.json();
+    const data = await rssJson(rssUrl, 10);
     if (data.status !== 'ok' || !data.items.length) throw new Error('no items');
 
     // ===== 重複除去 =====
@@ -983,11 +1003,9 @@ async function fetchStrategyEvidence(data) {
   const kwQ = keywords.slice(0, 6).join(' OR ');
   const searchQuery = `(${kwQ}) (${areaQ || '近畿 OR 東海 OR 北陸'})`;
   const rssUrl = `https://news.google.com/rss/search?q=${encodeURIComponent(searchQuery)}&hl=ja&gl=JP&ceid=JP:ja`;
-  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=12`;
 
   try {
-    const res = await fetch(apiUrl);
-    const json = await res.json();
+    const json = await rssJson(rssUrl, 12);
     if (json.status !== 'ok' || !json.items?.length) throw new Error('no items');
 
     const seen = new Set();
@@ -1120,9 +1138,7 @@ function renderRadarSeeds(seeds, meta) {
 
 async function fetchRadarQuery(q, cfg) {
   const rssUrl = `https://news.google.com/rss/search?q=${encodeURIComponent(q.query)}&hl=ja&gl=JP&ceid=JP:ja`;
-  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=10`;
-  const res = await fetch(apiUrl);
-  const data = await res.json();
+  const data = await rssJson(rssUrl, 10);
   if (data.status !== 'ok' || !data.items) return [];
   const out = [];
   for (const item of data.items) {

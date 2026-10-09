@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>受注照合</title>
+  <link rel="manifest" href="../manifest.json" />
+  <meta name="theme-color" content="#059669" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js"></script>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI", "Meiryo", sans-serif; }
+    .step-num { width: 2rem; height: 2rem; }
+    .drop.over { border-color: #059669; background: #ecfdf5; }
+    mark { background: #fef08a; padding: 0 2px; border-radius: 2px; }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen text-gray-800">
+<!--
+  受注照合：紙の販売履歴（スキャンPDF）× Notion 25_見積DB。
+  会社PCのブラウザだけで完結する。PDF・見積一覧はこのPCの中だけで処理し、どこにも送らない
+  （外から読むのは pdf.js / tesseract.js 本体と OCR の日本語辞書だけ）。
+  受け渡しは会社 Google Drive「20_社内/20_見積・単価・原価/209_受注照合」:
+    見積一覧.json        … Mac が毎時 Notion から書き出す（~/business-tools/juchu_sync.py）
+    照合結果を入れる/     … このページで保存したファイルを置く → Mac が Notion に「受注」を転記し Slack で知らせる
+-->
+<header class="bg-white border-b border-gray-200">
+  <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between gap-3">
+    <div>
+      <a href="../index.html" class="text-xs text-gray-400 hover:text-gray-600">← 業務効率化ツール</a>
+      <h1 class="text-xl font-bold">受注照合</h1>
+      <p class="text-xs text-gray-500">紙の販売履歴（スキャンPDF）と見積を突き合わせ、受注になったものを見つけます</p>
+    </div>
+    <span class="text-xs text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-full px-3 py-1 whitespace-nowrap">このPCの中だけで処理</span>
+  </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-4 py-6 space-y-5">
+
+  <div id="alert" class="hidden rounded-2xl border-2 border-emerald-400 bg-emerald-50 px-5 py-4">
+    <p class="text-lg font-bold text-emerald-800" id="alert-title"></p>
+    <p class="text-sm text-emerald-700 mt-1" id="alert-body"></p>
+  </div>
+
+  <!-- STEP 1 -->
+  <section class="bg-white rounded-2xl border border-gray-200 p-5">
+    <div class="flex items-center gap-3 mb-3">
+      <span class="step-num rounded-full bg-gray-800 text-white flex items-center justify-center font-bold">1</span>
+      <h2 class="font-bold">見積一覧を読み込む</h2>
+      <span id="q-status" class="text-xs text-gray-400"></span>
+    </div>
+    <p class="text-sm text-gray-600 mb-3">
+      会社 Google Drive の <b>20_社内 › 20_見積・単価・原価 › 209_受注照合 › 見積一覧.json</b> を選んでください。
+      Mac が毎時 Notion から作り直しています。<span class="text-gray-400">一度選べばこのPCが覚えます（新しくしたい時だけ選び直し）。</span>
+    </p>
+    <label class="inline-flex items-center gap-2 cursor-pointer bg-gray-800 text-white text-sm font-semibold px-4 py-2 rounded-xl hover:bg-gray-700">
+      見積一覧.json を選ぶ
+      <input id="q-file" type="file" accept=".json,application/json" class="hidden" />
+    </label>
+  </section>
+
+  <!-- STEP 2 -->
+  <section class="bg-white rounded-2xl border border-gray-200 p-5">
+    <div class="flex items-center gap-3 mb-3">
+      <span class="step-num rounded-full bg-gray-800 text-white flex items-center justify-center font-bold">2</span>
+      <h2 class="font-bold">販売履歴のPDFを入れる</h2>
+    </div>
+    <div id="drop" class="drop border-2 border-dashed border-gray-300 rounded-2xl px-4 py-10 text-center transition cursor-pointer">
+      <p class="text-sm font-semibold text-gray-600">ここにPDF（または写真）をドラッグ ／ クリックして選ぶ</p>
+      <p class="text-xs text-gray-400 mt-1">スキャンPDFは文字を読み取ります（1ページ10〜30秒）。複数ファイル可。</p>
+      <input id="pdf-file" type="file" accept="application/pdf,image/*" multiple class="hidden" />
+    </div>
+    <div id="progress" class="hidden mt-4">
+      <div class="flex justify-between text-xs text-gray-500 mb-1"><span id="prog-label">準備中…</span><span id="prog-pct"></span></div>
+      <div class="h-2 bg-gray-100 rounded-full overflow-hidden"><div id="prog-bar" class="h-2 bg-emerald-500 transition-all" style="width:0%"></div></div>
+    </div>
+  </section>
+
+  <!-- STEP 3 -->
+  <section class="bg-white rounded-2xl border border-gray-200 p-5">
+    <div class="flex items-center gap-3 mb-3">
+      <span class="step-num rounded-full bg-gray-800 text-white flex items-center justify-center font-bold">3</span>
+      <h2 class="font-bold">照合結果を確かめる</h2>
+      <span id="r-count" class="text-xs text-gray-400"></span>
+    </div>
+    <p class="text-sm text-gray-600 mb-3">✅ が付いたものを「受注」として Notion に送ります。違うものはチェックを外し、「類似」で正しいものはチェックを付けてください。</p>
+    <div id="results" class="space-y-2"><p class="text-sm text-gray-400 text-center py-6">PDFを入れるとここに出ます</p></div>
+    <details class="mt-4">
+      <summary class="text-xs text-gray-500 cursor-pointer">読み取った文字を見る（照合漏れの確認用）</summary>
+      <pre id="ocr-text" class="mt-2 text-xs bg-gray-50 border border-gray-200 rounded-xl p-3 max-h-80 overflow-auto whitespace-pre-wrap"></pre>
+    </details>
+  </section>
+
+  <!-- STEP 4 -->
+  <section class="bg-white rounded-2xl border border-gray-200 p-5">
+    <div class="flex items-center gap-3 mb-3">
+      <span class="step-num rounded-full bg-gray-800 text-white flex items-center justify-center font-bold">4</span>
+      <h2 class="font-bold">Notion へ渡す</h2>
+    </div>
+    <p class="text-sm text-gray-600 mb-3">
+      「照合結果を保存」を押し、保存先に <b>209_受注照合 › 照合結果を入れる</b> を選んでください
+      （選べない時はダウンロードされたファイルをそのフォルダへ移す）。
+      Mac が1時間以内に Notion を「受注」に更新し、Slack に「受注を確認」で知らせます。
+    </p>
+    <div class="flex flex-wrap gap-2">
+      <button id="save-btn" disabled class="bg-emerald-600 disabled:bg-gray-300 text-white text-sm font-semibold px-4 py-2 rounded-xl hover:bg-emerald-700">照合結果を保存</button>
+      <button id="copy-btn" disabled class="border border-gray-300 disabled:text-gray-300 text-sm font-semibold px-4 py-2 rounded-xl hover:bg-gray-50">一覧をコピー</button>
+      <span id="save-msg" class="text-sm text-emerald-700 self-center"></span>
+    </div>
+  </section>
+</main>
+
+<script>
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+// ===== 見積一覧（IndexedDB に覚える） =====
+let QUOTES = null;    // { generated_at, quotes:[...] }
+let RESULTS = [];     // 照合結果
+let PDF_NAMES = [];
+
+function idb() {
+  return new Promise((res, rej) => {
+    const r = indexedDB.open('juchu', 1);
+    r.onupgradeneeded = () => r.result.createObjectStore('kv');
+    r.onsuccess = () => res(r.result);
+    r.onerror = () => rej(r.error);
+  });
+}
+async function kvSet(k, v) { try { const db = await idb(); db.transaction('kv', 'readwrite').objectStore('kv').put(v, k); } catch {} }
+async function kvGet(k) {
+  try {
+    const db = await idb();
+    return await new Promise(res => { const g = db.transaction('kv').objectStore('kv').get(k); g.onsuccess = () => res(g.result); g.onerror = () => res(null); });
+  } catch { return null; }
+}
+
+function showQuoteStatus() {
+  const el = document.getElementById('q-status');
+  if (!QUOTES) { el.textContent = '未読み込み'; el.className = 'text-xs text-red-500'; return; }
+  const at = String(QUOTES.generated_at || '').replace('T', ' ').slice(0, 16);
+  const old = QUOTES.generated_at && (Date.now() - new Date(QUOTES.generated_at)) > 7 * 864e5;
+  el.textContent = `✓ ${QUOTES.quotes.length}件（${at} 作成）${old ? '　※1週間以上前。選び直すと最新になります' : ''}`;
+  el.className = 'text-xs ' + (old ? 'text-amber-600' : 'text-emerald-700');
+}
+document.getElementById('q-file').addEventListener('change', async e => {
+  const f = e.target.files[0]; if (!f) return;
+  try {
+    const d = JSON.parse(await f.text());
+    if (!Array.isArray(d.quotes)) throw new Error('形式違い');
+    QUOTES = d; await kvSet('quotes', d); showQuoteStatus();
+    if (PAGES.length) runMatch();
+  } catch (err) { alert('見積一覧.json を読めませんでした: ' + err.message); }
+});
+
+// ===== 文字の正規化 =====
+const norm = s => String(s || '').normalize('NFKC').toUpperCase().replace(/[‐‑‒–—―−ｰ]/g, '-');
+const key = s => norm(s).replace(/[^0-9A-Z]/g, '');
+// OCR の読み違いやすい文字を寄せる（O/0, I/1 など）
+const loose = s => key(s).replace(/[OQD]/g, '0').replace(/[IL]/g, '1').replace(/S/g, '5').replace(/B/g, '8').replace(/Z/g, '2').replace(/G/g, '6');
+const coreName = s => norm(s).replace(/株式会社|有限会社|合同会社|\(株\)|\(有\)|㈱|㈲|\s|・/g, '');
+const flat = s => norm(s).replace(/\s/g, '');
+
+// ===== PDF・画像 → 行テキスト =====
+let PAGES = [];   // [{file, page, lines:[...]}]
+
+function setProgress(label, pct) {
+  document.getElementById('progress').classList.remove('hidden');
+  document.getElementById('prog-label').textContent = label;
+  document.getElementById('prog-pct').textContent = pct == null ? '' : Math.round(pct) + '%';
+  document.getElementById('prog-bar').style.width = (pct || 0) + '%';
+}
+
+let worker = null;
+async function getWorker() {
+  if (!worker) {
+    setProgress('文字読み取りの準備中（初回は日本語辞書を取得します）…', 2);
+    worker = await Tesseract.createWorker(['jpn', 'eng']);
+  }
+  return worker;
+}
+
+async function ocrCanvas(canvas) {
+  const w = await getWorker();
+  const { data } = await w.recognize(canvas);
+  return data.text.split('\n').map(l => l.trim()).filter(Boolean);
+}
+
+function linesFromTextContent(tc) {
+  // 同じ高さの文字片を1行にまとめる
+  const rows = new Map();
+  for (const it of tc.items) {
+    if (!it.str.trim()) continue;
+    const y = Math.round(it.transform[5] / 3);
+    if (!rows.has(y)) rows.set(y, []);
+    rows.get(y).push(it);
+  }
+  return [...rows.entries()].sort((a, b) => b[0] - a[0])
+    .map(([, its]) => its.sort((a, b) => a.transform[4] - b.transform[4]).map(i => i.str).join(' ').trim())
+    .filter(Boolean);
+}
+
+async function readFiles(files) {
+  PAGES = []; PDF_NAMES = files.map(f => f.name);
+  for (const [fi, f] of files.entries()) {
+    if (f.type.startsWith('image/')) {
+      setProgress(`${f.name} を読み取り中…`, (fi / files.length) * 100);
+      const img = await createImageBitmap(f);
+      const c = document.createElement('canvas'); c.width = img.width; c.height = img.height;
+      c.getContext('2d').drawImage(img, 0, 0);
+      PAGES.push({ file: f.name, page: 1, lines: await ocrCanvas(c) });
+      continue;
+    }
+    const pdf = await pdfjsLib.getDocument({ data: await f.arrayBuffer() }).promise;
+    for (let p = 1; p <= pdf.numPages; p++) {
+      const pct = ((fi + (p - 1) / pdf.numPages) / files.length) * 100;
+      setProgress(`${f.name}　${p} / ${pdf.numPages} ページ`, pct);
+      const page = await pdf.getPage(p);
+      let lines = linesFromTextContent(await page.getTextContent());
+      if (lines.join('').length < 30) {   // 文字の層が無い＝スキャン → OCR
+        setProgress(`${f.name}　${p} / ${pdf.numPages} ページ（文字を読み取り中…）`, pct);
+        const vp = page.getViewport({ scale: 2.5 });
+        const c = document.createElement('canvas'); c.width = vp.width; c.height = vp.height;
+        await page.render({ canvasContext: c.getContext('2d'), viewport: vp }).promise;
+        lines = await ocrCanvas(c);
+      }
+      PAGES.push({ file: f.name, page: p, lines });
+    }
+  }
+  setProgress(`読み取り完了（${PAGES.length}ページ）`, 100);
+  document.getElementById('ocr-text').textContent =
+    PAGES.map(pg => `── ${pg.file} p.${pg.page} ──\n` + pg.lines.join('\n')).join('\n\n');
+  runMatch();
+}
+
+// ===== 照合 =====
+function numbersIn(line) {
+  return new Set((norm(line).match(/\d[\d,]*/g) || []).map(n => n.replace(/,/g, '')).filter(n => n.length >= 2));
+}
+
+// 一致＝自動で ✅。品番＋得意先、または品番＋単価＋数量がそろえば一致
+const STRONG = 60;
+
+function runMatch() {
+  if (!QUOTES) { alert('先に STEP1 で見積一覧.json を選んでください'); return; }
+  const prepared = PAGES.map(pg => ({
+    ...pg, flatAll: flat(pg.lines.join('')),
+    L: pg.lines.map(l => ({ text: l, k: key(l), lo: loose(l), flat: flat(l), nums: numbersIn(l) })),
+  }));
+  const found = [];
+  for (const q of QUOTES.quotes) {
+    const qk = key(q['品番']);
+    if (qk.length < 5 || !/\d/.test(qk)) continue;         // 「ピニオン」等の名前だけ・短すぎる品番は誤爆するので除外
+    const digitsOnly = /^\d+$/.test(qk);
+    const ql = loose(q['品番']);
+    const cn = coreName(q['会社']);
+    let best = null;
+    for (const pg of prepared) {
+      for (const ln of pg.L) {
+        let score = 0; const reasons = [];
+        if (ln.k.includes(qk)) { score += 50; reasons.push('品番一致'); }
+        else if (ql.length >= 6 && ln.lo.includes(ql)) { score += 35; reasons.push('品番ほぼ一致（読み違い補正）'); }
+        else continue;
+        if (cn && ln.flat.includes(cn)) { score += 30; reasons.push('得意先（同じ行）'); }
+        else if (cn && pg.flatAll.includes(cn)) { score += 20; reasons.push('得意先（同じページ）'); }
+        else if (cn.length >= 4 && pg.flatAll.includes(cn.slice(0, 4))) { score += 10; reasons.push('得意先名の一部'); }
+        const nums = ln.nums;
+        if (q['単価'] && nums.has(String(q['単価']))) { score += 20; reasons.push('単価一致'); }
+        else if (q['金額'] && nums.has(String(q['金額']))) { score += 20; reasons.push('金額一致'); }
+        if (q['数量'] && nums.has(String(q['数量']))) { score += 5; reasons.push('数量一致'); }
+        if (digitsOnly && qk.length < 8 && score < 70) continue;  // 数字だけの短い品番は金額等と紛れるので裏付け必須
+        if (!best || score > best.score) best = { score, reasons, line: ln.text, file: pg.file, page: pg.page };
+      }
+    }
+    if (best && best.score >= 35) found.push({ ...q, ...best });
+  }
+  // 同じ品番の見積が複数年ある時は、点数→発行日が新しい順で先頭だけを ✅ 候補にする
+  found.sort((a, b) => b.score - a.score || String(b['発行日']).localeCompare(String(a['発行日'])));
+  const seenPart = new Set();
+  for (const r of found) {
+    const k = key(r['品番']) + '|' + coreName(r['会社']);
+    r.checked = r.score >= STRONG && !seenPart.has(k);
+    r.dup = seenPart.has(k);
+    seenPart.add(k);
+  }
+  RESULTS = found;
+  renderResults();
+}
+
+const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const yen = n => n ? Number(n).toLocaleString() + '円' : '';
+
+function renderResults() {
+  const el = document.getElementById('results');
+  const ok = RESULTS.filter(r => r.score >= STRONG).length;
+  document.getElementById('r-count').textContent = `一致 ${ok}件・類似 ${RESULTS.length - ok}件`;
+  if (!RESULTS.length) {
+    el.innerHTML = '<p class="text-sm text-gray-500 text-center py-6">見積と一致するものは見つかりませんでした。下の「読み取った文字」で品番が正しく読めているか確認できます。</p>';
+  } else {
+    el.innerHTML = RESULTS.map((r, i) => {
+      const strong = r.score >= STRONG;
+      const hl = esc(r.line);
+      return `
+      <label class="flex items-start gap-3 p-3 rounded-xl border ${strong ? 'border-emerald-300 bg-emerald-50' : 'border-amber-200 bg-amber-50'} cursor-pointer">
+        <input type="checkbox" data-i="${i}" class="pick mt-1 w-5 h-5 accent-emerald-600" ${r.checked ? 'checked' : ''}>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="text-xs font-bold px-2 py-0.5 rounded-full ${strong ? 'bg-emerald-600 text-white' : 'bg-amber-400 text-white'}">${strong ? '一致' : '類似'}</span>
+            <span class="font-bold">${esc(r['品番'])}</span>
+            <span class="text-sm text-gray-600">${esc(r['会社'] || '（会社不明）')}</span>
+            ${r.dup ? '<span class="text-xs text-gray-400">同じ品番の別見積</span>' : ''}
+          </div>
+          <p class="text-xs text-gray-600 mt-1">${esc(r['品名'])} ${esc(r['処理名'])}　見積 ${esc(r['見積No'])} ${esc(r['発行日'] || '')}　単価 ${yen(r['単価'])} ／ 数量 ${esc(r['数量'] ?? '')} ／ 金額 ${yen(r['金額'])}　<span class="text-gray-400">今の状態: ${esc(r['状態'])}</span></p>
+          <p class="text-xs text-gray-500 mt-1">📄 ${esc(r.file)} p.${r.page}：<mark>${hl}</mark></p>
+          <p class="text-xs text-gray-400 mt-0.5">${r.reasons.join(' ／ ')}</p>
+        </div>
+      </label>`;
+    }).join('');
+    el.querySelectorAll('.pick').forEach(cb => cb.addEventListener('change', () => {
+      RESULTS[cb.dataset.i].checked = cb.checked; updateAlert();
+    }));
+  }
+  updateAlert();
+}
+
+function picked() { return RESULTS.filter(r => r.checked); }
+
+function updateAlert() {
+  const n = picked().length;
+  const box = document.getElementById('alert');
+  box.classList.toggle('hidden', n === 0);
+  document.getElementById('alert-title').textContent = `🎉 受注 ${n}件 見つかりました`;
+  document.getElementById('alert-body').textContent =
+    picked().slice(0, 6).map(r => `${r['会社'] || ''} ${r['品番']}`).join('、') + (n > 6 ? ' ほか' : '') +
+    '　→ STEP4 で保存すると Notion に反映されます';
+  document.getElementById('save-btn').disabled = n === 0;
+  document.getElementById('copy-btn').disabled = n === 0;
+}
+
+// ===== 保存（Notion への受け渡しファイル） =====
+function stamp() {
+  const d = new Date(), p = n => String(n).padStart(2, '0');
+  return `${d.getFullYear()}${p(d.getMonth() + 1)}${p(d.getDate())}_${p(d.getHours())}${p(d.getMinutes())}`;
+}
+document.getElementById('save-btn').addEventListener('click', async () => {
+  const payload = {
+    checked_at: new Date().toISOString(),
+    pdf: PDF_NAMES.join(', '),
+    matches: picked().map(r => ({
+      id: r.id, 品番: r['品番'], 会社: r['会社'], 単価: r['単価'], 金額: r['金額'],
+      reasons: r.reasons, line: r.line, file: r.file, page: r.page,
+    })),
+  };
+  const name = `照合結果_${stamp()}.json`;
+  const blob = new Blob([JSON.stringify(payload, null, 1)], { type: 'application/json' });
+  const msg = document.getElementById('save-msg');
+  try {
+    if (window.showSaveFilePicker) {
+      const h = await window.showSaveFilePicker({ suggestedName: name, types: [{ description: 'JSON', accept: { 'application/json': ['.json'] } }] });
+      const w = await h.createWritable(); await w.write(blob); await w.close();
+      msg.textContent = `✓ ${name} を保存しました。「照合結果を入れる」フォルダなら1時間以内に Notion に反映されます。`;
+      return;
+    }
+  } catch (e) { if (e.name === 'AbortError') return; }
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = name; a.click();
+  msg.textContent = `✓ ${name} をダウンロードしました。Drive の「209_受注照合 › 照合結果を入れる」へ移してください。`;
+});
+document.getElementById('copy-btn').addEventListener('click', async () => {
+  const t = picked().map(r => `${r['会社'] || ''}\t${r['品番']}\t${r['品名'] || ''}\t${r['金額'] || r['単価'] || ''}`).join('\n');
+  await navigator.clipboard.writeText(t);
+  document.getElementById('save-msg').textContent = '✓ コピーしました（Excel に貼れます）';
+});
+
+// ===== ドロップ =====
+const drop = document.getElementById('drop'), pdfInput = document.getElementById('pdf-file');
+drop.addEventListener('click', () => pdfInput.click());
+drop.addEventListener('dragover', e => { e.preventDefault(); drop.classList.add('over'); });
+drop.addEventListener('dragleave', () => drop.classList.remove('over'));
+drop.addEventListener('drop', e => { e.preventDefault(); drop.classList.remove('over'); start([...e.dataTransfer.files]); });
+pdfInput.addEventListener('change', e => start([...e.target.files]));
+function start(files) {
+  files = files.filter(f => f.type === 'application/pdf' || f.type.startsWith('image/'));
+  if (!files.length) return;
+  if (!QUOTES) { alert('先に STEP1 で見積一覧.json を選んでください'); return; }
+  readFiles(files).catch(err => { setProgress('読み取りに失敗しました: ' + err.message, 0); console.error(err); });
+}
+
+(async () => { QUOTES = await kvGet('quotes'); showQuoteStatus(); })();
+</script>
+</body>
+</html>

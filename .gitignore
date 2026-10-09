@@ -1,0 +1,6 @@
+
+# 受注照合のテスト用データ（会社の見積・販売履歴）は絶対に公開しない
+juchu/*.json
+juchu/*.pdf
+juchu/*.png
+juchu/*.jpg

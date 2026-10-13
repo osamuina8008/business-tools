@@ -2111,12 +2111,12 @@ function setDrawer(on, url, title){
   }
   if (!on) { const f = d.querySelector('#qd-f'); f.removeAttribute('src'); }
   const b = document.getElementById('qpdf');
-  if (b) b.textContent = on ? '📄 問題を閉じる' : ('📄 ' + (CUR && CUR.pdfk === 'day' ? 'この日の問題' : '問題') + 'を並べて見る');
+  if (b) b.textContent = on ? '📄 問題を閉じる' : ('📄 ' + (CUR && CUR.pdfk === 'day' ? 'この日の問題' : CUR && CUR.pdfk === 'ron' ? '問題文' : '問題') + 'を並べて見る');
 }
 async function openPdf(q){
   const url = await pdfUrlOf(q);
   const host = document.getElementById('qpdfbox');
-  const title = q.id + (q.pdfk === 'day' ? '（その日のまとめPDF）' : '');
+  const title = q.id + (q.pdfk === 'day' ? '（その日のまとめPDF）' : q.pdfk === 'ron' ? '（問題文）' : '');
   if (url) { if (host) host.innerHTML = ''; setDrawer(true, url, title); return; }
   if (!host) return;
   host.innerHTML = '<form class="pkform" id="pkform"><label>合言葉を入れると問題を開けます（この端末では1回だけ）</label>'
@@ -2204,7 +2204,7 @@ async function show(uid){
         <a href="${esc(AUDIO[q.day].url)}" target="_blank" rel="noopener">🎧 この日の5社横断を聞く（約${esc(String(AUDIO[q.day].minutes||''))}分）</a>
       </div>` : ''}
       ${(q.pdf || q.pdfx) ? `<div class="qsrc">
-        <button id="qpdf">📄 ${q.pdfk === 'day' ? 'この日の問題を並べて見る' : '問題を並べて見る'}</button>
+        <button id="qpdf">📄 ${q.pdfk === 'day' ? 'この日の問題を並べて見る' : q.pdfk === 'ron' ? '問題文を並べて見る' : '問題を並べて見る'}</button>
         <button id="qpdfw" title="別ウィンドウで開く（ピンチで拡大できます）">↗ 別ウィンドウで開く</button>
       </div><div id="qpdfbox"></div>` : ''}
     </div>

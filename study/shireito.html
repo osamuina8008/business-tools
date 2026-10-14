@@ -275,18 +275,17 @@ footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);
 <section>
   <div class="grid2">
     <div class="box">
-      <div class="eyebrow">WHAT I'VE LEARNED</div>
-      <h3>科目別の定着</h3>
-      <p class="legend"><i style="background:var(--review);margin-left:0"></i>定着（3回続けて覚えてた）<i style="background:rgba(47,107,79,.35)"></i>復習中</p>
+      <div class="eyebrow">MY PROGRESS</div>
+      <h3>これまでの成果</h3>
       <div id="subjBars"></div>
     </div>
     <div class="box">
       <div class="eyebrow">COMING UP</div>
-      <h3>この先7日の復習</h3>
-      <div class="week" id="week"></div>
-      <p class="note" id="weekNote"></p>
-      <h3 style="margin-top:18px;font-size:16px">しばらく触れていない科目</h3>
+      <h3>これからの予定</h3>
+      <ul class="qlist" id="plan"></ul>
+      <h3 style="margin-top:20px;font-size:16px">勉強の間が空いている科目</h3>
       <ul class="qlist" id="gapList"></ul>
+      <p class="note" id="gapNote"></p>
     </div>
   </div>
 </section>
@@ -350,7 +349,7 @@ footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);
    1論点ずつ「覚えてた／あやふや／忘れてた」を付け、次の復習日を決める。
    固定の例文は一切持たない。
    ══════════════════════════════════════════════════════════ */
-const VER = "20261014-1";
+const VER = "20261015-1";
 const CTX_URL = () => `https://raw.githubusercontent.com/osamuina8008/business-tools/main/study/context.json?t=${Date.now()}`;
 const PACK_URL = () => `pack.json?t=${Date.now()}`;
 
@@ -568,33 +567,41 @@ function render(){
   const due = dueCount();
   $("#planMeta").textContent = `約${list.length*3}分` + (due ? `・期限が来ている論点 ${due}問` : "");
 
-  /* 科目別の定着 */
+  /* これまでの成果：採点した論点がある科目だけ出す（0ばかり並ぶと何のことか分からないため）*/
   const subs = {};
   ITEMS.forEach(it=>{ const s=SRS[keyOf(it)]; const o=subs[it.s]||(subs[it.s]={n:0,f:0,w:0});
     o.n++; if(s&&s.st>=FIXED) o.f++; else if(s&&s.h&&s.h.length) o.w++; });
-  $("#subjBars").innerHTML = Object.entries(subs).sort((a,b)=>b[1].n-a[1].n).map(([k,o])=>`
-    <div class="sbar"><div class="h">${esc(k)}<span>定着 ${o.f} / ${o.n}論点</span></div>
-    <div class="t"><i class="a" style="width:${o.f/o.n*100}%"></i><i class="b" style="width:${o.w/o.n*100}%"></i></div></div>`).join("");
+  const touched = Object.entries(subs).filter(([,o])=>o.f+o.w>0).sort((a,b)=>(b[1].f+b[1].w)-(a[1].f+a[1].w));
+  $("#subjBars").innerHTML = touched.length
+    ? `<p class="legend"><i style="background:var(--review);margin-left:0"></i>定着（3回続けて覚えてた）<i style="background:rgba(47,107,79,.35)"></i>復習を始めた</p>`
+      + touched.map(([k,o])=>`
+      <div class="sbar"><div class="h">${esc(k)}<span>復習した ${o.f+o.w}・うち定着 ${o.f}（全${o.n}論点）</span></div>
+      <div class="t"><i class="a" style="width:${o.f/o.n*100}%"></i><i class="b" style="width:${o.w/o.n*100}%"></i></div></div>`).join("")
+    : `<p class="note" style="margin:0">まだ採点した論点はありません。<br>上のカードで「覚えてた／あやふや／忘れてた」を押すと、ここに科目ごとの成果がたまっていきます。</p>`;
 
-  /* この先7日 */
-  const wk = [];
-  for(let i=1;i<=7;i++){
-    const d = addDays(TODAY,i);
-    wk.push({d, n:Object.values(SRS).filter(s=>s.next===d).length});
-  }
+  /* これからの予定：文章で出す */
   const W = "日月火水木金土";
-  $("#week").innerHTML = wk.map(x=>`<div><b>${x.n}</b>${md(x.d)}(${W[new Date(x.d+"T00:00:00").getDay()]})</div>`).join("");
+  const dw = d => `${md(d)}(${W[new Date(d+"T00:00:00").getDay()]})`;
+  const tmr = addDays(TODAY,1);
+  const back = Object.values(SRS).filter(s=>s.next && s.next<=tmr).length;
   const untouched = ITEMS.filter(it=>!SRS[keyOf(it)]).length;
-  $("#weekNote").textContent = `採点した論点が戻ってくる日です。まだ一度も復習していない論点が${untouched}あり、毎日少しずつ混ぜて出します。`;
+  const rows = [`<li><span><b>明日 ${dw(tmr)}</b>　${back ? `前に採点した論点が${back}問戻ってきます` : "まだ一度も復習していない論点から出します"}</span></li>`];
+  for(let i=2;i<=7;i++){
+    const d = addDays(TODAY,i), n = Object.values(SRS).filter(s=>s.next===d).length;
+    if(n) rows.push(`<li><span>${dw(d)}　前に採点した論点が${n}問戻ってきます</span></li>`);
+  }
+  rows.push(`<li><span style="color:var(--ink3)">まだ一度も復習していない論点は残り${untouched}。毎日の枠に少しずつ混ぜて出します。</span></li>`);
+  $("#plan").innerHTML = rows.join("");
 
-  /* 触れていない科目（context.json の「（n日ぶり）」）*/
+  /* 間が空いている科目（学習記録 context.json の「（n日ぶり）」）*/
   const gaps = (CTX?.today_tasks||[]).map(t=>{
     const g = /[（(](\d+)日ぶり[)）]/.exec(t.situation||"");
     return g ? {s:t.subject, n:Number(g[1])} : null;
   }).filter(x=>x && x.n>=5).sort((a,b)=>b.n-a.n);
   $("#gapList").innerHTML = gaps.length
-    ? gaps.map(x=>`<li><span>${esc(x.s)}</span><span class="s">${x.n}日ぶり</span></li>`).join("")
+    ? gaps.map(x=>`<li><span>${esc(x.s)}</span><span class="s">最後の記録から${x.n}日</span></li>`).join("")
     : `<li><span style="color:var(--ink3)">5日以上空いている科目はありません。</span></li>`;
+  $("#gapNote").textContent = gaps.length ? "毎日の学習記録から出しています。上の復習カードとは別の知らせです。" : "";
 
   /* 操作 */
   box.querySelectorAll(".card[data-key]").forEach(el=>{

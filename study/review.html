@@ -2512,7 +2512,7 @@ function openSpeak(){
       <textarea class="sp-ta" id="sp-ta" placeholder="例：招集通知が1人に届いていない事案。短答なら…。論文なら…。"></textarea>
       <div class="sheet-btns">
         <button class="sb-sub"  id="sp-rec">🎤 話して入力</button>
-        <button class="sb-main" id="sp-go" disabled>🤖 添削してもらう</button>
+        <button class="sb-main" id="sp-go" disabled>📖 お手本と比べる</button>
       </div>
       <div class="sheet-sub" id="sp-hint" style="margin:9px 0 0">${
         SR ? "" : "キーボードの <b>🎤</b> を押すと、話した内容がそのまま文字になります。"}</div>
@@ -2562,41 +2562,32 @@ function parseFb(txt){
            art:get("条文"), trap:get("ひっかけ"), recite:get("暗唱") };
 }
 
-async function gradeSelf(mine){
-  if(busy) return;
+// 2026-10-15 API残高切れで「エラー」が出たため、AIを使わない形に変更（0円）。
+// 論点ライブラリの要点(b)をお手本として並べ、そこから4項目を下書きする。ズレは自分で書く。
+function topicModel(){
+  if(curTopic.b) return clean(curTopic.b);
+  const t = clean(curTopic.title);
+  const list = TOPICS[clean(curTopic.subject||chatSubject)] || [];
+  const hit = list.find(x=> clean(x.t)===t || (x.kw && t.includes(clean(x.kw))) || (t && clean(x.t).includes(t)));
+  return hit ? clean(hit.b||"") : "";
+}
+function offlineFb(model){
+  const sents = (model||"").split(/(?<=[。．])/).map(x=>x.trim()).filter(Boolean);
+  const arts = (model.match(/[^\s。、（(]{0,8}?\d+条(?:の\d+)?(?:\d+項)?/g)||[]);
+  const trapS = sents.find(x=>/ただし|例外|注意|ひっかけ|がちだが|ではない|限られ/.test(x)) || "";
+  return { gap:"", fix:"",
+    conc: sents[0] || "",
+    art: [...new Set(arts)].slice(0,3).join("・"),
+    trap: trapS && trapS!==sents[0] ? trapS : "",
+    recite: sents.slice(0,2).join("") };
+}
+function gradeSelf(mine){
   addBubble("user", "🎙 " + mine);
-  busy = true; $("send").disabled = true;
-  const typing = addTyping();
-  try{
-    const res = await fetch(API_URL, {
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json",
-        "x-api-key": apiKey,
-        "anthropic-version": "2023-06-01",
-        "anthropic-dangerous-direct-browser-access": "true",
-      },
-      body: JSON.stringify({
-        model: API_MODEL, max_tokens: 500, system: selfSystem(),
-        messages: [{role:"user", content:`論点：${topicLabel()}\n\n私の説明：\n${mine}`}],
-      }),
-    });
-    const data = await res.json();
-    typing.remove();
-    if(data.type==="error" || data.error){
-      addBubble("ai", `⚠️ エラー：${data.error?.message||"不明"}\n\nAPIキーが切れている場合は、右上の ↺ → キーを入れ直してください。`);
-    } else {
-      const raw = (data.content||[]).filter(b=>b.type==="text").map(b=>b.text).join("");
-      const fb = parseFb(raw);
-      if(!fb.conc && !fb.gap){ addBubble("ai", raw || "（応答なし）"); }
-      else { showFeedback(fb, mine); }
-    }
-  }catch(e){
-    typing.remove();
-    addBubble("ai", "⚠️ 通信エラー。ネット接続を確認してください。");
-  }
-  busy = false; $("send").disabled = ($("msg-in").value.trim()==="");
-  scrollBottom();
+  const model = topicModel();
+  addBubble("ai", model
+    ? "📖 お手本（論点ライブラリの要点）\n" + model + "\n\n自分の説明と見比べて、ズレていた所を次の画面の「🔴自分のズレ」に一言書いてください。"
+    : "この論点のお手本は収録されていません。自分の説明をもとに、次の画面で4項目を埋めてください。");
+  showFeedback(offlineFb(model), mine);
 }
 
 // 添削結果を吹き出し＋「🧠 今日覚える に保存」ボタンで出す
@@ -2611,7 +2602,7 @@ function showFeedback(fb, mine){
     fb.trap   ? "ひっかけ｜"+ fb.trap   : "",
     fb.recite ? "30秒暗唱｜"+ fb.recite : "",
   ].filter(Boolean).join("\n");
-  addBubble("ai", txt);
+  if(fb.gap || fb.fix) addBubble("ai", txt);  // AIなし(お手本表示)のときは下書きを吹き出しに重ねない
 
   const row = document.createElement("div"); row.className = "msg ai";
   row.style.cssText = "max-width:100%;width:100%;";

@@ -437,6 +437,29 @@ body.reading{overflow:hidden}
 .sm-cc{font-size:15px;margin:6px 0 2px 34px}
 .sm-must{margin:0;padding-left:1.3em;font-size:15.5px;line-height:1.8}
 .sm-must em{font-style:normal;background:linear-gradient(transparent 60%,rgba(46,115,85,.25) 60%)}
+/* ---- この問題の学び方・追記（2026-10-17） ---- */
+.st{margin:22px 0 6px;padding:16px 18px;border:1px solid var(--line);border-left:4px solid var(--agree);border-radius:6px;background:var(--surface)}
+.st h4{margin-top:0 !important}
+.st-goal{font-size:16px;font-weight:700;margin:0 0 12px;line-height:1.6}
+.st-h{font-size:12px;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:14px 0 6px}
+.st-mem{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:8px}
+.st-mem div{background:var(--sunk);border-radius:5px;padding:9px 11px;font-size:14.5px;line-height:1.65}
+.st-mem b{display:block;font-size:15px}
+.st-mem small{display:block;color:var(--muted);font-size:13px;margin-top:3px}
+.st ul{margin:0;padding-left:1.3em;font-size:14.5px;line-height:1.75}
+.st-rv{display:flex;flex-direction:column;gap:6px;font-size:14.5px;line-height:1.6}
+.st-rv div{display:flex;gap:10px}
+.st-rv span{flex:none;min-width:5.5em;font-weight:700;color:var(--agree)}
+.st details{border-top:1px dashed var(--line);padding:6px 0;font-size:14.5px;line-height:1.65}
+.st summary{cursor:pointer}
+.st details p{margin:4px 0 0 1.2em;color:var(--agree);font-weight:500}
+.st table td:first-child{white-space:nowrap}
+.st-co{border-left-color:var(--ai)}
+.st-co .st-item{margin:12px 0}
+.st-co .st-item b{font-size:15px}
+.st-co p{font-size:14.5px;line-height:1.75;margin:4px 0}
+.sm-jump + .sm-fold{margin-left:0}
+.sm-jump{margin-left:auto;font-family:inherit;margin-right:6px;font-size:13px;border:1px solid var(--agree);color:var(--agree);background:transparent;border-radius:4px;padding:3px 9px;cursor:pointer}
 .sm-foot{font-size:12px;color:var(--muted);margin:16px 0 0;text-align:right}
 /* ---- 絵の部品（2026-10-06） ---- */
 .eye{margin:14px 0 4px}
@@ -1912,6 +1935,8 @@ function sumBlock(q){
         + tabs('rc', rc.map(a => [a, esc(a)]), rc[0])
         + rc.map(a => pane('rc', a, rc[0], md(smSec(q.ai[a], '③')), 'sm-ai')).join('') + '</details>' : '');
   }
+  /* ★ 学び方・追記（2026-10-17） */
+  h += smStudy(S.study, RB) + smCoach(S.coach);
   /* 4 取り違え */
   if ((S.traps || []).length)
     h += '<h4>④ 取り違えやすいところ</h4>' + S.traps.map(t => {
@@ -1934,8 +1959,49 @@ function sumBlock(q){
   return '<section class="sm' + (SM_SHUT ? ' shut' : '') + '" id="sm"><div class="sm-top">'
     + '<span class="lbl">頭に入る版</span><span class="th">' + esc(S.theme || '') + '</span>'
     + (S.answer ? '<span class="sm-ans">' + (RB ? '結論 ' : '正解 ') + esc(S.answer) + (S.answer_note ? '<small>' + esc(S.answer_note) + '</small>' : '') + '</span>' : '')
+    + (S.study || S.coach ? '<button class="sm-jump" onclick="var e=document.getElementById(\'st\')||document.querySelector(\'.st\');if(e){document.getElementById(\'sm\').classList.remove(\'shut\');e.scrollIntoView({behavior:\'smooth\'})}">学び方へ ↓</button>' : '')
     + '<button class="sm-fold" id="smfold">' + (SM_SHUT ? 'まとめを開く ▾' : 'まとめを畳む ▴') + '</button></div>'
     + '<div class="sm-body">' + h + '<p class="sm-foot">6社の解説から自動でまとめ直したもの。下に従来の比較・各社の本文が続きます。</p></div></section>';
+}
+/* この問題の学び方（qstudy.py が作る、2026-10-17）：覚える・理解でよい・深追い不要・復習の予定・思い出しテスト */
+function smStudy(T, RB){
+  if (!T || typeof T !== 'object') return '';
+  const em = t => esc(t || '').replace(/【(.+?)】/g, '<em>$1</em>');
+  const ul = a => '<ul>' + a.map(x => '<li>' + em(x) + '</li>').join('') + '</ul>';
+  let h = '<div class="st" id="st"><h4>★ この問題の学び方 <span class="sm-note">（覚える・理解・復習）</span></h4>';
+  if (T.goal) h += '<p class="st-goal">' + em(T.goal) + '</p>';
+  if ((T.memorize || []).length)
+    h += '<div class="st-h">覚えるもの（ここは暗記）</div><div class="st-mem">'
+      + T.memorize.map(m => '<div><b>' + em(m.what) + '</b>' + (m.how ? '<small>' + esc(m.how) + '</small>' : '') + '</div>').join('') + '</div>';
+  if ((T.understand || []).length) h += '<div class="st-h">理屈で押さえればよいもの</div>' + ul(T.understand);
+  if ((T.skip || []).length) h += '<div class="st-h">深追いしなくてよいもの</div>' + ul(T.skip);
+  if (RB && T.focus) {
+    if ((T.focus.thick || []).length) h += '<div class="st-h">答案で厚く書く所（配点の山）</div>' + ul(T.focus.thick);
+    if ((T.focus.thin || []).length) h += '<div class="st-h">短く済ませる所</div>' + ul(T.focus.thin);
+  }
+  if (RB && (T.tmpl || []).length)
+    h += '<div class="st-h">問題提起の一文（そのまま型に）</div><table><tbody>'
+      + T.tmpl.map(r => '<tr><td>' + esc(r[0] || '') + '</td><td>' + esc(r[1] || '') + '</td></tr>').join('') + '</tbody></table>';
+  if ((T.review || []).length)
+    h += '<div class="st-h">復習の予定</div><div class="st-rv">'
+      + T.review.map(r => '<div><span>' + esc(r.when || '') + '</span><p style="margin:0">' + em(r.do) + '</p></div>').join('') + '</div>';
+  if ((T.check || []).length)
+    h += '<div class="st-h">思い出しテスト（答えは押して確認）</div>'
+      + T.check.map(c => '<details><summary>' + esc(c.q || '') + '</summary><p>' + esc(c.a || '') + '</p></details>').join('');
+  if (T.link) h += '<div class="st-h">一緒に復習するとよいもの</div><p class="sm-note" style="margin:0">' + esc(T.link) + '</p>';
+  return h + '</div>';
+}
+/* 手で書いた追記（{Q}.coach.json） */
+function smCoach(C){
+  if (!C || typeof C !== 'object') return '';
+  let h = '<div class="st st-co"><h4>✎ ' + esc(C.title || '追記') + (C.by ? ' <span class="sm-note">（' + esc(C.by) + '）</span>' : '') + '</h4>';
+  if (C.lead) h += '<p class="st-goal" style="font-weight:500">' + esc(C.lead) + '</p>';
+  h += (C.items || []).map(it => '<div class="st-item"><b>' + esc(it.h || '') + '</b>'
+    + (it.p || []).map(x => '<p>' + esc(x) + '</p>').join('') + '</div>').join('');
+  if ((C.tmpl || []).length)
+    h += '<div class="st-h">問題提起の一文（型）</div><table><tbody>'
+      + C.tmpl.map(r => '<tr><td>' + esc(r[0] || '') + '</td><td>' + esc(r[1] || '') + '</td></tr>').join('') + '</tbody></table>';
+  return h + '</div>';
 }
 function wireSum(){
   const box = document.getElementById('sm'); if (!box) return;

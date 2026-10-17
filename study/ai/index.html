@@ -475,7 +475,8 @@ body.reading{overflow:hidden}
 .mkb-lg span{display:inline-flex;align-items:center;gap:6px}
 .mkb-lg i{display:inline-block;width:24px;height:9px;border-radius:2px;opacity:.75}
 .mkb-g{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:18px;align-items:start}
-@container (max-width:720px){.mkb-g{grid-template-columns:1fr}.mkb-ph{position:static}}
+.mkb-g.td{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}
+@container (max-width:720px){.mkb-g,.mkb-g.td{grid-template-columns:1fr}.mkb-ph{position:static}}
 .mkb-ph{position:sticky;top:10px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:6px;min-height:80px}
 .mkb-ph svg{width:100%;height:auto;display:block}
 .mkb-ph .ph-msg{font-size:13px;color:#5D6B7A;padding:14px 10px}
@@ -487,7 +488,8 @@ body.reading{overflow:hidden}
 .mkb-ls{display:flex;flex-direction:column;gap:10px}
 .mkb-c{border:1px solid var(--line);border-left:5px solid var(--c);border-radius:6px;padding:10px 12px;background:var(--surface);cursor:pointer;transition:box-shadow .15s}
 .mkb-c:hover,.mkb-c.on{box-shadow:0 2px 10px rgba(0,0,0,.12)}
-.mkb-c .t1{display:flex;align-items:center;gap:8px}
+.mkb-c .t1{display:flex;align-items:center;gap:4px 8px;flex-wrap:wrap}
+.mkb-c .t1 .q{flex:1 1 14em;min-width:0}
 .mkb-c .no{flex:none;width:22px;height:22px;border-radius:50%;background:var(--c);color:#fff;font-size:12px;font-weight:700;display:grid;place-items:center}
 .mkb-c .q{font-family:var(--disp);font-weight:700;font-size:15px;background:linear-gradient(transparent 55%,color-mix(in srgb,var(--c) 45%,transparent) 55%);padding:0 2px}
 .mkb-c .kd{margin-left:auto;font-size:11px;color:var(--ci);font-weight:700;white-space:nowrap;display:flex;align-items:center;gap:4px}
@@ -2073,7 +2075,7 @@ function smMarks(q, S, RB){
     else if (!RB && m.leg) go = '<button data-go="leg" data-v="' + esc(m.leg) + '">肢' + esc(m.leg) + 'の解説へ ↓</button>';
     const chips = (m.src || []).map(x => '<span>' + esc(x) + '</span>').join('') + go;
     return '<div class="mkb-c" data-i="' + i + '" style="--c:' + k[0] + ';--ci:' + k[1] + '">'
-      + '<div class="t1"><span class="no">' + (i + 1) + '</span><span class="q">「' + esc(m.p || '') + '」</span><span class="kd">' + kd + '</span></div>'
+      + '<div class="t1"><span class="no">' + (i + 1) + '</span><span class="q">「' + esc(m.q || m.p || '') + '」</span><span class="kd">' + kd + '</span></div>'
       + '<div class="th">' + em(m.then) + '</div>'
       + (m.sub ? '<div class="sb">' + esc(m.sub) + '</div>' : '')
       + (chips ? '<div class="ch">' + chips + '</div>' : '') + '</div>';
@@ -2085,7 +2087,7 @@ function smMarks(q, S, RB){
   return '<div class="mkb" id="mkb"><div class="mkb-hd"><div class="eye-h">問題文のここを読む <small>印かカードを押すと、その所だけ濃くなります</small></div>'
     + '<button class="mkb-off" id="mkboff" aria-pressed="false">印を消して読む</button></div>'
     + '<div class="mkb-lg">' + lg.map(([t, l]) => '<span><i style="background:' + mkK(t)[0] + '"></i>' + l + '</span>').join('') + '</div>'
-    + '<div class="mkb-g"><div class="mkb-ph" id="mkbph"><div class="ph-msg">問題文の写真を読み込み中…</div></div>'
+    + '<div class="mkb-g' + (RB ? '' : ' td') + '"><div class="mkb-ph" id="mkbph"><div class="ph-msg">問題文の写真を読み込み中…</div></div>'
     + '<div class="mkb-ls">' + cards + '</div></div>'
     + (order.length ? '<div class="mkb-or"><div class="eye-h">読んだ順に、答案はこう並ぶ</div><div class="mkb-st">'
       + order.map((o, k) => (k ? '<span class="ar">›</span>' : '') + '<span class="s"><i style="background:' + mkK(M.marks[o[0]].t)[0] + '">'

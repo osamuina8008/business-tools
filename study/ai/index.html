@@ -462,6 +462,49 @@ body.reading{overflow:hidden}
 .sm-jump{margin-left:auto;font-family:inherit;margin-right:6px;font-size:13px;border:1px solid var(--agree);color:var(--agree);background:transparent;border-radius:4px;padding:3px 9px;cursor:pointer}
 .sm-foot{font-size:12px;color:var(--muted);margin:16px 0 0;text-align:right}
 /* ---- 絵の部品（2026-10-06） ---- */
+/* 問題文のここを読む（qmark.py、2026-10-18）：写真に蛍光ペンの印＋「読んだら→考える」カード */
+.mkb{margin:18px 0 6px;container-type:inline-size;--mk-fact:#F4C430;--mk-ask:#4A90D9;--mk-cond:#E0603A;
+  --mk-fact-ink:#8A6A00;--mk-ask-ink:#1F4E79;--mk-cond-ink:#A33E1E}
+:root[data-theme="dark"] .mkb{--mk-fact-ink:#F4C430;--mk-ask-ink:#8DB7E2;--mk-cond-ink:#F08A66}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .mkb{--mk-fact-ink:#F4C430;--mk-ask-ink:#8DB7E2;--mk-cond-ink:#F08A66}}
+.mkb-hd{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.mkb-hd .eye-h{margin:0}
+.mkb-off{margin-left:auto;font:inherit;font-size:12.5px;border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:4px;padding:3px 10px;cursor:pointer}
+.mkb-off[aria-pressed="true"]{background:var(--ai);border-color:var(--ai);color:#fff}
+.mkb-lg{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);margin:0 0 12px}
+.mkb-lg span{display:inline-flex;align-items:center;gap:6px}
+.mkb-lg i{display:inline-block;width:24px;height:9px;border-radius:2px;opacity:.75}
+.mkb-g{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:18px;align-items:start}
+@container (max-width:720px){.mkb-g{grid-template-columns:1fr}.mkb-ph{position:static}}
+.mkb-ph{position:sticky;top:10px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:6px;min-height:80px}
+.mkb-ph svg{width:100%;height:auto;display:block}
+.mkb-ph .ph-msg{font-size:13px;color:#5D6B7A;padding:14px 10px}
+.mkb-ph .ph-msg button{font:inherit;font-size:13px;margin-left:6px;padding:3px 10px;border:1px solid #1F4E79;color:#1F4E79;background:#fff;border-radius:4px;cursor:pointer}
+.mkb-ph g.mk{cursor:pointer;transition:opacity .2s}
+.mkb-ph svg.dim g.mk{opacity:.15}.mkb-ph svg.dim g.mk.on{opacity:1}
+.mkb-ph svg.off g.mk{display:none}
+.mkb-ph g.mk text{font:700 15px var(--body);fill:#fff;text-anchor:middle;dominant-baseline:central}
+.mkb-ls{display:flex;flex-direction:column;gap:10px}
+.mkb-c{border:1px solid var(--line);border-left:5px solid var(--c);border-radius:6px;padding:10px 12px;background:var(--surface);cursor:pointer;transition:box-shadow .15s}
+.mkb-c:hover,.mkb-c.on{box-shadow:0 2px 10px rgba(0,0,0,.12)}
+.mkb-c .t1{display:flex;align-items:center;gap:8px}
+.mkb-c .no{flex:none;width:22px;height:22px;border-radius:50%;background:var(--c);color:#fff;font-size:12px;font-weight:700;display:grid;place-items:center}
+.mkb-c .q{font-family:var(--disp);font-weight:700;font-size:15px;background:linear-gradient(transparent 55%,color-mix(in srgb,var(--c) 45%,transparent) 55%);padding:0 2px}
+.mkb-c .kd{margin-left:auto;font-size:11px;color:var(--ci);font-weight:700;white-space:nowrap;display:flex;align-items:center;gap:4px}
+.mkb-c .kd svg{color:var(--ink)}.mkb-c .kd .o{color:var(--agree)}.mkb-c .kd .x{color:var(--differ)}
+.mkb-c .th{font-size:14.5px;margin:4px 0 0 30px}
+.mkb-c .th::before{content:"→ ";color:var(--muted)}
+.mkb-c .th em{font-style:normal;font-weight:700;color:var(--ci)}
+.mkb-c .sb{font-size:12.5px;color:var(--muted);margin:3px 0 0 30px}
+.mkb-c .ch{margin:6px 0 0 30px;display:flex;gap:6px;flex-wrap:wrap}
+.mkb-c .ch span,.mkb-c .ch button{font:inherit;font-size:11.5px;border:1px solid var(--line);border-radius:999px;padding:1px 9px;color:var(--muted);background:var(--sunk)}
+.mkb-c .ch button{color:var(--ai);border-color:var(--ai);background:transparent;cursor:pointer}
+.mkb-or{margin-top:14px}
+.mkb-or .eye-h{margin-bottom:6px}
+.mkb-st{display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-size:13.5px}
+.mkb-st .s{border:1px solid var(--line);border-radius:6px;padding:3px 10px;background:var(--sunk)}
+.mkb-st .s i{font-style:normal;display:inline-grid;place-items:center;width:17px;height:17px;border-radius:50%;color:#fff;font-size:10.5px;font-weight:700;margin-right:5px;vertical-align:1px}
+.mkb-st .ar{color:var(--muted)}
 .eye{margin:14px 0 4px}
 .eye-h{font-size:12px;letter-spacing:.1em;color:var(--muted);font-weight:700;margin-bottom:8px}
 .eye-h small{font-weight:400;letter-spacing:0;margin-left:8px}
@@ -1857,6 +1900,8 @@ function sumBlock(q){
   const RB0 = S.kind === 'ronbun';
   /* 0 ひと目で（2026-10-06、本人要望「パッと見て頭に入る絵」）。既存の要約データだけで描く＝追加料金0 */
   h += smEye(q, S, A, RB0);
+  /* 0.5 問題文のここを読む（写真に印、2026-10-18） */
+  h += smMarks(q, S, RB0);
   /* 1 軸：問い → 答え → 根拠 を矢印でつないだ図にする */
   const ax = S.axis || {};
   if (ax.boxes && ax.boxes.length) {
@@ -1923,8 +1968,8 @@ function sumBlock(q){
   const flow = S.flow || [];
   if (flow.length) {
     const rc = A.filter(a => smSec(q.ai[a], '③').trim());
-    h += '<h4>③ 論点ごとの流れ <span class="sm-note">（答案に書く順）</span></h4>' + flow.map(F =>
-      '<div class="sm-leg sm-fl"><div class="sm-lh"><span class="sm-fn">' + esc(F.n || '') + '</span></div>'
+    h += '<h4>③ 論点ごとの流れ <span class="sm-note">（答案に書く順）</span></h4>' + flow.map((F, fi) =>
+      '<div class="sm-leg sm-fl" id="smfl' + fi + '"><div class="sm-lh"><span class="sm-fn">' + esc(F.n || '') + '</span></div>'
       + (F.rule ? '<p class="sm-one"><span class="sm-tg">規範</span>' + em(F.rule) + '</p>' : '')
       + ((F.facts || []).length ? '<div class="sm-fx"><span class="sm-tg">使う事実</span>' + F.facts.map(x => '<span class="sm-look">' + esc(x) + '</span>').join('') + '</div>' : '')
       + (F.concl ? '<p class="sm-cc"><span class="sm-tg">結論</span>' + esc(F.concl) + '</p>' : '')
@@ -2002,6 +2047,139 @@ function smCoach(C){
     h += '<div class="st-h">問題提起の一文（型）</div><table><tbody>'
       + C.tmpl.map(r => '<tr><td>' + esc(r[0] || '') + '</td><td>' + esc(r[1] || '') + '</td></tr>').join('') + '</tbody></table>';
   return h + '</div>';
+}
+/* ---- 問題文のここを読む（qmark.py が作る {Q}.marks.json、2026-10-18） ----
+   写真は公開データでは合言葉で暗号化（data/img/{id}.bin）。印・カードを押すと対応する所だけ濃くなる。 */
+const MK_KIND = {
+  fact: ['var(--mk-fact)', 'var(--mk-fact-ink)', '事実', '#F4C430'],
+  ask:  ['var(--mk-ask)',  'var(--mk-ask-ink)',  '聞かれていること', '#4A90D9'],
+  cond: ['var(--mk-cond)', 'var(--mk-cond-ink)', '前提・ひっかけ', '#E0603A'],
+};
+const mkK = t => MK_KIND[t] || MK_KIND.fact;
+function smMarks(q, S, RB){
+  const M = S.marks; if (!M || !(M.marks || []).length) return '';
+  const em = t => esc(t || '').replace(/【(.+?)】/g, '<em>$1</em>');
+  const legs = S.legs || [];
+  const cards = M.marks.map((m, i) => {
+    const k = mkK(m.t);
+    let kd = esc(k[2]);
+    if (!RB && m.leg) {
+      const L = legs.find(L => SM_Z(String(L.l || '')) === SM_Z(String(m.leg)));
+      const ox = L ? smLegOX(S, L) : '';
+      kd = '肢' + esc(m.leg) + (ox === '○' || ox === '×' ? '<span class="' + (ox === '○' ? 'o' : 'x') + '">' + smMark(ox, 16) + '</span>' : '') + '・' + kd;
+    }
+    let go = '';
+    if (RB && m.go) go = '<button data-go="fl" data-v="' + esc(m.go) + '">道すじ' + esc(m.go) + 'へ ↓</button>';
+    else if (!RB && m.leg) go = '<button data-go="leg" data-v="' + esc(m.leg) + '">肢' + esc(m.leg) + 'の解説へ ↓</button>';
+    const chips = (m.src || []).map(x => '<span>' + esc(x) + '</span>').join('') + go;
+    return '<div class="mkb-c" data-i="' + i + '" style="--c:' + k[0] + ';--ci:' + k[1] + '">'
+      + '<div class="t1"><span class="no">' + (i + 1) + '</span><span class="q">「' + esc(m.p || '') + '」</span><span class="kd">' + kd + '</span></div>'
+      + '<div class="th">' + em(m.then) + '</div>'
+      + (m.sub ? '<div class="sb">' + esc(m.sub) + '</div>' : '')
+      + (chips ? '<div class="ch">' + chips + '</div>' : '') + '</div>';
+  }).join('');
+  const lg = RB
+    ? [['fact', '黄＝起きたこと（事実）'], ['ask', '青＝聞かれていること'], ['cond', '赤＝前提・書き方の指定（読み落とし注意）']]
+    : [['fact', '黄＝決め手の事実'], ['ask', '青＝聞かれていること'], ['cond', '赤＝ひっかけ・限定の語（読み落とし注意）']];
+  const order = (M.order || []).filter(o => M.marks[o[0]]);
+  return '<div class="mkb" id="mkb"><div class="mkb-hd"><div class="eye-h">問題文のここを読む <small>印かカードを押すと、その所だけ濃くなります</small></div>'
+    + '<button class="mkb-off" id="mkboff" aria-pressed="false">印を消して読む</button></div>'
+    + '<div class="mkb-lg">' + lg.map(([t, l]) => '<span><i style="background:' + mkK(t)[0] + '"></i>' + l + '</span>').join('') + '</div>'
+    + '<div class="mkb-g"><div class="mkb-ph" id="mkbph"><div class="ph-msg">問題文の写真を読み込み中…</div></div>'
+    + '<div class="mkb-ls">' + cards + '</div></div>'
+    + (order.length ? '<div class="mkb-or"><div class="eye-h">読んだ順に、答案はこう並ぶ</div><div class="mkb-st">'
+      + order.map((o, k) => (k ? '<span class="ar">›</span>' : '') + '<span class="s"><i style="background:' + mkK(M.marks[o[0]].t)[0] + '">'
+        + (o[0] + 1) + '</i>' + esc(o[1]) + '</span>').join('') + '</div></div>' : '')
+    + '</div>';
+}
+const MK_URL = {};
+async function mkImgUrl(id){
+  if (MK_URL[id]) return MK_URL[id];
+  if (!WEB) return '';                                  /* 手元の1枚HTMLには写真を入れていない */
+  const key = await pdfKeyStored(); if (!key) return null;   /* null＝合言葉が要る */
+  const r = await fetch(WEB + 'img/' + id + '.bin');
+  if (!r.ok) return '';
+  const u = new Uint8Array(await r.arrayBuffer());
+  try {
+    const pt = await crypto.subtle.decrypt({name:'AES-GCM', iv:u.slice(0,12)}, key, u.slice(12));
+    return (MK_URL[id] = URL.createObjectURL(new Blob([pt], {type:'image/jpeg'})));
+  } catch(e){ return ''; }
+}
+async function wireMarks(q){
+  const box = document.getElementById('mkb'); if (!box) return;
+  const M = q.sum.marks, ph = document.getElementById('mkbph');
+  let cur = null;
+  const hi = i => {
+    const sv = ph.querySelector('svg');
+    if (sv) { sv.classList.toggle('dim', i !== null);
+              sv.querySelectorAll('g.mk').forEach(g => g.classList.toggle('on', +g.dataset.i === i)); }
+    box.querySelectorAll('.mkb-c').forEach(c => c.classList.toggle('on', +c.dataset.i === i));
+  };
+  const pick = i => { cur = cur === i ? null : i; hi(cur); };
+  box.querySelectorAll('.mkb-c').forEach(c => {
+    const i = +c.dataset.i;
+    c.onmouseenter = () => hi(i); c.onmouseleave = () => hi(cur);
+    c.onclick = e => {
+      const b = e.target.closest('button[data-go]');
+      if (b) {
+        let el = null;
+        if (b.dataset.go === 'fl') {
+          const fl = q.sum.flow || [], v = b.dataset.v;
+          const fi = fl.findIndex(F => v.includes(String(F.n || '').trim().charAt(0)));
+          el = document.getElementById('smfl' + Math.max(0, fi));
+        } else {
+          const li = (q.sum.legs || []).findIndex(L => SM_Z(String(L.l || '')) === SM_Z(b.dataset.v));
+          el = document.getElementById('smleg' + li);
+        }
+        if (el) { el.scrollIntoView({block:'start'}); el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); }
+        return;
+      }
+      pick(i);
+      if (window.innerWidth < 760) ph.scrollIntoView({block:'nearest'});
+    };
+  });
+  const off = document.getElementById('mkboff');
+  off.onclick = () => {
+    const on = off.getAttribute('aria-pressed') !== 'true';
+    off.setAttribute('aria-pressed', on); off.textContent = on ? '印を出す' : '印を消して読む';
+    const sv = ph.querySelector('svg'); if (sv) sv.classList.toggle('off', on);
+  };
+  const draw = url => {
+    const W = 1000, H = Math.round(W * (M.ar || 1));
+    let g = '';
+    M.marks.forEach((m, i) => {
+      const col = mkK(m.t)[3];
+      let rs = '';
+      (m.r || []).forEach(r => {
+        const x = r[0] * W, y = r[1] * H, w = (r[2] - r[0]) * W, h = (r[3] - r[1]) * H;
+        rs += '<rect x="' + (x - 2) + '" y="' + (y + h * 0.38) + '" width="' + (w + 4) + '" height="' + (h * 0.66) + '" rx="3" fill="' + col + '" fill-opacity=".45"/>';
+      });
+      const r0 = (m.r || [])[0];
+      if (r0) {
+        const cx = r0[0] * W - 4, cy = r0[1] * H - 2;
+        rs += '<circle cx="' + cx + '" cy="' + cy + '" r="11" fill="' + col + '" stroke="#fff" stroke-width="2"/><text x="' + cx + '" y="' + (cy + .5) + '">' + (i + 1) + '</text>';
+      }
+      g += '<g class="mk" data-i="' + i + '">' + rs + '</g>';
+    });
+    ph.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="問題文の写真（印つき）">'
+      + '<image href="' + url + '" x="0" y="0" width="' + W + '" height="' + H + '"/>' + g + '</svg>';
+    ph.querySelectorAll('g.mk').forEach(e => e.onclick = () => pick(+e.dataset.i));
+    if (off.getAttribute('aria-pressed') === 'true') ph.querySelector('svg').classList.add('off');
+    hi(cur);
+  };
+  const url = await mkImgUrl(M.img);
+  if (CUR !== q) return;
+  if (url) { draw(url); return; }
+  if (url === null) {
+    ph.innerHTML = '<div class="ph-msg">合言葉を入れると問題文の写真が出ます<button id="mkbpk">入れる</button></div>';
+    document.getElementById('mkbpk').onclick = async () => {
+      const pw = prompt('合言葉（この端末では1回だけ）'); if (!pw) return;
+      try { await pdfKeyFrom(pw); } catch(e){ flash('合言葉が違います。'); return; }
+      const u = await mkImgUrl(M.img); if (u && CUR === q) draw(u);
+    };
+    return;
+  }
+  ph.innerHTML = '<div class="ph-msg">' + (WEB ? '問題文の写真を読み込めませんでした。' : '写真はiPad版（Web）で出ます。') + '</div>';
 }
 function wireSum(){
   const box = document.getElementById('sm'); if (!box) return;
@@ -2304,6 +2482,7 @@ async function show(uid){
   paintFocus();
   wireFocus();
   wireSum();
+  if (q.sum && q.sum.marks) wireMarks(q);
 
   main.querySelectorAll('.tabs button').forEach(b => b.onclick = () => {
     secPick = b.dataset.s;

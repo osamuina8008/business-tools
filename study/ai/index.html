@@ -501,6 +501,19 @@ body.reading{overflow:hidden}
 .mkb-c .ch{margin:6px 0 0 30px;display:flex;gap:6px;flex-wrap:wrap}
 .mkb-c .ch span,.mkb-c .ch button{font:inherit;font-size:11.5px;border:1px solid var(--line);border-radius:999px;padding:1px 9px;color:var(--muted);background:var(--sunk)}
 .mkb-c .ch button{color:var(--ai);border-color:var(--ai);background:transparent;cursor:pointer}
+.mkb-c .kd .bad{color:var(--differ)}.mkb-c .kd .okk{color:var(--agree)}
+.mkb-ans{font-size:14px;margin:2px 0}.mkb-ans b{background:var(--ai);color:var(--surface);border-radius:4px;padding:1px 10px;margin-left:4px}
+.mkb-ans small{color:var(--muted);margin-left:8px;font-size:12.5px}
+.mkb-leg{border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--sunk);display:flex;flex-direction:column;gap:8px}
+.mkb-leg.o{border-color:var(--agree)}.mkb-leg.x{border-color:var(--differ)}
+.mkb-leg .lh{display:flex;align-items:center;gap:8px;flex-wrap:wrap;cursor:default}
+.mkb-leg .lb{font-family:var(--disp);font-size:20px;font-weight:700}
+.mkb-leg .ox{display:inline-flex}.mkb-leg.o .ox{color:var(--agree)}.mkb-leg.x .ox{color:var(--differ)}
+.mkb-leg.o .lh b{color:var(--agree)}.mkb-leg.x .lh b{color:var(--differ)}
+.mkb-leg .pk{font-size:12px;font-weight:700;background:var(--ai);color:var(--surface);border-radius:999px;padding:1px 9px}
+.mkb-leg .lh button{margin-left:auto;font:inherit;font-size:11.5px;border:1px solid var(--ai);color:var(--ai);background:transparent;border-radius:999px;padding:1px 9px;cursor:pointer}
+.mkb-leg .l1{font-size:14.5px;font-weight:500}.mkb-leg .l1 em{font-style:normal;font-weight:700}
+.mkb-leg .fx{font-size:14px;color:var(--differ);font-weight:700;border-left:3px solid var(--differ);padding-left:8px}
 .mkb-or{margin-top:14px}
 .mkb-or .eye-h{margin-bottom:6px}
 .mkb-st{display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-size:13.5px}
@@ -2062,24 +2075,52 @@ function smMarks(q, S, RB){
   const M = S.marks; if (!M || !(M.marks || []).length) return '';
   const em = t => esc(t || '').replace(/【(.+?)】/g, '<em>$1</em>');
   const legs = S.legs || [];
-  const cards = M.marks.map((m, i) => {
+  const card = i => {
+    const m = M.marks[i];
     const k = mkK(m.t);
     let kd = esc(k[2]);
-    if (!RB && m.leg) {
-      const L = legs.find(L => SM_Z(String(L.l || '')) === SM_Z(String(m.leg)));
-      const ox = L ? smLegOX(S, L) : '';
-      kd = '肢' + esc(m.leg) + (ox === '○' || ox === '×' ? '<span class="' + (ox === '○' ? 'o' : 'x') + '">' + smMark(ox, 16) + '</span>' : '') + '・' + kd;
+    if (!RB && m.v === 'bad') kd = '<span class="bad">✗ ここが誤り</span>';
+    else if (!RB && m.v === 'ok') {
+      const L = legs.find(L => SM_Z(String(L.l || '')) === SM_Z(String(m.leg || '')));
+      kd = L && smLegOX(S, L) === '×' ? '<span>判断の手がかり</span>' : '<span class="okk">✓ 正しさの決め手</span>';
     }
     let go = '';
     if (RB && m.go) go = '<button data-go="fl" data-v="' + esc(m.go) + '">道すじ' + esc(m.go) + 'へ ↓</button>';
-    else if (!RB && m.leg) go = '<button data-go="leg" data-v="' + esc(m.leg) + '">肢' + esc(m.leg) + 'の解説へ ↓</button>';
+
     const chips = (m.src || []).map(x => '<span>' + esc(x) + '</span>').join('') + go;
     return '<div class="mkb-c" data-i="' + i + '" style="--c:' + k[0] + ';--ci:' + k[1] + '">'
       + '<div class="t1"><span class="no">' + (i + 1) + '</span><span class="q">「' + esc(m.q || m.p || '') + '」</span><span class="kd">' + kd + '</span></div>'
       + '<div class="th">' + em(m.then) + '</div>'
       + (m.sub ? '<div class="sb">' + esc(m.sub) + '</div>' : '')
       + (chips ? '<div class="ch">' + chips + '</div>' : '') + '</div>';
-  }).join('');
+  };
+  let cards = '';
+  if (RB) cards = M.marks.map((m, i) => card(i)).join('');
+  else {
+    /* 短答は肢ごとに束ねる：見出しに ○×・正しい／誤り・選ぶか・（×なら）正しくは */
+    const ans = String(S.answer || '');
+    const pick = lab => /^[1-9]$/.test(lab) ? new RegExp('(^|[^0-9])' + lab + '($|[^0-9])').test(ans) : ans.includes(lab);
+    const top = M.marks.map((m, i) => i).filter(i => !M.marks[i].leg);
+    cards = top.map(card).join('')
+      + (ans ? '<div class="mkb-ans">正解 <b>' + esc(ans) + '</b>' + (S.answer_note ? '<small>' + esc(S.answer_note) + '</small>' : '') + '</div>' : '');
+    legs.forEach((L, li) => {
+      const lab = SM_Z(String(L.l || '')); if (!lab) return;
+      const ix = M.marks.map((m, i) => i).filter(i => SM_Z(String(M.marks[i].leg || '')) === lab);
+      const ox = smLegOX(S, L), ok = ox === '○', ng = ox === '×';
+      const fix = (String(L.why || '').match(/正しくは[「『]?(.+?)[」』]?[。．]/) || [])[1];
+      cards += '<div class="mkb-leg ' + (ok ? 'o' : ng ? 'x' : '') + '" data-leg="' + esc(lab) + '">'
+        + '<div class="lh"><span class="lb">肢' + esc(L.l) + '</span>'
+        + ((ok || ng) ? '<span class="ox">' + smMark(ox, 26) + '</span><b>' + (ok ? '正しい記述' : '誤った記述') + '</b>' : '')
+        + (ans && /^([ア-オ]|[1-9])$/.test(lab) && !/[ア-オ][12]/.test(ans) ? (pick(lab) ? '<span class="pk">正解に入る</span>' : '') : '')
+        + '<button data-go="leg" data-v="' + esc(lab) + '">解説へ ↓</button></div>'
+        + (L.one ? '<div class="l1">' + em(L.one) + '</div>' : '')
+        + (ng && fix ? '<div class="fx">正しくは：' + esc(fix) + '</div>' : '')
+        + ix.map(card).join('') + '</div>';
+    });
+    /* 肢に結びつかなかった印 */
+    const rest = M.marks.map((m, i) => i).filter(i => M.marks[i].leg && !legs.some(L => SM_Z(String(L.l || '')) === SM_Z(String(M.marks[i].leg))));
+    cards += rest.map(card).join('');
+  }
   const lg = RB
     ? [['fact', '黄＝起きたこと（事実）'], ['ask', '青＝聞かれていること'], ['cond', '赤＝前提・書き方の指定（読み落とし注意）']]
     : [['fact', '黄＝決め手の事実'], ['ask', '青＝聞かれていること'], ['cond', '赤＝ひっかけ・限定の語（読み落とし注意）']];
@@ -2107,6 +2148,7 @@ async function mkImgUrl(id){
     return (MK_URL[id] = URL.createObjectURL(new Blob([pt], {type:'image/jpeg'})));
   } catch(e){ return ''; }
 }
+const RB_OF = q => q.sum && q.sum.kind === 'ronbun';
 async function wireMarks(q){
   const box = document.getElementById('mkb'); if (!box) return;
   const M = q.sum.marks, ph = document.getElementById('mkbph');
@@ -2140,6 +2182,17 @@ async function wireMarks(q){
       if (window.innerWidth < 760) ph.scrollIntoView({block:'nearest'});
     };
   });
+  box.querySelectorAll('.mkb-leg .lh button[data-go]').forEach(b => b.onclick = () => {
+    const li = (q.sum.legs || []).findIndex(L => SM_Z(String(L.l || '')) === SM_Z(b.dataset.v));
+    const el = document.getElementById('smleg' + li);
+    if (el) { el.scrollIntoView({block:'start'}); el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); }
+  });
+  box.querySelectorAll('.mkb-leg').forEach(g => {
+    const ii = [...g.querySelectorAll('.mkb-c')].map(c => +c.dataset.i);
+    g.querySelector('.lh').onmouseenter = () => { const sv = ph.querySelector('svg'); if (!sv || !ii.length) return;
+      sv.classList.add('dim'); sv.querySelectorAll('g.mk').forEach(e => e.classList.toggle('on', ii.includes(+e.dataset.i))); };
+    g.querySelector('.lh').onmouseleave = () => hi(cur);
+  });
   const off = document.getElementById('mkboff');
   off.onclick = () => {
     const on = off.getAttribute('aria-pressed') !== 'true';
@@ -2155,6 +2208,7 @@ async function wireMarks(q){
       (m.r || []).forEach(r => {
         const x = r[0] * W, y = r[1] * H, w = (r[2] - r[0]) * W, h = (r[3] - r[1]) * H;
         rs += '<rect x="' + (x - 2) + '" y="' + (y + h * 0.38) + '" width="' + (w + 4) + '" height="' + (h * 0.66) + '" rx="3" fill="' + col + '" fill-opacity=".45"/>';
+        if (m.v === 'bad') rs += '<path d="M' + x + ' ' + (y + h + 3) + 'q' + (w / 8) + ' 7 ' + (w / 4) + ' 0t' + (w / 4) + ' 0t' + (w / 4) + ' 0t' + (w / 4) + ' 0" fill="none" stroke="#AE3826" stroke-width="3"/>';
       });
       const r0 = (m.r || [])[0];
       if (r0) {
@@ -2163,8 +2217,24 @@ async function wireMarks(q){
       }
       g += '<g class="mk" data-i="' + i + '">' + rs + '</g>';
     });
-    ph.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="問題文の写真（印つき）">'
-      + '<image href="' + url + '" x="0" y="0" width="' + W + '" height="' + H + '"/>' + g + '</svg>';
+    /* 短答：写真の左の余白に肢ごとの ○×（2026-10-18 本人要望「正誤がわかるように」） */
+    let gut = 0, vx = '';
+    if (!RB_OF(q) && (q.sum.legs || []).length) {
+      M.legy = M.legy || {};
+      gut = 70;
+      (q.sum.legs || []).forEach(L => {
+        const lab = SM_Z(String(L.l || ''));
+        /* 肢の頭の行が文字認識で取れなかった（手書きの丸などで）ときは、その肢の最初の印の行 */
+        const fm = M.marks.find(m => SM_Z(String(m.leg || '')) === lab && (m.r || []).length);
+        const y = M.legy[lab] || (fm ? [fm.r[0][1], fm.r[0][3]] : null); if (!y) return;
+        const ox = smLegOX(q.sum, L), cy = (y[0] + y[1]) / 2 * H;
+        if (ox === '○') vx += '<circle cx="-34" cy="' + cy + '" r="20" fill="none" stroke="#2E7355" stroke-width="7"/>';
+        else if (ox === '×') vx += '<path d="M-52 ' + (cy - 18) + 'L-16 ' + (cy + 18) + 'M-16 ' + (cy - 18) + 'L-52 ' + (cy + 18) + '" stroke="#AE3826" stroke-width="7" stroke-linecap="round"/>';
+      });
+    }
+    ph.innerHTML = '<svg viewBox="' + (-gut) + ' 0 ' + (W + gut) + ' ' + H + '" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="問題文の写真（印つき）">'
+      + '<rect x="' + (-gut) + '" y="0" width="' + (W + gut) + '" height="' + H + '" fill="#fff"/>'
+      + '<image href="' + url + '" x="0" y="0" width="' + W + '" height="' + H + '"/>' + vx + g + '</svg>';
     ph.querySelectorAll('g.mk').forEach(e => e.onclick = () => pick(+e.dataset.i));
     if (off.getAttribute('aria-pressed') === 'true') ph.querySelector('svg').classList.add('off');
     hi(cur);

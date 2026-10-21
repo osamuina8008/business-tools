@@ -391,6 +391,22 @@ body.reading{overflow:hidden}
 .sm-qb .r b{font-weight:700}
 .sm-qb .r span{color:var(--muted)}
 .sm-note{font-size:13.5px;color:var(--muted);margin:8px 0 0}
+.sm-step{flex:none;width:22px;height:22px;margin-top:1px;border-radius:50%;background:var(--ai);color:#fff;
+  font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sm-qb .qt{display:flex;gap:8px;align-items:flex-start}
+.sm-out{margin-top:12px;border:1px solid var(--line);border-radius:6px;padding:12px 14px;background:var(--paper)}
+.sm-out-h{font-weight:700;font-size:14.5px;margin:0 0 4px}
+.sm-out-h span{display:block;font-weight:400;color:var(--muted);font-size:12.5px;line-height:1.6;margin-top:2px}
+.sm-stat{padding:8px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.7}
+.sm-stat:first-of-type{border-top:0}
+.sm-stat b{font-family:var(--disp);margin-right:8px}
+.sm-stat a,.sm-rule a,.sm-out-more a{color:var(--ai)}
+.sm-rule a{white-space:nowrap}
+.sm-quote{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.sm-rule{display:grid;grid-template-columns:6.2em minmax(0,1fr);gap:2px 10px;padding:7px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.65}
+.sm-rule b{font-family:var(--disp)}
+.sm-out-more{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.sm-out-more a{font-size:13px;text-decoration:none;border:1px solid var(--line);border-radius:4px;padding:4px 10px;background:var(--surface)}
 .sm-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
 .sm-tabs button{font:inherit;font-size:13px;padding:4px 12px;min-height:34px;border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:4px;cursor:pointer}
 .sm-tabs button.on{background:var(--ai);border-color:var(--ai);color:#fff}
@@ -1868,6 +1884,78 @@ function smIco(t){
     return '<svg class="fz-i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 21V5M8 7h7"/></svg>';
   return '<svg class="fz-i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v5M12 16h0"/></svg>';
 }
+/* 軸に出てくる法則を、現行条文（e-Gov）と公開解説で確かめる（2026-10-22） */
+const EGOV = {"民法":"129AC0000000089","憲法":"321CONSTITUTION","刑法":"140AC0000000045",
+  "刑訴法":"323AC0000000131","民訴法":"408AC0000000109","手形法":"307AC0000000020",
+  "商法":"132AC0000000048","会社法":"417AC0000000086","小切手法":"308AC0000000057",
+  "国家賠償法":"322AC0000000125","行訴法":"337AC0000000139","公選法":"325AC1000000100",
+  "会計法":"322AC0000000035","破産法":"416AC0000000075","行政不服審査法":"426AC0000000068",
+  "行政手続法":"405AC0000000088","民執法":"354AC0000000004","刑事補償法":"325AC0000000001",
+  "地方自治法":"322AC0000000067","行政代執行法":"323AC0000000043"};
+const SM_RULES = [
+  {k:"包括一罪", art:"", wiki:"https://ja.wikipedia.org/wiki/罪数#包括一罪",
+   line:"条文上の罪名ではない。同じ法益を一体として侵害していると評価できるとき、解釈で一罪にまとめる。"},
+  {k:"観念的競合", art:"刑法54条", wiki:"https://ja.wikipedia.org/wiki/観念的競合",
+   line:"54条1項の前半。一個の行為が二個以上の罪名に触れるときは、最も重い刑で処断する。"},
+  {k:"牽連犯", art:"刑法54条", wiki:"https://ja.wikipedia.org/wiki/牽連犯",
+   line:"54条1項の後半。犯罪の手段または結果である行為が他の罪名に触れるときも、最も重い刑で処断する。罪の性質上、普通に手段・結果になるかを見る。"},
+  {k:"併合罪", art:"刑法45条", wiki:"https://ja.wikipedia.org/wiki/併合罪",
+   line:"45条の前半。確定裁判を経ていない二個以上の罪。54条で一つにならない別々の行為はここ。"},
+  {k:"かすがい", art:"刑法54条", wiki:"https://ja.wikipedia.org/wiki/牽連犯#かすがい現象",
+   line:"一つの手段となる罪が、複数の結果罪とそれぞれ牽連犯になり、全体が科刑上一罪になる。"}
+];
+function egovHref(k){
+  const m = String(k).match(/^(.+?)(\d+)条/);
+  return m && EGOV[m[1]] ? "https://laws.e-gov.go.jp/law/" + EGOV[m[1]] + "#Mp-At_" + m[2] : "";
+}
+function smJobunLine(k){
+  let s = String(JOBUN[k] || "").replace(/\s+/g, "");
+  s = s.replace(/^第[^）]{0,40}）/, "").replace(/^[①-⑳]/, "");
+  const cut = s.search(/[②③④⑤⑥⑦⑧⑨⑩]/);
+  if (cut > 16) s = s.slice(0, cut);
+  return s.length > 140 ? s.slice(0, 140) + "…" : s;
+}
+function smAxisBlob(S){
+  const ax = S.axis || {}, p = [ax.lead || "", ax.note || "", S.theme || ""];
+  (ax.boxes || []).forEach(b => { p.push(b.q || ""); (b.rows || []).forEach(r => p.push(r[0], r[1])); });
+  return p.join("\n");
+}
+function smOutside(q, S){
+  const ax = S.axis || {};
+  if (!(ax.boxes && ax.boxes.length)) return "";
+  const blob = smAxisBlob(S);
+  const hits = SM_RULES.filter(r => blob.includes(r.k));
+  const arts = [], seen = new Set();
+  const add = k => { if (k && !seen.has(k)) { seen.add(k); arts.push(k); } };
+  hits.forEach(r => add(r.art));
+  let law = mainLaw(q) || "", m;
+  const rx = new RegExp(LAW_RX.source, "g");
+  while ((m = rx.exec(blob))) {
+    const g = m[1] ? (LAWS.find(n => m[1].endsWith(n)) || "") : "";
+    if (g) law = g;
+    if (law && EGOV[law]) add(law + m[2] + "条");
+  }
+  const show = arts.filter(egovHref).slice(0, 4);
+  if (!hits.length && !show.length) return "";
+  const cnt = {};
+  Object.values(q.ai || {}).forEach(v => (v.cases || []).forEach(x => { cnt[x] = (cnt[x] || 0) + 1; }));
+  const cases = Object.keys(cnt).sort((a, b) => cnt[b] - cnt[a] || a.localeCompare(b, "ja")).slice(0, 3);
+  const qv = encodeURIComponent((hits.length ? hits.map(r => r.k).join(" ") : (S.theme || "")) + " 解説");
+  let h = '<div class="sm-out"><p class="sm-out-h">外で確かめる<span>上のカードは各社のまとめです。番号の順に切り、条文の文言と公開の解説で突き合わせてください。</span></p>';
+  if (show.length) h += show.map(k => {
+    const line = smJobunLine(k);
+    return '<div class="sm-stat"><b>' + esc(k) + '</b><a href="' + egovHref(k) + '" target="_blank" rel="noopener">e-Govで条文を開く</a>'
+      + (line ? '<span class="sm-quote">現行法の文言：' + esc(line) + '</span>' : "") + '</div>';
+  }).join("");
+  if (hits.length) h += hits.map(r => '<div class="sm-rule"><b>' + esc(r.k) + '</b><div>' + esc(r.line)
+    + ' <a href="' + r.wiki + '" target="_blank" rel="noopener">解説を読む</a></div></div>').join("");
+  h += '<div class="sm-out-more">';
+  if (hits.length >= 2) h += '<a href="https://ja.wikipedia.org/wiki/罪数" target="_blank" rel="noopener">切り分け全体の解説</a>';
+  h += '<a href="https://www.youtube.com/results?search_query=' + qv + '" target="_blank" rel="noopener">講義動画を探す</a>';
+  cases.forEach(c => h += '<a href="https://www.google.com/search?q=' + encodeURIComponent(c + " site:courts.go.jp")
+    + '" target="_blank" rel="noopener">' + esc(c) + ' を裁判所で探す</a>');
+  return h + '</div></div>';
+}
 /* ひと目で：短答は肢ごとの大きな○×タイル（キーワード＋6社の票の点）、論文は論点の道すじ */
 function smEye(q, S, A, RB){
   const em = t => esc(t || '').replace(/【(.+?)】/g, '<em>$1</em>');
@@ -1921,15 +2009,16 @@ function sumBlock(q){
   const ax = S.axis || {};
   if (ax.boxes && ax.boxes.length) {
     h += '<h4>① まず、この問題の軸</h4>' + (ax.lead ? '<p class="sm-lead">' + esc(ax.lead) + '</p>' : '')
-      + '<div class="sm-q">' + ax.boxes.map(b => '<div class="sm-qb"><div class="qt"><span class="fz-q">？</span>'
-        + esc(String(b.q || '').replace(/^[①-⑳]\s*/, '')) + '</div>'
+      + '<div class="sm-q">' + ax.boxes.map((b, bi) => '<div class="sm-qb"><div class="qt"><span class="sm-step">' + (bi + 1) + '</span><span>'
+        + esc(String(b.q || '').replace(/^[①-⑳]\s*/, '')) + '</span></div>'
         + (b.rows || []).map(r => {
             const why = String(r[1] || '').replace(/^\s*(→|⇒)\s*/, '');
             return '<div class="fz-ar"></div><div class="fz-a">' + esc(r[0] || '') + '</div>'
               + (why ? '<div class="fz-ar"></div><div class="fz-w">' + smIco(why) + '<span>' + esc(why) + '</span></div>' : '');
           }).join('')
         + '</div>').join('') + '</div>'
-      + (ax.note ? '<p class="sm-note">' + esc(ax.note) + '</p>' : '');
+      + (ax.note ? '<p class="sm-note">' + esc(ax.note) + '</p>' : '')
+      + smOutside(q, S);
   }
   /* 2 図解（各社の②をそのまま）。論文の②は骨格 */
   const RB = S.kind === 'ronbun';

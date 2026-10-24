@@ -6,7 +6,10 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="復習フィード">
-  <meta name="theme-color" content="#6d5dfc">
+  <meta name="theme-color" content="#7A2E2A">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
   <link rel="apple-touch-icon" href="review-icon-180.png">
   <link rel="icon" type="image/png" sizes="192x192" href="review-icon-192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="review-icon-512.png">
@@ -14,19 +17,21 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      /* ── ライト（朝・デフォルト） ── */
-      --bg1:    #f3f1ff;
-      --bg2:    #fdf6f9;
+      /* 百選・ノートと同じ紙面。紫のグラデーションは使わない（2026-10-25） */
+      --bg1:    #FBFAF7;
+      --bg2:    #F3F1EB;
       --surf:   #ffffff;
-      --surf2:  #f6f5fb;
-      --border: #e7e3f5;
-      --text:   #1c1730;
-      --dim:    #7b7596;
-      --acc:    #6d5dfc;
-      --acc2:   #c44bd6;
-      --shadow: 0 6px 22px rgba(80,60,180,.10), 0 2px 6px rgba(80,60,180,.06);
-      --shadow-lg: 0 14px 40px rgba(90,60,190,.18);
-      --rad:    20px;
+      --surf2:  #F4F2EC;
+      --border: #E4E2DB;
+      --text:   #1C1F26;
+      --dim:    #5C6570;
+      --acc:    #7A2E2A;
+      --acc2:   #7A2E2A;
+      --shadow: 0 1px 2px rgba(28,31,38,.05), 0 8px 24px -16px rgba(28,31,38,.18);
+      --shadow-lg: 0 10px 28px -18px rgba(28,31,38,.35);
+      --rad:    16px;
+      --mincho: "Zen Old Mincho", "Hiragino Mincho ProN", serif;
+      --goth: "Zen Kaku Gothic New", "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif;
       /* カテゴリ色 */
       --c-review: #4f86ff;  --c-review-bg: rgba(79,134,255,.10);
       --c-weak:   #ef4768;  --c-weak-bg:   rgba(239,71,104,.10);
@@ -36,17 +41,17 @@
       --c-read:   #0ea5b7;  --c-read-bg:   rgba(14,165,183,.10);
     }
     body.dark {
-      --bg1:    #0b1024;
-      --bg2:    #14102e;
-      --surf:   #1a2040;
-      --surf2:  #141a36;
-      --border: #2a3158;
-      --text:   #eef1ff;
-      --dim:    #9aa3c7;
-      --acc:    #8b7bff;
-      --acc2:   #e06ff0;
-      --shadow: 0 6px 22px rgba(0,0,0,.35);
-      --shadow-lg: 0 16px 44px rgba(0,0,0,.5);
+      --bg1:    #14161A;
+      --bg2:    #14161A;
+      --surf:   #1B1E24;
+      --surf2:  #20242B;
+      --border: #2A2F37;
+      --text:   #E8E6E0;
+      --dim:    #A8AFBB;
+      --acc:    #E0A097;
+      --acc2:   #E0A097;
+      --shadow: 0 1px 2px rgba(0,0,0,.4);
+      --shadow-lg: 0 12px 28px rgba(0,0,0,.45);
       --c-review-bg: rgba(79,134,255,.16);
       --c-weak-bg:   rgba(239,71,104,.16);
       --c-task-bg:   rgba(245,144,30,.18);
@@ -70,7 +75,7 @@
       --c-review: #83B4E4; --c-weak: #EC8272; --c-task: #94A2B2; --c-quiz: #66C79B; --c-tip: #83B4E4; --c-read: #83B4E4;
       --c-review-bg: #232A34; --c-weak-bg: #3A2420; --c-task-bg: #232A34; --c-quiz-bg: #1F3329; --c-tip-bg: #232A34; --c-read-bg: #232A34;
     }
-    body.mono .sp-mic, body.mono .sp-memo { background: var(--acc); }
+    body.mono .sp-mic, body.mono .sp-memo { background: var(--acc); color: #fff; }
     body.mono.dark .sp-mic, body.mono.dark .sp-memo { color: #12161B; }
     :root { --bg: var(--surf2); }
     body { --bg: var(--surf2); }
@@ -79,7 +84,7 @@
       background: linear-gradient(160deg, var(--bg1), var(--bg2));
       background-attachment: fixed;
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Helvetica Neue", sans-serif;
+      font-family: var(--goth);
       font-size: 15px; -webkit-font-smoothing: antialiased; overscroll-behavior: none;
       line-height: 1.5;
     }
@@ -91,7 +96,7 @@
       padding: calc(10px + env(safe-area-inset-top)) 16px 10px;
       flex-shrink: 0; }
     .logo { font-size: 22px; }
-    header h1 { flex: 1; font-size: 16px; font-weight: 800; letter-spacing: .01em; }
+    header h1 { flex: 1; font-family: var(--mincho); font-size: 18px; font-weight: 700; letter-spacing: .04em; }
     header h1 small { display: block; font-size: 11px; font-weight: 500; color: var(--dim); margin-top: 1px; }
     .icon-btn {
       background: var(--surf); border: 1px solid var(--border); color: var(--dim);
@@ -119,10 +124,9 @@
       -webkit-tap-highlight-color: transparent; }
     .sbt:active { transform: scale(.94); }
     .sbt.on {
-      background: linear-gradient(135deg, var(--acc), var(--acc2));
-      border-color: transparent; color: #fff;
-      box-shadow: 0 6px 18px rgba(120,80,240,.35); }
-    .sbt.feat.on { background: linear-gradient(135deg, #f5901e, #ef4768); box-shadow: 0 6px 18px rgba(240,100,60,.35); }
+      background: var(--text); border-color: var(--text); color: var(--bg1); }
+    body.dark .sbt.on { color: #14161A; }
+    .sbt.feat.on { background: var(--text); border-color: var(--text); color: var(--bg1); box-shadow: none; }
 
     /* ── スクロール本体 ── */
     #scroll { flex: 1; overflow-y: auto; padding: 0 16px calc(24px + env(safe-area-inset-bottom));
@@ -130,7 +134,7 @@
 
     /* ── あいさつ ── */
     .greet { margin: 2px 2px 14px; }
-    .greet .hi { font-size: 19px; font-weight: 800; letter-spacing: .01em; }
+    .greet .hi { font-family: var(--mincho); font-size: 20px; font-weight: 700; letter-spacing: .03em; }
     .greet .sub { font-size: 12.5px; color: var(--dim); margin-top: 3px; }
     .greet .stats { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
     .stat-pill {
@@ -155,17 +159,19 @@
     .hero {
       position: relative; border-radius: 24px; padding: 20px 20px 18px; margin-bottom: 16px;
       color: #fff; overflow: hidden; box-shadow: var(--shadow-lg); cursor: pointer;
-      background: linear-gradient(135deg, var(--acc), var(--acc2));
+      background: var(--text); color: var(--bg1);
       -webkit-tap-highlight-color: transparent; transition: transform .15s; }
+    body.dark .hero { color: #14161A; }
     .hero:active { transform: scale(.985); }
     .hero::after { content:""; position:absolute; right:-40px; top:-40px; width:170px; height:170px;
       background: radial-gradient(circle, rgba(255,255,255,.22), transparent 70%); }
     .hero .h-label { font-size: 11px; font-weight: 800; letter-spacing: .12em; opacity: .9; }
     .hero .h-title { font-size: 20px; font-weight: 800; line-height: 1.4; margin: 8px 0 6px; position: relative; }
     .hero .h-why { font-size: 13px; opacity: .92; line-height: 1.6; position: relative; }
+    .hero .h-title { font-family: var(--mincho); }
     .hero .h-go {
       margin-top: 15px; display: inline-flex; align-items: center; gap: 7px;
-      background: rgba(255,255,255,.95); color: #3b2a8c; font-weight: 800; font-size: 14.5px;
+      background: var(--bg1); color: var(--text); font-weight: 800; font-size: 14.5px;
       padding: 11px 20px; border-radius: 16px; border: none; cursor: pointer;
       box-shadow: 0 6px 16px rgba(0,0,0,.18); position: relative; }
     .hero .h-go:active { transform: scale(.96); }
@@ -193,7 +199,7 @@
     .card .c-badge { font-size: 10.5px; font-weight: 800; letter-spacing: .04em;
       color: var(--cc, var(--acc)); }
     .card .c-when { font-size: 11px; color: var(--dim); margin-left: auto; white-space: nowrap; }
-    .card .c-title { font-size: 14.5px; font-weight: 700; line-height: 1.45; color: var(--text); }
+    .card .c-title { font-family: var(--mincho); font-size: 16px; font-weight: 700; line-height: 1.5; color: var(--text); }
     .card .c-why { font-size: 12px; color: var(--dim); line-height: 1.55; }
     .card .c-kws { display: flex; flex-wrap: wrap; gap: 6px; }
     .card .c-kw {
@@ -293,7 +299,7 @@
       box-shadow: var(--shadow); }
     .api-in:focus { border-color: var(--acc); }
     .big-btn { width: 100%; max-width: 360px; padding: 14px; border: none; border-radius: 18px;
-      background: linear-gradient(135deg, var(--acc), var(--acc2)); color: #fff;
+      background: var(--text); color: var(--bg1);
       font-size: 16px; font-weight: 800; cursor: pointer; box-shadow: var(--shadow-lg); }
     .big-btn:disabled { opacity: .5; }
     .big-btn:active:not(:disabled) { transform: scale(.98); }
@@ -306,16 +312,16 @@
       padding: 8px 14px; font-size: 13px; font-weight: 700; color: var(--text); cursor: pointer;
       box-shadow: var(--shadow); -webkit-tap-highlight-color: transparent; }
     #back-btn:active { transform: scale(.95); }
-    #chat-subj { font-size: 13px; font-weight: 800; padding: 6px 14px; border-radius: 14px;
-      background: linear-gradient(135deg, var(--acc), var(--acc2)); color: #fff; }
-    #chat-area { flex: 1; overflow-y: auto; padding: 8px 16px 6px;
+    #chat-subj { font-size: 13px; font-weight: 700; padding: 6px 14px; border-radius: 14px;
+      background: var(--surf2); color: var(--text); border: 1px solid var(--border); }
+    #chat-area { flex: 1; overflow-y: auto; padding: 8px 16px 36px;
       display: flex; flex-direction: column; gap: 11px; scroll-behavior: smooth; }
     .msg { display: flex; flex-direction: column; gap: 3px; max-width: 88%; }
     .msg.user { align-self: flex-end; align-items: flex-end; }
     .msg.ai   { align-self: flex-start; align-items: flex-start; }
     .bub { padding: 12px 15px; border-radius: 19px; font-size: 14.5px; line-height: 1.65;
       white-space: pre-wrap; word-break: break-word; box-shadow: var(--shadow); }
-    .msg.user .bub { background: linear-gradient(135deg, var(--acc), var(--acc2)); color: #fff;
+    .msg.user .bub { background: var(--text); color: var(--bg1);
       border-bottom-right-radius: 6px; }
     .msg.ai .bub { background: var(--surf); border: 1px solid var(--border); border-bottom-left-radius: 6px; }
     .msg-time { font-size: 10px; color: var(--dim); padding: 0 6px; }
@@ -330,7 +336,7 @@
     .rv { align-self: stretch; background: var(--surf); border: 1px solid var(--border);
       border-radius: 18px; padding: 15px 16px; box-shadow: var(--shadow); display:flex; flex-direction:column; gap:10px; }
     .rv-step { font-size: 11px; font-weight: 800; color: var(--acc); letter-spacing: .04em; }
-    .rv-q { font-size: 16px; font-weight: 800; line-height: 1.55; }
+    .rv-q { font-family: var(--mincho); font-size: 20px; font-weight: 700; line-height: 1.55; letter-spacing: .02em; }
     .rv-aim { font-size: 13px; color: var(--dim); line-height: 1.55; }
     .rv-say { font-size: 13.5px; line-height: 1.7; background: var(--bg); border-radius: 12px; padding: 10px 12px; }
     .rv-ans { font-size: 14.5px; line-height: 1.75; border-left: 4px solid var(--acc); padding: 4px 0 4px 12px; }
@@ -339,7 +345,7 @@
     .rv-grade { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
     .rv-grade button { border: 1px solid var(--border); background: var(--bg); color: var(--text);
       border-radius: 13px; padding: 11px 4px; font-size: 13.5px; font-weight: 800; cursor: pointer; }
-    .rv-grade button.on { background: linear-gradient(135deg, var(--acc), var(--acc2)); color:#fff; border-color: transparent; }
+    .rv-grade button.on { background: var(--text); color: var(--bg1); border-color: transparent; }
     .rv-note { font-size: 12.5px; color: var(--dim); line-height: 1.6; }
     .rv-q2 { border-top: 1px solid var(--border); padding-top: 10px; font-size: 13.5px; line-height: 1.7; }
     .rv-q2 b.k { display:inline-block; font-size: 12px; background: var(--bg); border:1px solid var(--border);
@@ -361,21 +367,32 @@
     .rv-ok { margin: 8px 0 0 30px; display: flex; gap: 8px; }
     .rv-ok button { flex: 1; border: 1px solid var(--border); background: var(--surf); color: var(--text);
       border-radius: 10px; padding: 8px; font-size: 13px; font-weight: 800; cursor: pointer; }
-    .rv-ok button.on { background: linear-gradient(135deg, var(--acc), var(--acc2)); color: #fff; border-color: transparent; }
+    .rv-ok button.on { background: var(--text); color: var(--bg1); border-color: transparent; }
     .rv-sum { font-size: 13.5px; line-height: 1.7; font-weight: 700; }
     .rv-full summary { font-size: 12.5px; color: var(--dim); cursor: pointer; }
-    .ls-rate { align-items: center; } .ls-rate button { padding: 6px 11px; font-size: 13px; }
-    .ls-lec { font-size: 15px; line-height: 1.85; }
+    .ls-rate { align-items: center; margin: 0; } .ls-rate button { padding: 4px 8px; font-size: 12px; font-weight: 700; }
+    .ls-lec { font-size: 16.5px; line-height: 2.05; letter-spacing: .01em; }
+    .ls-lec .sent { border-radius: 4px; }
+    .ls-lec .sent.on { background: #F3E4D4; }
+    body.dark .ls-lec .sent.on { background: #3A2C24; }
+    .ls-audio { display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+      background: var(--surf2); border: 1px solid var(--border); border-radius: 12px; padding: 8px 10px; }
+    .ls-audio > button { border: none; background: var(--text); color: var(--bg1);
+      border-radius: 10px; padding: 8px 14px; font-size: 14px; font-weight: 700; cursor: pointer; }
+    body.dark .ls-audio > button { color: #14161A; }
+    .ls-voice { font-size: 11.5px; color: var(--dim); font-weight: 600; }
+    .ls-plan { font-size: 12.5px; color: var(--dim); line-height: 1.65; }
     .ls-row { display: flex; gap: 8px; flex-wrap: wrap; }
-    .ls-row button, .ls-next { border: 1px solid var(--border); background: var(--bg); color: var(--text);
-      border-radius: 12px; padding: 10px 14px; font-size: 14px; font-weight: 800; cursor: pointer; }
-    .ls-row button.pri, .ls-next { background: linear-gradient(135deg, var(--acc), var(--acc2)); color: #fff; border-color: transparent; }
+    .ls-row button, .ls-next { border: 1px solid var(--border); background: var(--surf); color: var(--text);
+      border-radius: 12px; padding: 10px 14px; font-size: 14px; font-weight: 700; cursor: pointer; }
+    .ls-row button.pri, .ls-next { background: var(--text); color: var(--bg1); border-color: transparent; }
+    body.dark .ls-row button.pri, body.dark .ls-next { color: #14161A; }
     .ls-head { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--dim); font-weight: 800; }
     .ls-tag { font-size: 11px; font-weight: 800; border-radius: 8px; padding: 2px 8px; border: 1px solid var(--border); }
     .ls-tag.mem { background: #fde8e8; color: #b42318; border-color: #f5c2c0; }
     .ls-tag.ok  { background: #e7f5ec; color: #1f7a45; border-color: #bfe3cc; }
     .ls-tag.sho { background: #eaf0fe; color: #2b4fbd; border-color: #c6d4fb; }
-    .ls-q { font-size: 17px; font-weight: 800; line-height: 1.6; }
+    .ls-q { font-family: var(--mincho); font-size: 18px; font-weight: 700; line-height: 1.65; }
     .ls-a { font-size: 15px; line-height: 1.8; background: var(--bg); border-radius: 12px; padding: 10px 12px; }
     .ls-a ul { margin: 0; padding-left: 1.2em; }
     .ls-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
@@ -398,10 +415,12 @@
     .tk .say { font-size: 14.5px; line-height: 1.7; border-radius: 12px; padding: 7px 11px; background: var(--bg); }
     .tk.on .say { outline: 2px solid var(--acc); }
     .ls-pts { display: grid; gap: 6px; }
-    .ls-pt { display: grid; grid-template-columns: 5.5em 1fr; gap: 8px; font-size: 14px; line-height: 1.65; }
-    .ls-pt .k { font-weight: 800; font-size: 12.5px; }
-    .ls-pt .k small { display: block; font-size: 10.5px; font-weight: 800; }
-    .ls-pt .k small.mem { color: #b42318; } .ls-pt .k small.ok { color: #1f7a45; }
+    .ls-pt { display: grid; grid-template-columns: 4.6em 1fr; gap: 10px; font-size: 14.5px; line-height: 1.7;
+      padding: 7px 0; border-bottom: 1px solid var(--border); }
+    .ls-pt:last-child { border-bottom: none; }
+    .ls-pt .k { font-weight: 700; font-size: 12px; color: var(--dim); }
+    .ls-pt .k small { display: block; font-size: 10px; font-weight: 700; letter-spacing: .04em; }
+    .ls-pt .k small.mem { color: #9B3550; } .ls-pt .k small.ok { color: #1F6B4A; }
     #ai-note { font-size: 11px; color: var(--dim); padding: 6px 18px 0; }
     #quick { display: flex; gap: 7px; padding: 8px 16px 4px; overflow-x: auto;
       flex-shrink: 0; scrollbar-width: none; }
@@ -419,10 +438,10 @@
       box-shadow: var(--shadow); }
     #msg-in:focus { border-color: var(--acc); }
     #send { width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; border: none; cursor: pointer;
-      background: linear-gradient(135deg, var(--acc), var(--acc2)); display: flex;
+      background: var(--text); display: flex;
       align-items: center; justify-content: center; box-shadow: var(--shadow); }
     #send:disabled { opacity: .4; }
-    #send svg { width: 18px; height: 18px; fill: #fff; }
+    #send svg { width: 18px; height: 18px; fill: var(--bg1); }
 
     .hidden { display: none !important; }
     @keyframes fadeUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
@@ -456,12 +475,13 @@
 
     /* ════════ 🎙 自己説明 → 🤖 添削 → 🧠 今日覚える ════════ */
     #speak-row { display:flex; gap:7px; padding:6px 16px 0; flex-shrink:0; }
-    .sp-btn { flex:1; font-size:13.5px; font-weight:800; padding:11px 10px; border-radius:15px;
-      border:none; color:#fff; cursor:pointer; -webkit-tap-highlight-color:transparent;
-      box-shadow:var(--shadow); }
+    .sp-btn { flex:1; font-size:13.5px; font-weight:700; padding:11px 10px; border-radius:12px;
+      border:1px solid var(--border); color:var(--text); background:var(--surf); cursor:pointer;
+      -webkit-tap-highlight-color:transparent; box-shadow:none; }
     .sp-btn:active { transform:scale(.96); }
-    .sp-mic  { background:linear-gradient(135deg,#ef4768,#f5901e); }
-    .sp-memo { background:linear-gradient(135deg,#18b389,#4f86ff); }
+    .sp-mic  { background:var(--surf); }
+    .sp-memo { background:var(--text); color:var(--bg1); border-color:transparent; }
+    body.dark .sp-memo { color:#14161A; }
 
     /* ボトムシート */
     .sheet-ov { position:fixed; inset:0; z-index:120; display:flex;
@@ -494,7 +514,7 @@
     .sheet-btns button { flex:1; padding:13px 8px; border-radius:15px; border:none; font-size:14px;
       font-weight:800; cursor:pointer; -webkit-tap-highlight-color:transparent; }
     .sheet-btns button:active { transform:scale(.97); }
-    .sb-main { background:linear-gradient(135deg,var(--acc),var(--acc2)); color:#fff; }
+    .sb-main { background:var(--text); color:var(--bg1); }
     .sb-main:disabled { opacity:.4; }
     .sb-sub  { background:var(--surf2); border:1px solid var(--border); color:var(--text); }
     .sb-sub.rec-on { background:var(--c-weak-bg); border-color:var(--c-weak); color:var(--c-weak);
@@ -661,7 +681,7 @@
 //  定数
 // ════════════════════════════════════════════
 const WEEKLY = {0:"商法",1:"憲法",2:"民法",3:"刑法",4:"行政法",5:"民訴法",6:"刑訴法"};
-const APP_VER = "20260929-4";   // ← 更新するたびに version.json と合わせて上げる
+const APP_VER = "20261025-1";   // ← 更新するたびに version.json と合わせて上げる
 const API_URL = "https://api.anthropic.com/v1/messages";
 const API_MODEL = "claude-haiku-4-5-20251001";
 const CTX_URL = () => `https://raw.githubusercontent.com/osamuina8008/business-tools/main/study/context.json?t=${Date.now()}`;
@@ -765,6 +785,37 @@ rebuildReviewed();
 // カードの安定ID（同じ提案は同じID）
 const cardId = c => `${c.cat}::${c.subject||""}::${c.title}`;
 const dayKey = ts => new Date(ts - new Date().getTimezoneOffset()*60000).toISOString().slice(0,10);
+
+/* 試験までの日数で、復習の間隔の上限を変える。日付は例年の時期の目安で、発表された日程ではない。 */
+function examHorizon(now = new Date()){
+  const marks = [["予備・短答", 5, 17], ["予備・論文", 7, 12], ["司法試験", 7, 14]];
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  let best = null;
+  for(const yy of [now.getFullYear(), now.getFullYear()+1]){
+    for(const [name, m, d] of marks){
+      const dt = new Date(yy, m-1, d);
+      const days = Math.round((dt - today) / 86400000);
+      if(days < 0) continue;
+      if(!best || days < best.days) best = {name, days, dt};
+    }
+  }
+  return best || {name:"次の試験", days:200};
+}
+function studyPhase(days){
+  if(days <= 30) return {cap:3, line:"直前期です。新しい論点は増やさず、思い出せなかったものだけ翌日に戻します。"};
+  if(days <= 120) return {cap:8, line:"試験が近い時期です。条文と規範を、少し短い間隔で繰り返します。"};
+  return {cap:35, line:"山まではまだ間があります。一度で覚え切らず、日を空けて思い出す回数を増やします。"};
+}
+function gapFor(grade, streak, cap){
+  if(grade === "x") return 1;
+  if(grade === "m") return Math.min(2, cap);
+  const seq = [3, 7, 16, 35];
+  return Math.min(cap, seq[Math.max(0, Math.min(streak-1, seq.length-1))]);
+}
+function addDaysKey(days){
+  const t = new Date(); t.setDate(t.getDate()+days);
+  return dayKey(t.getTime());
+}
 
 function recordReview(c){
   const id = cardId(c);
@@ -1397,6 +1448,9 @@ function renderGreeting(){
   else if(h<17){ hi="おつかれさまです 📖"; sub="スキマ時間にひとつ、復習を。"; }
   else if(h<22){ hi="今日もおつかれさまです 🌇"; sub="寝る前の復習がいちばん残ります。"; }
   else { hi="おつかれさまです 🌙"; sub="ひとつだけ確認して、よく休みましょう。"; }
+  const hor = examHorizon();
+  const phase = studyPhase(hor.days);
+  sub = `${sub} ${hor.name}まで約${hor.days}日。${phase.line}`;
   $("greet-hi").textContent = hi;
   $("greet-sub").textContent = sub;
   const streak = updateStreak();
@@ -1447,9 +1501,17 @@ function activeCards(){
     let pen = 0;
     if(dShown > 0 && dShown < cd) pen += Math.round((cd - dShown) / cd * 55);
     if(dDone  > 0 && dDone  < cd) pen += Math.round((cd - dDone)  / cd * 35);
-    // 自己採点：✕は翌日から、△は2日後から優先して戻す。◯は間隔を倍に
     const g = GRADES[id];
-    if(g && g.g==="x" && daysSince(g.d) >= 1){ pen = 0; pen -= 30; }
+    if(g && g.due){
+      const late = daysSince(g.due);
+      if(late >= 0){
+        pen = 0;
+        pen -= 40 + Math.min(late, 12) * 4;
+        c.when = late === 0 ? "今日思い出す" : `${late}日遅れ`;
+      } else {
+        pen += 36;
+      }
+    } else if(g && g.g==="x" && daysSince(g.d) >= 1){ pen = 0; pen -= 30; }
     else if(g && g.g==="m" && daysSince(g.d) >= 2){ pen = 0; pen -= 15; }
     else if(g && g.g==="o" && daysSince(g.d) < cd*2){ pen += 40; }
     c._eff = c.score - pen;
@@ -1655,9 +1717,14 @@ function showChatScreen(){ $("setup").classList.add("hidden"); $("scroll").class
 // ════════════════════════════════════════════
 let GRADES = (()=>{ try{ return JSON.parse(localStorage.getItem("rf_grades")||"{}"); }catch(e){ return {}; } })();
 function saveGrade(c, g, miss){
-  const n = ((GRADES[cardId(c)]||{}).n || 0) + 1;
-  GRADES[cardId(c)] = { g, d: dayKey(Date.now()), t: c.topic || c.title, s: c.subject||"", miss: miss||[], n };
+  const prev = GRADES[cardId(c)] || {};
+  const n = (prev.n || 0) + 1;
+  const ok = g==="o" ? (prev.ok||0)+1 : (g==="x" ? 0 : (prev.ok||0));
+  const gap = gapFor(g, ok, studyPhase(examHorizon().days).cap);
+  const rec = { g, d: dayKey(Date.now()), t: c.topic || c.title, s: c.subject||"", miss: miss||[], n, ok, gap, due: addDaysKey(gap) };
+  GRADES[cardId(c)] = rec;
   try{ localStorage.setItem("rf_grades", JSON.stringify(GRADES)); }catch(e){}
+  return rec;
 }
 let STRUCT = null;
 async function loadStruct(){
@@ -1760,29 +1827,167 @@ async function fillQs(card, box){
      1回目は短い講義（読み上げ可・端末の音声なので0円）。2回目以降は出し方を変える。
    ════════════════════════════════════════════ */
 const TAG = { mem:["mem","暗記"], ok:["ok","言えればOK"], sho:["sho","短答"] };
-/* 読み上げの速さ（本人の希望 2026-09-28）。端末に保存して次回も同じ速さ */
-const RATES = [0.8, 1.0, 1.2, 1.4, 1.7];
-let lsRate = (()=>{ try{ return parseFloat(localStorage.getItem("rf_rate")) || 1.0; }catch(e){ return 1.0; } })();
-function rateHTML(){ return `<div class="ls-row ls-rate"><span class="rv-note">速さ</span>${RATES.map(r=>`<button data-rate="${r}" class="${r===lsRate?"pri":""}">${r===1?"ふつう":r+"倍"}</button>`).join("")}</div>`; }
+/* 読み上げ。講義と掛け合いは Edge（Nanami / Keita）の MP3。無いときだけ端末の音声に戻す。
+   速さは再生速度で変える（声の高さを変えない）。文ごとに間を置く。 */
+const RATES = [0.9, 1.0, 1.15, 1.3];
+let lsRate = (()=>{ try{ const n = parseFloat(localStorage.getItem("rf_rate")); return RATES.includes(n)?n:1.0; }catch(e){ return 1.0; } })();
+let EDGE_MAN = null;
+let edgeAudio = null;
+let playToken = 0;
+let arm = 0;
+function rateHTML(){ return `<div class="ls-row ls-rate">${RATES.map(r=>`<button data-rate="${r}" class="${r===lsRate?"pri":""}">${r===1?"ふつう":r+"倍"}</button>`).join("")}</div>`; }
 function setRate(r, box){
   lsRate = r; try{ localStorage.setItem("rf_rate", String(r)); }catch(e){}
   box.querySelectorAll("[data-rate]").forEach(b=>b.classList.toggle("pri", parseFloat(b.dataset.rate)===r));
-  lsStop(); box.querySelectorAll('[data-act="speak"]').forEach(b=>b.textContent="🔊 講義を聞く");
-  box.querySelectorAll('[data-act="play"]').forEach(b=>b.textContent="▶ 掛け合いを聞く");
-  box.querySelectorAll(".tk").forEach(x=>x.classList.remove("on"));
+  if(edgeAudio){ edgeAudio.playbackRate = r; edgeAudio.preservesPitch = true; }
 }
-function lsSpeak(text, btn){
-  try{
-    const ss = window.speechSynthesis; if(!ss) return toast("この端末は読み上げに対応していません");
-    if(ss.speaking){ ss.cancel(); btn.textContent="🔊 講義を聞く"; return; }
-    const u = new SpeechSynthesisUtterance(text.replace(/[【】]/g,""));
-    u.lang = "ja-JP"; u.rate = 0.95 * lsRate;
-    const v = ss.getVoices().find(v=>/^ja/.test(v.lang)); if(v) u.voice = v;
-    u.onend = ()=>{ btn.textContent="🔊 講義を聞く"; };
-    btn.textContent = "⏹ 止める"; ss.speak(u);
-  }catch(e){}
+function splitSent(text){
+  return String(text||"").split(/(?<=。)/).map(s=>s.trim()).filter(Boolean);
 }
-function lsStop(){ try{ lsTalkRun = 0; window.speechSynthesis && window.speechSynthesis.cancel(); }catch(e){} }
+function lecHTML(text){
+  const parts = splitSent(text);
+  return (parts.length?parts:[text]).map((s,i)=>`<span class="sent" data-i="${i}">${esc(s)}</span>`).join("");
+}
+async function loadEdgeMan(){
+  if(EDGE_MAN) return EDGE_MAN;
+  try{ EDGE_MAN = (await (await fetch("audio/manifest.json?v="+APP_VER)).json()).items || {}; }
+  catch(e){ EDGE_MAN = {}; }
+  return EDGE_MAN;
+}
+function stopSpoken(){
+  playToken++;
+  arm = 0;
+  try{ window.speechSynthesis && window.speechSynthesis.cancel(); }catch(e){}
+  if(edgeAudio){ edgeAudio.pause(); }
+  document.querySelectorAll(".sent.on, .tk.on").forEach(x=>x.classList.remove("on"));
+}
+function lsStop(){ stopSpoken(); }
+function markSent(box, i){
+  box.querySelectorAll(".sent").forEach(el=>el.classList.toggle("on", +el.dataset.i===i));
+  const on = box.querySelector(".sent.on");
+  if(on) on.scrollIntoView({block:"nearest", behavior:"smooth"});
+}
+function ensureEdgeAudio(){
+  if(!edgeAudio){ edgeAudio = new Audio(); edgeAudio.preload = "auto"; }
+  edgeAudio.playbackRate = lsRate;
+  edgeAudio.preservesPitch = true;
+  if("webkitPreservesPitch" in edgeAudio) edgeAudio.webkitPreservesPitch = true;
+  return edgeAudio;
+}
+function playFile(src, onTime){
+  const a = ensureEdgeAudio();
+  const tok = playToken;
+  a.pause();
+  a.src = src;
+  a.playbackRate = lsRate;
+  a.preservesPitch = true;
+  return new Promise(resolve=>{
+    let settled = false;
+    const watch = setInterval(()=>{ if(tok!==playToken) finish(false); }, 200);
+    const finish = ok=>{ if(settled) return; settled = true; clearInterval(watch);
+      a.onended = null; a.onerror = null; a.ontimeupdate = null; resolve(!!ok && tok===playToken); };
+    a.ontimeupdate = ()=>{ if(tok===playToken && onTime) onTime(a); };
+    a.onended = ()=>finish(true);
+    a.onerror = ()=>finish(false);
+    a.play().catch(()=>finish(false));
+  });
+}
+function jaVoices(){
+  const ss = window.speechSynthesis; if(!ss) return [];
+  const vs = ss.getVoices().filter(v=>/^ja/i.test(v.lang));
+  const rank = v => /nanami|keita|ayumi|kyoko|otoya|haruka/i.test(v.name)?0 : /google/i.test(v.name)?2 : 1;
+  return vs.sort((a,b)=>rank(a)-rank(b) || a.name.localeCompare(b.name));
+}
+function speakChunks(chunks, box, voices){
+  const ss = window.speechSynthesis; if(!ss) return Promise.resolve(false);
+  const tok = playToken;
+  return new Promise(resolve=>{
+    let i = 0;
+    const step = ()=>{
+      if(tok!==playToken) return resolve(false);
+      if(i>=chunks.length) return resolve(true);
+      const ch = chunks[i];
+      if(box && ch.sel){
+        box.querySelectorAll(ch.sel).forEach(el=>el.classList.remove("on"));
+        const el = box.querySelector(ch.on);
+        if(el){ el.classList.add("on"); el.scrollIntoView({block:"nearest", behavior:"smooth"}); }
+      }
+      const u = new SpeechSynthesisUtterance(ch.text);
+      u.lang = "ja-JP";
+      u.rate = 0.94 * lsRate;
+      u.pitch = 1;
+      if(voices && voices[ch.voice]) u.voice = voices[ch.voice];
+      else if(voices && voices[0]) u.voice = voices[0];
+      u.onend = ()=> setTimeout(()=>{ i++; step(); }, 260);
+      u.onerror = ()=> resolve(false);
+      ss.speak(u);
+    };
+    step();
+  });
+}
+async function lsSpeak(text, btn, box){
+  if(arm){
+    stopSpoken();
+    if(btn) btn.textContent = "講義を聞く";
+    return;
+  }
+  const tok = ++playToken;
+  arm = tok;
+  if(btn) btn.textContent = "止める";
+  const man = await loadEdgeMan();
+  if(arm!==tok) return;
+  const src = box && box.dataset.topic && man[box.dataset.topic] && man[box.dataset.topic].lecture;
+  let ok = false;
+  if(src){
+    const sents = splitSent(text);
+    let last = -1;
+    ok = await playFile(src, a=>{
+      if(!a.duration) return;
+      const at = Math.min(sents.length-1, Math.floor((a.currentTime/a.duration)*sents.length));
+      if(at!==last){ last = at; markSent(box, at); }
+    });
+  }
+  if(!ok && arm===tok){
+    const parts = splitSent(text);
+    ok = await speakChunks(parts.map((t,i)=>({text:t, sel:".sent", on:`.sent[data-i="${i}"]`})), box, jaVoices());
+  }
+  if(arm===tok){ arm = 0; if(btn) btn.textContent = "講義を聞く"; }
+  box && box.querySelectorAll(".sent.on").forEach(x=>x.classList.remove("on"));
+}
+async function lsPlayTalk(talk, box, btn){
+  if(arm){
+    stopSpoken();
+    btn.textContent = "掛け合いを聞く";
+    return;
+  }
+  const tok = ++playToken;
+  arm = tok;
+  btn.textContent = "止める";
+  const rows = [...box.querySelectorAll(".tk")];
+  const man = await loadEdgeMan();
+  if(arm!==tok) return;
+  const files = (box.dataset.topic && man[box.dataset.topic] && man[box.dataset.topic].talk) || [];
+  const full = files.length === talk.length && files.every(Boolean);
+  if(full){
+    for(let i=0;i<talk.length;i++){
+      if(arm!==tok) break;
+      rows.forEach(x=>x.classList.remove("on"));
+      if(rows[i]){ rows[i].classList.add("on"); rows[i].scrollIntoView({block:"nearest", behavior:"smooth"}); }
+      const ok = await playFile(files[i]);
+      if(!ok || arm!==tok) break;
+      await new Promise(r=>setTimeout(r, 180));
+    }
+  } else if(arm===tok){
+    const vs = jaVoices();
+    for(let i=0;i<talk.length;i++){
+      if(arm!==tok) break;
+      rows.forEach(x=>x.classList.remove("on"));
+      if(rows[i]){ rows[i].classList.add("on"); rows[i].scrollIntoView({block:"nearest", behavior:"smooth"}); }
+      await speakChunks([{text:talk[i].t, voice: talk[i].w==="先生"?0:1}], box, vs.length>1?{0:vs[0],1:vs[1]}:{0:vs[0]});
+    }
+  }
+  if(arm===tok){ arm = 0; btn.textContent = "もう一度聞く"; rows.forEach(x=>x.classList.remove("on")); }
+}
 
 /* 条文の4択。まちがいの選択肢は、同じ科目のほかの論点の条文から取る（足りなければ近い番号） */
 function lsChoices(st, seed){
@@ -1838,32 +2043,6 @@ function lsPlan(all, n, prev){
   return {name: n===0 ? "講義 → 掛け合い → 3問チェック" : "もう一度聞いて、3問チェック", qs, miss:miss.length};
 }
 
-/* 掛け合いを、先生と受験生で声を変えて順に読み上げる（端末の音声＝0円） */
-let lsTalkRun = 0;
-function lsPlayTalk(talk, box, btn){
-  const ss = window.speechSynthesis;
-  if(!ss) return toast("この端末は読み上げに対応していません");
-  if(ss.speaking || lsTalkRun){ lsStop(); lsTalkRun = 0; btn.textContent = "▶ 掛け合いを聞く"; box.querySelectorAll(".tk").forEach(x=>x.classList.remove("on")); return; }
-  const vs = ss.getVoices().filter(v=>/^ja/.test(v.lang));
-  const run = ++lsTalkRun;
-  btn.textContent = "⏹ 止める";
-  const rows = box.querySelectorAll(".tk");
-  const say = i=>{
-    if(run !== lsTalkRun) return;
-    rows.forEach(x=>x.classList.remove("on"));
-    if(i >= talk.length){ lsTalkRun = 0; btn.textContent = "▶ もう一度聞く"; return; }
-    rows[i] && rows[i].classList.add("on"); rows[i] && rows[i].scrollIntoView({block:"nearest", behavior:"smooth"});
-    const u = new SpeechSynthesisUtterance(talk[i].t);
-    u.lang = "ja-JP";
-    const sensei = talk[i].w === "先生";
-    if(vs.length > 1) u.voice = vs[sensei ? 0 : 1]; else if(vs[0]) u.voice = vs[0];
-    u.pitch = sensei ? 0.9 : 1.25; u.rate = (sensei ? 0.95 : 1.05) * lsRate;
-    u.onend = ()=> setTimeout(()=>say(i+1), 350);
-    ss.speak(u);
-  };
-  say(0);
-}
-
 function structSheet(card, box, st, ans){
   st._b = ans;
   const id = cardId(card);
@@ -1877,8 +2056,26 @@ function structSheet(card, box, st, ans){
   const warn = (st.warn||[]).length ? `<br>⚠️ ${esc(st.warn.join("・"))} はe-Govで見つかりませんでした。六法で確認してください。` : "";
   const src = `<div class="ls-src">作り方：論点の要点をAIが分けて、e-Gov（現行法）の条文と照らして2回点検しています。条文の本文はe-Govそのものです。判例・学説の部分は教科書でも確かめてください。${warn}</div>`;
   const lecture = st.lecture || ans;
+  box.dataset.topic = curTopic.title || "";
 
-  const head = ()=> `<div class="rv-step">${n===0?"1回目":`${n+1}回目`}：${esc(plan.name)}${plan.miss?`（前回違った${plan.miss}問から）`:""}</div>
+  const hor = examHorizon();
+  const phase = studyPhase(hor.days);
+  const planLine = ()=>{
+    const g0 = GRADES[id];
+    const back = g0 && g0.due ? `次に出すのは ${g0.due}（${g0.gap}日後）。` : "今日は一度読んで、答えを隠して3問です。";
+    return `<div class="ls-plan">${back}${hor.name}まで約${hor.days}日。${phase.line}</div>`;
+  };
+  const voiceNote = ()=>{
+    loadEdgeMan().then(man=>{
+      const el = box.querySelector("[data-el=voice]"); if(!el) return;
+      const hit = man[box.dataset.topic];
+      el.textContent = hit && (hit.lecture || (hit.talk||[]).some(Boolean))
+        ? "Edgeの声（Nanami / Keita）。速さは声の高さを変えません"
+        : "この端末の読み上げです。Edgeの音声ファイルがまだありません";
+    });
+  };
+
+  const head = ()=> `<div class="rv-step">${n===0?"はじめて":`${n+1}回目`}${plan.miss?` · 前回違った${plan.miss}問`:""}</div>
     <div class="rv-q">${esc(card.title)}</div>`;
 
   const L = a => (a||[]).filter(Boolean);
@@ -1898,33 +2095,46 @@ function structSheet(card, box, st, ans){
   const showLecture = ()=>{
     lsStop();
     box.innerHTML = `${head()}
-      <div class="rv-step">1. 講義（読む・聞く）</div>
-      <div class="ls-lec">${esc(lecture)}</div>
-      <div class="ls-row"><button data-act="speak">🔊 講義を聞く</button></div>
-      ${rateHTML()}
-      <div class="rv-step">要点（赤＝暗記、緑＝言えればOK）</div>
+      ${planLine()}
+      <div class="ls-audio">
+        <button class="pri" data-act="speak">講義を聞く</button>
+        <span class="ls-voice" data-el="voice">音声を用意しています</span>
+        ${rateHTML()}
+      </div>
+      <div class="ls-lec">${lecHTML(lecture)}</div>
+      <div class="rv-step">要点</div>
+      <div class="rv-note">暗記は条文・規範・要件。言えればよいのは論点・原則・結論です。</div>
       ${points()}
       ${law()}
-      <div class="ls-row"><button class="pri" data-act="talk">2. 掛け合いへ →</button></div>
+      <div class="ls-row"><button class="pri" data-act="start">見ずに${plan.qs.length}問思い出す</button></div>
+      ${L(st.talk).length?`<div class="ls-row"><button data-act="talk">掛け合いを聞く</button></div>`:""}
       ${src}`;
+    voiceNote();
     scrollBottom();
   };
   const showTalk = ()=>{
     lsStop();
     if(!L(st.talk).length) return showStart();
     box.innerHTML = `${head()}
-      <div class="rv-step">2. 掛け合い（先生と受験生）</div>
-      <div class="rv-note">受験生のよくある勘違いを、先生が条文で正します。聞き流すだけでOK。</div>
-      <div class="ls-row"><button class="pri" data-act="play">▶ 掛け合いを聞く</button></div>
-      ${rateHTML()}
+      ${planLine()}
+      <div class="rv-step">掛け合い</div>
+      <div class="rv-note">受験生の勘違いを、先生が短く正します。聞いたあとに、見ずに3問です。</div>
+      <div class="ls-audio">
+        <button class="pri" data-act="play">掛け合いを聞く</button>
+        <span class="ls-voice" data-el="voice">音声を用意しています</span>
+        ${rateHTML()}
+      </div>
       ${talkHTML()}
-      <div class="ls-row"><button data-act="lecture">← 講義に戻る</button><button class="pri" data-act="start">3. 復習チェック（${plan.qs.length}問）→</button></div>`;
+      <div class="ls-row"><button data-act="lecture">講義に戻る</button><button class="pri" data-act="start">${plan.qs.length}問思い出す</button></div>`;
+    voiceNote();
     scrollBottom();
   };
   const showStart = ()=>{
     box.innerHTML = `${head()}
-      <div class="rv-note">前回の復習から${n}回目です。忘れていたら講義か掛け合いから。覚えていればそのままチェックへ。</div>
-      <div class="ls-row"><button data-act="lecture">1. 講義</button>${L(st.talk).length?`<button data-act="talk">2. 掛け合い</button>`:""}<button class="pri" data-act="start">3. 復習チェック（${plan.qs.length}問）→</button></div>
+      ${planLine()}
+      <div class="rv-note">答えを見る前に、声に出して思い出してください。怪しいときだけ講義に戻ります。</div>
+      <div class="ls-row"><button class="pri" data-act="start">${plan.qs.length}問思い出す</button></div>
+      <div class="ls-row"><button data-act="lecture">講義を聞く</button>${L(st.talk).length?`<button data-act="talk">掛け合い</button>`:""}</div>
       ${src}`;
   };
   const law = ()=> Object.entries(st.jtext||{}).map(([k,t])=>
@@ -1968,13 +2178,13 @@ function structSheet(card, box, st, ans){
     const miss = plan.qs.filter(x=>res[x.k]==="x");
     const good = plan.qs.length - miss.length;
     const g = !miss.length ? "o" : miss.length>=2 ? "x" : "m";
-    saveGrade(card, g, miss.map(x=>x.k));
+    const saved = saveGrade(card, g, miss.map(x=>x.k));
     box.innerHTML = `${head()}
-      <div class="ls-res ${miss.length?"bad":"good"}">復習チェック ${good} / ${plan.qs.length} 問</div>
-      ${miss.length ? `<div class="rv-note">違った問題：</div>` + miss.map(x=>`<div class="ls-a"><b>${esc(x.type==="ox"?"○×："+x.q:x.q)}</b><br>${
+      <div class="ls-res ${miss.length?"bad":"good"}">${good} / ${plan.qs.length} 問思い出せた</div>
+      ${miss.length ? `<div class="rv-note">違ったところだけ、声に出してもう一度。</div>` + miss.map(x=>`<div class="ls-a"><b>${esc(x.type==="ox"?"○×："+x.q:x.q)}</b><br>${
           x.type==="open"?x.a : x.type==="ox"? `正解は${esc(x.ox.a)}。${esc(x.ox.why)}` : x.type==="choice"? `正解は ${esc(st.jobun[0])}` : esc(st.kihan||"")}</div>`).join("")
-        + `<div class="rv-note">ここだけ、もう一度声に出して読んでおきましょう。${g==="x"?"明日":"2日後"}にこの問題から出します。</div>`
-        : `<div class="rv-note">全問できました。次は間を空けて、出し方を変えて出します。</div>`}
+        : `<div class="rv-note">全部思い出せました。間隔を空けて、次は出し方を変えます。</div>`}
+      <div class="ls-plan">次に出すのは ${saved.due}（${saved.gap}日後）です。言えなければ翌日、あいまいなら2日後、言えた回は 3日・7日・16日・35日と空けます。試験が近い時期は、この間隔の上限を短くします。</div>
       <div class="ls-row"><button data-act="lecture">講義を読み直す</button>${L(st.talk).length?`<button data-act="talk">掛け合いをもう一度</button>`:""}</div>
       ${ans?`<details class="rv-full"><summary>まとめ（全文）</summary><div class="rv-ans" style="margin-top:6px">${esc(ans)}</div></details>`:""}
       ${law()}
@@ -1988,7 +2198,7 @@ function structSheet(card, box, st, ans){
     const b = e.target.closest("button"); if(!b) return;
     const q = plan.qs[idx];
     if(b.dataset.rate) return setRate(parseFloat(b.dataset.rate), box);
-    if(b.dataset.act==="speak") return lsSpeak(lecture, b);
+    if(b.dataset.act==="speak") return lsSpeak(lecture, b, box);
     if(b.dataset.act==="lecture"){ idx = -1; return showLecture(); }
     if(b.dataset.act==="talk"){ idx = -1; return showTalk(); }
     if(b.dataset.act==="play") return lsPlayTalk(L(st.talk), box, b);
@@ -2048,12 +2258,12 @@ function plainSheet(card, box, ans){
     const b = e.target.closest("button"); if(!b) return;
     if(b.dataset.act==="show"){ b.remove(); box.querySelector(".rv-hide").hidden=false; fillQs(card, box); scrollBottom(); }
     if(b.dataset.g){
-      saveGrade(card, b.dataset.g);
+      const rec = saveGrade(card, b.dataset.g);
       box.querySelectorAll(".rv-grade button").forEach(x=>x.classList.toggle("on", x===b));
       box.querySelector('[data-el="gnote"]').textContent = {
-        o:"◯ 次は間を空けて出します。",
-        m:"△ 2日後にもう一度出します。「🎙 自分で説明する」で言い直すと定着します。",
-        x:"✕ 明日もう一度出します。下の短答で条文を確かめてから、もう一度声に出してみてください。"}[b.dataset.g];
+        o:`言えたので、${rec.due}（${rec.gap}日後）に出します。`,
+        m:`あいまいでした。${rec.due}（${rec.gap}日後）にもう一度出します。`,
+        x:`言えませんでした。${rec.due}（翌日）にもう一度出します。条文を見てから、声に出してください。`}[b.dataset.g];
     }
   });
   if(!ans) fillQs(card, box);

@@ -1,0 +1,956 @@
+{
+ "lectureVoice": "ja-JP-NanamiNeural",
+ "senseiVoice": "ja-JP-KeitaNeural",
+ "seitoVoice": "ja-JP-NanamiNeural",
+ "rate": "+0%",
+ "items": {
+  "二重の基準": {
+   "talk": [
+    "audio/546be2edfe4e.mp3",
+    "audio/6168fd71a41b.mp3",
+    "audio/c952cd6b85d0.mp3",
+    "audio/a12a371b031f.mp3",
+    "audio/e97a0dc1fb5b.mp3",
+    "audio/74e0371d2965.mp3",
+    "audio/93124e7d2d32.mp3",
+    "audio/caa8d27c5ad2.mp3"
+   ],
+   "lecture": "audio/e620166c999e.mp3"
+  },
+  "衆議院の解散": {
+   "talk": [
+    "audio/5e1739b36f67.mp3",
+    "audio/8b4dcb12c0c7.mp3",
+    "audio/c7b6ab9e2b7f.mp3",
+    "audio/048b3f024aef.mp3",
+    "audio/e00af4860fe8.mp3",
+    "audio/2d8e654311d1.mp3",
+    "audio/744badfd86b1.mp3",
+    "audio/9e72057b72d9.mp3"
+   ],
+   "lecture": "audio/fe2eb2aec796.mp3"
+  },
+  "司法権の限界・統治行為": {
+   "talk": [
+    "audio/ba40c067e3ca.mp3",
+    "audio/e25421bff36c.mp3",
+    "audio/e0c7827d92be.mp3",
+    "audio/c41593dd7ae7.mp3",
+    "audio/c2ec6f63ce34.mp3",
+    "audio/a86bc5e60f2c.mp3",
+    "audio/b4b70fac4359.mp3",
+    "audio/008948921c42.mp3"
+   ],
+   "lecture": "audio/b1a7823a823d.mp3"
+  },
+  "私人間効力": {
+   "talk": [
+    "audio/163c294b1afe.mp3",
+    "audio/99f19becabb4.mp3",
+    "audio/424c846cd496.mp3",
+    "audio/24f9dfd0b418.mp3",
+    "audio/19ba9fc18933.mp3",
+    "audio/f36e76b05ee7.mp3",
+    "audio/dfc2039a13da.mp3",
+    "audio/2a864d5a17b2.mp3"
+   ],
+   "lecture": "audio/4bb59ab9f8be.mp3"
+  },
+  "規制目的二分論": {
+   "talk": [
+    "audio/b4796ccffc40.mp3",
+    "audio/238cb29fff37.mp3",
+    "audio/7513c110a909.mp3",
+    "audio/62873fcedc5b.mp3",
+    "audio/30ffad1bc045.mp3",
+    "audio/31ec55aad4ec.mp3",
+    "audio/1f3bed149093.mp3"
+   ],
+   "lecture": "audio/7f17b4cd7f2a.mp3"
+  },
+  "法の下の平等": {
+   "talk": [
+    "audio/fcd5bc77340f.mp3",
+    "audio/413d390f2dc0.mp3",
+    "audio/95f4eebd596e.mp3",
+    "audio/ec9103fc11ee.mp3",
+    "audio/fe5b46bb0569.mp3",
+    "audio/25b9fa923ae3.mp3",
+    "audio/3b0963351a0a.mp3",
+    "audio/b89065e32d2c.mp3"
+   ],
+   "lecture": "audio/44449b58ee4e.mp3"
+  },
+  "違憲審査基準の選択": {
+   "talk": [
+    "audio/f82c16e65cdd.mp3",
+    "audio/85b84bc36581.mp3",
+    "audio/f1bfbaba732c.mp3",
+    "audio/0e3087eba901.mp3",
+    "audio/59ac4e820252.mp3",
+    "audio/2386f96c759f.mp3",
+    "audio/3a6b42f50727.mp3"
+   ],
+   "lecture": "audio/a569c5af9b9b.mp3"
+  },
+  "対抗要件（177条）": {
+   "talk": [
+    "audio/8739e4eb5232.mp3",
+    "audio/b582fc4f8115.mp3",
+    "audio/4bd40027be48.mp3",
+    "audio/4eaaf6a99303.mp3",
+    "audio/531e6c9334cb.mp3",
+    "audio/fc2ee3e9b78c.mp3",
+    "audio/d1f290db2198.mp3",
+    "audio/289f288f6544.mp3"
+   ],
+   "lecture": "audio/ea30c728d31a.mp3"
+  },
+  "適正手続（31条）": {
+   "talk": [
+    "audio/3b9922937dd0.mp3",
+    "audio/566cb55f1499.mp3",
+    "audio/ac66ec930fc0.mp3",
+    "audio/26961fbb13d5.mp3",
+    "audio/cad18f7f73df.mp3",
+    "audio/9368d404b2de.mp3",
+    "audio/8a92b7458ded.mp3"
+   ],
+   "lecture": "audio/b769795ddcbe.mp3"
+  },
+  "政教分離": {
+   "talk": [
+    "audio/80a1500d2987.mp3",
+    "audio/b1555b98e062.mp3",
+    "audio/ad7d96fc5ecf.mp3",
+    "audio/3a28445c6c6f.mp3",
+    "audio/fe5df9f88a3f.mp3",
+    "audio/80b4d933a0a1.mp3",
+    "audio/71d39a26a24d.mp3",
+    "audio/02494a440fdc.mp3"
+   ],
+   "lecture": "audio/1df41d7c5c37.mp3"
+  },
+  "詐害行為取消権": {
+   "talk": [
+    "audio/8d56fe0679d9.mp3",
+    "audio/2eac2c86d596.mp3",
+    "audio/d49c9b01c99a.mp3",
+    "audio/584c2495854d.mp3",
+    "audio/7f1acaf8dc12.mp3",
+    "audio/852c18a29865.mp3",
+    "audio/b3f16c19d945.mp3"
+   ],
+   "lecture": "audio/840bfbc501a6.mp3"
+  },
+  "危険負担・履行不能": {
+   "talk": [
+    "audio/07d2d667ebed.mp3",
+    "audio/d07845b1b289.mp3",
+    "audio/6e412c638702.mp3",
+    "audio/5e8ed69b6410.mp3",
+    "audio/0cc70c9f2e3d.mp3",
+    "audio/22fd3711c356.mp3",
+    "audio/a842f345c035.mp3",
+    "audio/4e829a53d203.mp3"
+   ],
+   "lecture": "audio/11dedf55ecd2.mp3"
+  },
+  "意思表示の瑕疵": {
+   "talk": [
+    "audio/758d80d16645.mp3",
+    "audio/b552878b5082.mp3",
+    "audio/c463c19c1e1f.mp3",
+    "audio/712c0c9e9064.mp3",
+    "audio/ac5788c32927.mp3",
+    "audio/a3eb5ac97895.mp3",
+    "audio/6b10701efbf7.mp3",
+    "audio/0f6d8c665d45.mp3"
+   ],
+   "lecture": "audio/0836fa4d3eff.mp3"
+  },
+  "契約不適合責任": {
+   "talk": [
+    "audio/b5c69714aed9.mp3",
+    "audio/13769ee40cfc.mp3",
+    "audio/69c89d6d0ae6.mp3",
+    "audio/59a721aff820.mp3",
+    "audio/39d9572785a1.mp3",
+    "audio/dfbd0d87fc64.mp3",
+    "audio/777c5bdc9645.mp3"
+   ],
+   "lecture": "audio/cf1a37e479e4.mp3"
+  },
+  "消滅時効と信義則": {
+   "talk": [
+    "audio/c2545c78f2b1.mp3",
+    "audio/fec3d42fe9de.mp3",
+    "audio/b1145cef7fd6.mp3",
+    "audio/f63791915f17.mp3",
+    "audio/6fb91c25a90c.mp3",
+    "audio/9b939ef517b2.mp3",
+    "audio/d6f125524adc.mp3",
+    "audio/33e343119314.mp3"
+   ],
+   "lecture": "audio/47510142fc3a.mp3"
+  },
+  "表見代理": {
+   "talk": [
+    "audio/e243bc527198.mp3",
+    "audio/05b7e298af35.mp3",
+    "audio/f3e0ad948c36.mp3",
+    "audio/47cd6cf067e0.mp3",
+    "audio/ac94a6f6e24d.mp3",
+    "audio/9f7791af210d.mp3",
+    "audio/983ea67b2375.mp3",
+    "audio/914df1db1435.mp3"
+   ],
+   "lecture": "audio/72bde722621d.mp3"
+  },
+  "事前抑制と検閲": {
+   "talk": [
+    "audio/3af3b0d2092b.mp3",
+    "audio/8dba9b24eddd.mp3",
+    "audio/2663ab191a6f.mp3",
+    "audio/1c6a6a4ecdca.mp3",
+    "audio/93e91b7c7991.mp3",
+    "audio/f55986c227c1.mp3"
+   ],
+   "lecture": "audio/0f8bd8b7286c.mp3"
+  },
+  "抵当権の効力範囲・物上代位": {
+   "talk": [
+    "audio/5e0348b1b8bb.mp3",
+    "audio/9178c86e0511.mp3",
+    "audio/03316455a617.mp3",
+    "audio/97a594bcb0e3.mp3",
+    "audio/655db0dbe53c.mp3",
+    "audio/e29550d1ea17.mp3",
+    "audio/ec1465e3b175.mp3",
+    "audio/de9fb91b6f12.mp3",
+    "audio/7bcad2f60d2e.mp3"
+   ],
+   "lecture": "audio/c337726c6935.mp3"
+  },
+  "遺留分侵害額請求": {
+   "talk": [
+    "audio/f2b220819a73.mp3",
+    "audio/c10b2a521a96.mp3",
+    "audio/792303b837db.mp3",
+    "audio/542dc93614dd.mp3",
+    "audio/c8e7d96bb130.mp3",
+    "audio/577c8ad62b03.mp3",
+    "audio/7fb9cdad876f.mp3"
+   ],
+   "lecture": "audio/344150807a99.mp3"
+  },
+  "同時履行の抗弁": {
+   "talk": [
+    "audio/ef0a8d5f75bf.mp3",
+    "audio/b322459605ff.mp3",
+    "audio/ce3d90655f6f.mp3",
+    "audio/e99c82039ee5.mp3",
+    "audio/3066d4e4b3ec.mp3",
+    "audio/619ca510a0ec.mp3",
+    "audio/786ee7fc3cb3.mp3",
+    "audio/0ef9d49ead1c.mp3"
+   ],
+   "lecture": "audio/4bb4cc369c90.mp3"
+  },
+  "不法行為の過失": {
+   "talk": [
+    "audio/9329d9af15dc.mp3",
+    "audio/084643d9155b.mp3",
+    "audio/e48332b88eeb.mp3",
+    "audio/0c19ac23ccd8.mp3",
+    "audio/91b224672b71.mp3",
+    "audio/72208f99b40b.mp3",
+    "audio/77ba9485a941.mp3",
+    "audio/319969186a16.mp3"
+   ],
+   "lecture": "audio/7e936a6cf9d3.mp3"
+  },
+  "正当防衛": {
+   "talk": [
+    "audio/88ea86e16a2b.mp3",
+    "audio/c0ef0566ebb2.mp3",
+    "audio/53e9879073d7.mp3",
+    "audio/c3e2a7f9c0bc.mp3",
+    "audio/a1e6ed181c7c.mp3",
+    "audio/5880e219da23.mp3",
+    "audio/b3539169d137.mp3",
+    "audio/ecbdbe103939.mp3"
+   ],
+   "lecture": "audio/5b21a0d536ae.mp3"
+  },
+  "共同正犯と幇助の区別": {
+   "talk": [
+    "audio/b2ad5a33ae35.mp3",
+    "audio/a71f81b5cfb1.mp3",
+    "audio/02bf1d68de8c.mp3",
+    "audio/ebe781b00d04.mp3",
+    "audio/5ce2993134d6.mp3",
+    "audio/2525edf3c24e.mp3",
+    "audio/5c27edc1f359.mp3",
+    "audio/8f3eab3854e5.mp3"
+   ],
+   "lecture": "audio/2d9047b88d3a.mp3"
+  },
+  "不作為犯": {
+   "talk": [
+    "audio/6aa659f7fb63.mp3",
+    "audio/4e7ed16967cd.mp3",
+    "audio/978d81091bbc.mp3",
+    "audio/73ab53df048f.mp3",
+    "audio/9b1ae705b6ca.mp3",
+    "audio/dccf1f3bc671.mp3",
+    "audio/957b8d9dda58.mp3",
+    "audio/1d3b6428610e.mp3"
+   ],
+   "lecture": "audio/73d960018784.mp3"
+  },
+  "因果関係（危険の現実化）": {
+   "talk": [
+    "audio/74ea1c5b3d7e.mp3",
+    "audio/7e8c5e05d134.mp3",
+    "audio/97f36375215f.mp3",
+    "audio/817597083a4c.mp3",
+    "audio/bce63639ce1a.mp3",
+    "audio/681c00b1fc3a.mp3",
+    "audio/37bbeacb2198.mp3",
+    "audio/135e06507d67.mp3"
+   ],
+   "lecture": "audio/bec4711557aa.mp3"
+  },
+  "貸金返還請求の要件事実": {
+   "talk": [
+    "audio/ceda95e507dc.mp3",
+    "audio/999f157c5ff6.mp3",
+    "audio/9e08c0ba7760.mp3",
+    "audio/89b35f799af2.mp3",
+    "audio/1e4005a4f630.mp3",
+    "audio/ee724732e43a.mp3",
+    "audio/d286f23b0708.mp3",
+    "audio/009c989caeed.mp3"
+   ],
+   "lecture": "audio/025d16128e04.mp3"
+  },
+  "処分権主義": {
+   "talk": [
+    "audio/28722596bfb5.mp3",
+    "audio/9da560ad2849.mp3",
+    "audio/c7846f98e68e.mp3",
+    "audio/0c09c329d449.mp3",
+    "audio/e6aed034b821.mp3",
+    "audio/f4c077895d88.mp3",
+    "audio/b74ba3fb6386.mp3",
+    "audio/b4ebcc4718e5.mp3"
+   ],
+   "lecture": "audio/a0fca37da988.mp3"
+  },
+  "処分性": {
+   "talk": [
+    "audio/bc63197ea4ea.mp3",
+    "audio/432a1dcf83b1.mp3",
+    "audio/e9259d196acd.mp3",
+    "audio/d2f3c2e9eeae.mp3",
+    "audio/bd22d193ea44.mp3",
+    "audio/21828bb54b11.mp3",
+    "audio/3c44e519bf5e.mp3",
+    "audio/fc6c8572fc8f.mp3"
+   ],
+   "lecture": "audio/588d8b83671c.mp3"
+  },
+  "接見交通権": {
+   "talk": [
+    "audio/79393f4c02d9.mp3",
+    "audio/e862e92cca59.mp3",
+    "audio/acabb260d4a1.mp3",
+    "audio/3dca81272108.mp3",
+    "audio/d236d65c1a2b.mp3",
+    "audio/c8aa389b9274.mp3",
+    "audio/0ca68bb7df52.mp3",
+    "audio/ded04ee569ff.mp3"
+   ],
+   "lecture": "audio/c80c6d6574d2.mp3"
+  },
+  "剰余金配当の財源規制": {
+   "talk": [
+    "audio/54716c3d9c11.mp3",
+    "audio/d87fd5ff7a82.mp3",
+    "audio/0484cf88e3bf.mp3",
+    "audio/e9cf20108759.mp3",
+    "audio/4f9b94650cb4.mp3",
+    "audio/41e1f121c118.mp3",
+    "audio/755bff9f94c2.mp3"
+   ],
+   "lecture": "audio/000eb80f7f18.mp3"
+  },
+  "裁量権の逸脱・濫用": {
+   "talk": [
+    "audio/496a7f2852a6.mp3",
+    "audio/923e2eae18cb.mp3",
+    "audio/0cdc18a75519.mp3",
+    "audio/f262987270c5.mp3",
+    "audio/ddd14941bd4a.mp3",
+    "audio/1763d69d257d.mp3",
+    "audio/2931fb341e06.mp3"
+   ],
+   "lecture": "audio/9c764ec75d78.mp3"
+  },
+  "証明責任": {
+   "talk": [
+    "audio/3a9d521c0225.mp3",
+    "audio/8c7337de8808.mp3",
+    "audio/931b0993d13a.mp3",
+    "audio/840f325925c0.mp3",
+    "audio/6e913aee455d.mp3",
+    "audio/baeffc116bbe.mp3",
+    "audio/a3e39d7e3421.mp3"
+   ],
+   "lecture": "audio/8cf67e15f4f7.mp3"
+  },
+  "善管注意義務と経営判断原則": {
+   "talk": [
+    "audio/cd2ed0d193e7.mp3",
+    "audio/25faae208bfd.mp3",
+    "audio/0a75073ca58a.mp3",
+    "audio/95557e5bbf63.mp3",
+    "audio/62e23ba26fe6.mp3",
+    "audio/4e20671f2a2f.mp3",
+    "audio/73117c5f737e.mp3"
+   ],
+   "lecture": "audio/30b760f24db9.mp3"
+  },
+  "株主総会決議の瑕疵": {
+   "talk": [
+    "audio/cc50abd39c09.mp3",
+    "audio/b5a9fc5b30cf.mp3",
+    "audio/d20a25d5eace.mp3",
+    "audio/ef5f0a565bbb.mp3",
+    "audio/906171d303ee.mp3",
+    "audio/a1873b6ca3d4.mp3",
+    "audio/01ec78a06c33.mp3",
+    "audio/95305b9a077f.mp3"
+   ],
+   "lecture": "audio/788d5570282e.mp3"
+  },
+  "利益相反取引": {
+   "talk": [
+    "audio/3cf237d8c2dd.mp3",
+    "audio/2f24075a7f05.mp3",
+    "audio/9f156d6c70dc.mp3",
+    "audio/7326bf6b9eef.mp3",
+    "audio/91c85a245eff.mp3",
+    "audio/46d0b93bc8c2.mp3",
+    "audio/bd5979bbf7f1.mp3",
+    "audio/38db18a8ab8a.mp3"
+   ],
+   "lecture": "audio/046131dfa55f.mp3"
+  },
+  "新株発行の瑕疵": {
+   "talk": [
+    "audio/7bd0817067b8.mp3",
+    "audio/e523ecb01478.mp3",
+    "audio/976000c30abc.mp3",
+    "audio/3b58ee25c75b.mp3",
+    "audio/f676182a390a.mp3",
+    "audio/a82c130d6eb3.mp3",
+    "audio/d6a88eaa9493.mp3",
+    "audio/ba965b6fb055.mp3"
+   ],
+   "lecture": "audio/f278b00b26b4.mp3"
+  },
+  "株主代表訴訟": {
+   "talk": [
+    "audio/0fd833077a2e.mp3",
+    "audio/9b79a5b388c8.mp3",
+    "audio/a4eb52dc64d9.mp3",
+    "audio/397abb3b1384.mp3",
+    "audio/926e791e02de.mp3",
+    "audio/df93375db2af.mp3",
+    "audio/23cc30105ad2.mp3",
+    "audio/bfaa46f377d8.mp3"
+   ],
+   "lecture": "audio/4020bdaf30be.mp3"
+  },
+  "表見代表取締役": {
+   "talk": [
+    "audio/9f299667fa86.mp3",
+    "audio/b20cbc5e975d.mp3",
+    "audio/cbc5093cc7f1.mp3",
+    "audio/3f1ea6e73053.mp3",
+    "audio/6da0f1317554.mp3",
+    "audio/f7770ce0df03.mp3",
+    "audio/ebcede1e17ce.mp3"
+   ],
+   "lecture": "audio/ab7f89ea143e.mp3"
+  },
+  "株式の譲渡制限": {
+   "talk": [
+    "audio/8ad0cfe4992b.mp3",
+    "audio/b7fd9f0c3071.mp3",
+    "audio/5165be2d91af.mp3",
+    "audio/67eaf31f08d4.mp3",
+    "audio/f01ffc05e8dd.mp3",
+    "audio/10679ea482c6.mp3",
+    "audio/91bdb1ac2ffb.mp3"
+   ],
+   "lecture": "audio/534f0a38a696.mp3"
+  },
+  "逮捕に伴う捜索・差押え": {
+   "talk": [
+    "audio/5cec38bba339.mp3",
+    "audio/6b5f19b8ea70.mp3",
+    "audio/07c4370f767d.mp3",
+    "audio/b172bdd87196.mp3",
+    "audio/f59e17e2a4fe.mp3",
+    "audio/cc2c525692c3.mp3",
+    "audio/50a3bc88fd53.mp3"
+   ],
+   "lecture": "audio/18421841c38d.mp3"
+  },
+  "組織再編と反対株主": {
+   "talk": [
+    "audio/d9870080f73e.mp3",
+    "audio/3e00d2a5d0dd.mp3",
+    "audio/28748e69fb46.mp3",
+    "audio/d22a60087a1c.mp3",
+    "audio/9185422c5f7c.mp3",
+    "audio/0c1d34701174.mp3",
+    "audio/f02648bce81d.mp3",
+    "audio/db135d925c08.mp3"
+   ],
+   "lecture": "audio/1631d26c97d1.mp3"
+  },
+  "違法収集証拠排除法則": {
+   "talk": [
+    "audio/295fdc216253.mp3",
+    "audio/93c92fea9a00.mp3",
+    "audio/83663c00f08f.mp3",
+    "audio/4dc04d288278.mp3",
+    "audio/60e934a15ffc.mp3",
+    "audio/852e4057e845.mp3",
+    "audio/ba1b4c52b52b.mp3",
+    "audio/1f69fa3deb10.mp3"
+   ],
+   "lecture": "audio/65f86a4067ef.mp3"
+  },
+  "職務質問と所持品検査": {
+   "talk": [
+    "audio/dcb8bb13427a.mp3",
+    "audio/556914803f25.mp3",
+    "audio/6c21e470edae.mp3",
+    "audio/8c0a20058d08.mp3",
+    "audio/d21c5c103184.mp3",
+    "audio/3a172b25d90f.mp3"
+   ],
+   "lecture": "audio/e8722bf1f265.mp3"
+  },
+  "自白法則と補強法則": {
+   "talk": [
+    "audio/225deaf0f783.mp3",
+    "audio/86073f986534.mp3",
+    "audio/59d9f3325ebb.mp3",
+    "audio/7750d328abbc.mp3",
+    "audio/4c1e2c6b87d2.mp3",
+    "audio/e48b7ef33cf8.mp3",
+    "audio/8ca282221de2.mp3"
+   ],
+   "lecture": "audio/beb4abe9f143.mp3"
+  },
+  "伝聞法則": {
+   "talk": [
+    "audio/5c81faba137b.mp3",
+    "audio/67bdb4bf1ee6.mp3",
+    "audio/62d8da4a9748.mp3",
+    "audio/eb2bab6c939e.mp3",
+    "audio/46694c431cbf.mp3",
+    "audio/12d87209f772.mp3",
+    "audio/6729c1335935.mp3"
+   ],
+   "lecture": "audio/36003a08da6c.mp3"
+  },
+  "伝聞例外（321条以下）": {
+   "talk": [
+    "audio/1fb70e63cbe1.mp3",
+    "audio/58fcf93e6a8c.mp3",
+    "audio/14d9b02f4cc6.mp3",
+    "audio/b5d9f4c6b4bf.mp3",
+    "audio/de420655ecfd.mp3",
+    "audio/b6fcfa18de00.mp3",
+    "audio/adf0ac021b76.mp3",
+    "audio/77267622b218.mp3"
+   ],
+   "lecture": "audio/592575f3fae8.mp3"
+  },
+  "公訴権濫用論": {
+   "talk": [
+    "audio/d80cf533d6f6.mp3",
+    "audio/c3701beb4608.mp3",
+    "audio/f94f1c804271.mp3",
+    "audio/0f2a8f8f81f9.mp3",
+    "audio/398bed9eb58b.mp3",
+    "audio/acc024df316c.mp3",
+    "audio/bb4d26c1a8ae.mp3"
+   ],
+   "lecture": "audio/c26c72833ec5.mp3"
+  },
+  "訴因変更": {
+   "talk": [
+    "audio/0d91c2863c29.mp3",
+    "audio/32bc07800f39.mp3",
+    "audio/5dafb7804748.mp3",
+    "audio/15a7cf69440b.mp3",
+    "audio/f460ec8d1a36.mp3",
+    "audio/c6d312d1994a.mp3",
+    "audio/4fe5a6be3515.mp3",
+    "audio/d1100a716eb5.mp3"
+   ],
+   "lecture": "audio/764c2a99f5e2.mp3"
+  },
+  "勾留の要件": {
+   "talk": [
+    "audio/ded5d7c362b2.mp3",
+    "audio/9f65f6ed35bf.mp3",
+    "audio/734203ee60fb.mp3",
+    "audio/341a2c649eaa.mp3",
+    "audio/34da25dd6066.mp3",
+    "audio/0b4d1b0c3fd4.mp3",
+    "audio/6a4b1d51334b.mp3",
+    "audio/2e146f5eafc3.mp3"
+   ],
+   "lecture": "audio/b9bd8cbb7864.mp3"
+  },
+  "既判力の時的限界": {
+   "talk": [
+    "audio/fcc00c2bc064.mp3",
+    "audio/1adf40295e9d.mp3",
+    "audio/4a1add26d826.mp3",
+    "audio/6b54f9c9c707.mp3",
+    "audio/c54b75e66e1c.mp3",
+    "audio/db44efde8c93.mp3",
+    "audio/065033d6f5c3.mp3",
+    "audio/02266aee30bc.mp3"
+   ],
+   "lecture": "audio/190f3c98de92.mp3"
+  },
+  "訴訟物の特定": {
+   "talk": [
+    "audio/938ca6982870.mp3",
+    "audio/52e6c84476d6.mp3",
+    "audio/08bab32a0f4f.mp3",
+    "audio/5a4546cd8dbb.mp3",
+    "audio/225026c6d3a3.mp3",
+    "audio/9fa9837580d1.mp3",
+    "audio/5b89bdf8456b.mp3",
+    "audio/f09358d51cac.mp3"
+   ],
+   "lecture": "audio/9ed09526ee91.mp3"
+  },
+  "既判力の客観的範囲": {
+   "talk": [
+    "audio/d8cfb5042da0.mp3",
+    "audio/602ddb3a4f8f.mp3",
+    "audio/4344825ee9b3.mp3",
+    "audio/a793bb118f49.mp3",
+    "audio/cf5279b477c9.mp3",
+    "audio/3f2b57a283ad.mp3",
+    "audio/15fd4401b5cd.mp3",
+    "audio/bce48325a58f.mp3"
+   ],
+   "lecture": "audio/702ed3befd05.mp3"
+  },
+  "弁論主義": {
+   "talk": [
+    "audio/4a04f3dc1a16.mp3",
+    "audio/75fd9f184042.mp3",
+    "audio/afca20db0ed4.mp3",
+    "audio/bd1413cf017c.mp3",
+    "audio/89047285b036.mp3",
+    "audio/3eb421af4008.mp3",
+    "audio/dcf37d47edbc.mp3",
+    "audio/e6afab7315e0.mp3",
+    "audio/e6dcc1e9e2a9.mp3"
+   ],
+   "lecture": "audio/72a01edc9bfb.mp3"
+  },
+  "補助参加と独立当事者参加": {
+   "talk": [
+    "audio/2cd4bda58288.mp3",
+    "audio/f657b934a20a.mp3",
+    "audio/aa8300d3c4fb.mp3",
+    "audio/e6a3531b5f87.mp3",
+    "audio/58b563b3a7f7.mp3",
+    "audio/374946c4f32f.mp3",
+    "audio/262778937040.mp3",
+    "audio/e632d8581021.mp3"
+   ],
+   "lecture": "audio/39b6c7b4be90.mp3"
+  },
+  "既判力の主観的範囲": {
+   "talk": [
+    "audio/1da9c3aa5fd5.mp3",
+    "audio/6b28cef7fbc6.mp3",
+    "audio/fceb729d329d.mp3",
+    "audio/7bb43dbafee9.mp3",
+    "audio/c15b104e63b9.mp3",
+    "audio/2ab811b91850.mp3",
+    "audio/5847f0117cf6.mp3",
+    "audio/a3d6b1d1af8c.mp3"
+   ],
+   "lecture": "audio/fb3e622f33f5.mp3"
+  },
+  "二重起訴の禁止": {
+   "talk": [
+    "audio/de5c8286db0b.mp3",
+    "audio/377d357ffc62.mp3",
+    "audio/a41cbe5369c7.mp3",
+    "audio/759f6b6a5374.mp3",
+    "audio/af41f039694e.mp3",
+    "audio/fdf430e8859d.mp3",
+    "audio/b2a663cd7993.mp3",
+    "audio/606f991ca426.mp3"
+   ],
+   "lecture": "audio/118ff2b40489.mp3"
+  },
+  "訴えの利益・当事者適格": {
+   "talk": [
+    "audio/74ec256afa98.mp3",
+    "audio/4c90aaaf1add.mp3",
+    "audio/ffd5abf3c390.mp3",
+    "audio/9433c5e35c42.mp3",
+    "audio/7cb2f1c3520a.mp3",
+    "audio/fafe94d3f6ba.mp3",
+    "audio/1dbe24a991c9.mp3"
+   ],
+   "lecture": "audio/488f20b26772.mp3"
+  },
+  "原告適格": {
+   "talk": [
+    "audio/1cb540dad569.mp3",
+    "audio/070677a858e8.mp3",
+    "audio/24716a90b5c3.mp3",
+    "audio/a2d1705c9ac0.mp3",
+    "audio/b1b86caf51a2.mp3",
+    "audio/17c810c9c7f6.mp3",
+    "audio/efadeba58709.mp3"
+   ],
+   "lecture": "audio/185abd5e9730.mp3"
+  },
+  "理由の提示": {
+   "talk": [
+    "audio/e9f11783b02f.mp3",
+    "audio/c2be9df9795d.mp3",
+    "audio/ba34f3f30e0a.mp3",
+    "audio/0c210ff8e569.mp3",
+    "audio/da915ebd4527.mp3",
+    "audio/0c1f3baf90cd.mp3",
+    "audio/ec095318f57a.mp3",
+    "audio/03a316dbf3de.mp3"
+   ],
+   "lecture": "audio/af9165cf01a2.mp3"
+  },
+  "国家賠償1条": {
+   "talk": [
+    "audio/8b8e1e81f687.mp3",
+    "audio/fba02310c40d.mp3",
+    "audio/5ea3f50e4b51.mp3",
+    "audio/347b3d14c771.mp3",
+    "audio/99707ee70d0f.mp3",
+    "audio/68a8c5749067.mp3",
+    "audio/1b58a9457e8c.mp3",
+    "audio/20dc7ef63429.mp3"
+   ],
+   "lecture": "audio/f519da3c74f1.mp3"
+  },
+  "狭義の訴えの利益": {
+   "talk": [
+    "audio/906790c165f3.mp3",
+    "audio/45cd4ebf4771.mp3",
+    "audio/2068c864e6c8.mp3",
+    "audio/1fbdd5df96e1.mp3",
+    "audio/211ce95df8ea.mp3",
+    "audio/4140e22d4da9.mp3",
+    "audio/770f9fe12af0.mp3"
+   ],
+   "lecture": "audio/ea30bc182f8f.mp3"
+  },
+  "営造物責任（国賠2条）": {
+   "talk": [
+    "audio/275be29dcdd4.mp3",
+    "audio/adbdd2bed0a7.mp3",
+    "audio/cbb85b17d4d8.mp3",
+    "audio/fc50a0b3a66a.mp3",
+    "audio/04af6f578634.mp3",
+    "audio/f700162d9a08.mp3",
+    "audio/ece7fa15fea7.mp3",
+    "audio/577d486c9bb4.mp3"
+   ],
+   "lecture": "audio/c585354e452c.mp3"
+  },
+  "取消しと撤回": {
+   "talk": [
+    "audio/0a3c5e61893a.mp3",
+    "audio/13ad5ef349fc.mp3",
+    "audio/fc38d04bac8e.mp3",
+    "audio/233400024b74.mp3",
+    "audio/85adf2b2849d.mp3",
+    "audio/2e815af1ba41.mp3",
+    "audio/1b97be2e7870.mp3"
+   ],
+   "lecture": "audio/6b679c20cd4b.mp3"
+  },
+  "執行停止と仮の救済": {
+   "talk": [
+    "audio/8c231585e743.mp3",
+    "audio/1d1744747a4f.mp3",
+    "audio/4fc5b3332ce4.mp3",
+    "audio/78b0972fae11.mp3",
+    "audio/62727e5bcddc.mp3",
+    "audio/7119cab21878.mp3",
+    "audio/94b551d0a637.mp3",
+    "audio/5856e24961f2.mp3"
+   ],
+   "lecture": "audio/ff63ea03cd15.mp3"
+  },
+  "行政指導": {
+   "talk": [
+    "audio/b5dc30bfa98c.mp3",
+    "audio/a389a17a4d4c.mp3",
+    "audio/7cd0dd6f0014.mp3",
+    "audio/d50256c0c8cc.mp3",
+    "audio/12bb42ed2795.mp3",
+    "audio/6ebcb7dfa37e.mp3",
+    "audio/561b9533d300.mp3"
+   ],
+   "lecture": "audio/23db69245879.mp3"
+  },
+  "事実の錯誤": {
+   "talk": [
+    "audio/b5042606f17c.mp3",
+    "audio/d5b11bad0257.mp3",
+    "audio/76850330a4ee.mp3",
+    "audio/cc3b46ca5aab.mp3",
+    "audio/87007f7bbdeb.mp3",
+    "audio/86b3d057b3a2.mp3",
+    "audio/c3c41c9553a6.mp3",
+    "audio/98313e835416.mp3"
+   ],
+   "lecture": "audio/290023b31baa.mp3"
+  },
+  "共犯からの離脱": {
+   "talk": [
+    "audio/705972a8cf3e.mp3",
+    "audio/fee36b0982f0.mp3",
+    "audio/3e0ec83495ba.mp3",
+    "audio/7cfc411b6eef.mp3",
+    "audio/96566a6167f9.mp3",
+    "audio/c869253e9293.mp3",
+    "audio/f7a33a38c75e.mp3",
+    "audio/82c4f44c834c.mp3"
+   ],
+   "lecture": "audio/7e08d2e76da4.mp3"
+  },
+  "中止犯": {
+   "talk": [
+    "audio/c120054beee9.mp3",
+    "audio/5a625aedcfaa.mp3",
+    "audio/3b534e3a2c22.mp3",
+    "audio/adc6aadced3d.mp3",
+    "audio/aa3b0f1ed793.mp3",
+    "audio/61f80378ca08.mp3",
+    "audio/f3e5befcf9e9.mp3",
+    "audio/15878c29fe5f.mp3"
+   ],
+   "lecture": "audio/0d984a327a15.mp3"
+  },
+  "窃盗と横領の区別": {
+   "talk": [
+    "audio/dad18f41ccb8.mp3",
+    "audio/e705ff4aff0b.mp3",
+    "audio/dd5d8318ebd9.mp3",
+    "audio/969d86d11846.mp3",
+    "audio/1686df752b29.mp3",
+    "audio/23e69e67ad97.mp3",
+    "audio/98dd3ee45d83.mp3"
+   ],
+   "lecture": "audio/ea656dead5d1.mp3"
+  },
+  "詐欺罪の欺罔行為": {
+   "talk": [
+    "audio/2732e2a2f9f8.mp3",
+    "audio/658c4af6a91f.mp3",
+    "audio/1f3fb7ecc7e1.mp3",
+    "audio/964bfed8d847.mp3",
+    "audio/6d4f4b2c0920.mp3",
+    "audio/43f5cccb1805.mp3",
+    "audio/093794e14451.mp3",
+    "audio/93b7857b38e0.mp3"
+   ],
+   "lecture": "audio/ca3cc6f1537c.mp3"
+  },
+  "文書偽造": {
+   "talk": [
+    "audio/501951f50e6f.mp3",
+    "audio/464cc922cd28.mp3",
+    "audio/d04ea1e4f195.mp3",
+    "audio/3dd7f5eca648.mp3",
+    "audio/bfc0b0095d80.mp3",
+    "audio/629191270384.mp3",
+    "audio/9908f4df320b.mp3"
+   ],
+   "lecture": "audio/3056568d8912.mp3"
+  },
+  "否認と抗弁の区別": {
+   "talk": [
+    "audio/acbab7d2b963.mp3",
+    "audio/fc848db74d22.mp3",
+    "audio/9fbf8bce7897.mp3",
+    "audio/d75b8a3cd279.mp3",
+    "audio/46d9eab4d2f6.mp3",
+    "audio/06c8ec7d6a00.mp3",
+    "audio/916fd1d30ec9.mp3",
+    "audio/f743711b076e.mp3"
+   ],
+   "lecture": "audio/4544afdd1824.mp3"
+  },
+  "所有権に基づく明渡請求": {
+   "talk": [
+    "audio/8db011b4fba6.mp3",
+    "audio/459ef6e12734.mp3",
+    "audio/6ba912527d37.mp3",
+    "audio/d7cd684e7b0b.mp3",
+    "audio/e7b15a611483.mp3",
+    "audio/8d195c8c5830.mp3",
+    "audio/6002594686d7.mp3"
+   ],
+   "lecture": "audio/9f6058d8500e.mp3"
+  },
+  "民事保全": {
+   "talk": [
+    "audio/43933db3e8ae.mp3",
+    "audio/dccf775a3d0d.mp3",
+    "audio/37ce2b335476.mp3",
+    "audio/88f0afced679.mp3",
+    "audio/0f278a718ac0.mp3",
+    "audio/8ae12b74406b.mp3",
+    "audio/9f510325a68d.mp3"
+   ],
+   "lecture": "audio/8e4b7aaff3e6.mp3"
+  },
+  "公判前整理手続": {
+   "talk": [
+    "audio/9f8de344c0b3.mp3",
+    "audio/c919953ca234.mp3",
+    "audio/b0b35148f196.mp3",
+    "audio/73e4993458f6.mp3",
+    "audio/a61b831878da.mp3",
+    "audio/6cf1cf59f6d7.mp3",
+    "audio/5d7e48047dce.mp3",
+    "audio/3ab8782533bf.mp3"
+   ],
+   "lecture": "audio/782a8be64898.mp3"
+  }
+ }
+}

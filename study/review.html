@@ -681,7 +681,7 @@
 //  定数
 // ════════════════════════════════════════════
 const WEEKLY = {0:"商法",1:"憲法",2:"民法",3:"刑法",4:"行政法",5:"民訴法",6:"刑訴法"};
-const APP_VER = "20261025-1";   // ← 更新するたびに version.json と合わせて上げる
+const APP_VER = "20261028-1";   // ← 更新するたびに version.json と合わせて上げる
 const API_URL = "https://api.anthropic.com/v1/messages";
 const API_MODEL = "claude-haiku-4-5-20251001";
 const CTX_URL = () => `https://raw.githubusercontent.com/osamuina8008/business-tools/main/study/context.json?t=${Date.now()}`;
@@ -2233,8 +2233,34 @@ function structSheet(card, box, st, ans){
   if(n===0 && lecture) showLecture(); else showStart();
 }
 
+/* 要点が論点ライブラリに無いとき、自分が解いた短答（AI横断の g）から答えを組み立てる（2026-10-28）
+   「AIボタンで確認してください」と本人に探させない */
+function packAns(it){
+  const g = it && it.g; if(!g) return "";
+  return [g.one, ...(g.p||[]).map(p=>`${p.v}（${p.k}）`), g.trap?`ひっかけ：${g.trap}`:""]
+    .filter(Boolean).join("\n").replace(/【([^】]*)】/g,"$1");
+}
+
 /* 分解がまだ無い論点（従来どおり、答えを一度に見る） */
 function plainSheet(card, box, ans){
+  if(!ans){
+    box.innerHTML = `<div class="rv-note">要点を用意しています…</div>`;
+    loadPack().then(p=>{
+      const it = relatedQs(card, p).find(x=>x.g);
+      const a = packAns(it);
+      if(a) history = [
+        {role:"user", content:`${chatSubject}の「${curTopic.title}」を復習します。問い：${curTopic.q}`},
+        {role:"assistant", content:`要点：${a}`},
+      ];
+      curTopic.b = a;
+      plainSheetBody(card, box, a, it);
+      scrollBottom();
+    });
+    return;
+  }
+  plainSheetBody(card, box, ans, null);
+}
+function plainSheetBody(card, box, ans, src){
   box.innerHTML = `
     <div class="rv-step">① 問い</div>
     <div class="rv-q">${esc(card.title)}</div>
@@ -2244,14 +2270,15 @@ function plainSheet(card, box, ans){
     ${ans ? `<button class="rv-btn" data-act="show">言えたら（言えなくても）答えを見る</button>
     <div class="rv-hide" hidden>
       <div class="rv-step">③ 答え合わせ</div>
-      <div class="rv-ans">${esc(ans)}</div>
+      <div class="rv-ans" style="white-space:pre-line">${esc(ans)}</div>
+      ${src?`<div class="rv-note">（自分が解いた ${esc(src.s)}${esc(src.q)}「${esc(src.t||"")}」の6社解説から）</div>`:""}
       <div class="rv-step" style="margin-top:10px">④ 自分の出来は？</div>
       <div class="rv-grade">
         <button data-g="o">◯ 言えた</button><button data-g="m">△ あいまい</button><button data-g="x">✕ 言えない</button>
       </div>
       <div class="rv-note" data-el="gnote"></div>
       <div data-el="qs"></div>
-    </div>` : `<div class="rv-note">この論点は要点がまだ登録されていません。「⤴ AI横断」か下のAIボタンで確認してください。</div><div data-el="qs"></div>`}
+    </div>` : `<div class="rv-note">この論点はまだ手元に要点がありません。今日は飛ばして、次のカードへ進んでかまいません。</div><div data-el="qs"></div>`}
   `;
 
   box.addEventListener("click", e=>{

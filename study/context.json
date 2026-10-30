@@ -1,52 +1,14 @@
 {
-  "subject": "民訴法",
-  "date": "2026-10-30",
+  "subject": "刑訴法",
+  "date": "2026-10-31",
   "keywords": [],
   "wrong_qs": [],
   "wrong_topics": [],
-  "today_logs": [
-    {
-      "type": "短答",
-      "questions_count": 6,
-      "understanding": "普通",
-      "topic": ""
-    }
-  ],
+  "today_logs": [],
   "spacing_items": [
     {
       "interval_label": "",
-      "date": "2026-10-29",
-      "subject": "行政法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": [
-        {
-          "title": "Claude先生 1",
-          "content": "## 1. 出題趣旨・論述の軸\n\n本問の「司法判断」は、**裁判所が行政裁量をどこまで審査できるか（裁量の司法審査）**という意味です。論述の軸は次の2本です。\n\n- **行政裁量とは何か、なぜ必要か**：法律による行政の原理と、行政の専門性・複雑性との緊張関係\n- **裁判所はどう審査するか**：権利救済と行政の専門判断の尊重をどう両立させるか → 審査方法の類型（裁量濫用型審査と手続的審査）\n\n解説が述べるとおり、裁量は行政側がほぼ必ず主張する論点です。そのため本案審理の中心になりますし、実務では大半が**濫用型審査（4類型）**で争われます。4類型の中身を定義レベルで書けることが得点の核になります。\n\n---\n\n## 2. 参考答案の骨格\n\n**1．行政裁量の意義**\n\n- (1) 定義：法規の規定が不明確なため、多かれ少なかれ行政庁の裁量的判断に基づいて行われる行政行為\n- (2) 必要性\n    - 原則：法律による行政の原理からは、法律が一義的に規定するのが望ましい（行政の恣意防止）\n    - しかし：行政は複雑化・流動化しており、あらかじめ全部を規定するのは困難\n    - さらに：専門技術的分野では、行政庁の専門判断に委ねたほうが妥当\n    - 結論：法律により一定の裁量を認めることが必要\n\n**2．行政裁量の司法審査**\n\n- (1) 総論：専門判断を尊重すれば違法と判断されにくくなる。しかし権利侵害を放置するのも不当である → **行政需要と権利救済のバランス**が問題となる\n- (2) 具体的審査方法\n    - ① 裁量濫用型審査\n        - ア 裁量権の範囲を超え（逸脱）、または濫用（範囲内だが法の趣旨に反する行使）があれば、違法として取り消す（行訴法30条）\n        - イ 判断要素は4つ\n            - (i) "
-        },
-        {
-          "title": "Claude先生",
-          "content": ""
-        },
-        {
-          "title": "補足",
-          "content": ""
-        }
-      ]
-    },
-    {
-      "interval_label": "",
-      "date": "2026-10-27",
-      "subject": "民法",
-      "questions_count": 0,
-      "wrong_qs": [],
-      "keywords": [],
-      "claude_notes": []
-    },
-    {
-      "interval_label": "",
-      "date": "2026-10-23",
+      "date": "2026-10-30",
       "subject": "民事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
@@ -55,8 +17,26 @@
     },
     {
       "interval_label": "",
-      "date": "2026-10-09",
-      "subject": "民事訴訟法",
+      "date": "2026-10-28",
+      "subject": "刑法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-10-24",
+      "subject": "刑事訴訟法",
+      "questions_count": 0,
+      "wrong_qs": [],
+      "keywords": [],
+      "claude_notes": []
+    },
+    {
+      "interval_label": "",
+      "date": "2026-10-10",
+      "subject": "刑事訴訟法",
       "questions_count": 0,
       "wrong_qs": [],
       "keywords": [],
@@ -65,203 +45,99 @@
   ],
   "today_schedule": [
     {
-      "time": "03:45",
+      "time": "05:45",
       "activity": "家起床"
     },
     {
-      "time": "03:50",
-      "activity": "家準備"
-    },
-    {
-      "time": "03:55",
-      "activity": "家瞑想"
-    },
-    {
-      "time": "03:59",
-      "activity": "家朝準備"
-    },
-    {
-      "time": "04:00",
-      "activity": "家学習"
-    },
-    {
-      "time": "04:15",
-      "activity": "家学習"
-    },
-    {
-      "time": "04:30",
-      "activity": "家学習"
-    },
-    {
-      "time": "04:45",
-      "activity": "家学習"
-    },
-    {
-      "time": "05:00",
-      "activity": "家学習"
-    },
-    {
-      "time": "05:15",
-      "activity": "家食事・準備"
-    },
-    {
-      "time": "05:30",
-      "activity": "移動家→駅"
-    },
-    {
-      "time": "06:05",
-      "activity": "電車学習"
-    },
-    {
-      "time": "06:15",
-      "activity": "電車学習"
-    },
-    {
-      "time": "06:30",
-      "activity": "電車学習"
+      "time": "06:00",
+      "activity": "家食事"
     },
     {
       "time": "06:45",
-      "activity": "移動移動"
+      "activity": "家学習"
     },
     {
-      "time": "07:00",
-      "activity": "移動運動"
+      "time": "08:30",
+      "activity": "外note・YouTube"
     },
     {
-      "time": "07:15",
-      "activity": "移動運動"
+      "time": "09:15",
+      "activity": "家学習"
     },
     {
-      "time": "07:40",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "08:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "09:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "10:00",
-      "activity": "仕事仕事"
+      "time": "10:45",
+      "activity": "家運動"
     },
     {
       "time": "11:00",
-      "activity": "仕事仕事"
+      "activity": "家学習"
+    },
+    {
+      "time": "11:45",
+      "activity": "家運動"
     },
     {
       "time": "12:00",
-      "activity": "仕事仕事"
+      "activity": "家食事"
     },
     {
       "time": "13:00",
-      "activity": "仕事仕事"
+      "activity": "家掃除"
     },
     {
       "time": "14:00",
-      "activity": "仕事仕事"
+      "activity": "移動運動"
     },
     {
       "time": "15:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "16:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "17:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "18:00",
-      "activity": "仕事仕事"
-    },
-    {
-      "time": "18:10",
-      "activity": "車移動"
-    },
-    {
-      "time": "18:30",
-      "activity": "車夕食"
-    },
-    {
-      "time": "18:40",
-      "activity": "電車学習"
-    },
-    {
-      "time": "18:45",
-      "activity": "電車学習"
-    },
-    {
-      "time": "19:00",
-      "activity": "電車学習"
-    },
-    {
-      "time": "19:15",
-      "activity": "電車学習"
-    },
-    {
-      "time": "19:20",
-      "activity": "移動歩き"
-    },
-    {
-      "time": "19:40",
-      "activity": "ベスパ筋トレ"
-    },
-    {
-      "time": "19:55",
-      "activity": "ベスパ運動"
-    },
-    {
-      "time": "20:05",
-      "activity": "ベスパストレッチ"
-    },
-    {
-      "time": "20:15",
-      "activity": "ベスパ風呂"
-    },
-    {
-      "time": "20:30",
-      "activity": "ベスパ風呂"
-    },
-    {
-      "time": "20:45",
-      "activity": "移動帰宅"
-    },
-    {
-      "time": "21:10",
-      "activity": "家片付け"
-    },
-    {
-      "time": "21:20",
       "activity": "家復習"
     },
     {
-      "time": "21:25",
-      "activity": "家ブログ"
+      "time": "16:00",
+      "activity": "家運動"
     },
     {
-      "time": "21:30",
-      "activity": "家明日の支度"
+      "time": "16:30",
+      "activity": "移動運動"
     },
     {
-      "time": "21:45",
+      "time": "17:30",
+      "activity": "家支度・準備"
+    },
+    {
+      "time": "18:00",
+      "activity": "家食事準備"
+    },
+    {
+      "time": "18:30",
+      "activity": "家食事"
+    },
+    {
+      "time": "19:30",
+      "activity": "家復習"
+    },
+    {
+      "time": "20:30",
+      "activity": "家SNS"
+    },
+    {
+      "time": "21:00",
+      "activity": "家予定作成"
+    },
+    {
+      "time": "21:15",
       "activity": "家就寝"
     }
   ],
-  "has_data": true,
-  "updated_at": "2026-10-30T07:00:46.069403",
+  "has_data": false,
+  "updated_at": "2026-10-31T07:00:21.262898",
   "today_tasks": [
     {
       "subject": "民法",
       "status": "今週",
       "action": "短答3問｜論点：対抗要件（177条）・意思表示の瑕疵・同時履行の抗弁",
       "theme": "短答6割安定・論文型ノート（物権・債権）",
-      "situation": "今週0/10問。あと10問（3日ぶり）",
+      "situation": "今週0/10問。あと10問（4日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -271,7 +147,7 @@
       "status": "遅れ",
       "action": "短答5問｜論点：錯誤論・共同正犯と幇助の区別・詐欺罪・横領罪",
       "theme": "短答6割安定・論文型ノート",
-      "situation": "今週8/10問。あと2問（2日ぶり）",
+      "situation": "今週8/10問。あと2問（3日ぶり）",
       "actual_q": 8,
       "target_q": 10,
       "checked": false
@@ -281,17 +157,17 @@
       "status": "遅れ",
       "action": "短答3問｜論点：訴訟要件（当事者適格・訴えの利益）・既判力の範囲",
       "theme": "短答安定化・論文骨組み",
-      "situation": "今週6/10問。あと4問",
+      "situation": "今週6/10問。あと4問（1日ぶり）",
       "actual_q": 6,
       "target_q": 10,
       "checked": false
     },
     {
       "subject": "刑事訴訟法",
-      "status": "今週",
-      "action": "短答3問｜論点：職務質問と所持品検査・伝聞法則・自白法則",
+      "status": "遅れ",
+      "action": "短答3問｜論点：捜査の端緒・逮捕の種類と要件・接見交通権",
       "theme": "短答安定化・論文骨組み",
-      "situation": "今週0/10問。あと10問（6日ぶり）",
+      "situation": "今週0/10問。あと10問（7日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -301,7 +177,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：株主総会決議（種類・要件・瑕疵）・取締役の善管注意義務",
       "theme": "商法・会社法の短答6割目標",
-      "situation": "今週0/10問。あと10問（12日ぶり）",
+      "situation": "今週0/10問。あと10問（13日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false
@@ -311,7 +187,7 @@
       "status": "遅れ",
       "action": "短答3問｜論点：貸金請求の要件事実・否認と抗弁の区別",
       "theme": "実務基礎の短答・論文両面対策",
-      "situation": "今週0/10問。あと10問（129日ぶり）",
+      "situation": "今週0/10問。あと10問（130日ぶり）",
       "actual_q": 0,
       "target_q": 10,
       "checked": false

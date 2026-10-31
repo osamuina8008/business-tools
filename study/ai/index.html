@@ -453,6 +453,29 @@ body.reading{overflow:hidden}
 .sm-cc{font-size:15px;margin:6px 0 2px 34px}
 .sm-must{margin:0;padding-left:1.3em;font-size:15.5px;line-height:1.8}
 .sm-must em{font-style:normal;background:linear-gradient(transparent 60%,rgba(46,115,85,.25) 60%)}
+/* ---- ここがポイント・あなたの改善項目（2026-10-31） ---- */
+.pt{margin:18px 0 6px;padding:16px 18px;border:1px solid var(--line);border-left:4px solid var(--ai);border-radius:6px;background:var(--paper)}
+.pt h4,.fx h4{margin-top:0 !important}
+.pt-core{font-size:16.5px;font-weight:700;line-height:1.7;margin:0 0 12px}
+.pt-core em,.pt-p em,.pt-rc em{font-style:normal;background:linear-gradient(transparent 60%,rgba(46,115,85,.25) 60%)}
+.pt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}
+.pt-c{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:11px 13px}
+.pt-n{display:flex;gap:8px;align-items:center;font-weight:700;font-size:14.5px;margin-bottom:6px}
+.pt-p{font-size:15.5px;font-weight:500;line-height:1.65;margin:0 0 8px}
+.pt-r{font-size:14px;line-height:1.65;margin:5px 0 0}
+.pt-tg{display:inline-block;font-size:11.5px;font-weight:700;border-radius:3px;padding:0 7px;margin-right:7px;vertical-align:1px;color:#fff}
+.pt-tg.c{background:var(--ai)}
+.pt-tg.m{background:#B7791F}
+.pt-tg.u{background:var(--agree)}
+.pt-rc{margin-top:12px;font-size:15px;line-height:1.85;background:var(--surface);border:1px dashed var(--line);border-radius:6px;padding:10px 13px}
+.sm-memo{font-size:14px;line-height:1.7;margin:4px 0 4px 34px}
+.fx{margin:14px 0 6px;padding:14px 18px;border:1px solid var(--line);border-left:4px solid var(--differ);border-radius:6px;background:var(--flagbg)}
+.fx ol{margin:0;padding-left:1.5em;font-size:15px;line-height:1.7}
+.fx li{margin:0 0 9px}
+.fx li b{font-weight:700}
+.fx-how{display:block;font-size:14.5px}
+.fx-by{display:flex;flex-wrap:wrap;gap:4px;margin-top:3px}
+.fx-by i{font-style:normal;font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:10px;padding:0 7px;background:var(--surface)}
 /* ---- この問題の学び方・追記（2026-10-17） ---- */
 .st{margin:22px 0 6px;padding:16px 18px;border:1px solid var(--line);border-left:4px solid var(--agree);border-radius:6px;background:var(--surface)}
 .st h4{margin-top:0 !important}
@@ -1975,6 +1998,8 @@ function sumBlock(q){
   const RB0 = S.kind === 'ronbun';
   /* 0 ひと目で（2026-10-06、本人要望「パッと見て頭に入る絵」）。既存の要約データだけで描く＝追加料金0 */
   h += smEye(q, S, A, RB0);
+  /* 0.3 ここがポイント・あなたの改善項目（2026-10-31、本人要望「覚え方・使い方・各社の文末の指摘を前に」） */
+  h += smPoint(S, RB0) + smFix(S);
   /* 0.5 問題文のここを読む（写真に印、2026-10-18） */
   h += smMarks(q, S, RB0);
   /* 1 軸：問い → 答え → 根拠 を矢印でつないだ図にする */
@@ -2031,6 +2056,7 @@ function sumBlock(q){
         + (L.look ? '<span class="sm-look">' + esc(L.look) + '</span>' : '') + chip + '</div>'
         + '<p class="sm-one">' + em(L.one) + '</p>'
         + (L.why ? '<p class="sm-why">' + esc(L.why) + '</p>' : '')
+        + (L.memo ? '<p class="sm-memo"><span class="pt-tg m">覚え方</span>' + esc(L.memo) + '</p>' : '')
         + (L.src ? '<div class="sm-src">' + smSrc(q, L.src) + '</div>' : '')
         + (L.warn ? '<div class="sm-warn">⚠ ' + esc(L.warn) + '</div>' : '')
         + (who.length ? '<details><summary>各社の解説（' + who.length + '社）</summary>'
@@ -2083,6 +2109,36 @@ function sumBlock(q){
     + (S.study || S.coach ? '<button class="sm-jump" onclick="var e=document.getElementById(\'st\')||document.querySelector(\'.st\');if(e){document.getElementById(\'sm\').classList.remove(\'shut\');e.scrollIntoView({behavior:\'smooth\'})}">学び方へ ↓</button>' : '')
     + '<button class="sm-fold" id="smfold">' + (SM_SHUT ? 'まとめを開く ▾' : 'まとめを畳む ▴') + '</button></div>'
     + '<div class="sm-body">' + h + '<p class="sm-foot">6社の解説から自動でまとめ直したもの。下に従来の比較・各社の本文が続きます。</p></div></section>';
+}
+/* ここがポイント（2026-10-31）：本質 → 点を分ける所ごとに「ポイント／こう覚える／こう使う」→ 30秒暗唱。
+   論文は flow の point・memo・use、短答は points。古いまとめ（欄が無い）では何も出さない */
+function smPoint(S, RB){
+  const em = t => esc(t || '').replace(/【(.+?)】/g, '<em>$1</em>');
+  const items = RB
+    ? (S.flow || []).filter(F => F.point || F.memo || F.use)
+        .map(F => ({n: String(F.n || '').replace(/^[①-⑳]\s*/, ''), p: F.point, memo: F.memo, use: F.use}))
+    : (S.points || []).map(P => ({n: '', p: P.p, memo: P.memo, use: P.use}));
+  if (!S.core && !items.length && !S.recite) return '';
+  let h = '<div class="pt"><h4>★ ここがポイント</h4>';
+  if (S.core) h += '<p class="pt-core"><span class="pt-tg c">本質</span>' + em(S.core) + '</p>';
+  if (items.length) h += '<div class="pt-grid">' + items.map((it, i) => '<div class="pt-c">'
+      + '<div class="pt-n"><span class="sm-step">' + (i + 1) + '</span>' + (it.n ? esc(it.n) : '') + '</div>'
+      + (it.p ? '<p class="pt-p">' + em(it.p) + '</p>' : '')
+      + (it.memo ? '<p class="pt-r"><span class="pt-tg m">こう覚える</span>' + em(it.memo) + '</p>' : '')
+      + (it.use ? '<p class="pt-r"><span class="pt-tg u">こう使う</span>' + em(it.use) + '</p>' : '')
+      + '</div>').join('') + '</div>';
+  if (S.recite) h += '<div class="pt-rc"><span class="pt-tg c">30秒で言う</span>' + em(S.recite) + '</div>';
+  return h + '</div>';
+}
+/* あなたの改善項目：各社の解説の後半（答案との照合・総合評価・チェックリスト・優先順位）にある指摘を束ねたもの */
+function smFix(S){
+  const F = (S.fixes || []).filter(f => f && (f.what || f.how));
+  if (!F.length) return '';
+  return '<div class="fx"><h4>✎ あなたの改善項目 <span class="sm-note">（各社の解説の後半にある指摘をまとめたもの）</span></h4><ol>'
+    + F.map(f => '<li><b>' + esc(f.what || '') + '</b>'
+      + (f.how ? '<span class="fx-how">→ ' + esc(f.how) + '</span>' : '')
+      + (f.by ? '<span class="fx-by">' + String(f.by).split(/[・、,／/]\s*/).filter(Boolean).map(a => '<i>' + esc(a) + '</i>').join('') + '</span>' : '')
+      + '</li>').join('') + '</ol></div>';
 }
 /* この問題の学び方（qstudy.py が作る、2026-10-17）：覚える・理解でよい・深追い不要・復習の予定・思い出しテスト */
 function smStudy(T, RB){

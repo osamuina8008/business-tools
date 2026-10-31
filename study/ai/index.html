@@ -476,6 +476,21 @@ body.reading{overflow:hidden}
 .fx-how{display:block;font-size:14.5px}
 .fx-by{display:flex;flex-wrap:wrap;gap:4px;margin-top:3px}
 .fx-by i{font-style:normal;font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:10px;padding:0 7px;background:var(--surface)}
+.rf{margin:22px 0 6px;padding:16px 18px;border:1px solid var(--line);border-left:4px solid #B7791F;border-radius:6px;background:var(--surface)}
+.rf h4{margin-top:0 !important}
+.rf-bk{display:flex;flex-direction:column;gap:8px}
+.rf-b{background:var(--sunk);border-radius:6px;padding:10px 12px}
+.rf-t{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
+.rf-t b{font-size:15px}
+.rf-pg{font-weight:700;color:#B7791F;font-size:14px}
+.rf-t a{margin-left:auto;font-size:13px;color:var(--ai)}
+.rf-sn{margin:5px 0 4px;font-size:13.5px;line-height:1.7;color:var(--muted)}
+.rf-vd{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:8px}
+.rf-v{display:flex;gap:10px;text-decoration:none;color:inherit;background:var(--sunk);border-radius:6px;padding:8px}
+.rf-v img{width:120px;height:68px;object-fit:cover;border-radius:4px;flex:none}
+.rf-v b{display:block;font-size:13.5px;line-height:1.5;font-weight:600}
+.rf-v small{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.rf-v .rf-why{color:var(--agree)}
 /* ---- この問題の学び方・追記（2026-10-17） ---- */
 .st{margin:22px 0 6px;padding:16px 18px;border:1px solid var(--line);border-left:4px solid var(--agree);border-radius:6px;background:var(--surface)}
 .st h4{margin-top:0 !important}
@@ -2082,6 +2097,8 @@ function sumBlock(q){
         + tabs('rc', rc.map(a => [a, esc(a)]), rc[0])
         + rc.map(a => pane('rc', a, rc[0], md(smSec(q.ai[a], '③')), 'sm-ai')).join('') + '</details>' : '');
   }
+  /* 🔎 もっと深く：あなたの本・YouTube（2026-10-31） */
+  h += smRefs(S.refs);
   /* ★ 学び方・追記（2026-10-17） */
   h += smStudy(S.study, RB) + smCoach(S.coach);
   /* 4 取り違え */
@@ -2107,6 +2124,7 @@ function sumBlock(q){
     + '<span class="lbl">頭に入る版</span><span class="th">' + esc(S.theme || '') + '</span>'
     + (S.answer ? '<span class="sm-ans">' + (RB ? '結論 ' : '正解 ') + esc(S.answer) + (S.answer_note ? '<small>' + esc(S.answer_note) + '</small>' : '') + '</span>' : '')
     + (S.study || S.coach ? '<button class="sm-jump" onclick="var e=document.getElementById(\'st\')||document.querySelector(\'.st\');if(e){document.getElementById(\'sm\').classList.remove(\'shut\');e.scrollIntoView({behavior:\'smooth\'})}">学び方へ ↓</button>' : '')
+    + (S.refs && ((S.refs.books || []).length || (S.refs.videos || []).length) ? '<button class="sm-jump" onclick="var e=document.getElementById(\'rf\');if(e){document.getElementById(\'sm\').classList.remove(\'shut\');e.scrollIntoView({behavior:\'smooth\'})}">本・動画へ ↓</button>' : '')
     + '<button class="sm-fold" id="smfold">' + (SM_SHUT ? 'まとめを開く ▾' : 'まとめを畳む ▴') + '</button></div>'
     + '<div class="sm-body">' + h + '<p class="sm-foot">6社の解説から自動でまとめ直したもの。下に従来の比較・各社の本文が続きます。</p></div></section>';
 }
@@ -2128,6 +2146,31 @@ function smPoint(S, RB){
       + (it.use ? '<p class="pt-r"><span class="pt-tg u">こう使う</span>' + em(it.use) + '</p>' : '')
       + '</div>').join('') + '</div>';
   if (S.recite) h += '<div class="pt-rc"><span class="pt-tg c">30秒で言う</span>' + em(S.recite) + '</div>';
+  return h + '</div>';
+}
+/* もっと深く（bookref.py が作る {Q}.refs.json）：手持ちの本の該当ページ＋YouTubeの解説回 */
+function smRefs(R){
+  if (!R || !((R.books || []).length || (R.videos || []).length)) return '';
+  const mm = s => s >= 3600 ? Math.floor(s / 3600) + '時間' + Math.round(s % 3600 / 60) + '分' : Math.round(s / 60) + '分';
+  let h = '<div class="rf" id="rf"><h4>🔎 もっと深く <span class="sm-note">（あなたの本の該当ページ・解説動画）</span></h4>';
+  if ((R.books || []).length) {
+    h += '<div class="st-h">あなたの本</div><div class="rf-bk">' + R.books.map(b => {
+      const pg = b.kind === 'docx' ? '講座ノート' : 'p.' + b.page + (b.total ? ' / ' + b.total : '');
+      const href = b.drive ? 'https://drive.google.com/file/d/' + b.drive + '/view' : '';
+      return '<div class="rf-b"><div class="rf-t"><b>' + esc(b.title) + '</b><span class="rf-pg">' + esc(pg) + '</span>'
+        + (href ? '<a href="' + href + '" target="_blank" rel="noopener">ドライブで開く</a>' : '') + '</div>'
+        + '<p class="rf-sn">' + esc(b.snip || '') + '</p>'
+        + ((b.hit || []).length ? '<div class="fx-by">' + b.hit.slice(0, 4).map(w => '<i>' + esc(w) + '</i>').join('') + '</div>' : '')
+        + '</div>';
+    }).join('') + '</div>';
+    if (R.nbooks) h += '<p class="sm-note" style="margin:4px 0 0">文字を読み取り済みの本 ' + R.nbooks + '冊から探しています（スキャン本は夜のあいだに順次読み取り）。ページ番号はPDFの通し番号です。</p>';
+  }
+  if ((R.videos || []).length)
+    h += '<div class="st-h">YouTube</div><div class="rf-vd">' + R.videos.map(v =>
+      '<a class="rf-v" href="https://www.youtube.com/watch?v=' + encodeURIComponent(v.id) + '" target="_blank" rel="noopener">'
+      + '<img src="https://i.ytimg.com/vi/' + encodeURIComponent(v.id) + '/mqdefault.jpg" alt="" loading="lazy">'
+      + '<span><b>' + esc(v.title) + '</b><small>' + esc(v.channel) + (v.dur ? '・' + mm(v.dur) : '') + '</small>'
+      + (v.why ? '<small class="rf-why">' + esc(v.why) + '</small>' : '') + '</span></a>').join('') + '</div>';
   return h + '</div>';
 }
 /* あなたの改善項目：各社の解説の後半（答案との照合・総合評価・チェックリスト・優先順位）にある指摘を束ねたもの */
